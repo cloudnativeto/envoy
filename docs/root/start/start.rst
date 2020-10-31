@@ -1,9 +1,9 @@
 .. _start:
 
-Getting Started
+开始
 ===============
 
-This section gets you started with a very simple configuration and provides some example configurations.
+这一部分会以一个非常简单的配置样例开始并提供一些其他的配置样例。
 
 The fastest way to get started using Envoy is :ref:`installing pre-built binaries <install_binaries>`.
 You can also :ref:`build it <building>` from source.
@@ -12,7 +12,7 @@ These examples use the :ref:`v3 Envoy API <envoy_api_reference>`, but use only t
 feature of the API, which is most useful for simple requirements. For more complex requirements
 :ref:`Dynamic Configuration <arch_overview_dynamic_config>` is supported.
 
-Quick Start to Run Simple Example
+快速开始运行简单例子
 ---------------------------------
 
 These instructions run from files in the Envoy repo. The sections below give a
