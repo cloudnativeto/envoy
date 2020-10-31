@@ -1,9 +1,9 @@
 .. _start:
 
-Getting Started
+开始使用
 ===============
 
-This section gets you started with a very simple configuration and provides some example configurations.
+这部分会以一个非常简单的配置样例开始并且提供一些其他的配置样例。
 
 The fastest way to get started using Envoy is :ref:`installing pre-built binaries <install_binaries>`.
 You can also :ref:`build it <building>` from source.
