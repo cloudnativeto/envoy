@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [ zh ]
+  pull_request:
+    branches: [ zh ]
+
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Check out code into the envoy module directory
+      uses: actions/checkout@v2
+
+    - name: Build docs
+      run: bash ./ci/run_envoy_docker.sh 'docs/build.sh'
+
+    - name: Deploy docs with github pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY}}
+        publish_dir: ./generated/docs
