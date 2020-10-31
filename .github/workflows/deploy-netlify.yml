@@ -1,3 +1,5 @@
+name: Build docs and deploy with netlify and github pages
+
 on:
   push:
     branches: [ zh ]
