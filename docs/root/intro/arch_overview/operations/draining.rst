@@ -14,7 +14,7 @@
 
 默认情况下，Envoy 服务器将在服务器关闭时立即关闭监听器。监听器将被直接停止，而没有任何优雅的排空行为，并立即停止接受新的连接。若要在服务器关闭之前的一段时间内排空监听器，可以在服务器关闭之前使用 :ref:`drain_listeners <operations_admin_interface_drain>` 。
 
-若要在关闭监听器之前添加一个适度的排空周期，请使用查询参数 :ref:`drain_listeners?graceful <operations_admin_interface_drain>` 。默认情况下，Envoy 会在一段时间（由 :option:`--drain-time-s` 确定）内阻止请求。请求阻止的行为由排空管理器确定。
+若要在关闭监听器之前添加一个优雅的排空周期，请使用查询参数 :ref:`drain_listeners?graceful <operations_admin_interface_drain>` 。默认情况下，Envoy 会在一段时间（由 :option:`--drain-time-s` 确定）内阻止请求。请求阻止的行为由排空管理器确定。
 
 请注意，尽管排空是每个监听器的概念，但前提必须是在网络过滤器级别上支持它。目前，支持优雅排空的过滤器只有 :ref:`Redis <config_network_filters_redis_proxy>` 、:ref:`Mongo <config_network_filters_mongo_proxy>` 和 :ref:`HTTP 连接管理器 <config_http_conn_man>` 。
 
