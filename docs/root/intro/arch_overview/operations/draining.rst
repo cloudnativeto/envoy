@@ -3,7 +3,7 @@
 排空
 ========
 
-排空（Draining）是 Envoy 相应各种事件要求试图优雅地关闭连接的过程。例如，在服务器关闭期间，可以阻止现有请求，并将监听器设置为停止接受，以减少服务器关闭时打开的连接数。除个别监听器配置外，服务器选项还定义了排空行为。
+排空（Draining）是 Envoy 相应各种事件试图优雅地关闭连接的过程。例如，在服务器关闭期间，可以阻止现有请求，并将监听器设置为停止接受，以减少服务器关闭时打开的连接数。除个别监听器配置外，服务器选项还定义了排空行为。
 
 排空发生在以下时机：
 
@@ -16,7 +16,7 @@
 
 若要在关闭监听器之前添加一个优雅的排空周期，请使用查询参数 :ref:`drain_listeners?graceful <operations_admin_interface_drain>` 。默认情况下，Envoy 会在一段时间（由 :option:`--drain-time-s` 确定）内阻止请求。请求阻止的行为由排空管理器确定。
 
-请注意，尽管排空是每个监听器的概念，但前提必须是在网络过滤器级别上支持它。目前，支持优雅排空的过滤器只有 :ref:`Redis <config_network_filters_redis_proxy>` 、:ref:`Mongo <config_network_filters_mongo_proxy>` 和 :ref:`HTTP 连接管理器 <config_http_conn_man>` 。
+请注意，尽管排空是监听器级别的概念，但前提是必须要在网络过滤器层面支持它。目前，支持优雅排空的过滤器只有 :ref:`Redis <config_network_filters_redis_proxy>` 、:ref:`Mongo <config_network_filters_mongo_proxy>` 和 :ref:`HTTP 连接管理器 <config_http_conn_man>` 。
 
 默认情况下，:ref:`HTTP 连接管理器 <config_http_conn_man>` 过滤器会向 HTTP1 请求添加 "Connection: close" ，发送 HTTP2 GOAWAY，并在请求完成时（在延迟的关闭时间之后）终止连接。
 
