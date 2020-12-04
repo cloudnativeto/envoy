@@ -50,7 +50,7 @@ Envoy 包含了一个 :ref:`健康检查 <arch_overview_health_checking>`，可�
 然后，Envoy 联合使用服务发现和健康检查信息来确定健康的负载均衡目标。
 Envoy 还通过 :ref:`异常检查 <arch_overview_outlier_detection>` 子系统支持被动健康检查。
 
-**高级负载均衡：**`负载均衡 <arch_overview_load_balancing>`是分布式系统中不同组件之间的一个复杂问题。
+**高级负载均衡：** `负载均衡 <arch_overview_load_balancing>` 是分布式系统中不同组件之间的一个复杂问题。
 由于 Envoy 是一个独立代理而不是软件库，因此可以独立实现高级负载均衡以供任何应用程序访问。
 目前，Envoy 支持 :ref:`自动重试 <arch_overview_http_routing_retry>`、:ref:`熔断 <arch_overview_circuit_break>`、
 通过外部速率限制服务的 :ref:`全局限速 <arch_overview_global_rate_limit>`、:ref:`请求映射 <envoy_v3_api_msg_config.route.v3.RouteAction.RequestMirrorPolicy>`
