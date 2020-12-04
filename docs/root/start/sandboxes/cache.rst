@@ -1,16 +1,23 @@
 .. _install_sandboxes_cache_filter:
+安装沙箱环境的缓存过滤器
 
 Cache Filter
+缓存过滤器
 ============
 .. TODO(yosrym93): When a documentation is written for a production-ready Cache Filter, link to it through this doc.
 
 In this example, we demonstrate how HTTP caching can be utilized in Envoy by using the Cache Filter.
+这里我们将示范如何使用 Envoy 的缓存过滤器处理 HTTP 缓存。
 The setup of this sandbox is based on the setup of the :ref:`Front Proxy sandbox <install_sandboxes_front_proxy>`.
+本示例采用前端代理的沙箱模式配置，第一步安装沙箱环境 :ref:`Front Proxy sandbox <install_sandboxes_front_proxy>`。
 
 All incoming requests are routed via the front Envoy, which acts as a reverse proxy sitting on
 the edge of the ``envoymesh`` network. Ports ``8000`` and ``8001`` are exposed by docker
 compose (see :repo:`/examples/cache/docker-compose.yaml`) to handle ``HTTP`` calls
 to the services, and requests to ``/admin`` respectively. Two backend services are deployed behind the front Envoy, each with a sidecar Envoy.
+所有传入的请求都通过前端 Envoy 进行路由，该 Envoy 充当位于 envoymesh 网络边缘的反向代理。
+第二步，在 docker compose 暴露两个端口 8000 和 8001 ，分别处理 HTTP 的服务调用和发送至 /admin 路径下的请求。（请参阅 /examples/cache/docker-compose.yaml）。
+
 
 The front Envoy is configured to run the Cache Filter, which stores cacheable responses in an in-memory cache,
 and serves it to subsequent requests. In this demo, the responses that are served by the deployed services are stored in :repo:`/examples/cache/responses.yaml`.
@@ -24,11 +31,13 @@ Responses served from the backend service have no ``age`` header, and their ``da
 
 Running the Sandbox
 ~~~~~~~~~~~~~~~~~~~
+运行沙箱环境
 
 .. include:: _include/docker-env-setup.rst
 
 Step 3: Start all of our containers
 ***********************************
+第三步，启动所有的容器
 
 .. code-block:: console
 
@@ -46,6 +55,7 @@ Step 3: Start all of our containers
 
 Step 4: Test Envoy's HTTP caching capabilities
 **********************************************
+
 
 You can now send a request to both services via the ``front-envoy``. Note that since the two services have different routes,
 identical requests to different services have different cache entries (i.e. a request sent to service 2 will not be served by a cached
