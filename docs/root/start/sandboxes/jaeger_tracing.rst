@@ -18,7 +18,7 @@ Jaeger 跟踪沙盒(Sandbox) 使用 `Jaeger <https://jaegertracing.io/>`_ 作为
 .. include:: _include/docker-env-setup.rst
 
 步骤 3: 构建沙盒
-*************************
+*****************
 
 要构建这个沙盒示例，并启动示例应用程序，请运行以下命令:
 
@@ -38,9 +38,9 @@ Jaeger 跟踪沙盒(Sandbox) 使用 `Jaeger <https://jaegertracing.io/>`_ 作为
     jaeger-tracing_service2_1      /bin/sh -c /usr/local/bin/ ... Up      10000/tcp, 8000/tcp
 
 步骤 4: 生成一些负载
-**************************
+**********************
 
-您现在可以通过 front-envoy 向 service1 发送以下请求:
+你现在可以通过 front-envoy 向 service1 发送以下请求:
 
 .. code-block:: console
 
@@ -62,7 +62,7 @@ Jaeger 跟踪沙盒(Sandbox) 使用 `Jaeger <https://jaegertracing.io/>`_ 作为
     Hello from behind Envoy (service 1)! hostname: f26027f1ce28 resolvedhostname: 172.19.0.6
     * Connection #0 to host 192.168.99.100 left intact
 
-步骤 5: 在Jaeger UI中查看跟踪
-************************************
+步骤 5: 在 Jaeger UI 中查看跟踪
+*********************************
 
-用浏览器打开 http://localhost:16686。您应该可以看到在 Jaeger 的仪表盘。将服务设置为 “front-proxy” 并点击 “Find Traces”。您应该看到来自于 front-proxy 的跟踪。单击跟踪，以探索从 front-proxy 到 service1 到 service2 的请求所采取的路径，以及每次跳转时引起的延迟。
+用浏览器打开 http://localhost:16686。你应该可以看到在 Jaeger 的仪表盘。将服务设置为 “front-proxy” 并点击 “Find Traces”。你应该看到来自于 front-proxy 的跟踪。单击跟踪，以探索从 front-proxy 到 service1 到 service2 的请求所采取的路径，以及每次跳转时引起的延迟。
