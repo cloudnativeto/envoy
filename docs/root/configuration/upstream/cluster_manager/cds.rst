@@ -14,4 +14,4 @@
 统计
 ----------
 
-CDS 有一个:ref:`统计 <subscription_statistics>`树位于 *cluster_manager.cds.*
+CDS 有一个:ref:`统计 <subscription_statistics>` 树位于 *cluster_manager.cds.*
