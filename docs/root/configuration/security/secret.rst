@@ -1,7 +1,7 @@
 .. _config_secret_discovery_service:
 
 Secret 发现服务（SDS）
-=====================
+======================
 
 TLS 证书，secrets，可以在 the bootstrap.static_resource :ref:`secrets <envoy_v3_api_field_config.bootstrap.v3.Bootstrap.StaticResources.secrets>` 中指定。但是也可以通过 secret 发现服务（SDS）来远程获取。
 
@@ -24,7 +24,7 @@ SDS 服务器
 SDS 服务器需要实现 gRPC 服务 :repo:`SecretDiscoveryService <api/envoy/service/secret/v3/sds.proto>` 。它和其他 :ref:`xDS <xds_protocol>` 遵循相同的协议。
 
 SDS 配置
---------
+---------
 
 :ref:`SdsSecretConfig <envoy_v3_api_msg_extensions.transport_sockets.tls.v3.SdsSecretConfig>` 用来指定 secret。它的 *name* 字段是一个必填字段。如果 *sds_config* 字段为空，*name* 字段指定了 bootstrap static_resource :ref:`secrets <envoy_v3_api_field_config.bootstrap.v3.Bootstrap.StaticResources.secrets>` 中的 secret。否则，将指定 SDS 服务器为 :ref:`ConfigSource <envoy_v3_api_msg_config.core.v3.ConfigSource>` 。如果 SDS 服务只支持 gRPC，则 *api_config_source* 字段必须指定为 **grpc_service** 。
 
@@ -174,6 +174,7 @@ SDS 配置
 
 
 为了说明，上述示例使用三种方法来访问 SDS 服务器。一个 gRPC SDS 服务器可以通过 mTLS 来使用 Unix 域套接字路径 **/tmp/uds_path** 和 **127.0.0.1:8234** 进行访问。它提供了三个 secret：**client_cert** 、**server_cert** 和 **validation_context**。在配置中，集群 **example_cluster** 证书 **client_cert** 使用带有 UDS 的 Google gRPC 来和 SDS 服务器通话。监听器需要从 SDS 服务器获取 **server_cert** 和 **validation_context** 。**server_cert** 使用集群 **sds_server_mtls** 的 Envoy gRPC 来通过 mTLS 和 SDS 服务器通信，而此集群配置了客户端证书。 **validate_context** 使用集群 **sds_server_uds** 的 Envoy gRPC 来和 SDS 服务器通信，而此集群配置了 UDS 路径。
+
 .. _xds_certificate_rotation:
 
 示例三：xDS gRPC 连接的证书轮换
@@ -235,7 +236,7 @@ Envoy 和 xDS 服务器之间 xDS gRPC 连接的证书管理道出了一个自�
 
 
 统计：
------
+------
 SSL 套接字工厂输出遵循 SDS 相关统计。它们都是计数器类型。 
 
 对于下游监听器，统计都在 *listener.<LISTENER_IP>.server_ssl_socket_factory.* 命名空间中。
