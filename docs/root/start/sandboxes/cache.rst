@@ -19,7 +19,6 @@ to the services, and requests to ``/admin`` respectively. Two backend services a
 第二步，在 docker compose 配置中暴露两个端口 8000 和 8001 ，分别处理对服务的 HTTP 调用和对 /admin 的请求。（请参阅 :repo:`/examples/cache/docker-compose.yaml`）。
 前端 Envoy 的后面部署了两个后端服务，每个后端服务都有一个 sidecar Envoy （边车代理）。
 
-
 The front Envoy is configured to run the Cache Filter, which stores cacheable responses in an in-memory cache,
 and serves it to subsequent requests. In this demo, the responses that are served by the deployed services are stored in :repo:`/examples/cache/responses.yaml`.
 This file is mounted to both services' containers, so any changes made to the stored responses while the services are running should be instantly effective (no need to rebuild or rerun).
@@ -27,16 +26,14 @@ This file is mounted to both services' containers, so any changes made to the st
 示例中，由部署的服务提供的响应信息已配置在 :repo:`/examples/cache/responses.yaml` 文件中。
 该文件已安装到两个服务所在的容器中，因此在服务运行时对存储的响应信息所做的任何更改都将立即生效（无需重新构建项目或重启）。
 
-
 For the purposes of the demo, a response's date of creation is appended to its body before being served.
 An Etag is computed for every response for validation purposes, which only depends on the response body in the yaml file (i.e. the appended date is not taken into account).
 Cached responses can be identified by having an ``age`` header. Validated responses can be identified by having a generation date older than the ``date`` header;
 as when a response is validated the ``date`` header is updated, while the body stays the same. Validated responses do not have an ``age`` header.
 Responses served from the backend service have no ``age`` header, and their ``date`` header is the same as their generation date.
 为了演示的目的，响应的创建时间已经提前配置在它的响应体中。为了验证的目的，将为每个响应计算一个 Etag ，该 Etag 仅取决于 yaml 文件中的响应体（即，不考虑附加时间）。
-通过带有 age 的头信息来识别缓存的响应。比较生成时间是否早于响应头中包含的 date ，可验证响应信息的有效性；一个有效的响应信息，它头信息中的 date 会更新，而响应体不会改变。
-经过验证的响应头信息中不包含 age 信息。来自后端服务的响应头中不包含 age 信息，其头信息中的 date 信息与响应生成的时间一致。
-
+通过带有 age 的头信息来识别缓存的响应。比较生成时间是否早于响应头中包含的 date ，可验证响应信息的有效性；一个通过验证的响应信息，它头信息中的 date 会更新，而响应体不会改变。
+通过验证的响应头信息中不包含 age 信息。来自后端服务的响应头中不包含 age 信息，其头信息中的 date 信息与响应生成的时间一致。
 
 Running the Sandbox
 ~~~~~~~~~~~~~~~~~~~
@@ -57,6 +54,7 @@ Step 3: Start all of our containers
     $ docker-compose ps
 
            Name                      Command            State                             Ports
+           名称                        命令               状态                               端口
     ------------------------------------------------------------------------------------------------------------------------
     cache_front-envoy_1   /docker-entrypoint.sh /bin ... Up      10000/tcp, 0.0.0.0:8000->8000/tcp, 0.0.0.0:8001->8001/tcp
     cache_service1_1      /bin/sh -c /usr/local/bin/ ... Up      10000/tcp, 8000/tcp
@@ -64,8 +62,7 @@ Step 3: Start all of our containers
 
 Step 4: Test Envoy's HTTP caching capabilities
 **********************************************
-第四步，测试 Envoy HTTP 缓存的性能
-
+第四步，测试 Envoy 的 HTTP 缓存的性能
 
 You can now send a request to both services via the ``front-envoy``. Note that since the two services have different routes,
 identical requests to different services have different cache entries (i.e. a request sent to service 2 will not be served by a cached
@@ -84,25 +81,26 @@ To send a request:
 响应信息：请求后的响应。 响应信息可在 :repo:`/examples/cache/responses.yaml` 文件中查看。
 
 The provided example responses are:
-示例所提供的响应信息如下：
+提供的示例响应信息如下：
 
 - ``valid-for-minute``
 一分钟有效
     This response remains fresh in the cache for a minute. After which, the response gets validated by the backend service before being served from the cache.
     If found to be updated, the new response is served (and cached). Otherwise, the cached response is served and refreshed.
-   响应缓存仅保持一分钟。之后，响应将由后端服务验证后再从缓存中提供。如果缓存被更新，则返回新的响应（及缓存）。 否则，将缓存并响应缓存的响应。
-
+    响应缓存仅保持一分钟。之后，响应将由后端服务验证后再从缓存中提供。如果缓存被更新，则返回新的响应（及缓存）。 否则，将缓存并响应缓存的响应。
 
 - ``private``
 私有
     This response is private; it cannot be stored by shared caches (such as proxies). It will always be served from the backend service.
+    这种响应模式为私有的；响应不能被存储在共享缓存中（例如：代理中）。响应永远都需要由后端服务返回。
 
 - ``no-cache``
 无缓存
     This response has to be validated every time before being served.
+    这种模式的响应每次在返回前都需要被验证。
 
 You can change the responses' headers and bodies (or add new ones) while the sandbox is running to experiment.
-在运行沙箱测试的过程中，你可以改变响应头信息及消息体 ( 或者 新增一个响应 )。
+在运行沙箱测试的过程中，你可以改变响应头信息及消息体 ( 或者新增一个响应 )。
 
 Example responses
 -----------------
@@ -111,7 +109,7 @@ Example responses
 
 1. valid-for-minute
 ^^^^^^^^^^^^^^^^^^^
-1. 有效一分钟
+1. 一分钟有效
 
 .. code-block:: console
 
@@ -128,10 +126,16 @@ Example responses
 
     This response will stay fresh for one minute
     Response body generated at: Fri, 11 Sep 2020 03:20:40 GMT
+    该响应将在缓存中保持一分钟
+    响应体生成时间为：Fri, 11 Sep 2020 03:20:40 GMT
 
 Naturally, response ``date`` header is the same time as the generated time.
 Sending the same request after 30 seconds gives the same exact response with the same generation date,
 but with an ``age`` header as it was served from cache:
+# TODO waiting for modified
+自然地，响应“ date”标头与生成的时间相同。
+30秒后发送相同的请求会在相同的生成日期给出相同的确切响应，
+但是带有从缓存提供的age头：
 
 .. code-block:: console
 
@@ -149,6 +153,8 @@ but with an ``age`` header as it was served from cache:
 
     This response will stay fresh for one minute
     Response body generated at: Fri, 11 Sep 2020 03:20:40 GMT
+    该响应将在缓存中保持一分钟
+    响应体生成时间为：Fri, 11 Sep 2020 03:20:40 GMT
 
 After 1 minute and 1 second:
 一分零一秒过后：
@@ -168,6 +174,8 @@ After 1 minute and 1 second:
 
     This response will stay fresh for one minute
     Response body generated at: Fri, 11 Sep 2020 03:20:40 GMT
+    该响应将在缓存中保持一分钟
+    响应体生成时间为：Fri, 11 Sep 2020 03:20:40 GMT
 
 The same response was served after being validated with the backend service.
 You can verify this as the response generation time is the same,
