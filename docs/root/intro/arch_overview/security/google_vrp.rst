@@ -18,7 +18,7 @@ VRP 的目标是提供一个正式流程来表彰那些对 Envoy 安全有贡献
    :ref:`执行环境 <arch_overview_google_vrp_ee>` 进行演示，并且与项目中的
    :ref:`威胁模型 <arch_overview_google_vrp_threat_model>` 保持一致。
 
-2. 漏洞必须报告给 security@googlegroups.com，并保证具有潜在的安全问题的版本不被泄漏。提交报告时请遵循
+2. 漏洞必须报告给 envoy-security@googlegroups.com，并保证具有潜在的安全问题的版本不被泄漏。提交报告时请遵循
    :repo:`披露指南 <SECURITY.md#disclosures>` 。披露 SLOs 被记录在 :repo:`这里 <SECURITY.md#fix-and-disclosure-slos>`。
    一般而言，安全信息的披漏要遵守 `Linux 基金会的隐私政策 <https://www.linuxfoundation.org/privacy/>`_ ，
    并附加了一个附加条件，即 VRP 报告（包括报告的电子邮件地址和姓名）可以基于 VRP 的目的与谷歌共享。
