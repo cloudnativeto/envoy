@@ -215,4 +215,4 @@
 新的响应会被缓存，并用于接下来的请求。
 
 当然，你也可以在 yaml 文件中加一个 cache-control 信息不同的响应信息去测试！
-欲了解更多缓存和 cache-control 相关的信息，请查阅 MDN 网站的在线文档 <https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching>`_.
+欲了解更多缓存和 cache-control 相关的信息，请查阅 MDN 网站的在线文档 `<https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching>`_.
