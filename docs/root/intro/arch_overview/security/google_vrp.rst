@@ -136,7 +136,7 @@ Docker 镜像包括 `gdb`, `strace`, `tshark` (欢迎通过 PRs 更新
 重建 Docker 镜像
 -----------------
 
-这有助于重新生成您自己的 Docker 基础镜像，来用于研究的目的。要在不依赖 CI 的情况下执行此操作，
+这有助于重新生成你自己的 Docker 基础镜像，来用于研究的目的。要在不依赖 CI 的情况下执行此操作，
 请按照 :repo:`ci/docker_rebuild_google-vrp.sh` 顶部的说明进行操作。示例如下：
 
 .. code-block:: bash
