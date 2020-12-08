@@ -5,14 +5,14 @@
 .. TODO(yosrym93): When a documentation is written for a production-ready Cache Filter, link to it through this doc.
 
 本示范将展示如何使用 Envoy 的缓存过滤器处理 HTTP 缓存。
-第一步，安装沙箱环境 :ref:`Front Proxy sandbox <install_sandboxes_front_proxy>`。本示例采用的沙箱模式为前端代理模式。
+第一步，安装沙箱环境 :ref: `Front Proxy sandbox <install_sandboxes_front_proxy>`。本示例采用的沙箱模式为前端代理模式。
 
 所有传入请求都通过前端 Envoy 进行路由，该前端 Envoy 充当位于 envoymesh 网络边缘的反向代理。
-第二步，在 docker compose 配置中暴露两个端口 8000 和 8001 ，分别处理对服务的 HTTP 调用和对 /admin 的请求。（请参阅 :repo:`/examples/cache/docker-compose.yaml`）。
+第二步，在 docker compose 配置中暴露两个端口 8000 和 8001 ，分别处理对服务的 HTTP 调用和对 /admin 的请求。（请参阅 :repo: `/examples/cache/docker-compose.yaml`）。
 前端 Envoy 的后面部署了两个后端服务，每个后端服务都有一个 sidecar Envoy （边车代理）。
 
 前端 Envoy 配置为运行缓存过滤器，该过滤器将可缓存的响应存储在内存缓存中，并将其提供给后续请求。
-示例中，由部署的服务提供的响应信息已配置在 :repo:`/examples/cache/responses.yaml` 文件中。
+示例中，由部署的服务提供的响应信息已配置在 :repo: `/examples/cache/responses.yaml` 文件中。
 该文件已安装到两个服务所在的容器中，因此在服务运行时对存储的响应信息所做的任何更改都将立即生效（无需重新构建项目或重启）。
 
 为了演示的目的，响应的创建时间已经提前配置在它的响应体中。为了验证的目的，将为每个响应计算一个 Etag ，该 Etag 仅取决于 yaml 文件中的响应体（即，不考虑附加时间）。
@@ -215,4 +215,4 @@
 新的响应会被缓存，并用于接下来的请求。
 
 当然，你也可以在 yaml 文件中加一个 cache-control 信息不同的响应信息去测试！
-欲了解更多缓存和 cache-control 相关的信息，请查阅 MDN 网站的在线文档 `<https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching>`_.
+欲了解更多缓存和 cache-control 相关的信息，请查阅` MDN 网站的在线文档 <https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching>`_.
