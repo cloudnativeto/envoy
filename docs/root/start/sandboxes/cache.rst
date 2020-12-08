@@ -24,7 +24,7 @@
 
 .. include:: _include/docker-env-setup.rst
 
-第三步，启动所有的容器
+第三步，启动所有容器
 ***********************************
 
 .. code-block:: console
@@ -110,7 +110,7 @@
     该响应将在缓存中保持一分钟
     响应体生成时间为：Fri, 11 Sep 2020 03:20:40 GMT
 
-一分零一秒过后：
+一分零一秒后：
 
 .. code-block:: console
 
