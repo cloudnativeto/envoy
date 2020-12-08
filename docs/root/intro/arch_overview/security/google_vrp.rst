@@ -13,12 +13,12 @@ Envoy 是谷歌漏洞奖励计划的参与项目 `Google 漏洞奖励计划（VR
 
 VRP 的目标是提供一个正式流程来表彰那些对 Envoy 安全有贡献的外部安全人员。符合该奖励计划的漏洞应该满足以下条件：
 
-1. 漏洞必须满足以下 :ref:`目标 <arch_overview_google_vrp_objectives>`之一，使用提供的基于 Docker 的
-   :ref:`执行环境 <arch_overview_google_vrp_ee>`进行演示，并且与项目中的
-   :ref:`威胁模型 <arch_overview_google_vrp_threat_model>`保持一致。
+1. 漏洞必须满足以下 :ref:`目标 <arch_overview_google_vrp_objectives>` 之一，使用提供的基于 Docker 的
+    :ref:`执行环境 <arch_overview_google_vrp_ee>` 进行演示，并且与项目中的
+    :ref:`威胁模型 <arch_overview_google_vrp_threat_model> `保持一致。
 
 2. 漏洞必须报告给 security@googlegroups.com，在潜在的安全释放发生时被封锁。提交报告时请遵循
-   :repo:`披露指南 <SECURITY.md#disclosures>`。披露 SLOs 被记录在 :repo:`这里 <SECURITY.md#fix-and-disclosure-slos>`。一般而言，
+    :repo:`披露指南 <SECURITY.md#disclosures>` 。披露 SLOs 被记录在 :repo:`这里 <SECURITY.md#fix-and-disclosure-slos>`。一般而言，
    安全信息的披漏要遵守 `Linux 基金会的隐私政策 <https://www.linuxfoundation.org/privacy/>`_ ，附加条件是，基于 VRP 的目的，VRP 报告（包括
    报告的电子邮件地址和姓名）可以与谷歌共享。
 
@@ -33,7 +33,7 @@ VRP 的目标是提供一个正式流程来表彰那些对 Envoy 安全有贡献
 .. _arch_overview_google_vrp_threat_model:
 
 威胁模型
-------------
+---------
 
 最基本的匹配 Envoy 的安全模型是 :ref:`OSS 安全态势 <arch_overview_threat_model>`。我们添加了一些临时的限制来约束
 程序初始化阶段的攻击。我们排除了来自以下的威胁：
@@ -58,7 +58,7 @@ VRP 的目标是提供一个正式流程来表彰那些对 Envoy 安全有贡献
 我们提供 Docker 镜像作为该程序运行的参考环境：
 
 * `envoyproxy/envoy-google-vrp <https://hub.docker.com/r/envoyproxy/envoy-google-vrp/tags/>`_ 镜像是基于 Envoy 进行发布的
-  只有在漏洞提交时的最新版本财富和程序的要求。第一个可用于 VRP 的版本是 1.15.0 Envoy 版本。
+  只有在漏洞提交时的最新版本才符合程序的要求。第一个可用于 VRP 的版本是 1.15.0 Envoy 版本。
 
 * `envoyproxy/envoy-google-vrp-dev <https://hub.docker.com/r/envoyproxy/envoy-google-vrp-dev/tags/>`_
   镜像是基于 Envoy 主分支构建的，只有构建在最后5天内的漏洞提交的时间是合格的程序。在那个时候，它们必须不受任何公开披露的弱点的影响。
@@ -89,9 +89,9 @@ VRP 的目标是提供一个正式流程来表彰那些对 Envoy 安全有贡献
 .. _arch_overview_google_vrp_objectives:
 
 目标
-----------
+-----
 
-漏洞将在10000次的请求中被证明，这些请求出发了属于以下类别之一的失败模式：
+漏洞将在10000次的请求中被证明，这些请求触发了属于以下类别之一的失败模式：
 
 * 死亡查询： 导致 Envoy 进程立即出错或者终止请求
 * OOM：请求导致边缘 Envoy 进程内存溢出，总共不应该有超过100个连接或流，否则会导致这种情况的发生（即 暴力破解，不包括连接/流 DoS）。
@@ -101,7 +101,7 @@ VRP 的目标是提供一个正式流程来表彰那些对 Envoy 安全有贡献
 * 在 OSS Envoy 安全团队的评判后，如果足够有趣的漏洞不属于上述类别，很可能属于高级别或关键级别的漏洞。
 
 在 Docker 镜像下运行
-------------------
+---------------------
 
 执行环境的一个基本调用将在本地端口10000上调出 edge Envoy ，如下所示:
 
@@ -128,14 +128,13 @@ VRP 的目标是提供一个正式流程来表彰那些对 Envoy 安全有贡献
 
   docker exec -it envoy-google-vrp /bin/bash
 
-
 Docker 镜像包括： `gdb`, `strace`, `tshark` (请随意贡献其他内容，建议通过 PRs 更新
 :repo:`Docker 构建文件 </ci/Dockerfile-envoy-google-vrp>`)。
 
 重建 Docker 镜像
----------------------------
+-----------------
 
-这有助于重新生成您自己的 Docker 基础镜像，以供研究之用。要做到这一点而不依赖 CI，请遵守顶部的说明：
+这有助于重新生成你自己的 Docker 基础镜像，以供研究之用。要做到这一点而不依赖 CI，请遵守上面的说明：
 :repo:`ci/docker_rebuild_google-vrp.sh`，比如：
 
 .. code-block:: bash
