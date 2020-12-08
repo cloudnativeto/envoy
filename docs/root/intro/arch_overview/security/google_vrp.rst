@@ -3,8 +3,7 @@
 Google 漏洞奖励计划（VRP）
 =========================================
 
-Envoy 是 `谷歌的漏洞奖励计划（VRP）` 的参与者。
-<https://www.google.com/about/appsecurity/reward-program/>`_ 。
+Envoy 是 `谷歌的漏洞奖励计划（VRP）<https://www.google.com/about/appsecurity/reward-program/>`_ 的参与者。
 该奖励计划开放给所有的安全研究人员，并会根据下面的规则，为漏洞发现和报告提供奖励。
 
 .. _arch_overview_google_vrp_rules:
@@ -19,7 +18,7 @@ VRP 的目标是提供一个正式流程来表彰那些对 Envoy 安全有贡献
    :ref:`威胁模型 <arch_overview_google_vrp_threat_model>` 保持一致。
 
 2. 漏洞必须报告给 envoy-security@googlegroups.com，并保证具有潜在的安全问题的版本不被泄漏。提交报告时请遵循
-   :repo:`披露指南 <SECURITY.md#disclosures>` 。披露 SLOs 被记录在 :repo:`这里 <SECURITY.md#fix-and-disclosure-slos>`。
+   :repo:`披露指南 <SECURITY.md#disclosures>` 。披露 SLO 被记录在 :repo:`这里 <SECURITY.md#fix-and-disclosure-slos>`。
    一般而言，安全信息的披漏要遵守 `Linux 基金会的隐私政策 <https://www.linuxfoundation.org/privacy/>`_ ，
    并附加了一个附加条件，即 VRP 报告（包括报告的电子邮件地址和姓名）可以基于 VRP 的目的与谷歌共享。
 
@@ -129,14 +128,14 @@ VRP 的目标是提供一个正式流程来表彰那些对 Envoy 安全有贡献
   docker exec -it envoy-google-vrp /bin/bash
 
 
-Docker 镜像包括 `gdb`, `strace`, `tshark` (欢迎通过 PRs 更新
+Docker 镜像包括 gdb, strace, tshark (欢迎通过 PRs 更新
 :repo:`Docker 构建文件 </ci/Dockerfile-envoy-google-vrp>` 来提供其他建议
 )。
 
 重建 Docker 镜像
 -----------------
 
-这有助于重新生成您自己的 Docker 基础镜像，来用于研究的目的。要在不依赖 CI 的情况下执行此操作，
+这有助于重新生成你自己的 Docker 基础镜像，来用于研究的目的。要在不依赖 CI 的情况下执行此操作，
 请按照 :repo:`ci/docker_rebuild_google-vrp.sh` 顶部的说明进行操作。示例如下：
 
 .. code-block:: bash
