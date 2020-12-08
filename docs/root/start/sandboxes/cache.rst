@@ -100,7 +100,7 @@ The provided example responses are:
     这种模式的响应每次在返回前都需要被验证。
 
 You can change the responses' headers and bodies (or add new ones) while the sandbox is running to experiment.
-在运行沙箱测试的过程中，你可以改变响应头信息及消息体 ( 或者新增一个响应 )。
+在运行沙箱测试的过程中，你可以改变响应头信息及响应体（或者新增一个响应）。
 
 Example responses
 -----------------
@@ -132,10 +132,9 @@ Example responses
 Naturally, response ``date`` header is the same time as the generated time.
 Sending the same request after 30 seconds gives the same exact response with the same generation date,
 but with an ``age`` header as it was served from cache:
-# TODO waiting for modified
-自然地，响应“ date”标头与生成的时间相同。
-30秒后发送相同的请求会在相同的生成日期给出相同的确切响应，
-但是带有从缓存提供的age头：
+当然，该响应头信息中的 date 信息与生成时间是一致的。
+30秒后发送相同的请求会得到与之前相同的一个响应，且该响应的生成时间也是相同的。
+不同的是，这个来自缓存中的响应，它的响应头中会带一个 age 信息：
 
 .. code-block:: console
 
@@ -181,10 +180,15 @@ The same response was served after being validated with the backend service.
 You can verify this as the response generation time is the same,
 but the response ``date`` header was updated with the validation response date.
 Also, no ``age`` header.
+在后端服务验证过后会返回一个相同的响应。
+你可以发现这个返回的响应的生成时间与之前的是一样的，但是响应头中的 date 已被更新为验证响应的时间。
+同时，在响应头中不包含 age 信息。
 
 Every time the response is validated, it stays fresh for another minute.
 If the response body changes while the cached response is still fresh,
 the cached response will still be served. The cached response will only be updated when it is no longer fresh.
+这种模式的响应每次被验证后，响应信息都会在缓存中保持一分钟。
+如果缓存中的响应依然处于有效期，即使响应体发生了变化，Envoy 依然会返回缓存中的响应信息。缓存中的响应信息仅当缓存失效后才会被更新。
 
 2. private
 ^^^^^^^^^^
@@ -204,9 +208,12 @@ the cached response will still be served. The cached response will only be updat
 
     This is a private response, it will not be cached by Envoy
     Response body generated at: Fri, 11 Sep 2020 03:22:28 GMT
+    这是个私有的响应，它不会被缓存在 Envoy 中。
+    响应体生成时间为：Fri, 11 Sep 2020 03:22:28 GMT
 
 No matter how many times you make this request, you will always receive a new response;
 new date of generation, new ``date`` header, and no ``age`` header.
+无论你请求多少次，你每次都会得到一个新的响应信息；新的生成时间、新的 date 头信息，且响应头中不存在 age 信息。
 
 3. no-cache
 ^^^^^^^^^^^
@@ -226,6 +233,8 @@ new date of generation, new ``date`` header, and no ``age`` header.
 
     This response can be cached, but it has to be validated on each request
     Response body generated at: Fri, 11 Sep 2020 03:23:07 GMT
+    这个响应会被缓存，但是每次请求时都会被校验。
+    响应体生成时间为：Fri, 11 Sep 2020 03:23:07 GMT
 
 After a few seconds:
 几秒后:
@@ -244,13 +253,18 @@ After a few seconds:
 
     This response can be cached, but it has to be validated on each request
     Response body generated at: Fri, 11 Sep 2020 03:23:07 GMT
-
+    这个响应会被缓存，但是每次请求时都会被校验。
+    响应体生成时间为：Fri, 11 Sep 2020 03:23:07 GMT
 
 You will receive a cached response that has the same generation time.
 However, the ``date`` header will always be updated as this response will always be validated first.
 Also, no ``age`` header.
+你会收到一个生成时间相同的缓存响应。
+但是，响应头中的 date 信息永远是新的，因为这类响应在返回前始终会先被验证。
+另外，响应头中不存在 age 信息。
 
 If you change the response body in the yaml file:
+如果你修改了 yaml 文件中的响应信息：
 
 .. code-block:: console
 
@@ -266,10 +280,16 @@ If you change the response body in the yaml file:
 
     This response can be cached, but it has to be validated on each request!!!
     Response body generated at: Fri, 11 Sep 2020 03:24:10 GMT
+    这个响应会被缓存，但是每次请求时都会被校验！！！
+    响应体生成时间为：Fri, 11 Sep 2020 03:24:10 GMT
 
 You will receive a new response that's served from the backend service.
 The new response will be cached for subsequent requests.
+后端服务会返回一个新的响应。
+新的响应会被缓存，并用于接下来的请求。
 
 You can also add new responses to the yaml file with different ``cache-control`` headers and start experimenting!
 To learn more about caching and ``cache-control`` headers visit
 the `MDN Web Docs <https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching>`_.
+当然，你也可以在 yaml 文件中加一个 cache-control 信息不同的响应信息去测试！
+欲了解更多缓存和 cache-control 相关的信息，请查阅 MDN 网站的在线文档 <https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching>`_.
