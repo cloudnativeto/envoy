@@ -3,7 +3,7 @@
 Google 漏洞奖励计划（VRP）
 =========================================
 
-Envoy 是谷歌漏洞奖励计划的参与项目 `谷歌的漏洞奖励计划（VRP）
+Envoy 是 `谷歌的漏洞奖励计划（VRP）` 的参与者。
 <https://www.google.com/about/appsecurity/reward-program/>`_ 。
 该奖励计划开放给所有的安全研究人员，并会根据下面的规则，为漏洞发现和报告提供奖励。
 
