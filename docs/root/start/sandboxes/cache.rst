@@ -4,10 +4,10 @@
 ============
 .. TODO(yosrym93): When a documentation is written for a production-ready Cache Filter, link to it through this doc.
 
-本示范将展示如何使用 Envoy 的缓存过滤器处理 HTTP 缓存。
+本示例将展示如何使用 Envoy 的缓存过滤器处理 HTTP 缓存。
 第一步，安装沙箱环境 :ref: `Front Proxy sandbox <install_sandboxes_front_proxy>`。本示例采用的沙箱模式为前端代理模式。
 
-所有传入请求都通过前端 Envoy 进行路由，该前端 Envoy 充当位于 envoymesh 网络边缘的反向代理。
+所有传入请求都通过前端 Envoy 进行路由，该前端 Envoy 充当位于 ``envoymesh`` 网络边缘的反向代理。
 第二步，在 docker compose 配置中暴露两个端口 8000 和 8001 ，分别处理对服务的 HTTP 调用和对 /admin 的请求。（请参阅 :repo: `/examples/cache/docker-compose.yaml`）。
 前端 Envoy 的后面部署了两个后端服务，每个后端服务都有一个 sidecar Envoy （边车代理）。
 
