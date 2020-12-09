@@ -26,7 +26,7 @@ UDP 代理监听器过滤器允许 Envoy 作为 UDP 客户机和服务器之间�
 在对 UDP 数据报进行负载均衡时，Envoy 将为配置的上游集群充分利用配置的负载均衡器。创建新会话时，Envoy 将会与
 使用配置的负载均衡器选择的上游主机进行关联。属于该会话的所有未来的数据报都将路由到相同的上游主机。
 
-当上游的主机变得不正常时（由于 :ref:`主动健康检查 <arch_overview_health_checking>` ），
+当上游的主机变得不正常时（由于 :ref:`主动健康检查 <arch_overview_health_checking>`），
 Envoy 将尝试创建一个与健康主机的新会话。
 
 断路
@@ -48,8 +48,8 @@ Envoy 将尝试创建一个与健康主机的新会话。
 统计
 ----
 
-UDP 代理过滤器发出它自己的下游统计信息以及许多适用的 :ref:`集群上游统计信息
-<config_cluster_manager_cluster_stats>` 。下游的统计数据的根是 *udp.<stat_prefix>.*。统计信息如下：
+UDP 代理过滤器发出它自己的下游统计信息以及许多适用的 :ref:`集群上游统计信息 <config_cluster_manager_cluster_stats>`。
+下游的统计数据的根是 *udp.<stat_prefix>.*。统计信息如下：
 
 .. csv-table::
   :header: 名称, 类型, 描述
@@ -66,7 +66,7 @@ UDP 代理过滤器发出它自己的下游统计信息以及许多适用的 :re
   idle_timeout, Counter, 由于空闲超时而销毁的会话数
   downstream_sess_active, Gauge, 当前活动呃会话数
 
-UDP 代理使用以下标准 :ref:`上游集群统计信息 <config_cluster_manager_cluster_stats>` ：
+UDP 代理使用以下标准 :ref:`上游集群统计信息 <config_cluster_manager_cluster_stats>`：
 
 .. csv-table::
   :header: 名称, 类型, 描述
