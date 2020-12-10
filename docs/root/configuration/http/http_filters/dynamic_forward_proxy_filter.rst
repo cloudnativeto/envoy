@@ -3,7 +3,7 @@
 动态转发代理
 =====================
 
-* HTTP 动态转发代理 :ref:`architecture overview <arch_overview_http_dynamic_forward_proxy>`
+* HTTP 动态转发代理 :ref:`架构总览 <arch_overview_http_dynamic_forward_proxy>`
 * :ref:`v3 API 参考 <envoy_v3_api_msg_extensions.filters.http.dynamic_forward_proxy.v3.FilterConfig>`
 * 此过滤器应该被配置名称为 *envoy.filters.http.dynamic_forward_proxy*
 
@@ -28,8 +28,9 @@
   此外，Envoy 会自动地为已解析的主机名称进行 SAN 认证，并且通过 SNI 指定主机名称。
 
 .. _dns_cache_circuit_breakers:
+
   动态转发代理对 DNS 缓存使用内置的熔断器，
-  通过配置 :ref:`DNS 缓存熔断器 <envoy_v3_api_field_extensions.common.dynamic_forward_proxy.v3.DnsCacheConfig.dns_cache_circuit_breaker>`实现。
+  通过配置 :ref:`DNS 缓存熔断器 <envoy_v3_api_field_extensions.common.dynamic_forward_proxy.v3.DnsCacheConfig.dns_cache_circuit_breaker>` 实现。
   默认情况下，此行为被运行时特性 `envoy.reloadable_features.enable_dns_cache_circuit_breakers` 启用。
   如果这个运行时特性被禁用，集群熔断器会被使用，即使设置了 :ref:`DNS 缓存熔断器 <envoy_v3_api_field_extensions.common.dynamic_forward_proxy.v3.DnsCacheConfig.dns_cache_circuit_breaker>`。
 
