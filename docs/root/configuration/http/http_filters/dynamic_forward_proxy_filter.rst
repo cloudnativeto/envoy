@@ -1,37 +1,37 @@
 .. _config_http_filters_dynamic_forward_proxy:
 
-动态正向代理
+动态转发代理
 =====================
 
-* HTTP 动态正向代理 :ref:`architecture overview <arch_overview_http_dynamic_forward_proxy>`
-* :ref:`v3 API reference <envoy_v3_api_msg_extensions.filters.http.dynamic_forward_proxy.v3.FilterConfig>`
+* HTTP 动态转发代理 :ref:`architecture overview <arch_overview_http_dynamic_forward_proxy>`
+* :ref:`v3 API 参考 <envoy_v3_api_msg_extensions.filters.http.dynamic_forward_proxy.v3.FilterConfig>`
 * 此过滤器应该被配置名称为 *envoy.filters.http.dynamic_forward_proxy*
 
 下面是一份完整的配置，配置包含
-:ref:`dynamic forward proxy HTTP filter
+:ref:`动态转发代理 HTTP 过滤器
 <envoy_v3_api_msg_extensions.filters.http.dynamic_forward_proxy.v3.FilterConfig>`
-和 :ref:`dynamic forward proxy cluster
+和 :ref:`动态转发代理集群
 <envoy_v3_api_msg_extensions.clusters.dynamic_forward_proxy.v3.ClusterConfig>`。
-过滤器和集群二者必须一起配置，并且指向相同的DNS缓存参数，这样 Envoy 才能作为 HTTP 动态正向代理运作。
+过滤器和集群必须一起配置，并且指向相同的DNS缓存参数，这样 Envoy 才能作为 HTTP 动态转发代理运作。
 
-此过滤器支持 :ref:`host rewrite <envoy_v3_api_msg_extensions.filters.http.dynamic_forward_proxy.v3.FilterConfig>`，
-通过配置 :ref:`virtual host's typed_per_filter_config <envoy_v3_api_field_config.route.v3.VirtualHost.typed_per_filter_config>` 或者
-:ref:`route's typed_per_filter_config <envoy_v3_api_field_config.route.v3.Route.typed_per_filter_config>` 来实现。 
+此过滤器支持 :ref:`主机地址重写<envoy_v3_api_msg_extensions.filters.http.dynamic_forward_proxy.v3.FilterConfig>`，
+通过配置 :ref:`虚拟主机的 typed_per_filter_config 配置 <envoy_v3_api_field_config.route.v3.VirtualHost.typed_per_filter_config>` 或者
+:ref:`路由的 typed_per_filter_config 配置 <envoy_v3_api_field_config.route.v3.Route.typed_per_filter_config>` 来实现。 
 这可以被用在进行 DNS 查找前重写主机头为指定值，因此允许在转发时将流量路由到重写后的主机地址。
 参阅以下示例，其中包含已配置的路由。
 
 .. note::
 
   使用 *trusted_ca* 证书在集群上配置一项
-  :ref:`transport_socket with name envoy.transport_sockets.tls <envoy_v3_api_field_config.cluster.v3.Cluster.transport_socket>`，
-  可指示 Envoy 在连接上游主机和验证证书链时使用 TLS. 
-  此外，Envoy 会自动地为已解析的主机名称进行 SAN 认证，并且通过 SNI 指定主机名称.
+  :ref:`transport_socket 和名称 envoy.transport_sockets.tls <envoy_v3_api_field_config.cluster.v3.Cluster.transport_socket>`，
+  可指示 Envoy 在连接上游主机和验证证书链时使用 TLS。
+  此外，Envoy 会自动地为已解析的主机名称进行 SAN 认证，并且通过 SNI 指定主机名称。
 
 .. _dns_cache_circuit_breakers:
-  动态正向代理对 DNS 缓存使用内置的熔断器，
-  通过配置 :ref:`DNS cache circuit breakers <envoy_v3_api_field_extensions.common.dynamic_forward_proxy.v3.DnsCacheConfig.dns_cache_circuit_breaker>`实现。
-  默认情况下, 此行为被运行时特性 `envoy.reloadable_features.enable_dns_cache_circuit_breakers` 启用。
-  如果这个运行时特性被禁用，集群熔断器会被使用，即使设置了 :ref:`DNS cache circuit breakers <envoy_v3_api_field_extensions.common.dynamic_forward_proxy.v3.DnsCacheConfig.dns_cache_circuit_breaker>`。
+  动态转发代理对 DNS 缓存使用内置的熔断器，
+  通过配置 :ref:`DNS 缓存熔断器 <envoy_v3_api_field_extensions.common.dynamic_forward_proxy.v3.DnsCacheConfig.dns_cache_circuit_breaker>`实现。
+  默认情况下，此行为被运行时特性 `envoy.reloadable_features.enable_dns_cache_circuit_breakers` 启用。
+  如果这个运行时特性被禁用，集群熔断器会被使用，即使设置了 :ref:`DNS 缓存熔断器 <envoy_v3_api_field_extensions.common.dynamic_forward_proxy.v3.DnsCacheConfig.dns_cache_circuit_breaker>`。
 
 .. literalinclude:: _include/dns-cache-circuit-breaker.yaml
     :language: yaml
@@ -39,7 +39,7 @@
 统计
 ----------
 
-动态正向代理 DNS 缓存输出统计在 dns_cache.<dns_cache_name>.* 命名空间.
+动态转发代理 DNS 缓存输出统计在 dns_cache.<dns_cache_name>.* 命名空间。
 
 .. csv-table::
   :header: 名称, 类型, 描述
@@ -54,12 +54,12 @@
   num_hosts, Gauge, 当前在缓存中的主机数。
   dns_rq_pending_overflow, Counter, 待处理请求溢出的 DNS 数。
 
-动态正向代理 DNS 缓存熔断器输出统计在 *dns_cache.<dns_cache_name>.circuit_breakers*
+动态转发代理 DNS 缓存熔断器输出统计在 *dns_cache.<dns_cache_name>.circuit_breakers*
 命名空间。
 
 .. csv-table::
   :header: 名称, 类型, 描述
   :widths: 1, 1, 2
 
-  rq_pending_open, Gauge, 请求熔断器是关闭(0) 还是 开启(1)
+  rq_pending_open, Gauge, 请求熔断器是关闭 (0) 还是开启 (1)
   rq_pending_remaining, Gauge, 直到熔断器开启，剩余的请求数
