@@ -3,13 +3,13 @@
 健康检查
 ===============
 
-可以在每个上游集群的基础上 :ref:`配置 <config_cluster_manager_cluster_hc>` 主动健康检查。如 :ref:`服务发现<arch_overview_service_discovery>` 部分所述，主动健康检查和 EDS 服务发现类型是并行协作的。 但是，在其他情况下，即使使用其他服务发现类型，也期望有主动健康检查。 Envoy 支持三种不同类型的运行健康检查以及各种设置（检查时间间隔、主机不健康标记为故障、主机健康时标记为成功等）：
+可以在每个上游集群的基础上 :ref:`配置 <config_cluster_manager_cluster_hc>` 主动健康检查。如 :ref:`服务发现 <arch_overview_service_discovery>` 部分所述，主动健康检查和 EDS 服务发现类型是并行协作的。 但是，在其他情况下，即使使用其他服务发现类型，也期望有主动健康检查。Envoy 支持三种不同类型的运行健康检查以及各种设置（检查时间间隔、主机不健康标记为故障、主机健康时标记为成功等）：
 
 * **HTTP**: 在 HTTP 运行健康检查期间，Envoy 将向上游主机发送HTTP请求。 默认情况下，如果主机运行状况良好，则期望200响应。 预期的响应代码是 :ref:`可配置 <envoy_v3_api_msg_config.core.v3.HealthCheck.HttpHealthCheck>` 的。 如果上游主机希望立即通知下游主机不再向其转发流量，则可以返回 503 。
 * **L3/L4**: 在 L3/L4 健康检查期间，Envoy 会向上游主机发送一个可配置的字节缓冲区。如果主机被认为是健康的，字节缓冲区在响应中会被显示出来。Envoy 还支持仅连接 L3/L4 健康检查。
 * **Redis**: Envoy 将发送 Redis PING 命令并期望 PONG 响应。如果上游 Redis 服务器使用 PONG 以外的任何其他响应命令，则会导致健康检查失败。或者，Envoy 可以在用户指定的键上执行 EXISTS。如果键不存在，则认为它是合格的健康检查。这允许用户通过将指定的键设置为任意值来标记 Redis 实例以进行维护直至流量耗尽。请参阅 :ref:`redis_key <envoy_v3_api_msg_config.health_checker.redis.v2.Redis>` 。
 
-健康检查是运行在为集群指定的传输套接字之上的。这意味着，如果集群使用启用了 TLS 的传输套接字，则健康检查也将在 TLS 之上运行。 可以指定用于健康检查连接的 :ref:`TLS 选项 <envoy_v3_api_msg_config.core.v3.HealthCheck.TlsOptions>` ，如果相应的上游正在使用针对健康检查和数据连接使用不同协议的 ALPN-based 的  :ref:`FilterChainMatch <envoy_v3_api_msg_config.listener.v3.FilterChainMatch>`  ，这将是非常有用的。
+健康检查是运行在为集群指定的传输套接字之上的。这意味着，如果集群使用启用了 TLS 的传输套接字，则健康检查也将在 TLS 之上运行。 可以指定用于健康检查连接的 :ref:`TLS 选项 <envoy_v3_api_msg_config.core.v3.HealthCheck.TlsOptions>` ，如果对应的上游使用基于 ALPN 的 :ref:FilterChainMatch <envoy_v3_api_msg_config.listener.v3.FilterChainMatch>，健康检查与数据连接使用不同的协议，这将是非常有用的。
 
 .. _arch_overview_per_cluster_health_check_config:
 
@@ -37,14 +37,14 @@
 
 健康检查事件日志
 -----------------
-Envoy 可以通过在 :ref:`HealthCheck 配置 <envoy_v3_api_field_config.core.v3.HealthCheck.event_log_path>` 中指定日志文件路径，选择性地生成包含弹出和添加事件的per-healthchecker日志。日志结构为 :ref:`HealthCheckEvent消息 <envoy_v3_api_msg_data.core.v3.HealthCheckEvent>` 的JSON dumps。
+Envoy 可以通过在 :ref:`HealthCheck 配置 <envoy_v3_api_field_config.core.v3.HealthCheck.event_log_path>` 中指定日志文件路径，选择性地生成包含弹出和添加事件的per-healthchecker日志。日志结构为 :ref:`HealthCheckEvent 消息 <envoy_v3_api_msg_data.core.v3.HealthCheckEvent>` 的 JSON dumps。
 
 通过将 :ref:`always_log_health_check_failures
 标志 <envoy_v3_api_field_config.core.v3.HealthCheck.always_log_health_check_failures>` 设置为 true，来配置 Envoy 以记录所有健康检查失败事件。
 
 被动的健康检查
 ----------------
-Envoy还支持通过 :ref:`异常值检测
+Envoy 还支持通过 :ref:`异常检测
 <arch_overview_outlier_detection>` 进行被动健康检查。
 
 
@@ -55,7 +55,7 @@ Envoy还支持通过 :ref:`异常值检测
 
 .. _arch_overview_health_checking_filter:
 
-HTTP健康检查过滤器
+HTTP 健康检查过滤器
 ---------------------------
 
 当部署 Envoy 网格并在集群之间进行主动健康检查时，会生成大量健康检查流量。Envoy 包含一个 HTTP 健康检查过滤器，可以安装在配置的 HTTP 监听器中。这个过滤器有几种不同的操作模式：
