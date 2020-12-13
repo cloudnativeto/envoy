@@ -6,8 +6,8 @@
 配置
 -------------------------
 
-访问日志在 :ref:`HTTP 连接管理器配置
-<config_http_conn_man>` 或 :ref:`TCP 代理配置 <config_network_filters_tcp_proxy>` 中配置。
+访问日志是 :ref:`HTTP 连接管理器配置
+<config_http_conn_man>` 或 :ref:`TCP 代理配置 <config_network_filters_tcp_proxy>` 配置的一部分。
 
 * :ref:`v3 API 参考 <envoy_v3_api_msg_config.accesslog.v3.AccessLog>`
 
@@ -82,18 +82,18 @@
 
 每个命令操作符允许指定一个自定义关键字。
 
-``typed_json_format`` 不同于 ``json_format`` ，它的值会被渲染成合适的 JSON 数字，布尔，和嵌套对象或列表。
+``typed_json_format`` 不同于 ``json_format`` ，它的值会被渲染成合适的 JSON 数字、布尔和嵌套对象或列表。
 在例子中，请求持续时间会被渲染成一个数字 ``123``。
 
 格式词典有如下限制：
 
-* 词典必须是字符串到字符串的映射（具体来说，是字符串到命令操作符）。 支持嵌套。
+* 词典必须是字符串到字符串的映射（具体来说，是字符串到命令操作符）。支持嵌套。
 * 当使用 ``typed_json_format`` 命令操作符时，如果命令操作符是出现在词典值域中的唯一字符串会产生确定类型输出。例如，
   ``"%DURATION%"`` 会记录成一个持续值的数值，但是 ``"%DURATION%.0"`` 会记录成一个字符串。
 
 .. note::
 
-  当使用 ``typed_json_format`` 时，超过 :math:`2^{53}` 的整数，由于需要转换成浮点数因此会被降低精度。
+  当使用 ``typed_json_format`` 时，超过 :math:`2^{53}` 的整数，由于需要转换成浮点数因此会使精度降低。
 
 .. _config_access_log_command_operators:
 
@@ -343,7 +343,7 @@
 
 %REQ(X?Y):Z%
   HTTP
-    HTTP 请求头，其中 X 是首选的 HTTP 头， Y 是一个替代值，Z 是一个可选参数表示字符串截断至 Z 字符长。
+    HTTP 请求头，其中 X 是首选的 HTTP 头，Y 是一个替代值，Z 是一个可选参数表示字符串截断至 Z 字符长。
     其值首先从名字为 X 的 HTTP 请求头获取，如果其未设置，那么使用请求头 Y。如果请求头均是 none，则在日志中表示成 '-' 符号。
 
   TCP
@@ -401,7 +401,7 @@
     如果 'TYPED' 设置了或者没有提供 F，过滤器状态对象会被序列化成一个 JSON 字符串。
 
   TCP
-    和 HTTP 相同，过滤器状态将 L7 请求替换成连接。
+    和 HTTP 相同，过滤器状态来自于连接而非一个 L7 层的请求。
 
   .. note::
 
