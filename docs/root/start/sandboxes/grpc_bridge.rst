@@ -10,13 +10,13 @@ gRPC 网桥沙盒是 Envoy
 :ref:`gRPC 网桥过滤器 <config_http_filters_grpc_bridge>` 的一个示例用法。
 
 该示例是用 ``Python`` 编写的基于 ``http`` 客户端的 CLI，
-更新由 ``Go`` 编写的远程存储的键值存储示例。
+更新由 ``Go`` 编写的远程存储的键值存储示例，并且这两种语言都使用 stubs 生成代码。
 
 客户端通过代理发送消息，将 HTTP 请求从 ``http/1.1`` 升级到 ``http/2``。
 
 ``[客户端](http/1.1) -> [客户端出口代理](http/2) -> [服务端入口代理](http/2) -> [服务端]``
 
-本示例中演示 Envoy 的另一个功能是 Envoy 能够通过路由配置执行基于权限的路由。
+本示例中演示 Envoy 的另一个功能是 Envoy 能够通过路由的配置实现基于路由的授权。
 
 
 运行沙盒
@@ -24,15 +24,15 @@ gRPC 网桥沙盒是 Envoy
 
 .. include:: _include/docker-env-setup.rst
 
-步骤3：生成协议桩
+步骤 3：生成协议 stubs
 ***********************************
 
-``protos`` 目录中提供了一个 docker-compose 文件，用于为 ``客户端`` and ``服务端`` 生成桩。
+``protos`` 目录中提供了一个 docker-compose 文件，用于为 ``客户端`` and ``服务端`` 生成 stubs。
 
-检查 ``docker-compose-protos.yaml`` 文件， 你将看到包含生成协议桩所需的 ``python``
+检查 ``docker-compose-protos.yaml`` 文件， 你将看到包含生成协议 stubs 所需的 ``python``
 和 ``go`` 的 gRPC protoc 命令。
 
-生成桩的过程如下所示：
+生成 stubs 的过程如下所示：
 
 .. code-block:: console
 
@@ -61,9 +61,9 @@ gRPC 网桥沙盒是 Envoy
   $ ls -la server/kv/kv.pb.go
   -rw-r--r--  1 mdesales  CORP\Domain Users  9994 Nov  6 21:59 server/kv/kv.pb.go
 
-这些生成的 ``python`` 和 ``go`` 的桩可以作为外部模块包含。
+这些生成的 ``python`` 和 ``go`` 的 stubs 可以作为外部模块包含。
 
-步骤4：启动所有容器
+步骤 4：启动所有容器
 ***********************************
 
 构建沙盒示例并启动示例服务，运行以下命令：
