@@ -72,7 +72,7 @@
    listener_create_failure, Counter, 添加到 workers 失败的监听器对象总数
    listener_in_place_updated, Counter, 创建以执行过滤器链更新路径的监听器听器对象总数
    total_filter_chains_draining, Gauge, 当前正在耗尽的过滤器链的数量
-   total_listeners_warming, Gauge, 当前预热的监听器数量。
-   total_listeners_active, Gauge, 当前活动的监听器数量。.
-   total_listeners_draining, Gauge, 当前正在耗尽的监听器数量.
-   workers_started, Gauge, 布尔值（如果已启动则为 1，否则为 0），指示是否已在worker上初始化监听器。
+   total_listeners_warming, Gauge, 当前预热的监听器数量
+   total_listeners_active, Gauge, 当前活动的监听器数量
+   total_listeners_draining, Gauge, 当前正在耗尽的监听器数量
+   workers_started, Gauge, 布尔值（如果已启动则为 1，否则为 0），指示是否已在 worker 上初始化监听器
