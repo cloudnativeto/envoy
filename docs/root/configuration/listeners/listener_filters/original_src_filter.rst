@@ -22,7 +22,7 @@ IP 版本支持
 
 使用的下游远程地址很可能是全局可路由的。 默认情况下，从上游主机返回到该地址的数据包将不会通过 Envoy 路由。必须将网络配置为通过 Envoy 主机强制路由回所有 IP 被 Envoy 复制的流量。
 
-如果 Envoy 和上游在同一主机上 -- 例如在 Sidecar 部署中，则可以使用 iptables 和路由规则来确保正确的行为。过滤器具有无符号整数配置，即 :ref:`mark <envoy_v3_api_field_extensions.filters.listener.original_src.v3.OriginalSrc.mark>` 。将此设置为 *X* 会导致 Envoy 用 *X* 值 *标记* 来自此监听器的所有上游数据包。 注意如果将 :ref:`mark <envoy_v3_api_field_extensions.filters.listener.original_src.v3.OriginalSrc.mark>` 的值设置为0，Envoy 将不会标记上游数据包。
+如果 Envoy 和上游在同一主机上 -- 例如在 Sidecar 部署中，则可以使用 iptables 和路由规则来确保正确的行为。过滤器具有无符号整数配置，即 :ref:`mark <envoy_v3_api_field_extensions.filters.listener.original_src.v3.OriginalSrc.mark>` 。将此设置为 *X* 会导致 Envoy 用 *X* 值 *标记* 来自此监听器的所有上游数据包。 注意如果将 :ref:`mark <envoy_v3_api_field_extensions.filters.listener.original_src.v3.OriginalSrc.mark>` 的值设置为 0，Envoy 将不会标记上游数据包。
 
 We can use the following set of commands to ensure that all ipv4 and ipv6 traffic marked with *X*
 (assumed to be 123 in the example) routes correctly. Note that this example assumes that *eth0* is
