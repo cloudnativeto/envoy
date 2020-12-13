@@ -53,10 +53,10 @@
                   address: 127.0.0.1
                   port_value: 1234
 
-除了 EDS 是动态的其他大部分为静态
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+大多是拥有动态 EDS 的静态配置
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-下面提供了一个 bootstrap 配置，该配置从以上示例开始，通过监听 127.0.0.3:5678 的 :ref:`EDS<envoy_v3_api_file_envoy/service/endpoint/v3/eds.proto>` gRPC 管理服务器进行 :ref:`动态端点发现 <arch_overview_dynamic_config_eds>`：
+下面提供了一个 bootstrap 配置，该配置从以上示例开始，通过监听 127.0.0.3:5678 的 :ref:`EDS <envoy_v3_api_file_envoy/service/endpoint/v3/eds.proto>` gRPC 管理服务器进行 :ref:`动态端点发现 <arch_overview_dynamic_config_eds>`：
 
 .. validated-code-block:: yaml
   :type-name: envoy.config.bootstrap.v3.Bootstrap
@@ -124,7 +124,7 @@
 
 注意上面 *xds_cluster* 被定义为指向 Envoy 管理服务器。即使在完全动态的配置中，也需要定义一些静态资源，从而将 Envoy 指向其 xDS 管理服务器。
 
-在 `tcp_keepalive` 块中设置适当的 :ref:`TCP Keep-Alive 选项<envoy_v3_api_msg_config.core.v3.TcpKeepalive>`  非常重要。 这将有助于检测与 xDS 管理服务器的 TCP 半开连接，并重新建立完整连接。
+在 `tcp_keepalive` 块中设置适当的 :ref:`TCP Keep-Alive 选项 <envoy_v3_api_msg_config.core.v3.TcpKeepalive>` 非常重要。这将有助于检测与 xDS 管理服务器的 TCP 半开连接，并重新建立完整连接。
 
 在上面的例子中，EDS 管理服务器可以返回一个 proto 编码的 :ref:`DiscoveryResponse <envoy_v3_api_msg_service.discovery.v3.DiscoveryResponse>`：
 
@@ -143,13 +143,12 @@
               port_value: 1234
 
 
-上面显示的版本控制和类型 URL 方案在 :ref:`流式 gRPC 订阅协议
-<xds_protocol_streaming_grpc_subscriptions>` 文档中有更详细的解释。
+上面显示的版本控制和类型 URL 方案在 :ref:`流式 gRPC 订阅协议 <xds_protocol_streaming_grpc_subscriptions>` 文档中有更详细的解释。
 
 动态
 ^^^^^^^
 
-下面提供了完全动态的 bootstrap 配置，其中属于管理服务器的所有资源都是通过 xDS 发现的：
+下面提供了完全动态的 bootstrap 配置，其中除了属于管理服务器资源外的所有资源都是通过 xDS 发现的：
 
 .. validated-code-block:: yaml
   :type-name: envoy.config.bootstrap.v3.Bootstrap
