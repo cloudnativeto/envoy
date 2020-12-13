@@ -1,12 +1,12 @@
 .. _config_cluster_manager_cluster_circuit_breakers:
 
-Circuit breaking
-================
+熔断
+=====
 
-* Circuit Breaking :ref:`architecture overview <arch_overview_circuit_break>`.
-* :ref:`v3 API documentation <envoy_v3_api_msg_config.cluster.v3.CircuitBreakers>`.
+* 熔断 :ref:`架构预览  <arch_overview_circuit_break>`。
+* :ref:`v3 API 文档 <envoy_v3_api_msg_config.cluster.v3.CircuitBreakers>`。
 
-The following is an example circuit breaker configuration:
+下面是一个熔断器配置示例：
 
 .. code-block:: yaml
 
@@ -20,11 +20,7 @@ The following is an example circuit breaker configuration:
           value: 25.0
         min_retry_concurrency: 10
 
-Runtime
+运行时
 -------
 
-All circuit breaking settings are runtime configurable for all defined priorities based on cluster
-name. They follow the following naming scheme ``circuit_breakers.<cluster_name>.<priority>.<setting>``.
-``cluster_name`` is the name field in each cluster's configuration, which is set in the Envoy
-:ref:`config file <envoy_v3_api_field_config.cluster.v3.Cluster.name>`. Available runtime settings will override
-settings set in the Envoy config file.
+基于集群名称所定义的优先级，所有熔断设置都是运行时可配置的。它们遵循如下命名规则 ``circuit_breakers.<cluster_name>.<priority>.<setting>``。``cluster_name`` 是每个集群配置的名称字段，设置于 Envoy 的 :ref:`配置文件 <envoy_v3_api_field_config.cluster.v3.Cluster.name>` 中。可用的运行时设置将覆盖 Envoy 在配置文件中的设置。
