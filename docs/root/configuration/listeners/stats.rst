@@ -14,8 +14,8 @@
    :widths: 1, 1, 2
 
    downstream_cx_total, Counter, 连接总数
-   downstream_cx_destroy, Counter, 销毁连接总数
-   downstream_cx_active, Gauge, 活动连接总数
+   downstream_cx_destroy, Counter, 销毁的连接总数
+   downstream_cx_active, Gauge, 活跃的连接总数
    downstream_cx_length_ms, Histogram, 连接时长 (毫秒)
    downstream_cx_overflow, Counter, 由于强制执行监听器连接限制而拒绝的连接总数
    downstream_pre_cx_timeout, Counter, 在监听器过滤器处理过程中套接字的超时时间
@@ -34,10 +34,10 @@
    ssl.ocsp_staple_omitted, Counter, 未装订 OCSP 响应而成功完成的 TLS 连接总数
    ssl.ocsp_staple_responses, Counter, 有效 OCSP 响应可用的 TLS 连接总数（无论客户端是否请求装订）
    ssl.ocsp_staple_requests, Counter, 客户端请求 OCSP 订书钉的 TLS 连接总数
-   ssl.ciphers.<cipher>, Counter, 使用密码<cipher>的成功 TLS 连接总数
-   ssl.curves.<curve>, Counter, 使用 ECDHE 曲线<curve>的成功 TLS 连接总数
-   ssl.sigalgs.<sigalg>, Counter, 使用签名算法<sigalg>的成功 TLS 连接总数
-   ssl.versions.<version>, Counter, 使用协议版本<version>的成功 TLS 连接总数
+   ssl.ciphers.<cipher>, Counter, 使用密码 <cipher> 的成功 TLS 连接总数
+   ssl.curves.<curve>, Counter, 使用 ECDHE 曲线 <curve> 的成功 TLS 连接总数
+   ssl.sigalgs.<sigalg>, Counter, 使用签名算法 <sigalg> 的成功 TLS 连接总数
+   ssl.versions.<version>, Counter, 使用协议版本 <version> 的成功 TLS 连接总数
 
 .. _config_listener_stats_per_handler:
 
@@ -51,7 +51,7 @@
    :widths: 1, 1, 2
 
    downstream_cx_total, Counter, 这个处理程序上的连接总数
-   downstream_cx_active, Gauge, 这个处理程序上的活动连接总数
+   downstream_cx_active, Gauge, 这个处理程序上活跃的连接总数
 
 .. _config_listener_manager_stats:
 
