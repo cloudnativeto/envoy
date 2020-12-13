@@ -32,4 +32,4 @@ File 访问日志统计
   write_failed, Counter, 文件写操作过程中出错的总次数
   flushed_by_timer, Counter, 内部刷新缓冲区由于刷新定时器到期而写文件的总次数
   reopen_failed, Counter, 文件打开失败的总次数
-  write_total_buffered, Gauge, 目前内部刷新缓冲区的总大小（以字节为单位）
+  write_total_buffered, Gauge, 当前内部刷新缓冲区的总大小（以字节为单位）
