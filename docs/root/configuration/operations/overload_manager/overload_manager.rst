@@ -1,13 +1,13 @@
 .. _config_overload_manager:
 
-负载管理器
+过载管理器
 ================
 
-:ref:`负载管理器 <arch_overview_overload_manager>` 被配置在引导中的
+:ref:`过载管理器 <arch_overview_overload_manager>` 被配置在 Bootstrap 的
 :ref:`overload_manager <envoy_v3_api_field_config.bootstrap.v3.Bootstrap.overload_manager>`
-字段。
+字段中。
 
-下面展现了一个负载管理器的配置样例。它展示了当堆内存使用达到 95% 时关闭 HTTP/1.x 的 keepalive 特性，并在堆内存使用达到 99% 时停止接收请求。
+下面展现了一个过载管理器的配置样例。它展示了当堆内存使用达到 95% 时关闭 HTTP/1.x 的 keepalive 特性，并在堆内存使用达到 99% 时停止接收请的配置。
 
 .. code-block:: yaml
 
@@ -34,7 +34,7 @@
 资源监控器
 ------------
 
-负载管理器使用 Envoy 的 :ref:`扩展 <extending>` 框架来定义资源监控器。Envoy 的内建资源监控器在 :ref:`这里 <config_resource_monitors>` 列出。 
+过载管理器使用 Envoy 的 :ref:`扩展 <extending>` 框架来定义资源监控器。Envoy 的内置资源监控器在 :ref:`这里 <config_resource_monitors>` 列出。 
 
 触发器
 -------------
@@ -57,10 +57,10 @@
 
 .. _config_overload_manager_overload_actions:
 
-负载动作
+过载动作
 ----------------
 
-支持下列负载动作:
+支持下列过载动作:
 
 .. csv-table::
   :header: 名字, 描述
@@ -74,7 +74,7 @@
 限制活跃连接
 -----------------
 
-当前，只能通过给运行时关键字 ``overload.global_downstream_max_connections`` 制定一个整数值，这一种方式来限制跨越所有监听器的活跃连接总数。
+当前，只能通过给运行时关键字 ``overload.global_downstream_max_connections`` 指定一个整数值的方式，来限制跨越所有监听器的活跃连接总数。
 考虑到上游连接，文件和其他文件描述符的使用，连接限制建议小于系统文件描述符限制的一半。
 如果这个值未指定，活跃的下游连接数将没有全局的限制并且 Envoy 将在启动的时候发出一个警告提示。为了不设置活跃下游连接数限制并且禁用这个警告，
 这个值可以被设置成一个非常大的限制（~2e9)。
@@ -98,11 +98,11 @@
   failed_updates, Counter, 尝试更新资源压力失败的总数
   skipped_updates, Counter, 由于挂起更新而尝试更新资源压力跳过的总数
 
-每一个配置的负载动作都有一个以 *overload.<name>.* 为根的统计树，包含下列统计值:
+每一个配置的过载动作都有一个以 *overload.<name>.* 为根的统计树，包含下列统计值:
 
 .. csv-table::
   :header: 名字, 类型, 描述
   :widths: 1, 1, 2
 
-  active, Gauge, "动作的活跃状态 (0=未激活，1=激活)"
-  scale_percent, Gauge, "动作的观测值百分比 (0-99=比例，100=饱和)"
+  active, Gauge, "动作的激活状态 (0=未激活，1=激活)"
+  scale_percent, Gauge, "动作的饱和百分比 (0-99=未饱和，100=饱和)"
