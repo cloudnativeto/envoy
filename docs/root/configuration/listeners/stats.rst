@@ -75,4 +75,4 @@
    total_listeners_warming, Gauge, 当前预热的监听器数量。
    total_listeners_active, Gauge, 当前活动的监听器数量。.
    total_listeners_draining, Gauge, 当前正在耗尽的监听器数量.
-   workers_started, Gauge, 布尔值（如果已启动则为 1，否则为 0），指示是否已在worker上初始化监听听器。
+   workers_started, Gauge, 布尔值（如果已启动则为 1，否则为 0），指示是否已在worker上初始化监听器。
