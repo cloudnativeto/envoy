@@ -76,10 +76,10 @@ HTTP健康检查过滤器
 主动健康检查快速失败
 ----------------------
 
-在使用主动健康检查和被动健康检查(:ref:`异常检测
-<arch_overview_outlier_detection>`)时，通常使用较长的运行健康检查间隔来避免大量的主动健康检查流量。在这种情况下，当使用 :ref:`x-envoy-immediate-health-check-fail
-<config_http_filters_router_x-envoy-immediate-health-check-fail>` 管理端点来尽快排空上游主机仍旧是非常有效的手段。为了支持这一点，:ref:`路由器过滤器 <config_http_filters_router>` 将响应 :ref:`x-envoy-immediate-health-check-fail <config_http_filters_router_x-envoy-immediate-health-check-fail>`。如果上游主机设置了此头，Envoy 会立即将该主机标记为主动健康检查失败。注意，只有在主机集群 :ref:`配置
-<config_cluster_manager_cluster_hc>` 了主动健康检查时才会发生这种情况。如果通过 :ref:`/healthcheck/fail <operations_admin_interface_healthcheck_fail>`管理端点将 Envoy 标记为失败，则 :ref:`健康检查筛选器<config_http_filters_health_check>` 将自动设置此头。
+在使用主动健康检查和被动健康检查( :ref:`异常检测
+<arch_overview_outlier_detection>` )时，通常使用较长的运行健康检查间隔来避免大量的主动健康检查流量。在这种情况下，当使用 :ref:`x-envoy-immediate-health-check-fail
+<config_http_filters_router_x-envoy-immediate-health-check-fail>` 管理端点来尽快排空上游主机仍旧是非常有效的手段。为了支持这一点， :ref:`路由器过滤器 <config_http_filters_router>` 将响应 :ref:`x-envoy-immediate-health-check-fail <config_http_filters_router_x-envoy-immediate-health-check-fail>` 。如果上游主机设置了此头，Envoy 会立即将该主机标记为主动健康检查失败。注意，只有在主机集群 :ref:`配置
+<config_cluster_manager_cluster_hc>` 了主动健康检查时才会发生这种情况。如果通过 :ref:`/healthcheck/fail <operations_admin_interface_healthcheck_fail>` 管理端点将 Envoy 标记为失败，则 :ref:`健康检查筛选器<config_http_filters_health_check>` 将自动设置此头。
 
 
 .. _arch_overview_health_checking_identity:
