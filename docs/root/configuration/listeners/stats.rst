@@ -14,7 +14,7 @@
    :widths: 1, 1, 2
 
    downstream_cx_total, Counter, 连接总数
-   downstream_cx_destroy, Counter, 销毁的连接总数
+   downstream_cx_destroy, Counter, 已销毁的连接总数
    downstream_cx_active, Gauge, 活跃的连接总数
    downstream_cx_length_ms, Histogram, 连接时长 (毫秒)
    downstream_cx_overflow, Counter, 由于强制执行监听器连接限制而拒绝的连接总数
@@ -33,7 +33,7 @@
    ssl.ocsp_staple_failed, Counter, 未能符合 OCSP (Online Certificate Status Protocol) 策略的 TLS 连接总数
    ssl.ocsp_staple_omitted, Counter, 未装订 OCSP 响应而成功完成的 TLS 连接总数
    ssl.ocsp_staple_responses, Counter, 有效 OCSP 响应可用的 TLS 连接总数（无论客户端是否请求装订）
-   ssl.ocsp_staple_requests, Counter, 客户端请求 OCSP 订书钉的 TLS 连接总数
+   ssl.ocsp_staple_requests, Counter, 客户端请求 OCSP 装订的 TLS 连接总数
    ssl.ciphers.<cipher>, Counter, 使用密码 <cipher> 的成功 TLS 连接总数
    ssl.curves.<curve>, Counter, 使用 ECDHE 曲线 <curve> 的成功 TLS 连接总数
    ssl.sigalgs.<sigalg>, Counter, 使用签名算法 <sigalg> 的成功 TLS 连接总数
