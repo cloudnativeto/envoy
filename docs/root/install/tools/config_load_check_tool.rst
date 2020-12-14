@@ -17,7 +17,7 @@
   所有找到的配置文件，它将退出并返回 EXIT_SUCCESS 状态码。
 
 构建
-  该工具可以在本地使用 BAZEL 构建。 ::
+  该工具可以在本地使用 Bazel 构建。 ::
 
     bazel build //test/tools/config_load_check:config_load_check_tool
 
