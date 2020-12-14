@@ -416,15 +416,15 @@
 
 %DOWNSTREAM_LOCAL_URI_SAN%
   HTTP
-    用于建立下游 TLS 连接的本地 SAN 证书中的 URIs。
+    用于建立下游 TLS 连接的本地 SAN 证书中的 URI。
   TCP
-    用于建立下游 TLS 连接的本地 SAN 证书中的 URIs。
+    用于建立下游 TLS 连接的本地 SAN 证书中的 URI。
     
 %DOWNSTREAM_PEER_URI_SAN%
   HTTP
-    用于建立下游 TLS 连接的对端 SAN 证书中的 URIs。
+    用于建立下游 TLS 连接的对端 SAN 证书中的 URI。
   TCP
-    用于建立下游 TLS 连接的对端 SAN 证书中的 URIs。
+    用于建立下游 TLS 连接的对端 SAN 证书中的 URI。
 
 %DOWNSTREAM_LOCAL_SUBJECT%
   HTTP
