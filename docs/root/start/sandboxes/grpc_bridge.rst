@@ -27,7 +27,7 @@ gRPC 网桥沙盒是 Envoy
 步骤 3：生成协议 stub
 ***********************************
 
-``protos`` 目录中提供了一个 docker-compose 文件，用于为 ``客户端`` and ``服务端`` 生成 stub。
+``protos`` 目录中提供了一个 docker-compose 文件，用于为 ``客户端`` 和 ``服务端`` 生成 stub。
 
 检查 ``docker-compose-protos.yaml`` 文件， 你将看到包含生成协议 stub 所需的 ``python``
 和 ``go`` 的 gRPC protoc 命令。
