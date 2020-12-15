@@ -10,8 +10,8 @@
   router_check_tool [-t <string>] [-c <string>] [-d] [-p] [--] [--version] [-h] <unlabelledConfigStrings>
     -t <string>,  --test-path <string>
       工具的 JSON 格式配置文件路径。可以在
-      :ref:`config <config_tools_router_check_tool>` 中找到工具的 JSON 格式配置文件 schema.
-      工具的配置文件中指定一些网址（包含权限和路径）及其预期的路由参数值。额外的参数是可选的，例如：additional headers。
+      :ref:`config <config_tools_router_check_tool>` 中找到工具的 JSON 格式配置文件 schema。
+      工具的配置文件中指定一些网址（包含权限和路径）及其预期的路由参数值。额外的参数是可选的，例如：额外的头信息。
       
       Schema：本工具所有的内部 schema 均基于 :repo:`proto3 <test/tools/router_check/validation.proto>`。
 
