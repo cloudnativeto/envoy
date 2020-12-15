@@ -66,8 +66,8 @@ Kafka broker 需要对外声称 Envoy 的监听器端口，而不是自己的。
 
 .. _config_network_filters_kafka_broker_stats:
 
-统计
------
+统计信息
+---------
 
 每个配置的 Kafka Broker 过滤器的统计信息都以 *kafka.<stat_prefix>.* 为根，每个消息类型具有多个统计信息。
 
