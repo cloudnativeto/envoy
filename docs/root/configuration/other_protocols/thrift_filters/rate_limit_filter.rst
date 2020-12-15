@@ -13,7 +13,7 @@
 如果限流服务被调用，并且任何描述符的响应都会超过限制，就会返回一个显示内部错误的应用程序异常。
 
 如果在调用限流服务时发生了错误，或者有错误返回，且 :ref:`failure_mode_deny
-<envoy_v3_api_field_extensions.filters.network.thrift_proxy.filters.ratelimit.v3.RateLimit.failure_mode_deny>` 被设置为true，则返回一个显示内部错误的应用程序异常。
+<envoy_v3_api_field_extensions.filters.network.thrift_proxy.filters.ratelimit.v3.RateLimit.failure_mode_deny>` 被设置为 true，则返回一个显示内部错误的应用程序异常。
 
 .. _config_thrift_filters_rate_limit_stats:
 
