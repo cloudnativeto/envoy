@@ -8,7 +8,7 @@ Apache Kafka broker 过滤器用于解码 `Apache Kafka <https://kafka.apache.or
 * :ref:`v3 API reference <envoy_v3_api_msg_extensions.filters.network.kafka_broker.v3.KafkaBroker>`
 * 该过滤器应使用 *envoy.filters.network.kafka_broker* 进行配置。
 
-.. 注意::
+.. attention::
 
    kafka_broker 过滤器是实验性的，目前正在开发中。功能可能会随着时间的推移而扩展，并且配置结构可能会发生变化。
 
