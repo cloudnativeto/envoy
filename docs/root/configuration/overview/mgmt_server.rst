@@ -28,7 +28,7 @@ Envoy 调试模式会如实记录它无法与管理服务器建立连接时每�
    :header: 名字, 类型, 描述
    :widths: 1, 1, 2
 
-   connected_state, Gauge, 一个布尔值（1用于连接，0用于断开连接），指示与管理服务器的当前连接状态state with management server
+   connected_state, Gauge, 一个布尔值（1用于连接，0用于断开连接），指示与管理服务器的当前连接状态
    rate_limit_enforced, Counter, 为管理服务器请求实施速率限制的总次数
    pending_requests, Gauge, 实施速率限制时的待处理请求总数
    identifier, TextReadout, 发送上一个发现响应的控制平面实例的标识符
@@ -38,8 +38,7 @@ Envoy 调试模式会如实记录它无法与管理服务器建立连接时每�
 xDS 订阅统计
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Envoy 通过被称为 *xDS* 的发现服务来发现其各种动态资源。资源通过 :ref:`订阅 <xds_protocol>`，
-请求，通过指定要监视的文件系统路径、初始化gRPC流或轮询REST-JSON URL。
+Envoy 通过被称为 *xDS* 的发现服务来发现其各种动态资源。通过 :ref:`订阅 <xds_protocol>` 请求的资源，通过指定的文件系统路径来监视、初始化 gRPC 流或轮询 REST-JSON URL。
 
 将为所有订阅生成以下统计信息。
 
@@ -47,13 +46,13 @@ Envoy 通过被称为 *xDS* 的发现服务来发现其各种动态资源。资�
  :header: 名字, 类型, 描述
  :widths: 1, 1, 2
 
- config_reload, Counter, 由于配置不同而导致重新加载配置的总API获取次数
+ config_reload, Counter, 由于配置不同而导致重新加载配置的总 API 获取次数
  init_fetch_timeout, Counter, 总 :ref:`初始提取超时 <envoy_v3_api_field_config.core.v3.ConfigSource.initial_fetch_timeout>`
- update_attempt, Counter, 尝试获取的API总数
- update_success, Counter, 获取成功的API总数
- update_failure, Counter, 由于网络错误而导致API获取失败的总数
- update_rejected, Counter, 由于 schema/validation 错误而导致API获取失败的总数
- update_time, Gauge, 上一次尝试获取成功的API的时间戳，以毫秒为单位。即使在不包含任何配置更改的配置重载后也会刷新。
- version, Gauge, 上一次成功获取API的内容的哈希值
- version_text, TextReadout, 上一次成功获取API的版本文本
+ update_attempt, Counter, 尝试获取的 API 总数
+ update_success, Counter, 获取成功的 API 总数
+ update_failure, Counter, 由于网络错误而导致 API 获取失败的总数
+ update_rejected, Counter, 由于 schema/validation 错误而导致 API 获取失败的总数
+ update_time, Gauge, 上一次尝试获取成功的 API 的时间戳，以毫秒为单位。即使在不包含任何配置更改的配置重载后也会刷新。
+ version, Gauge, 上一次成功获取 API 的内容的哈希值
+ version_text, TextReadout, 上一次成功获取 API 的版本文本
  control_plane.connected_state, Gauge, 布尔值（1表示已连接，0表示已断开连接），指示与管理服务器的当前连接状态
