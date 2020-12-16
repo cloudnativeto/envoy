@@ -9,13 +9,13 @@
 --------------
 
 health_check.min_interval
-  健康检查 :ref:`间隔 <envoy_v3_api_field_config.core.v3.HealthCheck.interval>` 的最小值。默认值是 1ms，有效的健康检查   间隔将不能够小于 1ms。健康检查间隔的值在 *min_interval* 和 *max_interval* 之间。
+  健康检查 :ref:`间隔 <envoy_v3_api_field_config.core.v3.HealthCheck.interval>` 的最小值。默认值是 1ms，有效的健康检查间隔将不能够小于 1ms。健康检查间隔的值在 *min_interval* 和 *max_interval* 之间。
 
 health_check.max_interval
-  健康检查 :ref:`间隔 <envoy_v3_api_field_config.core.v3.HealthCheck.interval>` 的最大值。默认值是 MAX_INT。有效的健康   检查间隔将不能小于 1ms。健康检查间隔的值在 *min_interval* 和 *max_interval* 之间。
+  健康检查 :ref:`间隔 <envoy_v3_api_field_config.core.v3.HealthCheck.interval>` 的最大值。默认值是 MAX_INT。有效的健康检查间隔将不能小于 1ms。健康检查间隔的值在 *min_interval* 和 *max_interval* 之间。
 
 health_check.verify_cluster
-  当 :ref:`健康检查过滤器 <arch_overview_health_checking_filter>` 将远程服务集群写到响应里面时，针对 :ref:`期望的上游服  务 <envoy_v3_api_field_config.core.v3.HealthCheck.HttpHealthCheck.service_name_matcher>` 来确定健康检查请求被被验证的百  分比。
+  当 :ref:`健康检查过滤器 <arch_overview_health_checking_filter>` 将远程服务集群写到响应里面时，针对 :ref:`期望的上游服务 <envoy_v3_api_field_config.core.v3.HealthCheck.HttpHealthCheck.service_name_matcher>` 来确定健康检查请求被被验证的百分比。
 
 .. _config_cluster_manager_cluster_runtime_outlier_detection:
 
