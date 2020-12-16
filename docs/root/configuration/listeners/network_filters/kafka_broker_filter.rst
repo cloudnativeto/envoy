@@ -3,10 +3,10 @@
 Kafka Broker 过滤器
 ===================
 
-Apache Kafka broker 过滤器用于解码 `Apache Kafka <https://kafka.apache.org/>`_ 的客户端协议，该客户端协议中请求和响应的消息都可以解码。该过滤器支持 Kafka 2.4.0 中的消息版本。该过滤器会尝试不影响客户端与 broker 之间的通信，因此无法解码的消息（由于 Kafka 客户端或 broker 运行的版本比该过滤器所支持的版本新）将按原样转发。
+Apache Kafka broker 过滤器用于解码 `Apache Kafka <https://kafka.apache.org/>`_ 的客户端协议，该客户端协议中请求和响应的消息都可以解码。支持 `Kafka 2.4.0 <http://kafka.apache.org/24/protocol.html#protocol_api_keys>`_ 中的消息版本。该过滤器会尝试不影响客户端与 broker 之间的通信，因此无法解码的消息（由于 Kafka 客户端或 broker 运行的版本比该过滤器所支持的版本新）将按原样转发。
 
-* :ref:`v3 API reference <envoy_v3_api_msg_extensions.filters.network.kafka_broker.v3.KafkaBroker>`
-* 该过滤器应使用 *envoy.filters.network.kafka_broker* 进行配置。
+* :ref:`v3 API 参考 <envoy_v3_api_msg_extensions.filters.network.kafka_broker.v3.KafkaBroker>`
+* 此过滤器的名称应该被配置为 *envoy.filters.network.kafka_broker*。
 
 .. attention::
 
@@ -52,7 +52,7 @@ Kafka Broker 过滤器应与 TCP 代理过滤器一起使用，如下面的配�
                   address: 127.0.0.1 # Kafka broker's host
                   port_value: 9092 # Kafka broker's port.
 
-Kafka broker 需要对外声称 Envoy 的监听器端口，而不是自己的。
+Kafka broker 需要公布 Envoy 的监听器端口，而不是自己的。
 
 .. code-block:: text
 
@@ -66,13 +66,13 @@ Kafka broker 需要对外声称 Envoy 的监听器端口，而不是自己的。
 
 .. _config_network_filters_kafka_broker_stats:
 
-统计信息
----------
+统计
+------
 
 每个配置的 Kafka Broker 过滤器的统计信息都以 *kafka.<stat_prefix>.* 为根，每个消息类型具有多个统计信息。
 
 .. csv-table::
-  :header: Name, Type, Description
+  :header: 名称, 类型, 描述
   :widths: 1, 1, 2
 
   request.TYPE, Counter, 从 Kafka 客户端收到特定类型的请求的次数
