@@ -11,4 +11,4 @@
 gRPC 服务 IDL
 --------------
 
-Envoy 期望限流服务能够支持在 :ref:`rls.proto <envoy_v3_api_file_envoy/service/ratelimit/v3/rls.proto>` 中指定的限流服务。更多关于 API 是如何工作的信息，可以查看 IDS 文档。在 `这儿 <https://github.com/lyft/ratelimit>`_ 查看 Lyft 的配置实现。
+Envoy 期望限流服务能够支持在 :ref:`rls.proto <envoy_v3_api_file_envoy/service/ratelimit/v3/rls.proto>` 中指定的 gRPC IDL（Interactive Data Language 互动式数据语言）。更多关于 API 是如何工作的信息，可以查看 IDL 文档。在 `这儿 <https://github.com/lyft/ratelimit>`_ 查看 Lyft 的配置实现。
