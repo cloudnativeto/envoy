@@ -5,21 +5,21 @@
 .. TODO(yosrym93): When a documentation is written for a production-ready Cache Filter, link to it through this doc.
 
 本示例将展示如何使用 Envoy 的缓存过滤器处理 HTTP 缓存。
-第一步，安装沙箱环境 :ref: `Front Proxy sandbox <install_sandboxes_front_proxy>`。本示例采用的沙箱模式为前端代理模式。
+第一步，安装沙盒环境 :ref: `Front Proxy sandbox <install_sandboxes_front_proxy>`。本示例采用的沙盒模式为前端代理模式。
 
 所有传入请求都通过前端 Envoy 进行路由，该前端 Envoy 充当位于 ``envoymesh`` 网络边缘的反向代理。
-第二步，在 docker compose 配置中暴露两个端口 ``8000`` 和 ``8001`` ，分别处理对服务的 ``HTTP`` 调用和对 ``/admin`` 的请求。（请参阅 :repo: `/examples/cache/docker-compose.yaml`）。
-前端 Envoy 的后面部署了两个后端服务，每个后端服务都有一个 sidecar Envoy （边车代理）。
+第二步，在 docker compose 配置中暴露两个端口 ``8000`` 和 ``8001``，分别处理对服务的 ``HTTP`` 调用和对 ``/admin`` 的请求。（请参阅 :repo: `/examples/cache/docker-compose.yaml`）。
+前端 Envoy 的后面部署了两个后端服务，每个后端服务都有一个 sidecar Envoy。
 
 前端 Envoy 配置为运行缓存过滤器，该过滤器将可缓存的响应存储在内存缓存中，并将其提供给后续请求。
 示例中，由部署的服务提供的响应信息已配置在 :repo: `/examples/cache/responses.yaml` 文件中。
 该文件已安装到两个服务所在的容器中，因此在服务运行时对存储的响应信息所做的任何更改都将立即生效（无需重新构建项目或重启）。
 
-为了演示的目的，响应的创建时间已经提前配置在它的响应体中。为了验证的目的，将为每个响应计算一个 Etag ，该 Etag 仅取决于 yaml 文件中的响应体（即，不考虑附加时间）。
-通过带有 ``age`` 的头信息来识别缓存的响应。比较生成时间是否早于响应头中包含的 ``date`` ，可验证响应信息的有效性；一个通过验证的响应信息，它头信息中的 ``date`` 会更新，而响应体不会改变。
+为了演示的目的，响应的创建时间已经提前配置在它的响应体中。为了验证的目的，将为每个响应计算一个 Etag，该 Etag 仅取决于 yaml 文件中的响应体（即，不考虑附加时间）。
+通过带有 ``age`` 的头信息来识别缓存的响应。比较生成时间是否早于响应头中包含的 ``date``，可验证响应信息的有效性；一个通过验证的响应信息，它头信息中的 ``date`` 会更新，而响应体不会改变。
 通过验证的响应头信息中不包含 ``age`` 信息。来自后端服务的响应头中不包含 ``age`` 信息，其头信息中的 ``date`` 信息与响应生成的时间一致。
 
-运行沙箱环境
+运行沙盒环境
 ~~~~~~~~~~~~~~~~~~~
 
 .. include:: _include/docker-env-setup.rst
@@ -50,7 +50,7 @@
 
 ``curl -i localhost:8000/service/<service_no>/<response>``
 
-``service_no``：请求发送到服务 1 或 2 。
+``service_no``：请求发送到服务 1 或 2。
 
 ``response``：请求后的响应。 响应信息可在 :repo:`/examples/cache/responses.yaml` 文件中查看。
 
@@ -65,7 +65,7 @@
 - 无缓存
     这种模式的响应每次在返回前都需要被验证。
 
-在运行沙箱测试的过程中，你可以改变响应头信息及响应体（或者新增一个响应）。
+在运行沙盒测试的过程中，你可以改变响应头信息及响应体（或者新增一个响应）。
 
 响应示例
 -----------------
@@ -90,7 +90,7 @@
     响应体生成时间为：Fri, 11 Sep 2020 03:20:40 GMT
 
 当然，该响应头信息中的 ``date`` 信息与生成时间是一致的。
-30秒后发送相同的请求会得到与之前相同的一个响应，且该响应的生成时间也是相同的。
+30 秒后发送相同的请求会得到与之前相同的一个响应，且该响应的生成时间也是相同的。
 不同的是，这个来自缓存中的响应，它的响应头中会带一个 ``age`` 信息：
 
 .. code-block:: console
