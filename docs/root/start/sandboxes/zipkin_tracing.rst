@@ -3,7 +3,7 @@
 Zipkin 追踪（trace）
 ==============
 
-Zipkin 追踪（trace）沙盒使用 Zipkin <https://zipkin.io/> 作为追踪（trace）提供程序来实现 Envoy 的 :ref:请求追踪（trace） 功能。
+Zipkin 追踪（trace）沙盒使用 Zipkin <https://zipkin.io/> 作为追踪（trace）提供程序来实现 Envoy 的 :ref:请求追踪（trace）功能。
 这个沙盒与前面所讲的前端代理架构非常的相似，但有一点不同的是：在返回响应之前，service1 会对 service2 进行 API 调用。 
 这三个容器将被部署在名为 ``envoymesh`` 的虚拟网络中。
 
@@ -19,7 +19,7 @@ Zipkin 追踪（trace）沙盒使用 Zipkin <https://zipkin.io/> 作为追踪（
 在我们提供的沙箱例子中，作为 service1 的简单 flask 应用（参见 :repo:`/examples/front-proxy/service.py` 中的跟踪函数）在访问 service2 的时候传递了追踪（trace）的请求头信息。
 
 
-运行 Sandbox
+运行沙盒
 ~~~~~~~~~~~~~~~~~~~
 
 .. include:: _include/docker-env-setup.rst
