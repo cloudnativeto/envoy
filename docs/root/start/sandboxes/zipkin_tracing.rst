@@ -1,7 +1,7 @@
 .. _install_sandboxes_zipkin_tracing:
 
 Zipkin 追踪（trace）
-==============
+=====================
 
 Zipkin 追踪（trace）沙盒使用 Zipkin <https://zipkin.io/> 作为追踪（trace）提供程序来实现 Envoy 的 :ref:请求追踪（trace）功能。
 这个沙盒与前面所讲的前端代理架构非常的相似，但有一点不同的是：在返回响应之前，service1 会对 service2 进行 API 调用。 
@@ -70,7 +70,7 @@ Zipkin 追踪（trace）沙盒使用 Zipkin <https://zipkin.io/> 作为追踪（
     * Connection #0 to host 192.168.99.100 left intact
 
 步骤 5: 在 Zipkin UI 中查看追踪（trace）
-************************************
+*******************************************
 
 使用你的浏览器访问 http://localhost:9411。
 你应该看到 Zipkin 仪表板。
