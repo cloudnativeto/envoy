@@ -6,9 +6,9 @@
 管理服务器无法访问
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-当 Envoy 实例与管理服务器失去连接时，Envoy 将锁定先前的配置，同时在后台主动重试以重新建立与管理服务器的连接。
+当 Envoy 实例与管理服务器失去连接时，Envoy 将锁定先前的配置，同时在后台积极重试以重新建立与管理服务器的连接。
 
-重要的是，Envoy 会探测与管理服务器的连接是否不健康，以便于它可以尝试建立新的连接。建议在连接到管理服务器的集群中配置
+重要的是，Envoy 会探测与管理服务器的连接是否健康，以便于它可以尝试建立新的连接。建议在连接到管理服务器的集群中配置
 :ref:`TCP keep-alives <envoy_v3_api_field_config.cluster.v3.UpstreamConnectionOptions.tcp_keepalive>`
 或 :ref:`HTTP/2 keepalives <envoy_v3_api_field_config.core.v3.Http2ProtocolOptions.connection_keepalive>`
 保持活动状态。
@@ -28,8 +28,8 @@ Envoy 调试模式会如实记录它无法与管理服务器建立连接时每�
    :header: 名字, 类型, 描述
    :widths: 1, 1, 2
 
-   connected_state, Gauge, 一个布尔值（1用于连接，0用于断开连接），指示与管理服务器的当前连接状态
-   rate_limit_enforced, Counter, 为管理服务器请求实施速率限制的总次数
+   connected_state, Gauge, 一个布尔值（1用于连接，0用于断开连接），表示与管理服务器的当前连接状态
+   rate_limit_enforced, Counter, 被管理服务器强制执行速率限制的总次数
    pending_requests, Gauge, 实施速率限制时的待处理请求总数
    identifier, TextReadout, 发送上一个发现响应的控制平面实例的标识符
 
@@ -56,4 +56,4 @@ Envoy 通过被称为 *xDS* 的发现服务来发现其各种动态资源。通�
  update_time, Gauge, 上一次尝试获取成功的 API 的时间戳，以毫秒为单位。即使在不包含任何配置更改的配置重载后也会刷新。
  version, Gauge, 上一次成功获取 API 的内容的哈希值
  version_text, TextReadout, 上一次成功获取 API 的版本文本
- control_plane.connected_state, Gauge, 布尔值（1表示已连接，0表示已断开连接），指示与管理服务器的当前连接状态
+ control_plane.connected_state, Gauge, 布尔值（1表示已连接，0表示已断开连接），表示与管理服务器的当前连接状态
