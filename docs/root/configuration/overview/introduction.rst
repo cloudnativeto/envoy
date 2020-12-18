@@ -11,6 +11,6 @@ Envoy xDS API 在 :repo:`api 树 <api/>` 中被定义为 `proto3
   <https://developers.google.com/protocol-buffers/docs/proto3#json>`_ 衍生得到一个新的基于 JSON/YAML 格式的 REST-JSON API。
 * 通过文件系统、REST-JSON 或者 gRPC 端点的更新传输。
 * 通过一个扩展的端点分配 API 和负载来实现的高级负载均衡，以及向管理服务器上报资源利用率。 
-* 当需要时的 :ref:`强一致性和有序性 <xds_protocol_eventual_consistency_considerations>` 。这些 API 仍然保持一个基线最终一致性模型。
+* 当需要时的 :ref:`强一致性和有序性 <xds_protocol_eventual_consistency_considerations>` 。API 仍然需要保持基线最终一致性模型。
 
 关于 Envoy 和管理服务器之间 xDS 消息交换的更进一步详细信息，可查看 :ref:`xDS 协议描述 <xds_protocol>`。
