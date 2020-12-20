@@ -66,7 +66,7 @@ UDP 代理过滤器发出它自己的下游统计信息以及许多适用的 :re
   idle_timeout, Counter, 由于空闲超时而销毁的会话数
   downstream_sess_active, Gauge, 当前活动呃会话数
 
-UDP 代理使用以下标准 :ref:`上游集群统计信息 <config_cluster_manager_cluster_stats>`：
+UDP 代理使用以下标准 :ref:`上游集群统计信息 <config_cluster_manager_cluster_stats>` ：
 
 .. csv-table::
   :header: 名称, 类型, 描述
