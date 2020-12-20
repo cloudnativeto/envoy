@@ -5,10 +5,10 @@
 .. TODO(yosrym93): When a documentation is written for a production-ready Cache Filter, link to it through this doc.
 
 本示例将展示如何使用 Envoy 的缓存过滤器处理 HTTP 缓存。
-第一步，安装沙盒环境 :ref: `Front Proxy sandbox <install_sandboxes_front_proxy>`。本示例采用的沙盒模式为前端代理模式。
+沙盒环境的安装需要基于 :ref: `前端代理沙盒 <install_sandboxes_front_proxy>` 的设置。
 
 所有传入请求都通过前端 Envoy 进行路由，该前端 Envoy 充当位于 ``envoymesh`` 网络边缘的反向代理。
-第二步，在 docker compose 配置中暴露两个端口 ``8000`` 和 ``8001``，分别处理对服务的 ``HTTP`` 调用和对 ``/admin`` 的请求。（请参阅 :repo: `/examples/cache/docker-compose.yaml`）。
+docker compose 暴露两个端口 ``8000`` 和 ``8001`` 来分别处理服务的 ``HTTP`` 调用和对 ``/admin`` 的请求。（请参阅 :repo: `/examples/cache/docker-compose.yaml`）。
 前端 Envoy 的后面部署了两个后端服务，每个后端服务都有一个 sidecar Envoy。
 
 前端 Envoy 配置为运行缓存过滤器，该过滤器将可缓存的响应存储在内存缓存中，并将其提供给后续请求。
@@ -24,7 +24,7 @@
 
 .. include:: _include/docker-env-setup.rst
 
-第三步，启动所有容器
+第三步，启动我们的所有容器
 ***********************************
 
 .. code-block:: console
@@ -41,7 +41,7 @@
     cache_service1_1      /bin/sh -c /usr/local/bin/ ... Up      10000/tcp, 8000/tcp
     cache_service2_1      /bin/sh -c /usr/local/bin/ ... Up      10000/tcp, 8000/tcp
 
-第四步，测试 Envoy 的 HTTP 缓存的性能
+第四步，测试 Envoy 的 HTTP 缓存能力
 **********************************************
 
 现在你可以通过 ``front-envoy`` 向后端发送一个请求。需注意，两个服务是不同的请求路由，相同的请求发送到不同服务时产生的缓存实体是不同的。（即，一个请求发送到服务 2 产生的缓存响应信息与发送到服务 1 所产生的缓存响应信息不是同一个对象）。
