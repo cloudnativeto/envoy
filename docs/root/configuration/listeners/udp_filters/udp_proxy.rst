@@ -9,24 +9,24 @@ UDP 代理
 概述
 --------
 
-UDP 代理监听器过滤器允许 Envoy 作为 UDP 客户机和服务器之间的 *非透明* 代理进行操作。非透明意味着上游服务器将
-看到 Envoy 实例相对于客户端的源 IP 地址和端口。所有的数据报都是从客户机，到 Envoy，再到上游服务器，然后回到 Envoy，
+UDP 代理监听器过滤器允许 Envoy 作为 UDP 客户端和服务器之间的 *非透明* 代理进行操作。非透明意味着上游服务器将
+看到 Envoy 实例相对于客户端的源 IP 地址和端口。所有的数据报都是从客户端，到 Envoy，再到上游服务器，然后回到 Envoy，
 再回到客户端。
 
-由于 UDP 不是面向连接的协议，Envoy 必须保持跟踪客户端的 *会话*，以便来自上游服务器的响应数据报可以路由回正确的客户端。
-每个会话由 4 元组进行索引，4 元组由源 IP 地址、源端口和接受数据报的本地 IP 地址、本地端口组成。会话会持续到 :ref:`空闲超时
-<envoy_v3_api_field_extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.idle_timeout>` 。
+由于 UDP 不是面向连接的协议，Envoy 必须保持跟踪客户端的 *会话*，以便来自上游服务器的响应数据报可以返回给正确的客户端。
+每个会话由 4 元组进行索引，4 元组由源 IP 地址、源端口和接收数据报的本地 IP 地址、本地端口组成。会话会持续到
+:ref:`空闲超时 <envoy_v3_api_field_extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.idle_timeout>` 。
 
 如果设置了 :ref:`use_original_src_ip <envoy_v3_api_msg_extensions.filters.udp.udp_proxy.v3.UdpProxyConfig>`
-字段，UDP 代理监听器筛选器也可以作为 *透明* 代理运行。但是请记住，它不会转发端口到上游，它只转发 IP 地址到上游。
+字段，UDP 代理监听器过滤器也可以作为 *透明* 代理运行。但是请记住，它不会把端口转发到上游，它只会把 IP 地址转发到上游。
 
 负载均衡和不正常的主机处理
 ---------------------
 
 在对 UDP 数据报进行负载均衡时，Envoy 将为配置的上游集群充分利用配置的负载均衡器。创建新会话时，Envoy 将会与
-使用配置的负载均衡器选择的上游主机进行关联。属于该会话的所有未来的数据报都将路由到相同的上游主机。
+使用配置的负载均衡器选择的上游主机进行关联。将来，所有属于该会话的数据报都将路由到相同的上游主机。
 
-当上游的主机变得不正常时（由于 :ref:`主动健康检查 <arch_overview_health_checking>`），
+当上游主机变异常时（由于 :ref:`主动健康检查 <arch_overview_health_checking>` ），
 Envoy 将尝试创建一个与健康主机的新会话。
 
 断路
