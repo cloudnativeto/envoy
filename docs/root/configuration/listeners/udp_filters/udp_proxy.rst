@@ -32,14 +32,13 @@ Envoy 将尝试创建一个与健康主机的新会话。
 断路
 ----
 
-每个上游集群可以创建的会话数受集群
-:ref:`最大连接断路器 <arch_overview_circuit_break_cluster_maximum_connections>`
+每个上游集群可以创建的会话数受集群 :ref:`最大连接断路器 <arch_overview_circuit_break_cluster_maximum_connections>`
 的限制。默认情况下为 1024。
 
 示例配置
 -------
 
-下面的示例配置将使 Envoy 侦听 UDP 端口 1234，并代理到侦听端口为 1235 的 UDP 服务器。
+下面的示例配置，Envoy 将在 UDP 端口 1234 上监听，并代理到监听端口为 1235 的 UDP 服务器。
 
 .. literalinclude:: _include/udp-proxy.yaml
     :language: yaml
