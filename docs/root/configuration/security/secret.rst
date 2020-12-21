@@ -3,17 +3,17 @@
 Secret 发现服务（SDS）
 ======================
 
-TLS 证书，secrets，可以在 the bootstrap.static_resource :ref:`secrets <envoy_v3_api_field_config.bootstrap.v3.Bootstrap.StaticResources.secrets>` 中指定。但是也可以通过 secret 发现服务（SDS）来远程获取。
+TLS 证书，secrets，可以在 bootstrap.static_resource :ref:`secrets <envoy_v3_api_field_config.bootstrap.v3.Bootstrap.StaticResources.secrets>` 中指定。但是也可以通过 secret 发现服务（SDS）来远程获取。
 
-SDS 最重要的好处就是优化了证书管理。如果没有这个特性，在 k8s deployment 中，证书就必须以 secret 的方式被创建，然后挂载进代理容器。如果证书过期了，就需要更新 secret 且代理容器需要被重新部署。如果使用 SDS，一个集中的 SDS 服务器会将证书推送给所有的 Envoy 实例。如果证书过期了，服务器仅需要将新证书推送至 Envoy 实例，Envoy 将会立即使用新证书且不需要重新部署代理容器。
+SDS 最重要的好处就是简化了证书管理。如果没有这个特性，在 k8s deployment 中，证书就必须以 secret 的方式被创建，然后挂载进代理容器。如果证书过期了，就需要更新 secret 且代理容器需要被重新部署。如果使用 SDS，一个集中的 SDS 服务器会将证书推送给所有的 Envoy 实例。如果证书过期了，服务器仅需要将新证书推送至 Envoy 实例，Envoy 将会立即使用新证书且不需要重新部署代理容器。
 
-如果需要通过 SDS 来远程获取一个监听器服务器的证书，此监听器将不会被标记为激活状态，在证书被获取之前，它的端口将不会被打开。如果因为连接失败或者错误的返回数据导致 Envoy 获取证书失败，监听器将会被标记为激活状态，而且端口也会被打开，但是此端口的连接将会被重制。
+如果需要通过 SDS 来远程获取一个监听器服务器的证书，此监听器将不会被标记为激活状态，在证书被获取之前，它的端口将不会被打开。如果因为连接失败或者错误的返回数据导致 Envoy 获取证书失败，监听器将会被标记为激活状态，而且端口也会被打开，但是此端口的连接将会被重置。
 
 上游集群的处理方式类似，如果需要通过 SDS 来远程获取一个集群客户端证书，集群将不会被标记为激活状态，在证书被获取之前，集群处于不可用状态。如果因为连接失败或者错误的返回数据导致 Envoy 获取证书失败，集群将会被标记为激活状态，它依旧可以用来处理请求，但是路由到集群的请求将会被拒绝。
 
 如果一个静态集群正在使用 SDS，集群需要定义一个 SDS 集群（除非使用了并不需要集群的 Google gRPC），SDS 集群需要在静态集群使用 SDS 之前先行对其进行定义。
 
-Envoy 代理和 SDS 服务器之间的连接必须要是安全的。一个选择就是在同一个主机上运行 SDS 服务器，且对连接使用 Unix 域套接字。否则，在代理和 SDS 服务器之间的连接需要 TLS 认证。如今使用的认证凭证都有：
+Envoy 代理和 SDS 服务器之间的连接必须要是安全的。一个选择就是在同一个主机上运行 SDS 服务器，且使用 Unix 域套接字。否则，在代理和 SDS 服务器之间的连接需要 TLS 认证。如今使用的认证凭证都有：
 
 * mTLS -- 在这种情况下，SDS 连接的客户端证书必须被静态配置。
 * AWS IAM SigV4
@@ -21,12 +21,12 @@ Envoy 代理和 SDS 服务器之间的连接必须要是安全的。一个选择
 SDS 服务器
 -----------
 
-SDS 服务器需要实现 gRPC 服务 :repo:`SecretDiscoveryService <api/envoy/service/secret/v3/sds.proto>` 。它和其他 :ref:`xDS <xds_protocol>` 遵循相同的协议。
+SDS 服务器需要实现 gRPC 服务 :repo:`SecretDiscoveryService <api/envoy/service/secret/v3/sds.proto>` 。它和其它 :ref:`xDS <xds_protocol>` 遵循相同的协议。
 
 SDS 配置
 ---------
 
-:ref:`SdsSecretConfig <envoy_v3_api_msg_extensions.transport_sockets.tls.v3.SdsSecretConfig>` 用来指定 secret。它的 *name* 字段是一个必填字段。如果 *sds_config* 字段为空，*name* 字段指定了 bootstrap static_resource :ref:`secrets <envoy_v3_api_field_config.bootstrap.v3.Bootstrap.StaticResources.secrets>` 中的 secret。否则，将指定 SDS 服务器为 :ref:`ConfigSource <envoy_v3_api_msg_config.core.v3.ConfigSource>` 。如果 SDS 服务只支持 gRPC，则 *api_config_source* 字段必须指定为 **grpc_service** 。
+:ref:`SdsSecretConfig <envoy_v3_api_msg_extensions.transport_sockets.tls.v3.SdsSecretConfig>` 用来指定 secret。它的 *name* 字段是一个必填字段。如果 *sds_config* 字段为空，*name* 字段指定了 bootstrap static_resource :ref:`secrets <envoy_v3_api_field_config.bootstrap.v3.Bootstrap.StaticResources.secrets>` 中的 secret。否则，将指定 SDS 服务器为 :ref:`ConfigSource <envoy_v3_api_msg_config.core.v3.ConfigSource>` 。SDS 服务只支持 gRPC，所以 *api_config_source* 字段必须指定为 **grpc_service** 。
 
 *SdsSecretConfig* 在 :ref:`CommonTlsContext <envoy_v3_api_msg_extensions.transport_sockets.tls.v3.CommonTlsContext>` 的两个字段中有所使用。第一个字段 *tls_certificate_sds_secret_configs* 使用 SDS 来获取 :ref:`TlsCertificate <envoy_v3_api_msg_extensions.transport_sockets.tls.v3.TlsCertificate>` 。第二个字段 *validation_context_sds_secret_config* 使用 SDS 来获取 :ref:`CertificateValidationContext <envoy_v3_api_msg_extensions.transport_sockets.tls.v3.CertificateValidationContext>` 。
 
