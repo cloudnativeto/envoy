@@ -183,12 +183,12 @@ Protobuf 和 JSON 描述
 
 .. _config_runtime_deprecation:
 
-弃用功能的运行时覆盖使用
+使用运行时复写处理弃用特性
 -----------------------------------------------
 
 Envoy 运行时也是 Envoy 功能弃用流程的一部分。
 
-如在 Envoy :repo:`修改变更策略 <CONTRIBUTING.md#breaking-change-policy>` 中所描述，Envoy 中的功能弃用分三个阶段：warn-by-default、fail-by-default 和 代码移除（code removal）。
+如在 Envoy :repo:`重大变更策略 <CONTRIBUTING.md#breaking-change-policy>` 中所描述，Envoy 中的功能弃用分三个阶段：warn-by-default、fail-by-default 和 代码移除（code removal）。
 
 在第一阶段，Envoy 在告警日志中会打印告警，表明功能要被弃用且会增加 :ref:`deprecated_feature_use <runtime_stats>` 运行时统计。鼓励用户去 :ref:`弃用 <deprecated>` 中查看如何迁移到新的代码路径，确保这能够适用于他们的用例。
 
