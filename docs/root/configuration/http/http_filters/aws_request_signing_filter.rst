@@ -1,7 +1,7 @@
 
 .. _config_http_filters_aws_request_signing:
 
-AWS 请求签署
+AWS 请求签名
 ===================
 
 * :ref:`v3 API reference <envoy_v3_api_msg_extensions.filters.http.aws_request_signing.v3.AwsRequestSigning>`
@@ -15,7 +15,7 @@ AWS 请求签署
 HTTP AWS 请求签名过滤器用于访问经过身份验证的 AWS 服务。它使用现有的 AWS 凭证提供程序获取用于生成所需标头的秘文。
 
 示例配置
-------
+-------------
 
 过滤器配置示例：
 
