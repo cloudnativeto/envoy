@@ -4,9 +4,9 @@ HTTP 连接管理
 ==========================
 
 HTTP 是现代面向服务体系结构的重要组成部分，Envoy 实现了大量的 HTTP 特定功能。Envoy内置了一个叫 :ref:`HTTP 连接管理器 <config_http_conn_man>` 的网络层过滤器。
-此过滤器将原始字节转换为 HTTP 协议的消息和事件（例如， headers received、body data received、trailers received、等等）。 过滤器同时处理所有 HTTP 连接和请求
+此过滤器将原始字节转换为 HTTP 协议的消息和事件（例如， headers received、body data received、trailers received 等等）。 过滤器同时处理所有 HTTP 连接和请求
 的通用功能，例如 :ref:`访问日志 <arch_overview_access_logs>`、 :ref:`请求 ID 生成与追踪 <arch_overview_tracing>`、 :ref:`请求头/响应头的操作 
-<config_http_conn_man_headers>`、 :ref:`路由表 <arch_overview_http_routing>` 管理、 和 :ref:`统计 <config_http_conn_man_stats>`。
+<config_http_conn_man_headers>`、 :ref:`路由表 <arch_overview_http_routing>` 管理和 :ref:`统计 <config_http_conn_man_stats>`。
 
 HTTP 连接管理器 :ref:`配置 <config_http_conn_man>`。
 
@@ -15,7 +15,7 @@ HTTP 连接管理器 :ref:`配置 <config_http_conn_man>`。
 HTTP 协议
 --------------
 
-Envoy 的 HTTP 连接管理器 原生支持 HTTP/1.1、 WebSockets 和 HTTP/2。现在还不支持 SPDY。Envoy HTTP 设计的首要目标是成为一个 HTTP/2 多路复用代理.在内部，
+Envoy 的 HTTP 连接管理器 原生支持 HTTP/1.1、 WebSockets 和 HTTP/2。现在还不支持 SPDY。Envoy HTTP 设计的首要目标是成为一个 HTTP/2 多路复用代理。在内部，
 HTTP/2 术语用于描述系统组件。例如， 一个 HTTP 请求和响应发生在 *流* 上。一个编解码 API 被用来将不同的电报协议转换为一个格式无关的协议，为了流、请求、响应等等。
 对于 HTTP/1.1 来说，编解码器将协议的串行/流功能转换成像 HTTP/2 的某些东西提供给更高层级。这意味着大部分代码不需要理解一个流是起源于 HTTP/1.1 还是 HTTP/2 连接。
 
@@ -37,26 +37,26 @@ HTTP 连接管理器执行各种 :ref:`头清理 <config_http_conn_man_header_sa
 重试插件配置
 --------------------------
 
-通常在重试期间，主机选择遵循与原始请求相同的过程。重试插件可以用来修改这种行为，它们分为两类:
+通常在重试期间，主机选择遵循与原始请求相同的过程。重试插件可以用来修改这种行为，它们分为两类：
 
-* :ref:`主机谓词 <envoy_v3_api_field_config.route.v3.RetryPolicy.retry_host_predicate>`：这些谓词可以用来“拒绝”一个主机， 将导致重新尝试主机选择。
+* :ref:`主机谓词 <envoy_v3_api_field_config.route.v3.RetryPolicy.retry_host_predicate>`：这些谓词可以用来“拒绝”一个主机，将导致重新尝试主机选择。
   可以指定任意数量的谓词，如果任何谓词拒绝主机，则主机将被拒绝。
 
   Envoy 支持以下内置的主机谓词
 
-  * *envoy.retry_host_predicates.previous_hosts*： 这将跟踪以前尝试过的主机并且拒绝已经尝试过的主机。
+  * *envoy.retry_host_predicates.previous_hosts*：这将跟踪以前尝试过的主机并且拒绝已经尝试过的主机。
 
-  * *envoy.retry_host_predicates.omit_canary_hosts*： 这将拒绝任何被标记为金丝雀主机的主机。通过设置端点过滤器元数据中的 ``canary: true`` 为 ``envoy.lb`` 
+  * *envoy.retry_host_predicates.omit_canary_hosts*：这将拒绝任何被标记为金丝雀主机的主机。通过设置端点过滤器元数据中的 ``canary: true`` 为 ``envoy.lb``
     过滤器标记主机。查看 :ref:`LbEndpoint <envoy_v3_api_msg_config.endpoint.v3.LbEndpoint>` 获得更多信息。
 
-  * *envoy.retry_host_predicates.omit_host_metadata*： 这将拒绝任何符合预定义条件的主机。查看下面的配置示例获得更多信息。
+  * *envoy.retry_host_predicates.omit_host_metadata*：这将拒绝任何符合预定义条件的主机。查看下面的配置示例获得更多信息。
 
-* :ref:`优先级谓词<envoy_v3_api_field_config.route.v3.RetryPolicy.retry_priority>`： 这类谓词可以用来在为一个重试尝试选择优先级时调整负载的优先级。只可以定义
+* :ref:`优先级谓词<envoy_v3_api_field_config.route.v3.RetryPolicy.retry_priority>`：这类谓词可以用来在为一个重试尝试选择优先级时调整负载的优先级。只可以定义
   一个这样的谓词。
 
   Envoy 内置支持下面的优先级谓词
 
-  * *envoy.retry_priorities.previous_priorities*： 这将跟踪以前尝试过的优先级，并调整优先级负载，以便其他优先级将在后续重试尝试中作为目标。
+  * *envoy.retry_priorities.previous_priorities*：这将跟踪以前尝试过的优先级，并调整优先级负载，以便其他优先级将在后续重试尝试中作为目标。
 
 主机选择将会继续直到配置的谓词接受主机或者达到了配置的 :ref:`最大尝试次数 <envoy_v3_api_field_config.route.v3.RetryPolicy.host_selection_retry_max_attempts>`。
 
@@ -124,7 +124,7 @@ HTTP 连接管理器执行各种 :ref:`头清理 <config_http_conn_man_header_sa
 内部重定向
 --------------------------
 
-Envoy 支持处理 3xx 内部重定向， 捕获可配置的 3xx 重定向响应，合成一个新的请求，将他发送给路由匹配的上游，将重定向的响应作为对原始请求的响应返回。
+Envoy 支持处理 3xx 内部重定向，捕获可配置的 3xx 重定向响应，合成一个新的请求，将他发送给路由匹配的上游，将重定向的响应作为对原始请求的响应返回。
 
 内部重定向可以使用路由配置中的 :ref:`内部重定向策略 <envoy_v3_api_field_config.route.v3.RouteAction.internal_redirect_policy>` 来配置。
 当重定向处理开始后，任何上游的 3xx 响应，只要匹配到配置的 :ref:`重定向响应码 <envoy_v3_api_field_config.route.v3.InternalRedirectPolicy.redirect_response_codes>` 
@@ -132,15 +132,14 @@ Envoy 支持处理 3xx 内部重定向， 捕获可配置的 3xx 重定向响应
 
 要成功地处理重定向，必须通过以下检查：
 
-1. 响应码匹配到配置的 :ref:`重定向响应码 <envoy_v3_api_field_config.route.v3.InternalRedirectPolicy.redirect_response_codes>`， 默认是 302，
+1. 响应码匹配到配置的 :ref:`重定向响应码 <envoy_v3_api_field_config.route.v3.InternalRedirectPolicy.redirect_response_codes>`，默认是 302，
    或者其他的 3xx 状态码（301, 302, 303, 307, 308）。
 2. 拥有一个有效的 *location* 头，完全限定的URL。
 3. 该请求必须已被 Envoy 完全处理。
 4. 请求不能包含请求体。
 5. :ref:`allow_cross_scheme_redirect <envoy_v3_api_field_config.route.v3.InternalRedirectPolicy.allow_cross_scheme_redirect>` 是 true（默认是 false），
    或者下游请求的模式和 *location* 头一致。
-6. 请求或重定向请求命中的路由，之前处理的内部重定向次数不超过配置的 :ref:`最大重定向数 <envoy_v3_api_field_config.route.v3.InternalRedirectPolicy.max_internal_redirects>`
-   of the route that the request or redirected request is hitting.
+6. 给定的下游请求之前处理的内部重定向次数不超过请求或重定向请求命中的路由配置的 :ref:`最大重定向数 <envoy_v3_api_field_config.route.v3.InternalRedirectPolicy.max_internal_redirects>`。
 7. 全部 :ref:`谓词 <envoy_v3_api_field_config.route.v3.InternalRedirectPolicy.predicates>` 接受目标路由。
 
 任何失败都将导致重定向传递给下游。
@@ -153,7 +152,7 @@ Envoy 支持处理 3xx 内部重定向， 捕获可配置的 3xx 重定向响应
 
 有两个谓词可以创建一个有向无环图来定义一个过滤器链，他们是 :ref:`先前的路由 <envoy_v3_api_msg_extensions.internal_redirect.previous_routes.v3.PreviousRoutesConfig>` 谓词
 和 :ref:`allow_listed_routes <envoy_v3_api_msg_extensions.internal_redirect.allow_listed_routes.v3.AllowListedRoutesConfig>`。
-具体来说， *allow listed routes* 谓词定义的有向无环图中各个节点的边，而 *先前的路由* 谓词定义了边的“访问”状态，如果是这样就可以避免循环。
+具体来说，*allow listed routes* 谓词定义的有向无环图中各个节点的边，而 *先前的路由* 谓词定义了边的“访问”状态，如果是这样就可以避免循环。
 
 第三个谓词 :ref:`safe_cross_scheme <envoy_v3_api_msg_extensions.internal_redirect.safe_cross_scheme.v3.SafeCrossSchemeConfig>` 被用来防止 HTTP -> HTTPS 的跳转。
 
