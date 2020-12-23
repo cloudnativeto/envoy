@@ -30,7 +30,7 @@ RFC 8586 在如何修改 CDN-Loop 头信息方面有特别的规定。例如：
 
 * *max_allowed_occurrences* 字段控制下游请求 CDN-Loop 头信息中 *cdn_id* 可以出现的次数。
   （在过滤器追加 *cdn_id* 到头信息前） 如果头信息中 *cdn_id* 出现的次数大于 *max_allowed_occurrences*，
-   过滤器将拒绝此次下游请求。大多数用户应将 *max_allowed_occurrences* 设置为 0 （默认值）。
+  过滤器将拒绝此次下游请求。大多数用户应将 *max_allowed_occurrences* 设置为 0 （默认值）。
 
 响应码详情
 ---------------------
