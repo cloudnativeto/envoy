@@ -1,6 +1,6 @@
 .. _config_secret_discovery_service:
 
-Secret 发现服务（SDS）
+证书（Secret）发现服务（SDS）
 ======================
 
 TLS 证书，secrets，可以在 bootstrap.static_resource :ref:`secrets <envoy_v3_api_field_config.bootstrap.v3.Bootstrap.StaticResources.secrets>` 中指定。但是也可以通过 secret 发现服务（SDS）来远程获取。
