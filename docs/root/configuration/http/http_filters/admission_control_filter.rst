@@ -22,7 +22,7 @@
 
    P_{reject} = {(\frac{n_{total} - s}{n_{total} + 1})}^\frac{1}{aggression}
 
-在这里,
+其中,
 
 .. math::
 
