@@ -27,7 +27,7 @@ IP 版本支持
 We can use the following set of commands to ensure that all ipv4 and ipv6 traffic marked with *X*
 (assumed to be 123 in the example) routes correctly. Note that this example assumes that *eth0* is
 the default outbound interface.
-我们可以使用以下命令集来确保所有标有 *X*（在示例中假定为123）的 ipv4 和 ipv6 流量正确路由。 注意此示例假定 *eth0* 为
+我们可以使用以下命令集来确保所有标有 *X*（在示例中假定为 123）的 ipv4 和 ipv6 流量正确路由。 注意此示例假定 *eth0* 为
 默认出站接口。
 
 .. code-block:: text
