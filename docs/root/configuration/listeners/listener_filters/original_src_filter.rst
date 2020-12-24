@@ -4,7 +4,7 @@
 ===============
 
 * :ref:`监听器过滤器 v3 API 参考 <envoy_v3_api_msg_extensions.filters.listener.original_src.v3.OriginalSrc>`
-* 这个过滤器通过名字 *envoy.filters.listener.original_src* 来配置
+* 此过滤器的名称应该被配置为 *envoy.filters.listener.original_src*。
 
 在 Envoy 的上游侧，原始源监听器过滤器复制连接的下游远程地址。例如，如果下游连接以IP地址 ``10.1.2.3`` 连接到 Envoy，则 Envoy 将以源 IP ``10.1.2.3`` 连接到上游。
 
