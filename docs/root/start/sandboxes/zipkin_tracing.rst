@@ -14,7 +14,7 @@ Zipkin 追踪（trace）沙盒使用 Zipkin <https://zipkin.io/> 作为追踪（
 在将请求路由到合适的 envoy 或应用程序之前，Envoy 会生成合适的用于追踪（trace）的 span（父子共享的上下文 span）。
 在高层次上，每个 span 记录上游API调用的延迟以及将 span 与其他相关 span（例如跟踪ID）关联所需的信息。 
 
-从 Envoy 进行跟踪的最重要的好处之一是，它会负责将跟踪信息传播到 Zipkin 服务群集。
+从 Envoy 进行跟踪的最重要的好处之一是，它会保证将跟踪信息传播到 Zipkin 服务群集。
 但是，为了充分利用跟踪，应用端必须在调用其他服务的时候传递 Envoy 生成的追踪（trace）的请求头信息。
 在我们提供的沙箱例子中，作为 service1 的简单 flask 应用（参见 :repo:`/examples/front-proxy/service.py` 中的跟踪函数）在访问 service2 的时候传递了追踪（trace）的请求头信息。
 
@@ -44,7 +44,7 @@ Zipkin 追踪（trace）沙盒使用 Zipkin <https://zipkin.io/> 作为追踪（
     zipkin-tracing_service2_1      /bin/sh -c /usr/local/bin/ ... Up      10000/tcp, 8000/tcp
     zipkin-tracing_zipkin_1        /busybox/sh run.sh             Up      9410/tcp, 0.0.0.0:9411->9411/tcp
 
-步骤 4: 生成一些负载
+步骤 4: 发送请求
 **************************
 
 你现在可以通过 envoy 向 service1 发送请求，如下所示：
