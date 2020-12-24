@@ -4,7 +4,7 @@ UDP 代理
 =========
 
 * :ref:`v3 API 参考 <envoy_v3_api_msg_extensions.filters.udp.udp_proxy.v3.UdpProxyConfig>`
-* 这个过滤器需要使用 *envoy.filters.udp_listener.udp_proxy* 来配置。
+* 此过滤器的名称应该被配置为 *envoy.filters.udp_listener.udp_proxy* 。
 
 概述
 --------
@@ -21,7 +21,7 @@ UDP 代理监听器过滤器允许 Envoy 作为 UDP 客户端和服务器之间�
 字段，UDP 代理监听器过滤器也可以作为 *透明* 代理运行。但是请记住，它不会把端口转发到上游，它只会把 IP 地址转发到上游。
 
 负载均衡和不正常的主机处理
----------------------
+----------------------
 
 在对 UDP 数据报进行负载均衡时，Envoy 将为配置的上游集群充分利用配置的负载均衡器。创建新会话时，Envoy 将会与
 使用配置的负载均衡器选择的上游主机进行关联。将来，所有属于该会话的数据报都将路由到相同的上游主机。
@@ -30,7 +30,7 @@ UDP 代理监听器过滤器允许 Envoy 作为 UDP 客户端和服务器之间�
 Envoy 将尝试创建一个与健康主机的新会话。
 
 断路
-----
+------
 
 每个上游集群可以创建的会话数受集群 :ref:`最大连接断路器 <arch_overview_circuit_break_cluster_maximum_connections>`
 的限制。默认情况下为 1024。
@@ -45,7 +45,7 @@ Envoy 将尝试创建一个与健康主机的新会话。
 
 
 统计
-----
+------
 
 UDP 代理过滤器发出它自己的下游统计信息以及许多适用的 :ref:`集群上游统计信息 <config_cluster_manager_cluster_stats>`。
 下游的统计数据的根是 *udp.<stat_prefix>.*。统计信息如下：
@@ -65,7 +65,7 @@ UDP 代理过滤器发出它自己的下游统计信息以及许多适用的 :re
   idle_timeout, Counter, 由于空闲超时而销毁的会话数
   downstream_sess_active, Gauge, 当前活动呃会话数
 
-UDP 代理使用以下标准 :ref:`上游集群统计信息 <config_cluster_manager_cluster_stats>` ：
+UDP 代理使用以下标准 :ref:`上游集群统计信息 <config_cluster_manager_cluster_stats>`：
 
 .. csv-table::
   :header: 名称, 类型, 描述
