@@ -28,7 +28,7 @@ RBAC 过滤器的输出统计位于 *http.<stat_prefix>.rbac.* 命名空间中�
 
   allowed, Counter, 允许访问的请求总数
   denied, Counter, 拒绝访问的请求总数
-  shadow_allowed, Counter, 使用过滤器影子规则来允许访问的请求总数
+  shadow_allowed, Counter, 影子规则允许访问的请求总数
   shadow_denied, Counter, 影子规则拒绝访问的请求总数
   logged, Counter, 应该被记录的请求总数
   not_logged, Counter, 不应该被记录的请求总数
@@ -46,4 +46,4 @@ RBAC 过滤器会发出以下动态元数据。
 
   shadow_effective_policy_id, string, 与该动作相匹配的有效的影子策略 ID（如果有的话）。
   shadow_engine_result, string, 影子规则的引擎结果（`允许` 或者 `拒绝`）。
-  access_log_hint, boolean, 请求是否应该被记录。此元数据是共享的，且设置在私钥命名空间‘envoy.common’下。(查看 :ref:`共享的动态元数据 <shared_dynamic_metadata>`）。
+  access_log_hint, boolean, 请求是否应该被记录。此元数据是共享的，且设置在关键的命名空间‘envoy.common’下。(查看 :ref:`共享的动态元数据 <shared_dynamic_metadata>`）。
