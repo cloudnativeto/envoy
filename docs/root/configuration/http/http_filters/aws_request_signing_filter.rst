@@ -33,6 +33,7 @@ HTTP AWS 请求签名过滤器用于访问经过身份验证的 AWS 服务。它
 AWS 请求签名过滤器在 *http.<stat_prefix>.aws_request_signing.* 命名空间中输出统计信息。
 :ref:`stat 前缀 <envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.stat_prefix>`
 来自拥有的 HTTP 连接管理器。
+
 .. csv-table::
   :header: 名称, 类型, 描述
   :widths: 1, 1, 2
