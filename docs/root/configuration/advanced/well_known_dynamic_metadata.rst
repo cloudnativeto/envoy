@@ -3,7 +3,7 @@
 众所周知的动态元数据
 =====================
 
-过滤器可以通过 *setDynamicMetadata* 来发送动态元数据，而通常在 :repo:`连接 <include/envoy/network/connection.h>` 中的 :repo:`StreamInfo <include/envoy/stream_info/stream_info.h>` 接口中。过滤器发送的元数据可以被其他过滤器所消费，可以通过级联这种过滤器来构建有用的特性。比如，一个日志过滤器可以消耗来自 RBAC 过滤器的动态元数据，以此来记录运行时影子规则的详细日志信息。另外一个例子是 RBAC 过滤器通过查看由 MongoDB 过滤器发出的操作元数据，来对 MySQL/MongoDB 的操作作出许可/限制。
+过滤器可以通过 *setDynamicMetadata* 来发送动态元数据，而通常在 :repo:`连接 <include/envoy/network/connection.h>` 中的 :repo:`StreamInfo <include/envoy/stream_info/stream_info.h>` 接口中。过滤器发送的元数据可以被其他过滤器所消费，可以通过级联这种过滤器来构建有用的特性。比如，一个日志过滤器可以消费来自 RBAC 过滤器的动态元数据，以此来记录运行时影子规则的详细日志信息。另外一个例子是 RBAC 过滤器通过查看由 MongoDB 过滤器发出的操作元数据，来对 MySQL/MongoDB 的操作作出许可/限制。
 
 如下 Envoy 过滤器发出动态元数据，然后数据被其他过滤器所使用。
 
@@ -16,7 +16,7 @@
 * :ref:`基于角色的访问控制（RBAC）网络过滤器 <config_network_filters_rbac_dynamic_metadata>`
 * :ref:`ZooKeeper 代理过滤器 <config_network_filters_zookeeper_proxy_dynamic_metadata>`
 
-如下 Envoy 过滤器可以通过配置来消耗由其他过滤器发出动态元数据。
+如下 Envoy 过滤器可以通过配置来消费由其他过滤器发出动态元数据。
 
 * :ref:`使用元数据上下文命名空间的外部授权过滤器
   <envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.metadata_context_namespaces>`
@@ -39,6 +39,6 @@
 * :ref:`基于角色的访问控制（RBAC）过滤器 <config_http_filters_rbac_dynamic_metadata>`
 * :ref:`基于角色的访问控制（RBAC）网络过滤器 <config_network_filters_rbac_dynamic_metadata>`
 
-如下 Envoy 过滤器消耗共享动态元数据。
+如下 Envoy 过滤器消费共享动态元数据。
 
 * :ref:`元数据访问日志过滤器 <envoy_v3_api_msg_config.accesslog.v3.MetadataFilter>`
