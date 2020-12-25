@@ -46,8 +46,7 @@ HTTP 连接管理器执行各种 :ref:`头清理 <config_http_conn_man_header_sa
 
   * *envoy.retry_host_predicates.previous_hosts*：这将跟踪以前尝试过的主机并且拒绝已经尝试过的主机。
 
-  * *envoy.retry_host_predicates.omit_canary_hosts*：这将拒绝任何被标记为金丝雀主机的主机。通过在过滤器元数据中为 ``envoy.lb`` 过滤器设置 ``canary: true`` 来标记主机。
-  查看 :ref:`LbEndpoint <envoy_v3_api_msg_config.endpoint.v3.LbEndpoint>` 获得更多信息。
+  * *envoy.retry_host_predicates.omit_canary_hosts*：这将拒绝任何被标记为金丝雀主机的主机。通过在过滤器元数据中为 ``envoy.lb`` 过滤器设置 ``canary: true`` 来标记主机。查看 :ref:`LbEndpoint <envoy_v3_api_msg_config.endpoint.v3.LbEndpoint>` 获得更多信息。
 
   * *envoy.retry_host_predicates.omit_host_metadata*：这将拒绝任何符合预定义条件的主机。查看下面的配置示例获得更多信息。
 
