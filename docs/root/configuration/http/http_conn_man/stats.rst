@@ -136,7 +136,7 @@ Http2 编解码器统计
    trailers, Counter, 在下游请求中看到的尾部总数
    tx_flush_timeout, Counter, 等待空闲流窗口刷新流剩余部分的流空闲超时总数 :ref:`stream idle timeouts <envoy_api_field_config.filter.network.http_connection_manager.v2.HttpConnectionManager.stream_idle_timeout>`
    tx_reset, Counter, Envoy 发送的重置流帧总数
-   keepalive_timeout, Counter, 由于keepalive超时而关闭的连接总数 :ref:`keepalive timeout <envoy_v3_api_field_config.core.v3.KeepaliveSettings.timeout>`
+   keepalive_timeout, Counter, 由于 keepalive 超时而关闭的连接总数 :ref:`keepalive timeout <envoy_v3_api_field_config.core.v3.KeepaliveSettings.timeout>`
    streams_active, Gauge, 编解码器观察到的活动流
    pending_send_bytes, Gauge, 当打开/流/连接窗口正在等待写入的当前缓冲的 body 数据（以字节为单位）
 
