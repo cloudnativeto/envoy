@@ -61,7 +61,7 @@
    rs_too_large, Counter, 由于缓冲过大的 body 而导致的总响应错误
 
 以 user agent 维度进行的统计
--------------------------
+----------------------------
 
 其他每个 user agent 维度进行的统计信息都以 *http.<stat_prefix>.user_agent.<user_agent>.* 开头。 目前 Envoy 匹配 iOS (*ios*) 和 Android (*android*) 的 user agent ，并产生以下的统计信息：
 
