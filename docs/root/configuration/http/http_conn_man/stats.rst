@@ -12,7 +12,7 @@
    downstream_cx_total, Counter, 连接总数
    downstream_cx_ssl_total, Counter, TLS 连接总数
    downstream_cx_http1_total, Counter, HTTP/1.1 连接总数
-   downstream_cx_upgrades_total, Counter, 成功升级的连接总数。 这些统计数据也包括 所有 http1/http2 连接总数.
+   downstream_cx_upgrades_total, Counter, 成功升级的连接总数。 这些统计数据也包括所有 http1/http2 连接总数.
    downstream_cx_http2_total, Counter, HTTP/2 连接总数
    downstream_cx_destroy, Counter, 被破坏的连接总数
    downstream_cx_destroy_remote, Counter, 由于远程关闭而被破坏的连接总数
@@ -52,12 +52,12 @@
    downstream_rq_3xx, Counter, 3xx 响应总数
    downstream_rq_4xx, Counter, 4xx 响应总数
    downstream_rq_5xx, Counter, 5xx 响应总数
-   downstream_rq_ws_on_non_ws_route, Counter, 由于非 WebSocket 路由而被拒绝的 WebSocket 升级请求总数。这个现在适用于WebSocket和非WebSocket升级。
+   downstream_rq_ws_on_non_ws_route, Counter, 由于非 WebSocket 路由而被拒绝的 WebSocket 升级请求总数。这个现在适用于 WebSocket 和非 WebSocket 升级。
    downstream_rq_time, Histogram, 请求和响应的总时间（毫秒）
    downstream_rq_idle_timeout, Counter, 由于空闲超时而关闭的请求总数
    downstream_rq_max_duration_reached, Counter, 由于达到了最长持续时间而关闭的请求总数
    downstream_rq_timeout, Counter, 由于请求路径超时而关闭的请求总数
-   downstream_rq_overload_close, Counter, 由于Envoy过载而关闭的请求总数
+   downstream_rq_overload_close, Counter, 由于 Envoy 过载而关闭的请求总数
    rs_too_large, Counter, 由于缓冲过大的 body 而导致的总响应错误
 
 以 user agent 维度进行的统计
@@ -132,17 +132,17 @@ Http2 编解码器统计
    outbound_control_flood, Counter, "终止的连接总数超过了 PING，SETTINGS 和 RST_STREAM 类型的出站帧的限制。这个限制可以通过设置 :ref:`max_outbound_control_frames config setting <envoy_v3_api_field_config.core.v3.Http2ProtocolOptions.max_outbound_control_frames>`."
    requests_rejected_with_underscores_in_headers, Counter, 由于头部名称包含下划线而被拒绝的请求总数。这个统计可以通过设置 :ref:`headers_with_underscores_action config setting <envoy_v3_api_field_config.core.v3.HttpProtocolOptions.headers_with_underscores_action>`.
    rx_messaging_error, Counter, 违反 HTTP/2 规范‘第8节<https://tools.ietf.org/html/rfc7540#section-8>’ 的无效接收帧总数。这个结果会体现在*tx_reset*
-   rx_reset, Counter, Envoy收到的重置流帧总数
+   rx_reset, Counter, Envoy 收到的重置流帧总数
    trailers, Counter, 在下游请求中看到的尾部总数
    tx_flush_timeout, Counter, 等待空闲流窗口刷新流剩余部分的流空闲超时总数 :ref:`stream idle timeouts <envoy_api_field_config.filter.network.http_connection_manager.v2.HttpConnectionManager.stream_idle_timeout>`
-   tx_reset, Counter, Envoy发送的重置流帧总数
+   tx_reset, Counter, Envoy 发送的重置流帧总数
    keepalive_timeout, Counter, 由于keepalive超时而关闭的连接总数 :ref:`keepalive timeout <envoy_v3_api_field_config.core.v3.KeepaliveSettings.timeout>`
    streams_active, Gauge, 编解码器观察到的活动流
    pending_send_bytes, Gauge, 当打开/流/连接窗口正在等待写入的当前缓冲的 body 数据（以字节为单位）。
 
 .. attention::
 
-  由于编码解码器和 HTTP 连接管理器的流计量不同，HTTP/2 `streams_active` 的计量值可能大于 HTTP 连接管理器 `downstream_rq_active` 。
+  由于编码解码器和 HTTP 连接管理器的流计量不同，HTTP/2 `streams_active` 的计量值可能大于 HTTP 连接管理器 `downstream_rq_active` 的计量值。
 
 追踪统计
 ------------------
