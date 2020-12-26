@@ -34,7 +34,7 @@
    downstream_cx_drain_close, Counter, 由于删除而关闭的连接总数
    downstream_cx_idle_timeout, Counter, 由于空闲超时而关闭的连接总数
    downstream_cx_max_duration_reached, Counter, 由于最大连接持续时间而关闭的总连接数
-   downstream_cx_overload_disable_keepalive, Counter, 由于Envoy过载而被禁用HTTP 1.x keepalive的总连接
+   downstream_cx_overload_disable_keepalive, Counter, 由于 Envoy 过载而被禁用 HTTP 1.x keepalive 的总连接
    downstream_flow_control_paused_reading_total, Counter, 由于流量控制而禁止的总读取次数
    downstream_flow_control_resumed_reading_total, Counter, 由于流量控制而在连接上启用的总读取次数
    downstream_rq_total, Counter, 总请求数
