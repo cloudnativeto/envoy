@@ -20,7 +20,7 @@ UDP 代理监听器过滤器允许 Envoy 作为 UDP 客户端和服务器之间�
 如果设置了 :ref:`use_original_src_ip <envoy_v3_api_msg_extensions.filters.udp.udp_proxy.v3.UdpProxyConfig>`
 字段，UDP 代理监听器过滤器也可以作为 *透明* 代理运行。但是请记住，它不会把端口转发到上游，它只会把 IP 地址转发到上游。
 
-负载均衡和不正常的主机处理
+负载均衡及异常主机的处理
 -------------------------
 
 在对 UDP 数据报进行负载均衡时，Envoy 将为配置的上游集群充分利用配置的负载均衡器。创建新会话时，Envoy 将会与
