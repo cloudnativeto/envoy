@@ -5,11 +5,11 @@ Jaeger 原生追踪
 
 Jaeger 追踪沙盒使用 `Jaeger <https://jaegertracing.io/>`_ 作为追踪提供程序，并使用 Jaeger 的原生
 `C++ 客户端 <https://github.com/jaegertracing/jaeger-client-cpp>`_ 
-作为插件，演示了 Envoy 的  :ref:`请求追踪 <arch_overview_tracing>`  功能。 使用 Jaeger 及其原生客户端而不是Envoy内置的Zipkin客户端具有以下优点：
+作为插件，演示了 Envoy 的 :ref:`请求追踪 <arch_overview_tracing>` 功能。 使用 Jaeger 及其原生客户端而不是 Envoy 内置的 Zipkin 客户端具有以下优点：
 
 - 追踪传播将与 Jaeger 的其他服务一起使用，而无需进行配置 `更改 <https://github.com/jaegertracing/jaeger-client-go#zipkin-http-b3-compatible-header-propagation>`_。
 - 可以使用各种不同的 `采样策略 <https://www.jaegertracing.io/docs/sampling/#client-sampling-configuration>`_
-  ，包括概率采样或远程采样，可以从 Jaeger 的后端集中控制采样。
+  ，包括概率采样或可以从 Jaeger 的后端集中控制的远程采样。
 - 跨度以更有效的二进制编码发送到收集器。
 
 
@@ -19,7 +19,7 @@ Jaeger 追踪沙盒使用 `Jaeger <https://jaegertracing.io/>`_ 作为追踪提�
 
    Jaeger 原生追踪只能工作在 x86-64 架构。
 
-所有的传入请求都通过前端 Envoy 路由，该前端 Envoy 是作为位于 ``envoymesh`` 网络边缘的反向代理。``8000`` 端口由 docker compose 公开（请参阅 :repo:`/examples/jaeger-native-tracing/docker-compose.yaml`)。请注意，所有 Envoy 都进行了配置，用来收集请求的追踪（例如， :repo:`/examples/jaeger-native-tracing/front-envoy-jaeger.yaml` 中的 http_connection_manager/config/tracing 设置) 并进行设置以传播 Jaeger 所生成的跨度(spans)，并将 Jaeger 追踪器生成的 span 传播到 Jaeger 集群中（追踪驱动在 :repo:`/examples/jaeger-native-tracing/front-envoy-jaeger.yaml` 中设置）。
+所有的传入请求都通过前端 Envoy 路由，该前端 Envoy 是作为位于 ``envoymesh`` 网络边缘的反向代理。``8000`` 端口由 docker compose 公开（请参阅 :repo:`/examples/jaeger-native-tracing/docker-compose.yaml`）。请注意，所有 Envoy 都进行了配置，用来收集请求的追踪（例如， :repo:`/examples/jaeger-native-tracing/front-envoy-jaeger.yaml` 中的 http_connection_manager/config/tracing 设置）并进行设置以传播 Jaeger 所生成的跨度（spans），并将 Jaeger 追踪器生成的 span 传播到 Jaeger 集群中（追踪驱动在 :repo:`/examples/jaeger-native-tracing/front-envoy-jaeger.yaml` 中设置）。
 
 在将请求路由到适当的服务 Envoy 或应用程序之前，Envoy 将负责生成用于追踪的适当跨度（父/子上下文跨度）。在较高层级上，每个跨度都记录上游 API 调用的延迟以及将跨度与其他相跨度相关联的所需信息（例如，追踪 ID）。
 
@@ -52,7 +52,7 @@ Jaeger 追踪沙盒使用 `Jaeger <https://jaegertracing.io/>`_ 作为追踪提�
     jaeger-native-tracing_service1_1      /start-service.sh              Up      10000/tcp, 8000/tcp
     jaeger-native-tracing_service2_1      /start-service.sh              Up      10000/tcp, 8000/tcp
 
-步骤 4: 生成一切负载
+步骤 4: 生成一些负载
 ***************************
 
 你现在可以通过 front-envoy 向 service1 发送以下请求:
@@ -80,6 +80,4 @@ Jaeger 追踪沙盒使用 `Jaeger <https://jaegertracing.io/>`_ 作为追踪提�
 步骤 5: 在 Jaeger 图形界面中查看追踪
 ************************************
 
-用浏览器打开 http://localhost:16686。你应该可以看到 Jaeger 仪表盘。
-将服务设置为 "front-proxy" 然后点击 'Find Traces'. 你应该看到 front-proxy 的追踪信息。
-单击追踪，单击追踪，来查看从 front-proxy 到 service1 再到 service2 的请求路径，以及每一跳产生的延迟。
+用浏览器打开 http://localhost:16686。你应该可以看到 Jaeger 仪表盘。将服务设置为 “front-proxy” 然后点击 ‘Find Traces’. 你应该看到 front-proxy 的追踪信息。单击追踪，来查看从 front-proxy 到 service1 再到 service2 的请求路径，以及每一跳产生的延迟。
