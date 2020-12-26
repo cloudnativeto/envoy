@@ -12,7 +12,7 @@
    downstream_cx_total, Counter, 连接总数
    downstream_cx_ssl_total, Counter, TLS 连接总数
    downstream_cx_http1_total, Counter, HTTP/1.1 连接总数
-   downstream_cx_upgrades_total, Counter, 成功升级的连接总数。 这些统计数据也包括所有 http1/http2 连接总数.
+   downstream_cx_upgrades_total, Counter, 成功升级的连接总数。 这些统计数据也包括所有 http1/http2 连接总数。
    downstream_cx_http2_total, Counter, HTTP/2 连接总数
    downstream_cx_destroy, Counter, 被破坏的连接总数
    downstream_cx_destroy_remote, Counter, 由于远程关闭而被破坏的连接总数
