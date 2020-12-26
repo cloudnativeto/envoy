@@ -131,7 +131,7 @@ Http2 编解码器统计
    outbound_flood, Counter, 由于超出所有类型的出站帧的限制而终止的连接总数。这个限制值可以通过设置 :ref:`max_outbound_frames config setting <envoy_v3_api_field_config.core.v3.Http2ProtocolOptions.max_outbound_frames>`.
    outbound_control_flood, Counter, "终止的连接总数超过了 PING，SETTINGS 和 RST_STREAM 类型的出站帧的限制。这个限制可以通过设置 :ref:`max_outbound_control_frames config setting <envoy_v3_api_field_config.core.v3.Http2ProtocolOptions.max_outbound_control_frames>`."
    requests_rejected_with_underscores_in_headers, Counter, 由于头部名称包含下划线而被拒绝的请求总数。这个统计可以通过设置 :ref:`headers_with_underscores_action config setting <envoy_v3_api_field_config.core.v3.HttpProtocolOptions.headers_with_underscores_action>`.
-   rx_messaging_error, Counter, 违反 HTTP/2 规范‘第8节<https://tools.ietf.org/html/rfc7540#section-8>’ 的无效接收帧总数。这个结果会体现在*tx_reset*
+   rx_messaging_error, Counter, 违反 HTTP/2 规范 ‘第8节 <https://tools.ietf.org/html/rfc7540#section-8>’ 的无效接收帧总数。这个结果会体现在*tx_reset*
    rx_reset, Counter, Envoy 收到的重置流帧总数
    trailers, Counter, 在下游请求中看到的尾部总数
    tx_flush_timeout, Counter, 等待空闲流窗口刷新流剩余部分的流空闲超时总数 :ref:`stream idle timeouts <envoy_api_field_config.filter.network.http_connection_manager.v2.HttpConnectionManager.stream_idle_timeout>`
