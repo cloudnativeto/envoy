@@ -45,7 +45,7 @@
    downstream_rq_rx_reset, Counter, 收到的请求重置总数
    downstream_rq_tx_reset, Counter, 发出的请求重置总数
    downstream_rq_non_relative_path, Counter, 带有非相对 HTTP 路径的请求总数
-   downstream_rq_too_large, Counter, Total requests resulting in a 413 due to buffering an overly large body 由于缓存过大 body 而收到413响应的请求总数
+   downstream_rq_too_large, Counter, 由于缓存过大 body 而收到413响应的请求总数
    downstream_rq_completed, Counter, 带有响应的请求总数（例如不包括中止的请求）
    downstream_rq_1xx, Counter, 1xx 响应总数
    downstream_rq_2xx, Counter, 2xx 响应总数
@@ -108,10 +108,10 @@ Http1 编解码器统计
    :header: 名称, 类型, 描述
    :widths: 1, 1, 2
 
-   dropped_headers_with_underscores, Counter, 名称中包含下划线的被丢弃的头部总数。这个统计可以通过设置 :ref:`headers_with_underscores_action config setting <envoy_v3_api_field_config.core.v3.HttpProtocolOptions.headers_with_underscores_action>`.
+   dropped_headers_with_underscores, Counter, 名称中包含下划线的被丢弃的头部总数。这个统计可以通过设置 :ref:`headers_with_underscores_action config setting <envoy_v3_api_field_config.core.v3.HttpProtocolOptions.headers_with_underscores_action>`。
    metadata_not_supported_error, Counter, HTTP/1编码期间被丢弃的元数据总数
    response_flood, Counter, 由于响应泛洪而关闭的连接总数
-   requests_rejected_with_underscores_in_headers, Counter, 由于头部名称包含下划线而导致拒绝的请求总数。这个统计可以通过设置 :ref:`headers_with_underscores_action config setting <envoy_v3_api_field_config.core.v3.HttpProtocolOptions.headers_with_underscores_action>`.
+   requests_rejected_with_underscores_in_headers, Counter, 由于头部名称包含下划线而导致拒绝的请求总数。这个统计可以通过设置 :ref:`headers_with_underscores_action config setting <envoy_v3_api_field_config.core.v3.HttpProtocolOptions.headers_with_underscores_action>`。
 
 Http2 编解码器统计
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -122,15 +122,15 @@ Http2 编解码器统计
    :header: 名称, 类型, 描述
    :widths: 1, 1, 2
 
-   dropped_headers_with_underscores, Counter, 名称中包含下划线的被丢弃的头部总数。这个统计可以通过设置 :ref:`headers_with_underscores_action config setting <envoy_v3_api_field_config.core.v3.HttpProtocolOptions.headers_with_underscores_action>`。
+   dropped_headers_with_underscores, Counter, 名称中包含下划线的被丢弃的头部总数。这个统计可以通过设置 :ref:`headers_with_underscores_action config setting <envoy_v3_api_field_config.core.v3.HttpProtocolOptions.headers_with_underscores_action>`
    header_overflow, Counter,由于头部大于参数 :ref:`configured value <envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.max_request_headers_kb>` 而重置的连接总数
-   headers_cb_no_stream, Counter, 在没有关联流的情况下进行头部回调的错误总数。由于尚未诊断的 bug，这将跟踪意外发生
-   inbound_empty_frames_flood, Counter, 由于有效载荷为空且没有结束流标志的连续入站帧超出限制而终止的连接总数。这个限制值可以通过设置 :ref:`max_consecutive_inbound_frames_with_empty_payload config setting <envoy_v3_api_field_config.core.v3.Http2ProtocolOptions.max_consecutive_inbound_frames_with_empty_payload>`。
+   headers_cb_no_stream, Counter, 在没有关联流的情况下进行头部回调的错误总数。由于尚未诊断的 bug，这将跟踪意外发生。
+   inbound_empty_frames_flood, Counter, 由于有效载荷为空且没有结束流标志的连续入站帧超出限制而终止的连接总数。这个限制值可以通过设置 :ref:`max_consecutive_inbound_frames_with_empty_payload config setting <envoy_v3_api_field_config.core.v3.Http2ProtocolOptions.max_consecutive_inbound_frames_with_empty_payload>`
    inbound_priority_frames_flood, Counter, 由于超出 PRIORITY 类型的入站帧的限制而终止的连接总数。这个限制值可以通过设置 :ref:`max_inbound_priority_frames_per_stream config setting <envoy_v3_api_field_config.core.v3.Http2ProtocolOptions.max_inbound_priority_frames_per_stream>`.
    inbound_window_update_frames_flood, Counter, 由于超出 WINDOW_UPDATE 类型的入站帧的限制而终止的连接总数。这个限制值可以通过设置 :ref:`max_inbound_window_updateframes_per_data_frame_sent config setting <envoy_v3_api_field_config.core.v3.Http2ProtocolOptions.max_inbound_window_update_frames_per_data_frame_sent>`。
-   outbound_flood, Counter, 由于超出所有类型的出站帧的限制而终止的连接总数。这个限制值可以通过设置 :ref:`max_outbound_frames config setting <envoy_v3_api_field_config.core.v3.Http2ProtocolOptions.max_outbound_frames>`。
-   outbound_control_flood, Counter, "终止的连接总数超过了 PING，SETTINGS 和 RST_STREAM 类型的出站帧的限制。这个限制可以通过设置 :ref:`max_outbound_control_frames config setting <envoy_v3_api_field_config.core.v3.Http2ProtocolOptions.max_outbound_control_frames>`。"
-   requests_rejected_with_underscores_in_headers, Counter, 由于头部名称包含下划线而被拒绝的请求总数。这个统计可以通过设置 :ref:`headers_with_underscores_action config setting <envoy_v3_api_field_config.core.v3.HttpProtocolOptions.headers_with_underscores_action>`.
+   outbound_flood, Counter, 由于超出所有类型的出站帧的限制而终止的连接总数。这个限制值可以通过设置 :ref:`max_outbound_frames config setting <envoy_v3_api_field_config.core.v3.Http2ProtocolOptions.max_outbound_frames>`
+   outbound_control_flood, Counter, "终止的连接总数超过了 PING，SETTINGS 和 RST_STREAM 类型的出站帧的限制。这个限制可以通过设置 :ref:`max_outbound_control_frames config setting <envoy_v3_api_field_config.core.v3.Http2ProtocolOptions.max_outbound_control_frames>`"
+   requests_rejected_with_underscores_in_headers, Counter, 由于头部名称包含下划线而被拒绝的请求总数。这个统计可以通过设置 :ref:`headers_with_underscores_action config setting <envoy_v3_api_field_config.core.v3.HttpProtocolOptions.headers_with_underscores_action>`
    rx_messaging_error, Counter, 违反 HTTP/2 规范 `第8节 <https://tools.ietf.org/html/rfc7540#section-8>`_ 的无效接收帧总数。这个结果会体现在 *tx_reset*
    rx_reset, Counter, Envoy 收到的重置流帧总数
    trailers, Counter, 在下游请求中看到的尾部总数
@@ -138,7 +138,7 @@ Http2 编解码器统计
    tx_reset, Counter, Envoy 发送的重置流帧总数
    keepalive_timeout, Counter, 由于keepalive超时而关闭的连接总数 :ref:`keepalive timeout <envoy_v3_api_field_config.core.v3.KeepaliveSettings.timeout>`
    streams_active, Gauge, 编解码器观察到的活动流
-   pending_send_bytes, Gauge, 当打开/流/连接窗口正在等待写入的当前缓冲的 body 数据（以字节为单位）。
+   pending_send_bytes, Gauge, 当打开/流/连接窗口正在等待写入的当前缓冲的 body 数据（以字节为单位）
 
 .. attention::
 
