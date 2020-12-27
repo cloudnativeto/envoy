@@ -64,4 +64,4 @@ DynamoDB 过滤器在 *http.<stat_prefix>.dynamodb.* 命名空间中输出统计
 DynamoDB 过滤器支持下面的运行时设置:
 
 dynamodb.filter_enabled
-  启用了过滤器的请求的百分比。默认值为100％。
+  启用了过滤器的请求的百分比。默认值为 100％。
