@@ -82,7 +82,7 @@ UDP 代理过滤器还发出以 *cluster.<cluster_name>.udp.* 为前缀的自定
   :header: 名称, 类型, 描述
   :widths: 1, 1, 2
 
-  sess_rx_datagrams, Counter, 接收到的数据报的数
+  sess_rx_datagrams, Counter, 接收到的数据报数
   sess_rx_errors, Counter, 数据报接收错误数
   sess_tx_datagrams, Counter, 传输的数据报数
   sess_tx_errors, Counter, 传输错误的数据报数
