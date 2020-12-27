@@ -3,7 +3,7 @@
 CDN-Loop 头部
 ===============
 
-CDN-Loop 头部过滤器参与 `RFC 8586 <https://tools.ietf.org/html/rfc8586>`_  定义的跨 CDN 循环检测协议。
+CDN-Loop 头部过滤器参与 `RFC 8586 <https://tools.ietf.org/html/rfc8586>`_  定义的 cross-CDN 循环检测协议。
 CDN-Loop 头部过滤器有两个作用。首先，过滤器会检测 CDN-Loop 头部中特定的 CDN 标识出现过的次数。
 其次，在通过第一步校验后，过滤器会在 CDN-Loop 头部中追加一个 CDN 标识，然后将请求传递给下游过滤器。如果校验失败，
 过滤器会终止该请求的处理并返回一个包含错误信息的响应。
@@ -13,7 +13,7 @@ RFC 8586 在如何修改 CDN-Loop 头部方面有特别的规定。例如：
 * 在过滤器链路上的的其他过滤器不能修改 CDN-Loop 头部，且
 * HTTP 路由配置的 :ref:`请求头部增加
   <envoy_v3_api_field_config.route.v3.RouteConfiguration.request_headers_to_add>`
-  或 :ref:`请求头部删除<envoy_v3_api_field_config.route.v3.RouteConfiguration.request_headers_to_remove>`
+  或 :ref:`请求头部删除 <envoy_v3_api_field_config.route.v3.RouteConfiguration.request_headers_to_remove>`
   应不包含 CDN-Loop 头部。
 
 过滤器会将多个 CDN-Loop 头部合并成一个，以逗号分隔。
