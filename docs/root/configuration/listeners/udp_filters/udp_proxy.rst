@@ -13,7 +13,7 @@ UDP 代理监听器过滤器允许 Envoy 作为 UDP 客户端和服务器之间�
 看到 Envoy 实例相对于客户端的源 IP 地址和端口。所有的数据报都是从客户端，到 Envoy，再到上游服务器，然后回到 Envoy，
 再回到客户端。
 
-由于 UDP 不是面向连接的协议，Envoy 必须保持跟踪客户端的 *会话*，以便来自上游服务器的响应数据报可以返回给正确的客户端。
+由于 UDP 不是面向连接的协议，Envoy 必须保持跟踪客户端的 *session*，以便来自上游服务器的响应数据报可以返回给正确的客户端。
 每个会话由 4 元组进行索引，4 元组由源 IP 地址、源端口和接收数据报的本地 IP 地址、本地端口组成。会话会持续到
 :ref:`空闲超时 <envoy_v3_api_field_extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.idle_timeout>` 。
 
