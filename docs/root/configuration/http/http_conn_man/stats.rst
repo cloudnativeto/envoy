@@ -34,11 +34,7 @@
    downstream_cx_drain_close, Counter, 由于排空而关闭的连接总数
    downstream_cx_idle_timeout, Counter, 由于空闲超时而关闭的连接总数
    downstream_cx_max_duration_reached, Counter, 由于最大连接持续时间而关闭的总连接数
-<<<<<<< HEAD
    downstream_cx_overload_disable_keepalive, Counter, 由于 Envoy 过载而被禁用 HTTP 1.x keepalive 的连接总数
-=======
-   downstream_cx_overload_disable_keepalive, Counter, 由于 Envoy 过载而被禁用 HTTP 1.x keepalive 的总连接
->>>>>>> 922e6d9a8e108e65b5bdb55e782175d39d7da772
    downstream_flow_control_paused_reading_total, Counter, 由于流量控制而禁止的总读取次数
    downstream_flow_control_resumed_reading_total, Counter, 由于流量控制而在连接上启用的总读取次数
    downstream_rq_total, Counter, 总请求数
@@ -49,11 +45,7 @@
    downstream_rq_rx_reset, Counter, 收到的请求重置总数
    downstream_rq_tx_reset, Counter, 发出的请求重置总数
    downstream_rq_non_relative_path, Counter, 带有非相对 HTTP 路径的请求总数
-<<<<<<< HEAD
    downstream_rq_too_large, Counter, 由于缓存超过最大 body 而收到 413 响应的请求总数
-=======
-   downstream_rq_too_large, Counter, 由于缓存过大 body 而收到413响应的请求总数
->>>>>>> 922e6d9a8e108e65b5bdb55e782175d39d7da772
    downstream_rq_completed, Counter, 带有响应的请求总数（例如不包括中止的请求）
    downstream_rq_1xx, Counter, 1xx 响应总数
    downstream_rq_2xx, Counter, 2xx 响应总数
