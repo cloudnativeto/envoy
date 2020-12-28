@@ -4,7 +4,7 @@ HTTP 连接管理
 ==========================
 
 HTTP 是现代面向服务体系架构的重要组成部分，Envoy 实现了大量的 HTTP 特定功能。Envoy内置了一个叫 :ref:`HTTP 连接管理器 <config_http_conn_man>` 的网络层过滤器。
-此过滤器将原始字节转换为 HTTP 协议的消息和事件（例如， headers received、body data received、trailers received 等等）。 过滤器同时处理所有 HTTP 连接和请求
+此过滤器将原始字节转换为 HTTP 协议的消息和事件（例如，请求头接收、请求体数据接收、请求标尾（trailers）接收等）。 过滤器同时处理所有 HTTP 连接和请求
 的通用功能，例如 :ref:`访问日志 <arch_overview_access_logs>`、 :ref:`请求 ID 生成与追踪 <arch_overview_tracing>`、 :ref:`请求头/响应头的操作 
 <config_http_conn_man_headers>`、 :ref:`路由表 <arch_overview_http_routing>` 管理和 :ref:`统计 <config_http_conn_man_stats>`。
 
