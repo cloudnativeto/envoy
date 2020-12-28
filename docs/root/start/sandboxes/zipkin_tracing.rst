@@ -3,20 +3,20 @@
 Zipkin 追踪（trace）
 =====================
 
-Zipkin 追踪（trace）沙盒使用 Zipkin <https://zipkin.io/> 作为追踪（trace）提供程序来实现 Envoy 的 :ref:请求追踪（trace）功能。
+Zipkin 追踪沙盒使用 Zipkin <https://zipkin.io/> 作为追踪提供程序来实现 Envoy 的 :ref:请求追踪功能。
 这个沙盒与前面所讲的前端代理架构非常的相似，但有一点不同的是：在返回响应之前，service1 会对 service2 进行 API 调用。 
 这三个容器将被部署在名为 ``envoymesh`` 的虚拟网络中。
 
 所有传入的请求都通过前端 envoy 进行路由，envoy 充当位于 ``envoymesh`` 网络边缘的反向代理。
 端口 ``8000`` 由 docker compose 暴露（参见 :repo:`/examples/zipkin-tracing/docker-compose.yaml`）。
-请注意，所有 envoy 都配置为收集请求跟踪 (例如 :repo:`/examples/zipkin-tracing/front-envoy-zipkin.yaml`中的 http_connection_manager/config/tracing 配置) 并设置为传递 Zipkin 追踪（trace）器生成的 span 到 Zipkin 集群中 (追踪（trace）驱动设置在 :repo:`/examples/zipkin-tracing/front-envoy-zipkin.yaml`)。
+请注意，所有 envoy 都配置为收集请求跟踪 (例如 :repo:`/examples/zipkin-tracing/front-envoy-zipkin.yaml`中的 http_connection_manager/config/tracing 配置) 并设置为传递 Zipkin 追踪器生成的 span 到 Zipkin 集群中 (追踪驱动设置在 :repo:`/examples/zipkin-tracing/front-envoy-zipkin.yaml`)。
 
-在将请求路由到合适的 envoy 或应用程序之前，Envoy 会生成合适的用于追踪（trace）的 span（父子共享的上下文 span）。
+在将请求路由到合适的 envoy 或应用程序之前，Envoy 会生成合适的用于追踪的 span（父子共享的上下文 span）。
 在高层次上，每个 span 记录上游API调用的延迟以及将 span 与其他相关 span（例如跟踪ID）关联所需的信息。 
 
 从 Envoy 进行跟踪的最重要的好处之一是，它会保证将跟踪信息传播到 Zipkin 服务群集。
-但是，为了充分利用跟踪，应用端必须在调用其他服务的时候传递 Envoy 生成的追踪（trace）的请求头信息。
-在我们提供的沙箱例子中，作为 service1 的简单 flask 应用（参见 :repo:`/examples/front-proxy/service.py` 中的跟踪函数）在访问 service2 的时候传递了追踪（trace）的请求头信息。
+但是，为了充分利用跟踪，应用端必须在调用其他服务的时候传递 Envoy 生成的追踪的请求头信息。
+在我们提供的沙箱例子中，作为 service1 的简单 flask 应用（参见 :repo:`/examples/front-proxy/service.py` 中的跟踪函数）在访问 service2 的时候传递了追踪的请求头信息。
 
 
 运行沙盒
@@ -69,11 +69,11 @@ Zipkin 追踪（trace）沙盒使用 Zipkin <https://zipkin.io/> 作为追踪（
     Hello from behind Envoy (service 1)! hostname: f26027f1ce28 resolvedhostname: 172.19.0.6
     * Connection #0 to host 192.168.99.100 left intact
 
-步骤 5: 在 Zipkin UI 中查看追踪（trace）
+步骤 5: 在 Zipkin UI 中查看追踪
 *******************************************
 
 使用你的浏览器访问 http://localhost:9411。
 你应该看到 Zipkin 仪表板。
 将服务设置为 “front-proxy”，并将开始时间设置为在测试（步骤 2）开始前几分钟并按回车。
 你应该能看到来自 front-proxy 的跟踪信息。
-单击一个追踪（trace）来显示从 front-proxy 到 service1 再到 service2 的路径信息，以及每个跳跃点所产生的延迟。
+单击一个追踪来显示从 front-proxy 到 service1 再到 service2 的路径信息，以及每个跳跃点所产生的延迟。
