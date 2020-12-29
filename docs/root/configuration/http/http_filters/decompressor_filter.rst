@@ -9,11 +9,11 @@
 -------------
 * :ref:`v3 API reference <envoy_v3_api_msg_extensions.filters.http.decompressor.v3.Decompressor>`
 
-怎么工作
-------------
+它是如何工作的
+---------------
 当解压缩过滤器被启用，头部将会被检查以确定是否应解压缩内容。 这个内容将会被解压缩，并继续传输到剩余的其他过滤链。需要注意的是，解压缩会根据以下描述的规则分别对请求和响应进行独立工作。
 
-当前过滤器只支持 :ref:`gzip compression <envoy_v3_api_msg_extensions.compression.gzip.decompressor.v3.Gzip>`
+当前过滤器只支持 :ref:`gzip 压缩 <envoy_v3_api_msg_extensions.compression.gzip.decompressor.v3.Gzip>`
 。可以支持其他压缩库作为扩展。
 
 过滤器的示例配置如下所示：
@@ -104,4 +104,4 @@
   total_uncompressed_bytes, Counter, 标记为解压缩的所有请求/响应的总未压缩字节。
   total_compressed_bytes, Counter, 标记为解压缩的所有请求/响应的总压缩字节。
 
-解压缩库的其他统计参考以根为 <stat_prefix>.decompressor.<decompressor_library.name>.<decompressor_library_stat_prefix>.decompressor_library. 的统计
+解压缩库的其他统计参考以根为 <stat_prefix>.decompressor.<decompressor_library.name>.<decompressor_library_stat_prefix>.decompressor_library 的统计。
