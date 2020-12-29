@@ -9,10 +9,10 @@
 
 有关每个配置项的详细信息，请参见 :ref:`v3 API 参考 <envoy_v3_api_msg_extensions.filters.http.admission_control.v3alpha.AdmissionControl>`。
 
-总览
+概览
 --------
 
-准入控制过滤器会根据上一个可配置的滑动时间窗口中的请求成功率，概率性的拒绝一些请求。它基于 `谷歌 SRE 手书 <https://landing.google.com/sre/sre-book/toc/index.html>`_ 中的
+准入控制过滤器会根据上一个可配置的滑动时间窗口中的请求成功率，概率性的拒绝一些请求。它基于 `谷歌 SRE 手册 <https://landing.google.com/sre/sre-book/toc/index.html>`_ 中的
 `客户端侧节流 <https://landing.google.com/sre/sre-book/chapters/handling-overload/>`_。唯一值得一提的关于准入控制过滤器的降载
 与客户端侧节流定义的降载的区别是：用户可以配置触发主动降载的成功率阈值。用户还可以通过配置成功请求的定义来计算拒绝的概率。
 
@@ -34,11 +34,11 @@
 - *aggression* 控制拒绝率曲线，因此 1.0 表示拒绝率随成功率降低而线性增加。随着 **aggression** 增大，
   拒绝率在较大的成功率时会更大。更详细的解释请参见 `Aggression`_。
 
-.. 注意::
+.. note::
    成功率计算基于每个线程单独执行，以提升性能。此外，线程间隔离也可以降低单个不良连接引起的成功率异常的影响范围。因此，
    各工作线程间的拒绝率可能不相等。
 
-.. 注意::
+.. note::
    健康检查流量不会计入过滤器的任何测量结果。
 
 关于此参数的更详细信息，请参见 :ref:`v3 API 参考
@@ -100,8 +100,8 @@ Aggression
 统计
 ----------
 准入控制过滤器将统计信息输出在 *http.<stat_prefix>.admission_control.* 命名空间下。
-:ref:`stat prefix<envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.stat_prefix>`
-由所属的 HTTP 连接管理器得来。
+:ref:`stat prefix <envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.stat_prefix>`
+来自于所属的 HTTP 连接管理器。
 
 .. csv-table::
   :header: 名称, 类型, 描述
