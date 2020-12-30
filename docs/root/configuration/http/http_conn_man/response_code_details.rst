@@ -19,8 +19,8 @@ Envoy 将传达一个给定流结束的详细原因。此页列出了 HttpConnec
 
    absolute_path_rejected, 由于在不支持请求的路由上使用绝对路径，请求被拒绝。
    admin_filter_response, 响应由管理过滤器生成。
-   cluster_not_found, 路由器过滤器拒绝了请求，因为找不到所选路由的集群。
-   downstream_local_disconnect, 客户端连接由于未指定的原因在本地关闭。
+   cluster_not_found, 由于找不到所选路由的集群，路由器过滤器拒绝了请求。
+   downstream_local_disconnect, 由于未指定的原因，客户端连接在本地关闭。
    downstream_remote_disconnect, 客户端意外断开连接。
    duration_timeout, 已经超过最大连接持续时间。
    direct_response, 路由器过滤器生成直接响应。
@@ -28,39 +28,38 @@ Envoy 将传达一个给定流结束的详细原因。此页列出了 HttpConnec
    internal_redirect, 原始流被内部重定向替换。
    low_version, 由于没有配置对 HTTP/1.0 的支持，HTTP/1.0 或 HTTP/0.9 的请求被拒绝。
    maintenance_mode, 由于集群于维护模式，请求被路由器过滤器拒绝。
-   max_duration_timeout, The per-stream max duration timeout was exceeded. 已超过每个流的最大持续超时时间。
-   missing_host_header, The request was rejected due to a missing Host: or :authority field.
-   missing_path_rejected, The request was rejected due to a missing Path or :path header field.
-   no_healthy_upstream, The request was rejected by the router filter because there was no healthy upstream found.
-   overload, The request was rejected due to the Overload Manager reaching configured resource limits.
-   path_normalization_failed, "The request was rejected because path normalization was configured on and failed, probably due to an invalid path."
-   request_headers_failed_strict_check, The request was rejected due to x-envoy-* headers failing strict header validation.
-   request_overall_timeout, The per-stream total request timeout was exceeded.
-   request_payload_exceeded_retry_buffer_limit, Envoy is doing streaming proxying but too much data arrived while waiting to attempt a retry.
-   request_payload_too_large, Envoy is doing non-streaming proxying and the request payload exceeded configured limits.
-   response_payload_too_large, Envoy is doing non-streaming proxying and the response payload exceeded configured limits.
-   response_payload_too_large, Envoy is doing non-streaming proxying and the response payload exceeded configured limits.
-   route_configuration_not_found, The request was rejected because there was no route configuration found.
-   route_not_found, The request was rejected because there was no route found.
-   stream_idle_timeout, The per-stream keepalive timeout was exceeded.
-   upgrade_failed, The request was rejected because it attempted an unsupported upgrade.
-   upstream_max_stream_duration_reached, The request was destroyed because of it exceeded the configured max stream duration.
-   upstream_per_try_timeout, The final upstream try timed out.
-   upstream_reset_after_response_started{details}, The upstream connection was reset after a response was started. This may include further details about the cause of the disconnect.
-   upstream_reset_before_response_started{details}, The upstream connection was reset before a response was started This may include further details about the cause of the disconnect.
-   upstream_response_timeout, The upstream response timed out.
-   via_upstream, The response code was set by the upstream.
+   max_duration_timeout, 已超过每个流的最大持续超时时间。
+   missing_host_header, 由于缺少 Host: 或 :authority 字段，请求被拒绝。
+   missing_path_rejected, 由于缺少路径或 :path 头字段，请求被拒绝。
+   no_healthy_upstream, 由于找不到健康的上游，路由器过滤器拒绝了请求。
+   overload, 由于过载管理器达到配置的资源限制，请求被拒绝。
+   path_normalization_failed, 由于配置了路径规范化，但失败了，请求被拒绝，可能是因为路径无效。
+   request_headers_failed_strict_check, 由于 x-envoy-* 头部验证失败，请求被拒绝。
+   request_overall_timeout, 已超过每个流的总请求超时时间。
+   request_payload_exceeded_retry_buffer_limit, Envoy 正在执行流代理，但在等待重试时，到达的数据太多。
+   request_payload_too_large, Envoy 正在执行非流代理，请求负载超出了配置的限制。
+   response_payload_too_large, Envoy 正在执行非流代理，响应的负载超出了配置的限制。
+   route_configuration_not_found, 由于找不到路由配置，请求被拒绝。
+   route_not_found, 由于找不到路由，请求被拒绝。
+   stream_idle_timeout, 已超出每个流的 keepalive 超时时间。
+   upgrade_failed, 由于请求一个受支持的升级，请求被拒绝。
+   upstream_max_stream_duration_reached, 由于请求超出了配置的最大流持续时间，请求被销毁。
+   upstream_per_try_timeout, 最后一次上游尝试失败。
+   upstream_reset_after_response_started{details}, 响应启动后，上游连接被重置。可能包括有关断开原因的更多详细信息。
+   upstream_reset_before_response_started{details}, 响应启动前，上游连接被重置。可能包括有关断开原因的更多详细信息。
+   upstream_response_timeout, 上游响应超时。
+   via_upstream, 响应代码由上游服务器设置。
 
 
 .. _config_http_conn_man_details_per_codec:
 
-Per codec details
------------------
+每个编解码器的详细信息
+-----------------------
 
-Each codec may send codec-specific details when encountering errors.
+遇到错误时，每个编解码器都可能会发送编解码器特定的详细信息。
 
-Http1 details
-~~~~~~~~~~~~~
+Http1 详细信息
+~~~~~~~~~~~~~~~~~~~~
 
 All http1 details are rooted at *http1.*
 
