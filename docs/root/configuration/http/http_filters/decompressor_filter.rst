@@ -11,7 +11,7 @@
 
 它是如何工作的
 ---------------
-当解压缩过滤器被启用，头部将会被检查以确定是否应解压缩内容。 这个内容将会被解压缩，并继续传输到剩余的其他过滤链。需要注意的是，解压缩会根据以下描述的规则分别对请求和响应进行独立工作。
+当启用解压缩过滤器时，会检查头部，以确定是否应该对内容进行解压缩。这个内容将会被解压缩，并继续传输到剩余的其他过滤链。需要注意的是，解压缩会根据以下描述的规则分别对请求和响应进行独立工作。
 
 当前过滤器只支持 :ref:`gzip 压缩 <envoy_v3_api_msg_extensions.compression.gzip.decompressor.v3.Gzip>`
 。可以支持其他压缩库作为扩展。
@@ -101,7 +101,7 @@
 
   decompressed, Counter, 压缩的请求/响应数。
   not_decompressed, Counter, 未压缩的请求/响应数。
-  total_uncompressed_bytes, Counter, 标记为解压缩的所有请求/响应的总未压缩字节。
+  total_uncompressed_bytes, Counter, 所有标记为解压缩的请求/响应的未压缩字节总数。
   total_compressed_bytes, Counter, 标记为解压缩的所有请求/响应的总压缩字节。
 
 解压缩库的其他统计参考以根为 <stat_prefix>.decompressor.<decompressor_library.name>.<decompressor_library_stat_prefix>.decompressor_library 的统计。
