@@ -59,41 +59,41 @@ Envoy 将传达一个给定流结束的详细原因。此页列出了 HttpConnec
 遇到错误时，每个编解码器都可能会发送编解码器特定的详细信息。
 
 Http1 详细信息
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
-All http1 details are rooted at *http1.*
-
-.. csv-table::
-   :header: Name, Description
-   :widths: 1, 2
-
-   http1.body_disallowed, A body was sent on a request where bodies are not allowed.
-   http1.codec_error, Some error was encountered in the http_parser internals.
-   http1.connection_header_rejected, The Connection header was malformed or overly long.
-   http1.content_length_and_chunked_not_allowed, A request was sent with both Transfer-Encoding: chunked and a Content-Length header when disallowed by configuration.
-   http1.content_length_not_allowed, A content length was sent on a response it was disallowed on.
-   http1.headers_too_large, The overall byte size of rquest headers was larger than the configured limits.
-   http1.invalid_characters, The headers contained illegal characters.
-   http1.invalid_transfer_encoding, The Transfer-Encoding header was not valid.
-   http1.invalid_url, The request URL was not valid.
-   http1.too_many_headers, Too many headers were sent with this request.
-   http1.transfer_encoding_not_allowed, A transfer encoding was sent on a response it was disallowed on.
-   http1.unexpected_underscore, An underscore was sent in a header key when disallowed by configuration.
-
-
-Http2 details
-~~~~~~~~~~~~~
-
-All http2 details are rooted at *http2.*
+所有 http1 的详细信息都源于 *http1.*
 
 .. csv-table::
-   :header: Name, Description
+   :header: 名称, 描述
    :widths: 1, 2
 
-    http2.inbound_empty_frames_flood, Envoy detected an inbound HTTP/2 frame flood.
-    http2.invalid.header.field, One of the HTTP/2 headers was invalid
-    http2.outbound_frames_flood, Envoy detected an HTTP/2 frame flood from the server.
-    http2.too_many_headers, The number of headers (or trailers) exceeded the configured limits
-    http2.unexpected_underscore, Envoy was configured to drop requests with header keys beginning with underscores.
-    http2.unknown.nghttp2.error, An unknown error was encountered by nghttp2
-    http2.violation.of.messaging.rule, The stream was in violation of a HTTP/2 messaging rule.
+   http1.body_disallowed, 在不允许请求体的请求下发送了请求体。
+   http1.codec_error, http_parser 内部遇到了一些错误。
+   http1.connection_header_rejected, 连接头格式不正确或者过长。
+   http1.content_length_and_chunked_not_allowed, 在配置不允许的情况下，使用 Transfer-Encoding: 和 Content-Length 头发送请求。
+   http1.content_length_not_allowed, 在不允许内容长度的响应上发送了内容长度。
+   http1.headers_too_large, 请求头部的总字节大小大于配置的限制。
+   http1.invalid_characters, 请求头包含非法的字符。
+   http1.invalid_transfer_encoding, 不合法的 Transfer-Encoding 标头.
+   http1.invalid_url, 请求的 URL 不合法。
+   http1.too_many_headers, 与此请求一起发送的标头太多。
+   http1.transfer_encoding_not_allowed, 传输编码在不允许的响应上发送。
+   http1.unexpected_underscore, 在配置不允许的情况下，在标头中发送了 underscore。
+
+
+Http2 相信信息
+~~~~~~~~~~~~~~~~~~~
+
+所有 http2 的详细信息都源于 *http2.*
+
+.. csv-table::
+   :header: 名称, 描述
+   :widths: 1, 2
+
+    http2.inbound_empty_frames_flood, Envoy 检测到入站 HTTP/2 帧泛洪。
+    http2.invalid.header.field, 其中一个 HTTP/2 标头无效。
+    http2.outbound_frames_flood, Envoy 检测到一个来自服务器的 HTTP/2 帧泛洪。
+    http2.too_many_headers, headers（或 trailers）的数量超过了配置的限制。
+    http2.unexpected_underscore, Envoy 被配置为丢掉以 underscores 为开头的标头键的请求。
+    http2.unknown.nghttp2.error, nghttp2 遇到未知错误。
+    http2.violation.of.messaging.rule, 该流违反了 HTTP/2 的消息传递规则。
