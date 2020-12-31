@@ -35,4 +35,4 @@ IP 标记过滤器在 *http.<stat_prefix>.ip_tagging.* 命名空间中输出统�
 IP 标记过滤器支持以下运行时设置：
 
 ip_tagging.http_filter_enabled
-    为启用过滤器请求的百分比。默认值为 100。
+    启用过滤器的请求的百分比。默认值为 100。
