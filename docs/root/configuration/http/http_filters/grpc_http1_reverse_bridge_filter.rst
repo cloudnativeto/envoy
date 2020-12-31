@@ -3,8 +3,8 @@
 gRPC HTTP/1.1 反向桥接
 ============================
 
-* gRPC :ref:`architecture overview <arch_overview_grpc>`
-* :ref:`v3 API reference <envoy_v3_api_msg_extensions.filters.http.grpc_http1_reverse_bridge.v3.FilterConfig>`
+* gRPC :ref:`架构概述 <arch_overview_grpc>`
+* :ref:`v3 API 参考 <envoy_v3_api_msg_extensions.filters.http.grpc_http1_reverse_bridge.v3.FilterConfig>`
 * 此过滤器应使用名称 *envoy.filters.http.grpc_http1_reverse_bridge* 进行配置。
 
 这是一个过滤器，可以将传入的 gRPC 请求转换成 HTTP/1.1 请求，使得服务器不需要了解 HTTP/2 或者 gRPC 协议语义也可以处理该请求。
