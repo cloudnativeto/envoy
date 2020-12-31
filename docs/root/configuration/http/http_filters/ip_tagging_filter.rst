@@ -6,7 +6,7 @@ IP 标记
 HTTP IP 标记过滤器使用来自 :ref:`x-forwarded-for <config_http_conn_man_headers_x-forwarded-for>` 的受信任地址的字符串标记
 来设置头部 *x-envoy-ip-tags*。如果地址没有标记，则不设置头部。
 
-IP 标记的实现提供了一种可伸缩的方法，可以有效地将 IP 地址与大量的 CIDR 进行比较。存储标签和 IP 地址子网的底层算法是 S.Nilsson 和
+IP 标记的实现提供了一种可伸缩的方法，可以高效地将 IP 地址与大量的 CIDR 进行比较。存储标签和 IP 地址子网的底层算法是 S.Nilsson 和
 G.Karlsson 在论文 `使用 LC 尝试查找 IP 地址 <https://www.nada.kth.se/~snilsson/publications/IP-address-lookup-using-LC-tries/>`_
 中描述的一种级别的 trie。
 
