@@ -27,7 +27,7 @@ IP 标记过滤器在 *http.<stat_prefix>.ip_tagging.* 命名空间中输出统�
 
         <tag_name>.hit, Counter, 应用了 <tag_name> 的请求总数
         no_hit, Counter, 没有应用 IP 标记的请求总数
-        total, Counter, 操作 IP 标记过滤器的请求总数
+        total, Counter, IP 标记过滤器操作的请求总数
 
 运行时
 ---------
