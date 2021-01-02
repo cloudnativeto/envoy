@@ -8,7 +8,7 @@ HTTP IP 标记过滤器使用来自 :ref:`x-forwarded-for <config_http_conn_man_
 
 IP 标记的实现提供了一种可伸缩的方法，可以有效地将 IP 地址与大量的 CIDR 进行比较。存储标签和 IP 地址子网的底层算法是 S.Nilsson 和
 G.Karlsson 在论文 `使用 LC 尝试查找 IP 地址 <https://www.nada.kth.se/~snilsson/publications/IP-address-lookup-using-LC-tries/>`_
-中描述的一种级别的 trie。
+中描述的一种压缩 tire 树。
 
 配置
 --------
