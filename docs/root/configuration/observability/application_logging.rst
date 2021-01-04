@@ -1,14 +1,14 @@
 .. _config_application_logs:
 
 应用日志
-========
+==========
 
 Envoy 及其过滤器会写应用程序日志来实现可调试性。
 可以将 Envoy 配置为与常见日志查看器兼容的格式来输出应用程序日志。
 本节介绍如何配置 Envoy 以实现与每个日志查看器的集成。
 
 使用 GKE 记录 Stackdriver
---------------------------
+---------------------------
 
 `Stackdriver 记录 <https://cloud.google.com/logging/>`_ 可以读取来运行在 `Google Kubernetes Engine <https://cloud.google.com/kubernetes-engine/>`_ 上的容器的日志。Envoy 应该用如下的 :ref:`命令行选项 <operations_cli>` 进行配置：
 
