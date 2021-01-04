@@ -48,7 +48,7 @@ Postgres 代理过滤器应该与 TCP 代理串联在一起使用，如以下配
 统计
 ----------
 
-每个配置的 Postgres 代理过滤器都有以根为 postgres.<stat_prefix> 的统计如下：
+每个配置的 Postgres 代理过滤器都有如下基于 postgres.<stat_prefix> 的统计信息：
 
 .. csv-table::
   :header: 名称, 类型, 描述
