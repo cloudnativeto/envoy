@@ -17,7 +17,7 @@ Postgres 代理过滤器解码 Postgres 客户端（下游）和 Postgres 服务
 
 .. warning::
 
-   `postgreql_proxy` 过滤器仅使用 `Postgres frontend/backend protocol version 3.0`_ 测试过, 这个版本在 Postgres 7.4 被引入。因此不支持早期版本。测试是有限的，无论如何，测试仅限于非 EOL 版本
+   `postgreql_proxy` 过滤器仅使用 `Postgres frontend/backend protocol version 3.0`_ 测试过, 这个版本在 Postgres 7.4 被引入。因此不支持早期版本。无论如何，测试只限于非最终（EOL-ed）版本。
 
    .. _Postgres frontend/backend protocol version 3.0: https://www.postgresql.org/docs/current/protocol.html
 
