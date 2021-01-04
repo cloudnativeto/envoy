@@ -26,7 +26,7 @@ Postgres 代理过滤器解码 Postgres 客户端（下游）和 Postgres 服务
 配置
 -------------
 
-Postgres 代理过滤器应该与 TCP 代理连接在一起使用，如以下配置示例所示：
+Postgres 代理过滤器应该与 TCP 代理串联在一起使用，如以下配置示例所示：
 
 .. code-block:: yaml
 
