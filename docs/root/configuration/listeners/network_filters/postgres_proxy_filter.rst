@@ -3,7 +3,7 @@
 Postgres 代理
 ================
 
-Postgres 代理过滤器解码 Postgres 客户端（下游）和 Postgres 服务端（上游）之间的有线协议。解码后的信息会被用于生成 Postgres 级别的统计信息，例如其中的会话、语句和已执行的事务等。Postgres 代理过滤器还会解析 ``Query`` 和 ``Parse`` 消息中携带的 SQL 查询。
+Postgres 代理过滤器解码 Postgres 客户端（下游）和 Postgres 服务端（上游）之间的连接协议。解码后的信息会被用于生成 Postgres 级别的统计信息，例如其中的会话、语句和已执行的事务等。Postgres 代理过滤器还会解析 ``Query`` 和 ``Parse`` 消息中携带的 SQL 查询。
 当成功解析 SQL 查询后, 元数据:ref:`metadata <config_network_filters_postgres_proxy_dynamic_metadata>` 会被创建, 这个元数据可能会被其他过滤器使用，比如 :ref:`RBAC <config_network_filters_rbac>` 。
 当 Postgres 过滤器检测到会话已加密的时候，消息会被忽略并且不会进行解码。更多信息： 
 
@@ -106,4 +106,3 @@ Postgres 过滤器根据 ``Query`` 和 ``Parse`` 消息中携带的 SQL 语句�
    目前基于 SQL 查询创建动态元数据是在尽力而为的基础上。如果解析 SQL 查询失败，``statements_parse_error`` 计数值会增加，并且创建日志消息，动态元数据不会生成，但是 Postgres 消息会继续转发到上游 Postgres 服务器。
 
 可以通过设置 :ref:`enable_sql_parsing<envoy_v3_api_field_extensions.filters.network.postgres_proxy.v3alpha.PostgresProxy.enable_sql_parsing>` 为 false 来禁用 解析 SQL 语句和发出动态元数据。
-
