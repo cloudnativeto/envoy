@@ -22,7 +22,7 @@ JWT 认证
 
 此过滤器应的名称应该配置为 *envoy.filters.http.jwt_authn*。
 
-此 HTTP :ref:`过滤器配置 <envoy_v3_api_msg_extensions.filters.http.jwt_authn.v3.JwtAuthentication>`包含两个字段：
+此 HTTP :ref:`过滤器配置 <envoy_v3_api_msg_extensions.filters.http.jwt_authn.v3.JwtAuthentication>` 包含两个字段：
 
 * 字段 *providers* 指定应如何验证 JWT，例如在哪里提取令牌，在哪里获取公共密钥（JWKS）以及在何处输出其有效负载。
 * 字段 *rules* 指定匹配的规则及其 requirements。如果请求符合规则，则应用其 requirement。该 requirement 指定应使用哪些 JWT providers。
