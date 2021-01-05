@@ -199,4 +199,4 @@ RequirementRule
 上面的配置使用更复杂的*组* requirements：
 
 * 第一条 *rule* 指定 *requires_any*；如果满足 **provider1** 或 **provider2** 的 requirement，请求可以继续。
-* 第二条 *rule* 指定 *requires_all*; 只有同时满足 **provider1** 和 **provider2** 的 requirements，请求才能继续。
+* 第二条 *rule* 指定 *requires_all*；只有同时满足 **provider1** 和 **provider2** 的 requirements，请求才能继续。
