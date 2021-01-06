@@ -32,7 +32,7 @@ JwtProvider
 
 :ref:`JwtProvider <envoy_v3_api_msg_extensions.filters.http.jwt_authn.v3.JwtProvider>` 指定应如何验证 JWT。它具有以下字段：
 
-* *issuer*: 发行 JWT 的主体，通常是URL或电子邮件地址。
+* *issuer*: 发行 JWT 的主体，通常是 URL 或电子邮件地址。
 * *audiences*: 允许访问的 JWT audiences 列表。包含任何这些 audiences 的 JWT 将被接受。如果未指定，将不检查 JWT 中的 audiences。
 * *local_jwks*: 在本地数据源中获取 JWKS，可以在本地文件中或嵌入在内联字符串中。
 * *remote_jwks*: 从远程 HTTP 服务器获取 JWKS，还可以指定缓存持续时间。
@@ -44,7 +44,7 @@ JwtProvider
 默认提取位置
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-如果 *from_headers* 和 *from_params* 为空，则提取 JWT 的默认位置是从 HTTP 头部：
+如果 *from_headers* 和 *from_params* 为空，则默认从 HTTP 头部提取 JWT：
 
   Authorization: Bearer <token>
 
@@ -79,7 +79,7 @@ JwtProvider
         cache_duration:
           seconds: 300
 
-上面的示例使用URL https://example.com/jwks.json 从远程服务器获取 JWSK。令牌将从默认提取位置提取。令牌不会转发到上游。JWT有效负载不会添加到请求头部中。
+上面的示例使用 URL https://example.com/jwks.json 从远程服务器获取 JWSK。令牌将从默认提取位置提取。令牌不会转发到上游。JWT有效负载不会添加到请求头部中。
 
 需要以下 cluster example_jwks_cluster 来获取 JWKS。
 
