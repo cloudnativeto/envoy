@@ -135,7 +135,7 @@ fault.http.delay.fixed_delay_percent
   <envoy_v3_api_field_extensions.filters.http.fault.v3.HTTPFault.delay>` 该运行时键才可用。
 
 fault.http.delay.fixed_duration_ms
-  延迟持续时间（以毫秒为单位）。如果未指定，将使用配置中指定的 * fixed_duration_ms *。如果运行时和配置中都缺少此字段，
+  延迟持续时间（以毫秒为单位）。如果未指定，将使用配置中指定的 *fixed_duration_ms*。如果运行时和配置中都缺少此字段，
   则不会有延迟注入。仅当过滤器 :ref:`configured for delay
   <envoy_v3_api_field_extensions.filters.http.fault.v3.HTTPFault.delay>` 该运行时键才可用。
 
