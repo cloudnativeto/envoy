@@ -12,7 +12,7 @@
 配置
 -------------
 
-.. 注意::
+.. Note::
 
   故障注入过滤器必须被放在所有的过滤器之前，其中也包含路由过滤器。
 
@@ -76,7 +76,7 @@ x-envoy-fault-throughput-response-percentage
   <envoy_v3_api_field_extensions.filters.common.fault.v3.FaultRateLimit.header_limit>`
   且HTTP 头部的 *x-envoy-fault-delay-request* 需作为请求的一部分。
 
-.. 注意！::
+.. Attention::
 
   本质上，允许头部控制的权限如果被暴露给不受信任的客户端是危险的。这时，建议使用 :ref:`max_active_faults
   <envoy_v3_api_field_extensions.filters.http.fault.v3.HTTPFault.max_active_faults>`
@@ -110,7 +110,7 @@ x-envoy-fault-throughput-response-percentage
 
 HTTP 故障注入过滤器支持以下全局运行时设置：
 
-.. 注意::
+.. Attention::
 
   以下有些运行时的键需要在过滤器的配置中指定故障类型，而有些不需要。每个键的更多信息请参考文档。
 
