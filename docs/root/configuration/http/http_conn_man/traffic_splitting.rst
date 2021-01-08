@@ -10,7 +10,7 @@ Envoy 的路由器可以将流量拆分为跨两个或多个上游集群的虚�
 
 1. 版本升级：路由的流量逐渐从一个群集转移到另一个群集。:ref:`流量转移 <config_http_conn_man_route_table_traffic_splitting_shift>` 部分更详细地描述了这种情况。
 
-2. A/B 测试或多变量测试：同一个服务的 ``两个或更多的版本`` 被同时测试。运行同一服务的不同版本的集群之间的路由流量必须 *拆分*。:ref:`流量拆分 <config_http_conn_man_route_table_traffic_splitting_split>` 部分更详细地描述了这种情况。
+2. A/B 测试或多变量测试：同一个服务的 ``两个或更多的版本`` 被同时测试。运行同一服务的不同版本的集群之间的路由流量必须*拆分*。:ref:`流量拆分 <config_http_conn_man_route_table_traffic_splitting_split>` 部分更详细地描述了这种情况。
 
 .. _config_http_conn_man_route_table_traffic_splitting_shift:
 
