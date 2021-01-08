@@ -80,7 +80,7 @@ Envoy 使用 :ref:`首个匹配 <config_http_conn_man_route_table_route_matching
                    weight: 34
 
 
-默认情况下，权重的和必须等于 100。在 V2 版本的 API 中，:ref:`权重总和 <envoy_v3_api_field_config.route.v3.WeightedCluster.total_weight>` 默认为 100，但可以修改以允许更小的精度。
+默认情况下，权重的和必须等于 100。在 V2 版本的 API 中，:ref:`权重总和 <envoy_v3_api_field_config.route.v3.WeightedCluster.total_weight>` 默认为 100，但可以修改以允许更细的粒度。
 
 可以通过运行时变量 ``routing.traffic_split.helloworld.helloworld_v1``、``routing.traffic_split.helloworld.helloworld_v2`` 和
 ``routing.traffic_split.helloworld.helloworld_v3`` 对每个集群的权重进行动态地调整。
