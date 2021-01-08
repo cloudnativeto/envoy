@@ -45,7 +45,7 @@ Envoy 使用 :ref:`首个匹配 <config_http_conn_man_route_table_route_matching
 如果路由具有 runtime_fraction 对象，则将基于 runtime_fraction :ref:`值 <envoy_v3_api_field_config.route.v3.RouteMatch.runtime_fraction>` 额外匹配请求（如果未指定值，则为默认值）。因此，通过在上面的示例中连续地放置路由，并在第一条路由中指定 runtime_fraction 对象，可以通过更改 runtime_fraction 值来实现流量转移。下面是实现转移所需的大概操作顺序。
 
 1. 首先，将 ``routing.traffic_shift.helloworld`` 设置为 ``100``，这样对于 ``helloworld`` 虚拟主机的所有请求，都将与 v1 路由匹配，并由 ``helloworld_v1`` 集群提供服务。
-2. 要开始转移流量到 ``helloworld_v2`` 集群，将 ``routing.traffic_shift.helloworld`` 的值设置为 ``0 < x < 100``。在 ``90`` 的实例中，到 ``helloworld`` 虚拟主机的每 10 个请求中有 1 个请求将与 v1 路由不匹配，并将进入 v2 路由。
+2. 要开始转移流量到 ``helloworld_v2`` 集群，将 ``routing.traffic_shift.helloworld`` 的值设置为 ``0 < x < 100``。例如设置为 ``90``，此时到 ``helloworld`` 虚拟主机的每 10 个请求中有 1 个请求将与 v1 路由不匹配，并将进入 v2 路由。
 3. 逐渐减少 ``routing.traffic_shift.helloworld`` 的值以便更大比例的请求与 v2 路由匹配。
 4. 当 ``routing.traffic_shift.helloworld`` 的值设置为 ``0`` 时，没有到 ``helloworld`` 虚拟主机的请求与 v1 路由匹配。所有流量此时会进入 v2 路由，由 ``helloworld_v2`` 集群提供服务。
 
