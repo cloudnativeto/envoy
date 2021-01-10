@@ -120,7 +120,7 @@ fault.http.abort.abort_percent
   <envoy_v3_api_field_extensions.filters.http.fault.v3.HTTPFault.abort>`。
 
 fault.http.abort.http_status
-  头部匹配时，HTTP 状态码将被用于作为中断请求的响应状态码。默认为配置中指定的 HTTP status code。如果配置中不包含 *abort* 配置块，
+  头部匹配时，HTTP 状态码将被用于作为中断请求的响应状态码。默认为配置中指定的 HTTP 状态码。如果配置中不包含 *abort* 配置块，
   那么 *http_status* 默认为 0。由于历史原因，该运行时键是否可用取决于该过滤器是否 :ref:`配置为中断
   <envoy_v3_api_field_extensions.filters.http.fault.v3.HTTPFault.abort>`.
 
