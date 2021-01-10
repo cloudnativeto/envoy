@@ -166,7 +166,7 @@ fault.http.rate_limit.response_percent
 统计
 ----------
 
-故障过滤器在命名空间 *http.<stat_prefix>.fault.* 输出统计信息。 :ref:`stat prefix
+故障过滤器在命名空间 *http.<stat_prefix>.fault.* 输出统计信息。 :ref:`统计前缀
 <envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.stat_prefix>`
 来自拥有 HTTP 连接的管理器。
 
