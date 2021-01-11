@@ -20,7 +20,7 @@ CORS
 
 仅在影子模式下，启用了过滤器的请求比例可以通过 
 :ref:`shadow_enabled <envoy_v3_api_field_config.route.v3.CorsPolicy.shadow_enabled>` 字段中的 :ref:`runtime_key
-<envoy_v3_api_field_config.core.v3.RuntimeFractionalPercent.runtime_key>` 值来配置。仅当在影子模式下启用时，过滤器将评估请求的 *来源* 来决定它是否是有效的，但不会强制执行任何策略。
+<envoy_v3_api_field_config.core.v3.RuntimeFractionalPercent.runtime_key>` 值来配置。仅当在影子模式下启用时，过滤器将评估请求的*来源*来决定它是否是有效的，但不会强制执行任何策略。
 
 .. note::
 
