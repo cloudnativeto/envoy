@@ -16,8 +16,8 @@ Squash 是一个 HTTP 过滤器，可以让 Envoy 和 Squash 微服务调试器�
 * :ref:`v3 API 参考 <envoy_v3_api_msg_extensions.filters.http.squash.v3.Squash>`
 * 此过滤器的名称应该配置为 *envoy.filters.http.squash*。
 
-它是如何工作的？
------------------
+工作原理
+----------
 
 当 Squash 过滤器遇到一个包含有 ‘x-squash-debug’ 头部的请求时，它将会：
 
