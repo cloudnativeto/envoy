@@ -1,6 +1,6 @@
 .. _config_http_filters_original_src:
 
-原始的源
+请求源
 ==========
 
 * :ref:`HTTP 过滤器 v3 API 参考 <envoy_v3_api_msg_extensions.filters.http.original_src.v3.OriginalSrc>`
