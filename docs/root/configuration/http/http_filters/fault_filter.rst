@@ -78,7 +78,7 @@ x-envoy-fault-throughput-response-percentage
 
 .. attention::
 
-  本质上，允许头部控制的权限如果被暴露给不受信任的客户端是危险的。这时，建议使用 :ref:`max_active_faults
+  本质上，暴露头部控制权限有潜在风险，尤其是被暴露给不受信任的客户端。这时，建议使用 :ref:`max_active_faults
   <envoy_v3_api_field_extensions.filters.http.fault.v3.HTTPFault.max_active_faults>`
   设置去限制任意给定时间内可激活的最大并发故障数。
 
