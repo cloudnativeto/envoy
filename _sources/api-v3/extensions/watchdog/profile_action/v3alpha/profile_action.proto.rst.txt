@@ -22,7 +22,7 @@ This extension may be referenced by the qualified name *envoy.watchdog.profile_a
 extensions.watchdog.profile_action.v3alpha.ProfileActionConfig
 --------------------------------------------------------------
 
-`[extensions.watchdog.profile_action.v3alpha.ProfileActionConfig proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/extensions/watchdog/profile_action/v3alpha/profile_action.proto#L20>`_
+`[extensions.watchdog.profile_action.v3alpha.ProfileActionConfig proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/extensions/watchdog/profile_action/v3alpha/profile_action.proto#L20>`_
 
 Configuration for the profile watchdog action.
 

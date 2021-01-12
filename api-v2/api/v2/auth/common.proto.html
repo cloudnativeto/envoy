@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Common TLS configuration &mdash; envoy 1.16.0-97e7bf documentation</title>
+  <title>Common TLS configuration &mdash; envoy 1.16.0-2ae01e documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-97e7bf
+                1.16.0-2ae01e
               </div>
             
           
@@ -219,7 +219,7 @@
 <span id="envoy-api-file-envoy-api-v2-auth-common-proto"></span><h1>Common TLS configuration<a class="headerlink" href="#common-tls-configuration" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="auth-tlsparameters">
 <span id="envoy-api-msg-auth-tlsparameters"></span><h2>auth.TlsParameters<a class="headerlink" href="#auth-tlsparameters" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/api/v2/auth/common.proto#L25">[auth.TlsParameters proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/api/v2/auth/common.proto#L25">[auth.TlsParameters proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;tls_minimum_protocol_version&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;tls_maximum_protocol_version&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -291,7 +291,7 @@ P-256
 </div>
 <div class="section" id="enum-auth-tlsparameters-tlsprotocol">
 <span id="envoy-api-enum-auth-tlsparameters-tlsprotocol"></span><h2>Enum auth.TlsParameters.TlsProtocol<a class="headerlink" href="#enum-auth-tlsparameters-tlsprotocol" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/api/v2/auth/common.proto#L26">[auth.TlsParameters.TlsProtocol proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/api/v2/auth/common.proto#L26">[auth.TlsParameters.TlsProtocol proto]</a></p>
 <dl class="simple" id="envoy-api-enum-value-auth-tlsparameters-tlsprotocol-tls-auto">
 <dt>TLS_AUTO</dt><dd><p><em>(DEFAULT)</em> ⁣Envoy will choose the optimal TLS version.</p>
 </dd>
@@ -315,7 +315,7 @@ P-256
 </div>
 <div class="section" id="auth-privatekeyprovider">
 <span id="envoy-api-msg-auth-privatekeyprovider"></span><h2>auth.PrivateKeyProvider<a class="headerlink" href="#auth-privatekeyprovider" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/api/v2/auth/common.proto#L112">[auth.PrivateKeyProvider proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/api/v2/auth/common.proto#L112">[auth.PrivateKeyProvider proto]</a></p>
 <p>BoringSSL private key method configuration. The private key methods are used for external
 (potentially asynchronous) signing and decryption operations. Some use cases for private key
 methods would be TPM support and TLS acceleration.</p>
@@ -346,7 +346,7 @@ Private key method provider specific configuration.</p>
 </div>
 <div class="section" id="auth-tlscertificate">
 <span id="envoy-api-msg-auth-tlscertificate"></span><h2>auth.TlsCertificate<a class="headerlink" href="#auth-tlscertificate" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/api/v2/auth/common.proto#L126">[auth.TlsCertificate proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/api/v2/auth/common.proto#L126">[auth.TlsCertificate proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;certificate_chain&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;private_key&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -378,7 +378,7 @@ TLS private key is not password encrypted.</p>
 </div>
 <div class="section" id="auth-tlssessionticketkeys">
 <span id="envoy-api-msg-auth-tlssessionticketkeys"></span><h2>auth.TlsSessionTicketKeys<a class="headerlink" href="#auth-tlssessionticketkeys" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/api/v2/auth/common.proto#L153">[auth.TlsSessionTicketKeys proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/api/v2/auth/common.proto#L153">[auth.TlsSessionTicketKeys proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[]</span>
 <span class="p">}</span>
@@ -412,7 +412,7 @@ discussion. To minimize the risk, you must:</p>
 </div>
 <div class="section" id="auth-certificatevalidationcontext">
 <span id="envoy-api-msg-auth-certificatevalidationcontext"></span><h2>auth.CertificateValidationContext<a class="headerlink" href="#auth-certificatevalidationcontext" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/api/v2/auth/common.proto#L182">[auth.CertificateValidationContext proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/api/v2/auth/common.proto#L182">[auth.CertificateValidationContext proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;trusted_ca&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;verify_certificate_spki&quot;</span><span class="p">:</span> <span class="p">[],</span>
@@ -534,7 +534,7 @@ multiple CRLs, all of them will be used.</p>
 </div>
 <div class="section" id="enum-auth-certificatevalidationcontext-trustchainverification">
 <span id="envoy-api-enum-auth-certificatevalidationcontext-trustchainverification"></span><h2>Enum auth.CertificateValidationContext.TrustChainVerification<a class="headerlink" href="#enum-auth-certificatevalidationcontext-trustchainverification" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/api/v2/auth/common.proto#L184">[auth.CertificateValidationContext.TrustChainVerification proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/api/v2/auth/common.proto#L184">[auth.CertificateValidationContext.TrustChainVerification proto]</a></p>
 <p>Peer certificate verification mode.</p>
 <dl class="simple" id="envoy-api-enum-value-auth-certificatevalidationcontext-trustchainverification-verify-trust-chain">
 <dt>VERIFY_TRUST_CHAIN</dt><dd><p><em>(DEFAULT)</em> ⁣Perform default certificate verification (e.g., against CA / verification lists)</p>

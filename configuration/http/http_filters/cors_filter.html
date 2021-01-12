@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>CORS &mdash; envoy 1.16.0-97e7bf documentation</title>
+  <title>CORS &mdash; envoy 1.16.0-2ae01e documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-97e7bf
+                1.16.0-2ae01e
               </div>
             
           
@@ -124,7 +124,7 @@
 <li class="toctree-l4"><a class="reference internal" href="dynamic_forward_proxy_filter.html">动态转发代理</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dynamodb_filter.html">DynamoDB</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ext_authz_filter.html">External Authorization</a></li>
-<li class="toctree-l4"><a class="reference internal" href="fault_filter.html">Fault Injection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fault_filter.html">故障注入</a></li>
 <li class="toctree-l4"><a class="reference internal" href="grpc_http1_bridge_filter.html">gRPC HTTP/1.1 bridge</a></li>
 <li class="toctree-l4"><a class="reference internal" href="grpc_http1_reverse_bridge_filter.html">gRPC HTTP/1.1 reverse bridge</a></li>
 <li class="toctree-l4"><a class="reference internal" href="grpc_json_transcoder_filter.html">gRPC-JSON 转码器</a></li>
@@ -236,34 +236,29 @@
             
   <div class="section" id="cors">
 <span id="config-http-filters-cors"></span><h1>CORS<a class="headerlink" href="#cors" title="Permalink to this headline">¶</a></h1>
-<p>This is a filter which handles Cross-Origin Resource Sharing requests based on route or virtual host settings.
-For the meaning of the headers please refer to the pages below.</p>
+<p>此过滤器是用来处理那些基于路由或虚拟主机设置的跨域资源请求。关于头部的含义，可以参阅下面的几页。</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS</a></p></li>
 <li><p><a class="reference external" href="https://www.w3.org/TR/cors/">https://www.w3.org/TR/cors/</a></p></li>
-<li><p><a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-msg-config-route-v3-corspolicy"><span class="std std-ref">v2 API reference</span></a></p></li>
-<li><p>This filter should be configured with the name <em>envoy.filters.http.cors</em>.</p></li>
+<li><p><a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-msg-config-route-v3-corspolicy"><span class="std std-ref">v2 API 参考</span></a></p></li>
+<li><p>此过滤器的名称应该被配置为 <em>envoy.filters.http.cors</em> 。</p></li>
 </ul>
-<div class="section" id="runtime">
-<span id="cors-runtime"></span><h2>Runtime<a class="headerlink" href="#runtime" title="Permalink to this headline">¶</a></h2>
-<p>The fraction of requests for which the filter is enabled can be configured via the <a class="reference internal" href="../../../api-v3/config/core/v3/base.proto.html#envoy-v3-api-field-config-core-v3-runtimefractionalpercent-runtime-key"><span class="std std-ref">runtime_key</span></a> value of the <a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-field-config-route-v3-corspolicy-filter-enabled"><span class="std std-ref">filter_enabled</span></a> field.</p>
-<p>The fraction of requests for which the filter is enabled in shadow-only mode can be configured via
-the <a class="reference internal" href="../../../api-v3/config/core/v3/base.proto.html#envoy-v3-api-field-config-core-v3-runtimefractionalpercent-runtime-key"><span class="std std-ref">runtime_key</span></a> value of the
-<a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-field-config-route-v3-corspolicy-shadow-enabled"><span class="std std-ref">shadow_enabled</span></a> field. When enabled in
-shadow-only mode, the filter will evaluate the request’s <em>Origin</em> to determine if it’s valid but
-will not enforce any policies.</p>
+<div class="section" id="cors-runtime">
+<span id="id1"></span><h2>运行时<a class="headerlink" href="#cors-runtime" title="Permalink to this headline">¶</a></h2>
+<p>启用了过滤器的请求比例可以通过 <a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-field-config-route-v3-corspolicy-filter-enabled"><span class="std std-ref">filter_enabled</span></a> 字段中的 <a class="reference internal" href="../../../api-v3/config/core/v3/base.proto.html#envoy-v3-api-field-config-core-v3-runtimefractionalpercent-runtime-key"><span class="std std-ref">runtime_key</span></a> 值来配置。</p>
+<p>仅在影子模式下，启用了过滤器的请求比例可以通过
+<a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-field-config-route-v3-corspolicy-shadow-enabled"><span class="std std-ref">shadow_enabled</span></a> 字段中的 <a class="reference internal" href="../../../api-v3/config/core/v3/base.proto.html#envoy-v3-api-field-config-core-v3-runtimefractionalpercent-runtime-key"><span class="std std-ref">runtime_key</span></a> 值来配置。仅当在影子模式下启用时，过滤器将评估请求的*来源*来决定它是否是有效的，但不会强制执行任何策略。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If both <code class="docutils literal notranslate"><span class="pre">filter_enabled</span></code> and <code class="docutils literal notranslate"><span class="pre">shadow_enabled</span></code> are on, the <code class="docutils literal notranslate"><span class="pre">filter_enabled</span></code>
-flag will take precedence.</p>
+<p>如果同时打开了 <code class="docutils literal notranslate"><span class="pre">filter_enabled</span></code> 和 <code class="docutils literal notranslate"><span class="pre">shadow_enabled</span></code>， <code class="docutils literal notranslate"><span class="pre">filter_enabled</span></code> 标志将优先起作用。</p>
 </div>
 </div>
-<div class="section" id="statistics">
-<span id="cors-statistics"></span><h2>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h2>
-<p>The CORS filter outputs statistics in the &lt;stat_prefix&gt;.cors.* namespace.</p>
+<div class="section" id="cors-statistics">
+<span id="id2"></span><h2>统计<a class="headerlink" href="#cors-statistics" title="Permalink to this headline">¶</a></h2>
+<p>CORS 过滤器输出的统计信息在 &lt;stat_prefix&gt;.cors.* 命名空间下。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Requests that do not have an Origin header will be omitted from statistics.</p>
+<p>没有来源头部的请求将不会出现在统计信息中。</p>
 </div>
 <table class="colwidths-given docutils align-default">
 <colgroup>
@@ -272,19 +267,19 @@ flag will take precedence.</p>
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>origin_valid</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of requests that have a valid Origin header.</p></td>
+<td><p>具有有效来源头部请求的总数。</p></td>
 </tr>
 <tr class="row-odd"><td><p>origin_invalid</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of requests that have an invalid Origin header.</p></td>
+<td><p>具有无效来源头部请求的总数。</p></td>
 </tr>
 </tbody>
 </table>

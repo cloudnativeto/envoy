@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>TLS transport socket &mdash; envoy 1.16.0-97e7bf documentation</title>
+  <title>TLS transport socket &mdash; envoy 1.16.0-2ae01e documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-97e7bf
+                1.16.0-2ae01e
               </div>
             
           
@@ -231,7 +231,7 @@
 <p>The TLS contexts below provide the transport socket configuration for upstream/downstream TLS.</p>
 <div class="section" id="extensions-transport-sockets-tls-v3-upstreamtlscontext">
 <span id="envoy-v3-api-msg-extensions-transport-sockets-tls-v3-upstreamtlscontext"></span><h2>extensions.transport_sockets.tls.v3.UpstreamTlsContext<a class="headerlink" href="#extensions-transport-sockets-tls-v3-upstreamtlscontext" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/extensions/transport_sockets/tls/v3/tls.proto#L26">[extensions.transport_sockets.tls.v3.UpstreamTlsContext proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/extensions/transport_sockets/tls/v3/tls.proto#L26">[extensions.transport_sockets.tls.v3.UpstreamTlsContext proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;common_tls_context&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;sni&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -271,7 +271,7 @@ for TLSv1.2 and older) to store for the purpose of session resumption.</p>
 </div>
 <div class="section" id="extensions-transport-sockets-tls-v3-downstreamtlscontext">
 <span id="envoy-v3-api-msg-extensions-transport-sockets-tls-v3-downstreamtlscontext"></span><h2>extensions.transport_sockets.tls.v3.DownstreamTlsContext<a class="headerlink" href="#extensions-transport-sockets-tls-v3-downstreamtlscontext" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/extensions/transport_sockets/tls/v3/tls.proto#L57">[extensions.transport_sockets.tls.v3.DownstreamTlsContext proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/extensions/transport_sockets/tls/v3/tls.proto#L57">[extensions.transport_sockets.tls.v3.DownstreamTlsContext proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;common_tls_context&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;require_client_certificate&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -330,7 +330,7 @@ Defaults to LENIENT_STAPLING</p>
 </div>
 <div class="section" id="enum-extensions-transport-sockets-tls-v3-downstreamtlscontext-ocspstaplepolicy">
 <span id="envoy-v3-api-enum-extensions-transport-sockets-tls-v3-downstreamtlscontext-ocspstaplepolicy"></span><h2>Enum extensions.transport_sockets.tls.v3.DownstreamTlsContext.OcspStaplePolicy<a class="headerlink" href="#enum-extensions-transport-sockets-tls-v3-downstreamtlscontext-ocspstaplepolicy" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/extensions/transport_sockets/tls/v3/tls.proto#L61">[extensions.transport_sockets.tls.v3.DownstreamTlsContext.OcspStaplePolicy proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/extensions/transport_sockets/tls/v3/tls.proto#L61">[extensions.transport_sockets.tls.v3.DownstreamTlsContext.OcspStaplePolicy proto]</a></p>
 <dl class="simple" id="envoy-v3-api-enum-value-extensions-transport-sockets-tls-v3-downstreamtlscontext-ocspstaplepolicy-lenient-stapling">
 <dt>LENIENT_STAPLING</dt><dd><p><em>(DEFAULT)</em> ⁣OCSP responses are optional. If an OCSP response is absent
 or expired, the associated certificate will be used for
@@ -357,7 +357,7 @@ connection is rejected.</p>
 </div>
 <div class="section" id="extensions-transport-sockets-tls-v3-commontlscontext">
 <span id="envoy-v3-api-msg-extensions-transport-sockets-tls-v3-commontlscontext"></span><h2>extensions.transport_sockets.tls.v3.CommonTlsContext<a class="headerlink" href="#extensions-transport-sockets-tls-v3-commontlscontext" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/extensions/transport_sockets/tls/v3/tls.proto#L129">[extensions.transport_sockets.tls.v3.CommonTlsContext proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/extensions/transport_sockets/tls/v3/tls.proto#L129">[extensions.transport_sockets.tls.v3.CommonTlsContext proto]</a></p>
 <p>TLS context shared by both client and server TLS contexts.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;tls_params&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -430,7 +430,7 @@ behavior.</p>
 </div>
 <div class="section" id="extensions-transport-sockets-tls-v3-commontlscontext-certificateprovider">
 <span id="envoy-v3-api-msg-extensions-transport-sockets-tls-v3-commontlscontext-certificateprovider"></span><h2>extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProvider<a class="headerlink" href="#extensions-transport-sockets-tls-v3-commontlscontext-certificateprovider" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/extensions/transport_sockets/tls/v3/tls.proto#L134">[extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProvider proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/extensions/transport_sockets/tls/v3/tls.proto#L134">[extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProvider proto]</a></p>
 <p>Config for Certificate provider to get certificates. This provider should allow certificates to be
 fetched/refreshed over the network asynchronously with respect to the TLS handshake.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -457,7 +457,7 @@ This config could be supplied inline or (in future) a named xDS resource.</p>
 </div>
 <div class="section" id="extensions-transport-sockets-tls-v3-commontlscontext-certificateproviderinstance">
 <span id="envoy-v3-api-msg-extensions-transport-sockets-tls-v3-commontlscontext-certificateproviderinstance"></span><h2>extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderInstance<a class="headerlink" href="#extensions-transport-sockets-tls-v3-commontlscontext-certificateproviderinstance" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/extensions/transport_sockets/tls/v3/tls.proto#L154">[extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderInstance proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/extensions/transport_sockets/tls/v3/tls.proto#L154">[extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderInstance proto]</a></p>
 <p>Similar to CertificateProvider above, but allows the provider instances to be configured on
 the client side instead of being sent from the control plane.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -486,7 +486,7 @@ defaults to the empty string.</p>
 </div>
 <div class="section" id="extensions-transport-sockets-tls-v3-commontlscontext-combinedcertificatevalidationcontext">
 <span id="envoy-v3-api-msg-extensions-transport-sockets-tls-v3-commontlscontext-combinedcertificatevalidationcontext"></span><h2>extensions.transport_sockets.tls.v3.CommonTlsContext.CombinedCertificateValidationContext<a class="headerlink" href="#extensions-transport-sockets-tls-v3-commontlscontext-combinedcertificatevalidationcontext" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/extensions/transport_sockets/tls/v3/tls.proto#L172">[extensions.transport_sockets.tls.v3.CommonTlsContext.CombinedCertificateValidationContext proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/extensions/transport_sockets/tls/v3/tls.proto#L172">[extensions.transport_sockets.tls.v3.CommonTlsContext.CombinedCertificateValidationContext proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;default_validation_context&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;validation_context_sds_secret_config&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>

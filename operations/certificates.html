@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Certificate Management &mdash; envoy 1.16.0-97e7bf documentation</title>
+  <title>证书管理 &mdash; envoy 1.16.0-2ae01e documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-97e7bf
+                1.16.0-2ae01e
               </div>
             
           
@@ -114,7 +114,7 @@
 <li class="toctree-l2"><a class="reference internal" href="runtime.html">Runtime</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fs_flags.html">File system flags</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_tapping.html">Traffic tapping</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Certificate Management</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">证书管理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="performance.html">Performance</a></li>
 </ul>
 </li>
@@ -169,7 +169,7 @@
         
           <li><a href="operations.html">操作和管理</a> &raquo;</li>
         
-      <li>Certificate Management</li>
+      <li>证书管理</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -188,18 +188,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="certificate-management">
-<span id="operations-certificates"></span><h1>Certificate Management<a class="headerlink" href="#certificate-management" title="Permalink to this headline">¶</a></h1>
-<p>Envoy provides several mechanisms for cert management. At a high level they can be broken into</p>
+  <div class="section" id="operations-certificates">
+<span id="id1"></span><h1>证书管理<a class="headerlink" href="#operations-certificates" title="Permalink to this headline">¶</a></h1>
+<p>Envoy 提供几种证书管理机制。从高层次来讲，可以分为：</p>
 <ol class="arabic simple">
-<li><p>Static <a class="reference internal" href="../api-v2/api/v2/auth/tls.proto.html#envoy-api-msg-auth-commontlscontext"><span class="std std-ref">CommonTlsContext</span></a> referenced certificates.
-These will <em>not</em> reload automatically, and requires either a restart of the proxy or
-reloading the clusters/listeners that reference them.
-<a class="reference internal" href="../intro/arch_overview/operations/hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">Hot restarting</span></a> can be used here to pick up the new
-certificates without dropping traffic.</p></li>
-<li><p><a class="reference internal" href="../configuration/security/secret.html#config-secret-discovery-service"><span class="std std-ref">Secret Discovery Service</span></a> referenced certificates.
-By using SDS, certificates can either be referenced as files (reloading the certs when the
-parent directory is moved) or through an external SDS server that can push new certificates.</p></li>
+<li><p>静态 <a class="reference internal" href="../api-v2/api/v2/auth/tls.proto.html#envoy-api-msg-auth-commontlscontext"><span class="std std-ref">CommonTlsContext</span></a> 引用的证书。这些证书将*不会*自动加载，需要通过重启代理或者重新加载引用它们的集群/监听器。<a class="reference internal" href="../intro/arch_overview/operations/hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">热重启</span></a> 可以被用来获取新证书而不用丢弃流量。</p></li>
+<li><p><a class="reference internal" href="../configuration/security/secret.html#config-secret-discovery-service"><span class="std std-ref">证书发现服务</span></a> 引用的证书。通过使用 SDS，证书可以作为文件被引用（当父目录被移除时，证书会被重新加载）或者通过一个可以推送新证书的外部 SDS 服务器。</p></li>
 </ol>
 </div>
 

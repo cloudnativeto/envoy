@@ -20,7 +20,7 @@ Fault Injection :ref:`configuration overview <config_http_filters_fault_injectio
 config.filter.http.fault.v2.FaultAbort
 --------------------------------------
 
-`[config.filter.http.fault.v2.FaultAbort proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/config/filter/http/fault/v2/fault.proto#L24>`_
+`[config.filter.http.fault.v2.FaultAbort proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/config/filter/http/fault/v2/fault.proto#L24>`_
 
 
 .. code-block:: json
@@ -61,7 +61,7 @@ percentage
 config.filter.http.fault.v2.FaultAbort.HeaderAbort
 --------------------------------------------------
 
-`[config.filter.http.fault.v2.FaultAbort.HeaderAbort proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/config/filter/http/fault/v2/fault.proto#L28>`_
+`[config.filter.http.fault.v2.FaultAbort.HeaderAbort proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/config/filter/http/fault/v2/fault.proto#L28>`_
 
 Fault aborts are controlled via an HTTP header (if applicable). See the
 :ref:`HTTP fault filter <config_http_filters_fault_injection_http_header>` documentation for
@@ -80,7 +80,7 @@ more information.
 config.filter.http.fault.v2.HTTPFault
 -------------------------------------
 
-`[config.filter.http.fault.v2.HTTPFault proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/config/filter/http/fault/v2/fault.proto#L49>`_
+`[config.filter.http.fault.v2.HTTPFault proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/config/filter/http/fault/v2/fault.proto#L49>`_
 
 
 .. code-block:: json

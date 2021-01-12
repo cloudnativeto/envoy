@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>请求的生命周期 &mdash; envoy 1.16.0-97e7bf documentation</title>
+  <title>请求的生命周期 &mdash; envoy 1.16.0-2ae01e documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-97e7bf
+                1.16.0-2ae01e
               </div>
             
           
@@ -429,7 +429,7 @@ UDP 过滤器状态被给定的工作线程共享，使用该过滤器可以根�
 该过滤器检查初始 TLS 握手并提取服务器名称（SNI）。然后使用 SNI 进行过滤器链匹配。同时，TLS 检查器明确显示在监听过滤器链配置中，每当监听器的过滤器链中需要
 SNI（或 ALPN ） Envoy 还可以自动插入。</p>
 <a class="reference internal image-reference" href="../_images/lor-listener-filters.svg"><img alt="../_images/lor-listener-filters.svg" class="align-center" src="../_images/lor-listener-filters.svg" width="80%" /></a>
-<p>TLS 检查过滤器实现 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/include/envoy/network/filter.h">ListenerFilter</a> 接口。所有过滤器接口，无论是监听器还是网络层/HTTP 层，都要求过滤器实现特定连接或流事件的回调。
+<p>TLS 检查过滤器实现 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/include/envoy/network/filter.h">ListenerFilter</a> 接口。所有过滤器接口，无论是监听器还是网络层/HTTP 层，都要求过滤器实现特定连接或流事件的回调。
 在 ListenerFilter 的情况下为：</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">virtual</span> <span class="n">FilterStatus</span> <span class="n">onAccept</span><span class="p">(</span><span class="n">ListenerFilterCallbacks</span><span class="o">&amp;</span> <span class="n">cb</span><span class="p">)</span> <span class="n">PURE</span><span class="p">;</span>
 </pre></div>
@@ -441,7 +441,7 @@ SNI（或 ALPN ） Envoy 还可以自动插入。</p>
 </div>
 <div class="section" id="tls">
 <span id="life-of-a-request-tls-decryption"></span><h3>3. TLS 传输套接字解密<a class="headerlink" href="#tls" title="Permalink to this headline">¶</a></h3>
-<p>Envoy 通过 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/include/envoy/network/transport_socket.h">TransportSocket</a> 扩展接口提供可插拔的传输套接字。传输套接字遵循 TCP 连接的生命周期事件，
+<p>Envoy 通过 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/include/envoy/network/transport_socket.h">TransportSocket</a> 扩展接口提供可插拔的传输套接字。传输套接字遵循 TCP 连接的生命周期事件，
 并读写网络缓冲区。传输套接字必须实现的一些关键方法有：</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">virtual</span> <span class="kt">void</span> <span class="n">onConnected</span><span class="p">()</span> <span class="n">PURE</span><span class="p">;</span>
 <span class="k">virtual</span> <span class="n">IoResult</span> <span class="n">doRead</span><span class="p">(</span><span class="n">Buffer</span><span class="o">::</span><span class="n">Instance</span><span class="o">&amp;</span> <span class="n">buffer</span><span class="p">)</span> <span class="n">PURE</span><span class="p">;</span>
@@ -462,9 +462,9 @@ SNI（或 ALPN ） Envoy 还可以自动插入。</p>
 <a class="reference internal image-reference" href="../_images/lor-network-filters.svg"><img alt="../_images/lor-network-filters.svg" class="align-center" src="../_images/lor-network-filters.svg" width="80%" /></a>
 <p>网络过滤器是由管道组成的，与每次连接一个的传输套接字不同。 网络过滤器分为三种：</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/include/envoy/network/filter.h">ReadFilter</a> 实现 <code class="docutils literal notranslate"><span class="pre">onData()</span></code>，当连接中有数据可用时而调用（由于某些请求）。</p></li>
-<li><p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/include/envoy/network/filter.h">WriteFilter</a> 实现 <code class="docutils literal notranslate"><span class="pre">onWrite()</span></code>，在即将将数据写入连接时调用（由于某些响应）。</p></li>
-<li><p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/include/envoy/network/filter.h">Filter</a> 同时实现 <em>ReadFilter</em> 和 <em>WriteFilter</em>。</p></li>
+<li><p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/include/envoy/network/filter.h">ReadFilter</a> 实现 <code class="docutils literal notranslate"><span class="pre">onData()</span></code>，当连接中有数据可用时而调用（由于某些请求）。</p></li>
+<li><p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/include/envoy/network/filter.h">WriteFilter</a> 实现 <code class="docutils literal notranslate"><span class="pre">onWrite()</span></code>，在即将将数据写入连接时调用（由于某些响应）。</p></li>
+<li><p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/include/envoy/network/filter.h">Filter</a> 同时实现 <em>ReadFilter</em> 和 <em>WriteFilter</em>。</p></li>
 </ul>
 <p>主要的过滤器方法的方法签名为：</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">virtual</span> <span class="n">FilterStatus</span> <span class="n">onNewConnection</span><span class="p">()</span> <span class="n">PURE</span><span class="p">;</span>
@@ -485,7 +485,7 @@ SNI（或 ALPN ） Envoy 还可以自动插入。</p>
 <p>Envoy 中的 HTTP/2 编解码器基于 <a class="reference external" href="https://nghttp2.org/">nghttp2</a>。HCM 用 TCP 连接中的纯文本字节调用它（在网络过滤器链转换之后）。
 编解码器将字节流解码为一系列 HTTP/2 帧，并将连接解复用为多个独立的 HTTP 流。流多路复用是 HTTP/2 中的一项关键功能，与 HTTP/1 相比，它具有显着的性能优势。
 每个 HTTP 流都处理单个请求和响应。</p>
-<p>编码解码器还负责处理 HTTP/2 帧设置、流和连接级别的 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/source/docs/flow_control.md">流量控制</a>。</p>
+<p>编码解码器还负责处理 HTTP/2 帧设置、流和连接级别的 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/source/docs/flow_control.md">流量控制</a>。</p>
 <p>编解码器负责抽象 HTTP 连接的细节，向 HTTP 连接管理器提供标准视图，并将连接的 HTTP 过滤器链拆分为多个流，每个流均带有请求/响应标头/正文/尾部。
 无论协议是 HTTP/1、HTTP/2 还是 HTTP/3 都是如此。</p>
 </div>
@@ -495,9 +495,9 @@ SNI（或 ALPN ） Envoy 还可以自动插入。</p>
 <a class="reference internal image-reference" href="../_images/lor-http-filters.svg"><img alt="../_images/lor-http-filters.svg" class="align-center" src="../_images/lor-http-filters.svg" width="80%" /></a>
 <p>HTTP 过滤器接口共有三种：</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/include/envoy/http/filter.h">StreamDecoderFilter</a> 带有用于处理请求的回调。</p></li>
-<li><p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/include/envoy/http/filter.h">StreamEncoderFilter</a> 带有用于响应处理的回调。</p></li>
-<li><p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/include/envoy/http/filter.h">StreamFilter</a> 同时实现 <cite>StreamDecoderFilter</cite> 和 <cite>StreamEncoderFilter</cite>。</p></li>
+<li><p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/include/envoy/http/filter.h">StreamDecoderFilter</a> 带有用于处理请求的回调。</p></li>
+<li><p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/include/envoy/http/filter.h">StreamEncoderFilter</a> 带有用于响应处理的回调。</p></li>
+<li><p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/include/envoy/http/filter.h">StreamFilter</a> 同时实现 <cite>StreamDecoderFilter</cite> 和 <cite>StreamEncoderFilter</cite>。</p></li>
 </ul>
 <p>查看解码器过滤器接口：</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">virtual</span> <span class="n">FilterHeadersStatus</span> <span class="n">decodeHeaders</span><span class="p">(</span><span class="n">RequestHeaderMap</span><span class="o">&amp;</span> <span class="n">headers</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">end_stream</span><span class="p">)</span> <span class="n">PURE</span><span class="p">;</span>
@@ -529,7 +529,7 @@ SNI（或 ALPN ） Envoy 还可以自动插入。</p>
 <p>每个集群都有一个 <a class="reference internal" href="arch_overview/upstream/load_balancing/overview.html#arch-overview-load-balancing"><span class="std std-ref">负载均衡器</span></a> ，当新请求到达时，该负载均衡器会选择一个端点。Envoy 支持多种负载均衡算法，例如加权轮循（weighted round-robin）、磁悬浮（Maglev）、最小负荷（least-loaded）、随机（random）。负载均衡器从静态引导程序配置、DNS、动态 xDS（CDS 和 EDS 发现服务）以及主动/被动运行状况检查的组合中获得有效分配。<a class="reference internal" href="arch_overview/upstream/load_balancing/overview.html#arch-overview-load-balancing"><span class="std std-ref">负载均衡文档</span></a> 中提供了有关 Envoy 中负载均衡的工作方式的更多详细信息。</p>
 <p>选择端点后，将使用该端点的 <a class="reference internal" href="arch_overview/upstream/connection_pooling.html#arch-overview-conn-pool"><span class="std std-ref">连接池</span></a> 来查找用于转发请求的连接。如果不存在与主机的连接，或者所有连接都处于其最大并发流限制，
 则除非触发连接最大集群的熔断机制，否则将建立新连接并将其放置在连接池中。如果配置并达到了连接的最大生存期流限制，则会在池中分配一个新的连接，并且等待 HTTP/2
-连接结束。 其他的熔断机制，例如检查对集群的最大并发请求。有关更多详细信息请参见 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/arch_overview_circuit_breakers">熔断机制</a> 和 <a class="reference internal" href="arch_overview/upstream/connection_pooling.html#arch-overview-conn-pool"><span class="std std-ref">连接池</span></a>。</p>
+连接结束。 其他的熔断机制，例如检查对集群的最大并发请求。有关更多详细信息请参见 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/arch_overview_circuit_breakers">熔断机制</a> 和 <a class="reference internal" href="arch_overview/upstream/connection_pooling.html#arch-overview-conn-pool"><span class="std std-ref">连接池</span></a>。</p>
 <a class="reference internal image-reference" href="../_images/lor-lb.svg"><img alt="../_images/lor-lb.svg" class="align-center" src="../_images/lor-lb.svg" width="80%" /></a>
 </div>
 <div class="section" id="id13">

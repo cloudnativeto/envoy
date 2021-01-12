@@ -9,7 +9,7 @@ Configuration sources
 core.ApiConfigSource
 --------------------
 
-`[core.ApiConfigSource proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/api/v2/core/config_source.proto#L40>`_
+`[core.ApiConfigSource proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/api/v2/core/config_source.proto#L40>`_
 
 API configuration source. This identifies the API type and cluster that Envoy
 will use to fetch an xDS API.
@@ -91,7 +91,7 @@ set_node_on_first_message_only
 Enum core.ApiConfigSource.ApiType
 ---------------------------------
 
-`[core.ApiConfigSource.ApiType proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/api/v2/core/config_source.proto#L42>`_
+`[core.ApiConfigSource.ApiType proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/api/v2/core/config_source.proto#L42>`_
 
 APIs may be fetched via either REST or gRPC.
 
@@ -130,7 +130,7 @@ DELTA_GRPC
 core.AggregatedConfigSource
 ---------------------------
 
-`[core.AggregatedConfigSource proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/api/v2/core/config_source.proto#L100>`_
+`[core.AggregatedConfigSource proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/api/v2/core/config_source.proto#L100>`_
 
 Aggregated Discovery Service (ADS) options. This is currently empty, but when
 set in :ref:`ConfigSource <envoy_api_msg_core.ConfigSource>` can be used to
@@ -149,7 +149,7 @@ specify that ADS is to be used.
 core.RateLimitSettings
 ----------------------
 
-`[core.RateLimitSettings proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/api/v2/core/config_source.proto#L114>`_
+`[core.RateLimitSettings proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/api/v2/core/config_source.proto#L114>`_
 
 Rate Limit settings to be applied for discovery requests made by Envoy.
 
@@ -181,7 +181,7 @@ fill_rate
 core.ConfigSource
 -----------------
 
-`[core.ConfigSource proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/api/v2/core/config_source.proto#L131>`_
+`[core.ConfigSource proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/api/v2/core/config_source.proto#L131>`_
 
 Configuration for :ref:`listeners <config_listeners>`, :ref:`clusters
 <config_cluster_manager>`, :ref:`routes
@@ -267,7 +267,7 @@ resource_api_version
 Enum core.ApiVersion
 --------------------
 
-`[core.ApiVersion proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/api/v2/core/config_source.proto#L24>`_
+`[core.ApiVersion proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/api/v2/core/config_source.proto#L24>`_
 
 xDS API version. This is used to describe both resource and transport
 protocol versions (in distinct configuration fields).

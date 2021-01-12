@@ -10,7 +10,7 @@ Outlier detection logging events
 data.cluster.v2alpha.OutlierDetectionEvent
 ------------------------------------------
 
-`[data.cluster.v2alpha.OutlierDetectionEvent proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L77>`_
+`[data.cluster.v2alpha.OutlierDetectionEvent proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L77>`_
 
 
 .. code-block:: json
@@ -111,7 +111,7 @@ eject_failure_percentage_event
 data.cluster.v2alpha.OutlierEjectSuccessRate
 --------------------------------------------
 
-`[data.cluster.v2alpha.OutlierEjectSuccessRate proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L116>`_
+`[data.cluster.v2alpha.OutlierEjectSuccessRate proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L116>`_
 
 
 .. code-block:: json
@@ -148,7 +148,7 @@ cluster_success_rate_ejection_threshold
 data.cluster.v2alpha.OutlierEjectConsecutive
 --------------------------------------------
 
-`[data.cluster.v2alpha.OutlierEjectConsecutive proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L128>`_
+`[data.cluster.v2alpha.OutlierEjectConsecutive proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L128>`_
 
 
 .. code-block:: json
@@ -163,7 +163,7 @@ data.cluster.v2alpha.OutlierEjectConsecutive
 data.cluster.v2alpha.OutlierEjectFailurePercentage
 --------------------------------------------------
 
-`[data.cluster.v2alpha.OutlierEjectFailurePercentage proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L131>`_
+`[data.cluster.v2alpha.OutlierEjectFailurePercentage proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L131>`_
 
 
 .. code-block:: json
@@ -184,7 +184,7 @@ host_success_rate
 Enum data.cluster.v2alpha.OutlierEjectionType
 ---------------------------------------------
 
-`[data.cluster.v2alpha.OutlierEjectionType proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L21>`_
+`[data.cluster.v2alpha.OutlierEjectionType proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L21>`_
 
 Type of ejection that took place
 
@@ -259,7 +259,7 @@ FAILURE_PERCENTAGE_LOCAL_ORIGIN
 Enum data.cluster.v2alpha.Action
 --------------------------------
 
-`[data.cluster.v2alpha.Action proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L68>`_
+`[data.cluster.v2alpha.Action proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L68>`_
 
 Represents possible action applied to upstream host
 

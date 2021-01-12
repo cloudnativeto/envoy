@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>运行时 &mdash; envoy 1.16.0-97e7bf documentation</title>
+  <title>运行时 &mdash; envoy 1.16.0-2ae01e documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-97e7bf
+                1.16.0-2ae01e
               </div>
             
           
@@ -333,9 +333,9 @@ bootstrap 配置详述了这个分层。后一层中的运行时设置会覆盖�
 <div class="section" id="config-runtime-deprecation">
 <span id="id12"></span><h2>使用运行时复写处理弃用特性<a class="headerlink" href="#config-runtime-deprecation" title="Permalink to this headline">¶</a></h2>
 <p>Envoy 运行时也是 Envoy 功能弃用流程的一部分。</p>
-<p>如在 Envoy <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/CONTRIBUTING.md#breaking-change-policy">重大变更策略</a> 中所描述，Envoy 中的功能弃用分三个阶段：warn-by-default、fail-by-default 和 代码移除（code removal）。</p>
+<p>如在 Envoy <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/CONTRIBUTING.md#breaking-change-policy">重大变更策略</a> 中所描述，Envoy 中的功能弃用分三个阶段：warn-by-default、fail-by-default 和 代码移除（code removal）。</p>
 <p>在第一阶段，Envoy 在告警日志中会打印告警，表明功能要被弃用且会增加 <a class="reference internal" href="#runtime-stats"><span class="std std-ref">deprecated_feature_use</span></a> 运行时统计。鼓励用户去 <a class="reference internal" href="../../version_history/version_history.html#deprecated"><span class="std std-ref">弃用</span></a> 中查看如何迁移到新的代码路径，确保这能够适用于他们的用例。</p>
-<p>在第二阶段，字段将被标记为 disallowed_by_default，默认情况下，使用此字段进行配置将会导致配置被拒绝。这种禁止模式可在运行时配置中通过将 envoy.deprecated_features:full_fieldname 或 envoy.deprecated_features:full_enum_value 设置为 true 来进行覆盖。例如，对于一个弃用字段 <code class="docutils literal notranslate"><span class="pre">Foo.Bar.Eep</span></code> ，将 <code class="docutils literal notranslate"><span class="pre">envoy.deprecated_features:Foo.bar.Eep</span></code> 设置为 <code class="docutils literal notranslate"><span class="pre">true</span></code> 。这有一个生产例子，使用静态运行时来允许 fail-by-default 字段，可查看这儿 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/configs/using_deprecated_config.v2.yaml">configs/using_deprecated_config.v2.yaml</a> 。<strong>极其不鼓励</strong> 去使用这些覆盖，所以使用时请注意，应尽早切换至新字段。Fatal-by-default 配置预示了旧代码路径的移除是迫在眉睫了。如果新代码路径中的任何缺陷或者功能问题能够提前被清除，而不是在代码移除之后，这对于Envoy 用户和 Envoy 贡献者来说都是非常好的！</p>
+<p>在第二阶段，字段将被标记为 disallowed_by_default，默认情况下，使用此字段进行配置将会导致配置被拒绝。这种禁止模式可在运行时配置中通过将 envoy.deprecated_features:full_fieldname 或 envoy.deprecated_features:full_enum_value 设置为 true 来进行覆盖。例如，对于一个弃用字段 <code class="docutils literal notranslate"><span class="pre">Foo.Bar.Eep</span></code> ，将 <code class="docutils literal notranslate"><span class="pre">envoy.deprecated_features:Foo.bar.Eep</span></code> 设置为 <code class="docutils literal notranslate"><span class="pre">true</span></code> 。这有一个生产例子，使用静态运行时来允许 fail-by-default 字段，可查看这儿 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/configs/using_deprecated_config.v2.yaml">configs/using_deprecated_config.v2.yaml</a> 。<strong>极其不鼓励</strong> 去使用这些覆盖，所以使用时请注意，应尽早切换至新字段。Fatal-by-default 配置预示了旧代码路径的移除是迫在眉睫了。如果新代码路径中的任何缺陷或者功能问题能够提前被清除，而不是在代码移除之后，这对于Envoy 用户和 Envoy 贡献者来说都是非常好的！</p>
 <div class="admonition attention" id="runtime-stats">
 <p class="admonition-title">Attention</p>
 <p>版本高于 1.14.1 的 Envoy，不能够将整数值解析为运行时布尔值，这需要显示的设定为“true”或者“false”。如果错误的让诸如“0”这样的整数值代表“false”的话，会导致直接使用默认值。这一点对于 <a class="reference internal" href="../../version_history/version_history.html#deprecated"><span class="std std-ref">弃用功能</span></a> 的运行时覆盖尤为重要，因为这将会导致非预期的 Envoy 行为。</p>

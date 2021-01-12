@@ -9,7 +9,7 @@ Common tap configuration
 config.tap.v3.TapConfig
 -----------------------
 
-`[config.tap.v3.TapConfig proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/config/tap/v3/common.proto#L23>`_
+`[config.tap.v3.TapConfig proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/config/tap/v3/common.proto#L23>`_
 
 Tap configuration.
 
@@ -56,7 +56,7 @@ output_config
 config.tap.v3.MatchPredicate
 ----------------------------
 
-`[config.tap.v3.MatchPredicate proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/config/tap/v3/common.proto#L61>`_
+`[config.tap.v3.MatchPredicate proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/config/tap/v3/common.proto#L61>`_
 
 Tap match configuration. This is a recursive structure which allows complex nested match
 configurations to be built using various logical operators.
@@ -173,7 +173,7 @@ http_response_generic_body_match
 config.tap.v3.MatchPredicate.MatchSet
 -------------------------------------
 
-`[config.tap.v3.MatchPredicate.MatchSet proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/config/tap/v3/common.proto#L66>`_
+`[config.tap.v3.MatchPredicate.MatchSet proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/config/tap/v3/common.proto#L66>`_
 
 A set of match configurations used for logical operations.
 
@@ -197,7 +197,7 @@ rules
 config.tap.v3.HttpHeadersMatch
 ------------------------------
 
-`[config.tap.v3.HttpHeadersMatch proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/config/tap/v3/common.proto#L112>`_
+`[config.tap.v3.HttpHeadersMatch proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/config/tap/v3/common.proto#L112>`_
 
 HTTP headers match configuration.
 
@@ -220,7 +220,7 @@ headers
 config.tap.v3.HttpGenericBodyMatch
 ----------------------------------
 
-`[config.tap.v3.HttpGenericBodyMatch proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/config/tap/v3/common.proto#L130>`_
+`[config.tap.v3.HttpGenericBodyMatch proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/config/tap/v3/common.proto#L130>`_
 
 HTTP generic body match configuration.
 List of text strings and hex strings to be located in HTTP body.
@@ -257,7 +257,7 @@ patterns
 config.tap.v3.HttpGenericBodyMatch.GenericTextMatch
 ---------------------------------------------------
 
-`[config.tap.v3.HttpGenericBodyMatch.GenericTextMatch proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/config/tap/v3/common.proto#L131>`_
+`[config.tap.v3.HttpGenericBodyMatch.GenericTextMatch proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/config/tap/v3/common.proto#L131>`_
 
 
 .. code-block:: json
@@ -293,7 +293,7 @@ binary_match
 config.tap.v3.OutputConfig
 --------------------------
 
-`[config.tap.v3.OutputConfig proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/config/tap/v3/common.proto#L151>`_
+`[config.tap.v3.OutputConfig proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/config/tap/v3/common.proto#L151>`_
 
 Tap output configuration.
 
@@ -349,7 +349,7 @@ streaming
 config.tap.v3.OutputSink
 ------------------------
 
-`[config.tap.v3.OutputSink proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/config/tap/v3/common.proto#L181>`_
+`[config.tap.v3.OutputSink proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/config/tap/v3/common.proto#L181>`_
 
 Tap output sink configuration.
 
@@ -399,7 +399,7 @@ file_per_tap
 Enum config.tap.v3.OutputSink.Format
 ------------------------------------
 
-`[config.tap.v3.OutputSink.Format proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/config/tap/v3/common.proto#L189>`_
+`[config.tap.v3.OutputSink.Format proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/config/tap/v3/common.proto#L189>`_
 
 Output format. All output is in the form of one or more :ref:`TraceWrapper
 <envoy_v3_api_msg_data.tap.v3.TraceWrapper>` messages. This enumeration indicates
@@ -459,7 +459,7 @@ PROTO_TEXT
 config.tap.v3.StreamingAdminSink
 --------------------------------
 
-`[config.tap.v3.StreamingAdminSink proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/config/tap/v3/common.proto#L250>`_
+`[config.tap.v3.StreamingAdminSink proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/config/tap/v3/common.proto#L250>`_
 
 Streaming admin sink configuration.
 
@@ -475,7 +475,7 @@ Streaming admin sink configuration.
 config.tap.v3.FilePerTapSink
 ----------------------------
 
-`[config.tap.v3.FilePerTapSink proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/config/tap/v3/common.proto#L256>`_
+`[config.tap.v3.FilePerTapSink proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/config/tap/v3/common.proto#L256>`_
 
 The file per tap sink outputs a discrete file for every tapped stream.
 

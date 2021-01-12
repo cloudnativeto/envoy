@@ -9,7 +9,7 @@ Common TLS configuration
 extensions.transport_sockets.tls.v3.TlsParameters
 -------------------------------------------------
 
-`[extensions.transport_sockets.tls.v3.TlsParameters proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L23>`_
+`[extensions.transport_sockets.tls.v3.TlsParameters proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L23>`_
 
 
 .. code-block:: json
@@ -104,7 +104,7 @@ ecdh_curves
 Enum extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol
 ------------------------------------------------------------------
 
-`[extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L26>`_
+`[extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L26>`_
 
 
 .. _envoy_v3_api_enum_value_extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol.TLS_AUTO:
@@ -143,7 +143,7 @@ TLSv1_3
 extensions.transport_sockets.tls.v3.PrivateKeyProvider
 ------------------------------------------------------
 
-`[extensions.transport_sockets.tls.v3.PrivateKeyProvider proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L112>`_
+`[extensions.transport_sockets.tls.v3.PrivateKeyProvider proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L112>`_
 
 BoringSSL private key method configuration. The private key methods are used for external
 (potentially asynchronous) signing and decryption operations. Some use cases for private key
@@ -177,7 +177,7 @@ typed_config
 extensions.transport_sockets.tls.v3.TlsCertificate
 --------------------------------------------------
 
-`[extensions.transport_sockets.tls.v3.TlsCertificate proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L131>`_
+`[extensions.transport_sockets.tls.v3.TlsCertificate proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L131>`_
 
 
 .. code-block:: json
@@ -237,7 +237,7 @@ ocsp_staple
 extensions.transport_sockets.tls.v3.TlsSessionTicketKeys
 --------------------------------------------------------
 
-`[extensions.transport_sockets.tls.v3.TlsSessionTicketKeys proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L162>`_
+`[extensions.transport_sockets.tls.v3.TlsSessionTicketKeys proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L162>`_
 
 
 .. code-block:: json
@@ -281,7 +281,7 @@ keys
 extensions.transport_sockets.tls.v3.CertificateValidationContext
 ----------------------------------------------------------------
 
-`[extensions.transport_sockets.tls.v3.CertificateValidationContext proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L194>`_
+`[extensions.transport_sockets.tls.v3.CertificateValidationContext proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L194>`_
 
 
 .. code-block:: json
@@ -445,7 +445,7 @@ trust_chain_verification
 Enum extensions.transport_sockets.tls.v3.CertificateValidationContext.TrustChainVerification
 --------------------------------------------------------------------------------------------
 
-`[extensions.transport_sockets.tls.v3.CertificateValidationContext.TrustChainVerification proto] <https://github.com/envoyproxy/envoy/blob/97e7bf1e0f3a91f0970d1d2edcbfc35a1f2b5ec1/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L199>`_
+`[extensions.transport_sockets.tls.v3.CertificateValidationContext.TrustChainVerification proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L199>`_
 
 Peer certificate verification mode.
 
