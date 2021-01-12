@@ -10,7 +10,7 @@ Envoy 及其过滤器会写应用程序日志来实现可调试性。
 使用 GKE 记录 Stackdriver
 ---------------------------
 
-`Stackdriver 记录 <https://cloud.google.com/logging/>`_ 可以读取来运行在 `Google Kubernetes Engine <https://cloud.google.com/kubernetes-engine/>`_ 上的容器的日志。Envoy 应该用如下的 :ref:`命令行选项 <operations_cli>` 进行配置：
+`Stackdriver 记录 <https://cloud.google.com/logging/>`_ 可以读取运行在 `Google Kubernetes Engine <https://cloud.google.com/kubernetes-engine/>`_ 上的容器的日志。Envoy 应该用如下的 :ref:`命令行选项 <operations_cli>` 进行配置：
 
 * ``--log-format '%L%m%d %T.%e %t envoy] [%t][%n]%v'``：使用 `glog <https://github.com/google/glog>`_ 格式对日志进行格式化，允许 Stackdriver 解析日志的级别和时间戳。
 * ``--log-format-escaped``：记录的每个字符串都将打印在一行中。
