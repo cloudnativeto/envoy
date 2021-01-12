@@ -79,7 +79,7 @@ JwtProvider
         cache_duration:
           seconds: 300
 
-上面的示例使用 URL https://example.com/jwks.json 从远程服务器获取 JWSK。令牌将从默认提取位置提取。令牌不会转发到上游。JWT有效负载不会添加到请求头部中。
+上面的示例使用 URL https://example.com/jwks.json 从远程服务器获取 JWSK。令牌将从默认提取位置提取。令牌不会转发到上游。JWT 有效负载不会添加到请求头部中。
 
 需要以下 cluster example_jwks_cluster 来获取 JWKS。
 
