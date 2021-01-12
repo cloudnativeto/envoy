@@ -58,7 +58,7 @@ Envoy 使用 :ref:`首个匹配 <config_http_conn_man_route_table_route_matching
 重新看 ``helloworld`` 示例，现在有三个（v1、v2 和 v3）而不是两个版本。``weighted_clusters`` 选项可以用来指定每个上游集群的权重来在三个版本之间平均分配流量（比如 ``33%、33%、34%``）。
 
 与前面的示例不同，一个 :ref:`路由
-<envoy_v3_api_msg_config.route.v3.Route>` 条目就够了。路由中的 :ref:`weighted_clusters <envoy_v3_api_field_config.route.v3.RouteAction.weighted_clusters>` 配置块可用于指定多个上游集群以及作为指示发送到每个上游集群的流量的百分比的权重。
+<envoy_v3_api_msg_config.route.v3.Route>` 条目就够了。路由中的 :ref:`weighted_clusters <envoy_v3_api_field_config.route.v3.RouteAction.weighted_clusters>` 配置块可用于指定多个上游集群以及每个上游集群的权重。
 
 .. code-block:: yaml
 
