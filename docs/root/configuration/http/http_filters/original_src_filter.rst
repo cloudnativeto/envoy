@@ -22,7 +22,7 @@ IP 版本支持
 
 假如 Envoy 和上游在同一个主机上 -- 例如在边车（sidecar）部署中 --，iptables 和路由规则可以被用来确保正确的行为。过滤器有个无符号整数配置 :ref:`标记 <envoy_v3_api_field_extensions.filters.http.original_src.v3.OriginalSrc.mark>`。将其设置为 *X* 会导致 Envoy对来自此 http 的所有上游数据包 *标记* 为 *X*。注意 :ref:`标记 <envoy_v3_api_field_extensions.filters.http.original_src.v3.OriginalSrc.mark>` 被设置为 0，Envoy 将不会标记上游数据包。
 
-我们可以使用下面这组命令来确保所有被标记为 *X*（例子上假设为 123）的 ipv4 和 ipv6 流量路由正确。注意，这个例子假设 *eth0* 为默认的出站接口。
+我们可以使用下面这组命令来确保所有被标记为 *X*（例子上假设为 123）的 ipv4 和 ipv6 的流量都进行了正确路由。注意，这个例子假设 *eth0* 为默认的出站接口。
 
 .. code-block:: text
 
