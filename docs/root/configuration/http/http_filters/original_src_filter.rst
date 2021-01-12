@@ -6,7 +6,7 @@
 * :ref:`HTTP 过滤器 v3 API 参考 <envoy_v3_api_msg_extensions.filters.http.original_src.v3.OriginalSrc>`
 * 此过滤器的名称应该配置为 *envoy.filters.http.original_src*。
 
-原始的源 http 过滤器在 Envoy 的上游端复制连接的下游远程地址。比如，下游使用 IP 地址 ``10.1.2.3`` 连接到 Envoy，接着 Envoy 使用源 IP ``10.1.2.3`` 连接到上游。下游远程地址是根据 :ref:`XFF <config_http_conn_man_headers_x-forwarded-for>` 中概述的“可信客户端地址”的逻辑确定。
+请求源 http 过滤器在 Envoy 的上游端复制连接的下游远程地址。比如，下游使用 IP 地址 ``10.1.2.3`` 连接到 Envoy，接着 Envoy 使用源 IP ``10.1.2.3`` 连接到上游。下游远程地址是根据 :ref:`XFF <config_http_conn_man_headers_x-forwarded-for>` 中概述的“可信客户端地址”的逻辑确定。
 
 
 请注意，该过滤器旨在与:ref:`路由器 <config_http_filters_router>` 过滤器结合使用。特别是，它必须在路由器过滤器之前运行，以便可以将所需的源IP添加到过滤器链的状态。
