@@ -60,7 +60,7 @@
    downstream_rq_overload_close, Counter, 由于 Envoy 过载而关闭的请求总数
    rs_too_large, Counter, 由于缓冲过大的 body 而导致的总响应错误
 
-以 user agent 维度进行的统计
+每 user agent 维度的统计信息
 ----------------------------
 
 其他每个 user agent 维度进行的统计信息都以 *http.<stat_prefix>.user_agent.<user_agent>.* 开头。 目前 Envoy 匹配 iOS (*ios*) 和 Android (*android*) 的 user agent ，并产生以下的统计信息：
@@ -75,7 +75,7 @@
 
 .. _config_http_conn_man_stats_per_listener:
 
-以监听器维度进行统计
+每监听器的统计信息
 -----------------------
 
 其他每个以监听器维度进行的统计信息都以 *listener.<address>.http.<stat_prefix>.* 开头，并有以下统计信息：
@@ -94,7 +94,7 @@
 
 .. _config_http_conn_man_stats_per_codec:
 
-以编解码器维度进行统计
+每编解码器的统计信息
 -----------------------
 
 每个编解码器都可以选择添加每个编解码器统计信息。http1和http2都具有编解码器统计信息。
