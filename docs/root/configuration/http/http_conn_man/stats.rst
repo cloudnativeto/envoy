@@ -12,18 +12,18 @@
    downstream_cx_total, Counter, 连接总数
    downstream_cx_ssl_total, Counter, TLS 连接总数
    downstream_cx_http1_total, Counter, HTTP/1.1 连接总数
-   downstream_cx_upgrades_total, Counter, 成功升级的连接总数。 这些统计数据也包括所有 http1/http2 连接总数。
+   downstream_cx_upgrades_total, Counter, 成功升级的连接总数。这些统计数据也包括所有 http1/http2连接总数。
    downstream_cx_http2_total, Counter, HTTP/2 连接总数
    downstream_cx_destroy, Counter, 销毁的连接总数
    downstream_cx_destroy_remote, Counter, 由于远程关闭而被销毁的连接总数
    downstream_cx_destroy_local, Counter, 由于本地关闭而被销毁的连接总数
    downstream_cx_destroy_active_rq, Counter, 由于超过一个活跃请求而销毁的连接总数
-   downstream_cx_destroy_local_active_rq, Counter, 由于超过一个活跃请求而被本地销毁的连接总数
-   downstream_cx_destroy_remote_active_rq, Counter, 由于超过一个活跃请求而被远程销毁的连接总数
+   downstream_cx_destroy_local_active_rq, Counter, 有一个以上活跃请求而被本地销毁的连接总数
+   downstream_cx_destroy_remote_active_rq, Counter, 有一个以上活跃请求而被远程销毁的连接总数
    downstream_cx_active, Gauge, 活跃的连接总数
    downstream_cx_ssl_active, Gauge, 活跃的 TLS 连接总数
    downstream_cx_http1_active, Gauge, 活跃的 HTTP/1.1 连接总数
-   downstream_cx_upgrades_active, Gauge, 活跃的升级的连接总数。 这些统计数据也包括活跃的 http1/http2 连接总数。
+   downstream_cx_upgrades_active, Gauge, 活跃的升级的连接总数。这些统计数据也包括活跃的 http1/http2连接总数。
    downstream_cx_http2_active, Gauge, 活跃的 HTTP/2 连接总数
    downstream_cx_protocol_error, Counter, 协议错误总数
    downstream_cx_length_ms, Histogram, 连接时长毫秒
@@ -134,7 +134,7 @@ Http2 编解码器统计
    rx_messaging_error, Counter, 违反 HTTP/2 规范 `第8节 <https://tools.ietf.org/html/rfc7540#section-8>`_ 的无效接收帧总数。这个结果会体现在 *tx_reset*
    rx_reset, Counter, Envoy 收到的重置流帧总数
    trailers, Counter, 在下游请求中看到的尾部总数
-   tx_flush_timeout, Counter, 等待空闲流窗口刷新流剩余部分的流空闲超时总数 :ref:`stream idle timeouts <envoy_api_field_config.filter.network.http_connection_manager.v2.HttpConnectionManager.stream_idle_timeout>`
+   tx_flush_timeout, Counter, 等待空闲流窗口刷新流剩余部分的流空闲超时总数 :ref:`流空闲超时<envoy_api_field_config.filter.network.http_connection_manager.v2.HttpConnectionManager.stream_idle_timeout>`
    tx_reset, Counter, Envoy 发送的重置流帧总数
    keepalive_timeout, Counter, 由于 keepalive 超时而关闭的连接总数 :ref:`keepalive timeout <envoy_v3_api_field_config.core.v3.KeepaliveSettings.timeout>`
    streams_active, Gauge, 编解码器观察到的活动流
@@ -156,5 +156,5 @@ Http2 编解码器统计
    random_sampling, Counter, 通过随机抽样可追踪决策的总数
    service_forced, Counter, 通过服务器运行时标识 *tracing.global_enabled* 的可追踪决策的总数
    client_enabled, Counter, 通过请求头部 *x-envoy-force-trace* 设定的可追踪决策的总数
-   not_traceable, Counter, 通过 request id 的不可追踪的决策总数
+   not_traceable, Counter, 按 request id 分列的不可追踪的决策总数
    health_check, Counter, 通过健康检查的不可追踪的决策总数
