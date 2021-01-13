@@ -23,7 +23,7 @@
 
 梯度控制器
 ~~~~~~~~~~~~~~~~~~~
-梯度控制器基于周期性的 upstream 理想往返时间(minRTT) 测量做转发决策
+梯度控制器基于上游理想往返时间（minRTT）周期性地测量做转发决策。
 
 :ref:`v3 API 参考 <envoy_v3_api_msg_extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig>`
 
