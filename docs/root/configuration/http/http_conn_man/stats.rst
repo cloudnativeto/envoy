@@ -12,7 +12,7 @@
    downstream_cx_total, Counter, 连接总数
    downstream_cx_ssl_total, Counter, TLS 连接总数
    downstream_cx_http1_total, Counter, HTTP/1.1 连接总数
-   downstream_cx_upgrades_total, Counter, 成功升级的连接总数。这些统计数据也包括所有 http1/http2连接总数。
+   downstream_cx_upgrades_total, Counter, 成功升级的连接总数。这些统计数据也包括所有 http1/http2 连接总数。
    downstream_cx_http2_total, Counter, HTTP/2 连接总数
    downstream_cx_destroy, Counter, 销毁的连接总数
    downstream_cx_destroy_remote, Counter, 由于远程关闭而被销毁的连接总数
@@ -23,7 +23,7 @@
    downstream_cx_active, Gauge, 活跃的连接总数
    downstream_cx_ssl_active, Gauge, 活跃的 TLS 连接总数
    downstream_cx_http1_active, Gauge, 活跃的 HTTP/1.1 连接总数
-   downstream_cx_upgrades_active, Gauge, 活跃的升级的连接总数。这些统计数据也包括活跃的 http1/http2连接总数。
+   downstream_cx_upgrades_active, Gauge, 活跃的升级的连接总数。这些统计数据也包括活跃的 http1/http2 连接总数。
    downstream_cx_http2_active, Gauge, 活跃的 HTTP/2 连接总数
    downstream_cx_protocol_error, Counter, 协议错误总数
    downstream_cx_length_ms, Histogram, 连接时长毫秒
@@ -97,7 +97,7 @@
 每编解码器的统计信息
 -----------------------
 
-每个编解码器都可以选择添加每个编解码器统计信息。http1和http2都具有编解码器统计信息。
+每个编解码器都可以选择添加每个编解码器统计信息。http1 和 http2 都具有编解码器统计信息。
 
 Http1 编解码器统计
 ~~~~~~~~~~~~~~~~~~~~~~
