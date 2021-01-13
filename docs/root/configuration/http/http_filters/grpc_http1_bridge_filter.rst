@@ -10,7 +10,7 @@ gRPC HTTP/1.1 桥接
 这是一个简单的过滤器，可以桥接不支持响应 trailers 的 HTTP/1.1 客户端到兼容 gRPC 服务器。通过执行以下操作：
 
 * 发送请求时，过滤器将查看连接是否为 HTTP/1.1 协议以及请求内容类型是是否为 *application/grpc*。
-* 如果是, 收到响应后，过滤器会进行缓存并等待 trailers，然后检查 *grpc-status* 状态码。如果状态码不为0，过滤器会将 HTTP 响应码切换为503。它还会复制 *grpc-status* 和 *grpc-message* trailers 放入响应头部中，以便客户端查看，如果客户端想要查看的话。
+* 如果是, 收到响应后，过滤器会进行缓存并等待 trailers，然后检查 *grpc-status* 状态码。如果状态码不为 0，过滤器会将 HTTP 响应码切换为 503。它还会复制 *grpc-status* 和 *grpc-message* trailers 放入响应头部中，以便客户端查看，如果客户端想要查看的话。
 * 客户端应该发送 HTTP/1.1 请求，该请求转换为以下伪头部：
 
   * *\:method*: POST
