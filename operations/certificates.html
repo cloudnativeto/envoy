@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>证书管理 &mdash; envoy 1.16.0-e91bdc documentation</title>
+  <title>证书管理 &mdash; envoy 1.16.0-04e0e5 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-e91bdc
+                1.16.0-04e0e5
               </div>
             
           
@@ -192,7 +192,7 @@
 <span id="id1"></span><h1>证书管理<a class="headerlink" href="#operations-certificates" title="Permalink to this headline">¶</a></h1>
 <p>Envoy 提供几种证书管理机制。从高层次来讲，可以分为：</p>
 <ol class="arabic simple">
-<li><p>静态 <a class="reference internal" href="../api-v2/api/v2/auth/tls.proto.html#envoy-api-msg-auth-commontlscontext"><span class="std std-ref">CommonTlsContext</span></a> 引用的证书。这些证书将*不会*自动加载，需要通过重启代理或者重新加载引用它们的集群/监听器。<a class="reference internal" href="../intro/arch_overview/operations/hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">热重启</span></a> 可以被用来获取新证书而不用丢弃流量。</p></li>
+<li><p>静态 <a class="reference internal" href="../api-v2/api/v2/auth/tls.proto.html#envoy-api-msg-auth-commontlscontext"><span class="std std-ref">CommonTlsContext</span></a> 引用的证书。这些证书将 <em>不会</em> 自动加载，需要通过重启代理或者重新加载引用它们的集群/监听器。<a class="reference internal" href="../intro/arch_overview/operations/hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">热重启</span></a> 可以被用来获取新证书而不用丢弃流量。</p></li>
 <li><p><a class="reference internal" href="../configuration/security/secret.html#config-secret-discovery-service"><span class="std std-ref">证书发现服务</span></a> 引用的证书。通过使用 SDS，证书可以作为文件被引用（当父目录被移除时，证书会被重新加载）或者通过一个可以推送新证书的外部 SDS 服务器。</p></li>
 </ol>
 </div>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Statistics &mdash; envoy 1.16.0-e91bdc documentation</title>
+  <title>统计 &mdash; envoy 1.16.0-04e0e5 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-e91bdc
+                1.16.0-04e0e5
               </div>
             
           
@@ -118,7 +118,7 @@
 <li class="toctree-l4"><a class="reference internal" href="header_sanitizing.html">HTTP header sanitizing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="local_reply.html">Local reply modification</a></li>
 <li class="toctree-l4"><a class="reference internal" href="response_code_details.html">Response Code Details</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Statistics</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">统计</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtime.html">运行时</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rds.html">路由发现服务（RDS）</a></li>
 <li class="toctree-l4"><a class="reference internal" href="vhds.html">Virtual Host Discovery Service (VHDS)</a></li>
@@ -193,7 +193,7 @@
         
           <li><a href="http_conn_man.html">HTTP 连接管理器</a> &raquo;</li>
         
-      <li>Statistics</li>
+      <li>统计</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -212,10 +212,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="statistics">
-<span id="config-http-conn-man-stats"></span><h1>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h1>
-<p>Every connection manager has a statistics tree rooted at <em>http.&lt;stat_prefix&gt;.</em> with the following
-statistics:</p>
+  <div class="section" id="config-http-conn-man-stats">
+<span id="id1"></span><h1>统计<a class="headerlink" href="#config-http-conn-man-stats" title="Permalink to this headline">¶</a></h1>
+<p>每一个连接管理器都有一个以 <em>http.&lt;stat_prefix&gt;.</em> 为根的统计树，具有以下的统计信息：</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -223,219 +222,217 @@ statistics:</p>
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>downstream_cx_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connections</p></td>
+<td><p>连接总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_cx_ssl_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total TLS connections</p></td>
+<td><p>TLS 连接总数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_cx_http1_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total HTTP/1.1 connections</p></td>
+<td><p>HTTP/1.1 连接总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_cx_upgrades_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total successfully upgraded connections. These are also counted as total http1/http2 connections.</p></td>
+<td><p>成功升级的连接总数。这些统计数据也包括所有 http1/http2 连接总数。</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_cx_http2_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total HTTP/2 connections</p></td>
+<td><p>HTTP/2 连接总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_cx_destroy</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connections destroyed</p></td>
+<td><p>销毁的连接总数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_cx_destroy_remote</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connections destroyed due to remote close</p></td>
+<td><p>由于远程关闭而被销毁的连接总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_cx_destroy_local</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connections destroyed due to local close</p></td>
+<td><p>由于本地关闭而被销毁的连接总数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_cx_destroy_active_rq</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connections destroyed with 1+ active request</p></td>
+<td><p>由于超过一个活跃请求而销毁的连接总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_cx_destroy_local_active_rq</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connections destroyed locally with 1+ active request</p></td>
+<td><p>有一个以上活跃请求而被本地销毁的连接总数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_cx_destroy_remote_active_rq</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connections destroyed remotely with 1+ active request</p></td>
+<td><p>有一个以上活跃请求而被远程销毁的连接总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_cx_active</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total active connections</p></td>
+<td><p>活跃的连接总数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_cx_ssl_active</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total active TLS connections</p></td>
+<td><p>活跃的 TLS 连接总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_cx_http1_active</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total active HTTP/1.1 connections</p></td>
+<td><p>活跃的 HTTP/1.1 连接总数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_cx_upgrades_active</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total active upgraded connections. These are also counted as active http1/http2 connections.</p></td>
+<td><p>活跃的升级的连接总数。这些统计数据也包括活跃的 http1/http2 连接总数。</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_cx_http2_active</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total active HTTP/2 connections</p></td>
+<td><p>活跃的 HTTP/2 连接总数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_cx_protocol_error</p></td>
 <td><p>Counter</p></td>
-<td><p>Total protocol errors</p></td>
+<td><p>协议错误总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_cx_length_ms</p></td>
 <td><p>Histogram</p></td>
-<td><p>Connection length milliseconds</p></td>
+<td><p>连接时长毫秒</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_cx_rx_bytes_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total bytes received</p></td>
+<td><p>收到的总字节数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_cx_rx_bytes_buffered</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total received bytes currently buffered</p></td>
+<td><p>当前收到并缓存的总字节数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_cx_tx_bytes_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total bytes sent</p></td>
+<td><p>发出的总字节数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_cx_tx_bytes_buffered</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total sent bytes currently buffered</p></td>
+<td><p>当前已缓存的已发送字节总数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_cx_drain_close</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connections closed due to draining</p></td>
+<td><p>由于排空而关闭的连接总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_cx_idle_timeout</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connections closed due to idle timeout</p></td>
+<td><p>由于空闲超时而关闭的连接总数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_cx_max_duration_reached</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connections closed due to max connection duration</p></td>
+<td><p>由于最大连接持续时间而关闭的总连接数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_cx_overload_disable_keepalive</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connections for which HTTP 1.x keepalive has been disabled due to Envoy overload</p></td>
+<td><p>由于 Envoy 过载而被禁用 HTTP 1.x keepalive 的连接总数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_flow_control_paused_reading_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of times reads were disabled due to flow control</p></td>
+<td><p>由于流量控制而禁止的总读取次数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_flow_control_resumed_reading_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of times reads were enabled on the connection due to flow control</p></td>
+<td><p>由于流量控制而在连接上启用的总读取次数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_rq_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests</p></td>
+<td><p>总请求数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_rq_http1_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total HTTP/1.1 requests</p></td>
+<td><p>HTTP/1.1 总请求数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_rq_http2_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total HTTP/2 requests</p></td>
+<td><p>HTTP/2 总请求数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_rq_active</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total active requests</p></td>
+<td><p>活跃的总请求数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_rq_response_before_rq_complete</p></td>
 <td><p>Counter</p></td>
-<td><p>Total responses sent before the request was complete</p></td>
+<td><p>在请求完成之前发送的总响应数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_rq_rx_reset</p></td>
 <td><p>Counter</p></td>
-<td><p>Total request resets received</p></td>
+<td><p>收到的请求重置总数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_rq_tx_reset</p></td>
 <td><p>Counter</p></td>
-<td><p>Total request resets sent</p></td>
+<td><p>发出的请求重置总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_rq_non_relative_path</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests with a non-relative HTTP path</p></td>
+<td><p>带有非相对 HTTP 路径的请求总数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_rq_too_large</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests resulting in a 413 due to buffering an overly large body</p></td>
+<td><p>由于缓存超过最大 body 而收到 413 响应的请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_rq_completed</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests that resulted in a response (e.g. does not include aborted requests)</p></td>
+<td><p>带有响应的请求总数（例如不包括中止的请求）</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_rq_1xx</p></td>
 <td><p>Counter</p></td>
-<td><p>Total 1xx responses</p></td>
+<td><p>1xx 响应总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_rq_2xx</p></td>
 <td><p>Counter</p></td>
-<td><p>Total 2xx responses</p></td>
+<td><p>2xx 响应总数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_rq_3xx</p></td>
 <td><p>Counter</p></td>
-<td><p>Total 3xx responses</p></td>
+<td><p>3xx 响应总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_rq_4xx</p></td>
 <td><p>Counter</p></td>
-<td><p>Total 4xx responses</p></td>
+<td><p>4xx 响应总数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_rq_5xx</p></td>
 <td><p>Counter</p></td>
-<td><p>Total 5xx responses</p></td>
+<td><p>5xx 响应总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_rq_ws_on_non_ws_route</p></td>
 <td><p>Counter</p></td>
-<td><p>Total upgrade requests rejected by non upgrade routes. This now applies both to WebSocket and non-WebSocket upgrades</p></td>
+<td><p>被非升级路由拒绝的升级请求。这个现在适用于 WebSocket 和非 WebSocket 升级。</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_rq_time</p></td>
 <td><p>Histogram</p></td>
-<td><p>Total time for request and response (milliseconds)</p></td>
+<td><p>请求和响应的总时间（毫秒）</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_rq_idle_timeout</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests closed due to idle timeout</p></td>
+<td><p>由于空闲超时而关闭的请求总数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_rq_max_duration_reached</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests closed due to max duration reached</p></td>
+<td><p>由于达到了最长持续时间而关闭的请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_rq_timeout</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests closed due to a timeout on the request path</p></td>
+<td><p>由于请求路径超时而关闭的请求总数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_rq_overload_close</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests closed due to Envoy overload</p></td>
+<td><p>由于 Envoy 过载而关闭的请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>rs_too_large</p></td>
 <td><p>Counter</p></td>
-<td><p>Total response errors due to buffering an overly large body</p></td>
+<td><p>由于缓冲过大的 body 而导致的总响应错误</p></td>
 </tr>
 </tbody>
 </table>
-<div class="section" id="per-user-agent-statistics">
-<h2>Per user agent statistics<a class="headerlink" href="#per-user-agent-statistics" title="Permalink to this headline">¶</a></h2>
-<p>Additional per user agent statistics are rooted at <em>http.&lt;stat_prefix&gt;.user_agent.&lt;user_agent&gt;.</em>
-Currently Envoy matches user agent for both iOS (<em>ios</em>) and Android (<em>android</em>) and produces
-the following statistics:</p>
+<div class="section" id="user-agent">
+<h2>每 user agent 维度的统计信息<a class="headerlink" href="#user-agent" title="Permalink to this headline">¶</a></h2>
+<p>其他每个 user agent 维度进行的统计信息都以 <em>http.&lt;stat_prefix&gt;.user_agent.&lt;user_agent&gt;.</em> 开头。 目前 Envoy 匹配 iOS (<em>ios</em>) 和 Android (<em>android</em>) 的 user agent ，并产生以下的统计信息：</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -443,31 +440,30 @@ the following statistics:</p>
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>downstream_cx_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connections</p></td>
+<td><p>连接总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_cx_destroy_remote_active_rq</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connections destroyed remotely with 1+ active requests</p></td>
+<td><p>由于超过一个活跃请求而被远程销毁的连接总数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_rq_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests</p></td>
+<td><p>请求总数</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="per-listener-statistics">
-<span id="config-http-conn-man-stats-per-listener"></span><h2>Per listener statistics<a class="headerlink" href="#per-listener-statistics" title="Permalink to this headline">¶</a></h2>
-<p>Additional per listener statistics are rooted at <em>listener.&lt;address&gt;.http.&lt;stat_prefix&gt;.</em> with the
-following statistics:</p>
+<div class="section" id="config-http-conn-man-stats-per-listener">
+<span id="id2"></span><h2>每监听器的统计信息<a class="headerlink" href="#config-http-conn-man-stats-per-listener" title="Permalink to this headline">¶</a></h2>
+<p>其他每个以监听器维度进行的统计信息都以 <em>listener.&lt;address&gt;.http.&lt;stat_prefix&gt;.</em> 开头，并有以下统计信息：</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -475,45 +471,45 @@ following statistics:</p>
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>downstream_rq_completed</p></td>
 <td><p>Counter</p></td>
-<td><p>Total responses</p></td>
+<td><p>所有响应总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_rq_1xx</p></td>
 <td><p>Counter</p></td>
-<td><p>Total 1xx responses</p></td>
+<td><p>1xx 响应总数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_rq_2xx</p></td>
 <td><p>Counter</p></td>
-<td><p>Total 2xx responses</p></td>
+<td><p>2xx 响应总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_rq_3xx</p></td>
 <td><p>Counter</p></td>
-<td><p>Total 3xx responses</p></td>
+<td><p>3xx 响应总数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_rq_4xx</p></td>
 <td><p>Counter</p></td>
-<td><p>Total 4xx responses</p></td>
+<td><p>4xx 响应总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_rq_5xx</p></td>
 <td><p>Counter</p></td>
-<td><p>Total 5xx responses</p></td>
+<td><p>5xx 响应总数</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="per-codec-statistics">
-<span id="config-http-conn-man-stats-per-codec"></span><h2>Per codec statistics<a class="headerlink" href="#per-codec-statistics" title="Permalink to this headline">¶</a></h2>
-<p>Each codec has the option of adding per-codec statistics. Both http1 and http2 have codec stats.</p>
-<div class="section" id="http1-codec-statistics">
-<h3>Http1 codec statistics<a class="headerlink" href="#http1-codec-statistics" title="Permalink to this headline">¶</a></h3>
-<p>All http1 statistics are rooted at <em>http1.</em></p>
+<div class="section" id="config-http-conn-man-stats-per-codec">
+<span id="id3"></span><h2>每编解码器的统计信息<a class="headerlink" href="#config-http-conn-man-stats-per-codec" title="Permalink to this headline">¶</a></h2>
+<p>每个编解码器都可以选择添加每个编解码器统计信息。http1 和 http2 都具有编解码器统计信息。</p>
+<div class="section" id="http1">
+<h3>Http1 编解码器统计<a class="headerlink" href="#http1" title="Permalink to this headline">¶</a></h3>
+<p>所有的 http1 统计信息都以 <em>http1.</em> 开头</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -521,34 +517,34 @@ following statistics:</p>
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>dropped_headers_with_underscores</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of dropped headers with names containing underscores. This action is configured by setting the <a class="reference internal" href="../../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-httpprotocoloptions-headers-with-underscores-action"><span class="std std-ref">headers_with_underscores_action config setting</span></a>.</p></td>
+<td><p>名称中包含下划线的被丢弃的头部总数。这个统计可以通过设置 <a class="reference internal" href="../../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-httpprotocoloptions-headers-with-underscores-action"><span class="std std-ref">headers_with_underscores_action config setting</span></a>。</p></td>
 </tr>
 <tr class="row-odd"><td><p>metadata_not_supported_error</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of metadata dropped during HTTP/1 encoding</p></td>
+<td><p>HTTP/1编码期间被丢弃的元数据总数</p></td>
 </tr>
 <tr class="row-even"><td><p>response_flood</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of connections closed due to response flooding</p></td>
+<td><p>由于响应泛洪而关闭的连接总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>requests_rejected_with_underscores_in_headers</p></td>
 <td><p>Counter</p></td>
-<td><p>Total numbers of rejected requests due to header names containing underscores. This action is configured by setting the <a class="reference internal" href="../../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-httpprotocoloptions-headers-with-underscores-action"><span class="std std-ref">headers_with_underscores_action config setting</span></a>.</p></td>
+<td><p>由于头部名称包含下划线而导致拒绝的请求总数。这个统计可以通过设置 <a class="reference internal" href="../../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-httpprotocoloptions-headers-with-underscores-action"><span class="std std-ref">headers_with_underscores_action config setting</span></a>。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="http2-codec-statistics">
-<h3>Http2 codec statistics<a class="headerlink" href="#http2-codec-statistics" title="Permalink to this headline">¶</a></h3>
-<p>All http2 statistics are rooted at <em>http2.</em></p>
+<div class="section" id="http2">
+<h3>Http2 编解码器统计<a class="headerlink" href="#http2" title="Permalink to this headline">¶</a></h3>
+<p>所有的 http2 统计信息都以 <em>http2.</em> 开头</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -556,93 +552,91 @@ following statistics:</p>
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>dropped_headers_with_underscores</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of dropped headers with names containing underscores. This action is configured by setting the <a class="reference internal" href="../../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-httpprotocoloptions-headers-with-underscores-action"><span class="std std-ref">headers_with_underscores_action config setting</span></a>.</p></td>
+<td><p>名称中包含下划线的被丢弃的头部总数。这个统计可以通过设置 <a class="reference internal" href="../../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-httpprotocoloptions-headers-with-underscores-action"><span class="std std-ref">headers_with_underscores_action config setting</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>header_overflow</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of connections reset due to the headers being larger than the <a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-max-request-headers-kb"><span class="std std-ref">configured value</span></a>.</p></td>
+<td><p>由于头部大于参数 <a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-max-request-headers-kb"><span class="std std-ref">configured value</span></a> 而重置的连接总数</p></td>
 </tr>
 <tr class="row-even"><td><p>headers_cb_no_stream</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of errors where a header callback is called without an associated stream. This tracks an unexpected occurrence due to an as yet undiagnosed bug</p></td>
+<td><p>在没有关联流的情况下进行头部回调的错误总数。由于尚未诊断的 bug，这将跟踪意外发生。</p></td>
 </tr>
 <tr class="row-odd"><td><p>inbound_empty_frames_flood</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of connections terminated for exceeding the limit on consecutive inbound frames with an empty payload and no end stream flag. The limit is configured by setting the <a class="reference internal" href="../../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-http2protocoloptions-max-consecutive-inbound-frames-with-empty-payload"><span class="std std-ref">max_consecutive_inbound_frames_with_empty_payload config setting</span></a>.</p></td>
+<td><p>由于有效载荷为空且没有结束流标志的连续入站帧超出限制而终止的连接总数。这个限制值可以通过设置 <a class="reference internal" href="../../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-http2protocoloptions-max-consecutive-inbound-frames-with-empty-payload"><span class="std std-ref">max_consecutive_inbound_frames_with_empty_payload config setting</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p>inbound_priority_frames_flood</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of connections terminated for exceeding the limit on inbound frames of type PRIORITY. The limit is configured by setting the <a class="reference internal" href="../../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-http2protocoloptions-max-inbound-priority-frames-per-stream"><span class="std std-ref">max_inbound_priority_frames_per_stream config setting</span></a>.</p></td>
+<td><p>由于超出 PRIORITY 类型的入站帧的限制而终止的连接总数。这个限制值可以通过设置 <a class="reference internal" href="../../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-http2protocoloptions-max-inbound-priority-frames-per-stream"><span class="std std-ref">max_inbound_priority_frames_per_stream config setting</span></a>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>inbound_window_update_frames_flood</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of connections terminated for exceeding the limit on inbound frames of type WINDOW_UPDATE. The limit is configured by setting the <a class="reference internal" href="../../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-http2protocoloptions-max-inbound-window-update-frames-per-data-frame-sent"><span class="std std-ref">max_inbound_window_updateframes_per_data_frame_sent config setting</span></a>.</p></td>
+<td><p>由于超出 WINDOW_UPDATE 类型的入站帧的限制而终止的连接总数。这个限制值可以通过设置 <a class="reference internal" href="../../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-http2protocoloptions-max-inbound-window-update-frames-per-data-frame-sent"><span class="std std-ref">max_inbound_window_updateframes_per_data_frame_sent config setting</span></a>。</p></td>
 </tr>
 <tr class="row-even"><td><p>outbound_flood</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of connections terminated for exceeding the limit on outbound frames of all types. The limit is configured by setting the <a class="reference internal" href="../../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-http2protocoloptions-max-outbound-frames"><span class="std std-ref">max_outbound_frames config setting</span></a>.</p></td>
+<td><p>由于超出所有类型的出站帧的限制而终止的连接总数。这个限制值可以通过设置 <a class="reference internal" href="../../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-http2protocoloptions-max-outbound-frames"><span class="std std-ref">max_outbound_frames config setting</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>outbound_control_flood</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of connections terminated for exceeding the limit on outbound frames of types PING, SETTINGS and RST_STREAM. The limit is configured by setting the <a class="reference internal" href="../../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-http2protocoloptions-max-outbound-control-frames"><span class="std std-ref">max_outbound_control_frames config setting</span></a>.</p></td>
+<td><p>终止的连接总数超过了 PING，SETTINGS 和 RST_STREAM 类型的出站帧的限制。这个限制可以通过设置 <a class="reference internal" href="../../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-http2protocoloptions-max-outbound-control-frames"><span class="std std-ref">max_outbound_control_frames config setting</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p>requests_rejected_with_underscores_in_headers</p></td>
 <td><p>Counter</p></td>
-<td><p>Total numbers of rejected requests due to header names containing underscores. This action is configured by setting the <a class="reference internal" href="../../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-httpprotocoloptions-headers-with-underscores-action"><span class="std std-ref">headers_with_underscores_action config setting</span></a>.</p></td>
+<td><p>由于头部名称包含下划线而被拒绝的请求总数。这个统计可以通过设置 <a class="reference internal" href="../../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-httpprotocoloptions-headers-with-underscores-action"><span class="std std-ref">headers_with_underscores_action config setting</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>rx_messaging_error</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of invalid received frames that violated <a class="reference external" href="https://tools.ietf.org/html/rfc7540#section-8">section 8</a> of the HTTP/2 spec. This will result in a <em>tx_reset</em></p></td>
+<td><p>违反 HTTP/2 规范 <a class="reference external" href="https://tools.ietf.org/html/rfc7540#section-8">第8节</a> 的无效接收帧总数。这个结果会体现在 <em>tx_reset</em></p></td>
 </tr>
 <tr class="row-even"><td><p>rx_reset</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of reset stream frames received by Envoy</p></td>
+<td><p>Envoy 收到的重置流帧总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>trailers</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of trailers seen on requests coming from downstream</p></td>
+<td><p>在下游请求中看到的尾部总数</p></td>
 </tr>
 <tr class="row-even"><td><p>tx_flush_timeout</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of <a class="reference internal" href="../../../api-v2/config/filter/network/http_connection_manager/v2/http_connection_manager.proto.html#envoy-api-field-config-filter-network-http-connection-manager-v2-httpconnectionmanager-stream-idle-timeout"><span class="std std-ref">stream idle timeouts</span></a> waiting for open stream window to flush the remainder of a stream</p></td>
+<td><p>等待空闲流窗口刷新流剩余部分的流空闲超时总数 <a class="reference internal" href="../../../api-v2/config/filter/network/http_connection_manager/v2/http_connection_manager.proto.html#envoy-api-field-config-filter-network-http-connection-manager-v2-httpconnectionmanager-stream-idle-timeout"><span class="std std-ref">流空闲超时</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>tx_reset</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of reset stream frames transmitted by Envoy</p></td>
+<td><p>Envoy 发送的重置流帧总数</p></td>
 </tr>
 <tr class="row-even"><td><p>keepalive_timeout</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of connections closed due to <a class="reference internal" href="../../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-keepalivesettings-timeout"><span class="std std-ref">keepalive timeout</span></a></p></td>
+<td><p>由于 keepalive 超时而关闭的连接总数 <a class="reference internal" href="../../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-keepalivesettings-timeout"><span class="std std-ref">keepalive timeout</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>streams_active</p></td>
 <td><p>Gauge</p></td>
-<td><p>Active streams as observed by the codec</p></td>
+<td><p>编解码器观察到的活动流</p></td>
 </tr>
 <tr class="row-even"><td><p>pending_send_bytes</p></td>
 <td><p>Gauge</p></td>
-<td><p>Currently buffered body data in bytes waiting to be written when stream/connection window is opened.</p></td>
+<td><p>当打开/流/连接窗口正在等待写入的当前缓冲的 body 数据（以字节为单位）</p></td>
 </tr>
 </tbody>
 </table>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>The HTTP/2 <cite>streams_active</cite> gauge may be greater than the HTTP connection manager
-<cite>downstream_rq_active</cite> gauge due to differences in stream accounting between the codec and the
-HTTP connection manager.</p>
+<p>由于编码解码器和 HTTP 连接管理器的流计量不同，HTTP/2 <cite>streams_active</cite> 的计量值可能大于 HTTP 连接管理器 <cite>downstream_rq_active</cite> 的计量值。</p>
 </div>
 </div>
 </div>
-<div class="section" id="tracing-statistics">
-<h2>Tracing statistics<a class="headerlink" href="#tracing-statistics" title="Permalink to this headline">¶</a></h2>
-<p>Tracing statistics are emitted when tracing decisions are made. All tracing statistics are rooted at <em>http.&lt;stat_prefix&gt;.tracing.</em> with the following statistics:</p>
+<div class="section" id="id5">
+<h2>追踪统计<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>追踪统计信息是在做出追踪决定时发出的。所有追踪统计信息都以 <em>http.&lt;stat_prefix&gt;.tracing.</em> 开头，并带有以下统计信息：</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -650,31 +644,31 @@ HTTP connection manager.</p>
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>random_sampling</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of traceable decisions by random sampling</p></td>
+<td><p>通过随机抽样可追踪决策的总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>service_forced</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of traceable decisions by server runtime flag <em>tracing.global_enabled</em></p></td>
+<td><p>通过服务器运行时标识 <em>tracing.global_enabled</em> 的可追踪决策的总数</p></td>
 </tr>
 <tr class="row-even"><td><p>client_enabled</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of traceable decisions by request header <em>x-envoy-force-trace</em></p></td>
+<td><p>通过请求头部 <em>x-envoy-force-trace</em> 设定的可追踪决策的总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>not_traceable</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of non-traceable decisions by request id</p></td>
+<td><p>按 request id 分列的不可追踪的决策总数</p></td>
 </tr>
 <tr class="row-even"><td><p>health_check</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of non-traceable decisions by health check</p></td>
+<td><p>通过健康检查的不可追踪的决策总数</p></td>
 </tr>
 </tbody>
 </table>

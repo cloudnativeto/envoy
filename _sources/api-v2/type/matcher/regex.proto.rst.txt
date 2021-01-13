@@ -9,7 +9,7 @@ Regex matcher
 type.matcher.RegexMatcher
 -------------------------
 
-`[type.matcher.RegexMatcher proto] <https://github.com/envoyproxy/envoy/blob/e91bdc9b04d47b7d22d471bf86860242a5c4ade9/api/envoy/type/matcher/regex.proto#L17>`_
+`[type.matcher.RegexMatcher proto] <https://github.com/envoyproxy/envoy/blob/04e0e54994897a7361217d976105519065cbd5b5/api/envoy/type/matcher/regex.proto#L17>`_
 
 A regex matcher designed for safety when used with untrusted input.
 
@@ -38,7 +38,7 @@ regex
 type.matcher.RegexMatcher.GoogleRE2
 -----------------------------------
 
-`[type.matcher.RegexMatcher.GoogleRE2 proto] <https://github.com/envoyproxy/envoy/blob/e91bdc9b04d47b7d22d471bf86860242a5c4ade9/api/envoy/type/matcher/regex.proto#L31>`_
+`[type.matcher.RegexMatcher.GoogleRE2 proto] <https://github.com/envoyproxy/envoy/blob/04e0e54994897a7361217d976105519065cbd5b5/api/envoy/type/matcher/regex.proto#L31>`_
 
 Google's `RE2 <https://github.com/google/re2>`_ regex engine. The regex string must adhere to
 the documented `syntax <https://github.com/google/re2/wiki/Syntax>`_. The engine is designed
@@ -80,7 +80,7 @@ max_program_size
 type.matcher.RegexMatchAndSubstitute
 ------------------------------------
 
-`[type.matcher.RegexMatchAndSubstitute proto] <https://github.com/envoyproxy/envoy/blob/e91bdc9b04d47b7d22d471bf86860242a5c4ade9/api/envoy/type/matcher/regex.proto#L55>`_
+`[type.matcher.RegexMatchAndSubstitute proto] <https://github.com/envoyproxy/envoy/blob/04e0e54994897a7361217d976105519065cbd5b5/api/envoy/type/matcher/regex.proto#L55>`_
 
 Describes how to match a string and then produce a new string using a regular
 expression and a substitution string.

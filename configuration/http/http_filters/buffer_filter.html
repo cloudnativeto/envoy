@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Buffer &mdash; envoy 1.16.0-e91bdc documentation</title>
+  <title>缓冲区 &mdash; envoy 1.16.0-04e0e5 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-e91bdc
+                1.16.0-04e0e5
               </div>
             
           
@@ -115,7 +115,7 @@
 <li class="toctree-l4"><a class="reference internal" href="admission_control_filter.html">准入控制</a></li>
 <li class="toctree-l4"><a class="reference internal" href="aws_lambda_filter.html">AWS Lambda</a></li>
 <li class="toctree-l4"><a class="reference internal" href="aws_request_signing_filter.html">AWS 请求签名</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Buffer</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">缓冲区</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cdn_loop_filter.html">CDN-Loop 头部</a></li>
 <li class="toctree-l4"><a class="reference internal" href="compressor_filter.html">Compressor</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cors_filter.html">CORS</a></li>
@@ -215,7 +215,7 @@
         
           <li><a href="http_filters.html">HTTP 过滤器</a> &raquo;</li>
         
-      <li>Buffer</li>
+      <li>缓冲区</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -234,23 +234,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="buffer">
-<span id="config-http-filters-buffer"></span><h1>Buffer<a class="headerlink" href="#buffer" title="Permalink to this headline">¶</a></h1>
-<p>The buffer filter is used to stop filter iteration and wait for a fully buffered complete request.
-This is useful in different situations including protecting some applications from having to deal
-with partial requests and high network latency.</p>
-<p>If enabled the buffer filter populates content-length header if it is not present in the request
-already. The behavior can be disabled using the runtime feature
-<cite>envoy.reloadable_features.buffer_filter_populate_content_length</cite>.</p>
+  <div class="section" id="config-http-filters-buffer">
+<span id="id1"></span><h1>缓冲区<a class="headerlink" href="#config-http-filters-buffer" title="Permalink to this headline">¶</a></h1>
+<p>缓冲区过滤器被用于停止过滤器迭代以及等待完整缓冲的请求。这在很多情况下很有用，包括避免某些应用处理不完整的分块请求和高网络延迟。</p>
+<p>如果启用缓冲区过滤器，在请求中没有 content-length 头，则缓冲区过滤器会添加这个头。
+这一行为可以使用运行时属性 <cite>envoy.reloadable_features.buffer_filter_populate_content_length</cite> 来禁用。</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../../api-v3/extensions/filters/http/buffer/v3/buffer.proto.html#envoy-v3-api-msg-extensions-filters-http-buffer-v3-buffer"><span class="std std-ref">v3 API reference</span></a></p></li>
-<li><p>This filter should be configured with the name <em>envoy.filters.http.buffer</em>.</p></li>
+<li><p><a class="reference internal" href="../../../api-v3/extensions/filters/http/buffer/v3/buffer.proto.html#envoy-v3-api-msg-extensions-filters-http-buffer-v3-buffer"><span class="std std-ref">v3 API 参考</span></a></p></li>
+<li><p>此过滤器应该用名称 <em>envoy.filters.http.buffer</em> 来配置</p></li>
 </ul>
-<div class="section" id="per-route-configuration">
-<h2>Per-Route Configuration<a class="headerlink" href="#per-route-configuration" title="Permalink to this headline">¶</a></h2>
-<p>The buffer filter configuration can be overridden or disabled on a per-route basis by providing a
-<a class="reference internal" href="../../../api-v3/extensions/filters/http/buffer/v3/buffer.proto.html#envoy-v3-api-msg-extensions-filters-http-buffer-v3-bufferperroute"><span class="std std-ref">BufferPerRoute</span></a> configuration on
-the virtual host, route, or weighted cluster.</p>
+<div class="section" id="id2">
+<h2>按路由配置<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>通过在虚拟主机、路由以及加权集群上提供 <a class="reference internal" href="../../../api-v3/extensions/filters/http/buffer/v3/buffer.proto.html#envoy-v3-api-msg-extensions-filters-http-buffer-v3-bufferperroute"><span class="std std-ref">BufferPerRoute</span></a> 配置，
+可以按路由来覆盖或禁用缓冲区过滤器配置。</p>
 </div>
 </div>
 
