@@ -9,7 +9,7 @@
 
 这个过滤器应该通过名字 `envoy.filters.http.adaptive_concurrency` 配置
 
-查看 :ref:`v3 API 参考 <envoy_v3_api_msg_extensions.filters.http.adaptive_concurrency.v3.AdaptiveConcurrency>` 来获取各配置参数的详细信息
+查看 :ref:`v3 API 参考 <envoy_v3_api_msg_extensions.filters.http.adaptive_concurrency.v3.AdaptiveConcurrency>` 来获取各配置参数的详细信息。
 
 概览
 --------
