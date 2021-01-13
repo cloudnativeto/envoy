@@ -3,7 +3,7 @@
 gRPC HTTP/1.1 桥接
 ====================
 
-* gRPC :ref:`架构概述 <arch_overview_grpc>`
+* gRPC :ref:`架构概览 <arch_overview_grpc>`
 * :ref:`v3 API 参考 <envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpFilter.name>`
 * 这个过滤器应该配置使用名称 *envoy.filters.http.grpc_http1_bridge*.
 
