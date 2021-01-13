@@ -5,7 +5,7 @@
 
 .. attention::
 
-  自适应过滤器还是实验性的， 目前正在积极开发中
+  自适应过滤器还是实验性的，目前正在积极开发中
 
 这个过滤器应该通过名字 `envoy.filters.http.adaptive_concurrency` 配置
 
