@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>参考配置 &mdash; envoy 1.16.0-2ae01e documentation</title>
+  <title>参考配置 &mdash; envoy 1.16.0-e91bdc documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-2ae01e
+                1.16.0-e91bdc
               </div>
             
           
@@ -112,7 +112,7 @@
 <li class="toctree-l2"><a class="reference internal" href="tools/tools.html">工具</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../version_history/version_history.html">Version history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version_history/version_history.html">版本历史</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">配置参考</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operations/operations.html">操作和管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../extending/extending.html">Extending Envoy for custom use cases</a></li>
@@ -198,10 +198,10 @@
 <h2>配置生成器<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>Envoy 配置会变得相对复杂。在 Lyft 我们使用 <a class="reference external" href="http://jinja.pocoo.org/">jinja</a> 模板使配置变得更加易于创建和管理。发行版源代码包含一个配置生成器的版本，它与我们在 Lyft 中使用的配置生成器近似一致。我们也为上述的三个场景中的每一个都包含了示例配置模板。</p>
 <ul class="simple">
-<li><p>生成器脚本： <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/configs/configgen.py">configs/configgen.py</a></p></li>
-<li><p>服务对服务模板： <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/configs/envoy_service_to_service_v2.template.yaml">configs/envoy_service_to_service_v2.template.yaml</a></p></li>
-<li><p>前置代理模板： <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/configs/envoy_front_proxy_v2.template.yaml">configs/envoy_front_proxy_v2.template.yaml</a></p></li>
-<li><p>双重代理模板： <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/configs/envoy_double_proxy_v2.template.yaml">configs/envoy_double_proxy_v2.template.yaml</a></p></li>
+<li><p>生成器脚本： <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e91bdc9b04d47b7d22d471bf86860242a5c4ade9/configs/configgen.py">configs/configgen.py</a></p></li>
+<li><p>服务对服务模板： <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e91bdc9b04d47b7d22d471bf86860242a5c4ade9/configs/envoy_service_to_service_v2.template.yaml">configs/envoy_service_to_service_v2.template.yaml</a></p></li>
+<li><p>前置代理模板： <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e91bdc9b04d47b7d22d471bf86860242a5c4ade9/configs/envoy_front_proxy_v2.template.yaml">configs/envoy_front_proxy_v2.template.yaml</a></p></li>
+<li><p>双重代理模板： <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e91bdc9b04d47b7d22d471bf86860242a5c4ade9/configs/envoy_double_proxy_v2.template.yaml">configs/envoy_double_proxy_v2.template.yaml</a></p></li>
 </ul>
 <p>从仓库的根目录运行以下命令生成示例配置：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mkdir -p generated/configs</span>

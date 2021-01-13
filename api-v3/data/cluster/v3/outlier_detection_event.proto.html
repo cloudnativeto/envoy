@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Outlier detection logging events &mdash; envoy 1.16.0-2ae01e documentation</title>
+  <title>Outlier detection logging events &mdash; envoy 1.16.0-e91bdc documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-2ae01e
+                1.16.0-e91bdc
               </div>
             
           
@@ -104,7 +104,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../intro/intro.html">介绍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../start/start.html">开始</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../install/install.html">构建和安装</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../version_history/version_history.html">Version history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../version_history/version_history.html">版本历史</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../configuration/configuration.html">配置参考</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../operations/operations.html">操作和管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../extending/extending.html">Extending Envoy for custom use cases</a></li>
@@ -214,7 +214,7 @@
 <p><a class="reference internal" href="../../../../intro/arch_overview/upstream/outlier.html#arch-overview-outlier-detection-logging"><span class="std std-ref">Outlier detection logging</span></a>.</p>
 <div class="section" id="data-cluster-v3-outlierdetectionevent">
 <span id="envoy-v3-api-msg-data-cluster-v3-outlierdetectionevent"></span><h2>data.cluster.v3.OutlierDetectionEvent<a class="headerlink" href="#data-cluster-v3-outlierdetectionevent" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/data/cluster/v3/outlier_detection_event.proto#L76">[data.cluster.v3.OutlierDetectionEvent proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e91bdc9b04d47b7d22d471bf86860242a5c4ade9/api/envoy/data/cluster/v3/outlier_detection_event.proto#L76">[data.cluster.v3.OutlierDetectionEvent proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -283,7 +283,7 @@ ejected. <code class="docutils literal notranslate"><span class="pre">false</spa
 </div>
 <div class="section" id="data-cluster-v3-outlierejectsuccessrate">
 <span id="envoy-v3-api-msg-data-cluster-v3-outlierejectsuccessrate"></span><h2>data.cluster.v3.OutlierEjectSuccessRate<a class="headerlink" href="#data-cluster-v3-outlierejectsuccessrate" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/data/cluster/v3/outlier_detection_event.proto#L118">[data.cluster.v3.OutlierEjectSuccessRate proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e91bdc9b04d47b7d22d471bf86860242a5c4ade9/api/envoy/data/cluster/v3/outlier_detection_event.proto#L118">[data.cluster.v3.OutlierEjectSuccessRate proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;host_success_rate&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;cluster_average_success_rate&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -307,14 +307,14 @@ range.</p>
 </div>
 <div class="section" id="data-cluster-v3-outlierejectconsecutive">
 <span id="envoy-v3-api-msg-data-cluster-v3-outlierejectconsecutive"></span><h2>data.cluster.v3.OutlierEjectConsecutive<a class="headerlink" href="#data-cluster-v3-outlierejectconsecutive" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/data/cluster/v3/outlier_detection_event.proto#L133">[data.cluster.v3.OutlierEjectConsecutive proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e91bdc9b04d47b7d22d471bf86860242a5c4ade9/api/envoy/data/cluster/v3/outlier_detection_event.proto#L133">[data.cluster.v3.OutlierEjectConsecutive proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="data-cluster-v3-outlierejectfailurepercentage">
 <span id="envoy-v3-api-msg-data-cluster-v3-outlierejectfailurepercentage"></span><h2>data.cluster.v3.OutlierEjectFailurePercentage<a class="headerlink" href="#data-cluster-v3-outlierejectfailurepercentage" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/data/cluster/v3/outlier_detection_event.proto#L138">[data.cluster.v3.OutlierEjectFailurePercentage proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e91bdc9b04d47b7d22d471bf86860242a5c4ade9/api/envoy/data/cluster/v3/outlier_detection_event.proto#L138">[data.cluster.v3.OutlierEjectFailurePercentage proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;host_success_rate&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
 <span class="p">}</span>
@@ -327,7 +327,7 @@ range.</p>
 </div>
 <div class="section" id="enum-data-cluster-v3-outlierejectiontype">
 <span id="envoy-v3-api-enum-data-cluster-v3-outlierejectiontype"></span><h2>Enum data.cluster.v3.OutlierEjectionType<a class="headerlink" href="#enum-data-cluster-v3-outlierejectiontype" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/data/cluster/v3/outlier_detection_event.proto#L20">[data.cluster.v3.OutlierEjectionType proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e91bdc9b04d47b7d22d471bf86860242a5c4ade9/api/envoy/data/cluster/v3/outlier_detection_event.proto#L20">[data.cluster.v3.OutlierEjectionType proto]</a></p>
 <p>Type of ejection that took place</p>
 <dl class="simple" id="envoy-v3-api-enum-value-data-cluster-v3-outlierejectiontype-consecutive-5xx">
 <dt>CONSECUTIVE_5XX</dt><dd><p><em>(DEFAULT)</em> ⁣In case upstream host returns certain number of consecutive 5xx.
@@ -383,7 +383,7 @@ cluster and selects hosts for which ratio of failed replies is above configured 
 </div>
 <div class="section" id="enum-data-cluster-v3-action">
 <span id="envoy-v3-api-enum-data-cluster-v3-action"></span><h2>Enum data.cluster.v3.Action<a class="headerlink" href="#enum-data-cluster-v3-action" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/data/cluster/v3/outlier_detection_event.proto#L67">[data.cluster.v3.Action proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e91bdc9b04d47b7d22d471bf86860242a5c4ade9/api/envoy/data/cluster/v3/outlier_detection_event.proto#L67">[data.cluster.v3.Action proto]</a></p>
 <p>Represents possible action applied to upstream host</p>
 <dl class="simple" id="envoy-v3-api-enum-value-data-cluster-v3-action-eject">
 <dt>EJECT</dt><dd><p><em>(DEFAULT)</em> ⁣In case host was excluded from service</p>

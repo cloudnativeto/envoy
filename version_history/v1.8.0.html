@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1.8.0 (Oct 4, 2018) &mdash; envoy 1.16.0-2ae01e documentation</title>
+  <title>1.8.0 (Oct 4, 2018) &mdash; envoy 1.16.0-e91bdc documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-2ae01e
+                1.16.0-e91bdc
               </div>
             
           
@@ -104,7 +104,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro/intro.html">介绍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../start/start.html">开始</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install/install.html">构建和安装</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="version_history.html">Version history</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="version_history.html">版本历史</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="current.html">1.16.0 (October 8, 2020)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="v1.15.2.html">1.15.2 (September 29, 2020)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="v1.15.1.html">1.15.1 (September 29, 2020)</a></li>
@@ -203,7 +203,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="version_history.html">Version history</a> &raquo;</li>
+          <li><a href="version_history.html">版本历史</a> &raquo;</li>
         
       <li>1.8.0 (Oct 4, 2018)</li>
     
@@ -291,7 +291,7 @@ dynamic table size of both: encoder and decoder.</p></li>
 <li><p>network: introduced <a class="reference internal" href="../configuration/listeners/network_filters/sni_cluster_filter.html#config-network-filters-sni-cluster"><span class="std std-ref">sni_cluster</span></a> network filter that forwards connections to the
 upstream cluster specified by the SNI value presented by the client during a TLS handshake.</p></li>
 <li><p>proxy_protocol: added support for HAProxy Proxy Protocol v2 (AF_INET/AF_INET6 only).</p></li>
-<li><p>ratelimit: added support for <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/service/ratelimit/v2/rls.proto">api/envoy/service/ratelimit/v2/rls.proto</a>.
+<li><p>ratelimit: added support for <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e91bdc9b04d47b7d22d471bf86860242a5c4ade9/api/envoy/service/ratelimit/v2/rls.proto">api/envoy/service/ratelimit/v2/rls.proto</a>.
 Lyft’s reference implementation of the <a class="reference external" href="https://github.com/lyft/ratelimit">ratelimit</a> service also supports the data-plane-api proto as of v1.1.0.
 Envoy can use either proto to send client requests to a ratelimit server with the use of the
 <cite>use_data_plane_proto</cite> boolean flag in the ratelimit configuration.

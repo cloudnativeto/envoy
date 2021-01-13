@@ -21,7 +21,7 @@ The network layer external authorization service configuration
 config.filter.network.ext_authz.v2.ExtAuthz
 -------------------------------------------
 
-`[config.filter.network.ext_authz.v2.ExtAuthz proto] <https://github.com/envoyproxy/envoy/blob/2ae01ef597f5902fc07dd7b961c0a99df0a5f441/api/envoy/config/filter/network/ext_authz/v2/ext_authz.proto#L26>`_
+`[config.filter.network.ext_authz.v2.ExtAuthz proto] <https://github.com/envoyproxy/envoy/blob/e91bdc9b04d47b7d22d471bf86860242a5c4ade9/api/envoy/config/filter/network/ext_authz/v2/ext_authz.proto#L26>`_
 
 External Authorization filter calls out to an external service over the
 gRPC Authorization API defined by
