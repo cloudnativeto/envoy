@@ -32,7 +32,7 @@ gRPC HTTP/1.1 桥接
 .. attention::
 
    请注意，统计信息也通过 :ref:`gRPC stats filter
-   <config_http_filters_grpc_stats>` 收集。将此过滤器用于gRPC 自动测量记录已不推荐使用。
+   <config_http_filters_grpc_stats>` 收集。将此过滤器用于 gRPC 自动测量记录已不推荐使用。
 
 统计
 ----------
