@@ -1,34 +1,25 @@
 .. _operations_traffic_tapping:
 
-Traffic tapping
-===============
+流量捕获
+==========
 
-Envoy currently provides two experimental extensions that can tap traffic:
+Envoy目前提供了两个可以捕获流量的实验性扩展:
 
-  * :ref:`HTTP tap filter <config_http_filters_tap>`. See the linked filter documentation for more
-    information.
-  * :ref:`Tap transport socket extension <envoy_v3_api_msg_config.core.v3.TransportSocket>` that can intercept
-    traffic and write to a :ref:`protobuf trace file
-    <envoy_v3_api_msg_data.tap.v3.TraceWrapper>`. The remainder of this document describes
-    the configuration of the tap transport socket.
+  * :ref:`HTTP 挖掘过滤器 <config_http_filters_tap>`. 更多信息参见过滤器文档。
+  * :ref:`Tap 传输套接字拓展 <envoy_v3_api_msg_config.core.v3.TransportSocket>` 可以拦截流量并写入 :ref:`protobuf跟踪文件 <envoy_v3_api_msg_data.tap.v3.TraceWrapper>`. 本文档的其余部分将介绍捕获传输套接字的配置。
 
-Tap transport socket configuration
+捕获传输套接字传输配置 
 ----------------------------------
 
 .. attention::
 
-  The tap transport socket is experimental and is currently under active development. There is
-  currently a very limited set of match conditions, output configuration, output sinks, etc.
-  Capabilities will be expanded over time and the configuration structures are likely to change.
+ 捕获传输套接字是实验性的，正在丧心病狂地开发中。目前有一套非常有限的匹配条件、输出配置、输出汇等。随着时间的推移，能力将得到扩展，配置结构也可能发生变化。
 
-Tapping can be configured on :ref:`Listener
-<envoy_v3_api_field_config.listener.v3.FilterChain.transport_socket>` and :ref:`Cluster
-<envoy_v3_api_field_config.cluster.v3.Cluster.transport_socket>` transport sockets, providing the ability to interpose on
-downstream and upstream L4 connections respectively.
-
-To configure traffic tapping, add an `envoy.transport_sockets.tap` transport socket
-:ref:`configuration <envoy_v3_api_msg_extensions.filters.http.tap.v3.Tap>` to the listener
-or cluster. For a plain text socket this might look like:
+捕获器可以在 :ref:`监听器
+<envoy_v3_api_field_config.listener.v3.FilterChain.transport_socket>` 和 :ref:`集群
+<envoy_v3_api_field_config.cluster.v3.Cluster.transport_socket>` 传输套接字上配置, 提供分别在下行和上行L4连接上进行插接的能力。
+要配置流量捕获，需要在监听器或集群中添加一个 `envoy.transport_sockets.tap` 传输套接字
+:ref:`配置<envoy_v3_api_msg_extensions.filters.http.tap.v3.Tap>`。对于纯文本套接字来说，它可能是这样的：
 
 .. code-block:: yaml
 
@@ -48,7 +39,7 @@ or cluster. For a plain text socket this might look like:
       transport_socket:
         name: envoy.transport_sockets.raw_buffer
 
-For a TLS socket, this will be:
+TLS套接字，是这样的:
 
 .. code-block:: yaml
 
@@ -69,47 +60,36 @@ For a TLS socket, this will be:
         name: envoy.transport_sockets.tls
         typed_config: <TLS context>
 
-where the TLS context configuration replaces any existing :ref:`downstream
-<envoy_v3_api_msg_extensions.transport_sockets.tls.v3.DownstreamTlsContext>` or :ref:`upstream
-<envoy_v3_api_msg_extensions.transport_sockets.tls.v3.UpstreamTlsContext>`
-TLS configuration on the listener or cluster, respectively.
+其中，TLS上下文配置分别替换了监听器或集群上现有的 :ref:`下行<envoy_v3_api_msg_extensions.transport_sockets.tls.v3.DownstreamTlsContext>` 或 :ref:`上行<envoy_v3_api_msg_extensions.transport_sockets.tls.v3.UpstreamTlsContext>` TLS配置
 
-Each unique socket instance will generate a trace file prefixed with `path_prefix`. E.g.
-`/some/tap/path_0.pb`.
+每个独特的套接字实例都会生成一个以path_为前缀的跟踪文件。例如：/some/tap/path_0.pb。
 
-Buffered data limits
+缓冲数据限制
 --------------------
 
-For buffered socket taps, Envoy will limit the amount of body data that is tapped to avoid OOM
-situations. The default limit is 1KiB for both received and transmitted data.
-This is configurable via the :ref:`max_buffered_rx_bytes
-<envoy_v3_api_field_config.tap.v3.OutputConfig.max_buffered_rx_bytes>` and
+对于缓冲套接字的窃听，Envoy会限制窃听的主体数据量，以避免出现OOM情况。收和传输数据的默认限制是1KiB，这可以通过 :ref:`max_buffered_rx_bytes
+<envoy_v3_api_field_config.tap.v3.OutputConfig.max_buffered_rx_bytes>` 和
 :ref:`max_buffered_tx_bytes
-<envoy_v3_api_field_config.tap.v3.OutputConfig.max_buffered_tx_bytes>` settings. When a buffered
-socket tap is truncated, the trace will indicate truncation via the :ref:`read_truncated
-<envoy_v3_api_field_data.tap.v3.SocketBufferedTrace.read_truncated>` and :ref:`write_truncated
-<envoy_v3_api_field_data.tap.v3.SocketBufferedTrace.write_truncated>` fields as well as the body
-:ref:`truncated <envoy_v3_api_field_data.tap.v3.Body.truncated>` field.
+<envoy_v3_api_field_config.tap.v3.OutputConfig.max_buffered_tx_bytes>` 设置进行配置。 当缓冲套接字被截断时，跟踪将通过 :ref:`read_truncated
+<envoy_v3_api_field_data.tap.v3.SocketBufferedTrace.read_truncated>` 和 :ref:`write_truncated
+<envoy_v3_api_field_data.tap.v3.SocketBufferedTrace.write_truncated>` 字段以及 :ref:`truncated <envoy_v3_api_field_data.tap.v3.Body.truncated>` 字段显示截断情况。.
 
-Streaming
+流式传输
 ---------
 
-The tap transport socket supports both buffered and streaming, controlled by the :ref:`streaming
-<envoy_v3_api_field_config.tap.v3.OutputConfig.streaming>` setting. When buffering,
-:ref:`SocketBufferedTrace <envoy_v3_api_msg_data.tap.v3.SocketBufferedTrace>` messages are
-emitted. When streaming, a series of :ref:`SocketStreamedTraceSegment
-<envoy_v3_api_msg_data.tap.v3.SocketStreamedTraceSegment>` are emitted.
+tap传输套接字支持缓冲和流式传输, 由 :ref:`streaming
+<envoy_v3_api_field_config.tap.v3.OutputConfig.streaming>` 设置控制. 缓冲时,会发出
+:ref:`SocketBufferedTrace <envoy_v3_api_msg_data.tap.v3.SocketBufferedTrace>` 信息. 当进行流式传输时, 会发出一系列 :ref:`SocketStreamedTraceSegment
+<envoy_v3_api_msg_data.tap.v3.SocketStreamedTraceSegment>` 消息.
 
-See the :ref:`HTTP tap filter streaming <config_http_filters_tap_streaming>` documentation for more
-information. Most of the concepts overlap between the HTTP filter and the transport socket.
+更多信息参见 :ref:`HTTP tap filter streaming <config_http_filters_tap_streaming>` 文档，HTTP过滤器和传输 socket的大部分概念是重复的.
 
-PCAP generation
+PCAP 传播
 ---------------
 
-The generated trace file can be converted to `libpcap format
-<https://wiki.wireshark.org/Development/LibpcapFileFormat>`_, suitable for
-analysis with tools such as `Wireshark <https://www.wireshark.org/>`_ with the
-`tap2pcap` utility, e.g.:
+生成的跟踪文件可以转换为 `libpcap format
+<https://wiki.wireshark.org/Development/LibpcapFileFormat>`_,格式， 可以使用如
+ `Wireshark <https://www.wireshark.org/>`_ 和 tap2pcap 这样的工具进行分析, 例如:
 
 .. code-block:: bash
 
