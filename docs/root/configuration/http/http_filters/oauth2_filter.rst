@@ -5,11 +5,11 @@ OAuth2
 ======
 
 * :ref:`v3 API 参考 <envoy_v3_api_msg_extensions.filters.http.oauth2.v3alpha.OAuth2>`
-* 这个过滤器使用配置项 *envoy.filters.http.oauth2* 来配置。
+* 此过滤器的配置项名称应为：*envoy.filters.http.oauth2*。
 
 .. attention::
 
-  OAuth2 过滤器正在活跃开发中。
+  OAuth2 过滤器目前处于活跃的开发状态。
 
 示例配置
 ---------------------
@@ -59,9 +59,9 @@ OAuth2
 注意
 -----
 
-这个模块目前还没有为重定向到 OAuth 服务器并且返回这一循环提供跨站点请求伪造（Cross-Site-Request-Forgery）保护。
+这个模块目前没有为发送/返回到 OAuth 服务器的重定向循环提供太多的跨站请求伪造（ Cross-Site-Request-Forgery）方面的保护。
 
-服务必须基于 HTTPS，这样过滤器才能工作，同时 cookies 使用 `;secure`。
+为了保障过滤器正常运行，服务必须基于 HTTPS，且 cookies 须使用 `;secure`。
 
 统计
 ----------
@@ -72,6 +72,6 @@ OAuth 过滤器在 *<stat_prefix>.* 命名空间下输出统计信息。
   :header: 名称, 类型, 描述
   :widths: 1, 1, 2
 
-  oauth_failure, Counter, 总的拒绝请求数。
-  oauth_success, Counter, 总的允许请求数。
-  oauth_unauthorization_rq, Counter, 总的未授权请求数。
+  oauth_failure, Counter, 拒绝请求总数。
+  oauth_success, Counter, 允许的请求总数。
+  oauth_unauthorization_rq, Counter, 未授权请求总数。
