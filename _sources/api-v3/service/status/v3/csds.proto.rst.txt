@@ -9,7 +9,7 @@ Client Status Discovery Service (CSDS)
 service.status.v3.ClientStatusRequest
 -------------------------------------
 
-`[service.status.v3.ClientStatusRequest proto] <https://github.com/envoyproxy/envoy/blob/04e0e54994897a7361217d976105519065cbd5b5/api/envoy/service/status/v3/csds.proto#L76>`_
+`[service.status.v3.ClientStatusRequest proto] <https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f/api/envoy/service/status/v3/csds.proto#L76>`_
 
 Request for client status of clients identified by a list of NodeMatchers.
 
@@ -40,7 +40,7 @@ node
 service.status.v3.PerXdsConfig
 ------------------------------
 
-`[service.status.v3.PerXdsConfig proto] <https://github.com/envoyproxy/envoy/blob/04e0e54994897a7361217d976105519065cbd5b5/api/envoy/service/status/v3/csds.proto#L90>`_
+`[service.status.v3.PerXdsConfig proto] <https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f/api/envoy/service/status/v3/csds.proto#L90>`_
 
 Detailed config (per xDS) with status.
 
@@ -118,7 +118,7 @@ endpoint_config
 service.status.v3.ClientConfig
 ------------------------------
 
-`[service.status.v3.ClientConfig proto] <https://github.com/envoyproxy/envoy/blob/04e0e54994897a7361217d976105519065cbd5b5/api/envoy/service/status/v3/csds.proto#L118>`_
+`[service.status.v3.ClientConfig proto] <https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f/api/envoy/service/status/v3/csds.proto#L118>`_
 
 All xds configs for a particular client.
 
@@ -147,7 +147,7 @@ xds_config
 service.status.v3.ClientStatusResponse
 --------------------------------------
 
-`[service.status.v3.ClientStatusResponse proto] <https://github.com/envoyproxy/envoy/blob/04e0e54994897a7361217d976105519065cbd5b5/api/envoy/service/status/v3/csds.proto#L128>`_
+`[service.status.v3.ClientStatusResponse proto] <https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f/api/envoy/service/status/v3/csds.proto#L128>`_
 
 
 .. code-block:: json
@@ -168,7 +168,7 @@ config
 Enum service.status.v3.ConfigStatus
 -----------------------------------
 
-`[service.status.v3.ConfigStatus proto] <https://github.com/envoyproxy/envoy/blob/04e0e54994897a7361217d976105519065cbd5b5/api/envoy/service/status/v3/csds.proto#L37>`_
+`[service.status.v3.ConfigStatus proto] <https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f/api/envoy/service/status/v3/csds.proto#L37>`_
 
 Status of a config from a management server view.
 
@@ -211,7 +211,7 @@ ERROR
 Enum service.status.v3.ClientConfigStatus
 -----------------------------------------
 
-`[service.status.v3.ClientConfigStatus proto] <https://github.com/envoyproxy/envoy/blob/04e0e54994897a7361217d976105519065cbd5b5/api/envoy/service/status/v3/csds.proto#L58>`_
+`[service.status.v3.ClientConfigStatus proto] <https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f/api/envoy/service/status/v3/csds.proto#L58>`_
 
 Config status from a client-side view.
 
