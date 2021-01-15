@@ -1,78 +1,63 @@
 .. _operations_performance:
 
-Performance
+性能
 ===========
 
-Envoy is architected to optimize scalability and resource utilization by running an event loop on a
-:ref:`small number of threads <arch_overview_threading>`. The "main" thread is responsible for
-control plane processing, and each "worker" thread handles a portion of the data plane processing.
-Envoy exposes two statistics to monitor performance of the event loops on all these threads.
+Envoy旨在通过在 :ref:`少量线程<arch_overview_threading>`上运行事件循环来优化可伸缩性和资源利用。
+它的“主“线程负责控制平台的处理，每一个"worker"线程负责负责数据平台处理的一部分。
+Envoy公开了两个统计数据，以监视所有这些线程上事件循环的性能。
 
-* **Loop duration:** Some amount of processing is done on each iteration of the event loop. This
-  amount will naturally vary with changes in load. However, if one or more threads have an unusually
-  long-tailed loop duration, it may indicate a performance issue. For example, work might not be
-  distributed fairly across the worker threads, or there may be a long blocking operation in an
-  extension that's impeding progress.
+* **循环持续时间:** 事件循环的每次迭代都会进行一定数量的处理。该数量会自然的随着负载的变化而变化。
+    但是，如果一个或多个线程的循环持续时间异常长，则可能表示一个性能问题。例如，工作可能无法在工作
+    线程之间平均分配，或者扩展程序中可能存在长时间的阻塞操作，从而阻碍了进度。
 
-* **Poll delay:** On each iteration of the event loop, the event dispatcher polls for I/O events
-  and "wakes up" either when some I/O events are ready to be processed or when a timeout fires,
-  whichever occurs first. In the case of a timeout, we can measure the difference between the
-  expected wakeup time and the actual wakeup time after polling; this difference is called the "poll
-  delay." It's normal to see some small poll delay, usually equal to the kernel scheduler's "time
-  slice" or "quantum"---this depends on the specific operating system on which Envoy is
-  running---but if this number elevates substantially above its normal observed baseline, it likely
-  indicates kernel scheduler delays.
+* **轮询延迟:***  在事件循环的每次迭代中，事件分派器都会轮询I/O事件，并在准备好要处理某些I/O事件
+    或发生超时时（以先到者为准）“唤醒”。如果发生超时，我们可以测量预期唤醒时间与轮询后的实际唤醒时间
+    之间的差，这种差异称为“轮询延迟”。正常情况下会看到一些小的轮询延迟，通常等于内核调度程序的“时间
+    片”或“量子”，这取决于Envoy在其上运行的特定操作系统，但是，如果该数目大大高于正常情况下观察到的基
+    线值，则可能表明内核调度程序延迟。
 
-These statistics can be enabled by setting :ref:`enable_dispatcher_stats <envoy_v3_api_field_config.bootstrap.v3.Bootstrap.enable_dispatcher_stats>`
-to true.
+这些统计信息可以通过设置 :ref:`enable_dispatcher_stats 
+<envoy_v3_api_field_config.bootstrap.v3.Bootstrap.enable_dispatcher_stats>`为 true 来启用
 
-.. warning::
+.. 警告::
+  请注意，启用调度程序统计信息会为每个线程上的事件循环的每次迭代记录一个值。
+  通常这应该是最小的开销，但是当使用 :ref:`statsd <envoy_v3_api_msg_config.metrics.v3.StatsdSink>`
+  时,因为statsd协议无法表示直方图摘要，所以它将通过电线单独发送每个观测值。
+  请注意，这可能是非常大量的数据。
 
-  Note that enabling dispatcher stats records a value for each iteration of the event loop on every
-  thread. This should normally be minimal overhead, but when using
-  :ref:`statsd <envoy_v3_api_msg_config.metrics.v3.StatsdSink>`, it will send each observed value over
-  the wire individually because the statsd protocol doesn't have any way to represent a histogram
-  summary. Be aware that this can be a very large volume of data.
-
-Event loop statistics
+事件循环统计
 ---------------------
 
-The event dispatcher for the main thread has a statistics tree rooted at *server.dispatcher.*, and
-the event dispatcher for each worker thread has a statistics tree rooted at
-*listener_manager.worker_<id>.dispatcher.*, each with the following statistics:
+主线程的事件分配器的统计树植根于服务器，分派器和每个工作线程的事件分派器都有一个统计树，该树根植于
+*listener_manager.worker_ <id>.dispatcher.* ，每个都有以下统计信息：
 
 .. csv-table::
-  :header: Name, Type, Description
+  :header: 名称, 类型, 描述
   :widths: 1, 1, 2
 
-  loop_duration_us, Histogram, Event loop durations in microseconds
-  poll_delay_us, Histogram, Polling delays in microseconds
+  loop_duration_us, 直方图, 事件循环持续时间（以微秒为单位）
+  poll_delay_us, 直方图, 轮询延迟（以微秒为单位）
 
-Note that any auxiliary threads are not included here.
+请注意，此处不包括任何辅助线程。
 
 .. _operations_performance_watchdog:
 
-Watchdog
+看门狗
 --------
+除了事件循环统计信息外，Envoy还包括一个可配置的:ref:`看门狗 
+<envoy_v3_api_field_config.bootstrap.v3.Bootstrap.watchdogs>` 系统，该系统可以在Envoy不响应时增加
+统计信息并有选择地杀死服务器。此系统具有两个单独的看门狗配置，一个用于主线程，一个用于工作线程。
+这是有用的，因为不同的线程有不同的工作负载。该系统还有一个扩展点，允许根据看门狗事件采取自定义操作。
+这些统计信息对于从高层次了解Envoy的事件循环是否没有响应是有用的，这是因为它进行了过多的工作，正在
+阻塞或未被OS调度。
 
-In addition to event loop statistics, Envoy also include a configurable
-:ref:`watchdog <envoy_v3_api_field_config.bootstrap.v3.Bootstrap.watchdogs>`
-system that can increment statistics when Envoy is not responsive and
-optionally kill the server. The system has two separate watchdog configs, one
-for the main thread and one for worker threads; this is helpful as the different
-threads have different workloads. The system also has an extension point
-allowing for custom actions to be taken based on watchdog events. The
-statistics are useful for understanding at a high level whether Envoy's event
-loop is not responsive either because it is doing too much work, blocking, or
-not being scheduled by the OS.
-
-The watchdog emits aggregated statistics in both *main_thread* and *workers*.
-In addition, it emits individual statistics under  *server.<thread_name>.* trees.
-*<thread_name>* is equal to *main_thread*, *worker_0*, *worker_1*, etc.
+看门狗在main_thread和worker中都发出聚合的统计信息。另外，它在服务器下发出单独的统计信息
+<thread_name> 树 <thread_name>等于main_thread，worker_0，worker_1等。
 
 .. csv-table::
-  :header: Name, Type, Description
+  :header: 名称, 类型, 描述
   :widths: 1, 1, 2
 
-  watchdog_miss, Counter, Number of standard misses
-  watchdog_mega_miss, Counter, Number of mega misses
+  watchdog_miss, 计数器, 标准未中次数
+  watchdog_mega_miss, 计数器, 大型未命中数
