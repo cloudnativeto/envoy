@@ -12,7 +12,7 @@ of the Envoy v2 configuration. See the :ref:`v2 configuration overview
 config.bootstrap.v2.Bootstrap
 -----------------------------
 
-`[config.bootstrap.v2.Bootstrap proto] <https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f/api/envoy/config/bootstrap/v2/bootstrap.proto#L36>`_
+`[config.bootstrap.v2.Bootstrap proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/config/bootstrap/v2/bootstrap.proto#L36>`_
 
 Bootstrap :ref:`configuration overview <config_overview_bootstrap>`.
 
@@ -196,7 +196,7 @@ use_tcp_for_dns_lookups
 config.bootstrap.v2.Bootstrap.StaticResources
 ---------------------------------------------
 
-`[config.bootstrap.v2.Bootstrap.StaticResources proto] <https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f/api/envoy/config/bootstrap/v2/bootstrap.proto#L37>`_
+`[config.bootstrap.v2.Bootstrap.StaticResources proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/config/bootstrap/v2/bootstrap.proto#L37>`_
 
 
 .. code-block:: json
@@ -239,7 +239,7 @@ secrets
 config.bootstrap.v2.Bootstrap.DynamicResources
 ----------------------------------------------
 
-`[config.bootstrap.v2.Bootstrap.DynamicResources proto] <https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f/api/envoy/config/bootstrap/v2/bootstrap.proto#L55>`_
+`[config.bootstrap.v2.Bootstrap.DynamicResources proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/config/bootstrap/v2/bootstrap.proto#L55>`_
 
 
 .. code-block:: json
@@ -285,7 +285,7 @@ ads_config
 config.bootstrap.v2.Admin
 -------------------------
 
-`[config.bootstrap.v2.Admin proto] <https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f/api/envoy/config/bootstrap/v2/bootstrap.proto#L179>`_
+`[config.bootstrap.v2.Admin proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/config/bootstrap/v2/bootstrap.proto#L179>`_
 
 Administration interface :ref:`operations documentation
 <operations_admin_interface>`.
@@ -335,7 +335,7 @@ socket_options
 config.bootstrap.v2.ClusterManager
 ----------------------------------
 
-`[config.bootstrap.v2.ClusterManager proto] <https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f/api/envoy/config/bootstrap/v2/bootstrap.proto#L199>`_
+`[config.bootstrap.v2.ClusterManager proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/config/bootstrap/v2/bootstrap.proto#L199>`_
 
 Cluster manager :ref:`architecture overview <arch_overview_cluster_manager>`.
 
@@ -389,7 +389,7 @@ load_stats_config
 config.bootstrap.v2.ClusterManager.OutlierDetection
 ---------------------------------------------------
 
-`[config.bootstrap.v2.ClusterManager.OutlierDetection proto] <https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f/api/envoy/config/bootstrap/v2/bootstrap.proto#L200>`_
+`[config.bootstrap.v2.ClusterManager.OutlierDetection proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/config/bootstrap/v2/bootstrap.proto#L200>`_
 
 
 .. code-block:: json
@@ -413,7 +413,7 @@ event_log_path
 config.bootstrap.v2.Watchdog
 ----------------------------
 
-`[config.bootstrap.v2.Watchdog proto] <https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f/api/envoy/config/bootstrap/v2/bootstrap.proto#L238>`_
+`[config.bootstrap.v2.Watchdog proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/config/bootstrap/v2/bootstrap.proto#L238>`_
 
 Envoy process watchdog configuration. When configured, this monitors for
 nonresponsive threads and kills the process after the configured thresholds.
@@ -466,7 +466,7 @@ multikill_timeout
 config.bootstrap.v2.Runtime
 ---------------------------
 
-`[config.bootstrap.v2.Runtime proto] <https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f/api/envoy/config/bootstrap/v2/bootstrap.proto#L260>`_
+`[config.bootstrap.v2.Runtime proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/config/bootstrap/v2/bootstrap.proto#L260>`_
 
 Runtime :ref:`configuration overview <config_runtime>` (deprecated).
 
@@ -525,7 +525,7 @@ base
 config.bootstrap.v2.RuntimeLayer
 --------------------------------
 
-`[config.bootstrap.v2.RuntimeLayer proto] <https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f/api/envoy/config/bootstrap/v2/bootstrap.proto#L290>`_
+`[config.bootstrap.v2.RuntimeLayer proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/config/bootstrap/v2/bootstrap.proto#L290>`_
 
 
 .. code-block:: json
@@ -586,7 +586,7 @@ rtds_layer
 config.bootstrap.v2.RuntimeLayer.DiskLayer
 ------------------------------------------
 
-`[config.bootstrap.v2.RuntimeLayer.DiskLayer proto] <https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f/api/envoy/config/bootstrap/v2/bootstrap.proto#L292>`_
+`[config.bootstrap.v2.RuntimeLayer.DiskLayer proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/config/bootstrap/v2/bootstrap.proto#L292>`_
 
 :ref:`Disk runtime <config_runtime_local_disk>` layer.
 
@@ -632,7 +632,7 @@ append_service_cluster
 config.bootstrap.v2.RuntimeLayer.AdminLayer
 -------------------------------------------
 
-`[config.bootstrap.v2.RuntimeLayer.AdminLayer proto] <https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f/api/envoy/config/bootstrap/v2/bootstrap.proto#L313>`_
+`[config.bootstrap.v2.RuntimeLayer.AdminLayer proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/config/bootstrap/v2/bootstrap.proto#L313>`_
 
 :ref:`Admin console runtime <config_runtime_admin>` layer.
 
@@ -648,7 +648,7 @@ config.bootstrap.v2.RuntimeLayer.AdminLayer
 config.bootstrap.v2.RuntimeLayer.RtdsLayer
 ------------------------------------------
 
-`[config.bootstrap.v2.RuntimeLayer.RtdsLayer proto] <https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f/api/envoy/config/bootstrap/v2/bootstrap.proto#L317>`_
+`[config.bootstrap.v2.RuntimeLayer.RtdsLayer proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/config/bootstrap/v2/bootstrap.proto#L317>`_
 
 :ref:`Runtime Discovery Service (RTDS) <config_runtime_rtds>` layer.
 
@@ -679,7 +679,7 @@ rtds_config
 config.bootstrap.v2.LayeredRuntime
 ----------------------------------
 
-`[config.bootstrap.v2.LayeredRuntime proto] <https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f/api/envoy/config/bootstrap/v2/bootstrap.proto#L347>`_
+`[config.bootstrap.v2.LayeredRuntime proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/config/bootstrap/v2/bootstrap.proto#L347>`_
 
 Runtime :ref:`configuration overview <config_runtime>`.
 

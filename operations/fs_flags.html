@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>File system flags &mdash; envoy 1.16.0-2d56be documentation</title>
+  <title>文件系统标志 &mdash; envoy 1.16.0-d7f5b8 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-2d56be
+                1.16.0-d7f5b8
               </div>
             
           
@@ -112,7 +112,7 @@
 <li class="toctree-l2"><a class="reference internal" href="admin.html">Administration interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stats_overview.html">Statistics overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runtime.html">Runtime</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">File system flags</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">文件系统标志</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_tapping.html">Traffic tapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="certificates.html">证书管理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="performance.html">Performance</a></li>
@@ -169,7 +169,7 @@
         
           <li><a href="operations.html">操作和管理</a> &raquo;</li>
         
-      <li>File system flags</li>
+      <li>文件系统标志</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -188,15 +188,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="file-system-flags">
-<span id="operations-file-system-flags"></span><h1>File system flags<a class="headerlink" href="#file-system-flags" title="Permalink to this headline">¶</a></h1>
-<p>Envoy supports file system “flags” that alter state at startup. This is used to
-persist changes between restarts if necessary. The flag files should be placed
-in the directory specified in the <a class="reference internal" href="../api-v3/config/bootstrap/v3/bootstrap.proto.html#envoy-v3-api-field-config-bootstrap-v3-bootstrap-flags-path"><span class="std std-ref">flags_path</span></a> configuration
-option. The currently supported flag files are:</p>
+  <div class="section" id="operations-file-system-flags">
+<span id="id1"></span><h1>文件系统标志<a class="headerlink" href="#operations-file-system-flags" title="Permalink to this headline">¶</a></h1>
+<p>Envoy 支持在启动时改变状态的文件系统“标志”。在有需要的时候，这被用来在重启之间保持更改。标志文件应该被放置在指定的目录下，此目录在 <a class="reference internal" href="../api-v3/config/bootstrap/v3/bootstrap.proto.html#envoy-v3-api-field-config-bootstrap-v3-bootstrap-flags-path"><span class="std std-ref">flags_path</span></a> 选项中进行配置。目前支持的标志文件有：</p>
 <dl class="simple">
-<dt>drain</dt><dd><p>If this file exists, Envoy will start in health check failing mode, similar to after the
-<a class="reference internal" href="admin.html#post--healthcheck-fail" title="POST /healthcheck/fail"><code class="xref http http-post docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/healthcheck/fail</span></code></a> command has been executed.</p>
+<dt>排空</dt><dd><p>如果此文件存在，Envoy 将在健康检查失败模式下启动，类似于 <a class="reference internal" href="admin.html#post--healthcheck-fail" title="POST /healthcheck/fail"><code class="xref http http-post docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/healthcheck/fail</span></code></a> 命令被执行后的情况。</p>
 </dd>
 </dl>
 </div>

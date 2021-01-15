@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Zipkin 追踪（trace） &mdash; envoy 1.16.0-2d56be documentation</title>
+  <title>Zipkin 追踪（trace） &mdash; envoy 1.16.0-d7f5b8 documentation</title>
   
 
   
@@ -76,7 +76,7 @@
             
             
               <div class="version">
-                1.16.0-2d56be
+                1.16.0-d7f5b8
               </div>
             
           
@@ -210,13 +210,13 @@
 这个沙盒与前面所讲的前端代理架构非常的相似，但有一点不同的是：在返回响应之前，service1 会对 service2 进行 API 调用。
 这三个容器将被部署在名为 <code class="docutils literal notranslate"><span class="pre">envoymesh</span></code> 的虚拟网络中。</p>
 <p>所有传入的请求都通过前端 envoy 进行路由，envoy 充当位于 <code class="docutils literal notranslate"><span class="pre">envoymesh</span></code> 网络边缘的反向代理。
-端口 <code class="docutils literal notranslate"><span class="pre">8000</span></code> 由 docker compose 暴露（参见 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f//examples/zipkin-tracing/docker-compose.yaml">/examples/zipkin-tracing/docker-compose.yaml</a>）。
-请注意，所有 envoy 都配置为收集请求跟踪 (例如 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f//examples/zipkin-tracing/front-envoy-zipkin.yaml`中的 http_connection_manager/config/tracing 配置) 并设置为传递 Zipkin 追踪器生成的 span 到 Zipkin 集群中 (追踪驱动设置在 :repo:">/examples/zipkin-tracing/front-envoy-zipkin.yaml`中的 http_connection_manager/config/tracing 配置) 并设置为传递 Zipkin 追踪器生成的 span 到 Zipkin 集群中 (追踪驱动设置在 :repo:</a>/examples/zipkin-tracing/front-envoy-zipkin.yaml`)。</p>
+端口 <code class="docutils literal notranslate"><span class="pre">8000</span></code> 由 docker compose 暴露（参见 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495//examples/zipkin-tracing/docker-compose.yaml">/examples/zipkin-tracing/docker-compose.yaml</a>）。
+请注意，所有 envoy 都配置为收集请求跟踪 (例如 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495//examples/zipkin-tracing/front-envoy-zipkin.yaml`中的 http_connection_manager/config/tracing 配置) 并设置为传递 Zipkin 追踪器生成的 span 到 Zipkin 集群中 (追踪驱动设置在 :repo:">/examples/zipkin-tracing/front-envoy-zipkin.yaml`中的 http_connection_manager/config/tracing 配置) 并设置为传递 Zipkin 追踪器生成的 span 到 Zipkin 集群中 (追踪驱动设置在 :repo:</a>/examples/zipkin-tracing/front-envoy-zipkin.yaml`)。</p>
 <p>在将请求路由到合适的 envoy 或应用程序之前，Envoy 会生成合适的用于追踪的 span（父子共享的上下文 span）。
 在高层次上，每个 span 记录上游API调用的延迟以及将 span 与其他相关 span（例如跟踪ID）关联所需的信息。</p>
 <p>从 Envoy 进行跟踪的最重要的好处之一是，它会保证将跟踪信息传播到 Zipkin 服务群集。
 但是，为了充分利用跟踪，应用端必须在调用其他服务的时候传递 Envoy 生成的追踪的请求头信息。
-在我们提供的沙箱例子中，作为 service1 的简单 flask 应用（参见 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f//examples/front-proxy/service.py">/examples/front-proxy/service.py</a> 中的跟踪函数）在访问 service2 的时候传递了追踪的请求头信息。</p>
+在我们提供的沙箱例子中，作为 service1 的简单 flask 应用（参见 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495//examples/front-proxy/service.py">/examples/front-proxy/service.py</a> 中的跟踪函数）在访问 service2 的时候传递了追踪的请求头信息。</p>
 <div class="section" id="id1">
 <h2>运行沙盒<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>以下文档说明了上述对于 Envoy 容器编译环境进行设置的过程。</p>

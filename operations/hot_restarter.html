@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Hot restart Python wrapper &mdash; envoy 1.16.0-2d56be documentation</title>
+  <title>Hot restart Python wrapper &mdash; envoy 1.16.0-d7f5b8 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-2d56be
+                1.16.0-d7f5b8
               </div>
             
           
@@ -112,7 +112,7 @@
 <li class="toctree-l2"><a class="reference internal" href="admin.html">Administration interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stats_overview.html">Statistics overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runtime.html">Runtime</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fs_flags.html">File system flags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fs_flags.html">文件系统标志</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_tapping.html">Traffic tapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="certificates.html">证书管理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="performance.html">Performance</a></li>
@@ -192,7 +192,7 @@
 <span id="operations-hot-restarter"></span><h1>Hot restart Python wrapper<a class="headerlink" href="#hot-restart-python-wrapper" title="Permalink to this headline">¶</a></h1>
 <p>Typically, Envoy will be <a class="reference internal" href="../intro/arch_overview/operations/hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">hot restarted</span></a> for config changes and
 binary updates. However, in many cases, users will wish to use a standard process manager such as
-monit, runit, etc. We provide <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2d56be684ca1ee2e5ec39ca925e1007e5f16bb5f//restarter/hot-restarter.py">/restarter/hot-restarter.py</a> to make this straightforward.</p>
+monit, runit, etc. We provide <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495//restarter/hot-restarter.py">/restarter/hot-restarter.py</a> to make this straightforward.</p>
 <p>The restarter is invoked like so:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">hot-restarter.py start_envoy.sh</span>
 </pre></div>
