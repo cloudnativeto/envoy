@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Route table check tool &mdash; envoy 1.16.0-d7f5b8 documentation</title>
+  <title>路由表检查工具 &mdash; envoy 1.16.0-393848 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-d7f5b8
+                1.16.0-393848
               </div>
             
           
@@ -115,8 +115,8 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../operations.html">操作</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../runtime.html">运行时</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../overload_manager/overload_manager.html">过载管理器</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Route table check tool</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#coverage">Coverage</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">路由表检查工具</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">覆盖范围</a></li>
 </ul>
 </li>
 </ul>
@@ -181,7 +181,7 @@
         
           <li><a href="../operations.html">操作</a> &raquo;</li>
         
-      <li>Route table check tool</li>
+      <li>路由表检查工具</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -200,35 +200,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="route-table-check-tool">
-<span id="config-tools-router-check-tool"></span><h1>Route table check tool<a class="headerlink" href="#route-table-check-tool" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="config-tools-router-check-tool">
+<span id="id1"></span><h1>路由表检查工具<a class="headerlink" href="#config-tools-router-check-tool" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The following configuration is for the route table check tool only and is not part of the Envoy binary.
-The route table check tool is a standalone binary that can be used to verify Envoy’s routing for a given configuration
-file.</p>
+<p>以下配置仅用于路由表检查工具，不是 Envoy 二进制文件的一部分。
+路由表检查工具是一个独立的二进制文件，可用于验证给定配置文件的 Envoy 路由。</p>
 </div>
-<p>The following specifies input to the route table check tool. The route table check tool checks if
-the route returned by a <a class="reference internal" href="../../../api-v3/config/route/v3/route.proto.html#envoy-v3-api-msg-config-route-v3-routeconfiguration"><span class="std std-ref">router</span></a> matches what is expected.
-The tool can be used to check cluster name, virtual cluster name,
-virtual host name, manual path rewrite, manual host rewrite, path redirect, and
-header field matches. Extensions for other test cases can be added. Details about installing the tool
-and sample tool input/output can be found at <a class="reference internal" href="../../../install/tools/route_table_check_tool.html#install-tools-route-table-check-tool"><span class="std std-ref">installation</span></a>.</p>
-<p>The route table check tool config is composed of an array of json test objects. Each test object is composed of
-three parts.</p>
+<p>以下指定了路由表检查工具的输入。路由表检查工具检查 <a class="reference internal" href="../../../api-v3/config/route/v3/route.proto.html#envoy-v3-api-msg-config-route-v3-routeconfiguration"><span class="std std-ref">路由器</span></a> 返回的路由是否符合预期。该工具可用于检查集群名称、虚拟集群名称、虚拟主机名称、手动路径重写、手动主机重写、路径重定向和头部字段匹配。可以添加其他测试用例的扩展。可以在 <a class="reference internal" href="../../../install/tools/route_table_check_tool.html#install-tools-route-table-check-tool"><span class="std std-ref">安装</span></a> 找到有关安装工具和示例工具输入/输出的详细信息。</p>
+<p>路由表检查工具配置由一个 json 测试对象数组组成。每个测试对象由三部分组成。</p>
 <dl class="simple">
-<dt>Test name</dt><dd><p>This field specifies the name of each test object.</p>
+<dt>测试名称</dt><dd><p>该字段指定每个测试对象的名称。</p>
 </dd>
-<dt>Input values</dt><dd><p>The input value fields specify the parameters to be passed to the router. Example input fields include
-the :authority, :path, and :method header fields. The :authority and :path fields specify the url
-sent to the router and are required. All other input fields are optional.</p>
+<dt>输入值</dt><dd><p>该字段指定要传递到路由器的参数。比如包括 :authority、:path 和 :method 头部字段。:authority 和 :path 字段指定了发送到路由器的 URL，这是必需的。所有其他字段都是可选的。</p>
 </dd>
-<dt>Validate</dt><dd><p>The validate fields specify the expected values and test cases to check. At least one test
-case is required.</p>
+<dt>验证</dt><dd><p>该字段指定要检查的预期值和测试用例。至少需要一个测试用例。</p>
 </dd>
 </dl>
-<p>A simple tool configuration json has one test case and is written as follows. The test
-expects a cluster name match of “instant-server”.:</p>
+<p>有一个测试用的简单工具的 json 配置如下。该测试期望集群名称匹配“instant-server”。:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tests</span>
 <span class="o">-</span> <span class="n">test_name</span><span class="p">:</span> <span class="n">Cluster_name_test</span><span class="p">,</span>
   <span class="nb">input</span><span class="p">:</span>
@@ -272,106 +261,82 @@ expects a cluster name match of “instant-server”.:</p>
 </pre></div>
 </div>
 <dl>
-<dt>test_name</dt><dd><p><em>(required, string)</em> The name of a test object.</p>
+<dt>test_name</dt><dd><p><em>(required, string)</em> 测试对象的名称。</p>
 </dd>
-<dt>input</dt><dd><p><em>(required, object)</em> Input values sent to the router that determine the returned route.</p>
+<dt>input</dt><dd><p><em>(required, object)</em> 发送到路由器的输入值，用于决定返回的路由。</p>
 <dl>
-<dt>authority</dt><dd><p><em>(required, string)</em> The url authority. This value along with the path parameter define
-the url to be matched. An example authority value is “api.lyft.com”.</p>
+<dt>authority</dt><dd><p><em>(required, string)</em> authority url。该值与 path 参数一起定义了要匹配的 url。 例如 “api.lyft.com”。</p>
 </dd>
-<dt>path</dt><dd><p><em>(required, string)</em> The url path. An example path value is “/foo”.</p>
+<dt>path</dt><dd><p><em>(required, string)</em> path url。 例如 “/foo”。</p>
 </dd>
-<dt>method</dt><dd><p><em>(required, string)</em> The request method. If not specified, the default method is GET. The options
-are GET, PUT, or POST.</p>
+<dt>method</dt><dd><p><em>(required, string)</em> request method。如果未指定，则默认方法为 GET。 选项为 GET、PUT 或 POST。</p>
 </dd>
-<dt>internal</dt><dd><p><em>(optional, boolean)</em> A flag that determines whether to set x-envoy-internal to “true”.
-If not specified, or if internal is equal to false, x-envoy-internal is not set.</p>
+<dt>internal</dt><dd><p><em>(optional, boolean)</em> 一个标志，决定是否将 x-envoy-internal 设置为 true。如果未指定，或者 internal 等于 false，则不设置 x-envoy-internal。</p>
 </dd>
-<dt>random_value</dt><dd><p><em>(optional, integer)</em> An integer used to identify the target for weighted cluster selection
-and as a factor for the routing engine to decide whether a runtime based route takes effect.
-The default value of random_value is 0. For routes with runtime fraction numerators of 0,
-the route checker tool changes the numerators to 1 so they can be tested with random_value
-set to 0 to simulate the route being enabled and random_value set to any int &gt;= 1 to
-simulate the route being disabled.</p>
+<dt>random_value</dt><dd><p><em>(optional, integer)</em> 一个整数，用于确定要选择加权的集群目标，并且作为一个路由引擎决定基于运行时的路由是否生效的因素。
+random_value 的默认值为 0。对于运行时分数分子为 0 的路由，路由检查器工具会将分子更改为 1，以便可以将 random_value 设置为 0 来模拟路由被启用，将 random_value 设置为 int &gt;= 1 的任何值以模拟路由被禁用。</p>
 </dd>
-<dt>ssl</dt><dd><p><em>(optional, boolean)</em> A flag that determines whether to set x-forwarded-proto to https or http.
-By setting x-forwarded-proto to a given protocol, the tool is able to simulate the behavior of
-a client issuing a request via http or https. By default ssl is false which corresponds to
-x-forwarded-proto set to http.</p>
+<dt>ssl</dt><dd><p><em>(optional, boolean)</em> 一个标志，决定是将 x-forwarded-proto 设置为 https 还是 http。通过将 x-forwarded-proto 设置为给定的协议，该工具能够模拟客户端通过 http 或 https 发出请求的行为。默认情况下，ssl 为 false，对应 x-forwarded-proto 设置为 http。</p>
 </dd>
-<dt>runtime</dt><dd><p><em>(optional, string)</em> A string representing the runtime setting to enable for the test. The runtime
-setting along with the random_value is used by the router to decide if the route should be enabled.
-Only a random_value lesser than the fractional percentage defined on the route entry enables the
-route.</p>
+<dt>runtime</dt><dd><p><em>(optional, string)</em> 一个字符串，表示要为测试启用的运行时设置。路由器使用运行时设置以及 random_value 来决定是否应启用路由。只有小于路由条目上定义的分数百分比的 random_value 才能启用路由。</p>
 </dd>
-<dt>additional_request_headers, additional_response_headers</dt><dd><p><em>(optional, array)</em>  Additional headers to be added as input for route determination. The “authority”,
-“path”, “method”, “x-forwarded-proto”, and “x-envoy-internal” fields are specified by the other config
-options and should not be set here.</p>
+<dt>additional_request_headers, additional_response_headers</dt><dd><p><em>(optional, array)</em>  要添加的附加头部作为路由确定的输入。”authority”、
+“path”、”method”、”x-forwarded-proto” 和 “x-envoy-internal” 字段由其他配置选项指定，不应该在这里设置。</p>
 <dl class="simple">
-<dt>key</dt><dd><p><em>(required, string)</em> The name of the header field to add.</p>
+<dt>key</dt><dd><p><em>(required, string)</em> 要添加的头部字段的名称。</p>
 </dd>
-<dt>value</dt><dd><p><em>(required, string)</em> The value of the header field to add.</p>
-</dd>
-</dl>
+<dt>value</dt><dd><p><em>(required, string)</em> 要添加的头部字段的值。</p>
 </dd>
 </dl>
 </dd>
-<dt>validate</dt><dd><p><em>(required, object)</em> The validate object specifies the returned route parameters to match. At least one
-test parameter must be specified. Use “” (empty string) to indicate that no return value is expected.
-For example, to test that no cluster match is expected use {“cluster_name”: “”}.</p>
+</dl>
+</dd>
+<dt>validate</dt><dd><p><em>(required, object)</em> validate 对象指定要匹配的返回路由参数。必须至少指定一个测试参数。使用 “”（空字符串）表示没有返回值。例如，要测试没有群集匹配，请使用 {“cluster_name”: “”}。</p>
 <dl>
-<dt>cluster_name</dt><dd><p><em>(optional, string)</em> Match the cluster name.</p>
+<dt>cluster_name</dt><dd><p><em>(optional, string)</em> 匹配集群名称。</p>
 </dd>
-<dt>virtual_cluster_name</dt><dd><p><em>(optional, string)</em> Match the virtual cluster name.</p>
+<dt>virtual_cluster_name</dt><dd><p><em>(optional, string)</em> 匹配虚拟集群名称。</p>
 </dd>
-<dt>virtual_host_name</dt><dd><p><em>(optional, string)</em> Match the virtual host name.</p>
+<dt>virtual_host_name</dt><dd><p><em>(optional, string)</em> 匹配虚拟主机名。</p>
 </dd>
-<dt>host_rewrite</dt><dd><p><em>(optional, string)</em> Match the host header field after rewrite.</p>
+<dt>host_rewrite</dt><dd><p><em>(optional, string)</em> 匹配重写后的主机头字段。</p>
 </dd>
-<dt>path_rewrite</dt><dd><p><em>(optional, string)</em> Match the path header field after rewrite.</p>
+<dt>path_rewrite</dt><dd><p><em>(optional, string)</em> 匹配重写后的路径头字段。</p>
 </dd>
-<dt>path_redirect</dt><dd><p><em>(optional, string)</em> Match the returned redirect path.</p>
+<dt>path_redirect</dt><dd><p><em>(optional, string)</em> 匹配返回的重定向路径。</p>
 </dd>
-<dt>request_header_fields, response_header_fields</dt><dd><p><em>(optional, array, deprecated)</em>  Match the listed header fields. Example header fields include the “path”, “cookie”,
-and “date” fields. The header fields are checked after all other test cases. Thus, the header fields checked
-will be those of the redirected or rewritten routes when applicable.
-These fields are deprecated. Use request_header_matches, response_header_matches instead.</p>
+<dt>request_header_fields, response_header_fields</dt><dd><p><em>(optional, array, deprecated)</em>  匹配列出的头部字段。比如包括 “path”、”cookie”、
+和 “date” 字段。在所有其他测试用例之后，将检查头部字段。因此，在适用的情况下，检查的头部字段将是重定向或重写的路由的头部字段。
+这些字段已弃用。请改用 request_header_matches 和 response_header_matches。</p>
 <dl class="simple">
-<dt>key</dt><dd><p><em>(required, string)</em> The name of the header field to match.</p>
+<dt>key</dt><dd><p><em>(required, string)</em> 要匹配的头部字段的名称。</p>
 </dd>
-<dt>value</dt><dd><p><em>(required, string)</em> The value of the header field to match.</p>
-</dd>
-</dl>
-</dd>
-<dt>request_header_matches, response_header_matches</dt><dd><p><em>(optional, array)</em>  Matchers for the listed headers. Example header fields include the “path”, “cookie”,
-and “date” fields, as well as custom headers set in the input or by the route. The header fields are checked
-after all other test cases. Thus, the header fields checked will be those of the redirected or rewritten
-routes when applicable.
-- Matchers are specified as <a class="reference internal" href="../../../api-v2/api/v2/route/route_components.proto.html#envoy-api-msg-route-headermatcher"><span class="std std-ref">HeaderMatchers</span></a>, and behave the same way.</p>
+<dt>value</dt><dd><p><em>(required, string)</em> 要匹配的头部字段的值。</p>
 </dd>
 </dl>
 </dd>
+<dt>request_header_matches, response_header_matches</dt><dd><p><em>(optional, array)</em>  列出的头部字段的匹配器。比如包括 “path”、”cookie”、
+和 “date” 字段，以及在输入或路由中设置的自定义标头。在所有其他测试用例之后，将检查头部字段。
+因此，在适用的情况下，检查的头部字段将是重定向或重写的路由的头部字段。
+- Matchers 被指定为 <a class="reference internal" href="../../../api-v2/api/v2/route/route_components.proto.html#envoy-api-msg-route-headermatcher"><span class="std std-ref">HeaderMatchers</span></a>，并且行为相同。</p>
+</dd>
 </dl>
-<div class="section" id="coverage">
-<h2>Coverage<a class="headerlink" href="#coverage" title="Permalink to this headline">¶</a></h2>
-<p>The router check tool will report route coverage at the end of a successful test run.</p>
+</dd>
+</dl>
+<div class="section" id="id2">
+<h2>覆盖范围<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>路由器检查工具将在测试运行成功结束时报告路由覆盖范围。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; bazel-bin/test/tools/router_check/router_check_tool --config-path ... --test-path ...
 Current route coverage: <span class="m">0</span>.0744863
 </pre></div>
 </div>
-<p>This reporting can be leveraged to enforce a minimum coverage percentage by using
-the <cite>-f</cite> or <cite>–fail-under</cite> flag. If coverage falls below this percentage the test
-run will fail.</p>
+<p>通过 <cite>-f</cite> 或 <cite>–fail-under</cite> 参数，可以利用此报告来强制执行最低覆盖率。如果覆盖率低于此百分比，则测试运行将失败。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; bazel-bin/test/tools/router_check/router_check_tool --config-path ... --test-path ... --fail-under <span class="m">8</span>
 Current route coverage: <span class="m">7</span>.44863%
 Failed to meet coverage requirement: <span class="m">8</span>%
 </pre></div>
 </div>
-<p>By default the coverage report measures test coverage by checking that at least one field is
-verified for every route. However, this can leave holes in the tests where fields
-aren’t validated and later changed. For more comprehensive coverage you can add a flag,
-<cite>–covall</cite>, which will calculate coverage taking into account all of the possible
-fields that could be tested.</p>
+<p>默认情况下，覆盖率报告通过检查至少一个字段是否经过每个路由的验证来衡量测试覆盖率。但是，那些未经验证，后来又被更改的字段会在测试中留下空白。为了获得更全面的覆盖，你可以添加 <cite>–covall</cite> 参数，它将考虑到所有可能测试的字段来计算覆盖率。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; bazel-bin/test/tools/router_check/router_check_tool --config-path ... --test-path ... --f <span class="m">7</span> --covall
 Current route coverage: <span class="m">6</span>.2948%
 Failed to meet coverage requirement: <span class="m">7</span>%

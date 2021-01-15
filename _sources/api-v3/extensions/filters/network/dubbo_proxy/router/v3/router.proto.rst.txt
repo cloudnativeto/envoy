@@ -10,7 +10,7 @@ Dubbo router :ref:`configuration overview <config_dubbo_filters_router>`.
 extensions.filters.network.dubbo_proxy.router.v3.Router
 -------------------------------------------------------
 
-`[extensions.filters.network.dubbo_proxy.router.v3.Router proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/extensions/filters/network/dubbo_proxy/router/v3/router.proto#L15>`_
+`[extensions.filters.network.dubbo_proxy.router.v3.Router proto] <https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/extensions/filters/network/dubbo_proxy/router/v3/router.proto#L15>`_
 
 
 .. code-block:: json

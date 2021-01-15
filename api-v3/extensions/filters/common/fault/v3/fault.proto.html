@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Common fault injection types &mdash; envoy 1.16.0-d7f5b8 documentation</title>
+  <title>Common fault injection types &mdash; envoy 1.16.0-393848 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-d7f5b8
+                1.16.0-393848
               </div>
             
           
@@ -222,7 +222,7 @@
 <span id="envoy-v3-api-file-envoy-extensions-filters-common-fault-v3-fault-proto"></span><h1>Common fault injection types<a class="headerlink" href="#common-fault-injection-types" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="extensions-filters-common-fault-v3-faultdelay">
 <span id="envoy-v3-api-msg-extensions-filters-common-fault-v3-faultdelay"></span><h2>extensions.filters.common.fault.v3.FaultDelay<a class="headerlink" href="#extensions-filters-common-fault-v3-faultdelay" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/extensions/filters/common/fault/v3/fault.proto#L23">[extensions.filters.common.fault.v3.FaultDelay proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/extensions/filters/common/fault/v3/fault.proto#L23">[extensions.filters.common.fault.v3.FaultDelay proto]</a></p>
 <p>Delay specification is used to inject latency into the
 HTTP/gRPC/Mongo/Redis operation or delay proxying of TCP connections.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -254,7 +254,7 @@ for the specified period. This is required if type is FIXED.</p>
 </div>
 <div class="section" id="extensions-filters-common-fault-v3-faultdelay-headerdelay">
 <span id="envoy-v3-api-msg-extensions-filters-common-fault-v3-faultdelay-headerdelay"></span><h2>extensions.filters.common.fault.v3.FaultDelay.HeaderDelay<a class="headerlink" href="#extensions-filters-common-fault-v3-faultdelay-headerdelay" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/extensions/filters/common/fault/v3/fault.proto#L35">[extensions.filters.common.fault.v3.FaultDelay.HeaderDelay proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/extensions/filters/common/fault/v3/fault.proto#L35">[extensions.filters.common.fault.v3.FaultDelay.HeaderDelay proto]</a></p>
 <p>Fault delays are controlled via an HTTP header (if applicable). See the
 <a class="reference internal" href="../../../../../../configuration/http/http_filters/fault_filter.html#config-http-filters-fault-injection-http-header"><span class="std std-ref">HTTP fault filter</span></a> documentation for
 more information.</p>
@@ -264,7 +264,7 @@ more information.</p>
 </div>
 <div class="section" id="enum-extensions-filters-common-fault-v3-faultdelay-faultdelaytype">
 <span id="envoy-v3-api-enum-extensions-filters-common-fault-v3-faultdelay-faultdelaytype"></span><h2>Enum extensions.filters.common.fault.v3.FaultDelay.FaultDelayType<a class="headerlink" href="#enum-extensions-filters-common-fault-v3-faultdelay-faultdelaytype" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/extensions/filters/common/fault/v3/fault.proto#L27">[extensions.filters.common.fault.v3.FaultDelay.FaultDelayType proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/extensions/filters/common/fault/v3/fault.proto#L27">[extensions.filters.common.fault.v3.FaultDelay.FaultDelayType proto]</a></p>
 <dl class="simple" id="envoy-v3-api-enum-value-extensions-filters-common-fault-v3-faultdelay-faultdelaytype-fixed">
 <dt>FIXED</dt><dd><p><em>(DEFAULT)</em> ⁣Unused and deprecated.</p>
 </dd>
@@ -272,7 +272,7 @@ more information.</p>
 </div>
 <div class="section" id="extensions-filters-common-fault-v3-faultratelimit">
 <span id="envoy-v3-api-msg-extensions-filters-common-fault-v3-faultratelimit"></span><h2>extensions.filters.common.fault.v3.FaultRateLimit<a class="headerlink" href="#extensions-filters-common-fault-v3-faultratelimit" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/extensions/filters/common/fault/v3/fault.proto#L64">[extensions.filters.common.fault.v3.FaultRateLimit proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/extensions/filters/common/fault/v3/fault.proto#L64">[extensions.filters.common.fault.v3.FaultRateLimit proto]</a></p>
 <p>Describes a rate limit to be applied.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;fixed_limit&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -298,7 +298,7 @@ more information.</p>
 </div>
 <div class="section" id="extensions-filters-common-fault-v3-faultratelimit-fixedlimit">
 <span id="envoy-v3-api-msg-extensions-filters-common-fault-v3-faultratelimit-fixedlimit"></span><h2>extensions.filters.common.fault.v3.FaultRateLimit.FixedLimit<a class="headerlink" href="#extensions-filters-common-fault-v3-faultratelimit-fixedlimit" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/extensions/filters/common/fault/v3/fault.proto#L69">[extensions.filters.common.fault.v3.FaultRateLimit.FixedLimit proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/extensions/filters/common/fault/v3/fault.proto#L69">[extensions.filters.common.fault.v3.FaultRateLimit.FixedLimit proto]</a></p>
 <p>Describes a fixed/constant rate limit.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;limit_kbps&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
@@ -312,7 +312,7 @@ more information.</p>
 </div>
 <div class="section" id="extensions-filters-common-fault-v3-faultratelimit-headerlimit">
 <span id="envoy-v3-api-msg-extensions-filters-common-fault-v3-faultratelimit-headerlimit"></span><h2>extensions.filters.common.fault.v3.FaultRateLimit.HeaderLimit<a class="headerlink" href="#extensions-filters-common-fault-v3-faultratelimit-headerlimit" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/extensions/filters/common/fault/v3/fault.proto#L80">[extensions.filters.common.fault.v3.FaultRateLimit.HeaderLimit proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/extensions/filters/common/fault/v3/fault.proto#L80">[extensions.filters.common.fault.v3.FaultRateLimit.HeaderLimit proto]</a></p>
 <p>Rate limits are controlled via an HTTP header (if applicable). See the
 <a class="reference internal" href="../../../../../../configuration/http/http_filters/fault_filter.html#config-http-filters-fault-injection-http-header"><span class="std std-ref">HTTP fault filter</span></a> documentation for
 more information.</p>

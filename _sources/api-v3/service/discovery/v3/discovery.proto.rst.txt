@@ -9,7 +9,7 @@ Common discovery API components
 service.discovery.v3.DiscoveryRequest
 -------------------------------------
 
-`[service.discovery.v3.DiscoveryRequest proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/service/discovery/v3/discovery.proto#L26>`_
+`[service.discovery.v3.DiscoveryRequest proto] <https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/service/discovery/v3/discovery.proto#L26>`_
 
 A DiscoveryRequest requests a set of versioned resources of the same type for
 a given Envoy node on some API.
@@ -89,7 +89,7 @@ error_detail
 service.discovery.v3.DiscoveryResponse
 --------------------------------------
 
-`[service.discovery.v3.DiscoveryResponse proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/service/discovery/v3/discovery.proto#L70>`_
+`[service.discovery.v3.DiscoveryResponse proto] <https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/service/discovery/v3/discovery.proto#L70>`_
 
 
 .. code-block:: json
@@ -142,7 +142,7 @@ nonce
 service.discovery.v3.DeltaDiscoveryRequest
 ------------------------------------------
 
-`[service.discovery.v3.DeltaDiscoveryRequest proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/service/discovery/v3/discovery.proto#L147>`_
+`[service.discovery.v3.DeltaDiscoveryRequest proto] <https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/service/discovery/v3/discovery.proto#L147>`_
 
 DeltaDiscoveryRequest and DeltaDiscoveryResponse are used in a new gRPC
 endpoint for Delta xDS.
@@ -275,7 +275,7 @@ error_detail
 service.discovery.v3.DeltaDiscoveryResponse
 -------------------------------------------
 
-`[service.discovery.v3.DeltaDiscoveryResponse proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/service/discovery/v3/discovery.proto#L221>`_
+`[service.discovery.v3.DeltaDiscoveryResponse proto] <https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/service/discovery/v3/discovery.proto#L221>`_
 
 
 .. code-block:: json
@@ -332,7 +332,7 @@ nonce
 service.discovery.v3.Resource
 -----------------------------
 
-`[service.discovery.v3.Resource proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/service/discovery/v3/discovery.proto#L255>`_
+`[service.discovery.v3.Resource proto] <https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/service/discovery/v3/discovery.proto#L255>`_
 
 
 .. code-block:: json

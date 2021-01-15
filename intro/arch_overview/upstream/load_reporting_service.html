@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>负载上报服务 (LRS) &mdash; envoy 1.16.0-d7f5b8 documentation</title>
+  <title>负载上报服务 (LRS) &mdash; envoy 1.16.0-393848 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-d7f5b8
+                1.16.0-393848
               </div>
             
           
@@ -216,7 +216,7 @@
 <span id="arch-overview-load-reporting-service"></span><h1>负载上报服务 (LRS)<a class="headerlink" href="#lrs" title="Permalink to this headline">¶</a></h1>
 <p>负载上报服务提供了一种机制，使 Envoy 可以定期向管理服务器发送负载报告。</p>
 <p>这将启动一个与管理服务器的双向流。连接后，管理服务器可以发送一个 <a class="reference internal" href="../../../api-v3/service/load_stats/v3/lrs.proto.html#envoy-v3-api-msg-service-load-stats-v3-loadstatsresponse"><span class="std std-ref">LoadStatsResponse</span></a> 给它有兴趣获取负载报告的节点。这个节点中的 Envoy 将开始发送 <a class="reference internal" href="../../../api-v3/service/load_stats/v3/lrs.proto.html#envoy-v3-api-msg-service-load-stats-v3-loadstatsrequest"><span class="std std-ref">LoadStatsRequest</span></a>。这是根据 <a class="reference internal" href="../../../api-v3/service/load_stats/v3/lrs.proto.html#envoy-v3-api-field-service-load-stats-v3-loadstatsresponse-load-reporting-interval"><span class="std std-ref">负载上报时间间隔</span></a> 定期进行的。</p>
-<p>负载上报服务的配置可以参考 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495//examples/load-reporting-service/service-envoy-w-lrs.yaml">/examples/load-reporting-service/service-envoy-w-lrs.yaml</a>。</p>
+<p>负载上报服务的配置可以参考 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729//examples/load-reporting-service/service-envoy-w-lrs.yaml">/examples/load-reporting-service/service-envoy-w-lrs.yaml</a>。</p>
 </div>
 
 

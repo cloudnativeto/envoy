@@ -9,7 +9,7 @@ Certificates
 admin.v3.Certificates
 ---------------------
 
-`[admin.v3.Certificates proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/admin/v3/certs.proto#L19>`_
+`[admin.v3.Certificates proto] <https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/admin/v3/certs.proto#L19>`_
 
 Proto representation of certificate details. Admin endpoint uses this wrapper for `/certs` to
 display certificate information. See :ref:`/certs <operations_admin_interface_certs>` for more
@@ -34,7 +34,7 @@ certificates
 admin.v3.Certificate
 --------------------
 
-`[admin.v3.Certificate proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/admin/v3/certs.proto#L26>`_
+`[admin.v3.Certificate proto] <https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/admin/v3/certs.proto#L26>`_
 
 
 .. code-block:: json
@@ -63,7 +63,7 @@ cert_chain
 admin.v3.CertificateDetails
 ---------------------------
 
-`[admin.v3.CertificateDetails proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/admin/v3/certs.proto#L37>`_
+`[admin.v3.CertificateDetails proto] <https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/admin/v3/certs.proto#L37>`_
 
 
 .. code-block:: json
@@ -125,7 +125,7 @@ ocsp_details
 admin.v3.CertificateDetails.OcspDetails
 ---------------------------------------
 
-`[admin.v3.CertificateDetails.OcspDetails proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/admin/v3/certs.proto#L41>`_
+`[admin.v3.CertificateDetails.OcspDetails proto] <https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/admin/v3/certs.proto#L41>`_
 
 
 .. code-block:: json
@@ -155,7 +155,7 @@ expiration
 admin.v3.SubjectAlternateName
 -----------------------------
 
-`[admin.v3.SubjectAlternateName proto] <https://github.com/envoyproxy/envoy/blob/d7f5b8542b71e30bc29b7764ca946ab0fe241495/api/envoy/admin/v3/certs.proto#L71>`_
+`[admin.v3.SubjectAlternateName proto] <https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/admin/v3/certs.proto#L71>`_
 
 
 .. code-block:: json
