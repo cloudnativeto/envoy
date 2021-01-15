@@ -97,7 +97,7 @@ DNS 过滤器还支持响应对服务记录的查询。“domain5.com”的记�
 
 每个服务记录的协议都可以通过名称或编号来定义。按照示例中的配置，过滤器将成功响应对“_sip._tcp.voip.domain5.com”的 SRV 记录请求。如果指定了数值，Envoy 会尝试将数字解析为名称。协议的字符串值将在出现时使用。在服务和协议之前加一个下划线，以遵守 RFC 中概述的约定。
 
-过滤器还可以通过外部 DNS 表来自定义其域配置。可以将静态配置中出现的相同实体以 JSON 或 YAML 的形式存储在独立的文件中，并使用 :ref:`external_dns_table DataSource <envoy_api_msg_core.DataSource>` 指令进行引用：
+过滤器还可以通过外部 DNS 表来自定义其域配置。静态配置中出现相同实体可以作为 JSON 或 YAML 的形式存储在独立的文件中，并使用 :ref:`external_dns_table DataSource <envoy_api_msg_core.DataSource>` 指令进行引用：
 
 外部 DnsTable 配置示例
 -----------------------------
