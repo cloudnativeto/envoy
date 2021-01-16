@@ -5,13 +5,13 @@
 
 虚拟主机发现服务（VHDS）API 是 Envoy 用来动态获取 :ref:`虚拟主机 <envoy_v3_api_msg_config.route.v3.VirtualHost>` 的可选 API。虚拟主机包括名称和域名的集合，这些名称和域名的集合根据传入请求的主机头部路由到该主机。
 
-在 RDS 中，默认情况下，集群的所有路由都会发送到网格中的每个 Envoy 实例。随着群集大小的增长，这会导致扩展问题。这种复杂性的大部分可以在虚拟主机配置中找到，其中绝大部分虚拟主机配置对单个代理来说都是无用的。
+在 RDS 中，默认情况下，所有指向集群的路由都会分发给网格中的每个 Envoy 实例。随着群集大小的增长，这会导致扩展问题。这种复杂性的大部分可以在虚拟主机配置中找到，其中绝大部分虚拟主机配置对单个代理来说都是无用的。
 
-为了解决此问题，虚拟主机发现服务（VHDS）协议使用增量 xDS 协议来允许订阅路由配置，并根据需要请求必要的虚拟主机。使用 VHDS 允许Envoy 实例订阅和取消订阅内部存储在 xDS 管理服务器中的虚拟主机列表，而不是通过路由配置发送所有虚拟主机。xDS 管理服务器将监视此列表，并使用它过滤发送到单个 Envoy 实例的配置，使其仅包含已订阅的虚拟主机。
+为了解决此问题，虚拟主机发现服务（VHDS）协议使用增量 xDS 协议来允许订阅路由配置，并根据需要请求必要的虚拟主机。使用 VHDS 允许 Envoy 实例订阅和取消订阅内部存储在 xDS 管理服务器中的虚拟主机列表，而不是通过路由配置发送所有虚拟主机。xDS 管理服务器将监视此列表，并使用它过滤发送到单个 Envoy 实例的配置，使其仅包含已订阅的虚拟主机。
 
 虚拟主机资源命名约定
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-VHDS 中的虚拟主机由虚拟主机所属的路由配置的名称以及 HTTP *host* 头部（HTTP2 的：*:authority* ）组合而成。资源应命名如下：
+VHDS 中的虚拟主机由虚拟主机所属的路由配置的名称以及 HTTP *host* 头部（HTTP2 的：*:authority* ）的组合来标识。资源应命名如下：
 
 <route configuration name>/<host entry>
 
@@ -32,7 +32,7 @@ VHDS 允许使用 :ref:`DeltaDiscoveryRequest <envoy_v3_api_msg_service.discover
 
 VHDS 不应该与 :ref:`作用域 RDS <envoy_v3_api_msg_config.route.v3.ScopedRouteConfiguration>` 出现任何兼容性问题 。路由配置名称仍可以用于虚拟主机匹配，但是在配置了作用域 RDS 的情况下，它将指向作用域路由配置。
 
-但是，必须注意，按需 :ref:`作用域 RDS <envoy_v3_api_msg_config.route.v3.ScopedRouteConfiguration>` 和 VHDS 一起使用时，每个路由作用域需要单独按需订阅。
+但是，必须注意，按需 :ref:`作用域 RDS <envoy_v3_api_msg_config.route.v3.ScopedRouteConfiguration>` 和 VHDS 一起使用时，每个路由作用域需要2个按需订阅。
 
 * :ref:`v2 API 参考 <v2_grpc_streaming_endpoints>`
 
