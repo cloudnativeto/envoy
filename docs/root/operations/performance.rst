@@ -3,7 +3,7 @@
 性能
 ===========
 
-Envoy旨在通过在 :ref: 少量线程<arch_overview_threading> 上运行事件循环来优化可伸缩性和资源利用。
+Envoy旨在通过在 :ref: 少量线程 <arch_overview_threading> 上运行事件循环来优化可伸缩性和资源利用。
 它的主线程负责控制平面的处理，每一个 worker 线程负责负责数据平面处理的一部分。
 Envoy公开了两个统计指标，以监视所有这些线程上事件循环的性能。
 
@@ -15,6 +15,7 @@ Envoy公开了两个统计指标，以监视所有这些线程上事件循环的
 <envoy_v3_api_field_config.bootstrap.v3.Bootstrap.enable_dispatcher_stats> 为 true 来启用
 
 .. 警告::
+
   请注意，启用调度程序统计信息会为每个线程上的事件循环的每次迭代记录一个值。
   通常这应该是最小的开销，但是当使用 :ref: statsd <envoy_v3_api_msg_config.metrics.v3.StatsdSink> 
   时,因为statsd协议无法表示直方图摘要，所以它将通过电线单独发送每个观测值。
