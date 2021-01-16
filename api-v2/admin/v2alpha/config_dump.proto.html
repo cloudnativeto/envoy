@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ConfigDump &mdash; envoy 1.16.0-202698 documentation</title>
+  <title>ConfigDump &mdash; envoy 1.16.0-5abbbb documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-202698
+                1.16.0-5abbbb
               </div>
             
           
@@ -215,7 +215,7 @@
 <span id="envoy-api-file-envoy-admin-v2alpha-config-dump-proto"></span><h1>ConfigDump<a class="headerlink" href="#configdump" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="admin-v2alpha-configdump">
 <span id="envoy-api-msg-admin-v2alpha-configdump"></span><h2>admin.v2alpha.ConfigDump<a class="headerlink" href="#admin-v2alpha-configdump" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/admin/v2alpha/config_dump.proto#L20">[admin.v2alpha.ConfigDump proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/config_dump.proto#L20">[admin.v2alpha.ConfigDump proto]</a></p>
 <p>The <a class="reference internal" href="../../../operations/admin.html#operations-admin-interface-config-dump"><span class="std std-ref">/config_dump</span></a> admin endpoint uses this wrapper
 message to maintain and serve arbitrary configuration information from any component in Envoy.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -243,7 +243,7 @@ or <a class="reference internal" href="../../../operations/admin.html#operations
 </div>
 <div class="section" id="admin-v2alpha-updatefailurestate">
 <span id="envoy-api-msg-admin-v2alpha-updatefailurestate"></span><h2>admin.v2alpha.UpdateFailureState<a class="headerlink" href="#admin-v2alpha-updatefailurestate" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/admin/v2alpha/config_dump.proto#L40">[admin.v2alpha.UpdateFailureState proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/config_dump.proto#L40">[admin.v2alpha.UpdateFailureState proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;failed_configuration&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;last_update_attempt&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -266,7 +266,7 @@ or <a class="reference internal" href="../../../operations/admin.html#operations
 </div>
 <div class="section" id="admin-v2alpha-bootstrapconfigdump">
 <span id="envoy-api-msg-admin-v2alpha-bootstrapconfigdump"></span><h2>admin.v2alpha.BootstrapConfigDump<a class="headerlink" href="#admin-v2alpha-bootstrapconfigdump" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/admin/v2alpha/config_dump.proto#L55">[admin.v2alpha.BootstrapConfigDump proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/config_dump.proto#L55">[admin.v2alpha.BootstrapConfigDump proto]</a></p>
 <p>This message describes the bootstrap configuration that Envoy was started with. This includes
 any CLI overrides that were merged. Bootstrap configuration information can be used to recreate
 the static portions of an Envoy configuration by reusing the output as the bootstrap
@@ -288,7 +288,7 @@ configuration for another Envoy.</p>
 </div>
 <div class="section" id="admin-v2alpha-listenersconfigdump">
 <span id="envoy-api-msg-admin-v2alpha-listenersconfigdump"></span><h2>admin.v2alpha.ListenersConfigDump<a class="headerlink" href="#admin-v2alpha-listenersconfigdump" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/admin/v2alpha/config_dump.proto#L65">[admin.v2alpha.ListenersConfigDump proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/config_dump.proto#L65">[admin.v2alpha.ListenersConfigDump proto]</a></p>
 <p>Envoy’s listener manager fills this message with all currently known listeners. Listener
 configuration information can be used to recreate an Envoy configuration by populating all
 listeners as static listeners or by returning them in a LDS response.</p>
@@ -316,7 +316,7 @@ will be “”.</p>
 </div>
 <div class="section" id="admin-v2alpha-listenersconfigdump-staticlistener">
 <span id="envoy-api-msg-admin-v2alpha-listenersconfigdump-staticlistener"></span><h2>admin.v2alpha.ListenersConfigDump.StaticListener<a class="headerlink" href="#admin-v2alpha-listenersconfigdump-staticlistener" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/admin/v2alpha/config_dump.proto#L67">[admin.v2alpha.ListenersConfigDump.StaticListener proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/config_dump.proto#L67">[admin.v2alpha.ListenersConfigDump.StaticListener proto]</a></p>
 <p>Describes a statically loaded listener.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;listener&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -335,7 +335,7 @@ will be “”.</p>
 </div>
 <div class="section" id="admin-v2alpha-listenersconfigdump-dynamiclistenerstate">
 <span id="envoy-api-msg-admin-v2alpha-listenersconfigdump-dynamiclistenerstate"></span><h2>admin.v2alpha.ListenersConfigDump.DynamicListenerState<a class="headerlink" href="#admin-v2alpha-listenersconfigdump-dynamiclistenerstate" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/admin/v2alpha/config_dump.proto#L75">[admin.v2alpha.ListenersConfigDump.DynamicListenerState proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/config_dump.proto#L75">[admin.v2alpha.ListenersConfigDump.DynamicListenerState proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;version_info&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;listener&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -361,7 +361,7 @@ by the API.</p>
 </div>
 <div class="section" id="admin-v2alpha-listenersconfigdump-dynamiclistener">
 <span id="envoy-api-msg-admin-v2alpha-listenersconfigdump-dynamiclistener"></span><h2>admin.v2alpha.ListenersConfigDump.DynamicListener<a class="headerlink" href="#admin-v2alpha-listenersconfigdump-dynamiclistener" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/admin/v2alpha/config_dump.proto#L91">[admin.v2alpha.ListenersConfigDump.DynamicListener proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/config_dump.proto#L91">[admin.v2alpha.ListenersConfigDump.DynamicListener proto]</a></p>
 <p>Describes a dynamically loaded listener via the LDS API.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -402,7 +402,7 @@ configuration dump, the draining listeners should generally be discarded.</p>
 </div>
 <div class="section" id="admin-v2alpha-clustersconfigdump">
 <span id="envoy-api-msg-admin-v2alpha-clustersconfigdump"></span><h2>admin.v2alpha.ClustersConfigDump<a class="headerlink" href="#admin-v2alpha-clustersconfigdump" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/admin/v2alpha/config_dump.proto#L130">[admin.v2alpha.ClustersConfigDump proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/config_dump.proto#L130">[admin.v2alpha.ClustersConfigDump proto]</a></p>
 <p>Envoy’s cluster manager fills this message with all currently known clusters. Cluster
 configuration information can be used to recreate an Envoy configuration by populating all
 clusters as static clusters or by returning them in a CDS response.</p>
@@ -439,7 +439,7 @@ discarded.</p>
 </div>
 <div class="section" id="admin-v2alpha-clustersconfigdump-staticcluster">
 <span id="envoy-api-msg-admin-v2alpha-clustersconfigdump-staticcluster"></span><h2>admin.v2alpha.ClustersConfigDump.StaticCluster<a class="headerlink" href="#admin-v2alpha-clustersconfigdump-staticcluster" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/admin/v2alpha/config_dump.proto#L132">[admin.v2alpha.ClustersConfigDump.StaticCluster proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/config_dump.proto#L132">[admin.v2alpha.ClustersConfigDump.StaticCluster proto]</a></p>
 <p>Describes a statically loaded cluster.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;cluster&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -458,7 +458,7 @@ discarded.</p>
 </div>
 <div class="section" id="admin-v2alpha-clustersconfigdump-dynamiccluster">
 <span id="envoy-api-msg-admin-v2alpha-clustersconfigdump-dynamiccluster"></span><h2>admin.v2alpha.ClustersConfigDump.DynamicCluster<a class="headerlink" href="#admin-v2alpha-clustersconfigdump-dynamiccluster" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/admin/v2alpha/config_dump.proto#L141">[admin.v2alpha.ClustersConfigDump.DynamicCluster proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/config_dump.proto#L141">[admin.v2alpha.ClustersConfigDump.DynamicCluster proto]</a></p>
 <p>Describes a dynamically loaded cluster via the CDS API.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;version_info&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -485,7 +485,7 @@ the API.</p>
 </div>
 <div class="section" id="admin-v2alpha-routesconfigdump">
 <span id="envoy-api-msg-admin-v2alpha-routesconfigdump"></span><h2>admin.v2alpha.RoutesConfigDump<a class="headerlink" href="#admin-v2alpha-routesconfigdump" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/admin/v2alpha/config_dump.proto#L179">[admin.v2alpha.RoutesConfigDump proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/config_dump.proto#L179">[admin.v2alpha.RoutesConfigDump proto]</a></p>
 <p>Envoy’s RDS implementation fills this message with all currently loaded routes, as described by
 their RouteConfiguration objects. Static routes that are either defined in the bootstrap configuration
 or defined inline while configuring listeners are separated from those configured dynamically via RDS.
@@ -508,7 +508,7 @@ as static routes or by returning them in RDS responses.</p>
 </div>
 <div class="section" id="admin-v2alpha-routesconfigdump-staticrouteconfig">
 <span id="envoy-api-msg-admin-v2alpha-routesconfigdump-staticrouteconfig"></span><h2>admin.v2alpha.RoutesConfigDump.StaticRouteConfig<a class="headerlink" href="#admin-v2alpha-routesconfigdump-staticrouteconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/admin/v2alpha/config_dump.proto#L180">[admin.v2alpha.RoutesConfigDump.StaticRouteConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/config_dump.proto#L180">[admin.v2alpha.RoutesConfigDump.StaticRouteConfig proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;route_config&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;last_updated&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>
@@ -526,7 +526,7 @@ as static routes or by returning them in RDS responses.</p>
 </div>
 <div class="section" id="admin-v2alpha-routesconfigdump-dynamicrouteconfig">
 <span id="envoy-api-msg-admin-v2alpha-routesconfigdump-dynamicrouteconfig"></span><h2>admin.v2alpha.RoutesConfigDump.DynamicRouteConfig<a class="headerlink" href="#admin-v2alpha-routesconfigdump-dynamicrouteconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/admin/v2alpha/config_dump.proto#L188">[admin.v2alpha.RoutesConfigDump.DynamicRouteConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/config_dump.proto#L188">[admin.v2alpha.RoutesConfigDump.DynamicRouteConfig proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;version_info&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;route_config&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -551,7 +551,7 @@ the route configuration was loaded.</p>
 </div>
 <div class="section" id="admin-v2alpha-scopedroutesconfigdump">
 <span id="envoy-api-msg-admin-v2alpha-scopedroutesconfigdump"></span><h2>admin.v2alpha.ScopedRoutesConfigDump<a class="headerlink" href="#admin-v2alpha-scopedroutesconfigdump" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/admin/v2alpha/config_dump.proto#L212">[admin.v2alpha.ScopedRoutesConfigDump proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/config_dump.proto#L212">[admin.v2alpha.ScopedRoutesConfigDump proto]</a></p>
 <p>Envoy’s scoped RDS implementation fills this message with all currently loaded route
 configuration scopes (defined via ScopedRouteConfigurationsSet protos). This message lists both
 the scopes defined inline with the higher order object (i.e., the HttpConnectionManager) and the
@@ -573,7 +573,7 @@ dynamically obtained scopes via the SRDS API.</p>
 </div>
 <div class="section" id="admin-v2alpha-scopedroutesconfigdump-inlinescopedrouteconfigs">
 <span id="envoy-api-msg-admin-v2alpha-scopedroutesconfigdump-inlinescopedrouteconfigs"></span><h2>admin.v2alpha.ScopedRoutesConfigDump.InlineScopedRouteConfigs<a class="headerlink" href="#admin-v2alpha-scopedroutesconfigdump-inlinescopedrouteconfigs" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/admin/v2alpha/config_dump.proto#L213">[admin.v2alpha.ScopedRoutesConfigDump.InlineScopedRouteConfigs proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/config_dump.proto#L213">[admin.v2alpha.ScopedRoutesConfigDump.InlineScopedRouteConfigs proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;scoped_route_configs&quot;</span><span class="p">:</span> <span class="p">[],</span>
@@ -596,7 +596,7 @@ dynamically obtained scopes via the SRDS API.</p>
 </div>
 <div class="section" id="admin-v2alpha-scopedroutesconfigdump-dynamicscopedrouteconfigs">
 <span id="envoy-api-msg-admin-v2alpha-scopedroutesconfigdump-dynamicscopedrouteconfigs"></span><h2>admin.v2alpha.ScopedRoutesConfigDump.DynamicScopedRouteConfigs<a class="headerlink" href="#admin-v2alpha-scopedroutesconfigdump-dynamicscopedrouteconfigs" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/admin/v2alpha/config_dump.proto#L224">[admin.v2alpha.ScopedRoutesConfigDump.DynamicScopedRouteConfigs proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/config_dump.proto#L224">[admin.v2alpha.ScopedRoutesConfigDump.DynamicScopedRouteConfigs proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;version_info&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -626,7 +626,7 @@ the scoped routes configuration was loaded.</p>
 </div>
 <div class="section" id="admin-v2alpha-secretsconfigdump">
 <span id="envoy-api-msg-admin-v2alpha-secretsconfigdump"></span><h2>admin.v2alpha.SecretsConfigDump<a class="headerlink" href="#admin-v2alpha-secretsconfigdump" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/admin/v2alpha/config_dump.proto#L248">[admin.v2alpha.SecretsConfigDump proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/config_dump.proto#L248">[admin.v2alpha.SecretsConfigDump proto]</a></p>
 <p>Envoys SDS implementation fills this message with all secrets fetched dynamically via SDS.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;static_secrets&quot;</span><span class="p">:</span> <span class="p">[],</span>
@@ -652,7 +652,7 @@ warming in preparation to service clusters or listeners.</p>
 </div>
 <div class="section" id="admin-v2alpha-secretsconfigdump-dynamicsecret">
 <span id="envoy-api-msg-admin-v2alpha-secretsconfigdump-dynamicsecret"></span><h2>admin.v2alpha.SecretsConfigDump.DynamicSecret<a class="headerlink" href="#admin-v2alpha-secretsconfigdump-dynamicsecret" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/admin/v2alpha/config_dump.proto#L250">[admin.v2alpha.SecretsConfigDump.DynamicSecret proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/config_dump.proto#L250">[admin.v2alpha.SecretsConfigDump.DynamicSecret proto]</a></p>
 <p>DynamicSecret contains secret information fetched via SDS.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -683,7 +683,7 @@ private keys and passwords in TLS certificates.</p>
 </div>
 <div class="section" id="admin-v2alpha-secretsconfigdump-staticsecret">
 <span id="envoy-api-msg-admin-v2alpha-secretsconfigdump-staticsecret"></span><h2>admin.v2alpha.SecretsConfigDump.StaticSecret<a class="headerlink" href="#admin-v2alpha-secretsconfigdump-staticsecret" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/admin/v2alpha/config_dump.proto#L267">[admin.v2alpha.SecretsConfigDump.StaticSecret proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/config_dump.proto#L267">[admin.v2alpha.SecretsConfigDump.StaticSecret proto]</a></p>
 <p>StaticSecret specifies statically loaded secret in bootstrap.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>

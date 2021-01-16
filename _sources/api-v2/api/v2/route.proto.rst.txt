@@ -11,7 +11,7 @@ HTTP route configuration
 RouteConfiguration
 ------------------
 
-`[RouteConfiguration proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/api/v2/route.proto#L25>`_
+`[RouteConfiguration proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/api/v2/route.proto#L25>`_
 
 
 .. code-block:: json
@@ -139,7 +139,7 @@ validate_clusters
 Vhds
 ----
 
-`[Vhds proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/api/v2/route.proto#L109>`_
+`[Vhds proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/api/v2/route.proto#L109>`_
 
 
 .. code-block:: json

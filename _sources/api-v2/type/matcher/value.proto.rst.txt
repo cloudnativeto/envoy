@@ -9,7 +9,7 @@ Value matcher
 type.matcher.ValueMatcher
 -------------------------
 
-`[type.matcher.ValueMatcher proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/type/matcher/value.proto#L20>`_
+`[type.matcher.ValueMatcher proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/type/matcher/value.proto#L20>`_
 
 Specifies the way to match a ProtobufWkt::Value. Primitive values and ListValue are supported.
 StructValue is not supported and is always not matched.
@@ -96,7 +96,7 @@ list_match
 type.matcher.ValueMatcher.NullMatch
 -----------------------------------
 
-`[type.matcher.ValueMatcher.NullMatch proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/type/matcher/value.proto#L22>`_
+`[type.matcher.ValueMatcher.NullMatch proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/type/matcher/value.proto#L22>`_
 
 NullMatch is an empty message to specify a null value.
 
@@ -113,7 +113,7 @@ NullMatch is an empty message to specify a null value.
 type.matcher.ListMatcher
 ------------------------
 
-`[type.matcher.ListMatcher proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/type/matcher/value.proto#L56>`_
+`[type.matcher.ListMatcher proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/type/matcher/value.proto#L56>`_
 
 Specifies the way to match a list value.
 

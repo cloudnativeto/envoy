@@ -10,7 +10,7 @@ Rocketmq Proxy :ref:`configuration overview <config_network_filters_rocketmq_pro
 extensions.filters.network.rocketmq_proxy.v3.RouteConfiguration
 ---------------------------------------------------------------
 
-`[extensions.filters.network.rocketmq_proxy.v3.RouteConfiguration proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/extensions/filters/network/rocketmq_proxy/v3/route.proto#L20>`_
+`[extensions.filters.network.rocketmq_proxy.v3.RouteConfiguration proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/network/rocketmq_proxy/v3/route.proto#L20>`_
 
 
 .. code-block:: json
@@ -40,7 +40,7 @@ routes
 extensions.filters.network.rocketmq_proxy.v3.Route
 --------------------------------------------------
 
-`[extensions.filters.network.rocketmq_proxy.v3.Route proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/extensions/filters/network/rocketmq_proxy/v3/route.proto#L29>`_
+`[extensions.filters.network.rocketmq_proxy.v3.Route proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/network/rocketmq_proxy/v3/route.proto#L29>`_
 
 
 .. code-block:: json
@@ -69,7 +69,7 @@ route
 extensions.filters.network.rocketmq_proxy.v3.RouteMatch
 -------------------------------------------------------
 
-`[extensions.filters.network.rocketmq_proxy.v3.RouteMatch proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/extensions/filters/network/rocketmq_proxy/v3/route.proto#L37>`_
+`[extensions.filters.network.rocketmq_proxy.v3.RouteMatch proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/network/rocketmq_proxy/v3/route.proto#L37>`_
 
 
 .. code-block:: json
@@ -101,7 +101,7 @@ headers
 extensions.filters.network.rocketmq_proxy.v3.RouteAction
 --------------------------------------------------------
 
-`[extensions.filters.network.rocketmq_proxy.v3.RouteAction proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/extensions/filters/network/rocketmq_proxy/v3/route.proto#L48>`_
+`[extensions.filters.network.rocketmq_proxy.v3.RouteAction proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/network/rocketmq_proxy/v3/route.proto#L48>`_
 
 
 .. code-block:: json

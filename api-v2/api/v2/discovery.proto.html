@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Common discovery API components &mdash; envoy 1.16.0-202698 documentation</title>
+  <title>Common discovery API components &mdash; envoy 1.16.0-5abbbb documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-202698
+                1.16.0-5abbbb
               </div>
             
           
@@ -219,7 +219,7 @@
 <span id="envoy-api-file-envoy-api-v2-discovery-proto"></span><h1>Common discovery API components<a class="headerlink" href="#common-discovery-api-components" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="discoveryrequest">
 <span id="envoy-api-msg-discoveryrequest"></span><h2>DiscoveryRequest<a class="headerlink" href="#discoveryrequest" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/api/v2/discovery.proto#L23">[DiscoveryRequest proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/api/v2/discovery.proto#L23">[DiscoveryRequest proto]</a></p>
 <p>A DiscoveryRequest requests a set of versioned resources of the same type for
 a given Envoy node on some API.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -280,7 +280,7 @@ debugging, the string provided is not guaranteed to be stable across Envoy versi
 </div>
 <div class="section" id="discoveryresponse">
 <span id="envoy-api-msg-discoveryresponse"></span><h2>DiscoveryResponse<a class="headerlink" href="#discoveryresponse" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/api/v2/discovery.proto#L65">[DiscoveryResponse proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/api/v2/discovery.proto#L65">[DiscoveryResponse proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;version_info&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;resources&quot;</span><span class="p">:</span> <span class="p">[],</span>
@@ -316,7 +316,7 @@ required for non-stream based xDS implementations.</p>
 </div>
 <div class="section" id="deltadiscoveryrequest">
 <span id="envoy-api-msg-deltadiscoveryrequest"></span><h2>DeltaDiscoveryRequest<a class="headerlink" href="#deltadiscoveryrequest" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/api/v2/discovery.proto#L140">[DeltaDiscoveryRequest proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/api/v2/discovery.proto#L140">[DeltaDiscoveryRequest proto]</a></p>
 <p>DeltaDiscoveryRequest and DeltaDiscoveryResponse are used in a new gRPC
 endpoint for Delta xDS.</p>
 <p>With Delta xDS, the DeltaDiscoveryResponses do not need to include a full
@@ -416,7 +416,7 @@ provides the Envoy internal exception related to the failure.</p>
 </div>
 <div class="section" id="deltadiscoveryresponse">
 <span id="envoy-api-msg-deltadiscoveryresponse"></span><h2>DeltaDiscoveryResponse<a class="headerlink" href="#deltadiscoveryresponse" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/api/v2/discovery.proto#L197">[DeltaDiscoveryResponse proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/api/v2/discovery.proto#L197">[DeltaDiscoveryResponse proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;system_version_info&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;resources&quot;</span><span class="p">:</span> <span class="p">[],</span>
@@ -453,7 +453,7 @@ reference a DeltaDiscoveryResponse when (N)ACKing. The nonce is required.</p>
 </div>
 <div class="section" id="resource">
 <span id="envoy-api-msg-resource"></span><h2>Resource<a class="headerlink" href="#resource" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/api/v2/discovery.proto#L220">[Resource proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/api/v2/discovery.proto#L220">[Resource proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;aliases&quot;</span><span class="p">:</span> <span class="p">[],</span>

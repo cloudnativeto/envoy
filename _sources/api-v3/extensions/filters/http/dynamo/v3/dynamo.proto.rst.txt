@@ -20,7 +20,7 @@ Dynamo :ref:`configuration overview <config_http_filters_dynamo>`.
 extensions.filters.http.dynamo.v3.Dynamo
 ----------------------------------------
 
-`[extensions.filters.http.dynamo.v3.Dynamo proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/extensions/filters/http/dynamo/v3/dynamo.proto#L17>`_
+`[extensions.filters.http.dynamo.v3.Dynamo proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/http/dynamo/v3/dynamo.proto#L17>`_
 
 Dynamo filter config.
 

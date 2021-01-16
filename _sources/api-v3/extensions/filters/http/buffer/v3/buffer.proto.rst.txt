@@ -20,7 +20,7 @@ Buffer :ref:`configuration overview <config_http_filters_buffer>`.
 extensions.filters.http.buffer.v3.Buffer
 ----------------------------------------
 
-`[extensions.filters.http.buffer.v3.Buffer proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/extensions/filters/http/buffer/v3/buffer.proto#L19>`_
+`[extensions.filters.http.buffer.v3.Buffer proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/http/buffer/v3/buffer.proto#L19>`_
 
 
 .. code-block:: json
@@ -43,7 +43,7 @@ max_request_bytes
 extensions.filters.http.buffer.v3.BufferPerRoute
 ------------------------------------------------
 
-`[extensions.filters.http.buffer.v3.BufferPerRoute proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/extensions/filters/http/buffer/v3/buffer.proto#L31>`_
+`[extensions.filters.http.buffer.v3.BufferPerRoute proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/http/buffer/v3/buffer.proto#L31>`_
 
 
 .. code-block:: json

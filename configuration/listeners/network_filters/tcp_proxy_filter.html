@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>TCP proxy &mdash; envoy 1.16.0-202698 documentation</title>
+  <title>TCP 代理 &mdash; envoy 1.16.0-5abbbb documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-202698
+                1.16.0-5abbbb
               </div>
             
           
@@ -127,7 +127,7 @@
 <li class="toctree-l4"><a class="reference internal" href="rbac_filter.html">基于角色的访问控制（RBAC）网络过滤器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="redis_proxy_filter.html">Redis 代理</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rocketmq_proxy_filter.html">RocketMQ proxy</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">TCP proxy</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">TCP 代理</a></li>
 <li class="toctree-l4"><a class="reference internal" href="thrift_proxy_filter.html">Thrift 代理</a></li>
 <li class="toctree-l4"><a class="reference internal" href="sni_cluster_filter.html">SNI的上游集群</a></li>
 <li class="toctree-l4"><a class="reference internal" href="sni_dynamic_forward_proxy_filter.html">SNI 动态转发代理</a></li>
@@ -205,7 +205,7 @@
         
           <li><a href="network_filters.html">网络过滤器</a> &raquo;</li>
         
-      <li>TCP proxy</li>
+      <li>TCP 代理</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -224,41 +224,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="tcp-proxy">
-<span id="config-network-filters-tcp-proxy"></span><h1>TCP proxy<a class="headerlink" href="#tcp-proxy" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="tcp">
+<span id="config-network-filters-tcp-proxy"></span><h1>TCP 代理<a class="headerlink" href="#tcp" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>TCP proxy <a class="reference internal" href="../../../intro/arch_overview/listeners/tcp_proxy.html#arch-overview-tcp-proxy"><span class="std std-ref">architecture overview</span></a></p></li>
-<li><p><a class="reference internal" href="../../../api-v3/extensions/filters/network/tcp_proxy/v3/tcp_proxy.proto.html#envoy-v3-api-msg-extensions-filters-network-tcp-proxy-v3-tcpproxy"><span class="std std-ref">v3 API reference</span></a></p></li>
-<li><p>This filter should be configured with the name <em>envoy.filters.network.tcp_proxy</em>.</p></li>
+<li><p>TCP 代理 <a class="reference internal" href="../../../intro/arch_overview/listeners/tcp_proxy.html#arch-overview-tcp-proxy"><span class="std std-ref">架构概览</span></a></p></li>
+<li><p><a class="reference internal" href="../../../api-v3/extensions/filters/network/tcp_proxy/v3/tcp_proxy.proto.html#envoy-v3-api-msg-extensions-filters-network-tcp-proxy-v3-tcpproxy"><span class="std std-ref">v3 API 参考</span></a></p></li>
+<li><p>过滤器的名称应该配置为 <em>envoy.filters.network.tcp_proxy</em> 。</p></li>
 </ul>
-<div class="section" id="dynamic-cluster-selection">
-<span id="config-network-filters-tcp-proxy-dynamic-cluster"></span><h2>Dynamic cluster selection<a class="headerlink" href="#dynamic-cluster-selection" title="Permalink to this headline">¶</a></h2>
-<p>The upstream cluster used by the TCP proxy filter can be dynamically set by
-other network filters on a per-connection basis by setting a per-connection
-state object under the key <cite>envoy.tcp_proxy.cluster</cite>. See the
-implementation for the details.</p>
+<div class="section" id="config-network-filters-tcp-proxy-dynamic-cluster">
+<span id="id1"></span><h2>动态集群选择<a class="headerlink" href="#config-network-filters-tcp-proxy-dynamic-cluster" title="Permalink to this headline">¶</a></h2>
+<p>TCP 代理过滤器使用的上游集群可以由其他网络过滤器根据每个连接动态设置，方法是在 <cite>envoy.tcp_proxy.cluster</cite> 字段下设置每个连接的状态对象。见实现详情。</p>
 </div>
-<div class="section" id="routing-to-a-subset-of-hosts">
-<span id="config-network-filters-tcp-proxy-subset-lb"></span><h2>Routing to a subset of hosts<a class="headerlink" href="#routing-to-a-subset-of-hosts" title="Permalink to this headline">¶</a></h2>
-<p>TCP proxy can be configured to route to a subset of hosts within an upstream cluster.</p>
-<p>To define metadata that a suitable upstream host must match, use one of the following fields:</p>
+<div class="section" id="config-network-filters-tcp-proxy-subset-lb">
+<span id="id2"></span><h2>路由到主机子集<a class="headerlink" href="#config-network-filters-tcp-proxy-subset-lb" title="Permalink to this headline">¶</a></h2>
+<p>可以配置 TCP 代理，让它路由到上游集群内部的主机子集。</p>
+<p>为了定义合适的上游主机必须匹配的元数据，请使用以下字段之一：</p>
 <ol class="arabic simple">
-<li><p>Use <a class="reference internal" href="../../../api-v3/extensions/filters/network/tcp_proxy/v3/tcp_proxy.proto.html#envoy-v3-api-field-extensions-filters-network-tcp-proxy-v3-tcpproxy-metadata-match"><span class="std std-ref">TcpProxy.metadata_match</span></a>
-to define required metadata for a single upstream cluster.</p></li>
-<li><p>Use <a class="reference internal" href="../../../api-v3/extensions/filters/network/tcp_proxy/v3/tcp_proxy.proto.html#envoy-v3-api-field-extensions-filters-network-tcp-proxy-v3-tcpproxy-weightedcluster-clusterweight-metadata-match"><span class="std std-ref">ClusterWeight.metadata_match</span></a>
-to define required metadata for a weighted upstream cluster.</p></li>
-<li><p>Use combination of <a class="reference internal" href="../../../api-v3/extensions/filters/network/tcp_proxy/v3/tcp_proxy.proto.html#envoy-v3-api-field-extensions-filters-network-tcp-proxy-v3-tcpproxy-metadata-match"><span class="std std-ref">TcpProxy.metadata_match</span></a>
-and <a class="reference internal" href="../../../api-v3/extensions/filters/network/tcp_proxy/v3/tcp_proxy.proto.html#envoy-v3-api-field-extensions-filters-network-tcp-proxy-v3-tcpproxy-weightedcluster-clusterweight-metadata-match"><span class="std std-ref">ClusterWeight.metadata_match</span></a>
-to define required metadata for a weighted upstream cluster (metadata from the latter will be merged on top of the former).</p></li>
+<li><p>使用 <a class="reference internal" href="../../../api-v3/extensions/filters/network/tcp_proxy/v3/tcp_proxy.proto.html#envoy-v3-api-field-extensions-filters-network-tcp-proxy-v3-tcpproxy-metadata-match"><span class="std std-ref">TcpProxy.metadata_match</span></a> 为单个上游集群定义所需的元数据。</p></li>
+<li><p>使用 <a class="reference internal" href="../../../api-v3/extensions/filters/network/tcp_proxy/v3/tcp_proxy.proto.html#envoy-v3-api-field-extensions-filters-network-tcp-proxy-v3-tcpproxy-weightedcluster-clusterweight-metadata-match"><span class="std std-ref">ClusterWeight.metadata_match</span></a> 为权重集群定义所需的元数据。</p></li>
+<li><p>使用 <a class="reference internal" href="../../../api-v3/extensions/filters/network/tcp_proxy/v3/tcp_proxy.proto.html#envoy-v3-api-field-extensions-filters-network-tcp-proxy-v3-tcpproxy-metadata-match"><span class="std std-ref">TcpProxy.metadata_match</span></a> 和 <a class="reference internal" href="../../../api-v3/extensions/filters/network/tcp_proxy/v3/tcp_proxy.proto.html#envoy-v3-api-field-extensions-filters-network-tcp-proxy-v3-tcpproxy-weightedcluster-clusterweight-metadata-match"><span class="std std-ref">ClusterWeight.metadata_match</span></a> 的组合为权重上游集群定义所需的元数据（后者的元数据将在前者的基础上合并）。</p></li>
 </ol>
-<p>In addition, dynamic metadata can be set by earlier network filters on the <cite>StreamInfo</cite>. Setting the dynamic metadata
-must happen before <cite>onNewConnection()</cite> is called on the <cite>TcpProxy</cite> filter to affect load balancing.</p>
+<p>此外，元数据可以由 <cite>StreamInfo</cite> 上的早期网络过滤器设置。设置元数据必须在 <cite>TcpProxy</cite> 过滤器调用 <cite>onNewConnection()</cite> 前发生，以此来影响负载均衡。</p>
 </div>
-<div class="section" id="statistics">
-<span id="config-network-filters-tcp-proxy-stats"></span><h2>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h2>
-<p>The TCP proxy filter emits both its own downstream statistics as well as many of the <a class="reference internal" href="../../upstream/cluster_manager/cluster_stats.html#config-cluster-manager-cluster-stats"><span class="std std-ref">cluster
-upstream statistics</span></a> where applicable. The downstream
-statistics are rooted at <em>tcp.&lt;stat_prefix&gt;.</em> with the following statistics:</p>
+<div class="section" id="config-network-filters-tcp-proxy-stats">
+<span id="id3"></span><h2>统计信息<a class="headerlink" href="#config-network-filters-tcp-proxy-stats" title="Permalink to this headline">¶</a></h2>
+<p>TCP 代理过滤器即会发出自己的下游统计信息，也会在适用的情况下发出许多 <a class="reference internal" href="../../upstream/cluster_manager/cluster_stats.html#config-cluster-manager-cluster-stats"><span class="std std-ref">上游集群统计信息</span></a> 。下游统计信息以 <em>tcp.&lt;stat_prefix&gt;.</em> 为根，如下所示的统计信息：</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -266,59 +256,59 @@ statistics are rooted at <em>tcp.&lt;stat_prefix&gt;.</em> with the following st
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>downstream_cx_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of connections handled by the filter</p></td>
+<td><p>过滤器处理的连接总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_cx_no_route</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of connections for which no matching route was found or the cluster for the route was not found</p></td>
+<td><p>未找到路由或者未找到路由集群的连接总数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_cx_tx_bytes_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total bytes written to the downstream connection</p></td>
+<td><p>写入下游连接的字节总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_cx_tx_bytes_buffered</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total bytes currently buffered to the downstream connection</p></td>
+<td><p>当前缓冲到下游连接的字节总数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_cx_rx_bytes_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total bytes read from the downstream connection</p></td>
+<td><p>从下游连接读取的字节总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_cx_rx_bytes_buffered</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total bytes currently buffered from the downstream connection</p></td>
+<td><p>当前从下游连接缓冲的字节总数</p></td>
 </tr>
 <tr class="row-even"><td><p>downstream_flow_control_paused_reading_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of times flow control paused reading from downstream</p></td>
+<td><p>流控暂停从下游读取数据的总次数</p></td>
 </tr>
 <tr class="row-odd"><td><p>downstream_flow_control_resumed_reading_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of times flow control resumed reading from downstream</p></td>
+<td><p>流控恢复从下游读取数据的总次数</p></td>
 </tr>
 <tr class="row-even"><td><p>idle_timeout</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of connections closed due to idle timeout</p></td>
+<td><p>由于空闲超时而关闭的连接总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>max_downstream_connection_duration</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of connections closed due to max_downstream_connection_duration timeout</p></td>
+<td><p>由于 max_downstream_connection_duration 超时而关闭的连接总数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_flush_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of connections that continued to flush upstream data after the downstream connection was closed</p></td>
+<td><p>关闭下游连接后，持续刷新上游数据的连接总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_flush_active</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total connections currently continuing to flush upstream data after the downstream connection was closed</p></td>
+<td><p>关闭下游连接后，当前持续刷新上游连接的连接总数</p></td>
 </tr>
 </tbody>
 </table>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>JWT Authentication &mdash; envoy 1.16.0-202698 documentation</title>
+  <title>JWT Authentication &mdash; envoy 1.16.0-5abbbb documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-202698
+                1.16.0-5abbbb
               </div>
             
           
@@ -229,7 +229,7 @@
 <p>JWT Authentication <a class="reference internal" href="../../../../../../configuration/http/http_filters/jwt_authn_filter.html#config-http-filters-jwt-authn"><span class="std std-ref">configuration overview</span></a>.</p>
 <div class="section" id="config-filter-http-jwt-authn-v2alpha-jwtprovider">
 <span id="envoy-api-msg-config-filter-http-jwt-authn-v2alpha-jwtprovider"></span><h2>config.filter.http.jwt_authn.v2alpha.JwtProvider<a class="headerlink" href="#config-filter-http-jwt-authn-v2alpha-jwtprovider" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/config/filter/http/jwt_authn/v2alpha/config.proto#L56">[config.filter.http.jwt_authn.v2alpha.JwtProvider proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/http/jwt_authn/v2alpha/config.proto#L56">[config.filter.http.jwt_authn.v2alpha.JwtProvider proto]</a></p>
 <p>Please see following for JWT authentication flow:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://tools.ietf.org/html/rfc7519">JSON Web Token (JWT)</a></p></li>
@@ -393,7 +393,7 @@ and the value is the <em>protobuf::Struct</em> converted from JWT JSON payload.<
 </div>
 <div class="section" id="config-filter-http-jwt-authn-v2alpha-remotejwks">
 <span id="envoy-api-msg-config-filter-http-jwt-authn-v2alpha-remotejwks"></span><h2>config.filter.http.jwt_authn.v2alpha.RemoteJwks<a class="headerlink" href="#config-filter-http-jwt-authn-v2alpha-remotejwks" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/config/filter/http/jwt_authn/v2alpha/config.proto#L194">[config.filter.http.jwt_authn.v2alpha.RemoteJwks proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/http/jwt_authn/v2alpha/config.proto#L194">[config.filter.http.jwt_authn.v2alpha.RemoteJwks proto]</a></p>
 <p>This message specifies how to fetch JWKS from remote and how to cache it.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;http_uri&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -418,7 +418,7 @@ duration is 5 minutes.</p>
 </div>
 <div class="section" id="config-filter-http-jwt-authn-v2alpha-jwtheader">
 <span id="envoy-api-msg-config-filter-http-jwt-authn-v2alpha-jwtheader"></span><h2>config.filter.http.jwt_authn.v2alpha.JwtHeader<a class="headerlink" href="#config-filter-http-jwt-authn-v2alpha-jwtheader" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/config/filter/http/jwt_authn/v2alpha/config.proto#L211">[config.filter.http.jwt_authn.v2alpha.JwtHeader proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/http/jwt_authn/v2alpha/config.proto#L211">[config.filter.http.jwt_authn.v2alpha.JwtHeader proto]</a></p>
 <p>This message specifies a header location to extract JWT token.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -439,7 +439,7 @@ end.</p>
 </div>
 <div class="section" id="config-filter-http-jwt-authn-v2alpha-providerwithaudiences">
 <span id="envoy-api-msg-config-filter-http-jwt-authn-v2alpha-providerwithaudiences"></span><h2>config.filter.http.jwt_authn.v2alpha.ProviderWithAudiences<a class="headerlink" href="#config-filter-http-jwt-authn-v2alpha-providerwithaudiences" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/config/filter/http/jwt_authn/v2alpha/config.proto#L222">[config.filter.http.jwt_authn.v2alpha.ProviderWithAudiences proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/http/jwt_authn/v2alpha/config.proto#L222">[config.filter.http.jwt_authn.v2alpha.ProviderWithAudiences proto]</a></p>
 <p>Specify a required provider with audiences.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;provider_name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -458,7 +458,7 @@ end.</p>
 </div>
 <div class="section" id="config-filter-http-jwt-authn-v2alpha-jwtrequirement">
 <span id="envoy-api-msg-config-filter-http-jwt-authn-v2alpha-jwtrequirement"></span><h2>config.filter.http.jwt_authn.v2alpha.JwtRequirement<a class="headerlink" href="#config-filter-http-jwt-authn-v2alpha-jwtrequirement" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/config/filter/http/jwt_authn/v2alpha/config.proto#L287">[config.filter.http.jwt_authn.v2alpha.JwtRequirement proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/http/jwt_authn/v2alpha/config.proto#L287">[config.filter.http.jwt_authn.v2alpha.JwtRequirement proto]</a></p>
 <p>This message specifies a Jwt requirement. An empty message means JWT verification is not
 required. Here are some config examples:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 1: not required with an empty message</span>
@@ -564,7 +564,7 @@ different is this mode will reject requests with invalid tokens.</p>
 </div>
 <div class="section" id="config-filter-http-jwt-authn-v2alpha-jwtrequirementorlist">
 <span id="envoy-api-msg-config-filter-http-jwt-authn-v2alpha-jwtrequirementorlist"></span><h2>config.filter.http.jwt_authn.v2alpha.JwtRequirementOrList<a class="headerlink" href="#config-filter-http-jwt-authn-v2alpha-jwtrequirementorlist" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/config/filter/http/jwt_authn/v2alpha/config.proto#L319">[config.filter.http.jwt_authn.v2alpha.JwtRequirementOrList proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/http/jwt_authn/v2alpha/config.proto#L319">[config.filter.http.jwt_authn.v2alpha.JwtRequirementOrList proto]</a></p>
 <p>This message specifies a list of RequiredProvider.
 Their results are OR-ed; if any one of them passes, the result is passed</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -579,7 +579,7 @@ Their results are OR-ed; if any one of them passes, the result is passed</p>
 </div>
 <div class="section" id="config-filter-http-jwt-authn-v2alpha-jwtrequirementandlist">
 <span id="envoy-api-msg-config-filter-http-jwt-authn-v2alpha-jwtrequirementandlist"></span><h2>config.filter.http.jwt_authn.v2alpha.JwtRequirementAndList<a class="headerlink" href="#config-filter-http-jwt-authn-v2alpha-jwtrequirementandlist" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/config/filter/http/jwt_authn/v2alpha/config.proto#L326">[config.filter.http.jwt_authn.v2alpha.JwtRequirementAndList proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/http/jwt_authn/v2alpha/config.proto#L326">[config.filter.http.jwt_authn.v2alpha.JwtRequirementAndList proto]</a></p>
 <p>This message specifies a list of RequiredProvider.
 Their results are AND-ed; all of them must pass, if one of them fails or missing, it fails.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -594,7 +594,7 @@ Their results are AND-ed; all of them must pass, if one of them fails or missing
 </div>
 <div class="section" id="config-filter-http-jwt-authn-v2alpha-requirementrule">
 <span id="envoy-api-msg-config-filter-http-jwt-authn-v2alpha-requirementrule"></span><h2>config.filter.http.jwt_authn.v2alpha.RequirementRule<a class="headerlink" href="#config-filter-http-jwt-authn-v2alpha-requirementrule" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/config/filter/http/jwt_authn/v2alpha/config.proto#L352">[config.filter.http.jwt_authn.v2alpha.RequirementRule proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/http/jwt_authn/v2alpha/config.proto#L352">[config.filter.http.jwt_authn.v2alpha.RequirementRule proto]</a></p>
 <p>This message specifies a Jwt requirement for a specific Route condition.
 Example 1:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span>
@@ -634,7 +634,7 @@ apply.</p>
 </div>
 <div class="section" id="config-filter-http-jwt-authn-v2alpha-filterstaterule">
 <span id="envoy-api-msg-config-filter-http-jwt-authn-v2alpha-filterstaterule"></span><h2>config.filter.http.jwt_authn.v2alpha.FilterStateRule<a class="headerlink" href="#config-filter-http-jwt-authn-v2alpha-filterstaterule" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/config/filter/http/jwt_authn/v2alpha/config.proto#L386">[config.filter.http.jwt_authn.v2alpha.FilterStateRule proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/http/jwt_authn/v2alpha/config.proto#L386">[config.filter.http.jwt_authn.v2alpha.FilterStateRule proto]</a></p>
 <p>This message specifies Jwt requirements based on stream_info.filterState.
 This FilterState should use <cite>Router::StringAccessor</cite> object to set a string value.
 Other HTTP filters can use it to specify Jwt requirements dynamically.</p>
@@ -667,7 +667,7 @@ in the FilterState with the name specified in the <em>name</em> field above.</p>
 </div>
 <div class="section" id="config-filter-http-jwt-authn-v2alpha-jwtauthentication">
 <span id="envoy-api-msg-config-filter-http-jwt-authn-v2alpha-jwtauthentication"></span><h2>config.filter.http.jwt_authn.v2alpha.JwtAuthentication<a class="headerlink" href="#config-filter-http-jwt-authn-v2alpha-jwtauthentication" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/config/filter/http/jwt_authn/v2alpha/config.proto#L436">[config.filter.http.jwt_authn.v2alpha.JwtAuthentication proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/http/jwt_authn/v2alpha/config.proto#L436">[config.filter.http.jwt_authn.v2alpha.JwtAuthentication proto]</a></p>
 <p>This is the Envoy HTTP filter config for JWT authentication.</p>
 <p>For example:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">providers</span><span class="p">:</span>

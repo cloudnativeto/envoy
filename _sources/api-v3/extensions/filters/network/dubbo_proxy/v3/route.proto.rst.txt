@@ -10,7 +10,7 @@ Dubbo Proxy :ref:`configuration overview <config_network_filters_dubbo_proxy>`.
 extensions.filters.network.dubbo_proxy.v3.RouteConfiguration
 ------------------------------------------------------------
 
-`[extensions.filters.network.dubbo_proxy.v3.RouteConfiguration proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/extensions/filters/network/dubbo_proxy/v3/route.proto#L21>`_
+`[extensions.filters.network.dubbo_proxy.v3.RouteConfiguration proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/network/dubbo_proxy/v3/route.proto#L21>`_
 
 
 .. code-block:: json
@@ -61,7 +61,7 @@ routes
 extensions.filters.network.dubbo_proxy.v3.Route
 -----------------------------------------------
 
-`[extensions.filters.network.dubbo_proxy.v3.Route proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/extensions/filters/network/dubbo_proxy/v3/route.proto#L42>`_
+`[extensions.filters.network.dubbo_proxy.v3.Route proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/network/dubbo_proxy/v3/route.proto#L42>`_
 
 
 .. code-block:: json
@@ -90,7 +90,7 @@ route
 extensions.filters.network.dubbo_proxy.v3.RouteMatch
 ----------------------------------------------------
 
-`[extensions.filters.network.dubbo_proxy.v3.RouteMatch proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/extensions/filters/network/dubbo_proxy/v3/route.proto#L53>`_
+`[extensions.filters.network.dubbo_proxy.v3.RouteMatch proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/network/dubbo_proxy/v3/route.proto#L53>`_
 
 
 .. code-block:: json
@@ -122,7 +122,7 @@ headers
 extensions.filters.network.dubbo_proxy.v3.RouteAction
 -----------------------------------------------------
 
-`[extensions.filters.network.dubbo_proxy.v3.RouteAction proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/extensions/filters/network/dubbo_proxy/v3/route.proto#L67>`_
+`[extensions.filters.network.dubbo_proxy.v3.RouteAction proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/network/dubbo_proxy/v3/route.proto#L67>`_
 
 
 .. code-block:: json
@@ -160,7 +160,7 @@ weighted_clusters
 extensions.filters.network.dubbo_proxy.v3.MethodMatch
 -----------------------------------------------------
 
-`[extensions.filters.network.dubbo_proxy.v3.MethodMatch proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/extensions/filters/network/dubbo_proxy/v3/route.proto#L85>`_
+`[extensions.filters.network.dubbo_proxy.v3.MethodMatch proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/network/dubbo_proxy/v3/route.proto#L85>`_
 
 
 .. code-block:: json
@@ -189,7 +189,7 @@ params_match
 extensions.filters.network.dubbo_proxy.v3.MethodMatch.ParameterMatchSpecifier
 -----------------------------------------------------------------------------
 
-`[extensions.filters.network.dubbo_proxy.v3.MethodMatch.ParameterMatchSpecifier proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/extensions/filters/network/dubbo_proxy/v3/route.proto#L90>`_
+`[extensions.filters.network.dubbo_proxy.v3.MethodMatch.ParameterMatchSpecifier proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/network/dubbo_proxy/v3/route.proto#L90>`_
 
 The parameter matching type.
 

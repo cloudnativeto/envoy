@@ -10,7 +10,7 @@ Upstream filters apply to the connections to the upstream cluster hosts.
 cluster.Filter
 --------------
 
-`[cluster.Filter proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/api/v2/cluster/filter.proto#L21>`_
+`[cluster.Filter proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/api/v2/cluster/filter.proto#L21>`_
 
 
 .. code-block:: json

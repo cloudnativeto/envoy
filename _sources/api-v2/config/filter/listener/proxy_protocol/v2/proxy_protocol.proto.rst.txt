@@ -20,7 +20,7 @@ PROXY protocol listener filter.
 config.filter.listener.proxy_protocol.v2.ProxyProtocol
 ------------------------------------------------------
 
-`[config.filter.listener.proxy_protocol.v2.ProxyProtocol proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/config/filter/listener/proxy_protocol/v2/proxy_protocol.proto#L18>`_
+`[config.filter.listener.proxy_protocol.v2.ProxyProtocol proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/listener/proxy_protocol/v2/proxy_protocol.proto#L18>`_
 
 
 .. code-block:: json

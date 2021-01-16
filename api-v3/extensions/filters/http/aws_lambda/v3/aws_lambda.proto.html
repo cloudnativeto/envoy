@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>AWS Lambda &mdash; envoy 1.16.0-202698 documentation</title>
+  <title>AWS Lambda &mdash; envoy 1.16.0-5abbbb documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-202698
+                1.16.0-5abbbb
               </div>
             
           
@@ -234,7 +234,7 @@
 <p>AWS Lambda <a class="reference internal" href="../../../../../../configuration/http/http_filters/aws_lambda_filter.html#config-http-filters-aws-lambda"><span class="std std-ref">configuration overview</span></a>.</p>
 <div class="section" id="extensions-filters-http-aws-lambda-v3-config">
 <span id="envoy-v3-api-msg-extensions-filters-http-aws-lambda-v3-config"></span><h2>extensions.filters.http.aws_lambda.v3.Config<a class="headerlink" href="#extensions-filters-http-aws-lambda-v3-config" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/extensions/filters/http/aws_lambda/v3/aws_lambda.proto#L18">[extensions.filters.http.aws_lambda.v3.Config proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/http/aws_lambda/v3/aws_lambda.proto#L18">[extensions.filters.http.aws_lambda.v3.Config proto]</a></p>
 <p>AWS Lambda filter config</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;arn&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -260,7 +260,7 @@ arn:&lt;partition&gt;:lambda:&lt;region&gt;:&lt;account-number&gt;:function:&lt;
 </div>
 <div class="section" id="enum-extensions-filters-http-aws-lambda-v3-config-invocationmode">
 <span id="envoy-v3-api-enum-extensions-filters-http-aws-lambda-v3-config-invocationmode"></span><h2>Enum extensions.filters.http.aws_lambda.v3.Config.InvocationMode<a class="headerlink" href="#enum-extensions-filters-http-aws-lambda-v3-config-invocationmode" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/extensions/filters/http/aws_lambda/v3/aws_lambda.proto#L22">[extensions.filters.http.aws_lambda.v3.Config.InvocationMode proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/http/aws_lambda/v3/aws_lambda.proto#L22">[extensions.filters.http.aws_lambda.v3.Config.InvocationMode proto]</a></p>
 <dl class="simple" id="envoy-v3-api-enum-value-extensions-filters-http-aws-lambda-v3-config-invocationmode-synchronous">
 <dt>SYNCHRONOUS</dt><dd><p><em>(DEFAULT)</em> ⁣This is the more common mode of invocation, in which Lambda responds after it has completed the function. In
 this mode the output of the Lambda function becomes the response of the HTTP request.</p>
@@ -275,7 +275,7 @@ call which is translated to an HTTP 200 OK by the filter.</p>
 </div>
 <div class="section" id="extensions-filters-http-aws-lambda-v3-perrouteconfig">
 <span id="envoy-v3-api-msg-extensions-filters-http-aws-lambda-v3-perrouteconfig"></span><h2>extensions.filters.http.aws_lambda.v3.PerRouteConfig<a class="headerlink" href="#extensions-filters-http-aws-lambda-v3-perrouteconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/extensions/filters/http/aws_lambda/v3/aws_lambda.proto#L47">[extensions.filters.http.aws_lambda.v3.PerRouteConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/http/aws_lambda/v3/aws_lambda.proto#L47">[extensions.filters.http.aws_lambda.v3.PerRouteConfig proto]</a></p>
 <p>Per-route configuration for AWS Lambda. This can be useful when invoking a different Lambda function or a different
 version of the same Lambda depending on the route.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
