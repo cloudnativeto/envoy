@@ -33,7 +33,7 @@ JwtProvider
 :ref:`JwtProvider <envoy_v3_api_msg_extensions.filters.http.jwt_authn.v3.JwtProvider>` 指定应如何验证 JWT。它具有以下字段：
 
 * *issuer*: 发行 JWT 的主体，通常是 URL 或电子邮件地址。
-* *audiences*: 允许访问的 JWT audiences 列表。包含任何这些 audiences 的 JWT 将被接受。如果未指定，将不检查 JWT 中的 audiences。
+* *audiences*: 允许访问的 JWT 受众列表。包含任何这些受众的 JWT 将被接受。如果未指定，将不检查 JWT 中的受众。
 * *local_jwks*: 在本地数据源中获取 JWKS，可以在本地文件中或嵌入在内联字符串中。
 * *remote_jwks*: 从远程 HTTP 服务器获取 JWKS，还可以指定缓存持续时间。
 * *forward*: 如果为 true，则将 JWT 转发到上游。
