@@ -15,7 +15,7 @@ when triggers related to those resources fire.
 config.overload.v3.ResourceMonitor
 ----------------------------------
 
-`[config.overload.v3.ResourceMonitor proto] <https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/config/overload/v3/overload.proto#L24>`_
+`[config.overload.v3.ResourceMonitor proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/config/overload/v3/overload.proto#L24>`_
 
 
 .. code-block:: json
@@ -51,7 +51,7 @@ typed_config
 config.overload.v3.ThresholdTrigger
 -----------------------------------
 
-`[config.overload.v3.ThresholdTrigger proto] <https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/config/overload/v3/overload.proto#L47>`_
+`[config.overload.v3.ThresholdTrigger proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/config/overload/v3/overload.proto#L47>`_
 
 
 .. code-block:: json
@@ -74,7 +74,7 @@ value
 config.overload.v3.ScaledTrigger
 --------------------------------
 
-`[config.overload.v3.ScaledTrigger proto] <https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/config/overload/v3/overload.proto#L56>`_
+`[config.overload.v3.ScaledTrigger proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/config/overload/v3/overload.proto#L56>`_
 
 
 .. code-block:: json
@@ -105,7 +105,7 @@ saturation_threshold
 config.overload.v3.Trigger
 --------------------------
 
-`[config.overload.v3.Trigger proto] <https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/config/overload/v3/overload.proto#L66>`_
+`[config.overload.v3.Trigger proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/config/overload/v3/overload.proto#L66>`_
 
 
 .. code-block:: json
@@ -145,7 +145,7 @@ scaled
 config.overload.v3.OverloadAction
 ---------------------------------
 
-`[config.overload.v3.OverloadAction proto] <https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/config/overload/v3/overload.proto#L82>`_
+`[config.overload.v3.OverloadAction proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/config/overload/v3/overload.proto#L82>`_
 
 
 .. code-block:: json
@@ -178,7 +178,7 @@ triggers
 config.overload.v3.OverloadManager
 ----------------------------------
 
-`[config.overload.v3.OverloadManager proto] <https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/config/overload/v3/overload.proto#L97>`_
+`[config.overload.v3.OverloadManager proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/config/overload/v3/overload.proto#L97>`_
 
 
 .. code-block:: json

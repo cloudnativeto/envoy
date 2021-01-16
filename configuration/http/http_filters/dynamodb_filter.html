@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>DynamoDB &mdash; envoy 1.16.0-393848 documentation</title>
+  <title>DynamoDB &mdash; envoy 1.16.0-202698 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-393848
+                1.16.0-202698
               </div>
             
           
@@ -237,16 +237,14 @@
   <div class="section" id="dynamodb">
 <span id="config-http-filters-dynamo"></span><h1>DynamoDB<a class="headerlink" href="#dynamodb" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>DynamoDB <a class="reference internal" href="../../../intro/arch_overview/other_protocols/dynamo.html#arch-overview-dynamo"><span class="std std-ref">architecture overview</span></a></p></li>
-<li><p><a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpfilter-name"><span class="std std-ref">v3 API reference</span></a></p></li>
-<li><p>This filter should be configured with the name <em>envoy.filters.http.dynamo</em>.</p></li>
+<li><p>DynamoDB <a class="reference internal" href="../../../intro/arch_overview/other_protocols/dynamo.html#arch-overview-dynamo"><span class="std std-ref">架构概述</span></a></p></li>
+<li><p><a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpfilter-name"><span class="std std-ref">v3 API 参考</span></a></p></li>
+<li><p>该过滤器应该用 <em>envoy.filters.http.dynamo</em> 来配置。</p></li>
 </ul>
-<div class="section" id="statistics">
-<h2>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h2>
-<p>The DynamoDB filter outputs statistics in the <em>http.&lt;stat_prefix&gt;.dynamodb.</em> namespace. The <a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-stat-prefix"><span class="std std-ref">stat prefix</span></a> comes from the
-owning HTTP connection manager.</p>
-<p>Per operation stats can be found in the <em>http.&lt;stat_prefix&gt;.dynamodb.operation.&lt;operation_name&gt;.</em>
-namespace.</p>
+<div class="section" id="id1">
+<h2>统计<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>DynamoDB 过滤器在 <em>http.&lt;stat_prefix&gt;.dynamodb.</em> 命名空间中输出统计数据. <a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-stat-prefix"><span class="std std-ref">统计前缀</span></a> 来自于自己的 HTTP 连接管理器。</p>
+<p>每个操作的统计可以在 <em>http.&lt;stat_prefix&gt;.dynamodb.operation.&lt;operation_name&gt;.</em> 命名空间中找到。</p>
 <blockquote>
 <div><table class="colwidths-given docutils align-default">
 <colgroup>
@@ -255,35 +253,34 @@ namespace.</p>
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>upstream_rq_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of requests with &lt;operation_name&gt;</p></td>
+<td><p>带有 &lt;operation_name&gt; 的请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_rq_time</p></td>
 <td><p>Histogram</p></td>
-<td><p>Time spent on &lt;operation_name&gt;</p></td>
+<td><p>在 &lt;operation_name&gt; 上的耗时</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_rq_total_xxx</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of requests with &lt;operation_name&gt; per response code (503/2xx/etc)</p></td>
+<td><p>每个响应码 (如 503/2xx/ 等) 中带有 &lt;operation_name&gt; 的请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_rq_time_xxx</p></td>
 <td><p>Histogram</p></td>
-<td><p>Time spent on &lt;operation_name&gt; per response code (400/3xx/etc)</p></td>
+<td><p>每个响应码 (如 400/3xx/ 等) 在 &lt;operation_name&gt; 上的耗时</p></td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
-<p>Per table stats can be found in the <em>http.&lt;stat_prefix&gt;.dynamodb.table.&lt;table_name&gt;.</em> namespace.
-Most of the operations to DynamoDB involve a single table, but BatchGetItem and BatchWriteItem can
-include several tables, Envoy tracks per table stats in this case only if it is the same table used
-in all operations from the batch.</p>
+<p>每张表的统计数据可以在 <em>http.&lt;stat_prefix&gt;.dynamodb.table.&lt;table_name&gt;.</em> 命名空间中找到。
+对 DynamoDB 的大多数操作都只涉及到一张表, 但是 BatchGetItem 和 BatchWriteItem 可以包括几张表, 在
+这种情况下, Envoy 只有在批处理的所有操作都使用同一张表时才会跟踪每张表的统计。</p>
 <blockquote>
 <div><table class="colwidths-given docutils align-default">
 <colgroup>
@@ -292,35 +289,34 @@ in all operations from the batch.</p>
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>upstream_rq_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of requests on &lt;table_name&gt; table</p></td>
+<td><p>在 &lt;table_name&gt; 表上的请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_rq_time</p></td>
 <td><p>Histogram</p></td>
-<td><p>Time spent on &lt;table_name&gt; table</p></td>
+<td><p>在 &lt;table_name&gt; 表上的耗时</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_rq_total_xxx</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of requests on &lt;table_name&gt; table per response code (503/2xx/etc)</p></td>
+<td><p>每个响应码 (如 503/2xx/ 等) 在 &lt;table_name&gt; 表上的请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_rq_time_xxx</p></td>
 <td><p>Histogram</p></td>
-<td><p>Time spent on &lt;table_name&gt; table per response code (400/3xx/etc)</p></td>
+<td><p>每个响应码 (如 400/3xx/ 等) 在 &lt;table_name&gt; 表上的耗时</p></td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
-<p><em>Disclaimer: Please note that this is a pre-release Amazon DynamoDB feature that is not yet widely available.</em>
-Per partition and operation stats can be found in the <em>http.&lt;stat_prefix&gt;.dynamodb.table.&lt;table_name&gt;.</em>
-namespace. For batch operations, Envoy tracks per partition and operation stats only if it is the same
-table used in all operations.</p>
+<p><em>声明: 请注意，这是 Amazon DynamoDB 的预发布功能，尚未广泛使用。</em>
+每个分区和操作统计可以在 <em>http.&lt;stat_prefix&gt;.dynamodb.table.&lt;table_name&gt;.</em> 命名空间中找到。
+对于批处理操作，只有当所有操作中使用的是同一张表时，Envoy 才会跟踪每个分区和操作统计。</p>
 <blockquote>
 <div><table class="colwidths-given docutils align-default">
 <colgroup>
@@ -329,23 +325,22 @@ table used in all operations.</p>
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>capacity.&lt;operation_name&gt;.__partition_id=&lt;last_seven_characters_from_partition_id&gt;</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of capacity for &lt;operation_name&gt; on &lt;table_name&gt; table for a given &lt;partition_id&gt;</p></td>
+<td><p>在给定的 &lt;partition_id&gt; 中的 &lt;table_name&gt; 表上 &lt;operation_name&gt; 的容量总数</p></td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
-<p>Additional detailed stats:</p>
+<p>其它的详细统计:</p>
 <ul>
-<li><p>For 4xx responses and partial batch operation failures, the total number of failures for a given
-table and failure are tracked in the <em>http.&lt;stat_prefix&gt;.dynamodb.error.&lt;table_name&gt;.</em> namespace.</p>
+<li><p>对于 4xx 响应和部分批量操作失败，给定表的失败总数和失败情况在 <em>http.&lt;stat_prefix&gt;.dynamodb.error.&lt;table_name&gt;.</em> 命名空间中进行跟踪。</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -353,30 +348,30 @@ table and failure are tracked in the <em>http.&lt;stat_prefix&gt;.dynamodb.error
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>&lt;error_type&gt;</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of specific &lt;error_type&gt; for a given &lt;table_name&gt;</p></td>
+<td><p>给定的 &lt;table_name&gt; 表上的特定 &lt;error_type&gt; 的总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>BatchFailureUnprocessedKeys</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of partial batch failures for a given &lt;table_name&gt;</p></td>
+<td><p>给定的 &lt;table_name&gt; 表上的部分批处理失败的总数</p></td>
 </tr>
 </tbody>
 </table>
 </li>
 </ul>
 </div>
-<div class="section" id="runtime">
-<h2>Runtime<a class="headerlink" href="#runtime" title="Permalink to this headline">¶</a></h2>
-<p>The DynamoDB filter supports the following runtime settings:</p>
+<div class="section" id="id2">
+<h2>运行时<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>DynamoDB 过滤器支持下面的运行时设置:</p>
 <dl class="simple">
-<dt>dynamodb.filter_enabled</dt><dd><p>The % of requests for which the filter is enabled. Default is 100%.</p>
+<dt>dynamodb.filter_enabled</dt><dd><p>启用了过滤器的请求的百分比。默认值为 100％。</p>
 </dd>
 </dl>
 </div>

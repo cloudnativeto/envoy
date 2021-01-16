@@ -13,7 +13,7 @@ and :ref:`HTTP filter configuration overview <config_http_filters_ext_authz>`.
 service.auth.v3.AttributeContext
 --------------------------------
 
-`[service.auth.v3.AttributeContext proto] <https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/service/auth/v3/attribute_context.proto#L40>`_
+`[service.auth.v3.AttributeContext proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/service/auth/v3/attribute_context.proto#L40>`_
 
 An attribute is a piece of metadata that describes an activity on a network.
 For example, the size of an HTTP request, or the status code of an HTTP response.
@@ -74,7 +74,7 @@ metadata_context
 service.auth.v3.AttributeContext.Peer
 -------------------------------------
 
-`[service.auth.v3.AttributeContext.Peer proto] <https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/service/auth/v3/attribute_context.proto#L49>`_
+`[service.auth.v3.AttributeContext.Peer proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/service/auth/v3/attribute_context.proto#L49>`_
 
 This message defines attributes for a node that handles a network request.
 The node can be either a service or an application that sends, forwards,
@@ -144,7 +144,7 @@ certificate
 service.auth.v3.AttributeContext.Request
 ----------------------------------------
 
-`[service.auth.v3.AttributeContext.Request proto] <https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/service/auth/v3/attribute_context.proto#L86>`_
+`[service.auth.v3.AttributeContext.Request proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/service/auth/v3/attribute_context.proto#L86>`_
 
 Represents a network request, such as an HTTP request.
 
@@ -174,7 +174,7 @@ http
 service.auth.v3.AttributeContext.HttpRequest
 --------------------------------------------
 
-`[service.auth.v3.AttributeContext.HttpRequest proto] <https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/service/auth/v3/attribute_context.proto#L100>`_
+`[service.auth.v3.AttributeContext.HttpRequest proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/service/auth/v3/attribute_context.proto#L100>`_
 
 This message defines attributes for an HTTP request.
 HTTP/1.x, HTTP/2, gRPC are all considered as HTTP requests.

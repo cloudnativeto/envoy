@@ -9,7 +9,7 @@ QUIC listener Config
 config.listener.v3.QuicProtocolOptions
 --------------------------------------
 
-`[config.listener.v3.QuicProtocolOptions proto] <https://github.com/envoyproxy/envoy/blob/393848106a5150d5388bea3b00afb9e758997729/api/envoy/config/listener/v3/quic_config.proto#L21>`_
+`[config.listener.v3.QuicProtocolOptions proto] <https://github.com/envoyproxy/envoy/blob/2026983557ff41f02a858cc88a37e4defd4df054/api/envoy/config/listener/v3/quic_config.proto#L21>`_
 
 Configuration specific to the QUIC protocol.
 Next id: 5
