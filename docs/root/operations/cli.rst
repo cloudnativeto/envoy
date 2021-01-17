@@ -7,7 +7,7 @@ Envoy 由 JSON 配置文件以及一组命令行选项驱动。以下是 Envoy �
 
 .. option:: -c <path string>, --config-path <path string>
 
-  *（可选）* v2 :ref:`JSON/YAML/proto3 配置文件 <config>` 的路径。如果缺少此标志，则需要 :option:`--config-yaml`。这将被解析为 :ref:`v2 引导程序配置文件  <config_overview_bootstrap>`。有效的扩展名有 ``.json``, ``.yaml``, ``.pb`` 和 ``.pb_text``，他们分别表示 JSON、YAML、`binary proto3
+  *（可选）* v2 :ref:`JSON/YAML/proto3 配置文件 <config>` 的路径。如果缺少此标志，则需要 :option:`--config-yaml`。这将被解析为 :ref:`v2 引导程序配置文件  <config_overview_bootstrap>`。有效的扩展名有 ``.json``、``.yaml``、``.pb`` 和 ``.pb_text``，他们分别表示 JSON、YAML、`binary proto3
   <https://developers.google.com/protocol-buffers/docs/encoding>`_ 和 `text
   proto3
   <https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.text_format>`_ 格式。
@@ -40,11 +40,11 @@ Envoy 由 JSON 配置文件以及一组命令行选项驱动。以下是 Envoy �
 
 .. option:: --local-address-ip-version <string>
 
-  *（可选）* 用于填充服务器本地 IP 地址的 IP 地址版本。此参数影响各种标头，包括附加到 X-Forwarded-For（XFF）标头的标头。选项是``v4`` 或 ``v6``。默认值为  ``v4``。
+  *（可选）* 用于填充服务器本地 IP 地址的 IP 地址版本。此参数影响各种标头，包括附加到 X-Forwarded-For（XFF）标头的标头。选项是``v4`` 或 ``v6``。默认值为 ``v4``。
 
 .. option:: --base-id <integer>
 
-  *（可选）* 分配共享内存区域时要使用的基本 ID。Envoy 在 :ref:`热重启 <arch_overview_hot_restart>` 期间使用共享内存区域。大多数用户将永远不必设置此选项。但是，如果 Envoy 需要在同一台计算机上多次运行，则每个正在运行的 Envoy 都将需要唯一的基本 ID，以便共享内存区域不会发生冲突。
+  *（可选）* 分配共享内存区域时要使用的基础 ID。Envoy 在 :ref:`热重启 <arch_overview_hot_restart>` 期间使用共享内存区域。大多数用户将永远不必设置此选项。但是，如果 Envoy 需要在同一台计算机上多次运行，则每个正在运行的 Envoy 都将需要唯一的基础 ID，以便共享内存区域不会发生冲突。
 
 .. option:: --use-dynamic-base-id
 
@@ -85,7 +85,7 @@ Envoy 由 JSON 配置文件以及一组命令行选项驱动。以下是 Envoy �
    支持的格式标志（以及输出示例）：
 
    :%v:	实际记录的消息（“some user text”）
-   :%t:	线程 id （“1232”）
+   :%t:	线程 id（“1232”）
    :%P:	进程 id（“3456”）
    :%n:	记录器名（“filter”）
    :%l:	消息的日志级别（“debug", "info", etc.)
@@ -95,7 +95,7 @@ Envoy 由 JSON 配置文件以及一组命令行选项驱动。以下是 Envoy �
    :%b:	月份的缩写（“Mar”）
    :%B:	月份的全名（“March”）
    :%c:	日期和时间的展示（“Tue Mar 27 15:25:06 2018”）
-   :%C:  2 位数年份（“18”）
+   :%C:	2 位数年份（“18”）
    :%Y:	4 位数年份（“2018”）
    :%D, %x:	MM/DD/YY 短日期（“03/27/18”）
    :%m:	月 01-12（“03”）
@@ -150,20 +150,18 @@ Envoy 由 JSON 配置文件以及一组命令行选项驱动。以下是 Envoy �
 
 .. option:: --hot-restart-version
 
-  *(optional)* Outputs an opaque hot restart compatibility version for the binary. This can be
-  matched against the output of the :http:get:`/hot_restart_version` admin endpoint to determine
-  whether the new binary and the running binary are hot restart compatible.*（可选）*  为二进制文件输出不透明热重启兼容性版本。可以将其与 :http:get:`/hot_restart_version` 管理端点的输出进行匹配，以确定新二进制文件和正在运行的二进制文件是否与热重启兼容。
+  *（可选）*  为二进制文件输出不透明热重启兼容性版本。可以将其与 :http:get:`/hot_restart_version` 管理端点的输出进行匹配，以确定新二进制文件和正在运行的二进制文件是否与热重启兼容。
 
 .. option:: --service-cluster <string>
 
   *（可选）* 定义运行 Envoy 的本地服务集群名称。本地服务群集名称首先来自 :ref:`Bootstrap node
   <envoy_v3_api_field_config.bootstrap.v3.Bootstrap.node>` 信息的 :ref:`cluster
-  <envoy_v3_api_field_config.core.v3.Node.cluster>` 字段。该 CLI 选项提供了一种指定此值的替代方法，它将覆盖在引导程序配置中设置的任何值。如果使用以下任何功能，则应进行设置：:ref:`statsd <arch_overview_statistics>`、:ref:`健康检查集群验证 <envoy_v3_api_field_config.core.v3.HealthCheck.HttpHealthCheck.service_name_matcher>`、:ref:`运行时覆盖目录 <envoy_v3_api_msg_config.bootstrap.v3.Runtime>`、:ref:`额外的用户代理 <envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.add_user_agent>`、:ref:`HTTP 全局限流 <config_http_filters_rate_limit>`、 :ref:`CDS <config_cluster_manager_cds>`, and :ref:`HTTP 跟踪 <arch_overview_tracing>`，可以通过此CLI选项或在引导程序配置中进行。
+  <envoy_v3_api_field_config.core.v3.Node.cluster>` 字段。该 CLI 选项提供了一种指定此值的替代方法，它将覆盖在引导程序配置中设置的任何值。如果使用以下任何功能，则应进行设置：:ref:`statsd <arch_overview_statistics>`、:ref:`健康检查集群验证 <envoy_v3_api_field_config.core.v3.HealthCheck.HttpHealthCheck.service_name_matcher>`、:ref:`运行时覆盖目录 <envoy_v3_api_msg_config.bootstrap.v3.Runtime>`、:ref:`额外的用户代理 <envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.add_user_agent>`、:ref:`HTTP 全局限流 <config_http_filters_rate_limit>`、 :ref:`CDS <config_cluster_manager_cds>`, and :ref:`HTTP 跟踪 <arch_overview_tracing>`，可以通过此 CLI 选项或在引导程序配置中进行。
 
 .. option:: --service-node <string>
 
   *（可选）* 定义运行 Envoy 的本地服务节点名称。本地服务节点名称首先来自:ref:`Bootstrap node <envoy_v3_api_field_config.bootstrap.v3.Bootstrap.node>` 信息的 :ref:`id
-  <envoy_v3_api_field_config.core.v3.Node.id>` 字段。此CLI选项提供了一种指定此值的替代方法，它将覆盖在引导程序配置中设置的任何值。 如果使用以下任何功能，则应进行设置：:ref:`statsd <arch_overview_statistics>`、:ref:`CDS <config_cluster_manager_cds>` 和 :ref:`HTTP 跟踪 <arch_overview_tracing>`，可以通过此CLI选项或在引导程序配置中进行。
+  <envoy_v3_api_field_config.core.v3.Node.id>` 字段。此CLI选项提供了一种指定此值的替代方法，它将覆盖在引导程序配置中设置的任何值。 如果使用以下任何功能，则应进行设置：:ref:`statsd <arch_overview_statistics>`、:ref:`CDS <config_cluster_manager_cds>` 和 :ref:`HTTP 跟踪 <arch_overview_tracing>`，可以通过此 CLI 选项或在引导程序配置中进行。
 
 .. option:: --service-zone <string>
 
@@ -172,7 +170,7 @@ Envoy 由 JSON 配置文件以及一组命令行选项驱动。以下是 Envoy �
 
 .. option:: --file-flush-interval-msec <integer>
 
-  *（可选）*  文件刷新间隔，以毫秒为单位。默认为10秒。在文件创建期间使用此设置来确定缓冲区刷新到文件之间的时间。缓冲区将在每次写满或间隔时间结束时刷新，以先到者为准。当跟踪（tailing） :ref:`访问日志 <arch_overview_access_logs>` 以获取更多（或更少）的立即刷新时，调整此设置很有用。
+  *（可选）*  文件刷新间隔，以毫秒为单位。默认为 10 秒。在文件创建期间使用此设置来确定缓冲区刷新到文件之间的时间。缓冲区将在每次写满或间隔时间结束时刷新，以先到者为准。当跟踪（tailing） :ref:`访问日志 <arch_overview_access_logs>` 以获取更多（或更少）的立即刷新时，调整此设置很有用。
 
 .. option:: --drain-time-s <integer>
 
