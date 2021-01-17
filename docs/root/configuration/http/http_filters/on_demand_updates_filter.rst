@@ -16,5 +16,5 @@ HTTP 头部的内容用于查找作用域并创建按需请求。
 配置
 -------------
 * :ref:`v3 API 参考 <envoy_v3_api_msg_extensions.filters.http.on_demand.v3.OnDemand>`
-* 该过滤器的名称应该配置为 *envoy.filters.http.on_demand*.
+* 该过滤器的名称应该配置为 *envoy.filters.http.on_demand*。
 * 该过滤器应放在 HttpConnectionManager 的过滤器链中，并在 *envoy.filters.http.router* 过滤器之前。
