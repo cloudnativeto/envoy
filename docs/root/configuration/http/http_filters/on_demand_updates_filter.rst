@@ -3,7 +3,7 @@
 按需更新 VHDS 和 S/RDS
 ================================
 
-如果在过滤器链中进行配置了这个按需过滤器，则可用于支持按需的 VHDS 或 S/RDS 的更新。
+如果在过滤器链中配置了这个按需过滤器，则可用于支持按需的 VHDS 或 S/RDS 更新。
 
 如果路由器配置中不存在 :ref:`路由配置 <envoy_v3_api_msg_config.route.v3.RouteConfiguration>`，按需更新过滤器可用于请求 :ref:`虚拟主机 <envoy_v3_api_msg_config.route.v3.VirtualHost>`
 的数据。*Host* 或者 *:authority* 头部的内容可以用于创建按需请求。对于要创建的按需请求， :ref:`VHDS <envoy_v3_api_field_config.route.v3.RouteConfiguration.vhds>` 必须启用，并且 *Host* 或者 *:authority* 头部要存在。
