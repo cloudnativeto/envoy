@@ -3,7 +3,7 @@
 gRPC HTTP/1.1 反向桥接
 ============================
 
-* gRPC :ref:`架构概述 <arch_overview_grpc>`
+* gRPC :ref:`架构概览 <arch_overview_grpc>`
 * :ref:`v3 API 参考 <envoy_v3_api_msg_extensions.filters.http.grpc_http1_reverse_bridge.v3.FilterConfig>`
 * 此过滤器应使用名称 *envoy.filters.http.grpc_http1_reverse_bridge* 进行配置。
 
@@ -23,7 +23,7 @@ gRPC HTTP/1.1 反向桥接
 gRPC 帧头管理
 ----------------------------
 
-通过设置 withhold_grpc_frame 选项, 过滤器将假定上游不了解任何 gRPC 的协议语义，并将请求 body 转换成简单的二进制编码，并对响应体执行反向转换。这样会简化了服务器侧处理这些请求，因为它们不再需要关注解析并生成 gRPC 格式的数据。
+通过设置 withhold_grpc_frame 选项, 过滤器将假定上游不了解任何 gRPC 的协议语义，并将请求体转换成简单的二进制编码，并对响应体执行反向转换。这样会简化了服务器侧处理这些请求，因为它们不再需要关注解析并生成 gRPC 格式的数据。
 
 这是通过从请求体中剥离 gRPC 帧头部，同时在响应中注入 gRPC 帧头部来实现的。
 
