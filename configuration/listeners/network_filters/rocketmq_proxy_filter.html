@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>RocketMQ proxy &mdash; envoy 1.16.0-5abbbb documentation</title>
+  <title>RocketMQ 代理 &mdash; envoy 1.16.0-380f11 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-5abbbb
+                1.16.0-380f11
               </div>
             
           
@@ -126,7 +126,7 @@
 <li class="toctree-l4"><a class="reference internal" href="rate_limit_filter.html">限流</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rbac_filter.html">基于角色的访问控制（RBAC）网络过滤器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="redis_proxy_filter.html">Redis 代理</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">RocketMQ proxy</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">RocketMQ 代理</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tcp_proxy_filter.html">TCP 代理</a></li>
 <li class="toctree-l4"><a class="reference internal" href="thrift_proxy_filter.html">Thrift 代理</a></li>
 <li class="toctree-l4"><a class="reference internal" href="sni_cluster_filter.html">SNI的上游集群</a></li>
@@ -205,7 +205,7 @@
         
           <li><a href="network_filters.html">网络过滤器</a> &raquo;</li>
         
-      <li>RocketMQ proxy</li>
+      <li>RocketMQ 代理</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -224,35 +224,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="rocketmq-proxy">
-<span id="config-network-filters-rocketmq-proxy"></span><h1>RocketMQ proxy<a class="headerlink" href="#rocketmq-proxy" title="Permalink to this headline">¶</a></h1>
-<p>Apache RocketMQ is a distributed messaging system, which is composed of four types of roles: producer, consumer, name
-server and broker server. The former two are embedded into user application in form of SDK; whilst the latter are
-standalone servers.</p>
-<p>A message in RocketMQ carries a topic as its destination and optionally one or more tags as application specific labels.</p>
-<p>Producers are used to send messages to brokers according to their topics. Similar to many distributed systems,
-producers need to know how to connect to these serving brokers. To achieve this goal, RocketMQ provides name server
-clusters for producers to lookup. Namely, when producers attempts to send messages with a new topic, it first
-tries to lookup the addresses(called route info) of brokers that serve the topic from name servers. Once producers
-get the route info of the topic, they actively cache them in memory and renew them periodically thereafter. This
-mechanism, though simple, effectively keeps service availability high without demanding availability of name server
-service.</p>
-<p>Brokers provides messaging service to end users. In addition to various messaging services, they also periodically
-report health status and route info of topics currently served to name servers.</p>
-<p>Major role of the name server is to serve querying of route info  for a topic. Additionally, it also purges route info
-entries once the belonging brokers fail to report their health info for a configured period of time. This ensures
-clients almost always connect to brokers that are online and ready to serve.</p>
-<p>Consumers are used by application to pull message from brokers. They perform similar heartbeats to maintain alive
-status. RocketMQ brokers support two message-fetch approaches: long-pulling and pop.</p>
-<p>Using the first approach, consumers have to implement load-balancing algorithm. The pop approach, in the perspective of
-consumers, is stateless.</p>
-<p>Envoy RocketMQ filter proxies requests and responses between producers/consumer and brokers. Various statistical items
-are collected to enhance observability.</p>
-<p>At present, pop-based message fetching is implemented. Long-pulling will be implemented in the next pull request.</p>
-<div class="section" id="statistics">
-<span id="config-network-filters-rocketmq-proxy-stats"></span><h2>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h2>
-<p>Every configured rocketmq proxy filter has statistics rooted at <em>rocketmq.&lt;stat_prefix&gt;.</em> with the
-following statistics:</p>
+  <div class="section" id="rocketmq">
+<span id="config-network-filters-rocketmq-proxy"></span><h1>RocketMQ 代理<a class="headerlink" href="#rocketmq" title="Permalink to this headline">¶</a></h1>
+<p>Apache RocketMQ 是一个消息分发系统，它由四种角色组成：生产者、消费者、名称服务器（name server）和代理服务器（broker server）。前两者以 SDK 的形式嵌入到用户应用程序中，而后者则是独立的服务器。</p>
+<p>RocketMQ 中的消息携带一个主题（topic）作为其目的地，并可选的携带一个或多个标记作为应用程序中特别的标签。</p>
+<p>生产者通常根据它们的主题向代理发送消息。与大多数分发系统类似，生产者需要知道如何连接到它们的代理服务器。
+为了实现这个目标，RocketMQ 提供了供生产者查找的名称服务器集群。也就是说，当生产者尝试去发送消息到一个新的主题，它首先会尝试从名称服务器中查找为该主题提供服务的代理的地址（称为路由信息）。
+一但生产者获得了到达主题的路由信息，它就会主动的将他们缓存到内存中，并且会定期更新。这种机制虽然简单，但是可以保持服务的高可用性而不需要名称服务器服务的高可用性。</p>
+<p>代理向最终用户提供消息服务。除了各种消息服务之外，它们还会定期向名称服务器报告当前服务的健康状态和主题的路由信息。</p>
+<p>名称服务器的主要作用是查询主题的路由信息。此外，一旦所属的代理在配置的一段时间里没有报告其健康信息，它就会清除对应的路由信息条目。
+这也是为了确保客户端可以一直连接到在线的且随时可以提供服务的代理。</p>
+<p>应用程序使用消费者从代理拉取消息。它们之间也有类似心跳的机制来维持生命状态。RocketMQ 代理支持两种消息获取方法：long-pulling 和 pop 。</p>
+<p>使用第一种方法，消费者必须实现负载均衡算法。从消费者的角度来看，pop 方法是无状态的。</p>
+<p>Envoy RocketMQ 过滤器代理在生产者/消费者和代理之间的请求和响应。并且收集各种统计信息以增强可观测性。</p>
+<p>目前，已经实现基于 pop 的消息拉取。而 Long-pulling 也将在下一个 pull request 中实现。</p>
+<div class="section" id="config-network-filters-rocketmq-proxy-stats">
+<span id="id1"></span><h2>统计信息<a class="headerlink" href="#config-network-filters-rocketmq-proxy-stats" title="Permalink to this headline">¶</a></h2>
+<p>每个配置的 rocketmq 代理过滤器都有以 <em>rocketmq.&lt;stat_prefix&gt;.</em> 为根，如下所示的统计信息：</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -260,119 +248,119 @@ following statistics:</p>
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>request</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests</p></td>
+<td><p>请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>request_decoding_error</p></td>
 <td><p>Counter</p></td>
-<td><p>Total decoding error requests</p></td>
+<td><p>解码异常请求总数</p></td>
 </tr>
 <tr class="row-even"><td><p>request_decoding_success</p></td>
 <td><p>Counter</p></td>
-<td><p>Total decoding success requests</p></td>
+<td><p>解码成功请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>response</p></td>
 <td><p>Counter</p></td>
-<td><p>Total responses</p></td>
+<td><p>响应总数</p></td>
 </tr>
 <tr class="row-even"><td><p>response_decoding_error</p></td>
 <td><p>Counter</p></td>
-<td><p>Total decoding error responses</p></td>
+<td><p>解码异常响应总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>response_decoding_success</p></td>
 <td><p>Counter</p></td>
-<td><p>Total decoding success responses</p></td>
+<td><p>解码成功响应总数</p></td>
 </tr>
 <tr class="row-even"><td><p>response_error</p></td>
 <td><p>Counter</p></td>
-<td><p>Total error responses</p></td>
+<td><p>响应异常总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>response_success</p></td>
 <td><p>Counter</p></td>
-<td><p>Total success responses</p></td>
+<td><p>响应成功总数</p></td>
 </tr>
 <tr class="row-even"><td><p>heartbeat</p></td>
 <td><p>Counter</p></td>
-<td><p>Total heartbeat requests</p></td>
+<td><p>心跳请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>unregister</p></td>
 <td><p>Counter</p></td>
-<td><p>Total unregister requests</p></td>
+<td><p>注销请求总数</p></td>
 </tr>
 <tr class="row-even"><td><p>get_topic_route</p></td>
 <td><p>Counter</p></td>
-<td><p>Total getting topic route requests</p></td>
+<td><p>获取主题路由请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>send_message_v1</p></td>
 <td><p>Counter</p></td>
-<td><p>Total sending message v1 requests</p></td>
+<td><p>发送 v1 消息请求总数</p></td>
 </tr>
 <tr class="row-even"><td><p>send_message_v2</p></td>
 <td><p>Counter</p></td>
-<td><p>Total sending message v2 requests</p></td>
+<td><p>发送 v2 消息请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>pop_message</p></td>
 <td><p>Counter</p></td>
-<td><p>Total poping message requests</p></td>
+<td><p>弹出消息请求总数</p></td>
 </tr>
 <tr class="row-even"><td><p>ack_message</p></td>
 <td><p>Counter</p></td>
-<td><p>Total acking message requests</p></td>
+<td><p>确认消息请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>get_consumer_list</p></td>
 <td><p>Counter</p></td>
-<td><p>Total getting consumer list requests</p></td>
+<td><p>获取消费者列表请求总数</p></td>
 </tr>
 <tr class="row-even"><td><p>maintenance_failure</p></td>
 <td><p>Counter</p></td>
-<td><p>Total maintenance failure</p></td>
+<td><p>维修失败总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>request_active</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total active requests</p></td>
+<td><p>活跃请求总数</p></td>
 </tr>
 <tr class="row-even"><td><p>send_message_v1_active</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total active sending message v1 requests</p></td>
+<td><p>发送 v1 消息的活跃请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>send_message_v2_active</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total active sending message v2 requests</p></td>
+<td><p>发送 v2 消息的活跃请求总数</p></td>
 </tr>
 <tr class="row-even"><td><p>pop_message_active</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total active poping message active requests</p></td>
+<td><p>活跃弹出消息的活跃请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>get_topic_route_active</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total active geting topic route requests</p></td>
+<td><p>获取主题路由的活跃请求总数</p></td>
 </tr>
 <tr class="row-even"><td><p>send_message_pending</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total pending sending message requests</p></td>
+<td><p>等到发送消息的请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>pop_message_pending</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total pending poping message requests</p></td>
+<td><p>等待弹出消息的请求总数</p></td>
 </tr>
 <tr class="row-even"><td><p>get_topic_route_pending</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total pending geting topic route requests</p></td>
+<td><p>等待获取主题路由的请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>total_pending</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total pending requests</p></td>
+<td><p>等待请求总数</p></td>
 </tr>
 <tr class="row-even"><td><p>request_time_ms</p></td>
 <td><p>Histogram</p></td>
-<td><p>Request time in milliseconds</p></td>
+<td><p>请求时间以毫秒为单位</p></td>
 </tr>
 </tbody>
 </table>

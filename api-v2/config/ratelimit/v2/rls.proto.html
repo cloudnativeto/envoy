@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Rate limit service &mdash; envoy 1.16.0-5abbbb documentation</title>
+  <title>Rate limit service &mdash; envoy 1.16.0-380f11 documentation</title>
   
 
   
@@ -46,7 +46,7 @@
     
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Listeners" href="../../../listeners/listeners.html" />
+    <link rel="next" title="监听器" href="../../../listeners/listeners.html" />
     <link rel="prev" title="Overload Manager" href="../../overload/v2alpha/overload.proto.html" /> 
 </head>
 
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-5abbbb
+                1.16.0-380f11
               </div>
             
           
@@ -110,7 +110,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../extending/extending.html">Extending Envoy for custom use cases</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../api/api.html">API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/api_supported_versions.html">Supported API versions</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../../api.html">v2 API reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../api.html">v2 API 参考</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../../../bootstrap/bootstrap.html">Bootstrap</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../bootstrap/v2/bootstrap.proto.html">Bootstrap</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../metrics/v2/stats.proto.html">Stats</a></li>
@@ -119,7 +119,7 @@
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Rate limit service</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../listeners/listeners.html">Listeners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../listeners/listeners.html">监听器</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../clusters/clusters.html">Clusters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../http_routes/http_routes.html">HTTP route management</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../config.html">Extensions</a></li>
@@ -127,10 +127,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../data/data.html">Envoy data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../service/service.html">Services</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../common_messages/common_messages.html">Common messages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../types/types.html">Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/types.html">类型</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../api-v3/api.html">v3 API reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-v3/api.html">v3 API 参考</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api-docs/xds_protocol.html">xDS REST and gRPC protocol</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/client_features.html">Well Known Client Features</a></li>
 </ul>
@@ -184,7 +184,7 @@
         
           <li><a href="../../../../api/api.html">API</a> &raquo;</li>
         
-          <li><a href="../../../api.html">v2 API reference</a> &raquo;</li>
+          <li><a href="../../../api.html">v2 API 参考</a> &raquo;</li>
         
           <li><a href="../../../bootstrap/bootstrap.html">Bootstrap</a> &raquo;</li>
         
@@ -211,7 +211,7 @@
 <span id="envoy-api-file-envoy-config-ratelimit-v2-rls-proto"></span><h1>Rate limit service<a class="headerlink" href="#rate-limit-service" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="config-ratelimit-v2-ratelimitserviceconfig">
 <span id="envoy-api-msg-config-ratelimit-v2-ratelimitserviceconfig"></span><h2>config.ratelimit.v2.RateLimitServiceConfig<a class="headerlink" href="#config-ratelimit-v2-ratelimitserviceconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/ratelimit/v2/rls.proto#L17">[config.ratelimit.v2.RateLimitServiceConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/ratelimit/v2/rls.proto#L17">[config.ratelimit.v2.RateLimitServiceConfig proto]</a></p>
 <p>Rate limit <a class="reference internal" href="../../../../configuration/other_features/rate_limit.html#config-rate-limit-service"><span class="std std-ref">configuration overview</span></a>.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;grpc_service&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>
@@ -235,7 +235,7 @@ requests.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../../listeners/listeners.html" class="btn btn-neutral float-right" title="Listeners" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../../listeners/listeners.html" class="btn btn-neutral float-right" title="监听器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../../overload/v2alpha/overload.proto.html" class="btn btn-neutral float-left" title="Overload Manager" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

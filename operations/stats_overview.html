@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Statistics overview &mdash; envoy 1.16.0-5abbbb documentation</title>
+  <title>统计概览 &mdash; envoy 1.16.0-380f11 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-5abbbb
+                1.16.0-380f11
               </div>
             
           
@@ -110,7 +110,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cli.html">Command line options</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hot_restarter.html">Hot restart Python wrapper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="admin.html">Administration interface</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Statistics overview</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">统计概览</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runtime.html">Runtime</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fs_flags.html">文件系统标志</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_tapping.html">Traffic tapping</a></li>
@@ -169,7 +169,7 @@
         
           <li><a href="operations.html">操作和管理</a> &raquo;</li>
         
-      <li>Statistics overview</li>
+      <li>统计概览</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -188,15 +188,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="statistics-overview">
-<span id="operations-stats"></span><h1>Statistics overview<a class="headerlink" href="#statistics-overview" title="Permalink to this headline">¶</a></h1>
-<p>Envoy outputs numerous statistics which depend on how the server is configured. They can be seen
-locally via the <a class="reference internal" href="admin.html#get--stats" title="GET /stats"><code class="xref http http-get docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/stats</span></code></a> command and are typically sent to a <a class="reference internal" href="../intro/arch_overview/observability/statistics.html#arch-overview-statistics"><span class="std std-ref">statsd cluster</span></a>. The statistics that are output are documented in the relevant
-sections of the <a class="reference internal" href="../configuration/configuration.html#config"><span class="std std-ref">configuration guide</span></a>. Some of the more important statistics that will
-almost always be used can be found in the following sections:</p>
+  <div class="section" id="operations-stats">
+<span id="id1"></span><h1>统计概览<a class="headerlink" href="#operations-stats" title="Permalink to this headline">¶</a></h1>
+<p>依赖于服务器的配置情况，Envoy 会输出大量的统计信息。这些统计可以在本地通过 <a class="reference internal" href="admin.html#get--stats" title="GET /stats"><code class="xref http http-get docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/stats</span></code></a> 命令来查看，且通常会被发送到 <a class="reference internal" href="../intro/arch_overview/observability/statistics.html#arch-overview-statistics"><span class="std std-ref">statsd 集群</span></a>。输出的统计信息记录在 <a class="reference internal" href="../configuration/configuration.html#config"><span class="std std-ref">配置指南</span></a> 的相关章节中。在以下章节中可以找到一些几乎总是会用到，且更重要的统计信息：</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../configuration/http/http_conn_man/stats.html#config-http-conn-man-stats"><span class="std std-ref">HTTP connection manager</span></a></p></li>
-<li><p><a class="reference internal" href="../configuration/upstream/cluster_manager/cluster_stats.html#config-cluster-manager-cluster-stats"><span class="std std-ref">Upstream cluster</span></a></p></li>
+<li><p><a class="reference internal" href="../configuration/http/http_conn_man/stats.html#config-http-conn-man-stats"><span class="std std-ref">HTTP 连接管理器</span></a></p></li>
+<li><p><a class="reference internal" href="../configuration/upstream/cluster_manager/cluster_stats.html#config-cluster-manager-cluster-stats"><span class="std std-ref">上游集群</span></a></p></li>
 </ul>
 </div>
 

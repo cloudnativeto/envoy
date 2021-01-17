@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Metadata matcher &mdash; envoy 1.16.0-5abbbb documentation</title>
+  <title>Metadata matcher &mdash; envoy 1.16.0-380f11 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-5abbbb
+                1.16.0-380f11
               </div>
             
           
@@ -110,9 +110,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../extending/extending.html">Extending Envoy for custom use cases</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../api/api.html">API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../api/api_supported_versions.html">Supported API versions</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../api.html">v2 API reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../api.html">v2 API 参考</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../bootstrap/bootstrap.html">Bootstrap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../listeners/listeners.html">Listeners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../listeners/listeners.html">监听器</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../clusters/clusters.html">Clusters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../http_routes/http_routes.html">HTTP route management</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../config/config.html">Extensions</a></li>
@@ -120,7 +120,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../data/data.html">Envoy data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../service/service.html">Services</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../common_messages/common_messages.html">Common messages</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../types/types.html">Types</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../types/types.html">类型</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../hash_policy.proto.html">Hash Policy</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../http.proto.html">HTTP</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../http_status.proto.html">HTTP status codes</a></li>
@@ -142,7 +142,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api-v3/api.html">v3 API reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api-v3/api.html">v3 API 参考</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api-docs/xds_protocol.html">xDS REST and gRPC protocol</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/client_features.html">Well Known Client Features</a></li>
 </ul>
@@ -196,9 +196,9 @@
         
           <li><a href="../../../api/api.html">API</a> &raquo;</li>
         
-          <li><a href="../../api.html">v2 API reference</a> &raquo;</li>
+          <li><a href="../../api.html">v2 API 参考</a> &raquo;</li>
         
-          <li><a href="../../types/types.html">Types</a> &raquo;</li>
+          <li><a href="../../types/types.html">类型</a> &raquo;</li>
         
       <li>Metadata matcher</li>
     
@@ -272,7 +272,7 @@ list at the path [a, t].</p>
 enforce access control based on dynamic metadata in a request. See <a class="reference internal" href="../../config/rbac/v2/rbac.proto.html#envoy-api-msg-config-rbac-v2-permission"><span class="std std-ref">Permission</span></a> and <a class="reference internal" href="../../config/rbac/v2/rbac.proto.html#envoy-api-msg-config-rbac-v2-principal"><span class="std std-ref">Principal</span></a>.</p>
 <div class="section" id="type-matcher-metadatamatcher">
 <span id="envoy-api-msg-type-matcher-metadatamatcher"></span><h2>type.matcher.MetadataMatcher<a class="headerlink" href="#type-matcher-metadatamatcher" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/type/matcher/metadata.proto#L76">[type.matcher.MetadataMatcher proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/type/matcher/metadata.proto#L76">[type.matcher.MetadataMatcher proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;filter&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="p">[],</span>
@@ -295,7 +295,7 @@ enforce access control based on dynamic metadata in a request. See <a class="ref
 </div>
 <div class="section" id="type-matcher-metadatamatcher-pathsegment">
 <span id="envoy-api-msg-type-matcher-metadatamatcher-pathsegment"></span><h2>type.matcher.MetadataMatcher.PathSegment<a class="headerlink" href="#type-matcher-metadatamatcher-pathsegment" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/type/matcher/metadata.proto#L80">[type.matcher.MetadataMatcher.PathSegment proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/type/matcher/metadata.proto#L80">[type.matcher.MetadataMatcher.PathSegment proto]</a></p>
 <p>Specifies the segment in a path to retrieve value from Metadata.
 Note: Currently it’s not supported to retrieve a value from a list in Metadata. This means that
 if the segment key refers to a list, it has to be the last segment in a path.</p>

@@ -20,7 +20,7 @@ ZooKeeper Proxy :ref:`configuration overview <config_network_filters_zookeeper_p
 config.filter.network.zookeeper_proxy.v1alpha1.ZooKeeperProxy
 -------------------------------------------------------------
 
-`[config.filter.network.zookeeper_proxy.v1alpha1.ZooKeeperProxy proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/network/zookeeper_proxy/v1alpha1/zookeeper_proxy.proto#L21>`_
+`[config.filter.network.zookeeper_proxy.v1alpha1.ZooKeeperProxy proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/filter/network/zookeeper_proxy/v1alpha1/zookeeper_proxy.proto#L21>`_
 
 
 .. code-block:: json

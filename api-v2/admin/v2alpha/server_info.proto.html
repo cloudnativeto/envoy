@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Server State &mdash; envoy 1.16.0-5abbbb documentation</title>
+  <title>Server State &mdash; envoy 1.16.0-380f11 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-5abbbb
+                1.16.0-380f11
               </div>
             
           
@@ -110,9 +110,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../extending/extending.html">Extending Envoy for custom use cases</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../api/api.html">API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../api/api_supported_versions.html">Supported API versions</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../api.html">v2 API reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../api.html">v2 API 参考</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../bootstrap/bootstrap.html">Bootstrap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../listeners/listeners.html">Listeners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../listeners/listeners.html">监听器</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../clusters/clusters.html">Clusters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../http_routes/http_routes.html">HTTP route management</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../config/config.html">Extensions</a></li>
@@ -131,10 +131,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../data/data.html">Envoy data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../service/service.html">Services</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../common_messages/common_messages.html">Common messages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../types/types.html">Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../types/types.html">类型</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api-v3/api.html">v3 API reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api-v3/api.html">v3 API 参考</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api-docs/xds_protocol.html">xDS REST and gRPC protocol</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/client_features.html">Well Known Client Features</a></li>
 </ul>
@@ -188,7 +188,7 @@
         
           <li><a href="../../../api/api.html">API</a> &raquo;</li>
         
-          <li><a href="../../api.html">v2 API reference</a> &raquo;</li>
+          <li><a href="../../api.html">v2 API 参考</a> &raquo;</li>
         
           <li><a href="../admin.html">Admin</a> &raquo;</li>
         
@@ -215,7 +215,7 @@
 <span id="envoy-api-file-envoy-admin-v2alpha-server-info-proto"></span><h1>Server State<a class="headerlink" href="#server-state" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="admin-v2alpha-serverinfo">
 <span id="envoy-api-msg-admin-v2alpha-serverinfo"></span><h2>admin.v2alpha.ServerInfo<a class="headerlink" href="#admin-v2alpha-serverinfo" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/server_info.proto#L19">[admin.v2alpha.ServerInfo proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/admin/v2alpha/server_info.proto#L19">[admin.v2alpha.ServerInfo proto]</a></p>
 <p>Proto representation of the value returned by /server_info, containing
 server version/server status information.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -255,7 +255,7 @@ server version/server status information.</p>
 </div>
 <div class="section" id="enum-admin-v2alpha-serverinfo-state">
 <span id="envoy-api-enum-admin-v2alpha-serverinfo-state"></span><h2>Enum admin.v2alpha.ServerInfo.State<a class="headerlink" href="#enum-admin-v2alpha-serverinfo-state" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/server_info.proto#L20">[admin.v2alpha.ServerInfo.State proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/admin/v2alpha/server_info.proto#L20">[admin.v2alpha.ServerInfo.State proto]</a></p>
 <dl class="simple" id="envoy-api-enum-value-admin-v2alpha-serverinfo-state-live">
 <dt>LIVE</dt><dd><p><em>(DEFAULT)</em> ⁣Server is live and serving traffic.</p>
 </dd>
@@ -275,7 +275,7 @@ server version/server status information.</p>
 </div>
 <div class="section" id="admin-v2alpha-commandlineoptions">
 <span id="envoy-api-msg-admin-v2alpha-commandlineoptions"></span><h2>admin.v2alpha.CommandLineOptions<a class="headerlink" href="#admin-v2alpha-commandlineoptions" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/server_info.proto#L54">[admin.v2alpha.CommandLineOptions proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/admin/v2alpha/server_info.proto#L54">[admin.v2alpha.CommandLineOptions proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;base_id&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;concurrency&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -418,7 +418,7 @@ server version/server status information.</p>
 </div>
 <div class="section" id="enum-admin-v2alpha-commandlineoptions-ipversion">
 <span id="envoy-api-enum-admin-v2alpha-commandlineoptions-ipversion"></span><h2>Enum admin.v2alpha.CommandLineOptions.IpVersion<a class="headerlink" href="#enum-admin-v2alpha-commandlineoptions-ipversion" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/server_info.proto#L55">[admin.v2alpha.CommandLineOptions.IpVersion proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/admin/v2alpha/server_info.proto#L55">[admin.v2alpha.CommandLineOptions.IpVersion proto]</a></p>
 <dl class="simple" id="envoy-api-enum-value-admin-v2alpha-commandlineoptions-ipversion-v4">
 <dt>v4</dt><dd><p><em>(DEFAULT)</em> ⁣</p>
 </dd>
@@ -430,7 +430,7 @@ server version/server status information.</p>
 </div>
 <div class="section" id="enum-admin-v2alpha-commandlineoptions-mode">
 <span id="envoy-api-enum-admin-v2alpha-commandlineoptions-mode"></span><h2>Enum admin.v2alpha.CommandLineOptions.Mode<a class="headerlink" href="#enum-admin-v2alpha-commandlineoptions-mode" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/server_info.proto#L60">[admin.v2alpha.CommandLineOptions.Mode proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/admin/v2alpha/server_info.proto#L60">[admin.v2alpha.CommandLineOptions.Mode proto]</a></p>
 <dl class="simple" id="envoy-api-enum-value-admin-v2alpha-commandlineoptions-mode-serve">
 <dt>Serve</dt><dd><p><em>(DEFAULT)</em> ⁣Validate configs and then serve traffic normally.</p>
 </dd>

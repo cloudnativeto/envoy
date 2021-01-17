@@ -10,7 +10,7 @@ Protocol options
 core.UpstreamHttpProtocolOptions
 --------------------------------
 
-`[core.UpstreamHttpProtocolOptions proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/api/v2/core/protocol.proto#L23>`_
+`[core.UpstreamHttpProtocolOptions proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/core/protocol.proto#L23>`_
 
 
 .. code-block:: json
@@ -44,7 +44,7 @@ auto_san_validation
 core.HttpProtocolOptions
 ------------------------
 
-`[core.HttpProtocolOptions proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/api/v2/core/protocol.proto#L37>`_
+`[core.HttpProtocolOptions proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/core/protocol.proto#L37>`_
 
 
 .. code-block:: json
@@ -114,7 +114,7 @@ headers_with_underscores_action
 Enum core.HttpProtocolOptions.HeadersWithUnderscoresAction
 ----------------------------------------------------------
 
-`[core.HttpProtocolOptions.HeadersWithUnderscoresAction proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/api/v2/core/protocol.proto#L43>`_
+`[core.HttpProtocolOptions.HeadersWithUnderscoresAction proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/core/protocol.proto#L43>`_
 
 Action to take when Envoy receives client request with header names containing underscore
 characters.
@@ -150,7 +150,7 @@ DROP_HEADER
 core.Http1ProtocolOptions
 -------------------------
 
-`[core.Http1ProtocolOptions proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/api/v2/core/protocol.proto#L96>`_
+`[core.Http1ProtocolOptions proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/core/protocol.proto#L96>`_
 
 
 .. code-block:: json
@@ -215,7 +215,7 @@ enable_trailers
 core.Http1ProtocolOptions.HeaderKeyFormat
 -----------------------------------------
 
-`[core.Http1ProtocolOptions.HeaderKeyFormat proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/api/v2/core/protocol.proto#L97>`_
+`[core.Http1ProtocolOptions.HeaderKeyFormat proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/core/protocol.proto#L97>`_
 
 
 .. code-block:: json
@@ -240,7 +240,7 @@ proper_case_words
 core.Http1ProtocolOptions.HeaderKeyFormat.ProperCaseWords
 ---------------------------------------------------------
 
-`[core.Http1ProtocolOptions.HeaderKeyFormat.ProperCaseWords proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/api/v2/core/protocol.proto#L98>`_
+`[core.Http1ProtocolOptions.HeaderKeyFormat.ProperCaseWords proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/core/protocol.proto#L98>`_
 
 
 .. code-block:: json
@@ -257,7 +257,7 @@ core.Http1ProtocolOptions.HeaderKeyFormat.ProperCaseWords
 core.Http2ProtocolOptions
 -------------------------
 
-`[core.Http2ProtocolOptions proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/api/v2/core/protocol.proto#L147>`_
+`[core.Http2ProtocolOptions proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/core/protocol.proto#L147>`_
 
 
 .. code-block:: json
@@ -402,7 +402,7 @@ stream_error_on_invalid_http_messaging
 core.Http2ProtocolOptions.SettingsParameter
 -------------------------------------------
 
-`[core.Http2ProtocolOptions.SettingsParameter proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/api/v2/core/protocol.proto#L150>`_
+`[core.Http2ProtocolOptions.SettingsParameter proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/core/protocol.proto#L150>`_
 
 Defines a parameter to be sent in the SETTINGS frame.
 See `RFC7540, sec. 6.5.1 <https://tools.ietf.org/html/rfc7540#section-6.5.1>`_ for details.

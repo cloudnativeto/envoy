@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Listener configuration &mdash; envoy 1.16.0-5abbbb documentation</title>
+  <title>Listener configuration &mdash; envoy 1.16.0-380f11 documentation</title>
   
 
   
@@ -47,7 +47,7 @@
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="Listener components" href="listener_components.proto.html" />
-    <link rel="prev" title="Listeners" href="../../../listeners/listeners.html" /> 
+    <link rel="prev" title="监听器" href="../../../listeners/listeners.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-5abbbb
+                1.16.0-380f11
               </div>
             
           
@@ -110,10 +110,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../extending/extending.html">Extending Envoy for custom use cases</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../api/api.html">API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/api_supported_versions.html">Supported API versions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../api-v2/api.html">v2 API reference</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../../api.html">v3 API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-v2/api.html">v2 API 参考</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../api.html">v3 API 参考</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../bootstrap/bootstrap.html">Bootstrap</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../../listeners/listeners.html">Listeners</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../listeners/listeners.html">监听器</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Listener configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="listener_components.proto.html">Listener components</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api_listener.proto.html">API listener</a></li>
@@ -128,7 +128,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../data/data.html">Envoy data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../service/service.html">Services</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../common_messages/common_messages.html">Common messages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../types/types.html">Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/types.html">类型</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api-docs/xds_protocol.html">xDS REST and gRPC protocol</a></li>
@@ -184,9 +184,9 @@
         
           <li><a href="../../../../api/api.html">API</a> &raquo;</li>
         
-          <li><a href="../../../api.html">v3 API reference</a> &raquo;</li>
+          <li><a href="../../../api.html">v3 API 参考</a> &raquo;</li>
         
-          <li><a href="../../../listeners/listeners.html">Listeners</a> &raquo;</li>
+          <li><a href="../../../listeners/listeners.html">监听器</a> &raquo;</li>
         
       <li>Listener configuration</li>
     
@@ -212,7 +212,7 @@
 <p>Listener <a class="reference internal" href="../../../../configuration/listeners/listeners.html#config-listeners"><span class="std std-ref">configuration overview</span></a></p>
 <div class="section" id="config-listener-v3-listener">
 <span id="envoy-v3-api-msg-config-listener-v3-listener"></span><h2>config.listener.v3.Listener<a class="headerlink" href="#config-listener-v3-listener" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/listener/v3/listener.proto#L39">[config.listener.v3.Listener proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/listener/v3/listener.proto#L39">[config.listener.v3.Listener proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -402,7 +402,7 @@ provided net.core.somaxconn will be used on Linux and 128 otherwise.</p>
 </div>
 <div class="section" id="config-listener-v3-listener-connectionbalanceconfig">
 <span id="envoy-v3-api-msg-config-listener-v3-listener-connectionbalanceconfig"></span><h2>config.listener.v3.Listener.ConnectionBalanceConfig<a class="headerlink" href="#config-listener-v3-listener-connectionbalanceconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/listener/v3/listener.proto#L72">[config.listener.v3.Listener.ConnectionBalanceConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/listener/v3/listener.proto#L72">[config.listener.v3.Listener.ConnectionBalanceConfig proto]</a></p>
 <p>Configuration for listener connection balancing.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;exact_balance&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>
@@ -416,7 +416,7 @@ provided net.core.somaxconn will be used on Linux and 128 otherwise.</p>
 </div>
 <div class="section" id="config-listener-v3-listener-connectionbalanceconfig-exactbalance">
 <span id="envoy-v3-api-msg-config-listener-v3-listener-connectionbalanceconfig-exactbalance"></span><h2>config.listener.v3.Listener.ConnectionBalanceConfig.ExactBalance<a class="headerlink" href="#config-listener-v3-listener-connectionbalanceconfig-exactbalance" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/listener/v3/listener.proto#L82">[config.listener.v3.Listener.ConnectionBalanceConfig.ExactBalance proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/listener/v3/listener.proto#L82">[config.listener.v3.Listener.ConnectionBalanceConfig.ExactBalance proto]</a></p>
 <p>A connection balancer implementation that does exact balancing. This means that a lock is
 held during balancing so that connection counts are nearly exactly balanced between worker
 threads. This is “nearly” exact in the sense that a connection might close in parallel thus
@@ -429,7 +429,7 @@ connections that rarely cycle (e.g., service mesh gRPC egress).</p>
 </div>
 <div class="section" id="enum-config-listener-v3-listener-draintype">
 <span id="envoy-v3-api-enum-config-listener-v3-listener-draintype"></span><h2>Enum config.listener.v3.Listener.DrainType<a class="headerlink" href="#enum-config-listener-v3-listener-draintype" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/listener/v3/listener.proto#L42">[config.listener.v3.Listener.DrainType proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/listener/v3/listener.proto#L42">[config.listener.v3.Listener.DrainType proto]</a></p>
 <dl class="simple" id="envoy-v3-api-enum-value-config-listener-v3-listener-draintype-default">
 <dt>DEFAULT</dt><dd><p><em>(DEFAULT)</em> ⁣Drain in response to calling /healthcheck/fail admin endpoint (along with the health check
 filter), listener removal/modification, and hot restart.</p>
@@ -455,7 +455,7 @@ and egress listeners.</p>
         <a href="listener_components.proto.html" class="btn btn-neutral float-right" title="Listener components" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../../listeners/listeners.html" class="btn btn-neutral float-left" title="Listeners" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../../listeners/listeners.html" class="btn btn-neutral float-left" title="监听器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

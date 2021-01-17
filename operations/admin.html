@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Administration interface &mdash; envoy 1.16.0-5abbbb documentation</title>
+  <title>Administration interface &mdash; envoy 1.16.0-380f11 documentation</title>
   
 
   
@@ -46,7 +46,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Statistics overview" href="stats_overview.html" />
+    <link rel="next" title="统计概览" href="stats_overview.html" />
     <link rel="prev" title="Hot restart Python wrapper" href="hot_restarter.html" /> 
 </head>
 
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-5abbbb
+                1.16.0-380f11
               </div>
             
           
@@ -110,7 +110,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cli.html">Command line options</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hot_restarter.html">Hot restart Python wrapper</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Administration interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stats_overview.html">Statistics overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stats_overview.html">统计概览</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runtime.html">Runtime</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fs_flags.html">文件系统标志</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_tapping.html">Traffic tapping</a></li>
@@ -767,7 +767,7 @@ but in response to user requests on high core-count machines, this
 can cause performance issues due to mutex contention.</p>
 <p>This admin endpoint requires Envoy to be started with option
 <cite>–use-fake-symbol-table 0</cite>.</p>
-<p>See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/source/docs/stats.md">source/docs/stats.md</a> for more details.</p>
+<p>See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/source/docs/stats.md">source/docs/stats.md</a> for more details.</p>
 <p>Note also that actual mutex contention can be tracked via <a class="reference internal" href="#get--contention" title="GET /contention"><code class="xref http http-get docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/contention</span></code></a>.</p>
 <dl class="http post">
 <dt id="post--stats-recentlookups-enable">
@@ -776,7 +776,7 @@ can cause performance issues due to mutex contention.</p>
 
 <p>Turns on collection of recent lookup of stat-names, thus enabling
 <cite>/stats/recentlookups</cite>.</p>
-<p>See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/source/docs/stats.md">source/docs/stats.md</a> for more details.</p>
+<p>See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/source/docs/stats.md">source/docs/stats.md</a> for more details.</p>
 <dl class="http post">
 <dt id="post--stats-recentlookups-disable">
 <code class="sig-name descname">POST </code><code class="sig-name descname">/stats/recentlookups/disable</code><a class="headerlink" href="#post--stats-recentlookups-disable" title="Permalink to this definition">¶</a></dt>
@@ -786,7 +786,7 @@ can cause performance issues due to mutex contention.</p>
 <cite>/stats/recentlookups</cite>. It also clears the list of lookups. However,
 the total count, visible as stat <cite>server.stats_recent_lookups</cite>, is
 not cleared, and continues to accumulate.</p>
-<p>See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/source/docs/stats.md">source/docs/stats.md</a> for more details.</p>
+<p>See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/source/docs/stats.md">source/docs/stats.md</a> for more details.</p>
 <dl class="http post">
 <dt id="post--stats-recentlookups-clear">
 <code class="sig-name descname">POST </code><code class="sig-name descname">/stats/recentlookups/clear</code><a class="headerlink" href="#post--stats-recentlookups-clear" title="Permalink to this definition">¶</a></dt>
@@ -795,7 +795,7 @@ not cleared, and continues to accumulate.</p>
 <p>Clears all outstanding lookups and counts. This clears all recent
 lookups data as well as the count, but collection continues if
 it is enabled.</p>
-<p>See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/source/docs/stats.md">source/docs/stats.md</a> for more details.</p>
+<p>See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/source/docs/stats.md">source/docs/stats.md</a> for more details.</p>
 </dd></dl>
 
 <span class="target" id="operations-admin-interface-runtime"></span><dl class="http get">
@@ -908,7 +908,7 @@ been configured to accept admin configuration. See:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="stats_overview.html" class="btn btn-neutral float-right" title="Statistics overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="stats_overview.html" class="btn btn-neutral float-right" title="统计概览" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="hot_restarter.html" class="btn btn-neutral float-left" title="Hot restart Python wrapper" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -9,7 +9,7 @@ Common access log types
 config.filter.accesslog.v2.AccessLog
 ------------------------------------
 
-`[config.filter.accesslog.v2.AccessLog proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/accesslog/v2/accesslog.proto#L23>`_
+`[config.filter.accesslog.v2.AccessLog proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/filter/accesslog/v2/accesslog.proto#L23>`_
 
 
 .. code-block:: json
@@ -79,7 +79,7 @@ typed_config
 config.filter.accesslog.v2.AccessLogFilter
 ------------------------------------------
 
-`[config.filter.accesslog.v2.AccessLogFilter proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/accesslog/v2/accesslog.proto#L52>`_
+`[config.filter.accesslog.v2.AccessLogFilter proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/filter/accesslog/v2/accesslog.proto#L52>`_
 
 
 .. code-block:: json
@@ -204,7 +204,7 @@ extension_filter
 config.filter.accesslog.v2.ComparisonFilter
 -------------------------------------------
 
-`[config.filter.accesslog.v2.ComparisonFilter proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/accesslog/v2/accesslog.proto#L92>`_
+`[config.filter.accesslog.v2.ComparisonFilter proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/filter/accesslog/v2/accesslog.proto#L92>`_
 
 Filter on an integer comparison.
 
@@ -233,7 +233,7 @@ value
 Enum config.filter.accesslog.v2.ComparisonFilter.Op
 ---------------------------------------------------
 
-`[config.filter.accesslog.v2.ComparisonFilter.Op proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/accesslog/v2/accesslog.proto#L93>`_
+`[config.filter.accesslog.v2.ComparisonFilter.Op proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/filter/accesslog/v2/accesslog.proto#L93>`_
 
 
 .. _envoy_api_enum_value_config.filter.accesslog.v2.ComparisonFilter.Op.EQ:
@@ -260,7 +260,7 @@ LE
 config.filter.accesslog.v2.StatusCodeFilter
 -------------------------------------------
 
-`[config.filter.accesslog.v2.StatusCodeFilter proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/accesslog/v2/accesslog.proto#L112>`_
+`[config.filter.accesslog.v2.StatusCodeFilter proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/filter/accesslog/v2/accesslog.proto#L112>`_
 
 Filters on HTTP response/status code.
 
@@ -283,7 +283,7 @@ comparison
 config.filter.accesslog.v2.DurationFilter
 -----------------------------------------
 
-`[config.filter.accesslog.v2.DurationFilter proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/accesslog/v2/accesslog.proto#L118>`_
+`[config.filter.accesslog.v2.DurationFilter proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/filter/accesslog/v2/accesslog.proto#L118>`_
 
 Filters on total request duration in milliseconds.
 
@@ -306,7 +306,7 @@ comparison
 config.filter.accesslog.v2.NotHealthCheckFilter
 -----------------------------------------------
 
-`[config.filter.accesslog.v2.NotHealthCheckFilter proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/accesslog/v2/accesslog.proto#L125>`_
+`[config.filter.accesslog.v2.NotHealthCheckFilter proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/filter/accesslog/v2/accesslog.proto#L125>`_
 
 Filters for requests that are not health check requests. A health check
 request is marked by the health check filter.
@@ -323,7 +323,7 @@ request is marked by the health check filter.
 config.filter.accesslog.v2.TraceableFilter
 ------------------------------------------
 
-`[config.filter.accesslog.v2.TraceableFilter proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/accesslog/v2/accesslog.proto#L130>`_
+`[config.filter.accesslog.v2.TraceableFilter proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/filter/accesslog/v2/accesslog.proto#L130>`_
 
 Filters for requests that are traceable. See the tracing overview for more
 information on how a request becomes traceable.
@@ -340,7 +340,7 @@ information on how a request becomes traceable.
 config.filter.accesslog.v2.RuntimeFilter
 ----------------------------------------
 
-`[config.filter.accesslog.v2.RuntimeFilter proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/accesslog/v2/accesslog.proto#L134>`_
+`[config.filter.accesslog.v2.RuntimeFilter proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/filter/accesslog/v2/accesslog.proto#L134>`_
 
 Filters for random sampling of requests.
 
@@ -389,7 +389,7 @@ use_independent_randomness
 config.filter.accesslog.v2.AndFilter
 ------------------------------------
 
-`[config.filter.accesslog.v2.AndFilter proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/accesslog/v2/accesslog.proto#L160>`_
+`[config.filter.accesslog.v2.AndFilter proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/filter/accesslog/v2/accesslog.proto#L160>`_
 
 Performs a logical “and” operation on the result of each filter in filters.
 Filters are evaluated sequentially and if one of them returns false, the
@@ -413,7 +413,7 @@ filters
 config.filter.accesslog.v2.OrFilter
 -----------------------------------
 
-`[config.filter.accesslog.v2.OrFilter proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/accesslog/v2/accesslog.proto#L167>`_
+`[config.filter.accesslog.v2.OrFilter proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/filter/accesslog/v2/accesslog.proto#L167>`_
 
 Performs a logical “or” operation on the result of each individual filter.
 Filters are evaluated sequentially and if one of them returns true, the
@@ -437,7 +437,7 @@ filters
 config.filter.accesslog.v2.HeaderFilter
 ---------------------------------------
 
-`[config.filter.accesslog.v2.HeaderFilter proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/accesslog/v2/accesslog.proto#L172>`_
+`[config.filter.accesslog.v2.HeaderFilter proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/filter/accesslog/v2/accesslog.proto#L172>`_
 
 Filters requests based on the presence or value of a request header.
 
@@ -461,7 +461,7 @@ header
 config.filter.accesslog.v2.ResponseFlagFilter
 ---------------------------------------------
 
-`[config.filter.accesslog.v2.ResponseFlagFilter proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/accesslog/v2/accesslog.proto#L181>`_
+`[config.filter.accesslog.v2.ResponseFlagFilter proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/filter/accesslog/v2/accesslog.proto#L181>`_
 
 Filters requests that received responses with an Envoy response flag set.
 A list of the response flags can be found
@@ -488,7 +488,7 @@ flags
 config.filter.accesslog.v2.GrpcStatusFilter
 -------------------------------------------
 
-`[config.filter.accesslog.v2.GrpcStatusFilter proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/accesslog/v2/accesslog.proto#L214>`_
+`[config.filter.accesslog.v2.GrpcStatusFilter proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/filter/accesslog/v2/accesslog.proto#L214>`_
 
 Filters gRPC requests based on their response status. If a gRPC status is not provided, the
 filter will infer the status from the HTTP status code.
@@ -519,7 +519,7 @@ exclude
 Enum config.filter.accesslog.v2.GrpcStatusFilter.Status
 -------------------------------------------------------
 
-`[config.filter.accesslog.v2.GrpcStatusFilter.Status proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/accesslog/v2/accesslog.proto#L215>`_
+`[config.filter.accesslog.v2.GrpcStatusFilter.Status proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/filter/accesslog/v2/accesslog.proto#L215>`_
 
 
 .. _envoy_api_enum_value_config.filter.accesslog.v2.GrpcStatusFilter.Status.OK:
@@ -613,7 +613,7 @@ UNAUTHENTICATED
 config.filter.accesslog.v2.ExtensionFilter
 ------------------------------------------
 
-`[config.filter.accesslog.v2.ExtensionFilter proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/filter/accesslog/v2/accesslog.proto#L244>`_
+`[config.filter.accesslog.v2.ExtensionFilter proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/filter/accesslog/v2/accesslog.proto#L244>`_
 
 Extension filter is statically registered at runtime.
 

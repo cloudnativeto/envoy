@@ -9,7 +9,7 @@ Socket Option
 core.SocketOption
 -----------------
 
-`[core.SocketOption proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/api/v2/core/socket_option.proto#L19>`_
+`[core.SocketOption proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/core/socket_option.proto#L19>`_
 
 Generic socket option message. This would be used to set socket options that
 might not exist in upstream kernels or precompiled Envoy binaries.
@@ -75,7 +75,7 @@ state
 Enum core.SocketOption.SocketState
 ----------------------------------
 
-`[core.SocketOption.SocketState proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/api/v2/core/socket_option.proto#L20>`_
+`[core.SocketOption.SocketState proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/core/socket_option.proto#L20>`_
 
 
 .. _envoy_api_enum_value_core.SocketOption.SocketState.STATE_PREBIND:

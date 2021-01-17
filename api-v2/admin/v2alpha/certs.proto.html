@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Certificates &mdash; envoy 1.16.0-5abbbb documentation</title>
+  <title>Certificates &mdash; envoy 1.16.0-380f11 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-5abbbb
+                1.16.0-380f11
               </div>
             
           
@@ -110,9 +110,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../extending/extending.html">Extending Envoy for custom use cases</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../api/api.html">API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../api/api_supported_versions.html">Supported API versions</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../api.html">v2 API reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../api.html">v2 API 参考</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../bootstrap/bootstrap.html">Bootstrap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../listeners/listeners.html">Listeners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../listeners/listeners.html">监听器</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../clusters/clusters.html">Clusters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../http_routes/http_routes.html">HTTP route management</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../config/config.html">Extensions</a></li>
@@ -131,10 +131,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../data/data.html">Envoy data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../service/service.html">Services</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../common_messages/common_messages.html">Common messages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../types/types.html">Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../types/types.html">类型</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api-v3/api.html">v3 API reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api-v3/api.html">v3 API 参考</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api-docs/xds_protocol.html">xDS REST and gRPC protocol</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/client_features.html">Well Known Client Features</a></li>
 </ul>
@@ -188,7 +188,7 @@
         
           <li><a href="../../../api/api.html">API</a> &raquo;</li>
         
-          <li><a href="../../api.html">v2 API reference</a> &raquo;</li>
+          <li><a href="../../api.html">v2 API 参考</a> &raquo;</li>
         
           <li><a href="../admin.html">Admin</a> &raquo;</li>
         
@@ -215,7 +215,7 @@
 <span id="envoy-api-file-envoy-admin-v2alpha-certs-proto"></span><h1>Certificates<a class="headerlink" href="#certificates" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="admin-v2alpha-certificates">
 <span id="envoy-api-msg-admin-v2alpha-certificates"></span><h2>admin.v2alpha.Certificates<a class="headerlink" href="#admin-v2alpha-certificates" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/certs.proto#L18">[admin.v2alpha.Certificates proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/admin/v2alpha/certs.proto#L18">[admin.v2alpha.Certificates proto]</a></p>
 <p>Proto representation of certificate details. Admin endpoint uses this wrapper for <cite>/certs</cite> to
 display certificate information. See <a class="reference internal" href="../../../operations/admin.html#operations-admin-interface-certs"><span class="std std-ref">/certs</span></a> for more
 information.</p>
@@ -231,7 +231,7 @@ information.</p>
 </div>
 <div class="section" id="admin-v2alpha-certificate">
 <span id="envoy-api-msg-admin-v2alpha-certificate"></span><h2>admin.v2alpha.Certificate<a class="headerlink" href="#admin-v2alpha-certificate" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/certs.proto#L23">[admin.v2alpha.Certificate proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/admin/v2alpha/certs.proto#L23">[admin.v2alpha.Certificate proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;ca_cert&quot;</span><span class="p">:</span> <span class="p">[],</span>
   <span class="nt">&quot;cert_chain&quot;</span><span class="p">:</span> <span class="p">[]</span>
@@ -249,7 +249,7 @@ information.</p>
 </div>
 <div class="section" id="admin-v2alpha-certificatedetails">
 <span id="envoy-api-msg-admin-v2alpha-certificatedetails"></span><h2>admin.v2alpha.CertificateDetails<a class="headerlink" href="#admin-v2alpha-certificatedetails" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/certs.proto#L32">[admin.v2alpha.CertificateDetails proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/admin/v2alpha/certs.proto#L32">[admin.v2alpha.CertificateDetails proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;serial_number&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -287,7 +287,7 @@ information.</p>
 </div>
 <div class="section" id="admin-v2alpha-subjectalternatename">
 <span id="envoy-api-msg-admin-v2alpha-subjectalternatename"></span><h2>admin.v2alpha.SubjectAlternateName<a class="headerlink" href="#admin-v2alpha-subjectalternatename" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/admin/v2alpha/certs.proto#L52">[admin.v2alpha.SubjectAlternateName proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/admin/v2alpha/certs.proto#L52">[admin.v2alpha.SubjectAlternateName proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;dns&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Client Status Discovery Service (CSDS) &mdash; envoy 1.16.0-5abbbb documentation</title>
+  <title>Client Status Discovery Service (CSDS) &mdash; envoy 1.16.0-380f11 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-5abbbb
+                1.16.0-380f11
               </div>
             
           
@@ -110,9 +110,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../extending/extending.html">Extending Envoy for custom use cases</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../api/api.html">API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/api_supported_versions.html">Supported API versions</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../../api.html">v2 API reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../api.html">v2 API 参考</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../bootstrap/bootstrap.html">Bootstrap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../listeners/listeners.html">Listeners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../listeners/listeners.html">监听器</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../clusters/clusters.html">Clusters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../http_routes/http_routes.html">HTTP route management</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../config/config.html">Extensions</a></li>
@@ -135,10 +135,10 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../common_messages/common_messages.html">Common messages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../types/types.html">Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/types.html">类型</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../api-v3/api.html">v3 API reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-v3/api.html">v3 API 参考</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api-docs/xds_protocol.html">xDS REST and gRPC protocol</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/client_features.html">Well Known Client Features</a></li>
 </ul>
@@ -192,7 +192,7 @@
         
           <li><a href="../../../../api/api.html">API</a> &raquo;</li>
         
-          <li><a href="../../../api.html">v2 API reference</a> &raquo;</li>
+          <li><a href="../../../api.html">v2 API 参考</a> &raquo;</li>
         
           <li><a href="../../service.html">Services</a> &raquo;</li>
         
@@ -219,7 +219,7 @@
 <span id="envoy-api-file-envoy-service-status-v2-csds-proto"></span><h1>Client Status Discovery Service (CSDS)<a class="headerlink" href="#client-status-discovery-service-csds" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="service-status-v2-clientstatusrequest">
 <span id="envoy-api-msg-service-status-v2-clientstatusrequest"></span><h2>service.status.v2.ClientStatusRequest<a class="headerlink" href="#service-status-v2-clientstatusrequest" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/service/status/v2/csds.proto#L55">[service.status.v2.ClientStatusRequest proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/service/status/v2/csds.proto#L55">[service.status.v2.ClientStatusRequest proto]</a></p>
 <p>Request for client status of clients identified by a list of NodeMatchers.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;node_matchers&quot;</span><span class="p">:</span> <span class="p">[]</span>
@@ -234,7 +234,7 @@ The match follows OR semantics.</p>
 </div>
 <div class="section" id="service-status-v2-perxdsconfig">
 <span id="envoy-api-msg-service-status-v2-perxdsconfig"></span><h2>service.status.v2.PerXdsConfig<a class="headerlink" href="#service-status-v2-perxdsconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/service/status/v2/csds.proto#L63">[service.status.v2.PerXdsConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/service/status/v2/csds.proto#L63">[service.status.v2.PerXdsConfig proto]</a></p>
 <p>Detailed config (per xDS) with status.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -272,7 +272,7 @@ The match follows OR semantics.</p>
 </div>
 <div class="section" id="service-status-v2-clientconfig">
 <span id="envoy-api-msg-service-status-v2-clientconfig"></span><h2>service.status.v2.ClientConfig<a class="headerlink" href="#service-status-v2-clientconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/service/status/v2/csds.proto#L78">[service.status.v2.ClientConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/service/status/v2/csds.proto#L78">[service.status.v2.ClientConfig proto]</a></p>
 <p>All xds configs for a particular client.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;node&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -291,7 +291,7 @@ The match follows OR semantics.</p>
 </div>
 <div class="section" id="service-status-v2-clientstatusresponse">
 <span id="envoy-api-msg-service-status-v2-clientstatusresponse"></span><h2>service.status.v2.ClientStatusResponse<a class="headerlink" href="#service-status-v2-clientstatusresponse" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/service/status/v2/csds.proto#L85">[service.status.v2.ClientStatusResponse proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/service/status/v2/csds.proto#L85">[service.status.v2.ClientStatusResponse proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">[]</span>
 <span class="p">}</span>
@@ -304,7 +304,7 @@ The match follows OR semantics.</p>
 </div>
 <div class="section" id="enum-service-status-v2-configstatus">
 <span id="envoy-api-enum-service-status-v2-configstatus"></span><h2>Enum service.status.v2.ConfigStatus<a class="headerlink" href="#enum-service-status-v2-configstatus" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/service/status/v2/csds.proto#L36">[service.status.v2.ConfigStatus proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/service/status/v2/csds.proto#L36">[service.status.v2.ConfigStatus proto]</a></p>
 <p>Status of a config.</p>
 <dl class="simple" id="envoy-api-enum-value-service-status-v2-configstatus-unknown">
 <dt>UNKNOWN</dt><dd><p><em>(DEFAULT)</em> ⁣Status info is not available/unknown.</p>

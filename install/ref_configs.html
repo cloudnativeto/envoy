@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>参考配置 &mdash; envoy 1.16.0-5abbbb documentation</title>
+  <title>参考配置 &mdash; envoy 1.16.0-380f11 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-5abbbb
+                1.16.0-380f11
               </div>
             
           
@@ -198,10 +198,10 @@
 <h2>配置生成器<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>Envoy 配置会变得相对复杂。在 Lyft 我们使用 <a class="reference external" href="http://jinja.pocoo.org/">jinja</a> 模板使配置变得更加易于创建和管理。发行版源代码包含一个配置生成器的版本，它与我们在 Lyft 中使用的配置生成器近似一致。我们也为上述的三个场景中的每一个都包含了示例配置模板。</p>
 <ul class="simple">
-<li><p>生成器脚本： <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/configs/configgen.py">configs/configgen.py</a></p></li>
-<li><p>服务对服务模板： <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/configs/envoy_service_to_service_v2.template.yaml">configs/envoy_service_to_service_v2.template.yaml</a></p></li>
-<li><p>前置代理模板： <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/configs/envoy_front_proxy_v2.template.yaml">configs/envoy_front_proxy_v2.template.yaml</a></p></li>
-<li><p>双重代理模板： <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/configs/envoy_double_proxy_v2.template.yaml">configs/envoy_double_proxy_v2.template.yaml</a></p></li>
+<li><p>生成器脚本： <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/configs/configgen.py">configs/configgen.py</a></p></li>
+<li><p>服务对服务模板： <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/configs/envoy_service_to_service_v2.template.yaml">configs/envoy_service_to_service_v2.template.yaml</a></p></li>
+<li><p>前置代理模板： <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/configs/envoy_front_proxy_v2.template.yaml">configs/envoy_front_proxy_v2.template.yaml</a></p></li>
+<li><p>双重代理模板： <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/configs/envoy_double_proxy_v2.template.yaml">configs/envoy_double_proxy_v2.template.yaml</a></p></li>
 </ul>
 <p>从仓库的根目录运行以下命令生成示例配置：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mkdir -p generated/configs</span>

@@ -20,7 +20,7 @@ External Authorization :ref:`configuration overview <config_http_filters_ext_aut
 extensions.filters.http.ext_authz.v3.ExtAuthz
 ---------------------------------------------
 
-`[extensions.filters.http.ext_authz.v3.ExtAuthz proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L27>`_
+`[extensions.filters.http.ext_authz.v3.ExtAuthz proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L27>`_
 
 
 .. code-block:: json
@@ -198,7 +198,7 @@ stat_prefix
 extensions.filters.http.ext_authz.v3.BufferSettings
 ---------------------------------------------------
 
-`[extensions.filters.http.ext_authz.v3.BufferSettings proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L144>`_
+`[extensions.filters.http.ext_authz.v3.BufferSettings proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L144>`_
 
 Configuration for buffering the request data.
 
@@ -244,7 +244,7 @@ pack_as_bytes
 extensions.filters.http.ext_authz.v3.HttpService
 ------------------------------------------------
 
-`[extensions.filters.http.ext_authz.v3.HttpService proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L192>`_
+`[extensions.filters.http.ext_authz.v3.HttpService proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L192>`_
 
 HttpService is used for raw HTTP communication between the filter and the authorization service.
 When configured, the filter will parse the client request and use these attributes to call the
@@ -311,7 +311,7 @@ authorization_response
 extensions.filters.http.ext_authz.v3.AuthorizationRequest
 ---------------------------------------------------------
 
-`[extensions.filters.http.ext_authz.v3.AuthorizationRequest proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L211>`_
+`[extensions.filters.http.ext_authz.v3.AuthorizationRequest proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L211>`_
 
 
 .. code-block:: json
@@ -353,7 +353,7 @@ headers_to_add
 extensions.filters.http.ext_authz.v3.AuthorizationResponse
 ----------------------------------------------------------
 
-`[extensions.filters.http.ext_authz.v3.AuthorizationResponse proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L235>`_
+`[extensions.filters.http.ext_authz.v3.AuthorizationResponse proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L235>`_
 
 
 .. code-block:: json
@@ -397,7 +397,7 @@ allowed_client_headers
 extensions.filters.http.ext_authz.v3.ExtAuthzPerRoute
 -----------------------------------------------------
 
-`[extensions.filters.http.ext_authz.v3.ExtAuthzPerRoute proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L258>`_
+`[extensions.filters.http.ext_authz.v3.ExtAuthzPerRoute proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L258>`_
 
 Extra settings on a per virtualhost/route/weighted-cluster level.
 
@@ -434,7 +434,7 @@ check_settings
 extensions.filters.http.ext_authz.v3.CheckSettings
 --------------------------------------------------
 
-`[extensions.filters.http.ext_authz.v3.CheckSettings proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L275>`_
+`[extensions.filters.http.ext_authz.v3.CheckSettings proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L275>`_
 
 Extra settings for the check request.
 

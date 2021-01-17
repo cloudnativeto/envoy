@@ -10,7 +10,7 @@ Endpoint discovery :ref:`architecture overview <arch_overview_service_discovery_
 config.endpoint.v3.ClusterLoadAssignment
 ----------------------------------------
 
-`[config.endpoint.v3.ClusterLoadAssignment proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/endpoint/v3/endpoint.proto#L33>`_
+`[config.endpoint.v3.ClusterLoadAssignment proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/endpoint/v3/endpoint.proto#L33>`_
 
 Each route from RDS will map to a single cluster or traffic split across
 clusters using weights expressed in the RDS WeightedCluster.
@@ -57,7 +57,7 @@ policy
 config.endpoint.v3.ClusterLoadAssignment.Policy
 -----------------------------------------------
 
-`[config.endpoint.v3.ClusterLoadAssignment.Policy proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/endpoint/v3/endpoint.proto#L38>`_
+`[config.endpoint.v3.ClusterLoadAssignment.Policy proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/endpoint/v3/endpoint.proto#L38>`_
 
 Load balancing policy settings.
 

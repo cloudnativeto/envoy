@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Socket Option &mdash; envoy 1.16.0-5abbbb documentation</title>
+  <title>Socket Option &mdash; envoy 1.16.0-380f11 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-5abbbb
+                1.16.0-380f11
               </div>
             
           
@@ -110,10 +110,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../extending/extending.html">Extending Envoy for custom use cases</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../api/api.html">API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/api_supported_versions.html">Supported API versions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../api-v2/api.html">v2 API reference</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../../api.html">v3 API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../api-v2/api.html">v2 API 参考</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../api.html">v3 API 参考</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../bootstrap/bootstrap.html">Bootstrap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../listeners/listeners.html">Listeners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../listeners/listeners.html">监听器</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../clusters/clusters.html">Clusters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../http_routes/http_routes.html">HTTP route management</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../config.html">Extensions</a></li>
@@ -139,7 +139,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../extensions/network/socket_interface/v3/default_socket_interface.proto.html">Default Socket Interface configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../types/types.html">Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../types/types.html">类型</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api-docs/xds_protocol.html">xDS REST and gRPC protocol</a></li>
@@ -195,7 +195,7 @@
         
           <li><a href="../../../../api/api.html">API</a> &raquo;</li>
         
-          <li><a href="../../../api.html">v3 API reference</a> &raquo;</li>
+          <li><a href="../../../api.html">v3 API 参考</a> &raquo;</li>
         
           <li><a href="../../../common_messages/common_messages.html">Common messages</a> &raquo;</li>
         
@@ -222,7 +222,7 @@
 <span id="envoy-v3-api-file-envoy-config-core-v3-socket-option-proto"></span><h1>Socket Option<a class="headerlink" href="#socket-option" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="config-core-v3-socketoption">
 <span id="envoy-v3-api-msg-config-core-v3-socketoption"></span><h2>config.core.v3.SocketOption<a class="headerlink" href="#config-core-v3-socketoption" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/core/v3/socket_option.proto#L18">[config.core.v3.SocketOption proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/core/v3/socket_option.proto#L18">[config.core.v3.SocketOption proto]</a></p>
 <p>Generic socket option message. This would be used to set socket options that
 might not exist in upstream kernels or precompiled Envoy binaries.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -266,7 +266,7 @@ STATE_PREBIND is currently the only valid value.</p>
 </div>
 <div class="section" id="enum-config-core-v3-socketoption-socketstate">
 <span id="envoy-v3-api-enum-config-core-v3-socketoption-socketstate"></span><h2>Enum config.core.v3.SocketOption.SocketState<a class="headerlink" href="#enum-config-core-v3-socketoption-socketstate" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/config/core/v3/socket_option.proto#L21">[config.core.v3.SocketOption.SocketState proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/core/v3/socket_option.proto#L21">[config.core.v3.SocketOption.SocketState proto]</a></p>
 <dl class="simple" id="envoy-v3-api-enum-value-config-core-v3-socketoption-socketstate-state-prebind">
 <dt>STATE_PREBIND</dt><dd><p><em>(DEFAULT)</em> ⁣Socket options are applied after socket creation but before binding the socket to a port</p>
 </dd>

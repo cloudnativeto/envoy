@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Original Source &mdash; envoy 1.16.0-5abbbb documentation</title>
+  <title>请求源 &mdash; envoy 1.16.0-380f11 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-5abbbb
+                1.16.0-380f11
               </div>
             
           
@@ -139,7 +139,7 @@
 <li class="toctree-l4"><a class="reference internal" href="lua_filter.html">Lua</a></li>
 <li class="toctree-l4"><a class="reference internal" href="oauth2_filter.html">OAuth2</a></li>
 <li class="toctree-l4"><a class="reference internal" href="on_demand_updates_filter.html">On-demand VHDS and S/RDS Updates</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Original Source</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">请求源</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rate_limit_filter.html">Rate limit</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rbac_filter.html">基于角色的访问控制（RBAC）过滤器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="router_filter.html">Router</a></li>
@@ -215,7 +215,7 @@
         
           <li><a href="http_filters.html">HTTP 过滤器</a> &raquo;</li>
         
-      <li>Original Source</li>
+      <li>请求源</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -234,41 +234,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="original-source">
-<span id="config-http-filters-original-src"></span><h1>Original Source<a class="headerlink" href="#original-source" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="config-http-filters-original-src">
+<span id="id1"></span><h1>请求源<a class="headerlink" href="#config-http-filters-original-src" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../../api-v3/extensions/filters/http/original_src/v3/original_src.proto.html#envoy-v3-api-msg-extensions-filters-http-original-src-v3-originalsrc"><span class="std std-ref">HTTP filter v3 API reference</span></a></p></li>
-<li><p>This filter should be configured with the name <em>envoy.filters.http.original_src</em>.</p></li>
+<li><p><a class="reference internal" href="../../../api-v3/extensions/filters/http/original_src/v3/original_src.proto.html#envoy-v3-api-msg-extensions-filters-http-original-src-v3-originalsrc"><span class="std std-ref">HTTP 过滤器 v3 API 参考</span></a></p></li>
+<li><p>此过滤器的名称应该配置为 <em>envoy.filters.http.original_src</em>。</p></li>
 </ul>
-<p>The original source http filter replicates the downstream remote address of the connection on
-the upstream side of Envoy. For example, if a downstream connection connects to Envoy with IP
-address <code class="docutils literal notranslate"><span class="pre">10.1.2.3</span></code>, then Envoy will connect to the upstream with source IP <code class="docutils literal notranslate"><span class="pre">10.1.2.3</span></code>. The
-downstream remote address is determined based on the logic for the “trusted client address”
-outlined in <a class="reference internal" href="../http_conn_man/headers.html#config-http-conn-man-headers-x-forwarded-for"><span class="std std-ref">XFF</span></a>.</p>
-<p>Note that the filter is intended to be used in conjunction with the
-<a class="reference internal" href="router_filter.html#config-http-filters-router"><span class="std std-ref">Router</span></a> filter. In particular, it must run prior to the router
-filter so that it may add the desired source IP to the state of the filter chain.</p>
-<div class="section" id="ip-version-support">
-<h2>IP Version Support<a class="headerlink" href="#ip-version-support" title="Permalink to this headline">¶</a></h2>
-<p>The filter supports both IPv4 and IPv6 as addresses. Note that the upstream connection must support
-the version used.</p>
+<p>请求源 http 过滤器在 Envoy 的上游端复制连接的下游远程地址。比如，下游使用 IP 地址 <code class="docutils literal notranslate"><span class="pre">10.1.2.3</span></code> 连接到 Envoy，接着 Envoy 使用源 IP <code class="docutils literal notranslate"><span class="pre">10.1.2.3</span></code> 连接到上游。下游远程地址是根据 <a class="reference internal" href="../http_conn_man/headers.html#config-http-conn-man-headers-x-forwarded-for"><span class="std std-ref">XFF</span></a> 中概述的“可信客户端地址”的逻辑确定。</p>
+<p>请注意，该过滤器旨在与 <a class="reference internal" href="router_filter.html#config-http-filters-router"><span class="std std-ref">路由器</span></a> 过滤器结合使用。特别是，它必须在路由器过滤器之前运行，以便可以将所需的源IP添加到过滤器链的状态。</p>
+<div class="section" id="ip">
+<h2>IP 版本支持<a class="headerlink" href="#ip" title="Permalink to this headline">¶</a></h2>
+<p>该过滤器同时支持将 IPv4 和 IPv6 作为地址。请注意，上游连接必须支持所使用的版本。</p>
 </div>
-<div class="section" id="extra-setup">
-<h2>Extra Setup<a class="headerlink" href="#extra-setup" title="Permalink to this headline">¶</a></h2>
-<p>The downstream remote address used will likely be globally routable. By default, packets returning
-from the upstream host to that address will not route through Envoy. The network must be configured
-to forcefully route any traffic whose IP was replicated by Envoy back through the Envoy host.</p>
-<p>If Envoy and the upstream are on the same host – e.g. in an sidecar deployment –, then iptables
-and routing rules can be used to ensure correct behaviour. The filter has an unsigned integer
-configuration,
-<a class="reference internal" href="../../../api-v3/extensions/filters/http/original_src/v3/original_src.proto.html#envoy-v3-api-field-extensions-filters-http-original-src-v3-originalsrc-mark"><span class="std std-ref">mark</span></a>. Setting
-this to <em>X</em> causes Envoy to <em>mark</em> all upstream packets originating from this http with value
-<em>X</em>. Note that if
-<a class="reference internal" href="../../../api-v3/extensions/filters/http/original_src/v3/original_src.proto.html#envoy-v3-api-field-extensions-filters-http-original-src-v3-originalsrc-mark"><span class="std std-ref">mark</span></a> is set
-to 0, Envoy will not mark upstream packets.</p>
-<p>We can use the following set of commands to ensure that all ipv4 and ipv6 traffic marked with <em>X</em>
-(assumed to be 123 in the example) routes correctly. Note that this example assumes that <em>eth0</em> is
-the default outbound interface.</p>
+<div class="section" id="id2">
+<h2>额外设置<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>使用的下游远程地址很可能是全局可路由的。默认情况下，从上游主机返回到该地址的数据包将不会通过 Envoy 路由。必须将网络配置为将 IP 被 Envoy 复制的所有流量都通过 Envoy 主机强制路由回去。</p>
+<p>假如 Envoy 和上游在同一个主机上–例如在边车（sidecar）部署中–，iptables 和路由规则可以被用来确保正确的行为。过滤器有个无符号整数配置 <a class="reference internal" href="../../../api-v3/extensions/filters/http/original_src/v3/original_src.proto.html#envoy-v3-api-field-extensions-filters-http-original-src-v3-originalsrc-mark"><span class="std std-ref">标记</span></a>。将其设置为 <em>X</em> 会导致 Envoy对来自此 http 的所有上游数据包 <em>标记</em> 为 <em>X</em>。注意 <a class="reference internal" href="../../../api-v3/extensions/filters/http/original_src/v3/original_src.proto.html#envoy-v3-api-field-extensions-filters-http-original-src-v3-originalsrc-mark"><span class="std std-ref">标记</span></a> 被设置为 0，Envoy 将不会标记上游数据包。</p>
+<p>我们可以使用下面这组命令来确保所有被标记为 <em>X*（例子上假设为 123）的 ipv4 和 ipv6 的流量都进行了正确路由。注意，这个例子假设 *eth0</em> 为默认的出站接口。</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>iptables  -t mangle -I PREROUTING -m mark     --mark 123 -j CONNMARK --save-mark
 iptables  -t mangle -I OUTPUT     -m connmark --mark 123 -j CONNMARK --restore-mark
 ip6tables -t mangle -I PREROUTING -m mark     --mark 123 -j CONNMARK --save-mark
@@ -281,10 +263,10 @@ echo 1 &gt; /proc/sys/net/ipv4/conf/eth0/route_localnet
 </pre></div>
 </div>
 </div>
-<div class="section" id="example-http-configuration">
-<h2>Example HTTP configuration<a class="headerlink" href="#example-http-configuration" title="Permalink to this headline">¶</a></h2>
-<p>The following example configures Envoy to use the original source for all connections made on port
-8888. All upstream packets are marked with 123.</p>
+<div class="section" id="http">
+<h2>HTTP 配置示例<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h2>
+<p>下面的示例将 Envoy 配置为对 8888 端口上的所有连接使用请求源。
+所有上游数据包被标记为 123。</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">http_filters</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.filters.http.original_src</span>
     <span class="nt">typed_config</span><span class="p">:</span>

@@ -9,7 +9,7 @@ Path matcher
 type.matcher.PathMatcher
 ------------------------
 
-`[type.matcher.PathMatcher proto] <https://github.com/envoyproxy/envoy/blob/5abbbb6ae8e7f7de81265f1f13474d8b84be3ebf/api/envoy/type/matcher/path.proto#L17>`_
+`[type.matcher.PathMatcher proto] <https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/type/matcher/path.proto#L17>`_
 
 Specifies the way to match a path on HTTP request.
 
