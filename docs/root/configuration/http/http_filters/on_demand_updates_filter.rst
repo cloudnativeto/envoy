@@ -8,7 +8,7 @@
 如果路由器配置中不存在 :ref:`路由配置 <envoy_v3_api_msg_config.route.v3.RouteConfiguration>`，按需更新过滤器可用于请求 :ref:`虚拟主机 <envoy_v3_api_msg_config.route.v3.VirtualHost>`
 的数据。*Host* 或者 *:authority* 头部的内容可以用于创建按需请求。对于要创建的按需请求， :ref:`VHDS <envoy_v3_api_field_config.route.v3.RouteConfiguration.vhds>` 必须启用，并且 *Host* 或者 *:authority* 头部要存在。
 
-如果 :ref:`作用域路由配置 <envoy_v3_api_msg_config.route.v3.ScopedRouteConfiguration>` 中指定按需加载路由配置，则按需更新过滤器还可以用于请求 *Route Configuration* 数据。
+如果 :ref:`RouteConfiguration 作用域 <envoy_v3_api_msg_config.route.v3.ScopedRouteConfiguration>` 中指定了按需加载 RouteConfiguration，则按需更新过滤器还可以用于请求*路由配置*数据。
 HTTP 头部的内容用于查找作用域并创建按需请求。
 
 按需 VHDS 和按需 S/RDS 目前不能同时使用。
