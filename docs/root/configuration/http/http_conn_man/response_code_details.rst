@@ -93,7 +93,7 @@ Http2 相信信息
     http2.inbound_empty_frames_flood, Envoy 检测到入站 HTTP/2 帧泛洪。
     http2.invalid.header.field, 其中一个 HTTP/2 标头无效。
     http2.outbound_frames_flood, Envoy 检测到一个来自服务器的 HTTP/2 帧泛洪。
-    http2.too_many_headers, headers（或 trailers）的数量超过了配置的限制。
+    http2.too_many_headers, 头部（或尾部）的数量超过了配置的限制。
     http2.unexpected_underscore, Envoy 被配置为丢掉以 underscores 为开头的标头键的请求。
     http2.unknown.nghttp2.error, nghttp2 遇到未知错误。
     http2.violation.of.messaging.rule, 该流违反了 HTTP/2 的消息传递规则。
