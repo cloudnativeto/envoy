@@ -174,7 +174,7 @@ Envoy 由 JSON 配置文件以及一组命令行选项驱动。以下是 Envoy �
 
 .. option:: --drain-time-s <integer>
 
-  *（可选）* Envoy 在 :ref:`热重启 <arch_overview_hot_restart>` 期间或通过 :ref:`LDS <arch_overview_dynamic_config_lds>` 修改或删除单个侦听器时将排空连接的时间，以秒为单位。 默认为 600秒（10分钟）。通常，排空时间应小于通过 :option:`--parent-shutdown-time-s` 选项设置的父关闭时间。如何配置两个设置取决于特定的部署。在边缘情况下，可能需要很长的排空时间。在服务到服务的方案中，可能使排空和关闭时间大大缩短（例如 60s / 90s）。
+  *（可选）* Envoy 在 :ref:`热重启 <arch_overview_hot_restart>` 期间或通过 :ref:`LDS <arch_overview_dynamic_config_lds>` 修改或删除单个监听器时将排空连接的时间，以秒为单位。 默认为 600秒（10分钟）。通常，排空时间应小于通过 :option:`--parent-shutdown-time-s` 选项设置的父关闭时间。如何配置两个设置取决于特定的部署。在边缘情况下，可能需要很长的排空时间。在服务到服务的方案中，可能使排空和关闭时间大大缩短（例如 60s/90s）。
 
 .. option:: --drain-strategy <string>
 
