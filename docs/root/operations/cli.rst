@@ -160,7 +160,7 @@ Envoy 由 JSON 配置文件以及一组命令行选项驱动。以下是 Envoy �
 
 .. option:: --service-node <string>
 
-  *（可选）* 定义运行 Envoy 的本地服务节点名称。本地服务节点名称首先来自:ref:`Bootstrap node <envoy_v3_api_field_config.bootstrap.v3.Bootstrap.node>` 信息的 :ref:`id
+  *（可选）* 定义运行 Envoy 的本地服务节点名称。本地服务节点名称首先来自 :ref:`Bootstrap 节点 <envoy_v3_api_field_config.bootstrap.v3.Bootstrap.node>` 信息的 :ref:`id
   <envoy_v3_api_field_config.core.v3.Node.id>` 字段。此CLI选项提供了一种指定此值的替代方法，它将覆盖在引导程序配置中设置的任何值。 如果使用以下任何功能，则应进行设置：:ref:`statsd <arch_overview_statistics>`、:ref:`CDS <config_cluster_manager_cds>` 和 :ref:`HTTP 跟踪 <arch_overview_tracing>`，可以通过此 CLI 选项或在引导程序配置中进行。
 
 .. option:: --service-zone <string>
