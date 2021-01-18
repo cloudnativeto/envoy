@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Resource monitors &mdash; envoy 1.16.0-380f11 documentation</title>
+  <title>资源监控 &mdash; envoy 1.16.0-d4d57f documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-380f11
+                1.16.0-d4d57f
               </div>
             
           
@@ -113,21 +113,21 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../api.html">v2 API 参考</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../bootstrap/bootstrap.html">Bootstrap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../listeners/listeners.html">监听器</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../clusters/clusters.html">Clusters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../http_routes/http_routes.html">HTTP route management</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../config.html">Extensions</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../filter/filter.html">Filters</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../accesslog/accesslog.html">Access loggers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../clusters/clusters.html">集群</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../http_routes/http_routes.html">HTTP 路由管理</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../config.html">扩展</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../filter/filter.html">过滤器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../accesslog/accesslog.html">访问记录器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../rbac/rbac.html">RBAC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../health_checker/health_checker.html">Health checkers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../transport_socket/transport_socket.html">Transport sockets</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Resource monitors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../health_checker/health_checker.html">健康检查器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transport_socket/transport_socket.html">传输套接字</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">资源监控</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../common/common.html">Common</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cluster/cluster.html">Cluster</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../listener/listener.html">Listener</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cluster/cluster.html">集群</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../listener/listener.html">监听器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../grpc_credential/grpc_credential.html">Grpc Credentials</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../retry/retry.html">Retry Predicates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../trace/trace.html">HTTP Tracers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../trace/trace.html">HTTP 追踪器</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../admin/admin.html">Admin</a></li>
@@ -193,9 +193,9 @@
         
           <li><a href="../../api.html">v2 API 参考</a> &raquo;</li>
         
-          <li><a href="../config.html">Extensions</a> &raquo;</li>
+          <li><a href="../config.html">扩展</a> &raquo;</li>
         
-      <li>Resource monitors</li>
+      <li>资源监控</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -214,8 +214,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="resource-monitors">
-<span id="config-resource-monitors"></span><h1>Resource monitors<a class="headerlink" href="#resource-monitors" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="config-resource-monitors">
+<span id="id1"></span><h1>资源监控<a class="headerlink" href="#config-resource-monitors" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="fixed_heap/v2alpha/fixed_heap.proto.html">Fixed heap</a><ul>

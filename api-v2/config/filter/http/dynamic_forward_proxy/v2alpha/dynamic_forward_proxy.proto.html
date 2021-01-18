@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Dynamic forward proxy &mdash; envoy 1.16.0-380f11 documentation</title>
+  <title>Dynamic forward proxy &mdash; envoy 1.16.0-d4d57f documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-380f11
+                1.16.0-d4d57f
               </div>
             
           
@@ -113,21 +113,21 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../../../../api.html">v2 API 参考</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../../../bootstrap/bootstrap.html">Bootstrap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../listeners/listeners.html">监听器</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../clusters/clusters.html">Clusters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../http_routes/http_routes.html">HTTP route management</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../../../config.html">Extensions</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="../../../filter.html">Filters</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../accesslog/accesslog.html">Access loggers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../clusters/clusters.html">集群</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../http_routes/http_routes.html">HTTP 路由管理</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../../config.html">扩展</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../../../filter.html">过滤器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../accesslog/accesslog.html">访问记录器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../rbac/rbac.html">RBAC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../health_checker/health_checker.html">Health checkers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../transport_socket/transport_socket.html">Transport sockets</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../resource_monitor/resource_monitor.html">Resource monitors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../health_checker/health_checker.html">健康检查器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../transport_socket/transport_socket.html">传输套接字</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../resource_monitor/resource_monitor.html">资源监控</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../common/common.html">Common</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../cluster/cluster.html">Cluster</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../listener/listener.html">Listener</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../cluster/cluster.html">集群</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../listener/listener.html">监听器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../grpc_credential/grpc_credential.html">Grpc Credentials</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../retry/retry.html">Retry Predicates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../trace/trace.html">HTTP Tracers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../trace/trace.html">HTTP 追踪器</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../admin/admin.html">Admin</a></li>
@@ -193,9 +193,9 @@
         
           <li><a href="../../../../../api.html">v2 API 参考</a> &raquo;</li>
         
-          <li><a href="../../../../config.html">Extensions</a> &raquo;</li>
+          <li><a href="../../../../config.html">扩展</a> &raquo;</li>
         
-          <li><a href="../../../filter.html">Filters</a> &raquo;</li>
+          <li><a href="../../../filter.html">过滤器</a> &raquo;</li>
         
           <li><a href="../../http.html">HTTP filters</a> &raquo;</li>
         
@@ -222,7 +222,7 @@
 <span id="envoy-api-file-envoy-config-filter-http-dynamic-forward-proxy-v2alpha-dynamic-forward-proxy-proto"></span><h1>Dynamic forward proxy<a class="headerlink" href="#dynamic-forward-proxy" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="config-filter-http-dynamic-forward-proxy-v2alpha-filterconfig">
 <span id="envoy-api-msg-config-filter-http-dynamic-forward-proxy-v2alpha-filterconfig"></span><h2>config.filter.http.dynamic_forward_proxy.v2alpha.FilterConfig<a class="headerlink" href="#config-filter-http-dynamic-forward-proxy-v2alpha-filterconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/filter/http/dynamic_forward_proxy/v2alpha/dynamic_forward_proxy.proto#L22">[config.filter.http.dynamic_forward_proxy.v2alpha.FilterConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/config/filter/http/dynamic_forward_proxy/v2alpha/dynamic_forward_proxy.proto#L22">[config.filter.http.dynamic_forward_proxy.v2alpha.FilterConfig proto]</a></p>
 <p>Configuration for the dynamic forward proxy HTTP filter. See the <a class="reference internal" href="../../../../../../intro/arch_overview/http/http_proxy.html#arch-overview-http-dynamic-forward-proxy"><span class="std std-ref">architecture overview</span></a> for more information.</p>
 <p id="extension-envoy-filters-http-dynamic-forward-proxy">This extension may be referenced by the qualified name <em>envoy.filters.http.dynamic_forward_proxy</em></p>
 <div class="admonition note">
@@ -242,7 +242,7 @@ match that of associated <a class="reference internal" href="../../../../cluster
 </div>
 <div class="section" id="config-filter-http-dynamic-forward-proxy-v2alpha-perrouteconfig">
 <span id="envoy-api-msg-config-filter-http-dynamic-forward-proxy-v2alpha-perrouteconfig"></span><h2>config.filter.http.dynamic_forward_proxy.v2alpha.PerRouteConfig<a class="headerlink" href="#config-filter-http-dynamic-forward-proxy-v2alpha-perrouteconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/filter/http/dynamic_forward_proxy/v2alpha/dynamic_forward_proxy.proto#L31">[config.filter.http.dynamic_forward_proxy.v2alpha.PerRouteConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/config/filter/http/dynamic_forward_proxy/v2alpha/dynamic_forward_proxy.proto#L31">[config.filter.http.dynamic_forward_proxy.v2alpha.PerRouteConfig proto]</a></p>
 <p>Per route Configuration for the dynamic forward proxy HTTP filter.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;host_rewrite&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>

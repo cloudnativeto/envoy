@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Virtual Host Discovery Service (VHDS) &mdash; envoy 1.16.0-380f11 documentation</title>
+  <title>虚拟主机发现服务（VHDS） &mdash; envoy 1.16.0-d4d57f documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-380f11
+                1.16.0-d4d57f
               </div>
             
           
@@ -112,7 +112,7 @@
 <li class="toctree-l3 current"><a class="reference internal" href="http_conn_man.html">HTTP 连接管理器</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="overview.html">概览</a></li>
 <li class="toctree-l4"><a class="reference internal" href="route_matching.html">路由匹配</a></li>
-<li class="toctree-l4"><a class="reference internal" href="traffic_splitting.html">Traffic Shifting/Splitting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_splitting.html">流量转移/拆分</a></li>
 <li class="toctree-l4"><a class="reference internal" href="header_casing.html">HTTP/1.1 头部大小写转换</a></li>
 <li class="toctree-l4"><a class="reference internal" href="headers.html">HTTP header manipulation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="header_sanitizing.html">HTTP header sanitizing</a></li>
@@ -121,7 +121,7 @@
 <li class="toctree-l4"><a class="reference internal" href="stats.html">统计</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtime.html">运行时</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rds.html">路由发现服务（RDS）</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Virtual Host Discovery Service (VHDS)</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">虚拟主机发现服务（VHDS）</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../http_filters/http_filters.html">HTTP 过滤器</a></li>
@@ -193,7 +193,7 @@
         
           <li><a href="http_conn_man.html">HTTP 连接管理器</a> &raquo;</li>
         
-      <li>Virtual Host Discovery Service (VHDS)</li>
+      <li>虚拟主机发现服务（VHDS）</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -212,72 +212,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="virtual-host-discovery-service-vhds">
-<span id="config-http-conn-man-vhds"></span><h1>Virtual Host Discovery Service (VHDS)<a class="headerlink" href="#virtual-host-discovery-service-vhds" title="Permalink to this headline">¶</a></h1>
-<p>The virtual host discovery service (VHDS) API is an optional API that Envoy will call to
-dynamically fetch <a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-msg-config-route-v3-virtualhost"><span class="std std-ref">virtual hosts</span></a>. A virtual host includes
-a name and set of domains that get routed to it based on the incoming request’s host header.</p>
-<p>By default in RDS, all routes for a cluster are sent to every Envoy instance in the mesh. This
-causes scaling issues as the size of the cluster grows. The majority of this complexity can be
-found in the virtual host configurations, of which most are not needed by any individual proxy.</p>
-<p>In order to fix this issue, the Virtual Host Discovery Service (VHDS) protocol uses the delta xDS
-protocol to allow a route configuration to be subscribed to and the necessary virtual hosts to be
-requested as needed. Instead of sending all virtual hosts with a route config, using VHDS will
-allow an Envoy instance to subscribe and unsubscribe from a list of virtual hosts stored internally
-in the xDS management server. The xDS management server will monitor this list and use it to filter
-the configuration sent to an individual Envoy instance to only contain the subscribed virtual hosts.</p>
-<div class="section" id="virtual-host-resource-naming-convention">
-<h2>Virtual Host Resource Naming Convention<a class="headerlink" href="#virtual-host-resource-naming-convention" title="Permalink to this headline">¶</a></h2>
-<p>Virtual hosts in VHDS are identified by a combination of the name of the route configuration to
-which the virtual host belongs as well as the HTTP <em>host</em> header (<em>:authority</em> for HTTP2) entry.
-Resources should be named as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">route</span> <span class="n">configuration</span> <span class="n">name</span><span class="o">&gt;/&lt;</span><span class="n">host</span> <span class="n">entry</span><span class="o">&gt;</span>
-</pre></div>
+  <div class="section" id="vhds">
+<span id="config-http-conn-man-vhds"></span><h1>虚拟主机发现服务（VHDS）<a class="headerlink" href="#vhds" title="Permalink to this headline">¶</a></h1>
+<p>虚拟主机发现服务（VHDS）API 是 Envoy 用来动态获取 <a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-msg-config-route-v3-virtualhost"><span class="std std-ref">虚拟主机</span></a> 的可选 API。虚拟主机包括名称和域名的集合，这些名称和域名的集合根据传入请求的主机头部路由到该主机。</p>
+<p>在 RDS 中，默认情况下，所有指向集群的路由都会分发给网格中的每个 Envoy 实例。随着群集规模的增长，这会导致扩展问题。这种复杂性的大部分可以在虚拟主机配置中找到，其中绝大部分虚拟主机配置对单个代理来说都是无用的。</p>
+<p>为了解决此问题，虚拟主机发现服务（VHDS）协议使用增量 xDS 协议来允许订阅路由配置，并根据需要请求必要的虚拟主机。使用 VHDS 允许 Envoy 实例订阅和取消订阅内部存储在 xDS 管理服务器中的虚拟主机列表，而不是通过路由配置发送所有虚拟主机。xDS 管理服务器将监视此列表，并使用它过滤发送到单个 Envoy 实例的配置，使其仅包含已订阅的虚拟主机。</p>
+<div class="section" id="id1">
+<h2>虚拟主机资源命名约定<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>VHDS 中的虚拟主机由虚拟主机所属的路由配置的名称以及 HTTP <em>host</em> 头部（HTTP2 的：<em>:authority</em> ）的组合来标识。资源应命名如下：</p>
+<p>&lt;route configuration name&gt;/&lt;host entry&gt;</p>
+<p>请注意，匹配应该从右到左进行，因为主机条目不能包含斜线，而路由配置名称可以。</p>
 </div>
-<p>Note that matching should be done from right to left since a host entry cannot contain slashes while
-a route configuration name can.</p>
-</div>
-<div class="section" id="subscribing-to-resources">
-<h2>Subscribing to Resources<a class="headerlink" href="#subscribing-to-resources" title="Permalink to this headline">¶</a></h2>
-<p>VHDS allows resources to be <a class="reference internal" href="../../../api-docs/xds_protocol.html#xds-protocol-delta-subscribe"><span class="std std-ref">subscribed</span></a> to using a
-<a class="reference internal" href="../../../api-v3/service/discovery/v3/discovery.proto.html#envoy-v3-api-msg-service-discovery-v3-deltadiscoveryrequest"><span class="std std-ref">DeltaDiscoveryRequest</span></a> with the
-<a class="reference internal" href="../../../api-v3/service/discovery/v3/discovery.proto.html#envoy-v3-api-field-service-discovery-v3-deltadiscoveryrequest-type-url"><span class="std std-ref">type_url</span></a> set to
-<cite>type.googleapis.com/envoy.config.route.v3.VirtualHost</cite>
-and <a class="reference internal" href="../../../api-v3/service/discovery/v3/discovery.proto.html#envoy-v3-api-field-service-discovery-v3-deltadiscoveryrequest-resource-names-subscribe"><span class="std std-ref">resource_names_subscribe</span></a>
-set to a list of virtual host resource names for which it would like configuration.</p>
-<p>If a route for the contents of a host/authority header cannot be resolved, the active stream is
-paused while a
-<a class="reference internal" href="../../../api-v3/service/discovery/v3/discovery.proto.html#envoy-v3-api-msg-service-discovery-v3-deltadiscoveryrequest"><span class="std std-ref">DeltaDiscoveryRequest</span></a> is sent.
-When a <a class="reference internal" href="../../../api-v3/service/discovery/v3/discovery.proto.html#envoy-v3-api-msg-service-discovery-v3-deltadiscoveryresponse"><span class="std std-ref">DeltaDiscoveryResponse</span></a> is received where one of
-the <a class="reference internal" href="../../../api-v3/service/discovery/v3/discovery.proto.html#envoy-v3-api-field-service-discovery-v3-resource-aliases"><span class="std std-ref">aliases</span></a> or the
-<a class="reference internal" href="../../../api-v3/service/discovery/v3/discovery.proto.html#envoy-v3-api-field-service-discovery-v3-resource-name"><span class="std std-ref">name</span></a> in the response exactly matches the
-<a class="reference internal" href="../../../api-v3/service/discovery/v3/discovery.proto.html#envoy-v3-api-field-service-discovery-v3-deltadiscoveryrequest-resource-names-subscribe"><span class="std std-ref">resource_names_subscribe</span></a>
-entry from the <a class="reference internal" href="../../../api-v3/service/discovery/v3/discovery.proto.html#envoy-v3-api-msg-service-discovery-v3-deltadiscoveryrequest"><span class="std std-ref">DeltaDiscoveryRequest</span></a>, the route
-configuration is updated, the stream is resumed, and processing of the filter chain continues.</p>
-<p>Updates to virtual hosts occur in two ways. If a virtual host was originally sent over RDS, then the
-virtual host should be updated over RDS. If a virtual host was subscribed to over VHDS, then updates
-will take place over VHDS.</p>
-<p>When a route configuration entry is updated, if the
-<a class="reference internal" href="../../../api-v3/config/route/v3/route.proto.html#envoy-v3-api-field-config-route-v3-routeconfiguration-vhds"><span class="std std-ref">vhds field</span></a> has changed, the virtual host table for
-that route configuration is cleared, which will require that all virtual hosts be sent again.</p>
-<div class="section" id="compatibility-with-scoped-rds">
-<h3>Compatibility with Scoped RDS<a class="headerlink" href="#compatibility-with-scoped-rds" title="Permalink to this headline">¶</a></h3>
-<p>VHDS shouldn’t present any compatibility issues with
-<a class="reference internal" href="../../../api-v3/config/route/v3/scoped_route.proto.html#envoy-v3-api-msg-config-route-v3-scopedrouteconfiguration"><span class="std std-ref">scoped RDS</span></a>.
-Route configuration names can still be used for virtual host matching, but with
-scoped RDS configured it would point to a scoped route configuration.</p>
-<p>However, it is important to note that using
-on-demand <a class="reference internal" href="../../../api-v3/config/route/v3/scoped_route.proto.html#envoy-v3-api-msg-config-route-v3-scopedrouteconfiguration"><span class="std std-ref">scoped RDS</span></a>
-and VHDS together will require two on-demand subscriptions per routing scope.</p>
+<div class="section" id="id2">
+<h2>订阅资源<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>VHDS 允许使用 <a class="reference internal" href="../../../api-v3/service/discovery/v3/discovery.proto.html#envoy-v3-api-msg-service-discovery-v3-deltadiscoveryrequest"><span class="std std-ref">DeltaDiscoveryRequest</span></a> 来 <a class="reference internal" href="../../../api-docs/xds_protocol.html#xds-protocol-delta-subscribe"><span class="std std-ref">订阅</span></a> 资源，其 <a class="reference internal" href="../../../api-v3/service/discovery/v3/discovery.proto.html#envoy-v3-api-field-service-discovery-v3-deltadiscoveryrequest-type-url"><span class="std std-ref">type_url</span></a> 设置为 <cite>type.googleapis.com/envoy.config.route.v3.VirtualHost</cite>， <a class="reference internal" href="../../../api-v3/service/discovery/v3/discovery.proto.html#envoy-v3-api-field-service-discovery-v3-deltadiscoveryrequest-resource-names-subscribe"><span class="std std-ref">resource_names_subscribe</span></a> 设置为其配置的虚拟主机资源名称列表。</p>
+<p>如果无法解析 host/authority 头部内容的路由，则在发送 <a class="reference internal" href="../../../api-v3/service/discovery/v3/discovery.proto.html#envoy-v3-api-msg-service-discovery-v3-deltadiscoveryrequest"><span class="std std-ref">DeltaDiscoveryRequest</span></a> 时暂停活动流。当 <a class="reference internal" href="../../../api-v3/service/discovery/v3/discovery.proto.html#envoy-v3-api-msg-service-discovery-v3-deltadiscoveryresponse"><span class="std std-ref">DeltaDiscoveryResponse</span></a> 被收到的时候，并且该 <a class="reference internal" href="../../../api-v3/service/discovery/v3/discovery.proto.html#envoy-v3-api-msg-service-discovery-v3-deltadiscoveryresponse"><span class="std std-ref">DeltaDiscoveryResponse</span></a> 其中的一个 <a class="reference internal" href="../../../api-v3/service/discovery/v3/discovery.proto.html#envoy-v3-api-field-service-discovery-v3-resource-aliases"><span class="std std-ref">别名</span></a> 或 <a class="reference internal" href="../../../api-v3/service/discovery/v3/discovery.proto.html#envoy-v3-api-field-service-discovery-v3-resource-name"><span class="std std-ref">名称</span></a> 完全匹配 <a class="reference internal" href="../../../api-v3/service/discovery/v3/discovery.proto.html#envoy-v3-api-msg-service-discovery-v3-deltadiscoveryrequest"><span class="std std-ref">DeltaDiscoveryRequest</span></a> 中的 <a class="reference internal" href="../../../api-v3/service/discovery/v3/discovery.proto.html#envoy-v3-api-field-service-discovery-v3-deltadiscoveryrequest-resource-names-subscribe"><span class="std std-ref">resource_names_subscribe</span></a> ，路由配置被更新时，该流被恢复，并且所述过滤器链的处理继续。</p>
+<p>对虚拟主机的更新以两种方式发生。如果虚拟主机最初是通过 RDS 发送的，则应通过 RDS 更新虚拟主机。如果通过 VHDS 订阅了虚拟主机，则更新将通过 VHDS 进行。</p>
+<p>更新路由配置条目时，如果 <a class="reference internal" href="../../../api-v3/config/route/v3/route.proto.html#envoy-v3-api-field-config-route-v3-routeconfiguration-vhds"><span class="std std-ref">vhds 字段</span></a> 已更改，则将清除该路由配置的虚拟主机列表，并且要求再次发送所有虚拟主机列表。</p>
+<div class="section" id="rds">
+<h3>与作用域 RDS 的兼容性<a class="headerlink" href="#rds" title="Permalink to this headline">¶</a></h3>
+<p>VHDS 不应该与 <a class="reference internal" href="../../../api-v3/config/route/v3/scoped_route.proto.html#envoy-v3-api-msg-config-route-v3-scopedrouteconfiguration"><span class="std std-ref">作用域 RDS</span></a> 出现任何兼容性问题 。路由配置名称仍可以用于虚拟主机匹配，但是在配置了作用域 RDS 的情况下，它将指向作用域路由配置。</p>
+<p>但是，必须注意，按需 <a class="reference internal" href="../../../api-v3/config/route/v3/scoped_route.proto.html#envoy-v3-api-msg-config-route-v3-scopedrouteconfiguration"><span class="std std-ref">作用域 RDS</span></a> 和 VHDS 一起使用时，每个路由作用域需要两个按需订阅。</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../overview/xds_api.html#v2-grpc-streaming-endpoints"><span class="std std-ref">v2 API reference</span></a></p></li>
+<li><p><a class="reference internal" href="../../overview/xds_api.html#v2-grpc-streaming-endpoints"><span class="std std-ref">v2 API 参考</span></a></p></li>
 </ul>
 </div>
-<div class="section" id="statistics">
-<h3>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h3>
-<p>VHDS has a statistics tree rooted at <em>http.&lt;stat_prefix&gt;.vhds.&lt;virtual_host_name&gt;.</em>.
-Any <code class="docutils literal notranslate"><span class="pre">:</span></code> character in the <code class="docutils literal notranslate"><span class="pre">virtual_host_name</span></code> name gets replaced with <code class="docutils literal notranslate"><span class="pre">_</span></code> in the
-stats tree. The stats tree contains the following statistics:</p>
+<div class="section" id="id3">
+<h3>统计<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>VHDS 有一个统计树，其根目录为 <em>http.&lt;stat_prefix&gt;.vhds.&lt;virtual_host_name&gt;.</em>.。<code class="docutils literal notranslate"><span class="pre">virtual_host_name</span></code> 中的所有 <code class="docutils literal notranslate"><span class="pre">:</span></code> 字符都将在统计树中被 <code class="docutils literal notranslate"><span class="pre">_</span></code> 替换。统计树包含以下统计信息：</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -285,19 +247,19 @@ stats tree. The stats tree contains the following statistics:</p>
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>config_reload</p></td>
 <td><p>Counter</p></td>
-<td><p>Total API fetches that resulted in a config reload due to a different config</p></td>
+<td><p>由于配置不同而导致重新加载配置的总 API 获取次数</p></td>
 </tr>
 <tr class="row-odd"><td><p>empty_update</p></td>
 <td><p>Counter</p></td>
-<td><p>Total count of empty updates received</p></td>
+<td><p>收到的空更新总数</p></td>
 </tr>
 </tbody>
 </table>

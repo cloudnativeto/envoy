@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>HTTP 连接管理器 &mdash; envoy 1.16.0-380f11 documentation</title>
+  <title>HTTP 连接管理器 &mdash; envoy 1.16.0-d4d57f documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-380f11
+                1.16.0-d4d57f
               </div>
             
           
@@ -112,7 +112,7 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">HTTP 连接管理器</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="overview.html">概览</a></li>
 <li class="toctree-l4"><a class="reference internal" href="route_matching.html">路由匹配</a></li>
-<li class="toctree-l4"><a class="reference internal" href="traffic_splitting.html">Traffic Shifting/Splitting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic_splitting.html">流量转移/拆分</a></li>
 <li class="toctree-l4"><a class="reference internal" href="header_casing.html">HTTP/1.1 头部大小写转换</a></li>
 <li class="toctree-l4"><a class="reference internal" href="headers.html">HTTP header manipulation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="header_sanitizing.html">HTTP header sanitizing</a></li>
@@ -121,7 +121,7 @@
 <li class="toctree-l4"><a class="reference internal" href="stats.html">统计</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtime.html">运行时</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rds.html">路由发现服务（RDS）</a></li>
-<li class="toctree-l4"><a class="reference internal" href="vhds.html">Virtual Host Discovery Service (VHDS)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vhds.html">虚拟主机发现服务（VHDS）</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../http_filters/http_filters.html">HTTP 过滤器</a></li>
@@ -216,9 +216,9 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">概览</a></li>
 <li class="toctree-l1"><a class="reference internal" href="route_matching.html">路由匹配</a></li>
-<li class="toctree-l1"><a class="reference internal" href="traffic_splitting.html">Traffic Shifting/Splitting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="traffic_splitting.html#traffic-shifting-between-two-upstreams">Traffic shifting between two upstreams</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_splitting.html#traffic-splitting-across-multiple-upstreams">Traffic splitting across multiple upstreams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traffic_splitting.html">流量转移/拆分</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="traffic_splitting.html#config-http-conn-man-route-table-traffic-splitting-shift">两个上游间的流量转移</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_splitting.html#config-http-conn-man-route-table-traffic-splitting-split">跨多个上游的流量分流</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="header_casing.html">HTTP/1.1 头部大小写转换</a></li>
@@ -271,9 +271,9 @@
 <li class="toctree-l2"><a class="reference internal" href="rds.html#id1">统计</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="vhds.html">Virtual Host Discovery Service (VHDS)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="vhds.html#virtual-host-resource-naming-convention">Virtual Host Resource Naming Convention</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vhds.html#subscribing-to-resources">Subscribing to Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vhds.html">虚拟主机发现服务（VHDS）</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vhds.html#id1">虚拟主机资源命名约定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vhds.html#id2">订阅资源</a></li>
 </ul>
 </li>
 </ul>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>HTTP route configuration &mdash; envoy 1.16.0-380f11 documentation</title>
+  <title>HTTP route configuration &mdash; envoy 1.16.0-d4d57f documentation</title>
   
 
   
@@ -47,7 +47,7 @@
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="HTTP scoped routing configuration" href="scoped_route.proto.html" />
-    <link rel="prev" title="HTTP route management" href="../../../http_routes/http_routes.html" /> 
+    <link rel="prev" title="HTTP 路由管理" href="../../../http_routes/http_routes.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-380f11
+                1.16.0-d4d57f
               </div>
             
           
@@ -114,14 +114,14 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../../api.html">v3 API 参考</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../bootstrap/bootstrap.html">Bootstrap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../listeners/listeners.html">监听器</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../clusters/clusters.html">Clusters</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../../http_routes/http_routes.html">HTTP route management</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../clusters/clusters.html">集群</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../http_routes/http_routes.html">HTTP 路由管理</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">HTTP route configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="scoped_route.proto.html">HTTP scoped routing configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="route_components.proto.html">HTTP route components</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../config.html">Extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../config.html">扩展</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../admin/admin.html">Admin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../data/data.html">Envoy data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../service/service.html">Services</a></li>
@@ -184,7 +184,7 @@
         
           <li><a href="../../../api.html">v3 API 参考</a> &raquo;</li>
         
-          <li><a href="../../../http_routes/http_routes.html">HTTP route management</a> &raquo;</li>
+          <li><a href="../../../http_routes/http_routes.html">HTTP 路由管理</a> &raquo;</li>
         
       <li>HTTP route configuration</li>
     
@@ -213,7 +213,7 @@
 </ul>
 <div class="section" id="config-route-v3-routeconfiguration">
 <span id="envoy-v3-api-msg-config-route-v3-routeconfiguration"></span><h2>config.route.v3.RouteConfiguration<a class="headerlink" href="#config-route-v3-routeconfiguration" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/route/v3/route.proto#L24">[config.route.v3.RouteConfiguration proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/config/route/v3/route.proto#L24">[config.route.v3.RouteConfiguration proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;virtual_hosts&quot;</span><span class="p">:</span> <span class="p">[],</span>
@@ -308,7 +308,7 @@ using CDS with a static route table).</p>
 </div>
 <div class="section" id="config-route-v3-vhds">
 <span id="envoy-v3-api-msg-config-route-v3-vhds"></span><h2>config.route.v3.Vhds<a class="headerlink" href="#config-route-v3-vhds" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/route/v3/route.proto#L110">[config.route.v3.Vhds proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/config/route/v3/route.proto#L110">[config.route.v3.Vhds proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;config_source&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>
 <span class="p">}</span>
@@ -332,7 +332,7 @@ using CDS with a static route table).</p>
         <a href="scoped_route.proto.html" class="btn btn-neutral float-right" title="HTTP scoped routing configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../../http_routes/http_routes.html" class="btn btn-neutral float-left" title="HTTP route management" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../../http_routes/http_routes.html" class="btn btn-neutral float-left" title="HTTP 路由管理" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

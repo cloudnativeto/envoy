@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>HTTP scoped routing configuration &mdash; envoy 1.16.0-380f11 documentation</title>
+  <title>HTTP scoped routing configuration &mdash; envoy 1.16.0-d4d57f documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-380f11
+                1.16.0-d4d57f
               </div>
             
           
@@ -113,14 +113,14 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../api.html">v2 API 参考</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../bootstrap/bootstrap.html">Bootstrap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../listeners/listeners.html">监听器</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../clusters/clusters.html">Clusters</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../http_routes/http_routes.html">HTTP route management</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../clusters/clusters.html">集群</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../http_routes/http_routes.html">HTTP 路由管理</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="route.proto.html">HTTP route configuration</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">HTTP scoped routing configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="route/route_components.proto.html">HTTP route components</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../config/config.html">Extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../config/config.html">扩展</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../admin/admin.html">Admin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../data/data.html">Envoy data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../service/service.html">Services</a></li>
@@ -184,7 +184,7 @@
         
           <li><a href="../../api.html">v2 API 参考</a> &raquo;</li>
         
-          <li><a href="../../http_routes/http_routes.html">HTTP route management</a> &raquo;</li>
+          <li><a href="../../http_routes/http_routes.html">HTTP 路由管理</a> &raquo;</li>
         
       <li>HTTP scoped routing configuration</li>
     
@@ -212,7 +212,7 @@
 </ul>
 <div class="section" id="scopedrouteconfiguration">
 <span id="envoy-api-msg-scopedrouteconfiguration"></span><h2>ScopedRouteConfiguration<a class="headerlink" href="#scopedrouteconfiguration" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/scoped_route.proto#L76">[ScopedRouteConfiguration proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/scoped_route.proto#L76">[ScopedRouteConfiguration proto]</a></p>
 <p>Specifies a routing scope, which associates a
 <a class="reference internal" href="#envoy-api-msg-scopedrouteconfiguration-key"><span class="std std-ref">Key</span></a> to a
 <a class="reference internal" href="route.proto.html#envoy-api-msg-routeconfiguration"><span class="std std-ref">RouteConfiguration</span></a> (identified by its resource name).</p>
@@ -286,7 +286,7 @@ with this scope.</p>
 </div>
 <div class="section" id="scopedrouteconfiguration-key">
 <span id="envoy-api-msg-scopedrouteconfiguration-key"></span><h2>ScopedRouteConfiguration.Key<a class="headerlink" href="#scopedrouteconfiguration-key" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/scoped_route.proto#L82">[ScopedRouteConfiguration.Key proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/scoped_route.proto#L82">[ScopedRouteConfiguration.Key proto]</a></p>
 <p>Specifies a key which is matched against the output of the
 <a class="reference internal" href="../../config/filter/network/http_connection_manager/v2/http_connection_manager.proto.html#envoy-api-field-config-filter-network-http-connection-manager-v2-scopedroutes-scope-key-builder"><span class="std std-ref">scope_key_builder</span></a>
 specified in the HttpConnectionManager. The matching is done per HTTP
@@ -306,7 +306,7 @@ fragments in the corresponding
 </div>
 <div class="section" id="scopedrouteconfiguration-key-fragment">
 <span id="envoy-api-msg-scopedrouteconfiguration-key-fragment"></span><h2>ScopedRouteConfiguration.Key.Fragment<a class="headerlink" href="#scopedrouteconfiguration-key-fragment" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/scoped_route.proto#L83">[ScopedRouteConfiguration.Key.Fragment proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/scoped_route.proto#L83">[ScopedRouteConfiguration.Key.Fragment proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;string_key&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
 <span class="p">}</span>

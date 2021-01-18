@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Previous priorities retry selector &mdash; envoy 1.16.0-380f11 documentation</title>
+  <title>Previous priorities retry selector &mdash; envoy 1.16.0-d4d57f documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-380f11
+                1.16.0-d4d57f
               </div>
             
           
@@ -114,9 +114,9 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../../../../api.html">v3 API 参考</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../../../bootstrap/bootstrap.html">Bootstrap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../listeners/listeners.html">监听器</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../clusters/clusters.html">Clusters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../../http_routes/http_routes.html">HTTP route management</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../../../../config/config.html">Extensions</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../../../clusters/clusters.html">集群</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../http_routes/http_routes.html">HTTP 路由管理</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../../../config/config.html">扩展</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../../../../config/filter/filter.html">Filters</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../config/accesslog/accesslog.html">Access loggers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../config/rbac/rbac.html">RBAC</a></li>
@@ -198,7 +198,7 @@
         
           <li><a href="../../../../../api.html">v3 API 参考</a> &raquo;</li>
         
-          <li><a href="../../../../../config/config.html">Extensions</a> &raquo;</li>
+          <li><a href="../../../../../config/config.html">扩展</a> &raquo;</li>
         
           <li><a href="../../../../../config/retry/retry.html">Retry Predicates</a> &raquo;</li>
         
@@ -225,7 +225,7 @@
 <span id="envoy-v3-api-file-envoy-extensions-retry-priority-previous-priorities-v3-previous-priorities-config-proto"></span><h1>Previous priorities retry selector<a class="headerlink" href="#previous-priorities-retry-selector" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="extensions-retry-priority-previous-priorities-v3-previousprioritiesconfig">
 <span id="envoy-v3-api-msg-extensions-retry-priority-previous-priorities-v3-previousprioritiesconfig"></span><h2>extensions.retry.priority.previous_priorities.v3.PreviousPrioritiesConfig<a class="headerlink" href="#extensions-retry-priority-previous-priorities-v3-previousprioritiesconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/extensions/retry/priority/previous_priorities/v3/previous_priorities_config.proto#L40">[extensions.retry.priority.previous_priorities.v3.PreviousPrioritiesConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/extensions/retry/priority/previous_priorities/v3/previous_priorities_config.proto#L40">[extensions.retry.priority.previous_priorities.v3.PreviousPrioritiesConfig proto]</a></p>
 <p>A retry host selector that attempts to spread retries between priorities, even if certain
 priorities would not normally be attempted due to higher priorities being available.</p>
 <p>As priorities get excluded, load will be distributed amongst the remaining healthy priorities

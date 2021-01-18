@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Common tap extension configuration &mdash; envoy 1.16.0-380f11 documentation</title>
+  <title>Common tap extension configuration &mdash; envoy 1.16.0-d4d57f documentation</title>
   
 
   
@@ -46,7 +46,7 @@
     
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="Cluster" href="../../../cluster/cluster.html" />
+    <link rel="next" title="集群" href="../../../cluster/cluster.html" />
     <link rel="prev" title="Dynamic forward proxy common configuration" href="../../dynamic_forward_proxy/v2alpha/dns_cache.proto.html" /> 
 </head>
 
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-380f11
+                1.16.0-d4d57f
               </div>
             
           
@@ -113,21 +113,21 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../../../api.html">v2 API 参考</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../../bootstrap/bootstrap.html">Bootstrap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../listeners/listeners.html">监听器</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../clusters/clusters.html">Clusters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../http_routes/http_routes.html">HTTP route management</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../../config.html">Extensions</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../../../filter/filter.html">Filters</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../accesslog/accesslog.html">Access loggers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../clusters/clusters.html">集群</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../http_routes/http_routes.html">HTTP 路由管理</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../config.html">扩展</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../filter/filter.html">过滤器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../accesslog/accesslog.html">访问记录器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../rbac/rbac.html">RBAC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../health_checker/health_checker.html">Health checkers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../transport_socket/transport_socket.html">Transport sockets</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../resource_monitor/resource_monitor.html">Resource monitors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../health_checker/health_checker.html">健康检查器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../transport_socket/transport_socket.html">传输套接字</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../resource_monitor/resource_monitor.html">资源监控</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="../../common.html">Common</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../cluster/cluster.html">Cluster</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../listener/listener.html">Listener</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cluster/cluster.html">集群</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../listener/listener.html">监听器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../grpc_credential/grpc_credential.html">Grpc Credentials</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../retry/retry.html">Retry Predicates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trace/trace.html">HTTP Tracers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../trace/trace.html">HTTP 追踪器</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../admin/admin.html">Admin</a></li>
@@ -193,7 +193,7 @@
         
           <li><a href="../../../../api.html">v2 API 参考</a> &raquo;</li>
         
-          <li><a href="../../../config.html">Extensions</a> &raquo;</li>
+          <li><a href="../../../config.html">扩展</a> &raquo;</li>
         
           <li><a href="../../common.html">Common</a> &raquo;</li>
         
@@ -220,7 +220,7 @@
 <span id="envoy-api-file-envoy-config-common-tap-v2alpha-common-proto"></span><h1>Common tap extension configuration<a class="headerlink" href="#common-tap-extension-configuration" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="config-common-tap-v2alpha-commonextensionconfig">
 <span id="envoy-api-msg-config-common-tap-v2alpha-commonextensionconfig"></span><h2>config.common.tap.v2alpha.CommonExtensionConfig<a class="headerlink" href="#config-common-tap-v2alpha-commonextensionconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/common/tap/v2alpha/common.proto#L20">[config.common.tap.v2alpha.CommonExtensionConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/config/common/tap/v2alpha/common.proto#L20">[config.common.tap.v2alpha.CommonExtensionConfig proto]</a></p>
 <p>Common configuration for all tap extensions.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;admin_config&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -242,7 +242,7 @@ changed.</p>
 </div>
 <div class="section" id="config-common-tap-v2alpha-adminconfig">
 <span id="envoy-api-msg-config-common-tap-v2alpha-adminconfig"></span><h2>config.common.tap.v2alpha.AdminConfig<a class="headerlink" href="#config-common-tap-v2alpha-adminconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/common/tap/v2alpha/common.proto#L47">[config.common.tap.v2alpha.AdminConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/config/common/tap/v2alpha/common.proto#L47">[config.common.tap.v2alpha.AdminConfig proto]</a></p>
 <p>Configuration for the admin handler. See <a class="reference internal" href="../../../../../configuration/http/http_filters/tap_filter.html#config-http-filters-tap-admin-handler"><span class="std std-ref">here</span></a> for
 more information.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -266,7 +266,7 @@ matched to the configured filter opaque ID to determine which filter to configur
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../../cluster/cluster.html" class="btn btn-neutral float-right" title="Cluster" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../../cluster/cluster.html" class="btn btn-neutral float-right" title="集群" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../../dynamic_forward_proxy/v2alpha/dns_cache.proto.html" class="btn btn-neutral float-left" title="Dynamic forward proxy common configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

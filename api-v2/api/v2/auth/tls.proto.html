@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>TLS transport socket &mdash; envoy 1.16.0-380f11 documentation</title>
+  <title>TLS transport socket &mdash; envoy 1.16.0-d4d57f documentation</title>
   
 
   
@@ -46,7 +46,7 @@
     
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Resource monitors" href="../../../config/resource_monitor/resource_monitor.html" />
+    <link rel="next" title="资源监控" href="../../../config/resource_monitor/resource_monitor.html" />
     <link rel="prev" title="Raw Buffer" href="../../../config/transport_socket/raw_buffer/v2/raw_buffer.proto.html" /> 
 </head>
 
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-380f11
+                1.16.0-d4d57f
               </div>
             
           
@@ -113,21 +113,21 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../../api.html">v2 API 参考</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../bootstrap/bootstrap.html">Bootstrap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../listeners/listeners.html">监听器</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../clusters/clusters.html">Clusters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../http_routes/http_routes.html">HTTP route management</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../../config/config.html">Extensions</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../../../config/filter/filter.html">Filters</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../config/accesslog/accesslog.html">Access loggers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../clusters/clusters.html">集群</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../http_routes/http_routes.html">HTTP 路由管理</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../config/config.html">扩展</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../config/filter/filter.html">过滤器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../config/accesslog/accesslog.html">访问记录器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../config/rbac/rbac.html">RBAC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../config/health_checker/health_checker.html">Health checkers</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../../../config/transport_socket/transport_socket.html">Transport sockets</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../config/resource_monitor/resource_monitor.html">Resource monitors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../config/health_checker/health_checker.html">健康检查器</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../../config/transport_socket/transport_socket.html">传输套接字</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../config/resource_monitor/resource_monitor.html">资源监控</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../config/common/common.html">Common</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../config/cluster/cluster.html">Cluster</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../config/listener/listener.html">Listener</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../config/cluster/cluster.html">集群</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../config/listener/listener.html">监听器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../config/grpc_credential/grpc_credential.html">Grpc Credentials</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../config/retry/retry.html">Retry Predicates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../config/trace/trace.html">HTTP Tracers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../config/trace/trace.html">HTTP 追踪器</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../admin/admin.html">Admin</a></li>
@@ -193,9 +193,9 @@
         
           <li><a href="../../../api.html">v2 API 参考</a> &raquo;</li>
         
-          <li><a href="../../../config/config.html">Extensions</a> &raquo;</li>
+          <li><a href="../../../config/config.html">扩展</a> &raquo;</li>
         
-          <li><a href="../../../config/transport_socket/transport_socket.html">Transport sockets</a> &raquo;</li>
+          <li><a href="../../../config/transport_socket/transport_socket.html">传输套接字</a> &raquo;</li>
         
       <li>TLS transport socket</li>
     
@@ -226,7 +226,7 @@
 <p>The TLS contexts below provide the transport socket configuration for upstream/downstream TLS.</p>
 <div class="section" id="auth-upstreamtlscontext">
 <span id="envoy-api-msg-auth-upstreamtlscontext"></span><h2>auth.UpstreamTlsContext<a class="headerlink" href="#auth-upstreamtlscontext" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/auth/tls.proto#L25">[auth.UpstreamTlsContext proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/auth/tls.proto#L25">[auth.UpstreamTlsContext proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;common_tls_context&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;sni&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -266,7 +266,7 @@ for TLSv1.2 and older) to store for the purpose of session resumption.</p>
 </div>
 <div class="section" id="auth-downstreamtlscontext">
 <span id="envoy-api-msg-auth-downstreamtlscontext"></span><h2>auth.DownstreamTlsContext<a class="headerlink" href="#auth-downstreamtlscontext" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/auth/tls.proto#L53">[auth.DownstreamTlsContext proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/auth/tls.proto#L53">[auth.DownstreamTlsContext proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;common_tls_context&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;require_client_certificate&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -318,7 +318,7 @@ only seconds could be specified (fractional seconds are going to be ignored).</p
 </div>
 <div class="section" id="auth-commontlscontext">
 <span id="envoy-api-msg-auth-commontlscontext"></span><h2>auth.CommonTlsContext<a class="headerlink" href="#auth-commontlscontext" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/auth/tls.proto#L95">[auth.CommonTlsContext proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/auth/tls.proto#L95">[auth.CommonTlsContext proto]</a></p>
 <p>TLS context shared by both client and server TLS contexts.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;tls_params&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -383,7 +383,7 @@ parameter in the HTTP connection manager for more information):</p>
 </div>
 <div class="section" id="auth-commontlscontext-combinedcertificatevalidationcontext">
 <span id="envoy-api-msg-auth-commontlscontext-combinedcertificatevalidationcontext"></span><h2>auth.CommonTlsContext.CombinedCertificateValidationContext<a class="headerlink" href="#auth-commontlscontext-combinedcertificatevalidationcontext" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/auth/tls.proto#L96">[auth.CommonTlsContext.CombinedCertificateValidationContext proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/auth/tls.proto#L96">[auth.CommonTlsContext.CombinedCertificateValidationContext proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;default_validation_context&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;validation_context_sds_secret_config&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>
@@ -409,7 +409,7 @@ parameter in the HTTP connection manager for more information):</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../../config/resource_monitor/resource_monitor.html" class="btn btn-neutral float-right" title="Resource monitors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../../config/resource_monitor/resource_monitor.html" class="btn btn-neutral float-right" title="资源监控" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../../../config/transport_socket/raw_buffer/v2/raw_buffer.proto.html" class="btn btn-neutral float-left" title="Raw Buffer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

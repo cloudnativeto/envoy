@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Authorization Service &mdash; envoy 1.16.0-380f11 documentation</title>
+  <title>Authorization Service &mdash; envoy 1.16.0-d4d57f documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-380f11
+                1.16.0-d4d57f
               </div>
             
           
@@ -113,9 +113,9 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../../api.html">v2 API 参考</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../bootstrap/bootstrap.html">Bootstrap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../listeners/listeners.html">监听器</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../clusters/clusters.html">Clusters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../http_routes/http_routes.html">HTTP route management</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../config/config.html">Extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../clusters/clusters.html">集群</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../http_routes/http_routes.html">HTTP 路由管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../config/config.html">扩展</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../admin/admin.html">Admin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../data/data.html">Envoy data</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../../service.html">Services</a><ul class="current">
@@ -220,7 +220,7 @@
 <p>The authorization service request messages used by external authorization <a class="reference internal" href="../../../../configuration/listeners/network_filters/ext_authz_filter.html#config-network-filters-ext-authz"><span class="std std-ref">network filter</span></a> and <a class="reference internal" href="../../../../configuration/http/http_filters/ext_authz_filter.html#config-http-filters-ext-authz"><span class="std std-ref">HTTP filter</span></a>.</p>
 <div class="section" id="service-auth-v2-checkrequest">
 <span id="envoy-api-msg-service-auth-v2-checkrequest"></span><h2>service.auth.v2.CheckRequest<a class="headerlink" href="#service-auth-v2-checkrequest" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/service/auth/v2/external_auth.proto#L33">[service.auth.v2.CheckRequest proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/service/auth/v2/external_auth.proto#L33">[service.auth.v2.CheckRequest proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;attributes&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>
 <span class="p">}</span>
@@ -233,7 +233,7 @@
 </div>
 <div class="section" id="service-auth-v2-deniedhttpresponse">
 <span id="envoy-api-msg-service-auth-v2-deniedhttpresponse"></span><h2>service.auth.v2.DeniedHttpResponse<a class="headerlink" href="#service-auth-v2-deniedhttpresponse" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/service/auth/v2/external_auth.proto#L39">[service.auth.v2.DeniedHttpResponse proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/service/auth/v2/external_auth.proto#L39">[service.auth.v2.DeniedHttpResponse proto]</a></p>
 <p>HTTP attributes for a denied response.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -261,7 +261,7 @@ to the downstream client.</p>
 </div>
 <div class="section" id="service-auth-v2-okhttpresponse">
 <span id="envoy-api-msg-service-auth-v2-okhttpresponse"></span><h2>service.auth.v2.OkHttpResponse<a class="headerlink" href="#service-auth-v2-okhttpresponse" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/service/auth/v2/external_auth.proto#L55">[service.auth.v2.OkHttpResponse proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/service/auth/v2/external_auth.proto#L55">[service.auth.v2.OkHttpResponse proto]</a></p>
 <p>HTTP attributes for an ok response.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;headers&quot;</span><span class="p">:</span> <span class="p">[]</span>
@@ -281,7 +281,7 @@ one if there is a match.</p>
 </div>
 <div class="section" id="service-auth-v2-checkresponse">
 <span id="envoy-api-msg-service-auth-v2-checkresponse"></span><h2>service.auth.v2.CheckResponse<a class="headerlink" href="#service-auth-v2-checkresponse" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/service/auth/v2/external_auth.proto#L67">[service.auth.v2.CheckResponse proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/service/auth/v2/external_auth.proto#L67">[service.auth.v2.CheckResponse proto]</a></p>
 <p>Intended for gRPC and Network Authorization servers <cite>only</cite>.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>

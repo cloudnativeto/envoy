@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Traffic Shifting/Splitting &mdash; envoy 1.16.0-380f11 documentation</title>
+  <title>流量转移/拆分 &mdash; envoy 1.16.0-d4d57f documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-380f11
+                1.16.0-d4d57f
               </div>
             
           
@@ -112,7 +112,7 @@
 <li class="toctree-l3 current"><a class="reference internal" href="http_conn_man.html">HTTP 连接管理器</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="overview.html">概览</a></li>
 <li class="toctree-l4"><a class="reference internal" href="route_matching.html">路由匹配</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Traffic Shifting/Splitting</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">流量转移/拆分</a></li>
 <li class="toctree-l4"><a class="reference internal" href="header_casing.html">HTTP/1.1 头部大小写转换</a></li>
 <li class="toctree-l4"><a class="reference internal" href="headers.html">HTTP header manipulation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="header_sanitizing.html">HTTP header sanitizing</a></li>
@@ -121,7 +121,7 @@
 <li class="toctree-l4"><a class="reference internal" href="stats.html">统计</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtime.html">运行时</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rds.html">路由发现服务（RDS）</a></li>
-<li class="toctree-l4"><a class="reference internal" href="vhds.html">Virtual Host Discovery Service (VHDS)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vhds.html">虚拟主机发现服务（VHDS）</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../http_filters/http_filters.html">HTTP 过滤器</a></li>
@@ -193,7 +193,7 @@
         
           <li><a href="http_conn_man.html">HTTP 连接管理器</a> &raquo;</li>
         
-      <li>Traffic Shifting/Splitting</li>
+      <li>流量转移/拆分</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -212,36 +212,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="traffic-shifting-splitting">
-<span id="config-http-conn-man-route-table-traffic-splitting"></span><h1>Traffic Shifting/Splitting<a class="headerlink" href="#traffic-shifting-splitting" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="config-http-conn-man-route-table-traffic-splitting">
+<span id="id1"></span><h1>流量转移/拆分<a class="headerlink" href="#config-http-conn-man-route-table-traffic-splitting" title="Permalink to this headline">¶</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#traffic-shifting-between-two-upstreams" id="id1">Traffic shifting between two upstreams</a></p></li>
-<li><p><a class="reference internal" href="#traffic-splitting-across-multiple-upstreams" id="id2">Traffic splitting across multiple upstreams</a></p></li>
+<li><p><a class="reference internal" href="#config-http-conn-man-route-table-traffic-splitting-shift" id="id4">两个上游间的流量转移</a></p></li>
+<li><p><a class="reference internal" href="#config-http-conn-man-route-table-traffic-splitting-split" id="id5">跨多个上游的流量分流</a></p></li>
 </ul>
 </div>
-<p>Envoy’s router can split traffic to a route in a virtual host across
-two or more upstream clusters. There are two common use cases.</p>
-<p>1. Version upgrades: traffic to a route is shifted gradually
-from one cluster to another. The
-<a class="reference internal" href="#config-http-conn-man-route-table-traffic-splitting-shift"><span class="std std-ref">traffic shifting</span></a>
-section describes this scenario in more detail.</p>
-<p>2. A/B testing or multivariate testing: <code class="docutils literal notranslate"><span class="pre">two</span> <span class="pre">or</span> <span class="pre">more</span> <span class="pre">versions</span></code> of
-the same service are tested simultaneously. The traffic to the route has to
-be <em>split</em> between clusters running different versions of the same
-service. The
-<a class="reference internal" href="#config-http-conn-man-route-table-traffic-splitting-split"><span class="std std-ref">traffic splitting</span></a>
-section describes this scenario in more detail.</p>
-<div class="section" id="traffic-shifting-between-two-upstreams">
-<span id="config-http-conn-man-route-table-traffic-splitting-shift"></span><h2><a class="toc-backref" href="#id1">Traffic shifting between two upstreams</a><a class="headerlink" href="#traffic-shifting-between-two-upstreams" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-field-config-route-v3-routematch-runtime-fraction"><span class="std std-ref">runtime</span></a> object
-in the route configuration determines the probability of selecting a
-particular route (and hence its cluster). By using the <em>runtime_fraction</em>
-configuration, traffic to a particular route in a virtual host can be
-gradually shifted from one cluster to another. Consider the following
-example configuration, where two versions <code class="docutils literal notranslate"><span class="pre">helloworld_v1</span></code> and
-<code class="docutils literal notranslate"><span class="pre">helloworld_v2</span></code> of a service named <code class="docutils literal notranslate"><span class="pre">helloworld</span></code> are declared in the
-envoy configuration file.</p>
+<p>Envoy 的路由器可以将流量拆分为跨两个或多个上游集群的虚拟主机中的路由。有两种常见的用例。</p>
+<ol class="arabic simple">
+<li><p>版本升级：路由的流量逐渐从一个群集转移到另一个群集。<a class="reference internal" href="#config-http-conn-man-route-table-traffic-splitting-shift"><span class="std std-ref">流量转移</span></a> 部分更详细地描述了这种情况。</p></li>
+<li><p>A/B 测试或多变量测试：同一个服务的 <code class="docutils literal notranslate"><span class="pre">两个或更多的版本</span></code> 被同时测试。运行同一服务的不同版本的集群之间的路由流量必须*拆分*。<a class="reference internal" href="#config-http-conn-man-route-table-traffic-splitting-split"><span class="std std-ref">流量拆分</span></a> 部分更详细地描述了这种情况。</p></li>
+</ol>
+<div class="section" id="config-http-conn-man-route-table-traffic-splitting-shift">
+<span id="id2"></span><h2><a class="toc-backref" href="#id4">两个上游间的流量转移</a><a class="headerlink" href="#config-http-conn-man-route-table-traffic-splitting-shift" title="Permalink to this headline">¶</a></h2>
+<p>路由配置中的 <a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-field-config-route-v3-routematch-runtime-fraction"><span class="std std-ref">运行时</span></a> 对象确定选择特定路由（并因此选择其集群）的可能性。通过使用 <em>runtime_fraction</em> 配置，虚拟主机中的路由的流量会逐渐的从一个集群转移到另一个。看以下示例配置，在 Envoy 配置文件中声明的名字为 <code class="docutils literal notranslate"><span class="pre">helloworld</span></code> 的服务有两个版本 <code class="docutils literal notranslate"><span class="pre">helloworld_v1</span></code> 和 <code class="docutils literal notranslate"><span class="pre">helloworld_v2</span></code>。</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">virtual_hosts</span><span class="p">:</span>
    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">www2</span>
      <span class="nt">domains</span><span class="p">:</span>
@@ -262,42 +248,19 @@ envoy configuration file.</p>
            <span class="nt">cluster</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">helloworld_v2</span>
 </pre></div>
 </div>
-<p>Envoy matches routes with a <a class="reference internal" href="route_matching.html#config-http-conn-man-route-table-route-matching"><span class="std std-ref">first match</span></a> policy.
-If the route has a runtime_fraction object, the request will be additionally matched based on the runtime_fraction
-<a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-field-config-route-v3-routematch-runtime-fraction"><span class="std std-ref">value</span></a>
-(or the default, if no value is specified). Thus, by placing routes
-back-to-back in the above example and specifying a runtime_fraction object in the
-first route, traffic shifting can be accomplished by changing the runtime_fraction
-value. The following are the approximate sequence of actions required to
-accomplish the task.</p>
+<p>Envoy 使用 <a class="reference internal" href="route_matching.html#config-http-conn-man-route-table-route-matching"><span class="std std-ref">首个匹配</span></a> 策略来匹配路由。
+如果路由具有 runtime_fraction 对象，则将基于 runtime_fraction <a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-field-config-route-v3-routematch-runtime-fraction"><span class="std std-ref">值</span></a> 额外匹配请求（如果未指定值，则为默认值）。因此，通过在上面的示例中连续地放置路由，并在第一条路由中指定 runtime_fraction 对象，可以通过更改 runtime_fraction 值来实现流量转移。下面是实现转移所需的大概操作顺序。</p>
 <ol class="arabic simple">
-<li><p>In the beginning, set <code class="docutils literal notranslate"><span class="pre">routing.traffic_shift.helloworld</span></code> to <code class="docutils literal notranslate"><span class="pre">100</span></code>,
-so that all requests to the <code class="docutils literal notranslate"><span class="pre">helloworld</span></code> virtual host would match with
-the v1 route and be served by the <code class="docutils literal notranslate"><span class="pre">helloworld_v1</span></code> cluster.</p></li>
-<li><p>To start shifting traffic to <code class="docutils literal notranslate"><span class="pre">helloworld_v2</span></code> cluster, set
-<code class="docutils literal notranslate"><span class="pre">routing.traffic_shift.helloworld</span></code> to values <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">100</span></code>. For
-instance at <code class="docutils literal notranslate"><span class="pre">90</span></code>, 1 out of every 10 requests to the <code class="docutils literal notranslate"><span class="pre">helloworld</span></code>
-virtual host will not match the v1 route and will fall through to the v2
-route.</p></li>
-<li><p>Gradually decrease the value set in <code class="docutils literal notranslate"><span class="pre">routing.traffic_shift.helloworld</span></code>
-so that a larger percentage of requests match the v2 route.</p></li>
-<li><p>When <code class="docutils literal notranslate"><span class="pre">routing.traffic_shift.helloworld</span></code> is set to <code class="docutils literal notranslate"><span class="pre">0</span></code>, no requests
-to the <code class="docutils literal notranslate"><span class="pre">helloworld</span></code> virtual host will match to the v1 route. All
-traffic would now fall through to the v2 route and be served by the
-<code class="docutils literal notranslate"><span class="pre">helloworld_v2</span></code> cluster.</p></li>
+<li><p>首先，将 <code class="docutils literal notranslate"><span class="pre">routing.traffic_shift.helloworld</span></code> 设置为 <code class="docutils literal notranslate"><span class="pre">100</span></code>，这样对于 <code class="docutils literal notranslate"><span class="pre">helloworld</span></code> 虚拟主机的所有请求，都将与 v1 路由匹配，并由 <code class="docutils literal notranslate"><span class="pre">helloworld_v1</span></code> 集群提供服务。</p></li>
+<li><p>要开始转移流量到 <code class="docutils literal notranslate"><span class="pre">helloworld_v2</span></code> 集群，将 <code class="docutils literal notranslate"><span class="pre">routing.traffic_shift.helloworld</span></code> 的值设置为 <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">100</span></code>。例如设置为 <code class="docutils literal notranslate"><span class="pre">90</span></code>，此时到 <code class="docutils literal notranslate"><span class="pre">helloworld</span></code> 虚拟主机的每 10 个请求中有 1 个请求将与 v1 路由不匹配，并将进入 v2 路由。</p></li>
+<li><p>逐渐减少 <code class="docutils literal notranslate"><span class="pre">routing.traffic_shift.helloworld</span></code> 的值以便更大比例的请求与 v2 路由匹配。</p></li>
+<li><p>当 <code class="docutils literal notranslate"><span class="pre">routing.traffic_shift.helloworld</span></code> 的值设置为 <code class="docutils literal notranslate"><span class="pre">0</span></code> 时，没有到 <code class="docutils literal notranslate"><span class="pre">helloworld</span></code> 虚拟主机的请求与 v1 路由匹配。所有流量此时会进入 v2 路由，由 <code class="docutils literal notranslate"><span class="pre">helloworld_v2</span></code> 集群提供服务。</p></li>
 </ol>
 </div>
-<div class="section" id="traffic-splitting-across-multiple-upstreams">
-<span id="config-http-conn-man-route-table-traffic-splitting-split"></span><h2><a class="toc-backref" href="#id2">Traffic splitting across multiple upstreams</a><a class="headerlink" href="#traffic-splitting-across-multiple-upstreams" title="Permalink to this headline">¶</a></h2>
-<p>Consider the <code class="docutils literal notranslate"><span class="pre">helloworld</span></code> example again, now with three versions (v1, v2 and
-v3) instead of two. To split traffic evenly across the three versions
-(i.e., <code class="docutils literal notranslate"><span class="pre">33%,</span> <span class="pre">33%,</span> <span class="pre">34%</span></code>), the <code class="docutils literal notranslate"><span class="pre">weighted_clusters</span></code> option can be used to
-specify the weight for each upstream cluster.</p>
-<p>Unlike the previous example, a <strong>single</strong> <a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-msg-config-route-v3-route"><span class="std std-ref">route</span></a> entry is sufficient. The
-<a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-field-config-route-v3-routeaction-weighted-clusters"><span class="std std-ref">weighted_clusters</span></a>
-configuration block in a route can be used to specify multiple upstream clusters
-along with weights that indicate the <strong>percentage</strong> of traffic to be sent
-to each upstream cluster.</p>
+<div class="section" id="config-http-conn-man-route-table-traffic-splitting-split">
+<span id="id3"></span><h2><a class="toc-backref" href="#id5">跨多个上游的流量分流</a><a class="headerlink" href="#config-http-conn-man-route-table-traffic-splitting-split" title="Permalink to this headline">¶</a></h2>
+<p>重新看 <code class="docutils literal notranslate"><span class="pre">helloworld</span></code> 示例，现在有三个（v1、v2 和 v3）而不是两个版本。<code class="docutils literal notranslate"><span class="pre">weighted_clusters</span></code> 选项可以用来指定每个上游集群的权重来在三个版本之间平均分配流量（比如 <code class="docutils literal notranslate"><span class="pre">33%、33%、34%</span></code>）。</p>
+<p>与前面的示例不同，一个 <a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-msg-config-route-v3-route"><span class="std std-ref">路由</span></a> 条目就够了。路由中的 <a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-field-config-route-v3-routeaction-weighted-clusters"><span class="std std-ref">weighted_clusters</span></a> 配置块可用于指定多个上游集群以及每个上游集群的权重。</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">virtual_hosts</span><span class="p">:</span>
    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">www2</span>
      <span class="nt">domains</span><span class="p">:</span>
@@ -316,13 +279,9 @@ to each upstream cluster.</p>
                  <span class="nt">weight</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">34</span>
 </pre></div>
 </div>
-<p>By default, the weights must sum to exactly 100. In the V2 API, the
-<a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-field-config-route-v3-weightedcluster-total-weight"><span class="std std-ref">total weight</span></a> defaults to 100, but can
-be modified to allow finer granularity.</p>
-<p>The weights assigned to each cluster can be dynamically adjusted using the
-following runtime variables: <code class="docutils literal notranslate"><span class="pre">routing.traffic_split.helloworld.helloworld_v1</span></code>,
-<code class="docutils literal notranslate"><span class="pre">routing.traffic_split.helloworld.helloworld_v2</span></code> and
-<code class="docutils literal notranslate"><span class="pre">routing.traffic_split.helloworld.helloworld_v3</span></code>.</p>
+<p>默认情况下，权重的和必须等于 100。在 V2 版本的 API 中，<a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-field-config-route-v3-weightedcluster-total-weight"><span class="std std-ref">权重总和</span></a> 默认为 100，但可以修改以允许更细的粒度。</p>
+<p>可以通过运行时变量 <code class="docutils literal notranslate"><span class="pre">routing.traffic_split.helloworld.helloworld_v1</span></code>、<code class="docutils literal notranslate"><span class="pre">routing.traffic_split.helloworld.helloworld_v2</span></code> 和
+<code class="docutils literal notranslate"><span class="pre">routing.traffic_split.helloworld.helloworld_v3</span></code> 对每个集群的权重进行动态地调整。</p>
 </div>
 </div>
 

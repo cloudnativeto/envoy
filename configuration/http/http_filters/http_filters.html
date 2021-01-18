@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>HTTP 过滤器 &mdash; envoy 1.16.0-380f11 documentation</title>
+  <title>HTTP 过滤器 &mdash; envoy 1.16.0-d4d57f documentation</title>
   
 
   
@@ -46,8 +46,8 @@
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Adaptive Concurrency" href="adaptive_concurrency_filter.html" />
-    <link rel="prev" title="Virtual Host Discovery Service (VHDS)" href="../http_conn_man/vhds.html" /> 
+    <link rel="next" title="自适应并发" href="adaptive_concurrency_filter.html" />
+    <link rel="prev" title="虚拟主机发现服务（VHDS）" href="../http_conn_man/vhds.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-380f11
+                1.16.0-d4d57f
               </div>
             
           
@@ -111,7 +111,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../http.html">HTTP</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../http_conn_man/http_conn_man.html">HTTP 连接管理器</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">HTTP 过滤器</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="adaptive_concurrency_filter.html">Adaptive Concurrency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="adaptive_concurrency_filter.html">自适应并发</a></li>
 <li class="toctree-l4"><a class="reference internal" href="admission_control_filter.html">准入控制</a></li>
 <li class="toctree-l4"><a class="reference internal" href="aws_lambda_filter.html">AWS Lambda</a></li>
 <li class="toctree-l4"><a class="reference internal" href="aws_request_signing_filter.html">AWS 请求签名</a></li>
@@ -123,7 +123,7 @@
 <li class="toctree-l4"><a class="reference internal" href="decompressor_filter.html">解压缩器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dynamic_forward_proxy_filter.html">动态转发代理</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dynamodb_filter.html">DynamoDB</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ext_authz_filter.html">External Authorization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ext_authz_filter.html">外部授权</a></li>
 <li class="toctree-l4"><a class="reference internal" href="fault_filter.html">故障注入</a></li>
 <li class="toctree-l4"><a class="reference internal" href="grpc_http1_bridge_filter.html">gRPC HTTP/1.1 桥接</a></li>
 <li class="toctree-l4"><a class="reference internal" href="grpc_http1_reverse_bridge_filter.html">gRPC HTTP/1.1 reverse bridge</a></li>
@@ -236,12 +236,12 @@
 <span id="config-http-filters"></span><h1>HTTP 过滤器<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="adaptive_concurrency_filter.html">Adaptive Concurrency</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="adaptive_concurrency_filter.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="adaptive_concurrency_filter.html#concurrency-controllers">Concurrency Controllers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="adaptive_concurrency_filter.html#limitations">Limitations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="adaptive_concurrency_filter.html#example-configuration">Example Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="adaptive_concurrency_filter.html#runtime">Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adaptive_concurrency_filter.html">自适应并发</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="adaptive_concurrency_filter.html#id2">概览</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adaptive_concurrency_filter.html#id3">并发控制器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adaptive_concurrency_filter.html#id7">限制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adaptive_concurrency_filter.html#id8">示例配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adaptive_concurrency_filter.html#id9">运行时</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adaptive_concurrency_filter.html#statistics">Statistics</a></li>
 </ul>
 </li>
@@ -303,12 +303,12 @@
 <li class="toctree-l2"><a class="reference internal" href="dynamodb_filter.html#id2">运行时</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="ext_authz_filter.html">External Authorization</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ext_authz_filter.html#configuration-examples">Configuration Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ext_authz_filter.html#per-route-configuration">Per-Route Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ext_authz_filter.html#statistics">Statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ext_authz_filter.html#dynamic-metadata">Dynamic Metadata</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ext_authz_filter.html#runtime">Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ext_authz_filter.html">外部授权</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ext_authz_filter.html#id2">配置示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ext_authz_filter.html#id3">按路由独立配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ext_authz_filter.html#id4">统计信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ext_authz_filter.html#id5">动态元数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ext_authz_filter.html#id6">运行时</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="fault_filter.html">故障注入</a><ul>
@@ -451,10 +451,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="adaptive_concurrency_filter.html" class="btn btn-neutral float-right" title="Adaptive Concurrency" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="adaptive_concurrency_filter.html" class="btn btn-neutral float-right" title="自适应并发" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../http_conn_man/vhds.html" class="btn btn-neutral float-left" title="Virtual Host Discovery Service (VHDS)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../http_conn_man/vhds.html" class="btn btn-neutral float-left" title="虚拟主机发现服务（VHDS）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

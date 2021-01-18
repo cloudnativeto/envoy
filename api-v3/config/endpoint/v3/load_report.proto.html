@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Load Report &mdash; envoy 1.16.0-380f11 documentation</title>
+  <title>Load Report &mdash; envoy 1.16.0-d4d57f documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-380f11
+                1.16.0-d4d57f
               </div>
             
           
@@ -114,9 +114,9 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../../api.html">v3 API 参考</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../bootstrap/bootstrap.html">Bootstrap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../listeners/listeners.html">监听器</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../clusters/clusters.html">Clusters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../http_routes/http_routes.html">HTTP route management</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../config.html">Extensions</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../clusters/clusters.html">集群</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../http_routes/http_routes.html">HTTP 路由管理</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../config.html">扩展</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../filter/filter.html">Filters</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../accesslog/accesslog.html">Access loggers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../rbac/rbac.html">RBAC</a></li>
@@ -198,7 +198,7 @@
         
           <li><a href="../../../api.html">v3 API 参考</a> &raquo;</li>
         
-          <li><a href="../../config.html">Extensions</a> &raquo;</li>
+          <li><a href="../../config.html">扩展</a> &raquo;</li>
         
           <li><a href="../endpoint.html">Endpoint</a> &raquo;</li>
         
@@ -225,7 +225,7 @@
 <span id="envoy-v3-api-file-envoy-config-endpoint-v3-load-report-proto"></span><h1>Load Report<a class="headerlink" href="#load-report" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="config-endpoint-v3-upstreamlocalitystats">
 <span id="envoy-v3-api-msg-config-endpoint-v3-upstreamlocalitystats"></span><h2>config.endpoint.v3.UpstreamLocalityStats<a class="headerlink" href="#config-endpoint-v3-upstreamlocalitystats" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/endpoint/v3/load_report.proto#L25">[config.endpoint.v3.UpstreamLocalityStats proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/config/endpoint/v3/load_report.proto#L25">[config.endpoint.v3.UpstreamLocalityStats proto]</a></p>
 <p>These are stats Envoy reports to the management server at a frequency defined by
 <a class="reference internal" href="../../../service/load_stats/v3/lrs.proto.html#envoy-v3-api-field-service-load-stats-v3-loadstatsresponse-load-reporting-interval"><span class="std std-ref">LoadStatsResponse.load_reporting_interval</span></a>.
 Stats per upstream region/zone and optionally per subzone.</p>
@@ -278,7 +278,7 @@ is populated if the Server requests it by setting
 </div>
 <div class="section" id="config-endpoint-v3-upstreamendpointstats">
 <span id="envoy-v3-api-msg-config-endpoint-v3-upstreamendpointstats"></span><h2>config.endpoint.v3.UpstreamEndpointStats<a class="headerlink" href="#config-endpoint-v3-upstreamendpointstats" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/endpoint/v3/load_report.proto#L63">[config.endpoint.v3.UpstreamEndpointStats proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/config/endpoint/v3/load_report.proto#L63">[config.endpoint.v3.UpstreamEndpointStats proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -339,7 +339,7 @@ request or stream is counted as one request.</p>
 </div>
 <div class="section" id="config-endpoint-v3-endpointloadmetricstats">
 <span id="envoy-v3-api-msg-config-endpoint-v3-endpointloadmetricstats"></span><h2>config.endpoint.v3.EndpointLoadMetricStats<a class="headerlink" href="#config-endpoint-v3-endpointloadmetricstats" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/endpoint/v3/load_report.proto#L104">[config.endpoint.v3.EndpointLoadMetricStats proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/config/endpoint/v3/load_report.proto#L104">[config.endpoint.v3.EndpointLoadMetricStats proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;metric_name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;num_requests_finished_with_metric&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -363,7 +363,7 @@ load_reporting_interval.</p>
 </div>
 <div class="section" id="config-endpoint-v3-clusterstats">
 <span id="envoy-v3-api-msg-config-endpoint-v3-clusterstats"></span><h2>config.endpoint.v3.ClusterStats<a class="headerlink" href="#config-endpoint-v3-clusterstats" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/endpoint/v3/load_report.proto#L123">[config.endpoint.v3.ClusterStats proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/config/endpoint/v3/load_report.proto#L123">[config.endpoint.v3.ClusterStats proto]</a></p>
 <p>Per cluster load stats. Envoy reports these stats a management server in a
 <a class="reference internal" href="../../../service/load_stats/v3/lrs.proto.html#envoy-v3-api-msg-service-load-stats-v3-loadstatsrequest"><span class="std std-ref">LoadStatsRequest</span></a>
 Next ID: 7</p>
@@ -414,7 +414,7 @@ the requested load reporting interval in the <em>LoadStatsResponse</em>.</p>
 </div>
 <div class="section" id="config-endpoint-v3-clusterstats-droppedrequests">
 <span id="envoy-v3-api-msg-config-endpoint-v3-clusterstats-droppedrequests"></span><h2>config.endpoint.v3.ClusterStats.DroppedRequests<a class="headerlink" href="#config-endpoint-v3-clusterstats-droppedrequests" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/config/endpoint/v3/load_report.proto#L126">[config.endpoint.v3.ClusterStats.DroppedRequests proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/config/endpoint/v3/load_report.proto#L126">[config.endpoint.v3.ClusterStats.DroppedRequests proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;dropped_count&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>

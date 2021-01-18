@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Extensions &mdash; envoy 1.16.0-380f11 documentation</title>
+  <title>扩展 &mdash; envoy 1.16.0-d4d57f documentation</title>
   
 
   
@@ -46,7 +46,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Filters" href="filter/filter.html" />
+    <link rel="next" title="过滤器" href="filter/filter.html" />
     <link rel="prev" title="HTTP route components" href="../api/v2/route/route_components.proto.html" /> 
 </head>
 
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-380f11
+                1.16.0-d4d57f
               </div>
             
           
@@ -113,21 +113,21 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../api.html">v2 API 参考</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../bootstrap/bootstrap.html">Bootstrap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../listeners/listeners.html">监听器</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../clusters/clusters.html">Clusters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../http_routes/http_routes.html">HTTP route management</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Extensions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="filter/filter.html">Filters</a></li>
-<li class="toctree-l4"><a class="reference internal" href="accesslog/accesslog.html">Access loggers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clusters/clusters.html">集群</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http_routes/http_routes.html">HTTP 路由管理</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">扩展</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="filter/filter.html">过滤器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accesslog/accesslog.html">访问记录器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rbac/rbac.html">RBAC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="health_checker/health_checker.html">Health checkers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="transport_socket/transport_socket.html">Transport sockets</a></li>
-<li class="toctree-l4"><a class="reference internal" href="resource_monitor/resource_monitor.html">Resource monitors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="health_checker/health_checker.html">健康检查器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transport_socket/transport_socket.html">传输套接字</a></li>
+<li class="toctree-l4"><a class="reference internal" href="resource_monitor/resource_monitor.html">资源监控</a></li>
 <li class="toctree-l4"><a class="reference internal" href="common/common.html">Common</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cluster/cluster.html">Cluster</a></li>
-<li class="toctree-l4"><a class="reference internal" href="listener/listener.html">Listener</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cluster/cluster.html">集群</a></li>
+<li class="toctree-l4"><a class="reference internal" href="listener/listener.html">监听器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="grpc_credential/grpc_credential.html">Grpc Credentials</a></li>
 <li class="toctree-l4"><a class="reference internal" href="retry/retry.html">Retry Predicates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="trace/trace.html">HTTP Tracers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="trace/trace.html">HTTP 追踪器</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../admin/admin.html">Admin</a></li>
@@ -193,7 +193,7 @@
         
           <li><a href="../api.html">v2 API 参考</a> &raquo;</li>
         
-      <li>Extensions</li>
+      <li>扩展</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -212,11 +212,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="extensions">
-<h1>Extensions<a class="headerlink" href="#extensions" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="id1">
+<h1>扩展<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="filter/filter.html">Filters</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="filter/filter.html">过滤器</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="filter/listener/listener.html">Listener filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filter/network/network.html">Network filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filter/udp/udp.html">UDP listener filters</a></li>
@@ -227,7 +227,7 @@
 <li class="toctree-l2"><a class="reference internal" href="filter/thrift/thrift.html">Thrift filters</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="accesslog/accesslog.html">Access loggers</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="accesslog/accesslog.html">访问记录器</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="accesslog/v2/als.proto.html">gRPC Access Log Service (ALS)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="accesslog/v2/file.proto.html">File access log</a></li>
 </ul>
@@ -236,18 +236,18 @@
 <li class="toctree-l2"><a class="reference internal" href="rbac/v2/rbac.proto.html">Role Based Access Control (RBAC)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="health_checker/health_checker.html">Health checkers</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="health_checker/health_checker.html">健康检查器</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="health_checker/redis/v2/redis.proto.html">Redis</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="transport_socket/transport_socket.html">Transport sockets</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="transport_socket/transport_socket.html">传输套接字</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="transport_socket/alts/v2alpha/alts.proto.html">ALTS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transport_socket/tap/v2alpha/tap.proto.html">Tap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transport_socket/raw_buffer/v2/raw_buffer.proto.html">Raw Buffer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/v2/auth/tls.proto.html">TLS transport socket</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="resource_monitor/resource_monitor.html">Resource monitors</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="resource_monitor/resource_monitor.html">资源监控</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="resource_monitor/fixed_heap/v2alpha/fixed_heap.proto.html">Fixed heap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resource_monitor/injected_resource/v2alpha/injected_resource.proto.html">Injected resource</a></li>
 </ul>
@@ -257,13 +257,13 @@
 <li class="toctree-l2"><a class="reference internal" href="common/tap/v2alpha/common.proto.html">Common tap extension configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cluster/cluster.html">Cluster</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="cluster/cluster.html">集群</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cluster/aggregate/v2alpha/cluster.proto.html">Aggregate cluster configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cluster/dynamic_forward_proxy/v2alpha/cluster.proto.html">Dynamic forward proxy cluster configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cluster/redis/redis_cluster.proto.html">Redis Cluster Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="listener/listener.html">Listener</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="listener/listener.html">监听器</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="listener/v2/api_listener.proto.html">API listener</a></li>
 </ul>
 </li>
@@ -281,7 +281,7 @@
 <li class="toctree-l2"><a class="reference internal" href="retry/previous_hosts/v2/previous_hosts.proto.html">Previous Hosts Predicate</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="trace/trace.html">HTTP Tracers</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="trace/trace.html">HTTP 追踪器</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="trace/v2/datadog.proto.html">Datadog tracer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="trace/v2/dynamic_ot.proto.html">Dynamically loadable OpenTracing tracer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="trace/v2/http_tracer.proto.html">Tracing</a></li>
@@ -305,7 +305,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="filter/filter.html" class="btn btn-neutral float-right" title="Filters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="filter/filter.html" class="btn btn-neutral float-right" title="过滤器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../api/v2/route/route_components.proto.html" class="btn btn-neutral float-left" title="HTTP route components" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

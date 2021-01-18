@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Cluster configuration &mdash; envoy 1.16.0-380f11 documentation</title>
+  <title>Cluster configuration &mdash; envoy 1.16.0-d4d57f documentation</title>
   
 
   
@@ -47,7 +47,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Outlier detection" href="cluster/outlier_detection.proto.html" />
-    <link rel="prev" title="Clusters" href="../../clusters/clusters.html" /> 
+    <link rel="prev" title="集群" href="../../clusters/clusters.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-380f11
+                1.16.0-d4d57f
               </div>
             
           
@@ -113,7 +113,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../api.html">v2 API 参考</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../bootstrap/bootstrap.html">Bootstrap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../listeners/listeners.html">监听器</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../clusters/clusters.html">Clusters</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../clusters/clusters.html">集群</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Cluster configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cluster/outlier_detection.proto.html">Outlier detection</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cluster/circuit_breaker.proto.html">Circuit breakers</a></li>
@@ -123,8 +123,8 @@
 <li class="toctree-l4"><a class="reference internal" href="core/health_check.proto.html">Health check</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../http_routes/http_routes.html">HTTP route management</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../config/config.html">Extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../http_routes/http_routes.html">HTTP 路由管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../config/config.html">扩展</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../admin/admin.html">Admin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../data/data.html">Envoy data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../service/service.html">Services</a></li>
@@ -188,7 +188,7 @@
         
           <li><a href="../../api.html">v2 API 参考</a> &raquo;</li>
         
-          <li><a href="../../clusters/clusters.html">Clusters</a> &raquo;</li>
+          <li><a href="../../clusters/clusters.html">集群</a> &raquo;</li>
         
       <li>Cluster configuration</li>
     
@@ -213,7 +213,7 @@
 <span id="envoy-api-file-envoy-api-v2-cluster-proto"></span><h1>Cluster configuration<a class="headerlink" href="#cluster-configuration" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="cluster">
 <span id="envoy-api-msg-cluster"></span><h2>Cluster<a class="headerlink" href="#cluster" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L36">[Cluster proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L36">[Cluster proto]</a></p>
 <p>Configuration for a single upstream cluster.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;transport_socket_matches&quot;</span><span class="p">:</span> <span class="p">[],</span>
@@ -625,7 +625,7 @@ of 100 would indicate that the request took the entirety of the timeout given to
 </div>
 <div class="section" id="cluster-transportsocketmatch">
 <span id="envoy-api-msg-cluster-transportsocketmatch"></span><h2>Cluster.TransportSocketMatch<a class="headerlink" href="#cluster-transportsocketmatch" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L142">[Cluster.TransportSocketMatch proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L142">[Cluster.TransportSocketMatch proto]</a></p>
 <p>TransportSocketMatch specifies what transport socket config will be used
 when the match conditions are satisfied.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -654,7 +654,7 @@ against the values specified in this field.</p>
 </div>
 <div class="section" id="cluster-customclustertype">
 <span id="envoy-api-msg-cluster-customclustertype"></span><h2>Cluster.CustomClusterType<a class="headerlink" href="#cluster-customclustertype" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L158">[Cluster.CustomClusterType proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L158">[Cluster.CustomClusterType proto]</a></p>
 <p>Extended cluster type.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -674,7 +674,7 @@ See the supported cluster for further documentation.</p>
 </div>
 <div class="section" id="cluster-edsclusterconfig">
 <span id="envoy-api-msg-cluster-edsclusterconfig"></span><h2>Cluster.EdsClusterConfig<a class="headerlink" href="#cluster-edsclusterconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L168">[Cluster.EdsClusterConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L168">[Cluster.EdsClusterConfig proto]</a></p>
 <p>Only valid when discovery type is EDS.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;eds_config&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -695,7 +695,7 @@ length.</p>
 </div>
 <div class="section" id="cluster-lbsubsetconfig">
 <span id="envoy-api-msg-cluster-lbsubsetconfig"></span><h2>Cluster.LbSubsetConfig<a class="headerlink" href="#cluster-lbsubsetconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L181">[Cluster.LbSubsetConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L181">[Cluster.LbSubsetConfig proto]</a></p>
 <p>Optionally divide the endpoints in this cluster into subsets defined by
 endpoint metadata and selected by route and weighted cluster metadata.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -776,7 +776,7 @@ and any of the elements in the list matches the criteria.</p>
 </div>
 <div class="section" id="cluster-lbsubsetconfig-lbsubsetselector">
 <span id="envoy-api-msg-cluster-lbsubsetconfig-lbsubsetselector"></span><h2>Cluster.LbSubsetConfig.LbSubsetSelector<a class="headerlink" href="#cluster-lbsubsetconfig-lbsubsetselector" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L194">[Cluster.LbSubsetConfig.LbSubsetSelector proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L194">[Cluster.LbSubsetConfig.LbSubsetSelector proto]</a></p>
 <p>Specifications for subsets.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[],</span>
@@ -809,7 +809,7 @@ Only values also present in
 </div>
 <div class="section" id="enum-cluster-lbsubsetconfig-lbsubsetselector-lbsubsetselectorfallbackpolicy">
 <span id="envoy-api-enum-cluster-lbsubsetconfig-lbsubsetselector-lbsubsetselectorfallbackpolicy"></span><h2>Enum Cluster.LbSubsetConfig.LbSubsetSelector.LbSubsetSelectorFallbackPolicy<a class="headerlink" href="#enum-cluster-lbsubsetconfig-lbsubsetselector-lbsubsetselectorfallbackpolicy" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L196">[Cluster.LbSubsetConfig.LbSubsetSelector.LbSubsetSelectorFallbackPolicy proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L196">[Cluster.LbSubsetConfig.LbSubsetSelector.LbSubsetSelectorFallbackPolicy proto]</a></p>
 <p>Allows to override top level fallback policy per selector.</p>
 <dl class="simple" id="envoy-api-enum-value-cluster-lbsubsetconfig-lbsubsetselector-lbsubsetselectorfallbackpolicy-not-defined">
 <dt>NOT_DEFINED</dt><dd><p><em>(DEFAULT)</em> ⁣If NOT_DEFINED top level config fallback policy is used instead.</p>
@@ -840,7 +840,7 @@ the selector are considered optional.</p>
 </div>
 <div class="section" id="enum-cluster-lbsubsetconfig-lbsubsetfallbackpolicy">
 <span id="envoy-api-enum-cluster-lbsubsetconfig-lbsubsetfallbackpolicy"></span><h2>Enum Cluster.LbSubsetConfig.LbSubsetFallbackPolicy<a class="headerlink" href="#enum-cluster-lbsubsetconfig-lbsubsetfallbackpolicy" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L187">[Cluster.LbSubsetConfig.LbSubsetFallbackPolicy proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L187">[Cluster.LbSubsetConfig.LbSubsetFallbackPolicy proto]</a></p>
 <p>If NO_FALLBACK is selected, a result
 equivalent to no healthy hosts is reported. If ANY_ENDPOINT is selected,
 any cluster endpoint may be returned (subject to policy, health checks,
@@ -861,7 +861,7 @@ endpoints matching the values from the default_subset field.</p>
 </div>
 <div class="section" id="cluster-leastrequestlbconfig">
 <span id="envoy-api-msg-cluster-leastrequestlbconfig"></span><h2>Cluster.LeastRequestLbConfig<a class="headerlink" href="#cluster-leastrequestlbconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L303">[Cluster.LeastRequestLbConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L303">[Cluster.LeastRequestLbConfig proto]</a></p>
 <p>Specific configuration for the LeastRequest load balancing policy.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;choice_count&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>
@@ -876,7 +876,7 @@ be chosen. Defaults to 2 so that we perform two-choice selection if the field is
 </div>
 <div class="section" id="cluster-ringhashlbconfig">
 <span id="envoy-api-msg-cluster-ringhashlbconfig"></span><h2>Cluster.RingHashLbConfig<a class="headerlink" href="#cluster-ringhashlbconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L311">[Cluster.RingHashLbConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L311">[Cluster.RingHashLbConfig proto]</a></p>
 <p>Specific configuration for the <a class="reference internal" href="../../../intro/arch_overview/upstream/load_balancing/load_balancers.html#arch-overview-load-balancing-types-ring-hash"><span class="std std-ref">RingHash</span></a>
 load balancing policy.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -907,7 +907,7 @@ to further constrain resource use. See also
 </div>
 <div class="section" id="enum-cluster-ringhashlbconfig-hashfunction">
 <span id="envoy-api-enum-cluster-ringhashlbconfig-hashfunction"></span><h2>Enum Cluster.RingHashLbConfig.HashFunction<a class="headerlink" href="#enum-cluster-ringhashlbconfig-hashfunction" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L313">[Cluster.RingHashLbConfig.HashFunction proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L313">[Cluster.RingHashLbConfig.HashFunction proto]</a></p>
 <p>The hash function used to hash hosts onto the ketama ring.</p>
 <dl class="simple" id="envoy-api-enum-value-cluster-ringhashlbconfig-hashfunction-xx-hash">
 <dt>XX_HASH</dt><dd><p><em>(DEFAULT)</em> ⁣Use <a class="reference external" href="https://github.com/Cyan4973/xxHash">xxHash</a>, this is the default hash function.</p>
@@ -922,7 +922,7 @@ on Linux and not macOS.</p>
 </div>
 <div class="section" id="cluster-originaldstlbconfig">
 <span id="envoy-api-msg-cluster-originaldstlbconfig"></span><h2>Cluster.OriginalDstLbConfig<a class="headerlink" href="#cluster-originaldstlbconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L344">[Cluster.OriginalDstLbConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L344">[Cluster.OriginalDstLbConfig proto]</a></p>
 <p>Specific configuration for the
 <a class="reference internal" href="../../../intro/arch_overview/upstream/load_balancing/original_dst.html#arch-overview-load-balancing-types-original-destination"><span class="std std-ref">Original Destination</span></a>
 load balancing policy.</p>
@@ -945,7 +945,7 @@ consequences.</p>
 </div>
 <div class="section" id="cluster-commonlbconfig">
 <span id="envoy-api-msg-cluster-commonlbconfig"></span><h2>Cluster.CommonLbConfig<a class="headerlink" href="#cluster-commonlbconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L359">[Cluster.CommonLbConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L359">[Cluster.CommonLbConfig proto]</a></p>
 <p>Common configuration for all load balancer implementations.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;healthy_panic_threshold&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -1023,7 +1023,7 @@ connections to upstream hosts whenever hosts are added or removed from the clust
 </div>
 <div class="section" id="cluster-commonlbconfig-zoneawarelbconfig">
 <span id="envoy-api-msg-cluster-commonlbconfig-zoneawarelbconfig"></span><h2>Cluster.CommonLbConfig.ZoneAwareLbConfig<a class="headerlink" href="#cluster-commonlbconfig-zoneawarelbconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L362">[Cluster.CommonLbConfig.ZoneAwareLbConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L362">[Cluster.CommonLbConfig.ZoneAwareLbConfig proto]</a></p>
 <p>Configuration for <a class="reference internal" href="../../../intro/arch_overview/upstream/load_balancing/zone_aware.html#arch-overview-load-balancing-zone-aware-routing"><span class="std std-ref">zone aware routing</span></a>.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;routing_enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -1057,7 +1057,7 @@ failing service.</p>
 </div>
 <div class="section" id="cluster-commonlbconfig-localityweightedlbconfig">
 <span id="envoy-api-msg-cluster-commonlbconfig-localityweightedlbconfig"></span><h2>Cluster.CommonLbConfig.LocalityWeightedLbConfig<a class="headerlink" href="#cluster-commonlbconfig-localityweightedlbconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L385">[Cluster.CommonLbConfig.LocalityWeightedLbConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L385">[Cluster.CommonLbConfig.LocalityWeightedLbConfig proto]</a></p>
 <p>Configuration for <a class="reference internal" href="../../../intro/arch_overview/upstream/load_balancing/locality_weight.html#arch-overview-load-balancing-locality-weighted-lb"><span class="std std-ref">locality weighted load balancing</span></a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
 </pre></div>
@@ -1065,7 +1065,7 @@ failing service.</p>
 </div>
 <div class="section" id="cluster-commonlbconfig-consistenthashinglbconfig">
 <span id="envoy-api-msg-cluster-commonlbconfig-consistenthashinglbconfig"></span><h2>Cluster.CommonLbConfig.ConsistentHashingLbConfig<a class="headerlink" href="#cluster-commonlbconfig-consistenthashinglbconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L389">[Cluster.CommonLbConfig.ConsistentHashingLbConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L389">[Cluster.CommonLbConfig.ConsistentHashingLbConfig proto]</a></p>
 <p>Common Configuration for all consistent hashing load balancers (MaglevLb, RingHashLb, etc.)</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;use_hostname_for_hashing&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
@@ -1080,7 +1080,7 @@ address as the key to consistently hash to an upstream host. Only valid for Stri
 </div>
 <div class="section" id="cluster-refreshrate">
 <span id="envoy-api-msg-cluster-refreshrate"></span><h2>Cluster.RefreshRate<a class="headerlink" href="#cluster-refreshrate" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L454">[Cluster.RefreshRate proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L454">[Cluster.RefreshRate proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;base_interval&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;max_interval&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>
@@ -1103,7 +1103,7 @@ is 10 times the <a class="reference internal" href="#envoy-api-field-cluster-ref
 </div>
 <div class="section" id="enum-cluster-discoverytype">
 <span id="envoy-api-enum-cluster-discoverytype"></span><h2>Enum Cluster.DiscoveryType<a class="headerlink" href="#enum-cluster-discoverytype" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L39">[Cluster.DiscoveryType proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L39">[Cluster.DiscoveryType proto]</a></p>
 <p>Refer to <a class="reference internal" href="../../../intro/arch_overview/upstream/service_discovery.html#arch-overview-service-discovery-types"><span class="std std-ref">service discovery type</span></a>
 for an explanation on each type.</p>
 <dl class="simple" id="envoy-api-enum-value-cluster-discoverytype-static">
@@ -1137,7 +1137,7 @@ for an explanation.</p>
 </div>
 <div class="section" id="enum-cluster-lbpolicy">
 <span id="envoy-api-enum-cluster-lbpolicy"></span><h2>Enum Cluster.LbPolicy<a class="headerlink" href="#enum-cluster-lbpolicy" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L66">[Cluster.LbPolicy proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L66">[Cluster.LbPolicy proto]</a></p>
 <p>Refer to <a class="reference internal" href="../../../intro/arch_overview/upstream/load_balancing/load_balancers.html#arch-overview-load-balancing-types"><span class="std std-ref">load balancer type</span></a> architecture
 overview section for information on each type.</p>
 <dl class="simple" id="envoy-api-enum-value-cluster-lbpolicy-round-robin">
@@ -1188,7 +1188,7 @@ this option or not.</p>
 </div>
 <div class="section" id="enum-cluster-dnslookupfamily">
 <span id="envoy-api-enum-cluster-dnslookupfamily"></span><h2>Enum Cluster.DnsLookupFamily<a class="headerlink" href="#enum-cluster-dnslookupfamily" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L124">[Cluster.DnsLookupFamily proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L124">[Cluster.DnsLookupFamily proto]</a></p>
 <p>When V4_ONLY is selected, the DNS resolver will only perform a lookup for
 addresses in the IPv4 family. If V6_ONLY is selected, the DNS resolver will
 only perform a lookup for addresses in the IPv6 family. If AUTO is
@@ -1214,7 +1214,7 @@ ignored.</p>
 </div>
 <div class="section" id="enum-cluster-clusterprotocolselection">
 <span id="envoy-api-enum-cluster-clusterprotocolselection"></span><h2>Enum Cluster.ClusterProtocolSelection<a class="headerlink" href="#enum-cluster-clusterprotocolselection" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L130">[Cluster.ClusterProtocolSelection proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L130">[Cluster.ClusterProtocolSelection proto]</a></p>
 <dl class="simple" id="envoy-api-enum-value-cluster-clusterprotocolselection-use-configured-protocol">
 <dt>USE_CONFIGURED_PROTOCOL</dt><dd><p><em>(DEFAULT)</em> ⁣Cluster can only operate on one of the possible upstream protocols (HTTP1.1, HTTP2).
 If <a class="reference internal" href="#envoy-api-field-cluster-http2-protocol-options"><span class="std std-ref">http2_protocol_options</span></a> are
@@ -1228,7 +1228,7 @@ present, HTTP2 will be used, otherwise HTTP1.1 will be used.</p>
 </div>
 <div class="section" id="upstreambindconfig">
 <span id="envoy-api-msg-upstreambindconfig"></span><h2>UpstreamBindConfig<a class="headerlink" href="#upstreambindconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L854">[UpstreamBindConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L854">[UpstreamBindConfig proto]</a></p>
 <p>An extensible structure containing the address Envoy should bind to when
 establishing upstream connections.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -1243,7 +1243,7 @@ establishing upstream connections.</p>
 </div>
 <div class="section" id="upstreamconnectionoptions">
 <span id="envoy-api-msg-upstreamconnectionoptions"></span><h2>UpstreamConnectionOptions<a class="headerlink" href="#upstreamconnectionoptions" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/380f11982d8320d8ac54b504aa7220be8b81470a/api/envoy/api/v2/cluster.proto#L859">[UpstreamConnectionOptions proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/api/v2/cluster.proto#L859">[UpstreamConnectionOptions proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;tcp_keepalive&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>
 <span class="p">}</span>
@@ -1267,7 +1267,7 @@ establishing upstream connections.</p>
         <a href="cluster/outlier_detection.proto.html" class="btn btn-neutral float-right" title="Outlier detection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../clusters/clusters.html" class="btn btn-neutral float-left" title="Clusters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../clusters/clusters.html" class="btn btn-neutral float-left" title="集群" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

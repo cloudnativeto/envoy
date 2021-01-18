@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>External Authorization &mdash; envoy 1.16.0-380f11 documentation</title>
+  <title>外部授权 &mdash; envoy 1.16.0-d4d57f documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-380f11
+                1.16.0-d4d57f
               </div>
             
           
@@ -111,7 +111,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../http.html">HTTP</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../http_conn_man/http_conn_man.html">HTTP 连接管理器</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="http_filters.html">HTTP 过滤器</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="adaptive_concurrency_filter.html">Adaptive Concurrency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="adaptive_concurrency_filter.html">自适应并发</a></li>
 <li class="toctree-l4"><a class="reference internal" href="admission_control_filter.html">准入控制</a></li>
 <li class="toctree-l4"><a class="reference internal" href="aws_lambda_filter.html">AWS Lambda</a></li>
 <li class="toctree-l4"><a class="reference internal" href="aws_request_signing_filter.html">AWS 请求签名</a></li>
@@ -123,7 +123,7 @@
 <li class="toctree-l4"><a class="reference internal" href="decompressor_filter.html">解压缩器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dynamic_forward_proxy_filter.html">动态转发代理</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dynamodb_filter.html">DynamoDB</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">External Authorization</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">外部授权</a></li>
 <li class="toctree-l4"><a class="reference internal" href="fault_filter.html">故障注入</a></li>
 <li class="toctree-l4"><a class="reference internal" href="grpc_http1_bridge_filter.html">gRPC HTTP/1.1 桥接</a></li>
 <li class="toctree-l4"><a class="reference internal" href="grpc_http1_reverse_bridge_filter.html">gRPC HTTP/1.1 reverse bridge</a></li>
@@ -215,7 +215,7 @@
         
           <li><a href="http_filters.html">HTTP 过滤器</a> &raquo;</li>
         
-      <li>External Authorization</li>
+      <li>外部授权</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -234,26 +234,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="external-authorization">
-<span id="config-http-filters-ext-authz"></span><h1>External Authorization<a class="headerlink" href="#external-authorization" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="config-http-filters-ext-authz">
+<span id="id1"></span><h1>外部授权<a class="headerlink" href="#config-http-filters-ext-authz" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>External authorization <a class="reference internal" href="../../../intro/arch_overview/security/ext_authz_filter.html#arch-overview-ext-authz"><span class="std std-ref">architecture overview</span></a></p></li>
-<li><p><a class="reference internal" href="../../../api-v3/extensions/filters/http/ext_authz/v3/ext_authz.proto.html#envoy-v3-api-msg-extensions-filters-http-ext-authz-v3-extauthz"><span class="std std-ref">HTTP filter v3 API reference</span></a></p></li>
-<li><p>This filter should be configured with the name <em>envoy.filters.http.ext_authz</em>.</p></li>
+<li><p>外部授权 <a class="reference internal" href="../../../intro/arch_overview/security/ext_authz_filter.html#arch-overview-ext-authz"><span class="std std-ref">架构概览</span></a></p></li>
+<li><p><a class="reference internal" href="../../../api-v3/extensions/filters/http/ext_authz/v3/ext_authz.proto.html#envoy-v3-api-msg-extensions-filters-http-ext-authz-v3-extauthz"><span class="std std-ref">HTTP 过滤器 v3 API 参考</span></a></p></li>
+<li><p>过滤器的名称应该配置为 <em>envoy.filters.http.ext_authz</em> 。</p></li>
 </ul>
-<p>The external authorization filter calls an external gRPC or HTTP service to check whether an incoming
-HTTP request is authorized or not.
-If the request is deemed unauthorized, then the request will be denied normally with 403 (Forbidden) response.
-Note that sending additional custom metadata from the authorization service to the upstream, to the downstream or to the authorization service is
-also possible. This is explained in more details at <a class="reference internal" href="../../../api-v3/extensions/filters/http/ext_authz/v3/ext_authz.proto.html#envoy-v3-api-msg-extensions-filters-http-ext-authz-v3-extauthz"><span class="std std-ref">HTTP filter</span></a>.</p>
-<p>The content of the requests that are passed to an authorization service is specified by
-<a class="reference internal" href="../../../api-v3/service/auth/v3/external_auth.proto.html#envoy-v3-api-msg-service-auth-v3-checkrequest"><span class="std std-ref">CheckRequest</span></a>.</p>
-<p id="config-http-filters-ext-authz-http-configuration">The HTTP filter, using a gRPC/HTTP service, can be configured as follows. You can see all the
-configuration options at
-<a class="reference internal" href="../../../api-v3/extensions/filters/http/ext_authz/v3/ext_authz.proto.html#envoy-v3-api-msg-extensions-filters-http-ext-authz-v3-extauthz"><span class="std std-ref">HTTP filter</span></a>.</p>
-<div class="section" id="configuration-examples">
-<h2>Configuration Examples<a class="headerlink" href="#configuration-examples" title="Permalink to this headline">¶</a></h2>
-<p>A sample filter configuration for a gRPC authorization server:</p>
+<p>外部授权服务通过调用外部 gRPC 或者 HTTP 服务来检查传入的 HTTP 请求是否被授权。
+如果该请求被视为未授权，则通常会以 403 （禁止）响应拒绝该请求。
+注意，从授权服务向上游、下游或者授权服务发送其他自定义元数据也是被允许的。在 <a class="reference internal" href="../../../api-v3/extensions/filters/http/ext_authz/v3/ext_authz.proto.html#envoy-v3-api-msg-extensions-filters-http-ext-authz-v3-extauthz"><span class="std std-ref">HTTP 过滤器</span></a> 中有更多详细的解释。</p>
+<p>传递给授权服务的请求内容由 <a class="reference internal" href="../../../api-v3/service/auth/v3/external_auth.proto.html#envoy-v3-api-msg-service-auth-v3-checkrequest"><span class="std std-ref">CheckRequest</span></a> 指定。</p>
+<p id="config-http-filters-ext-authz-http-configuration">使用 gRPC/HTTP 服务的 HTTP 过滤器配置如下。你可以在 <a class="reference internal" href="../../../api-v3/extensions/filters/http/ext_authz/v3/ext_authz.proto.html#envoy-v3-api-msg-extensions-filters-http-ext-authz-v3-extauthz"><span class="std std-ref">HTTP 过滤器</span></a> 看到所有的配置选项。</p>
+<div class="section" id="id2">
+<h2>配置示例<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>gRPC 授权服务器的过滤器配置示例：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">http_filters</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.filters.http.ext_authz</span>
     <span class="nt">typed_config</span><span class="p">:</span>
@@ -288,9 +283,8 @@ configuration options at
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>One of the features of this filter is to send HTTP request body to the configured gRPC
-authorization server as part of the <a class="reference internal" href="../../../api-v3/service/auth/v3/external_auth.proto.html#envoy-v3-api-msg-service-auth-v3-checkrequest"><span class="std std-ref">check request</span></a>.</p>
-<p>A sample configuration is as follows:</p>
+<p>这个过滤器的一个特性就是将 HTTP 请求体作为 <a class="reference internal" href="../../../api-v3/service/auth/v3/external_auth.proto.html#envoy-v3-api-msg-service-auth-v3-checkrequest"><span class="std std-ref">检查请求</span></a> 的一部分发送到配置的 gRPC 授权服务器。</p>
+<p>简单配置如下：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">http_filters</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.filters.http.ext_authz</span>
     <span class="nt">typed_config</span><span class="p">:</span>
@@ -304,13 +298,11 @@ authorization server as part of the <a class="reference internal" href="../../..
         <span class="nt">pack_as_bytes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
-<p>Please note that by default <a class="reference internal" href="../../../api-v3/service/auth/v3/external_auth.proto.html#envoy-v3-api-msg-service-auth-v3-checkrequest"><span class="std std-ref">check request</span></a>
-carries the HTTP request body as UTF-8 string and it fills the <a class="reference internal" href="../../../api-v3/service/auth/v3/attribute_context.proto.html#envoy-v3-api-field-service-auth-v3-attributecontext-httprequest-body"><span class="std std-ref">body</span></a> field. To pack the request
-body as raw bytes, it is needed to set <a class="reference internal" href="../../../api-v3/extensions/filters/http/ext_authz/v3/ext_authz.proto.html#envoy-v3-api-field-extensions-filters-http-ext-authz-v3-buffersettings-pack-as-bytes"><span class="std std-ref">pack_as_bytes</span></a> field to
-true. In effect to that, the <a class="reference internal" href="../../../api-v3/service/auth/v3/attribute_context.proto.html#envoy-v3-api-field-service-auth-v3-attributecontext-httprequest-raw-body"><span class="std std-ref">raw_body</span></a>
-field will be set and <a class="reference internal" href="../../../api-v3/service/auth/v3/attribute_context.proto.html#envoy-v3-api-field-service-auth-v3-attributecontext-httprequest-body"><span class="std std-ref">body</span></a> field will be empty.</p>
+<p>注意，默认情况下，<a class="reference internal" href="../../../api-v3/service/auth/v3/external_auth.proto.html#envoy-v3-api-msg-service-auth-v3-checkrequest"><span class="std std-ref">check request</span></a> 以 UTF-8 字符串的形式携带 HTTP 请求体，并同时填充 <a class="reference internal" href="../../../api-v3/service/auth/v3/attribute_context.proto.html#envoy-v3-api-field-service-auth-v3-attributecontext-httprequest-body"><span class="std std-ref">body</span></a> 字段。
+如果需要将请求体打包为原始字节，则需要将 <a class="reference internal" href="../../../api-v3/extensions/filters/http/ext_authz/v3/ext_authz.proto.html#envoy-v3-api-field-extensions-filters-http-ext-authz-v3-buffersettings-pack-as-bytes"><span class="std std-ref">pack_as_bytes</span></a> 设置为 true。
+事实上，<a class="reference internal" href="../../../api-v3/service/auth/v3/attribute_context.proto.html#envoy-v3-api-field-service-auth-v3-attributecontext-httprequest-raw-body"><span class="std std-ref">raw_body</span></a> 字段会被赋值，而 <a class="reference internal" href="../../../api-v3/service/auth/v3/attribute_context.proto.html#envoy-v3-api-field-service-auth-v3-attributecontext-httprequest-body"><span class="std std-ref">body</span></a> 会被设为空。</p>
 </div>
-<p>A sample filter configuration for a raw HTTP authorization server:</p>
+<p>原始 HTTP 授权服务器的过滤器配置示例：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">http_filters</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.filters.http.ext_authz</span>
     <span class="nt">typed_config</span><span class="p">:</span>
@@ -341,10 +333,10 @@ field will be set and <a class="reference internal" href="../../../api-v3/servic
 </pre></div>
 </div>
 </div>
-<div class="section" id="per-route-configuration">
-<h2>Per-Route Configuration<a class="headerlink" href="#per-route-configuration" title="Permalink to this headline">¶</a></h2>
-<p>A sample virtual host and route filter configuration.
-In this example we add additional context on the virtual host, and disabled the filter for <cite>/static</cite> prefixed routes.</p>
+<div class="section" id="id3">
+<h2>按路由独立配置<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>虚拟主机和路由过滤器的简单配置示例。
+在示例中，我们为虚拟主机添加了其他的上下文，并且禁用了前缀为 <cite>/static</cite> 的路由过滤器。</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">route_config</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local_route</span>
   <span class="nt">virtual_hosts</span><span class="p">:</span>
@@ -368,9 +360,9 @@ In this example we add additional context on the virtual host, and disabled the 
 </pre></div>
 </div>
 </div>
-<div class="section" id="statistics">
-<h2>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h2>
-<p id="config-http-filters-ext-authz-stats">The HTTP filter outputs statistics in the <em>cluster.&lt;route target cluster&gt;.ext_authz.</em> namespace.</p>
+<div class="section" id="id4">
+<h2>统计信息<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p id="config-http-filters-ext-authz-stats">HTTP 过滤器输出的统计信息 <em>cluster.&lt;route target cluster&gt;.ext_authz.</em> 命名空间中。</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -378,53 +370,50 @@ In this example we add additional context on the virtual host, and disabled the 
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>ok</p></td>
 <td><p>Counter</p></td>
-<td><p>Total responses from the filter.</p></td>
+<td><p>过滤器的响应总数。</p></td>
 </tr>
 <tr class="row-odd"><td><p>error</p></td>
 <td><p>Counter</p></td>
-<td><p>Total errors (including timeouts) contacting the external service.</p></td>
+<td><p>联系外部服务（包含超时）的异常总数。</p></td>
 </tr>
 <tr class="row-even"><td><p>timeout</p></td>
 <td><p>Counter</p></td>
-<td><p>Total timeouts contacting the external service (only counted when timeout is measured when check request is created).</p></td>
+<td><p>联系外部服务的超时总数（仅计算在创建请求时判定为超时）。</p></td>
 </tr>
 <tr class="row-odd"><td><p>denied</p></td>
 <td><p>Counter</p></td>
-<td><p>Total responses from the authorizations service that were to deny the traffic.</p></td>
+<td><p>授权服务的拒绝通信的响应总数。</p></td>
 </tr>
 <tr class="row-even"><td><p>disabled</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests that are allowed without calling external services due to the filter is disabled.</p></td>
+<td><p>由于过滤器被禁用，不调用外部服务而允许的请求总数。</p></td>
 </tr>
 <tr class="row-odd"><td><p>failure_mode_allowed</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests that were error(s) but were allowed through because
-of failure_mode_allow set to true.</p></td>
+<td><p>出现异常但由于 failure_mode_allow 被设置为 true 而允许通过的请求总数。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="dynamic-metadata">
-<h2>Dynamic Metadata<a class="headerlink" href="#dynamic-metadata" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h2>动态元数据<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note" id="config-http-filters-ext-authz-dynamic-metadata">
 <p class="admonition-title">Note</p>
-<p>The External Authorization filter emits dynamic metadata only when it is configured to use
-gRPC service as the authorization server.</p>
+<p>外部授权服务器仅在使用 gRPC 服务作为授权服务器时才会发出动态元数据。</p>
 </div>
-<p>The External Authorization filter emits dynamic metadata as an opaque <code class="docutils literal notranslate"><span class="pre">google.protobuf.Struct</span></code>
-<em>only</em> when the gRPC authorization server returns a <a class="reference internal" href="../../../api-v3/service/auth/v3/external_auth.proto.html#envoy-v3-api-msg-service-auth-v3-checkresponse"><span class="std std-ref">CheckResponse</span></a> with a filled <a class="reference internal" href="../../../api-v3/service/auth/v3/external_auth.proto.html#envoy-v3-api-field-service-auth-v3-checkresponse-dynamic-metadata"><span class="std std-ref">dynamic_metadata</span></a> field.</p>
+<p>当 gRPC 授权服务器返回一个带有 <a class="reference internal" href="../../../api-v3/service/auth/v3/external_auth.proto.html#envoy-v3-api-field-service-auth-v3-checkresponse-dynamic-metadata"><span class="std std-ref">dynamic_metadata</span></a> 字段的 <a class="reference internal" href="../../../api-v3/service/auth/v3/external_auth.proto.html#envoy-v3-api-msg-service-auth-v3-checkresponse"><span class="std std-ref">CheckResponse</span></a> 时，外部授权过滤器会将动态元数据作为不透明的 <code class="docutils literal notranslate"><span class="pre">google.protobuf.Struct</span></code> 发出。</p>
 </div>
-<div class="section" id="runtime">
-<h2>Runtime<a class="headerlink" href="#runtime" title="Permalink to this headline">¶</a></h2>
-<p>The fraction of requests for which the filter is enabled can be configured via the <a class="reference internal" href="../../../api-v3/config/core/v3/base.proto.html#envoy-v3-api-field-config-core-v3-runtimefractionalpercent-runtime-key"><span class="std std-ref">runtime_key</span></a> value of the <a class="reference internal" href="../../../api-v3/extensions/filters/http/ext_authz/v3/ext_authz.proto.html#envoy-v3-api-field-extensions-filters-http-ext-authz-v3-extauthz-filter-enabled"><span class="std std-ref">filter_enabled</span></a> field.</p>
+<div class="section" id="id6">
+<h2>运行时<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>可以通过 <a class="reference internal" href="../../../api-v3/extensions/filters/http/ext_authz/v3/ext_authz.proto.html#envoy-v3-api-field-extensions-filters-http-ext-authz-v3-extauthz-filter-enabled"><span class="std std-ref">filter_enabled</span></a> 字段的 <a class="reference internal" href="../../../api-v3/config/core/v3/base.proto.html#envoy-v3-api-field-config-core-v3-runtimefractionalpercent-runtime-key"><span class="std std-ref">runtime_key</span></a> 值来配置启用过滤器的请求百分比。</p>
 </div>
 </div>
 
