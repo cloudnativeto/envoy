@@ -216,7 +216,7 @@ Envoy 由 JSON 配置文件以及一组命令行选项驱动。以下是 Envoy �
 
 .. option:: --disable-extensions <extension list>
 
- *（可选）* 此标志禁用逗号分隔的扩展名列表。禁用的扩展无法通过静态或动态配置使用，尽管它们仍链接到 Envoy 并且可能运行启动代码或具有其他运行时效果。扩展名称的创建是通过将扩展类别和名称加上斜线（例如 ``grpc_credentials/envoy.grpc_credentials.file_based_metadata``。
+ *（可选）* 此标志禁用逗号分隔的扩展名列表。禁用的扩展无法通过静态或动态配置使用，尽管它们仍链接到 Envoy 并且可能运行启动代码或具有其他运行时效果。扩展名称的创建是通过将扩展类别和名称加上斜线，例如 ``grpc_credentials/envoy.grpc_credentials.file_based_metadata``。
 
 .. option:: --version
 
