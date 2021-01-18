@@ -212,7 +212,7 @@ Envoy 由 JSON 配置文件以及一组命令行选项驱动。以下是 Envoy �
 
 .. option:: --ignore-unknown-dynamic-fields
 
-  *（可选）* 此标志禁用动态配置中未知字段的 protobuf 配置验证。 与 :option:`--reject-unknown-dynamic-fields` 设置为false不同，为了提高配置处理速度它不会记录警告或计算未知字段的出现。 如果 :option:`--reject-unknown-dynamic-fields` 设置为true，则此标志无效。
+  *（可选）* 此标志禁用动态配置中未知字段的 protobuf 配置验证。 与 :option:`--reject-unknown-dynamic-fields` 设置为false不同，为了提高配置处理速度它不会记录警告或计算未知字段的出现。如果 :option:`--reject-unknown-dynamic-fields` 设置为 true，则此标志无效。
 
 .. option:: --disable-extensions <extension list>
 
