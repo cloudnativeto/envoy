@@ -165,7 +165,7 @@ Envoy 由 JSON 配置文件以及一组命令行选项驱动。以下是 Envoy �
 
 .. option:: --service-zone <string>
 
-  *（可选）* 定义 Envoy 运行所在的本地服务区域。本地服务区域首先来自 :ref:`Bootstrap node <envoy_v3_api_field_config.bootstrap.v3.Bootstrap.node>` 信息的 :ref:`locality.zone <envoy_v3_api_field_config.core.v3.Locality.zone>` 字段。此CLI选项提供了一种指定此值的替代方法，它将覆盖在引导程序配置中设置的任何值。如果使用发现服务路由并且发现服务公开了 :ref:`区域数据 <envoy_v3_api_msg_config.endpoint.v3.LocalityLbEndpoints>` 的情况下需要设置该选项，可以通过此CLI选项或在引导程序配置中进行。区域的含义取决于上下文，例如在AWS上的 `可用域（Availability Zone AZ） <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html>`、 GCP 上的 `域（Zone） <https://cloud.google.com/compute/docs/regions-zones/>`_， 等等。
+  *（可选）* 定义 Envoy 运行所在的本地服务区域。本地服务区域首先来自 :ref:`Bootstrap 节点 <envoy_v3_api_field_config.bootstrap.v3.Bootstrap.node>` 信息的 :ref:`locality.zone <envoy_v3_api_field_config.core.v3.Locality.zone>` 字段。此 CLI 选项提供了一种指定此值的替代方法，它将覆盖在引导程序配置中设置的任何值。如果使用发现服务路由并且发现服务公开了 :ref:`区域数据 <envoy_v3_api_msg_config.endpoint.v3.LocalityLbEndpoints>` 的情况下需要设置该选项，可以通过此 CLI 选项或在引导程序配置中进行。区域的含义取决于上下文，例如在 AWS 上的 `可用域（Availability Zone AZ） <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html>`、 GCP 上的 `域（Zone） <https://cloud.google.com/compute/docs/regions-zones/>`_，等等。
 
 
 .. option:: --file-flush-interval-msec <integer>
