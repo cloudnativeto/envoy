@@ -135,7 +135,7 @@ Envoy 由 JSON 配置文件以及一组命令行选项驱动。以下是 Envoy �
 
 .. option:: --enable-fine-grain-logging
 
-  *（可选）* 在管理界面上启用具有文件级日志控制和运行时更新的细粒度记录器。如果启用，则主要日志宏包括 `ENVOY_LOG`、`ENVOY_CONN_LOG`、`ENVOY_STREAM_LOG` 和 `ENVOY_FLUSH_LOG` 将使用每个文件的记录器，使用不再需要 `Envoy::Logger::Loggable`。管理界面的用法与此类似。有关更多详细信息，见 `管理界面 <https://www.envoyproxy.io/docs/envoy/latest/operations/admin>`_ 。
+  *（可选）* 在管理界面上启用具有文件级日志控制和运行时更新的细粒度记录器。如果启用，则主要日志宏包括 `ENVOY_LOG`、`ENVOY_CONN_LOG`、`ENVOY_STREAM_LOG` 和 `ENVOY_FLUSH_LOG` 将使用每个文件的记录器，使用时不再需要 `Envoy::Logger::Loggable`。管理界面的用法与此类似。有关更多详细信息，见 `管理界面 <https://www.envoyproxy.io/docs/envoy/latest/operations/admin>`_ 。
 
 .. option:: --socket-path <path string>
 
