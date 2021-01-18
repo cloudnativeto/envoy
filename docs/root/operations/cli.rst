@@ -139,7 +139,7 @@ Envoy 由 JSON 配置文件以及一组命令行选项驱动。以下是 Envoy �
 
 .. option:: --socket-path <path string>
 
-  *（可选）* :ref:`热重启 <arch_overview_hot_restart>` 的套接字地址的输出文件路径。默认为 "@envoy_domain_socket"，它将在抽象名称空间中创建。Suffix _{role}_{id} 被附加以提供名称。希望一起参与热重启的所有 Envoy 进程必须为此选项使用相同的值。
+  *（可选）* :ref:`热重启 <arch_overview_hot_restart>` 套接字地址的输出文件路径。默认为 "@envoy_domain_socket"，它将在抽象名称空间中创建。Suffix _{role}_{id} 被附加以提供名称。希望一起参与热重启的所有 Envoy 进程必须为此选项使用相同的值。
 
   **注意**：以“@”开头的路径将在抽象名称空间中创建。
 
