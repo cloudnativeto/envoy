@@ -220,7 +220,7 @@ Envoy 由 JSON 配置文件以及一组命令行选项驱动。以下是 Envoy �
 
 .. option:: --version
 
- *（可选）* 此标志用于显示Envoy版本和构建信息，例如  ``c93f9f6c1e5adddd10a3e3646c7e049c649ae177/1.9.0-dev/Clean/RELEASE/BoringSSL-FIPS``。
+ *（可选）* 此标志用于显示 Envoy 版本和构建信息，例如  ``c93f9f6c1e5adddd10a3e3646c7e049c649ae177/1.9.0-dev/Clean/RELEASE/BoringSSL-FIPS``。
 
   它包含了 5 个用斜线分隔的字段：
 
