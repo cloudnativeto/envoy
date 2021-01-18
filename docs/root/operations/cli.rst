@@ -186,7 +186,7 @@ Envoy 由 JSON 配置文件以及一组命令行选项驱动。以下是 Envoy �
 
 .. option:: --parent-shutdown-time-s <integer>
 
-  *（可选）* 在热重启期间，Envoy 在关闭父进程之前等待的时间，以秒为单位。 有关更多信息，见 :ref:`热重启 <arch_overview_hot_restart>`。 默认为 900秒（15分钟）。
+  *（可选）* 在热重启期间，Envoy 在关闭父进程之前等待的时间，以秒为单位。 有关更多信息，见 :ref:`热重启 <arch_overview_hot_restart>`。 默认为 900 秒（15 分钟）。
 
 .. option:: --disable-hot-restart
 
