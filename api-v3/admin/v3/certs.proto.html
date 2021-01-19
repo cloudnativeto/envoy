@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Certificates &mdash; envoy 1.16.0-d4d57f documentation</title>
+  <title>Certificates &mdash; envoy 1.16.0-aa751a documentation</title>
   
 
   
@@ -47,7 +47,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Clusters" href="clusters.proto.html" />
-    <link rel="prev" title="Admin" href="../admin.html" /> 
+    <link rel="prev" title="管理" href="../admin.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-d4d57f
+                1.16.0-aa751a
               </div>
             
           
@@ -117,7 +117,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../clusters/clusters.html">集群</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../http_routes/http_routes.html">HTTP 路由管理</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../config/config.html">扩展</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../admin.html">Admin</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../admin.html">管理</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Certificates</a></li>
 <li class="toctree-l4"><a class="reference internal" href="clusters.proto.html">Clusters</a></li>
 <li class="toctree-l4"><a class="reference internal" href="config_dump.proto.html">ConfigDump</a></li>
@@ -130,9 +130,9 @@
 <li class="toctree-l4"><a class="reference internal" href="tap.proto.html">Tap</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../data/data.html">Envoy data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../service/service.html">Services</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../common_messages/common_messages.html">Common messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/data.html">Envoy 数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../service/service.html">服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common_messages/common_messages.html">常见消息</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../types/types.html">类型</a></li>
 </ul>
 </li>
@@ -191,7 +191,7 @@
         
           <li><a href="../../api.html">v3 API 参考</a> &raquo;</li>
         
-          <li><a href="../admin.html">Admin</a> &raquo;</li>
+          <li><a href="../admin.html">管理</a> &raquo;</li>
         
       <li>Certificates</li>
     
@@ -216,7 +216,7 @@
 <span id="envoy-v3-api-file-envoy-admin-v3-certs-proto"></span><h1>Certificates<a class="headerlink" href="#certificates" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="admin-v3-certificates">
 <span id="envoy-v3-api-msg-admin-v3-certificates"></span><h2>admin.v3.Certificates<a class="headerlink" href="#admin-v3-certificates" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/admin/v3/certs.proto#L19">[admin.v3.Certificates proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/admin/v3/certs.proto#L19">[admin.v3.Certificates proto]</a></p>
 <p>Proto representation of certificate details. Admin endpoint uses this wrapper for <cite>/certs</cite> to
 display certificate information. See <a class="reference internal" href="../../../operations/admin.html#operations-admin-interface-certs"><span class="std std-ref">/certs</span></a> for more
 information.</p>
@@ -232,7 +232,7 @@ information.</p>
 </div>
 <div class="section" id="admin-v3-certificate">
 <span id="envoy-v3-api-msg-admin-v3-certificate"></span><h2>admin.v3.Certificate<a class="headerlink" href="#admin-v3-certificate" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/admin/v3/certs.proto#L26">[admin.v3.Certificate proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/admin/v3/certs.proto#L26">[admin.v3.Certificate proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;ca_cert&quot;</span><span class="p">:</span> <span class="p">[],</span>
   <span class="nt">&quot;cert_chain&quot;</span><span class="p">:</span> <span class="p">[]</span>
@@ -250,7 +250,7 @@ information.</p>
 </div>
 <div class="section" id="admin-v3-certificatedetails">
 <span id="envoy-v3-api-msg-admin-v3-certificatedetails"></span><h2>admin.v3.CertificateDetails<a class="headerlink" href="#admin-v3-certificatedetails" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/admin/v3/certs.proto#L37">[admin.v3.CertificateDetails proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/admin/v3/certs.proto#L37">[admin.v3.CertificateDetails proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;serial_number&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -293,7 +293,7 @@ information.</p>
 </div>
 <div class="section" id="admin-v3-certificatedetails-ocspdetails">
 <span id="envoy-v3-api-msg-admin-v3-certificatedetails-ocspdetails"></span><h2>admin.v3.CertificateDetails.OcspDetails<a class="headerlink" href="#admin-v3-certificatedetails-ocspdetails" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/admin/v3/certs.proto#L41">[admin.v3.CertificateDetails.OcspDetails proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/admin/v3/certs.proto#L41">[admin.v3.CertificateDetails.OcspDetails proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;valid_from&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;expiration&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>
@@ -311,7 +311,7 @@ information.</p>
 </div>
 <div class="section" id="admin-v3-subjectalternatename">
 <span id="envoy-v3-api-msg-admin-v3-subjectalternatename"></span><h2>admin.v3.SubjectAlternateName<a class="headerlink" href="#admin-v3-subjectalternatename" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/admin/v3/certs.proto#L71">[admin.v3.SubjectAlternateName proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/admin/v3/certs.proto#L71">[admin.v3.SubjectAlternateName proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;dns&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -351,7 +351,7 @@ Subject Alternate Name.</p>
         <a href="clusters.proto.html" class="btn btn-neutral float-right" title="Clusters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../admin.html" class="btn btn-neutral float-left" title="Admin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../admin.html" class="btn btn-neutral float-left" title="管理" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

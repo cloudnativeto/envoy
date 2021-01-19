@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Load Reporting service (LRS) &mdash; envoy 1.16.0-d4d57f documentation</title>
+  <title>Load Reporting service (LRS) &mdash; envoy 1.16.0-aa751a documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-d4d57f
+                1.16.0-aa751a
               </div>
             
           
@@ -117,9 +117,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../clusters/clusters.html">集群</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../http_routes/http_routes.html">HTTP 路由管理</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../config/config.html">扩展</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../admin/admin.html">Admin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../data/data.html">Envoy data</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../service.html">Services</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../admin/admin.html">管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/data.html">Envoy 数据</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../service.html">服务</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../accesslog/v3/als.proto.html">gRPC Access Log Service (ALS)</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Load Reporting service (LRS)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../auth/v3/attribute_context.proto.html">Attribute Context</a></li>
@@ -135,7 +135,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../extension/v3/config_discovery.proto.html">Extension Config Discovery Service (ECDS)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../common_messages/common_messages.html">Common messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../common_messages/common_messages.html">常见消息</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../types/types.html">类型</a></li>
 </ul>
 </li>
@@ -194,7 +194,7 @@
         
           <li><a href="../../../api.html">v3 API 参考</a> &raquo;</li>
         
-          <li><a href="../../service.html">Services</a> &raquo;</li>
+          <li><a href="../../service.html">服务</a> &raquo;</li>
         
       <li>Load Reporting service (LRS)</li>
     
@@ -226,7 +226,7 @@ based on the <a class="reference internal" href="#envoy-v3-api-field-service-loa
 For details, take a look at the <a class="reference internal" href="../../../../start/sandboxes/load_reporting_service.html#install-sandboxes-load-reporting-service"><span class="std std-ref">Load Reporting Service sandbox example</span></a>.</p>
 <div class="section" id="service-load-stats-v3-loadstatsrequest">
 <span id="envoy-v3-api-msg-service-load-stats-v3-loadstatsrequest"></span><h2>service.load_stats.v3.LoadStatsRequest<a class="headerlink" href="#service-load-stats-v3-loadstatsrequest" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/service/load_stats/v3/lrs.proto#L63">[service.load_stats.v3.LoadStatsRequest proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/service/load_stats/v3/lrs.proto#L63">[service.load_stats.v3.LoadStatsRequest proto]</a></p>
 <p>A load report Envoy sends to the management server.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;node&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -245,7 +245,7 @@ For details, take a look at the <a class="reference internal" href="../../../../
 </div>
 <div class="section" id="service-load-stats-v3-loadstatsresponse">
 <span id="envoy-v3-api-msg-service-load-stats-v3-loadstatsresponse"></span><h2>service.load_stats.v3.LoadStatsResponse<a class="headerlink" href="#service-load-stats-v3-loadstatsresponse" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/service/load_stats/v3/lrs.proto#L76">[service.load_stats.v3.LoadStatsResponse proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/service/load_stats/v3/lrs.proto#L76">[service.load_stats.v3.LoadStatsResponse proto]</a></p>
 <p>The management server sends envoy a LoadStatsResponse with all clusters it
 is interested in learning load stats about.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>

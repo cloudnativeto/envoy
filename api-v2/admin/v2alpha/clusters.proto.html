@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Clusters &mdash; envoy 1.16.0-d4d57f documentation</title>
+  <title>Clusters &mdash; envoy 1.16.0-aa751a documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-d4d57f
+                1.16.0-aa751a
               </div>
             
           
@@ -116,7 +116,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../clusters/clusters.html">集群</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../http_routes/http_routes.html">HTTP 路由管理</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../config/config.html">扩展</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../admin.html">Admin</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../admin.html">管理</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="certs.proto.html">Certificates</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Clusters</a></li>
 <li class="toctree-l4"><a class="reference internal" href="config_dump.proto.html">ConfigDump</a></li>
@@ -128,9 +128,9 @@
 <li class="toctree-l4"><a class="reference internal" href="tap.proto.html">Tap</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../data/data.html">Envoy data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../service/service.html">Services</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../common_messages/common_messages.html">Common messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/data.html">Envoy 数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../service/service.html">服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common_messages/common_messages.html">常见消息</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../types/types.html">类型</a></li>
 </ul>
 </li>
@@ -190,7 +190,7 @@
         
           <li><a href="../../api.html">v2 API 参考</a> &raquo;</li>
         
-          <li><a href="../admin.html">Admin</a> &raquo;</li>
+          <li><a href="../admin.html">管理</a> &raquo;</li>
         
       <li>Clusters</li>
     
@@ -215,7 +215,7 @@
 <span id="envoy-api-file-envoy-admin-v2alpha-clusters-proto"></span><h1>Clusters<a class="headerlink" href="#clusters" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="admin-v2alpha-clusters">
 <span id="envoy-api-msg-admin-v2alpha-clusters"></span><h2>admin.v2alpha.Clusters<a class="headerlink" href="#admin-v2alpha-clusters" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/admin/v2alpha/clusters.proto#L21">[admin.v2alpha.Clusters proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/admin/v2alpha/clusters.proto#L21">[admin.v2alpha.Clusters proto]</a></p>
 <p>Admin endpoint uses this wrapper for <cite>/clusters</cite> to display cluster status information.
 See <a class="reference internal" href="../../../operations/admin.html#operations-admin-interface-clusters"><span class="std std-ref">/clusters</span></a> for more information.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -230,7 +230,7 @@ See <a class="reference internal" href="../../../operations/admin.html#operation
 </div>
 <div class="section" id="admin-v2alpha-clusterstatus">
 <span id="envoy-api-msg-admin-v2alpha-clusterstatus"></span><h2>admin.v2alpha.ClusterStatus<a class="headerlink" href="#admin-v2alpha-clusterstatus" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/admin/v2alpha/clusters.proto#L28">[admin.v2alpha.ClusterStatus proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/admin/v2alpha/clusters.proto#L28">[admin.v2alpha.ClusterStatus proto]</a></p>
 <p>Details an individual cluster’s current status.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -294,7 +294,7 @@ threshold for that interval.</p></li>
 </div>
 <div class="section" id="admin-v2alpha-hoststatus">
 <span id="envoy-api-msg-admin-v2alpha-hoststatus"></span><h2>admin.v2alpha.HostStatus<a class="headerlink" href="#admin-v2alpha-hoststatus" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/admin/v2alpha/clusters.proto#L77">[admin.v2alpha.HostStatus proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/admin/v2alpha/clusters.proto#L77">[admin.v2alpha.HostStatus proto]</a></p>
 <p>Current state of a particular host.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -369,7 +369,7 @@ ejection.</p>
 </div>
 <div class="section" id="admin-v2alpha-hosthealthstatus">
 <span id="envoy-api-msg-admin-v2alpha-hosthealthstatus"></span><h2>admin.v2alpha.HostHealthStatus<a class="headerlink" href="#admin-v2alpha-hosthealthstatus" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/admin/v2alpha/clusters.proto#L131">[admin.v2alpha.HostHealthStatus proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/admin/v2alpha/clusters.proto#L131">[admin.v2alpha.HostHealthStatus proto]</a></p>
 <p>Health status for a host.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;failed_active_health_check&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>

@@ -10,7 +10,7 @@ Health check logging events
 data.core.v2alpha.HealthCheckEvent
 ----------------------------------
 
-`[data.core.v2alpha.HealthCheckEvent proto] <https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/data/core/v2alpha/health_check_event.proto#L33>`_
+`[data.core.v2alpha.HealthCheckEvent proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/data/core/v2alpha/health_check_event.proto#L33>`_
 
 
 .. code-block:: json
@@ -100,7 +100,7 @@ timestamp
 data.core.v2alpha.HealthCheckEjectUnhealthy
 -------------------------------------------
 
-`[data.core.v2alpha.HealthCheckEjectUnhealthy proto] <https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/data/core/v2alpha/health_check_event.proto#L63>`_
+`[data.core.v2alpha.HealthCheckEjectUnhealthy proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/data/core/v2alpha/health_check_event.proto#L63>`_
 
 
 .. code-block:: json
@@ -122,7 +122,7 @@ failure_type
 data.core.v2alpha.HealthCheckAddHealthy
 ---------------------------------------
 
-`[data.core.v2alpha.HealthCheckAddHealthy proto] <https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/data/core/v2alpha/health_check_event.proto#L68>`_
+`[data.core.v2alpha.HealthCheckAddHealthy proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/data/core/v2alpha/health_check_event.proto#L68>`_
 
 
 .. code-block:: json
@@ -146,7 +146,7 @@ first_check
 data.core.v2alpha.HealthCheckFailure
 ------------------------------------
 
-`[data.core.v2alpha.HealthCheckFailure proto] <https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/data/core/v2alpha/health_check_event.proto#L75>`_
+`[data.core.v2alpha.HealthCheckFailure proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/data/core/v2alpha/health_check_event.proto#L75>`_
 
 
 .. code-block:: json
@@ -175,7 +175,7 @@ first_check
 data.core.v2alpha.DegradedHealthyHost
 -------------------------------------
 
-`[data.core.v2alpha.DegradedHealthyHost proto] <https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/data/core/v2alpha/health_check_event.proto#L83>`_
+`[data.core.v2alpha.DegradedHealthyHost proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/data/core/v2alpha/health_check_event.proto#L83>`_
 
 
 .. code-block:: json
@@ -190,7 +190,7 @@ data.core.v2alpha.DegradedHealthyHost
 data.core.v2alpha.NoLongerDegradedHost
 --------------------------------------
 
-`[data.core.v2alpha.NoLongerDegradedHost proto] <https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/data/core/v2alpha/health_check_event.proto#L86>`_
+`[data.core.v2alpha.NoLongerDegradedHost proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/data/core/v2alpha/health_check_event.proto#L86>`_
 
 
 .. code-block:: json
@@ -204,7 +204,7 @@ data.core.v2alpha.NoLongerDegradedHost
 Enum data.core.v2alpha.HealthCheckFailureType
 ---------------------------------------------
 
-`[data.core.v2alpha.HealthCheckFailureType proto] <https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/data/core/v2alpha/health_check_event.proto#L19>`_
+`[data.core.v2alpha.HealthCheckFailureType proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/data/core/v2alpha/health_check_event.proto#L19>`_
 
 
 .. _envoy_api_enum_value_data.core.v2alpha.HealthCheckFailureType.ACTIVE:
@@ -228,7 +228,7 @@ NETWORK
 Enum data.core.v2alpha.HealthCheckerType
 ----------------------------------------
 
-`[data.core.v2alpha.HealthCheckerType proto] <https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/data/core/v2alpha/health_check_event.proto#L25>`_
+`[data.core.v2alpha.HealthCheckerType proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/data/core/v2alpha/health_check_event.proto#L25>`_
 
 
 .. _envoy_api_enum_value_data.core.v2alpha.HealthCheckerType.HTTP:

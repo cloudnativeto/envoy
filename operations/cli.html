@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Command line options &mdash; envoy 1.16.0-d4d57f documentation</title>
+  <title>命令行选项 &mdash; envoy 1.16.0-aa751a documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-d4d57f
+                1.16.0-aa751a
               </div>
             
           
@@ -107,7 +107,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../version_history/version_history.html">版本历史</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">配置参考</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="operations.html">操作和管理</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Command line options</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">命令行选项</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hot_restarter.html">Hot restart Python wrapper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="admin.html">Administration interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stats_overview.html">统计概览</a></li>
@@ -169,7 +169,7 @@
         
           <li><a href="operations.html">操作和管理</a> &raquo;</li>
         
-      <li>Command line options</li>
+      <li>命令行选项</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -188,29 +188,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="command-line-options">
-<span id="operations-cli"></span><h1>Command line options<a class="headerlink" href="#command-line-options" title="Permalink to this headline">¶</a></h1>
-<p>Envoy is driven both by a JSON configuration file as well as a set of command line options. The
-following are the command line options that Envoy supports.</p>
+  <div class="section" id="operations-cli">
+<span id="id1"></span><h1>命令行选项<a class="headerlink" href="#operations-cli" title="Permalink to this headline">¶</a></h1>
+<p>Envoy 由 JSON 配置文件以及一组命令行选项驱动。以下是 Envoy 支持的命令行选项。</p>
 <dl class="std option">
 <dt id="cmdoption-c">
 <span id="cmdoption-config-path"></span><code class="sig-name descname">-c</code><code class="sig-prename descclassname"> &lt;path string&gt;</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--config-path</code><code class="sig-prename descclassname"> &lt;path string&gt;</code><a class="headerlink" href="#cmdoption-c" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> The path to the v2 <a class="reference internal" href="../configuration/configuration.html#config"><span class="std std-ref">JSON/YAML/proto3 configuration
-file</span></a>. If this flag is missing, <a class="reference internal" href="#cmdoption-config-yaml"><code class="xref std std-option docutils literal notranslate"><span class="pre">--config-yaml</span></code></a> is required.
-This will be parsed as a <a class="reference internal" href="../configuration/overview/bootstrap.html#config-overview-bootstrap"><span class="std std-ref">v2 bootstrap configuration file</span></a>.
-Valid extensions are <code class="docutils literal notranslate"><span class="pre">.json</span></code>, <code class="docutils literal notranslate"><span class="pre">.yaml</span></code>, <code class="docutils literal notranslate"><span class="pre">.pb</span></code> and <code class="docutils literal notranslate"><span class="pre">.pb_text</span></code>, which indicate
-JSON, YAML, <a class="reference external" href="https://developers.google.com/protocol-buffers/docs/encoding">binary proto3</a> and <a class="reference external" href="https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.text_format">text
-proto3</a>
-formats respectively.</p>
+<dd><p><em>（可选）</em> v2 <a class="reference internal" href="../configuration/configuration.html#config"><span class="std std-ref">JSON/YAML/proto3 配置文件</span></a> 的路径。如果缺少此标志，则需要 <a class="reference internal" href="#cmdoption-config-yaml"><code class="xref std std-option docutils literal notranslate"><span class="pre">--config-yaml</span></code></a>。这将被解析为 <a class="reference internal" href="../configuration/overview/bootstrap.html#config-overview-bootstrap"><span class="std std-ref">v2 引导程序配置文件</span></a>。有效的扩展名有 <code class="docutils literal notranslate"><span class="pre">.json</span></code>、<code class="docutils literal notranslate"><span class="pre">.yaml</span></code>、<code class="docutils literal notranslate"><span class="pre">.pb</span></code> 和 <code class="docutils literal notranslate"><span class="pre">.pb_text</span></code>，他们分别表示 JSON、YAML、<a class="reference external" href="https://developers.google.com/protocol-buffers/docs/encoding">binary proto3</a> 和 <a class="reference external" href="https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.text_format">text
+proto3</a> 格式。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-config-yaml">
 <code class="sig-name descname">--config-yaml</code><code class="sig-prename descclassname"> &lt;yaml string&gt;</code><a class="headerlink" href="#cmdoption-config-yaml" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> The YAML string for a bootstrap configuration. If <a class="reference internal" href="#cmdoption-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">--config-path</span></code></a> is also set,
-the values in this YAML string will override and merge with the bootstrap loaded from <a class="reference internal" href="#cmdoption-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">--config-path</span></code></a>.
-Because YAML is a superset of JSON, a JSON string may also be passed to <a class="reference internal" href="#cmdoption-config-yaml"><code class="xref std std-option docutils literal notranslate"><span class="pre">--config-yaml</span></code></a>.</p>
-<p>Example overriding the node id on the command line:</p>
+<dd><p><em>（可选）</em> 引导程序配置的 YAML 字符串。如果还设置了:option:<cite>–config-path</cite>，则此 YAML 字符串中的值将覆盖并与从 <a class="reference internal" href="#cmdoption-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">--config-path</span></code></a> 路径加载的引导程序配置合并。因为 YAML 是 JSON 的超集，所以 JSON 字符串也可以传递给 <a class="reference internal" href="#cmdoption-config-yaml"><code class="xref std std-option docutils literal notranslate"><span class="pre">--config-yaml</span></code></a>。</p>
+<p>在命令行中覆盖节点 id 示例：</p>
 <blockquote>
 <div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./envoy -c bootstrap.yaml --config-yaml &quot;node: {id: &#39;node1&#39;}&quot;</span>
 </pre></div>
@@ -221,220 +213,188 @@ Because YAML is a superset of JSON, a JSON string may also be passed to <a class
 <dl class="std option">
 <dt id="cmdoption-bootstrap-version">
 <code class="sig-name descname">--bootstrap-version</code><code class="sig-prename descclassname"> &lt;integer&gt;</code><a class="headerlink" href="#cmdoption-bootstrap-version" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> The API version to load the bootstrap as. The value should be a single integer, e.g.
-to parse the bootstrap configuration as V3, specify <code class="docutils literal notranslate"><span class="pre">--bootstrap-version</span> <span class="pre">3</span></code>. If unset, Envoy will
-attempt to load the bootstrap as the previous API version and upgrade it to the latest. If that fails,
-Envoy will attempt to load the configuration as the latest version.</p>
+<dd><p><em>（可选）</em> 加载引导程序所用的 API 版本。该值应为单个整数，例如要将引导程序配置解析为 V3，请指定 <code class="docutils literal notranslate"><span class="pre">--bootstrap-version</span> <span class="pre">3</span></code>。如果未设置，Envoy 将尝试将引导程序作为前一个 API 版本加载并将其升级到最新版本。如果失败，Envoy 将尝试将配置加载为最新版本。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-mode">
 <code class="sig-name descname">--mode</code><code class="sig-prename descclassname"> &lt;string&gt;</code><a class="headerlink" href="#cmdoption-mode" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> One of the operating modes for Envoy:</p>
+<dd><p><em>（可选）</em> Envoy 的操作模式之一：</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">serve</span></code>: <em>(default)</em> Validate the JSON configuration and then serve traffic normally.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">validate</span></code>: Validate the JSON configuration and then exit, printing either an “OK” message (in
-which case the exit code is 0) or any errors generated by the configuration file (exit code 1).
-No network traffic is generated, and the hot restart process is not performed, so no other Envoy
-process on the machine will be disturbed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">serve</span></code>：<em>（默认值）</em> 验证 JSON 配置，然后正常提供流量。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">validate</span></code>：验证 JSON 配置，然后退出，打印“OK”消息（在这种情况下，退出代码为 0）或配置文件生成的任何错误（退出代码 1）。没有生成网络流量，并且不执行热重启过程，因此不会干扰计算机上的其他 Envoy 进程。</p></li>
 </ul>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-admin-address-path">
 <code class="sig-name descname">--admin-address-path</code><code class="sig-prename descclassname"> &lt;path string&gt;</code><a class="headerlink" href="#cmdoption-admin-address-path" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> The output file path where the admin address and port will be written.</p>
+<dd><p><em>（可选）</em> 管理地址和端口将被写入的输出文件路径。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-local-address-ip-version">
 <code class="sig-name descname">--local-address-ip-version</code><code class="sig-prename descclassname"> &lt;string&gt;</code><a class="headerlink" href="#cmdoption-local-address-ip-version" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> The IP address version that is used to populate the server local IP address. This
-parameter affects various headers including what is appended to the X-Forwarded-For (XFF) header.
-The options are <code class="docutils literal notranslate"><span class="pre">v4</span></code> or <code class="docutils literal notranslate"><span class="pre">v6</span></code>. The default is <code class="docutils literal notranslate"><span class="pre">v4</span></code>.</p>
+<dd><p><em>（可选）</em> 用于填充服务器本地 IP 地址的 IP 地址版本。此参数影响各种标头，包括附加到 X-Forwarded-For（XFF）标头的标头。选项是``v4`` 或 <code class="docutils literal notranslate"><span class="pre">v6</span></code>。默认值为 <code class="docutils literal notranslate"><span class="pre">v4</span></code>。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-base-id">
 <code class="sig-name descname">--base-id</code><code class="sig-prename descclassname"> &lt;integer&gt;</code><a class="headerlink" href="#cmdoption-base-id" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> The base ID to use when allocating shared memory regions. Envoy uses shared memory
-regions during <a class="reference internal" href="../intro/arch_overview/operations/hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">hot restart</span></a>. Most users will never have to
-set this option. However, if Envoy needs to be run multiple times on the same machine, each
-running Envoy will need a unique base ID so that the shared memory regions do not conflict.</p>
+<dd><p><em>（可选）</em> 分配共享内存区域时要使用的基础 ID。Envoy 在 <a class="reference internal" href="../intro/arch_overview/operations/hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">热重启</span></a> 期间使用共享内存区域。大多数用户将永远不必设置此选项。但是，如果 Envoy 需要在同一台计算机上多次运行，则每个正在运行的 Envoy 都将需要唯一的基础 ID，以便共享内存区域不会发生冲突。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-use-dynamic-base-id">
 <code class="sig-name descname">--use-dynamic-base-id</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-use-dynamic-base-id" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> Selects an unused base ID to use when allocating shared memory regions. Using
-preselected values with <a class="reference internal" href="#cmdoption-base-id"><code class="xref std std-option docutils literal notranslate"><span class="pre">--base-id</span></code></a> is preferred, however. If this option is enabled,
-it supersedes the <a class="reference internal" href="#cmdoption-base-id"><code class="xref std std-option docutils literal notranslate"><span class="pre">--base-id</span></code></a> value. This flag may not be used when the value of
-<a class="reference internal" href="#cmdoption-restart-epoch"><code class="xref std std-option docutils literal notranslate"><span class="pre">--restart-epoch</span></code></a> is non-zero. Instead, for subsequent hot restarts, set
-<a class="reference internal" href="#cmdoption-base-id"><code class="xref std std-option docutils literal notranslate"><span class="pre">--base-id</span></code></a> option with the selected base ID. See <a class="reference internal" href="#cmdoption-base-id-path"><code class="xref std std-option docutils literal notranslate"><span class="pre">--base-id-path</span></code></a>.</p>
+<dd><p><em>（可选）</em> 选择分配共享内存区域时要使用的未使用的基本 ID。但是，最好使用带有 <a class="reference internal" href="#cmdoption-base-id"><code class="xref std std-option docutils literal notranslate"><span class="pre">--base-id</span></code></a> 的预选值。如果启用此选项它将替换 <a class="reference internal" href="#cmdoption-base-id"><code class="xref std std-option docutils literal notranslate"><span class="pre">--base-id</span></code></a> 的值。 当 <a class="reference internal" href="#cmdoption-restart-epoch"><code class="xref std std-option docutils literal notranslate"><span class="pre">--restart-epoch</span></code></a> 的值不为零时，可能不使用此标志。相反，要进行后续的热重启，请使用选定的基本 ID 设置 <a class="reference internal" href="#cmdoption-base-id"><code class="xref std std-option docutils literal notranslate"><span class="pre">--base-id</span></code></a> 选项。见 <a class="reference internal" href="#cmdoption-base-id-path"><code class="xref std std-option docutils literal notranslate"><span class="pre">--base-id-path</span></code></a>。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-base-id-path">
 <code class="sig-name descname">--base-id-path</code><code class="sig-prename descclassname"> &lt;path_string&gt;</code><a class="headerlink" href="#cmdoption-base-id-path" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> Writes the base ID to the given path. While this option is compatible with
-<a class="reference internal" href="#cmdoption-base-id"><code class="xref std std-option docutils literal notranslate"><span class="pre">--base-id</span></code></a>, its intended use is to provide access to the dynamic base ID selected by
-<a class="reference internal" href="#cmdoption-use-dynamic-base-id"><code class="xref std std-option docutils literal notranslate"><span class="pre">--use-dynamic-base-id</span></code></a>.</p>
+<dd><p><em>（可选）</em> 写基本 ID 到给定的路径。尽管该选项与 <a class="reference internal" href="#cmdoption-base-id"><code class="xref std std-option docutils literal notranslate"><span class="pre">--base-id</span></code></a> 兼容，但其预期用户是提供对由 <a class="reference internal" href="#cmdoption-use-dynamic-base-id"><code class="xref std std-option docutils literal notranslate"><span class="pre">--use-dynamic-base-id</span></code></a> 选择的动态基本 ID 的访问。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-concurrency">
 <code class="sig-name descname">--concurrency</code><code class="sig-prename descclassname"> &lt;integer&gt;</code><a class="headerlink" href="#cmdoption-concurrency" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> The number of <a class="reference internal" href="../intro/arch_overview/intro/threading_model.html#arch-overview-threading"><span class="std std-ref">worker threads</span></a> to run. If not
-specified defaults to the number of hardware threads on the machine. If set to zero, Envoy will
-still run one worker thread.</p>
+<dd><p><em>（可选）</em> 要运行的 <a class="reference internal" href="../intro/arch_overview/intro/threading_model.html#arch-overview-threading"><span class="std std-ref">工作线程</span></a> 数。如果未指定，则默认为计算机上的硬件线程数。如果设置为 0，Envoy 仍将运行一个工作线程。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-l">
 <span id="cmdoption-log-level"></span><code class="sig-name descname">-l</code><code class="sig-prename descclassname"> &lt;string&gt;</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--log-level</code><code class="sig-prename descclassname"> &lt;string&gt;</code><a class="headerlink" href="#cmdoption-l" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> The logging level. Non developers should generally never set this option. See the
-help text for the available log levels and the default.</p>
+<dd><p><em>（可选）</em> 日志级别。非开发人员通常不应设置该选项。见可用的日志级别和默认日志级别的参考文本。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-component-log-level">
 <code class="sig-name descname">--component-log-level</code><code class="sig-prename descclassname"> &lt;string&gt;</code><a class="headerlink" href="#cmdoption-component-log-level" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> The comma separated list of logging level per component. Non developers should generally
-never set this option. For example, if you want <cite>upstream</cite> component to run at <cite>debug</cite> level and
-<cite>connection</cite> component to run at <cite>trace</cite> level, you should pass <code class="docutils literal notranslate"><span class="pre">upstream:debug,connection:trace</span></code> to
-this flag. See <code class="docutils literal notranslate"><span class="pre">ALL_LOGGER_IDS</span></code> in <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba//source/common/common/logger.h">/source/common/common/logger.h</a> for a list of components.</p>
+<dd><p><em>（可选）</em> 逗号分隔的每个组件的日志记录级别列表。非开发人员通常不应设置此选项。例如，如果希望 <cite>上游</cite> 组件在 <cite>debug</cite> 级别运行，并要在 <cite>trace</cite> 级别运行的 <cite>connection</cite> 组件，则应将 <code class="docutils literal notranslate"><span class="pre">upstream:debug,connection:trace</span></code> 传递给此标志。见 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0//source/common/common/logger.h">/source/common/common/logger.h</a> 中的 <code class="docutils literal notranslate"><span class="pre">ALL_LOGGER_IDS</span></code> 以获取组件列表。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-cpuset-threads">
 <code class="sig-name descname">--cpuset-threads</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-cpuset-threads" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> This flag is used to control the number of worker threads if <a class="reference internal" href="#cmdoption-concurrency"><code class="xref std std-option docutils literal notranslate"><span class="pre">--concurrency</span></code></a> is
-not set. If enabled, the assigned cpuset size is used to determine the number of worker threads on
-Linux-based systems. Otherwise the number of worker threads is set to the number of hardware threads
-on the machine. You can read more about cpusets in the
-<a class="reference external" href="https://www.kernel.org/doc/Documentation/cgroup-v1/cpusets.txt">kernel documentation</a>.</p>
+<dd><p><em>（可选）</em> 如果未设置 <a class="reference internal" href="#cmdoption-concurrency"><code class="xref std std-option docutils literal notranslate"><span class="pre">--concurrency</span></code></a>，则此标志用于控制工作线程的数量。如果启用，则分配的 cpuset 大小用于确定基于 Linux 的系统上的工作线程数。否则，工作线程数将设置为计算机上的硬件线程数。可以在 <a class="reference external" href="https://www.kernel.org/doc/Documentation/cgroup-v1/cpusets.txt">内核文档</a> 中阅读有关 cpusets 的更多信息。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-log-path">
 <code class="sig-name descname">--log-path</code><code class="sig-prename descclassname"> &lt;path string&gt;</code><a class="headerlink" href="#cmdoption-log-path" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> The output file path where logs should be written. This file will be re-opened
-when SIGUSR1 is handled. If this is not set, log to stderr.</p>
+<dd><p><em>（可选）</em> 日志应写入的输出文件路径。处理 SIGUSR1 信号时将重新打开此文件。如果未设置，会记录到 stderr。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-log-format">
 <code class="sig-name descname">--log-format</code><code class="sig-prename descclassname"> &lt;format string&gt;</code><a class="headerlink" href="#cmdoption-log-format" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> The format string to use for laying out the log message metadata. If this is not
-set, a default format string <code class="docutils literal notranslate"><span class="pre">&quot;[%Y-%m-%d</span> <span class="pre">%T.%e][%t][%l][%n]</span> <span class="pre">[%g:%#]</span> <span class="pre">%v&quot;</span></code> is used.</p>
-<p>When used in conjunction with <a class="reference internal" href="#cmdoption-log-format-prefix-with-location"><code class="xref std std-option docutils literal notranslate"><span class="pre">--log-format-prefix-with-location</span></code></a> set to 1, the logger can be
-configured to prefix <code class="docutils literal notranslate"><span class="pre">%v</span></code> by a file path and a line number.</p>
-<p>When used in conjunction with <a class="reference internal" href="#cmdoption-log-format-escaped"><code class="xref std std-option docutils literal notranslate"><span class="pre">--log-format-escaped</span></code></a>, the logger can be configured
-to log in a format that is parsable by log viewers. Known integrations are documented
-in the <a class="reference internal" href="../configuration/observability/application_logging.html#config-application-logs"><span class="std std-ref">application logging configuration</span></a> section.</p>
-<p>The supported format flags are (with example output):</p>
+<dd><p><em>（可选）</em> 用于布局日志消息元数据的格式字符串。如果未设置，将使用默认的格式字符串 <code class="docutils literal notranslate"><span class="pre">&quot;[%Y-%m-%d</span> <span class="pre">%T.%e][%t][%l][%n]</span> <span class="pre">[%g:%#]</span> <span class="pre">%v&quot;</span></code>。</p>
+<p>当与 <a class="reference internal" href="#cmdoption-log-format-prefix-with-location"><code class="xref std std-option docutils literal notranslate"><span class="pre">--log-format-prefix-with-location</span></code></a> 设置为 1 一起使用时，记录器可以配置为在文件路径和行号前加上 <cite>%v`</cite> 前缀。</p>
+<p>当与 <a class="reference internal" href="#cmdoption-log-format-escaped"><code class="xref std std-option docutils literal notranslate"><span class="pre">--log-format-escaped</span></code></a> 一起使用时，可以将记录器配置为以日志查看器可解析的格式记录。<a class="reference internal" href="../configuration/observability/application_logging.html#config-application-logs"><span class="std std-ref">应用日志配置</span></a> 部分中记录了已知的集成。</p>
+<p>支持的格式标志（以及输出示例）：</p>
 <dl class="field-list simple">
 <dt class="field-odd">%v</dt>
-<dd class="field-odd"><p>The actual message to log (“some user text”)</p>
+<dd class="field-odd"><p>实际记录的消息（“some user text”）</p>
 </dd>
 <dt class="field-even">%t</dt>
-<dd class="field-even"><p>Thread id (“1232”)</p>
+<dd class="field-even"><p>线程 id（“1232”）</p>
 </dd>
 <dt class="field-odd">%P</dt>
-<dd class="field-odd"><p>Process id (“3456”)</p>
+<dd class="field-odd"><p>进程 id（“3456”）</p>
 </dd>
 <dt class="field-even">%n</dt>
-<dd class="field-even"><p>Logger’s name (“filter”)</p>
+<dd class="field-even"><p>记录器名（“filter”）</p>
 </dd>
 <dt class="field-odd">%l</dt>
-<dd class="field-odd"><p>The log level of the message (“debug”, “info”, etc.)</p>
+<dd class="field-odd"><p>消息的日志级别（“debug”, “info”, etc.)</p>
 </dd>
 <dt class="field-even">%L</dt>
-<dd class="field-even"><p>Short log level of the message (“D”, “I”, etc.)</p>
+<dd class="field-even"><p>消息的日志级别的缩写（“D”, “I”, etc.)</p>
 </dd>
 <dt class="field-odd">%a</dt>
-<dd class="field-odd"><p>Abbreviated weekday name (“Tue”)</p>
+<dd class="field-odd"><p>星期的缩写（“Tue”）</p>
 </dd>
 <dt class="field-even">%A</dt>
-<dd class="field-even"><p>Full weekday name (“Tuesday”)</p>
+<dd class="field-even"><p>星期的全名（“Tuesday”）</p>
 </dd>
 <dt class="field-odd">%b</dt>
-<dd class="field-odd"><p>Abbreviated month name (“Mar”)</p>
+<dd class="field-odd"><p>月份的缩写（“Mar”）</p>
 </dd>
 <dt class="field-even">%B</dt>
-<dd class="field-even"><p>Full month name (“March”)</p>
+<dd class="field-even"><p>月份的全名（“March”）</p>
 </dd>
 <dt class="field-odd">%c</dt>
-<dd class="field-odd"><p>Date and time representation (“Tue Mar 27 15:25:06 2018”)</p>
+<dd class="field-odd"><p>日期和时间的展示（“Tue Mar 27 15:25:06 2018”）</p>
 </dd>
 <dt class="field-even">%C</dt>
-<dd class="field-even"><p>Year in 2 digits (“18”)</p>
+<dd class="field-even"><p>2 位数年份（“18”）</p>
 </dd>
 <dt class="field-odd">%Y</dt>
-<dd class="field-odd"><p>Year in 4 digits (“2018”)</p>
+<dd class="field-odd"><p>4 位数年份（“2018”）</p>
 </dd>
 <dt class="field-even">%D, %x</dt>
-<dd class="field-even"><p>Short MM/DD/YY date (“03/27/18”)</p>
+<dd class="field-even"><p>MM/DD/YY 短日期（“03/27/18”）</p>
 </dd>
 <dt class="field-odd">%m</dt>
-<dd class="field-odd"><p>Month 01-12 (“03”)</p>
+<dd class="field-odd"><p>月 01-12（“03”）</p>
 </dd>
 <dt class="field-even">%d</dt>
-<dd class="field-even"><p>Day of month 01-31 (“27”)</p>
+<dd class="field-even"><p>天01-31（“27”）</p>
 </dd>
 <dt class="field-odd">%H</dt>
-<dd class="field-odd"><p>Hours in 24 format 00-23 (“15”)</p>
+<dd class="field-odd"><p>24 小时制 00-23（“15”）</p>
 </dd>
 <dt class="field-even">%I</dt>
-<dd class="field-even"><p>Hours in 12 format 01-12 (“03”)</p>
+<dd class="field-even"><p>12 小时制 01-12（“03”）</p>
 </dd>
 <dt class="field-odd">%M</dt>
-<dd class="field-odd"><p>Minutes 00-59 (“25”)</p>
+<dd class="field-odd"><p>分钟 00-59（“25”）</p>
 </dd>
 <dt class="field-even">%S</dt>
-<dd class="field-even"><p>Seconds 00-59 (“06”)</p>
+<dd class="field-even"><p>秒 00-59（“06”）</p>
 </dd>
 <dt class="field-odd">%e</dt>
-<dd class="field-odd"><p>Millisecond part of the current second 000-999 (“008”)</p>
+<dd class="field-odd"><p>当前秒的毫秒部分 000-999（“008”）</p>
 </dd>
 <dt class="field-even">%f</dt>
-<dd class="field-even"><p>Microsecond part of the current second 000000-999999 (“008789”)</p>
+<dd class="field-even"><p>当前秒的微秒部分 000000-999999（“008789”）</p>
 </dd>
 <dt class="field-odd">%F</dt>
-<dd class="field-odd"><p>Nanosecond part of the current second 000000000-999999999 (“008789123”)</p>
+<dd class="field-odd"><p>当前秒的纳秒部分 000000000-999999999（“008789123”）</p>
 </dd>
 <dt class="field-even">%p</dt>
-<dd class="field-even"><p>AM/PM (“AM”)</p>
+<dd class="field-even"><p>AM/PM（“AM”）</p>
 </dd>
 <dt class="field-odd">%r</dt>
-<dd class="field-odd"><p>12-hour clock (“03:25:06 PM”)</p>
+<dd class="field-odd"><p>12 小时制的时间（“03:25:06 PM”）</p>
 </dd>
 <dt class="field-even">%R</dt>
-<dd class="field-even"><p>24-hour HH:MM time, equivalent to %H:%M (“15:25”)</p>
+<dd class="field-even"><p>24 小时制时间 HH:MM，等同于 %H:%M（“15:25”）</p>
 </dd>
 <dt class="field-odd">%T, %X</dt>
-<dd class="field-odd"><p>ISO 8601 time format (HH:MM:SS), equivalent to %H:%M:%S (“13:25:06”)</p>
+<dd class="field-odd"><p>ISO 8601 时间格式（HH:MM:SS），等同于 %H:%M:%S（“13:25:06”）</p>
 </dd>
 <dt class="field-even">%z</dt>
-<dd class="field-even"><p>ISO 8601 offset from UTC in timezone ([+/-]HH:MM) (“-07:00”)</p>
+<dd class="field-even"><p>ISO 8601 与 UTC 时区的偏移量（ISO 8601 offset from UTC in timezone）</p>
 </dd>
 <dt class="field-odd">%%</dt>
-<dd class="field-odd"><p>The % sign (“%”)</p>
+<dd class="field-odd"><p>% 标志（“%”）</p>
 </dd>
 <dt class="field-even">%&#64;</dt>
-<dd class="field-even"><p>Source file and line (“my_file.cc:123”)</p>
+<dd class="field-even"><p>源文件与行号（“my_file.cc:123”）</p>
 </dd>
 <dt class="field-odd">%s</dt>
-<dd class="field-odd"><p>Basename of the source file (“my_file.cc”)</p>
+<dd class="field-odd"><p>源文件的基本名称（“my_file.cc”）</p>
 </dd>
 <dt class="field-even">%g</dt>
-<dd class="field-even"><p>Full relative path of the source file (“/some/dir/my_file.cc”)</p>
+<dd class="field-even"><p>源文件的完整相对路径（“/some/dir/my_file.cc”）</p>
 </dd>
 <dt class="field-odd">%#</dt>
-<dd class="field-odd"><p>Source line (“123”)</p>
+<dd class="field-odd"><p>源文件行号（“123”）</p>
 </dd>
 <dt class="field-even">%!</dt>
-<dd class="field-even"><p>Source function (“myFunc”)</p>
+<dd class="field-even"><p>源方法名（“myFunc”）</p>
 </dd>
 </dl>
 </dd></dl>
@@ -442,225 +402,156 @@ in the <a class="reference internal" href="../configuration/observability/applic
 <dl class="std option">
 <dt id="cmdoption-log-format-prefix-with-location">
 <code class="sig-name descname">--log-format-prefix-with-location</code><code class="sig-prename descclassname"> &lt;1|0&gt;</code><a class="headerlink" href="#cmdoption-log-format-prefix-with-location" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> This temporary flag allows replacing all entries of <code class="docutils literal notranslate"><span class="pre">&quot;%v&quot;</span></code> in the log format by
-<code class="docutils literal notranslate"><span class="pre">&quot;[%g:%#]</span> <span class="pre">%v&quot;</span></code>. This flag is provided for migration purposes only. If this is not set, a
-default value 0 is used.</p>
-<p><strong>NOTE</strong>: The flag will be removed at 1.17.0 release.</p>
+<dd><p><em>（可选）</em> 此临时标志允许用 <code class="docutils literal notranslate"><span class="pre">&quot;[%g:%#]</span> <span class="pre">%v&quot;</span></code> 替换日志格式中``”%v”`` 的所有条目。提供此标志仅用于迁移用途。如果未设置，则使用默认值 0。</p>
+<p><strong>注意</strong>：在 1.17.0 中这个标志将会移除。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-log-format-escaped">
 <code class="sig-name descname">--log-format-escaped</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-log-format-escaped" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> This flag enables application log sanitization to escape C-style escape sequences.
-This can be used to prevent a single log line from spanning multiple lines in the underlying log.
-This sanitizes all escape sequences in <a class="reference external" href="https://en.cppreference.com/w/cpp/language/escape">this list</a>.
-Note that each line’s trailing whitespace characters (such as EOL characters) will not be escaped.</p>
+<dd><p><em>（可选）</em> 此标志启用应用程序日志清理以转义 C-style 转义序列。这可用于防止单个日志行跨越基础日志中的多行。这将清除 <a class="reference external" href="https://en.cppreference.com/w/cpp/language/escape">此列表</a> 中的所有转义序列。请注意，每行的尾随空白字符（如 EOL 字符）都不会被转义。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-restart-epoch">
 <code class="sig-name descname">--restart-epoch</code><code class="sig-prename descclassname"> &lt;integer&gt;</code><a class="headerlink" href="#cmdoption-restart-epoch" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> The <a class="reference internal" href="../intro/arch_overview/operations/hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">hot restart</span></a> epoch. (The number of times
-Envoy has been hot restarted instead of a fresh start). Defaults to 0 for the first start. This
-option tells Envoy whether to attempt to create the shared memory region needed for hot restart,
-or whether to open an existing one. It should be incremented every time a hot restart takes place.
-The <a class="reference internal" href="hot_restarter.html#operations-hot-restarter"><span class="std std-ref">hot restart wrapper</span></a> sets the <em>RESTART_EPOCH</em> environment
-variable which should be passed to this option in most cases.</p>
+<dd><p><em>（可选）</em>：<a class="reference internal" href="../intro/arch_overview/operations/hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">热重启</span></a> 期。（Envoy 已热重启而不是重新启动的次数）。首次启动时默认为 0。此选项告诉 Envoy 是尝试创建热重启所需的共享内存区域，还是打开现有的共享内存区域。每次热重启时都应增加它。<a class="reference internal" href="hot_restarter.html#operations-hot-restarter"><span class="std std-ref">热重启包装器</span></a> 设置在大多数情况下应传递给此选项的 <em>RESTART_EPOCH</em> 环境变量。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-enable-fine-grain-logging">
 <code class="sig-name descname">--enable-fine-grain-logging</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-enable-fine-grain-logging" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> Enables fine-grain logger with file level log control and runtime update at administration
-interface. If enabled, main log macros including <cite>ENVOY_LOG</cite>, <cite>ENVOY_CONN_LOG</cite>, <cite>ENVOY_STREAM_LOG</cite> and
-<cite>ENVOY_FLUSH_LOG</cite> will use a per-file logger, and the usage doesn’t need <cite>Envoy::Logger::Loggable</cite> any
-more. The administration interface usage is similar. Please see <a class="reference external" href="https://www.envoyproxy.io/docs/envoy/latest/operations/admin">Administration interface</a> for more detail.</p>
+<dd><p><em>（可选）</em> 在管理界面上启用具有文件级日志控制和运行时更新的细粒度记录器。如果启用，则主要日志宏包括 <cite>ENVOY_LOG</cite>、<cite>ENVOY_CONN_LOG</cite>、<cite>ENVOY_STREAM_LOG</cite> 和 <cite>ENVOY_FLUSH_LOG</cite> 将使用每个文件的记录器，使用时不再需要 <cite>Envoy::Logger::Loggable</cite>。管理界面的用法与此类似。有关更多详细信息，见 <a class="reference external" href="https://www.envoyproxy.io/docs/envoy/latest/operations/admin">管理界面</a> 。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-socket-path">
 <code class="sig-name descname">--socket-path</code><code class="sig-prename descclassname"> &lt;path string&gt;</code><a class="headerlink" href="#cmdoption-socket-path" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> The output file path to the socket address for <a class="reference internal" href="../intro/arch_overview/operations/hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">hot restart</span></a>.
-Default to “&#64;envoy_domain_socket” which will be created in the abstract namespace. Suffix _{role}_{id}
-is appended to provide name. All envoy processes wanting to participate in hot-restart together must
-use the same value for this option.</p>
-<p><strong>NOTE</strong>: The path started with “&#64;” will be created in the abstract namespace.</p>
+<dd><p><em>（可选）</em> <a class="reference internal" href="../intro/arch_overview/operations/hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">热重启</span></a> 套接字地址的输出文件路径。默认为 “&#64;envoy_domain_socket”，它将在抽象名称空间中创建。Suffix _{role}_{id} 被附加以提供名称。希望一起参与热重启的所有 Envoy 进程必须为此选项使用相同的值。</p>
+<p><strong>注意</strong>：以“&#64;”开头的路径将在抽象名称空间中创建。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-socket-mode">
 <code class="sig-name descname">--socket-mode</code><code class="sig-prename descclassname"> &lt;string&gt;</code><a class="headerlink" href="#cmdoption-socket-mode" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> The socket file permission for <a class="reference internal" href="../intro/arch_overview/operations/hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">hot restart</span></a>.
-This must be a valid octal file permission, such as 644. The default value is 600.
-This flag may not be used when <a class="reference internal" href="#cmdoption-socket-path"><code class="xref std std-option docutils literal notranslate"><span class="pre">--socket-path</span></code></a> is start with “&#64;” or not set.</p>
+<dd><dl class="simple">
+<dt><em>（可选）</em> <a class="reference internal" href="../intro/arch_overview/operations/hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">热重启</span></a> 的套接字文件权限。这必须是有效的八进制文件权限，例如 644。默认值为 600。</dt><dd><p>当 <a class="reference internal" href="#cmdoption-socket-path"><code class="xref std std-option docutils literal notranslate"><span class="pre">--socket-path</span></code></a> 以“&#64;”开头或未设置时，可能不使用该标志。</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-hot-restart-version">
 <code class="sig-name descname">--hot-restart-version</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-hot-restart-version" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> Outputs an opaque hot restart compatibility version for the binary. This can be
-matched against the output of the <a class="reference internal" href="admin.html#get--hot_restart_version" title="GET /hot_restart_version"><code class="xref http http-get docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/hot_restart_version</span></code></a> admin endpoint to determine
-whether the new binary and the running binary are hot restart compatible.</p>
+<dd><p><em>（可选）</em>  为二进制文件输出不透明热重启兼容性版本。可以将其与 <a class="reference internal" href="admin.html#get--hot_restart_version" title="GET /hot_restart_version"><code class="xref http http-get docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/hot_restart_version</span></code></a> 管理端点的输出进行匹配，以确定新二进制文件和正在运行的二进制文件是否与热重启兼容。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-service-cluster">
 <code class="sig-name descname">--service-cluster</code><code class="sig-prename descclassname"> &lt;string&gt;</code><a class="headerlink" href="#cmdoption-service-cluster" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> Defines the local service cluster name where Envoy is running. The
-local service cluster name is first sourced from the <a class="reference internal" href="../api-v3/config/bootstrap/v3/bootstrap.proto.html#envoy-v3-api-field-config-bootstrap-v3-bootstrap-node"><span class="std std-ref">Bootstrap node</span></a> message’s <a class="reference internal" href="../api-v3/config/core/v3/base.proto.html#envoy-v3-api-field-config-core-v3-node-cluster"><span class="std std-ref">cluster</span></a> field. This CLI option provides an alternative
-method for specifying this value and will override any value set in bootstrap
-configuration. It should be set if any of the following features are used:
-<a class="reference internal" href="../intro/arch_overview/observability/statistics.html#arch-overview-statistics"><span class="std std-ref">statsd</span></a>, <a class="reference internal" href="../api-v3/config/core/v3/health_check.proto.html#envoy-v3-api-field-config-core-v3-healthcheck-httphealthcheck-service-name-matcher"><span class="std std-ref">health check cluster
-verification</span></a>,
-<a class="reference internal" href="../api-v3/config/bootstrap/v3/bootstrap.proto.html#envoy-v3-api-msg-config-bootstrap-v3-runtime"><span class="std std-ref">runtime override directory</span></a>,
-<a class="reference internal" href="../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-add-user-agent"><span class="std std-ref">user agent addition</span></a>,
-<a class="reference internal" href="../configuration/http/http_filters/rate_limit_filter.html#config-http-filters-rate-limit"><span class="std std-ref">HTTP global rate limiting</span></a>,
-<a class="reference internal" href="../configuration/upstream/cluster_manager/cds.html#config-cluster-manager-cds"><span class="std std-ref">CDS</span></a>, and <a class="reference internal" href="../intro/arch_overview/observability/tracing.html#arch-overview-tracing"><span class="std std-ref">HTTP tracing</span></a>, either via this CLI option or in the bootstrap
-configuration.</p>
+<dd><p><em>（可选）</em> 定义运行 Envoy 的本地服务集群名称。本地服务群集名称首先来自 <a class="reference internal" href="../api-v3/config/bootstrap/v3/bootstrap.proto.html#envoy-v3-api-field-config-bootstrap-v3-bootstrap-node"><span class="std std-ref">Bootstrap node</span></a> 信息的 <a class="reference internal" href="../api-v3/config/core/v3/base.proto.html#envoy-v3-api-field-config-core-v3-node-cluster"><span class="std std-ref">cluster</span></a> 字段。该 CLI 选项提供了一种指定此值的替代方法，它将覆盖在引导程序配置中设置的任何值。如果使用以下任何功能，则应进行设置：<a class="reference internal" href="../intro/arch_overview/observability/statistics.html#arch-overview-statistics"><span class="std std-ref">statsd</span></a>、<a class="reference internal" href="../api-v3/config/core/v3/health_check.proto.html#envoy-v3-api-field-config-core-v3-healthcheck-httphealthcheck-service-name-matcher"><span class="std std-ref">健康检查集群验证</span></a>、<a class="reference internal" href="../api-v3/config/bootstrap/v3/bootstrap.proto.html#envoy-v3-api-msg-config-bootstrap-v3-runtime"><span class="std std-ref">运行时覆盖目录</span></a>、<a class="reference internal" href="../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-add-user-agent"><span class="std std-ref">额外的用户代理</span></a>、<a class="reference internal" href="../configuration/http/http_filters/rate_limit_filter.html#config-http-filters-rate-limit"><span class="std std-ref">HTTP 全局限流</span></a>、 <a class="reference internal" href="../configuration/upstream/cluster_manager/cds.html#config-cluster-manager-cds"><span class="std std-ref">CDS</span></a>, and <a class="reference internal" href="../intro/arch_overview/observability/tracing.html#arch-overview-tracing"><span class="std std-ref">HTTP 跟踪</span></a>，可以通过此 CLI 选项或在引导程序配置中进行。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-service-node">
 <code class="sig-name descname">--service-node</code><code class="sig-prename descclassname"> &lt;string&gt;</code><a class="headerlink" href="#cmdoption-service-node" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> Defines the local service node name where Envoy is running. The
-local service node name is first sourced from the <a class="reference internal" href="../api-v3/config/bootstrap/v3/bootstrap.proto.html#envoy-v3-api-field-config-bootstrap-v3-bootstrap-node"><span class="std std-ref">Bootstrap node</span></a> message’s <a class="reference internal" href="../api-v3/config/core/v3/base.proto.html#envoy-v3-api-field-config-core-v3-node-id"><span class="std std-ref">id</span></a> field. This CLI option provides an alternative
-method for specifying this value and will override any value set in bootstrap
-configuration. It should be set if any of the following features are used:
-<a class="reference internal" href="../intro/arch_overview/observability/statistics.html#arch-overview-statistics"><span class="std std-ref">statsd</span></a>, <a class="reference internal" href="../configuration/upstream/cluster_manager/cds.html#config-cluster-manager-cds"><span class="std std-ref">CDS</span></a>, and <a class="reference internal" href="../intro/arch_overview/observability/tracing.html#arch-overview-tracing"><span class="std std-ref">HTTP tracing</span></a>, either via this CLI option or in the bootstrap
-configuration.</p>
+<dd><p><em>（可选）</em> 定义运行 Envoy 的本地服务节点名称。本地服务节点名称首先来自 <a class="reference internal" href="../api-v3/config/bootstrap/v3/bootstrap.proto.html#envoy-v3-api-field-config-bootstrap-v3-bootstrap-node"><span class="std std-ref">Bootstrap 节点</span></a> 信息的 <a class="reference internal" href="../api-v3/config/core/v3/base.proto.html#envoy-v3-api-field-config-core-v3-node-id"><span class="std std-ref">id</span></a> 字段。此CLI选项提供了一种指定此值的替代方法，它将覆盖在引导程序配置中设置的任何值。 如果使用以下任何功能，则应进行设置：<a class="reference internal" href="../intro/arch_overview/observability/statistics.html#arch-overview-statistics"><span class="std std-ref">statsd</span></a>、<a class="reference internal" href="../configuration/upstream/cluster_manager/cds.html#config-cluster-manager-cds"><span class="std std-ref">CDS</span></a> 和 <a class="reference internal" href="../intro/arch_overview/observability/tracing.html#arch-overview-tracing"><span class="std std-ref">HTTP 跟踪</span></a>，可以通过此 CLI 选项或在引导程序配置中进行。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-service-zone">
 <code class="sig-name descname">--service-zone</code><code class="sig-prename descclassname"> &lt;string&gt;</code><a class="headerlink" href="#cmdoption-service-zone" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> Defines the local service zone where Envoy is running. The local
-service zone is first sourced from the <a class="reference internal" href="../api-v3/config/bootstrap/v3/bootstrap.proto.html#envoy-v3-api-field-config-bootstrap-v3-bootstrap-node"><span class="std std-ref">Bootstrap node</span></a> message’s <a class="reference internal" href="../api-v3/config/core/v3/base.proto.html#envoy-v3-api-field-config-core-v3-locality-zone"><span class="std std-ref">locality.zone</span></a> field. This CLI option provides an
-alternative method for specifying this value and will override any value set
-in bootstrap configuration. It should be set if discovery service routing is
-used and the discovery service exposes <a class="reference internal" href="../api-v3/config/endpoint/v3/endpoint_components.proto.html#envoy-v3-api-msg-config-endpoint-v3-localitylbendpoints"><span class="std std-ref">zone data</span></a>, either via this CLI option or in
-the bootstrap configuration. The meaning of zone is context dependent, e.g.
-<a class="reference external" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Availability Zone (AZ)</a>
-on AWS, <a class="reference external" href="https://cloud.google.com/compute/docs/regions-zones/">Zone</a> on GCP,
-etc.</p>
+<dd><p><em>（可选）</em> 定义 Envoy 运行所在的本地服务区域。本地服务区域首先来自 <a class="reference internal" href="../api-v3/config/bootstrap/v3/bootstrap.proto.html#envoy-v3-api-field-config-bootstrap-v3-bootstrap-node"><span class="std std-ref">Bootstrap 节点</span></a> 信息的 <a class="reference internal" href="../api-v3/config/core/v3/base.proto.html#envoy-v3-api-field-config-core-v3-locality-zone"><span class="std std-ref">locality.zone</span></a> 字段。此 CLI 选项提供了一种指定此值的替代方法，它将覆盖在引导程序配置中设置的任何值。如果使用发现服务路由并且发现服务公开了 <a class="reference internal" href="../api-v3/config/endpoint/v3/endpoint_components.proto.html#envoy-v3-api-msg-config-endpoint-v3-localitylbendpoints"><span class="std std-ref">区域数据</span></a> 的情况下需要设置该选项，可以通过此 CLI 选项或在引导程序配置中进行。区域的含义取决于上下文，例如在 AWS 上的 <cite>可用域（Availability Zone AZ） &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html&gt;</cite>、 GCP 上的 <a class="reference external" href="https://cloud.google.com/compute/docs/regions-zones/">域（Zone）</a>，等等。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-file-flush-interval-msec">
 <code class="sig-name descname">--file-flush-interval-msec</code><code class="sig-prename descclassname"> &lt;integer&gt;</code><a class="headerlink" href="#cmdoption-file-flush-interval-msec" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> The file flushing interval in milliseconds. Defaults to 10 seconds.
-This setting is used during file creation to determine the duration between flushes
-of buffers to files. The buffer will flush every time it gets full, or every time
-the interval has elapsed, whichever comes first. Adjusting this setting is useful
-when tailing <a class="reference internal" href="../intro/arch_overview/observability/access_logging.html#arch-overview-access-logs"><span class="std std-ref">access logs</span></a> in order to
-get more (or less) immediate flushing.</p>
+<dd><p><em>（可选）</em>  文件刷新间隔，以毫秒为单位。默认为 10 秒。在文件创建期间使用此设置来确定缓冲区刷新到文件之间的时间。缓冲区将在每次写满或间隔时间结束时刷新，以先到者为准。当跟踪（tailing） <a class="reference internal" href="../intro/arch_overview/observability/access_logging.html#arch-overview-access-logs"><span class="std std-ref">访问日志</span></a> 以获取更多（或更少）的立即刷新时，调整此设置很有用。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-drain-time-s">
 <code class="sig-name descname">--drain-time-s</code><code class="sig-prename descclassname"> &lt;integer&gt;</code><a class="headerlink" href="#cmdoption-drain-time-s" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> The time in seconds that Envoy will drain connections during
-a <a class="reference internal" href="../intro/arch_overview/operations/hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">hot restart</span></a> or when individual listeners are being
-modified or removed via <a class="reference internal" href="../intro/arch_overview/operations/dynamic_configuration.html#arch-overview-dynamic-config-lds"><span class="std std-ref">LDS</span></a>.
-Defaults to 600 seconds (10 minutes). Generally the drain time should be less than
-the parent shutdown time set via the <a class="reference internal" href="#cmdoption-parent-shutdown-time-s"><code class="xref std std-option docutils literal notranslate"><span class="pre">--parent-shutdown-time-s</span></code></a> option. How the two
-settings are configured depends on the specific deployment. In edge scenarios, it might be
-desirable to have a very long drain time. In service to service scenarios, it might be possible
-to make the drain and shutdown time much shorter (e.g., 60s/90s).</p>
+<dd><p><em>（可选）</em> Envoy 在 <a class="reference internal" href="../intro/arch_overview/operations/hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">热重启</span></a> 期间或通过 <a class="reference internal" href="../intro/arch_overview/operations/dynamic_configuration.html#arch-overview-dynamic-config-lds"><span class="std std-ref">LDS</span></a> 修改或删除单个监听器时将排空连接的时间，以秒为单位。 默认为 600秒（10分钟）。通常，排空时间应小于通过 <a class="reference internal" href="#cmdoption-parent-shutdown-time-s"><code class="xref std std-option docutils literal notranslate"><span class="pre">--parent-shutdown-time-s</span></code></a> 选项设置的父关闭时间。如何配置两个设置取决于特定的部署。在边缘情况下，可能需要很长的排空时间。在服务到服务的方案中，可能使排空和关闭时间大大缩短（例如 60s/90s）。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-drain-strategy">
 <code class="sig-name descname">--drain-strategy</code><code class="sig-prename descclassname"> &lt;string&gt;</code><a class="headerlink" href="#cmdoption-drain-strategy" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> Determine behaviour of Envoy during the hot restart drain sequence. During the drain sequence, the drain manager encourages draining through terminating connections on request completion, sending “Connection: CLOSE” on HTTP1, and sending GOAWAY on HTTP2.</p>
+<dd><p><em>（可选）</em> 确定在热重启排空序列期间 Envoy 的行为。在排空序列期间，排空管理器通过在请求完成时终止连接来进行排空，在 HTTP1 上发送“Connection：CLOSE”，在 HTTP2 上发送GOAWAY。</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">gradual</span></code>: <em>(default)</em> The percentage of requests encouraged to drain increases to 100% as the drain time elapses.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">immediate</span></code>: All requests are encouraged to drain as soon as the drain sequence begins.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gradual</span></code>：<em>（默认值）</em> 随着耗用时间的增加，将要排空的请求百分比增加到 100％。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">immediate</span></code>：在排空序列开始后，将所有请求立即排空。</p></li>
 </ul>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-parent-shutdown-time-s">
 <code class="sig-name descname">--parent-shutdown-time-s</code><code class="sig-prename descclassname"> &lt;integer&gt;</code><a class="headerlink" href="#cmdoption-parent-shutdown-time-s" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> The time in seconds that Envoy will wait before shutting down the parent process
-during a hot restart. See the <a class="reference internal" href="../intro/arch_overview/operations/hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">hot restart overview</span></a> for more
-information. Defaults to 900 seconds (15 minutes).</p>
+<dd><p><em>（可选）</em> 在热重启期间，Envoy 在关闭父进程之前等待的时间，以秒为单位。 有关更多信息，见 <a class="reference internal" href="../intro/arch_overview/operations/hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">热重启</span></a>。 默认为 900 秒（15 分钟）。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-disable-hot-restart">
 <code class="sig-name descname">--disable-hot-restart</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-disable-hot-restart" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> This flag disables Envoy hot restart for builds that have it enabled. By default, hot
-restart is enabled.</p>
+<dd><p><em>（可选）</em> 此标志为启用了该功能的构建禁用 Envoy 热重启。默认情况下，启用热重启。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-enable-mutex-tracing">
 <code class="sig-name descname">--enable-mutex-tracing</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-enable-mutex-tracing" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> This flag enables the collection of mutex contention statistics
-(<a class="reference internal" href="../api-v3/admin/v3/mutex_stats.proto.html#envoy-v3-api-msg-admin-v3-mutexstats"><span class="std std-ref">MutexStats</span></a>) as well as a contention endpoint
-(<a class="reference internal" href="admin.html#get--contention" title="GET /contention"><code class="xref http http-get docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/contention</span></code></a>). Mutex tracing is not enabled by default, since it incurs a slight performance
-penalty for those Envoys which already experience mutex contention.</p>
+<dd><dl class="simple">
+<dt><em>（可选）</em> 此标志启用互斥锁争用统计信息的收集</dt><dd><p>（<a class="reference internal" href="../api-v3/admin/v3/mutex_stats.proto.html#envoy-v3-api-msg-admin-v3-mutexstats"><span class="std std-ref">MutexStats</span></a>）以及 contention 端点
+（<a class="reference internal" href="admin.html#get--contention" title="GET /contention"><code class="xref http http-get docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/contention</span></code></a>）。默认情况下不启用互斥量跟踪，因为它会对已经经历互斥量争用的 Envoy 造成轻微的性能损失。</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-allow-unknown-fields">
 <code class="sig-name descname">--allow-unknown-fields</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-allow-unknown-fields" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> Deprecated alias for <a class="reference internal" href="#cmdoption-allow-unknown-static-fields"><code class="xref std std-option docutils literal notranslate"><span class="pre">--allow-unknown-static-fields</span></code></a>.</p>
+<dd><p><em>（可选）</em> <a class="reference internal" href="#cmdoption-allow-unknown-static-fields"><code class="xref std std-option docutils literal notranslate"><span class="pre">--allow-unknown-static-fields</span></code></a> 的已启用别名。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-allow-unknown-static-fields">
 <code class="sig-name descname">--allow-unknown-static-fields</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-allow-unknown-static-fields" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> This flag disables validation of protobuf configurations for unknown fields. By default, the
-validation is enabled. For most deployments, the default should be used which ensures configuration errors
-are caught upfront and Envoy is configured as intended. Warnings are logged for the first use of
-any unknown field and these occurrences are counted in the <a class="reference internal" href="../configuration/observability/statistics.html#server-statistics"><span class="std std-ref">server.static_unknown_fields</span></a> statistic.</p>
+<dd><p><em>（可选）</em> 此标志禁用对未知字段的 protobuf 配置的验证。默认情况下，启用验证。对于大多数部署，应使用默认设置，以确保预先捕获配置错误并按预期配置 Envoy。首次使用任何未知字段时都会记录警告，并且这些事件的发生记录统计信息 <a class="reference internal" href="../configuration/observability/statistics.html#server-statistics"><span class="std std-ref">server.static_unknown_fields</span></a> 中。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-reject-unknown-dynamic-fields">
 <code class="sig-name descname">--reject-unknown-dynamic-fields</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-reject-unknown-dynamic-fields" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> This flag disables validation of protobuf configuration for unknown fields in
-dynamic configuration. By default, this flag is set false, disabling validation for fields beyond
-bootstrap. This allows newer xDS configurations to be delivered to older Envoys. This can be set
-true for strict dynamic checking when this behavior is not wanted but the default should be
-desirable for most Envoy deployments. Warnings are logged for the first use of any unknown field
-and these occurrences are counted in the <a class="reference internal" href="../configuration/observability/statistics.html#server-statistics"><span class="std std-ref">server.dynamic_unknown_fields</span></a>
-statistic.</p>
+<dd><p><em>（可选）</em> 此标志禁用动态配置中未知字段的 protobuf 配置验证。默认情况下，此标志设置为 false，禁用对引导程序意外的字段的验证。这样可以将较新的 xDS 配置交付给较旧的 Envoy。如果不需要这种行为，则可以将其设置为 true 以便进行严格的动态检查，但是对于大多数 Envoy 部署来说，默认值应该是合适的。首次使用任何未知字段时都会记录警告，并且这些发生在 <a class="reference internal" href="../configuration/observability/statistics.html#server-statistics"><span class="std std-ref">server.dynamic_unknown_fields</span></a> 统计信息中进行计数。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-ignore-unknown-dynamic-fields">
 <code class="sig-name descname">--ignore-unknown-dynamic-fields</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-ignore-unknown-dynamic-fields" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> This flag disables validation of protobuf configuration for unknown fields in dynamic
-configuration. Unlike setting <a class="reference internal" href="#cmdoption-reject-unknown-dynamic-fields"><code class="xref std std-option docutils literal notranslate"><span class="pre">--reject-unknown-dynamic-fields</span></code></a> to false, it does not log warnings
-or count occurrences of unknown fields, in the interest of configuration processing speed. If
-<a class="reference internal" href="#cmdoption-reject-unknown-dynamic-fields"><code class="xref std std-option docutils literal notranslate"><span class="pre">--reject-unknown-dynamic-fields</span></code></a> is set to true, this flag has no effect.</p>
+<dd><p><em>（可选）</em> 此标志禁用动态配置中未知字段的 protobuf 配置验证。 与 <a class="reference internal" href="#cmdoption-reject-unknown-dynamic-fields"><code class="xref std std-option docutils literal notranslate"><span class="pre">--reject-unknown-dynamic-fields</span></code></a> 设置为false不同，为了提高配置处理速度它不会记录警告或计算未知字段的出现。如果 <a class="reference internal" href="#cmdoption-reject-unknown-dynamic-fields"><code class="xref std std-option docutils literal notranslate"><span class="pre">--reject-unknown-dynamic-fields</span></code></a> 设置为 true，则此标志无效。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-disable-extensions">
 <code class="sig-name descname">--disable-extensions</code><code class="sig-prename descclassname"> &lt;extension list&gt;</code><a class="headerlink" href="#cmdoption-disable-extensions" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> This flag disabled the provided list of comma-separated extension names. Disabled
-extensions cannot be used by static or dynamic configuration, though they are still linked into
-Envoy and may run start-up code or have other runtime effects. Extension names are created by
-joining the extension category and name with a forward slash,
-e.g. <code class="docutils literal notranslate"><span class="pre">grpc_credentials/envoy.grpc_credentials.file_based_metadata</span></code>.</p>
+<dd><p><em>（可选）</em> 此标志禁用逗号分隔的扩展名列表。禁用的扩展无法通过静态或动态配置使用，尽管它们仍链接到 Envoy 并且可能运行启动代码或具有其他运行时效果。扩展名称的创建是通过将扩展类别和名称加上斜线，例如 <code class="docutils literal notranslate"><span class="pre">grpc_credentials/envoy.grpc_credentials.file_based_metadata</span></code>。</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-version">
 <code class="sig-name descname">--version</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-version" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>(optional)</em> This flag is used to display Envoy version and build information, e.g.
-<code class="docutils literal notranslate"><span class="pre">c93f9f6c1e5adddd10a3e3646c7e049c649ae177/1.9.0-dev/Clean/RELEASE/BoringSSL-FIPS</span></code>.</p>
-<p>It consists of five slash-separated fields:</p>
+<dd><p><em>（可选）</em> 此标志用于显示 Envoy 版本和构建信息，例如  <code class="docutils literal notranslate"><span class="pre">c93f9f6c1e5adddd10a3e3646c7e049c649ae177/1.9.0-dev/Clean/RELEASE/BoringSSL-FIPS</span></code>。</p>
+<blockquote>
+<div><p>它包含了 5 个用斜线分隔的字段：</p>
 <ul class="simple">
-<li><p>source revision - git commit from which Envoy was built,</p></li>
-<li><p>release number - either release (e.g. <code class="docutils literal notranslate"><span class="pre">1.9.0</span></code>) or a development build (e.g. <code class="docutils literal notranslate"><span class="pre">1.9.0-dev</span></code>),</p></li>
-<li><p>status of the source tree at the build time - either <code class="docutils literal notranslate"><span class="pre">Clean</span></code> or <code class="docutils literal notranslate"><span class="pre">Modified</span></code>,</p></li>
-<li><p>build mode - either <code class="docutils literal notranslate"><span class="pre">RELEASE</span></code> or <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>,</p></li>
-<li><p>TLS library - either <code class="docutils literal notranslate"><span class="pre">BoringSSL</span></code> or <code class="docutils literal notranslate"><span class="pre">BoringSSL-FIPS</span></code>.</p></li>
+<li><p>源代码版本 - 构建 Envoy 的 git commit，</p></li>
+<li><p>发行版本 - 发行版本（例如 <code class="docutils literal notranslate"><span class="pre">1.9.0</span></code>）或者 开发版本（例如 <code class="docutils literal notranslate"><span class="pre">1.9.0-dev</span></code>），</p></li>
+<li><p>构建时源代码树的状态 - <code class="docutils literal notranslate"><span class="pre">Clean</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">Modified</span></code>，</p></li>
+<li><p>构建模式 - <code class="docutils literal notranslate"><span class="pre">RELEASE</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>，</p></li>
+<li><p>TLS 库 - <code class="docutils literal notranslate"><span class="pre">BoringSSL</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">BoringSSL-FIPS</span></code>。</p></li>
 </ul>
+</div></blockquote>
 </dd></dl>
 
 </div>

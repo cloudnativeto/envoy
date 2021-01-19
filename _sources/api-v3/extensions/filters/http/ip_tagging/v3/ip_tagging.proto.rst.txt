@@ -20,7 +20,7 @@ IP tagging :ref:`configuration overview <config_http_filters_ip_tagging>`.
 extensions.filters.http.ip_tagging.v3.IPTagging
 -----------------------------------------------
 
-`[extensions.filters.http.ip_tagging.v3.IPTagging proto] <https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/extensions/filters/http/ip_tagging/v3/ip_tagging.proto#L19>`_
+`[extensions.filters.http.ip_tagging.v3.IPTagging proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/extensions/filters/http/ip_tagging/v3/ip_tagging.proto#L19>`_
 
 
 .. code-block:: json
@@ -47,7 +47,7 @@ ip_tags
 extensions.filters.http.ip_tagging.v3.IPTagging.IPTag
 -----------------------------------------------------
 
-`[extensions.filters.http.ip_tagging.v3.IPTagging.IPTag proto] <https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/extensions/filters/http/ip_tagging/v3/ip_tagging.proto#L41>`_
+`[extensions.filters.http.ip_tagging.v3.IPTagging.IPTag proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/extensions/filters/http/ip_tagging/v3/ip_tagging.proto#L41>`_
 
 Supplies the IP tag name and the IP address subnets.
 
@@ -78,7 +78,7 @@ ip_list
 Enum extensions.filters.http.ip_tagging.v3.IPTagging.RequestType
 ----------------------------------------------------------------
 
-`[extensions.filters.http.ip_tagging.v3.IPTagging.RequestType proto] <https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/extensions/filters/http/ip_tagging/v3/ip_tagging.proto#L29>`_
+`[extensions.filters.http.ip_tagging.v3.IPTagging.RequestType proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/extensions/filters/http/ip_tagging/v3/ip_tagging.proto#L29>`_
 
 The type of requests the filter should apply to. The supported types
 are internal, external or both. The

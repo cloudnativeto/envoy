@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Client Status Discovery Service (CSDS) &mdash; envoy 1.16.0-d4d57f documentation</title>
+  <title>Client Status Discovery Service (CSDS) &mdash; envoy 1.16.0-aa751a documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-d4d57f
+                1.16.0-aa751a
               </div>
             
           
@@ -117,9 +117,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../clusters/clusters.html">集群</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../http_routes/http_routes.html">HTTP 路由管理</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../config/config.html">扩展</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../admin/admin.html">Admin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../data/data.html">Envoy data</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../service.html">Services</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../admin/admin.html">管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/data.html">Envoy 数据</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../service.html">服务</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../accesslog/v3/als.proto.html">gRPC Access Log Service (ALS)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../load_stats/v3/lrs.proto.html">Load Reporting service (LRS)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../auth/v3/attribute_context.proto.html">Attribute Context</a></li>
@@ -135,7 +135,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../extension/v3/config_discovery.proto.html">Extension Config Discovery Service (ECDS)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../common_messages/common_messages.html">Common messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../common_messages/common_messages.html">常见消息</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../types/types.html">类型</a></li>
 </ul>
 </li>
@@ -194,7 +194,7 @@
         
           <li><a href="../../../api.html">v3 API 参考</a> &raquo;</li>
         
-          <li><a href="../../service.html">Services</a> &raquo;</li>
+          <li><a href="../../service.html">服务</a> &raquo;</li>
         
       <li>Client Status Discovery Service (CSDS)</li>
     
@@ -219,7 +219,7 @@
 <span id="envoy-v3-api-file-envoy-service-status-v3-csds-proto"></span><h1>Client Status Discovery Service (CSDS)<a class="headerlink" href="#client-status-discovery-service-csds" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="service-status-v3-clientstatusrequest">
 <span id="envoy-v3-api-msg-service-status-v3-clientstatusrequest"></span><h2>service.status.v3.ClientStatusRequest<a class="headerlink" href="#service-status-v3-clientstatusrequest" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/service/status/v3/csds.proto#L76">[service.status.v3.ClientStatusRequest proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/service/status/v3/csds.proto#L76">[service.status.v3.ClientStatusRequest proto]</a></p>
 <p>Request for client status of clients identified by a list of NodeMatchers.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;node_matchers&quot;</span><span class="p">:</span> <span class="p">[],</span>
@@ -239,7 +239,7 @@ The match follows OR semantics.</p>
 </div>
 <div class="section" id="service-status-v3-perxdsconfig">
 <span id="envoy-v3-api-msg-service-status-v3-perxdsconfig"></span><h2>service.status.v3.PerXdsConfig<a class="headerlink" href="#service-status-v3-perxdsconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/service/status/v3/csds.proto#L90">[service.status.v3.PerXdsConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/service/status/v3/csds.proto#L90">[service.status.v3.PerXdsConfig proto]</a></p>
 <p>Detailed config (per xDS) with status.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -291,7 +291,7 @@ is, xDS clients should always dump the most recent accepted xDS config.</p>
 </div>
 <div class="section" id="service-status-v3-clientconfig">
 <span id="envoy-v3-api-msg-service-status-v3-clientconfig"></span><h2>service.status.v3.ClientConfig<a class="headerlink" href="#service-status-v3-clientconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/service/status/v3/csds.proto#L118">[service.status.v3.ClientConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/service/status/v3/csds.proto#L118">[service.status.v3.ClientConfig proto]</a></p>
 <p>All xds configs for a particular client.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;node&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -310,7 +310,7 @@ is, xDS clients should always dump the most recent accepted xDS config.</p>
 </div>
 <div class="section" id="service-status-v3-clientstatusresponse">
 <span id="envoy-v3-api-msg-service-status-v3-clientstatusresponse"></span><h2>service.status.v3.ClientStatusResponse<a class="headerlink" href="#service-status-v3-clientstatusresponse" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/service/status/v3/csds.proto#L128">[service.status.v3.ClientStatusResponse proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/service/status/v3/csds.proto#L128">[service.status.v3.ClientStatusResponse proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">[]</span>
 <span class="p">}</span>
@@ -323,7 +323,7 @@ is, xDS clients should always dump the most recent accepted xDS config.</p>
 </div>
 <div class="section" id="enum-service-status-v3-configstatus">
 <span id="envoy-v3-api-enum-service-status-v3-configstatus"></span><h2>Enum service.status.v3.ConfigStatus<a class="headerlink" href="#enum-service-status-v3-configstatus" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/service/status/v3/csds.proto#L37">[service.status.v3.ConfigStatus proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/service/status/v3/csds.proto#L37">[service.status.v3.ConfigStatus proto]</a></p>
 <p>Status of a config from a management server view.</p>
 <dl class="simple" id="envoy-v3-api-enum-value-service-status-v3-configstatus-unknown">
 <dt>UNKNOWN</dt><dd><p><em>(DEFAULT)</em> ⁣Status info is not available/unknown.</p>
@@ -351,7 +351,7 @@ it is the persisted version in the management server.</p>
 </div>
 <div class="section" id="enum-service-status-v3-clientconfigstatus">
 <span id="envoy-v3-api-enum-service-status-v3-clientconfigstatus"></span><h2>Enum service.status.v3.ClientConfigStatus<a class="headerlink" href="#enum-service-status-v3-clientconfigstatus" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/service/status/v3/csds.proto#L58">[service.status.v3.ClientConfigStatus proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/service/status/v3/csds.proto#L58">[service.status.v3.ClientConfigStatus proto]</a></p>
 <p>Config status from a client-side view.</p>
 <dl class="simple" id="envoy-v3-api-enum-value-service-status-v3-clientconfigstatus-client-unknown">
 <dt>CLIENT_UNKNOWN</dt><dd><p><em>(DEFAULT)</em> ⁣Config status is not available/unknown.</p>

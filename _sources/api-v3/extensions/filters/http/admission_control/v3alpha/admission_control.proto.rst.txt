@@ -22,7 +22,7 @@ This extension may be referenced by the qualified name *envoy.filters.http.admis
 extensions.filters.http.admission_control.v3alpha.AdmissionControl
 ------------------------------------------------------------------
 
-`[extensions.filters.http.admission_control.v3alpha.AdmissionControl proto] <https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/extensions/filters/http/admission_control/v3alpha/admission_control.proto#L26>`_
+`[extensions.filters.http.admission_control.v3alpha.AdmissionControl proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/extensions/filters/http/admission_control/v3alpha/admission_control.proto#L26>`_
 
 
 .. code-block:: json
@@ -84,7 +84,7 @@ sr_threshold
 extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteria
 ----------------------------------------------------------------------------------
 
-`[extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteria proto] <https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/extensions/filters/http/admission_control/v3alpha/admission_control.proto#L30>`_
+`[extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteria proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/extensions/filters/http/admission_control/v3alpha/admission_control.proto#L30>`_
 
 Default method of specifying what constitutes a successful request. All status codes that
 indicate a successful request must be explicitly specified if not relying on the default
@@ -129,7 +129,7 @@ grpc_criteria
 extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteria.HttpCriteria
 -----------------------------------------------------------------------------------------------
 
-`[extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteria.HttpCriteria proto] <https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/extensions/filters/http/admission_control/v3alpha/admission_control.proto#L31>`_
+`[extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteria.HttpCriteria proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/extensions/filters/http/admission_control/v3alpha/admission_control.proto#L31>`_
 
 
 .. code-block:: json
@@ -152,7 +152,7 @@ http_success_status
 extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteria.GrpcCriteria
 -----------------------------------------------------------------------------------------------
 
-`[extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteria.GrpcCriteria proto] <https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/extensions/filters/http/admission_control/v3alpha/admission_control.proto#L38>`_
+`[extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteria.GrpcCriteria proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/extensions/filters/http/admission_control/v3alpha/admission_control.proto#L38>`_
 
 
 .. code-block:: json

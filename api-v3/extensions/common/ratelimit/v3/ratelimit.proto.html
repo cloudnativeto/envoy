@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Common rate limit components &mdash; envoy 1.16.0-d4d57f documentation</title>
+  <title>Common rate limit components &mdash; envoy 1.16.0-aa751a documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-d4d57f
+                1.16.0-aa751a
               </div>
             
           
@@ -117,10 +117,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../clusters/clusters.html">集群</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../http_routes/http_routes.html">HTTP 路由管理</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../config/config.html">扩展</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../admin/admin.html">Admin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../data/data.html">Envoy data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../service/service.html">Services</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../../../common_messages/common_messages.html">Common messages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../../admin/admin.html">管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../data/data.html">Envoy 数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../service/service.html">服务</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../../common_messages/common_messages.html">常见消息</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../../../config/core/v3/base.proto.html">Common types</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../config/core/v3/extension.proto.html">Extension configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../config/core/v3/address.proto.html">Network addresses</a></li>
@@ -197,7 +197,7 @@
         
           <li><a href="../../../../api.html">v3 API 参考</a> &raquo;</li>
         
-          <li><a href="../../../../common_messages/common_messages.html">Common messages</a> &raquo;</li>
+          <li><a href="../../../../common_messages/common_messages.html">常见消息</a> &raquo;</li>
         
       <li>Common rate limit components</li>
     
@@ -222,7 +222,7 @@
 <span id="envoy-v3-api-file-envoy-extensions-common-ratelimit-v3-ratelimit-proto"></span><h1>Common rate limit components<a class="headerlink" href="#common-rate-limit-components" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="extensions-common-ratelimit-v3-ratelimitdescriptor">
 <span id="envoy-v3-api-msg-extensions-common-ratelimit-v3-ratelimitdescriptor"></span><h2>extensions.common.ratelimit.v3.RateLimitDescriptor<a class="headerlink" href="#extensions-common-ratelimit-v3-ratelimitdescriptor" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/extensions/common/ratelimit/v3/ratelimit.proto#L62">[extensions.common.ratelimit.v3.RateLimitDescriptor proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/extensions/common/ratelimit/v3/ratelimit.proto#L62">[extensions.common.ratelimit.v3.RateLimitDescriptor proto]</a></p>
 <p>A RateLimitDescriptor is a list of hierarchical entries that are used by the service to
 determine the final rate limit key and overall allowed limit. Here are some examples of how
 they might be used for the domain “envoy”.</p>
@@ -273,7 +273,7 @@ rate limiting service.</p>
 </div>
 <div class="section" id="extensions-common-ratelimit-v3-ratelimitdescriptor-entry">
 <span id="envoy-v3-api-msg-extensions-common-ratelimit-v3-ratelimitdescriptor-entry"></span><h2>extensions.common.ratelimit.v3.RateLimitDescriptor.Entry<a class="headerlink" href="#extensions-common-ratelimit-v3-ratelimitdescriptor-entry" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/extensions/common/ratelimit/v3/ratelimit.proto#L66">[extensions.common.ratelimit.v3.RateLimitDescriptor.Entry proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/extensions/common/ratelimit/v3/ratelimit.proto#L66">[extensions.common.ratelimit.v3.RateLimitDescriptor.Entry proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
@@ -291,7 +291,7 @@ rate limiting service.</p>
 </div>
 <div class="section" id="extensions-common-ratelimit-v3-ratelimitdescriptor-ratelimitoverride">
 <span id="envoy-v3-api-msg-extensions-common-ratelimit-v3-ratelimitdescriptor-ratelimitoverride"></span><h2>extensions.common.ratelimit.v3.RateLimitDescriptor.RateLimitOverride<a class="headerlink" href="#extensions-common-ratelimit-v3-ratelimitdescriptor-ratelimitoverride" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/extensions/common/ratelimit/v3/ratelimit.proto#L80">[extensions.common.ratelimit.v3.RateLimitDescriptor.RateLimitOverride proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/extensions/common/ratelimit/v3/ratelimit.proto#L80">[extensions.common.ratelimit.v3.RateLimitDescriptor.RateLimitOverride proto]</a></p>
 <p>Override rate limit to apply to this descriptor instead of the limit
 configured in the rate limit service. See <a class="reference internal" href="../../../../../configuration/http/http_filters/rate_limit_filter.html#config-http-filters-rate-limit-rate-limit-override"><span class="std std-ref">rate limit override</span></a> for more information.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>

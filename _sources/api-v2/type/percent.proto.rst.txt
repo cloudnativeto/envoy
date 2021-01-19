@@ -9,7 +9,7 @@ Percent
 type.Percent
 ------------
 
-`[type.Percent proto] <https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/type/percent.proto#L15>`_
+`[type.Percent proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/type/percent.proto#L15>`_
 
 Identifies a percentage, in the range [0.0, 100.0].
 
@@ -31,7 +31,7 @@ value
 type.FractionalPercent
 ----------------------
 
-`[type.FractionalPercent proto] <https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/type/percent.proto#L25>`_
+`[type.FractionalPercent proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/type/percent.proto#L25>`_
 
 A fractional percentage is used in cases in which for performance reasons performing floating
 point to integer conversions during randomness calculations is undesirable. The message includes
@@ -66,7 +66,7 @@ denominator
 Enum type.FractionalPercent.DenominatorType
 -------------------------------------------
 
-`[type.FractionalPercent.DenominatorType proto] <https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/type/percent.proto#L27>`_
+`[type.FractionalPercent.DenominatorType proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/type/percent.proto#L27>`_
 
 Fraction percentages support several fixed denominator values.
 

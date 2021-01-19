@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Rate Limit Service (RLS) &mdash; envoy 1.16.0-d4d57f documentation</title>
+  <title>Rate Limit Service (RLS) &mdash; envoy 1.16.0-aa751a documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-d4d57f
+                1.16.0-aa751a
               </div>
             
           
@@ -117,9 +117,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../clusters/clusters.html">集群</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../http_routes/http_routes.html">HTTP 路由管理</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../config/config.html">扩展</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../admin/admin.html">Admin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../data/data.html">Envoy data</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../service.html">Services</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../admin/admin.html">管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/data.html">Envoy 数据</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../service.html">服务</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../accesslog/v3/als.proto.html">gRPC Access Log Service (ALS)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../load_stats/v3/lrs.proto.html">Load Reporting service (LRS)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../auth/v3/attribute_context.proto.html">Attribute Context</a></li>
@@ -135,7 +135,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../extension/v3/config_discovery.proto.html">Extension Config Discovery Service (ECDS)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../common_messages/common_messages.html">Common messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../common_messages/common_messages.html">常见消息</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../types/types.html">类型</a></li>
 </ul>
 </li>
@@ -194,7 +194,7 @@
         
           <li><a href="../../../api.html">v3 API 参考</a> &raquo;</li>
         
-          <li><a href="../../service.html">Services</a> &raquo;</li>
+          <li><a href="../../service.html">服务</a> &raquo;</li>
         
       <li>Rate Limit Service (RLS)</li>
     
@@ -219,7 +219,7 @@
 <span id="envoy-v3-api-file-envoy-service-ratelimit-v3-rls-proto"></span><h1>Rate Limit Service (RLS)<a class="headerlink" href="#rate-limit-service-rls" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="service-ratelimit-v3-ratelimitrequest">
 <span id="envoy-v3-api-msg-service-ratelimit-v3-ratelimitrequest"></span><h2>service.ratelimit.v3.RateLimitRequest<a class="headerlink" href="#service-ratelimit-v3-ratelimitrequest" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/service/ratelimit/v3/rls.proto#L34">[service.ratelimit.v3.RateLimitRequest proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/service/ratelimit/v3/rls.proto#L34">[service.ratelimit.v3.RateLimitRequest proto]</a></p>
 <p>Main message for a rate limit request. The rate limit service is designed to be fully generic
 in the sense that it can operate on arbitrary hierarchical key/value pairs. The loaded
 configuration will parse the request and find the most specific limit to apply. In addition,
@@ -253,7 +253,7 @@ limit. If the value is not set in the message, a request increases the matched l
 </div>
 <div class="section" id="service-ratelimit-v3-ratelimitresponse">
 <span id="envoy-v3-api-msg-service-ratelimit-v3-ratelimitresponse"></span><h2>service.ratelimit.v3.RateLimitResponse<a class="headerlink" href="#service-ratelimit-v3-ratelimitresponse" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/service/ratelimit/v3/rls.proto#L53">[service.ratelimit.v3.RateLimitResponse proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/service/ratelimit/v3/rls.proto#L53">[service.ratelimit.v3.RateLimitResponse proto]</a></p>
 <p>A response from a ShouldRateLimit call.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;overall_code&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -285,7 +285,7 @@ descriptors failed and/or what the currently configured limits are for all of th
 </div>
 <div class="section" id="service-ratelimit-v3-ratelimitresponse-ratelimit">
 <span id="envoy-v3-api-msg-service-ratelimit-v3-ratelimitresponse-ratelimit"></span><h2>service.ratelimit.v3.RateLimitResponse.RateLimit<a class="headerlink" href="#service-ratelimit-v3-ratelimitresponse-ratelimit" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/service/ratelimit/v3/rls.proto#L69">[service.ratelimit.v3.RateLimitResponse.RateLimit proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/service/ratelimit/v3/rls.proto#L69">[service.ratelimit.v3.RateLimitResponse.RateLimit proto]</a></p>
 <p>Defines an actual rate limit in terms of requests per unit of time and the unit itself.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -309,7 +309,7 @@ descriptors failed and/or what the currently configured limits are for all of th
 </div>
 <div class="section" id="enum-service-ratelimit-v3-ratelimitresponse-ratelimit-unit">
 <span id="envoy-v3-api-enum-service-ratelimit-v3-ratelimitresponse-ratelimit-unit"></span><h2>Enum service.ratelimit.v3.RateLimitResponse.RateLimit.Unit<a class="headerlink" href="#enum-service-ratelimit-v3-ratelimitresponse-ratelimit-unit" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/service/ratelimit/v3/rls.proto#L75">[service.ratelimit.v3.RateLimitResponse.RateLimit.Unit proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/service/ratelimit/v3/rls.proto#L75">[service.ratelimit.v3.RateLimitResponse.RateLimit.Unit proto]</a></p>
 <p>Identifies the unit of of time for rate limit.</p>
 <dl class="simple" id="envoy-v3-api-enum-value-service-ratelimit-v3-ratelimitresponse-ratelimit-unit-unknown">
 <dt>UNKNOWN</dt><dd><p><em>(DEFAULT)</em> ⁣The time unit is not known.</p>
@@ -334,7 +334,7 @@ descriptors failed and/or what the currently configured limits are for all of th
 </div>
 <div class="section" id="service-ratelimit-v3-ratelimitresponse-descriptorstatus">
 <span id="envoy-v3-api-msg-service-ratelimit-v3-ratelimitresponse-descriptorstatus"></span><h2>service.ratelimit.v3.RateLimitResponse.DescriptorStatus<a class="headerlink" href="#service-ratelimit-v3-ratelimitresponse-descriptorstatus" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/service/ratelimit/v3/rls.proto#L102">[service.ratelimit.v3.RateLimitResponse.DescriptorStatus proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/service/ratelimit/v3/rls.proto#L102">[service.ratelimit.v3.RateLimitResponse.DescriptorStatus proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;current_limit&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -362,7 +362,7 @@ descriptors failed and/or what the currently configured limits are for all of th
 </div>
 <div class="section" id="enum-service-ratelimit-v3-ratelimitresponse-code">
 <span id="envoy-v3-api-enum-service-ratelimit-v3-ratelimitresponse-code"></span><h2>Enum service.ratelimit.v3.RateLimitResponse.Code<a class="headerlink" href="#enum-service-ratelimit-v3-ratelimitresponse-code" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/d4d57fd6efd9d163dfe8cc544b33830bd497f4ba/api/envoy/service/ratelimit/v3/rls.proto#L57">[service.ratelimit.v3.RateLimitResponse.Code proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/service/ratelimit/v3/rls.proto#L57">[service.ratelimit.v3.RateLimitResponse.Code proto]</a></p>
 <dl class="simple" id="envoy-v3-api-enum-value-service-ratelimit-v3-ratelimitresponse-code-unknown">
 <dt>UNKNOWN</dt><dd><p><em>(DEFAULT)</em> ⁣The response code is not known.</p>
 </dd>
