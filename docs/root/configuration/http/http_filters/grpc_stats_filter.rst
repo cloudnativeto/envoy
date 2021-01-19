@@ -3,13 +3,13 @@
 gRPC 统计
 ===============
 
-* gRPC :ref:`架构概述 <arch_overview_grpc>`
+* gRPC :ref:`架构概览 <arch_overview_grpc>`
 * :ref:`v3 API 参考 <envoy_v3_api_msg_extensions.filters.http.grpc_stats.v3.FilterConfig>`
 * 该过滤器的名称应该配置为 *envoy.filters.http.grpc_stats* 。
 * 这个过滤器可以被启用来发送 :ref:`过滤器状态对象
   <envoy_v3_api_msg_extensions.filters.http.grpc_stats.v3.FilterObject>`
 
-这是一个启用了 gRPC 调用自动测量记录的过滤器。此外，该过滤器还可以检测 gRPC 流调用中的消息起始，并发出请求和响应的消息计数。
+这是一个启用了 gRPC 调用遥测的过滤器。此外，该过滤器还可以检测 gRPC 流调用中的消息起始，并发出请求和响应的消息计数。
 
 更多信息：连接协议格式参考 `gRPC over HTTP/2 <https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md>`_。
 
