@@ -24,7 +24,7 @@ OAuth :ref:`configuration overview <config_http_filters_oauth>`.
 extensions.filters.http.oauth2.v3alpha.OAuth2Credentials
 --------------------------------------------------------
 
-`[extensions.filters.http.oauth2.v3alpha.OAuth2Credentials proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/extensions/filters/http/oauth2/v3alpha/oauth.proto#L26>`_
+`[extensions.filters.http.oauth2.v3alpha.OAuth2Credentials proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/extensions/filters/http/oauth2/v3alpha/oauth.proto#L26>`_
 
 
 .. code-block:: json
@@ -62,7 +62,7 @@ hmac_secret
 extensions.filters.http.oauth2.v3alpha.OAuth2Config
 ---------------------------------------------------
 
-`[extensions.filters.http.oauth2.v3alpha.OAuth2Config proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/extensions/filters/http/oauth2/v3alpha/oauth.proto#L47>`_
+`[extensions.filters.http.oauth2.v3alpha.OAuth2Config proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/extensions/filters/http/oauth2/v3alpha/oauth.proto#L47>`_
 
 OAuth config
 
@@ -139,7 +139,7 @@ pass_through_matcher
 extensions.filters.http.oauth2.v3alpha.OAuth2
 ---------------------------------------------
 
-`[extensions.filters.http.oauth2.v3alpha.OAuth2 proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/extensions/filters/http/oauth2/v3alpha/oauth.proto#L79>`_
+`[extensions.filters.http.oauth2.v3alpha.OAuth2 proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/extensions/filters/http/oauth2/v3alpha/oauth.proto#L79>`_
 
 Filter config.
 

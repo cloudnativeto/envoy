@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Health Discovery Service (HDS) &mdash; envoy 1.16.0-87b557 documentation</title>
+  <title>Health Discovery Service (HDS) &mdash; envoy 1.16.0-e15e3c documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-87b557
+                1.16.0-e15e3c
               </div>
             
           
@@ -219,7 +219,7 @@
 <span id="envoy-v3-api-file-envoy-service-health-v3-hds-proto"></span><h1>Health Discovery Service (HDS)<a class="headerlink" href="#health-discovery-service-hds" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="service-health-v3-capability">
 <span id="envoy-v3-api-msg-service-health-v3-capability"></span><h2>service.health.v3.Capability<a class="headerlink" href="#service-health-v3-capability" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/service/health/v3/hds.proto#L79">[service.health.v3.Capability proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/service/health/v3/hds.proto#L79">[service.health.v3.Capability proto]</a></p>
 <p>Defines supported protocols etc, so the management server can assign proper
 endpoints to healthcheck.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -234,7 +234,7 @@ endpoints to healthcheck.</p>
 </div>
 <div class="section" id="enum-service-health-v3-capability-protocol">
 <span id="envoy-v3-api-enum-service-health-v3-capability-protocol"></span><h2>Enum service.health.v3.Capability.Protocol<a class="headerlink" href="#enum-service-health-v3-capability-protocol" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/service/health/v3/hds.proto#L85">[service.health.v3.Capability.Protocol proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/service/health/v3/hds.proto#L85">[service.health.v3.Capability.Protocol proto]</a></p>
 <p>Different Envoy instances may have different capabilities (e.g. Redis)
 and/or have ports enabled for different protocols.</p>
 <dl class="simple" id="envoy-v3-api-enum-value-service-health-v3-capability-protocol-http">
@@ -252,7 +252,7 @@ and/or have ports enabled for different protocols.</p>
 </div>
 <div class="section" id="service-health-v3-healthcheckrequest">
 <span id="envoy-v3-api-msg-service-health-v3-healthcheckrequest"></span><h2>service.health.v3.HealthCheckRequest<a class="headerlink" href="#service-health-v3-healthcheckrequest" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/service/health/v3/hds.proto#L94">[service.health.v3.HealthCheckRequest proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/service/health/v3/hds.proto#L94">[service.health.v3.HealthCheckRequest proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;node&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;capability&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>
@@ -270,7 +270,7 @@ and/or have ports enabled for different protocols.</p>
 </div>
 <div class="section" id="service-health-v3-endpointhealth">
 <span id="envoy-v3-api-msg-service-health-v3-endpointhealth"></span><h2>service.health.v3.EndpointHealth<a class="headerlink" href="#service-health-v3-endpointhealth" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/service/health/v3/hds.proto#L103">[service.health.v3.EndpointHealth proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/service/health/v3/hds.proto#L103">[service.health.v3.EndpointHealth proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;health_status&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
@@ -288,7 +288,7 @@ and/or have ports enabled for different protocols.</p>
 </div>
 <div class="section" id="service-health-v3-localityendpointshealth">
 <span id="envoy-v3-api-msg-service-health-v3-localityendpointshealth"></span><h2>service.health.v3.LocalityEndpointsHealth<a class="headerlink" href="#service-health-v3-localityendpointshealth" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/service/health/v3/hds.proto#L113">[service.health.v3.LocalityEndpointsHealth proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/service/health/v3/hds.proto#L113">[service.health.v3.LocalityEndpointsHealth proto]</a></p>
 <p>Group endpoint health by locality under each cluster.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;locality&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -307,7 +307,7 @@ and/or have ports enabled for different protocols.</p>
 </div>
 <div class="section" id="service-health-v3-clusterendpointshealth">
 <span id="envoy-v3-api-msg-service-health-v3-clusterendpointshealth"></span><h2>service.health.v3.ClusterEndpointsHealth<a class="headerlink" href="#service-health-v3-clusterendpointshealth" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/service/health/v3/hds.proto#L121">[service.health.v3.ClusterEndpointsHealth proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/service/health/v3/hds.proto#L121">[service.health.v3.ClusterEndpointsHealth proto]</a></p>
 <p>The health status of endpoints in a cluster. The cluster name and locality
 should match the corresponding fields in ClusterHealthCheck message.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -327,7 +327,7 @@ should match the corresponding fields in ClusterHealthCheck message.</p>
 </div>
 <div class="section" id="service-health-v3-endpointhealthresponse">
 <span id="envoy-v3-api-msg-service-health-v3-endpointhealthresponse"></span><h2>service.health.v3.EndpointHealthResponse<a class="headerlink" href="#service-health-v3-endpointhealthresponse" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/service/health/v3/hds.proto#L127">[service.health.v3.EndpointHealthResponse proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/service/health/v3/hds.proto#L127">[service.health.v3.EndpointHealthResponse proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;endpoints_health&quot;</span><span class="p">:</span> <span class="p">[],</span>
   <span class="nt">&quot;cluster_endpoints_health&quot;</span><span class="p">:</span> <span class="p">[]</span>
@@ -345,7 +345,7 @@ should match the corresponding fields in ClusterHealthCheck message.</p>
 </div>
 <div class="section" id="service-health-v3-healthcheckrequestorendpointhealthresponse">
 <span id="envoy-v3-api-msg-service-health-v3-healthcheckrequestorendpointhealthresponse"></span><h2>service.health.v3.HealthCheckRequestOrEndpointHealthResponse<a class="headerlink" href="#service-health-v3-healthcheckrequestorendpointhealthresponse" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/service/health/v3/hds.proto#L138">[service.health.v3.HealthCheckRequestOrEndpointHealthResponse proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/service/health/v3/hds.proto#L138">[service.health.v3.HealthCheckRequestOrEndpointHealthResponse proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;health_check_request&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;endpoint_health_response&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>
@@ -365,7 +365,7 @@ should match the corresponding fields in ClusterHealthCheck message.</p>
 </div>
 <div class="section" id="service-health-v3-localityendpoints">
 <span id="envoy-v3-api-msg-service-health-v3-localityendpoints"></span><h2>service.health.v3.LocalityEndpoints<a class="headerlink" href="#service-health-v3-localityendpoints" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/service/health/v3/hds.proto#L149">[service.health.v3.LocalityEndpoints proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/service/health/v3/hds.proto#L149">[service.health.v3.LocalityEndpoints proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;locality&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;endpoints&quot;</span><span class="p">:</span> <span class="p">[]</span>
@@ -383,7 +383,7 @@ should match the corresponding fields in ClusterHealthCheck message.</p>
 </div>
 <div class="section" id="service-health-v3-clusterhealthcheck">
 <span id="envoy-v3-api-msg-service-health-v3-clusterhealthcheck"></span><h2>service.health.v3.ClusterHealthCheck<a class="headerlink" href="#service-health-v3-clusterhealthcheck" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/service/health/v3/hds.proto#L162">[service.health.v3.ClusterHealthCheck proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/service/health/v3/hds.proto#L162">[service.health.v3.ClusterHealthCheck proto]</a></p>
 <p>The cluster name and locality is provided to Envoy for the endpoints that it
 health checks to support statistics reporting, logging and debugging by the
 Envoy instance (outside of HDS). For maximum usefulness, it should match the
@@ -417,7 +417,7 @@ on connection when health checking. For more details, see
 </div>
 <div class="section" id="service-health-v3-healthcheckspecifier">
 <span id="envoy-v3-api-msg-service-health-v3-healthcheckspecifier"></span><h2>service.health.v3.HealthCheckSpecifier<a class="headerlink" href="#service-health-v3-healthcheckspecifier" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/service/health/v3/hds.proto#L178">[service.health.v3.HealthCheckSpecifier proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/service/health/v3/hds.proto#L178">[service.health.v3.HealthCheckSpecifier proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;cluster_health_checks&quot;</span><span class="p">:</span> <span class="p">[],</span>
   <span class="nt">&quot;interval&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>

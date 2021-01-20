@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>构建 &mdash; envoy 1.16.0-87b557 documentation</title>
+  <title>构建 &mdash; envoy 1.16.0-e15e3c documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-87b557
+                1.16.0-e15e3c
               </div>
             
           
@@ -195,15 +195,15 @@
             
   <div class="section" id="building">
 <span id="id1"></span><h1>构建<a class="headerlink" href="#building" title="Permalink to this headline">¶</a></h1>
-<p>Envoy 使用 Bazel 来构建系统。为了更简单地初始化构建和快速开始，我们提供了一个 Ubuntu 16 的基础镜像容器，这个容器包含了需要构建和 <em>静态链接</em> Envoy 的所有工具，详情可查看 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/ci/README.md">ci/README.md</a>。</p>
-<p>为了能够手动构建，可参照 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/bazel/README.md">bazel/README.md</a> 中的使用说明。</p>
+<p>Envoy 使用 Bazel 来构建系统。为了更简单地初始化构建和快速开始，我们提供了一个 Ubuntu 16 的基础镜像容器，这个容器包含了需要构建和 <em>静态链接</em> Envoy 的所有工具，详情可查看 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/ci/README.md">ci/README.md</a>。</p>
+<p>为了能够手动构建，可参照 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/bazel/README.md">bazel/README.md</a> 中的使用说明。</p>
 <div class="section" id="install-requirements">
 <span id="id2"></span><h2>必备条件<a class="headerlink" href="#install-requirements" title="Permalink to this headline">¶</a></h2>
 <p>Envoy 最初实在 Ubuntu 14.04 LTS 上开发和部署的。它可以在任何最近的 Linux 上运行，包括 Ubuntu 18.04 LTS。</p>
 <p>构建 Envoy 需要具备以下条件：
 * GCC 7+ 或者 Clang/LLVM 7+ (支持 C++14)。 使用 Clang 时，Clang/LLVM 9+ 时首选 (如下)。
-* 这些 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/bazel/repository_locations.bzl">Bazel 原生</a> 依赖。</p>
-<p>关于执行手工构建的更多信息，请看链接 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/ci/README.md">CI</a> 和 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/bazel/README.md">Bazel</a> 中的文档。
+* 这些 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/bazel/repository_locations.bzl">Bazel 原生</a> 依赖。</p>
+<p>关于执行手工构建的更多信息，请看链接 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/ci/README.md">CI</a> 和 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/bazel/README.md">Bazel</a> 中的文档。
 需要注意的是 Clang/LLVM 8 或者更低版本，Envoy 可能需要用 <cite>–define tcmalloc=gperftools</cite> 参数来构建，因为新的 tcmalloc 代码不能够保证用较低版本的 Clang 来编译。</p>
 </div>
 <div class="section" id="install-binaries">

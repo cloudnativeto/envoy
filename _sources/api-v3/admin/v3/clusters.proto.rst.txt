@@ -9,7 +9,7 @@ Clusters
 admin.v3.Clusters
 -----------------
 
-`[admin.v3.Clusters proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/admin/v3/clusters.proto#L23>`_
+`[admin.v3.Clusters proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/admin/v3/clusters.proto#L23>`_
 
 Admin endpoint uses this wrapper for `/clusters` to display cluster status information.
 See :ref:`/clusters <operations_admin_interface_clusters>` for more information.
@@ -33,7 +33,7 @@ cluster_statuses
 admin.v3.ClusterStatus
 ----------------------
 
-`[admin.v3.ClusterStatus proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/admin/v3/clusters.proto#L32>`_
+`[admin.v3.ClusterStatus proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/admin/v3/clusters.proto#L32>`_
 
 Details an individual cluster's current status.
 
@@ -121,7 +121,7 @@ circuit_breakers
 admin.v3.HostStatus
 -------------------
 
-`[admin.v3.HostStatus proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/admin/v3/clusters.proto#L86>`_
+`[admin.v3.HostStatus proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/admin/v3/clusters.proto#L86>`_
 
 Current state of a particular host.
 
@@ -223,7 +223,7 @@ locality
 admin.v3.HostHealthStatus
 -------------------------
 
-`[admin.v3.HostHealthStatus proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/admin/v3/clusters.proto#L142>`_
+`[admin.v3.HostHealthStatus proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/admin/v3/clusters.proto#L142>`_
 
 Health status for a host.
 

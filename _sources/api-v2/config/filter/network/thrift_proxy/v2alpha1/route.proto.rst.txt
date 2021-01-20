@@ -10,7 +10,7 @@ Thrift Proxy :ref:`configuration overview <config_network_filters_thrift_proxy>`
 config.filter.network.thrift_proxy.v2alpha1.RouteConfiguration
 --------------------------------------------------------------
 
-`[config.filter.network.thrift_proxy.v2alpha1.RouteConfiguration proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/filter/network/thrift_proxy/v2alpha1/route.proto#L23>`_
+`[config.filter.network.thrift_proxy.v2alpha1.RouteConfiguration proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/config/filter/network/thrift_proxy/v2alpha1/route.proto#L23>`_
 
 
 .. code-block:: json
@@ -40,7 +40,7 @@ routes
 config.filter.network.thrift_proxy.v2alpha1.Route
 -------------------------------------------------
 
-`[config.filter.network.thrift_proxy.v2alpha1.Route proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/filter/network/thrift_proxy/v2alpha1/route.proto#L32>`_
+`[config.filter.network.thrift_proxy.v2alpha1.Route proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/config/filter/network/thrift_proxy/v2alpha1/route.proto#L32>`_
 
 
 .. code-block:: json
@@ -69,7 +69,7 @@ route
 config.filter.network.thrift_proxy.v2alpha1.RouteMatch
 ------------------------------------------------------
 
-`[config.filter.network.thrift_proxy.v2alpha1.RouteMatch proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/filter/network/thrift_proxy/v2alpha1/route.proto#L40>`_
+`[config.filter.network.thrift_proxy.v2alpha1.RouteMatch proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/config/filter/network/thrift_proxy/v2alpha1/route.proto#L40>`_
 
 
 .. code-block:: json
@@ -136,7 +136,7 @@ headers
 config.filter.network.thrift_proxy.v2alpha1.RouteAction
 -------------------------------------------------------
 
-`[config.filter.network.thrift_proxy.v2alpha1.RouteAction proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/filter/network/thrift_proxy/v2alpha1/route.proto#L77>`_
+`[config.filter.network.thrift_proxy.v2alpha1.RouteAction proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/config/filter/network/thrift_proxy/v2alpha1/route.proto#L77>`_
 
 
 .. code-block:: json
@@ -217,7 +217,7 @@ strip_service_name
 config.filter.network.thrift_proxy.v2alpha1.WeightedCluster
 -----------------------------------------------------------
 
-`[config.filter.network.thrift_proxy.v2alpha1.WeightedCluster proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/filter/network/thrift_proxy/v2alpha1/route.proto#L119>`_
+`[config.filter.network.thrift_proxy.v2alpha1.WeightedCluster proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/config/filter/network/thrift_proxy/v2alpha1/route.proto#L119>`_
 
 Allows for specification of multiple upstream clusters along with weights that indicate the
 percentage of traffic to be forwarded to each cluster. The router selects an upstream cluster
@@ -240,7 +240,7 @@ clusters
 config.filter.network.thrift_proxy.v2alpha1.WeightedCluster.ClusterWeight
 -------------------------------------------------------------------------
 
-`[config.filter.network.thrift_proxy.v2alpha1.WeightedCluster.ClusterWeight proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/filter/network/thrift_proxy/v2alpha1/route.proto#L120>`_
+`[config.filter.network.thrift_proxy.v2alpha1.WeightedCluster.ClusterWeight proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/config/filter/network/thrift_proxy/v2alpha1/route.proto#L120>`_
 
 
 .. code-block:: json

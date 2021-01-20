@@ -21,7 +21,7 @@ Adaptive Concurrency Control :ref:`configuration overview
 config.filter.http.adaptive_concurrency.v2alpha.GradientControllerConfig
 ------------------------------------------------------------------------
 
-`[config.filter.http.adaptive_concurrency.v2alpha.GradientControllerConfig proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/filter/http/adaptive_concurrency/v2alpha/adaptive_concurrency.proto#L28>`_
+`[config.filter.http.adaptive_concurrency.v2alpha.GradientControllerConfig proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/config/filter/http/adaptive_concurrency/v2alpha/adaptive_concurrency.proto#L28>`_
 
 Configuration parameters for the gradient controller.
 
@@ -54,7 +54,7 @@ min_rtt_calc_params
 config.filter.http.adaptive_concurrency.v2alpha.GradientControllerConfig.ConcurrencyLimitCalculationParams
 ----------------------------------------------------------------------------------------------------------
 
-`[config.filter.http.adaptive_concurrency.v2alpha.GradientControllerConfig.ConcurrencyLimitCalculationParams proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/filter/http/adaptive_concurrency/v2alpha/adaptive_concurrency.proto#L31>`_
+`[config.filter.http.adaptive_concurrency.v2alpha.GradientControllerConfig.ConcurrencyLimitCalculationParams proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/config/filter/http/adaptive_concurrency/v2alpha/adaptive_concurrency.proto#L31>`_
 
 Parameters controlling the periodic recalculation of the concurrency limit from sampled request
 latencies.
@@ -85,7 +85,7 @@ concurrency_update_interval
 config.filter.http.adaptive_concurrency.v2alpha.GradientControllerConfig.MinimumRTTCalculationParams
 ----------------------------------------------------------------------------------------------------
 
-`[config.filter.http.adaptive_concurrency.v2alpha.GradientControllerConfig.MinimumRTTCalculationParams proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/filter/http/adaptive_concurrency/v2alpha/adaptive_concurrency.proto#L44>`_
+`[config.filter.http.adaptive_concurrency.v2alpha.GradientControllerConfig.MinimumRTTCalculationParams proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/config/filter/http/adaptive_concurrency/v2alpha/adaptive_concurrency.proto#L44>`_
 
 Parameters controlling the periodic minRTT recalculation.
 
@@ -146,7 +146,7 @@ buffer
 config.filter.http.adaptive_concurrency.v2alpha.AdaptiveConcurrency
 -------------------------------------------------------------------
 
-`[config.filter.http.adaptive_concurrency.v2alpha.AdaptiveConcurrency proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/filter/http/adaptive_concurrency/v2alpha/adaptive_concurrency.proto#L82>`_
+`[config.filter.http.adaptive_concurrency.v2alpha.AdaptiveConcurrency proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/config/filter/http/adaptive_concurrency/v2alpha/adaptive_concurrency.proto#L82>`_
 
 
 .. code-block:: json

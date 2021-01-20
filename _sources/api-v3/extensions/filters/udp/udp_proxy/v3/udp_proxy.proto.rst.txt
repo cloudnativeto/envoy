@@ -20,7 +20,7 @@ UDP proxy :ref:`configuration overview <config_udp_listener_filters_udp_proxy>`.
 extensions.filters.udp.udp_proxy.v3.UdpProxyConfig
 --------------------------------------------------
 
-`[extensions.filters.udp.udp_proxy.v3.UdpProxyConfig proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/extensions/filters/udp/udp_proxy/v3/udp_proxy.proto#L21>`_
+`[extensions.filters.udp.udp_proxy.v3.UdpProxyConfig proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/extensions/filters/udp/udp_proxy/v3/udp_proxy.proto#L21>`_
 
 Configuration for the UDP proxy filter.
 
@@ -86,7 +86,7 @@ hash_policies
 extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.HashPolicy
 -------------------------------------------------------------
 
-`[extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.HashPolicy proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/extensions/filters/udp/udp_proxy/v3/udp_proxy.proto#L27>`_
+`[extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.HashPolicy proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/extensions/filters/udp/udp_proxy/v3/udp_proxy.proto#L27>`_
 
 Specifies the UDP hash policy.
 The packets can be routed by hash policy.
