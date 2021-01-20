@@ -20,7 +20,7 @@ IP tagging :ref:`configuration overview <config_http_filters_on_demand>`.
 extensions.filters.http.on_demand.v3.OnDemand
 ---------------------------------------------
 
-`[extensions.filters.http.on_demand.v3.OnDemand proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/extensions/filters/http/on_demand/v3/on_demand.proto#L17>`_
+`[extensions.filters.http.on_demand.v3.OnDemand proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/extensions/filters/http/on_demand/v3/on_demand.proto#L17>`_
 
 
 .. code-block:: json

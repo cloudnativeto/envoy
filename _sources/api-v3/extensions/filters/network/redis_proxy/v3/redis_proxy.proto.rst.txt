@@ -20,7 +20,7 @@ Redis Proxy :ref:`configuration overview <config_network_filters_redis_proxy>`.
 extensions.filters.network.redis_proxy.v3.RedisProxy
 ----------------------------------------------------
 
-`[extensions.filters.network.redis_proxy.v3.RedisProxy proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto#L26>`_
+`[extensions.filters.network.redis_proxy.v3.RedisProxy proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto#L26>`_
 
 
 .. code-block:: json
@@ -151,7 +151,7 @@ downstream_auth_username
 extensions.filters.network.redis_proxy.v3.RedisProxy.ConnPoolSettings
 ---------------------------------------------------------------------
 
-`[extensions.filters.network.redis_proxy.v3.RedisProxy.ConnPoolSettings proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto#L32>`_
+`[extensions.filters.network.redis_proxy.v3.RedisProxy.ConnPoolSettings proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto#L32>`_
 
 Redis connection pool settings.
 
@@ -260,7 +260,7 @@ read_policy
 Enum extensions.filters.network.redis_proxy.v3.RedisProxy.ConnPoolSettings.ReadPolicy
 -------------------------------------------------------------------------------------
 
-`[extensions.filters.network.redis_proxy.v3.RedisProxy.ConnPoolSettings.ReadPolicy proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto#L40>`_
+`[extensions.filters.network.redis_proxy.v3.RedisProxy.ConnPoolSettings.ReadPolicy proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto#L40>`_
 
 ReadPolicy controls how Envoy routes read commands to Redis nodes. This is currently
 supported for Redis Cluster. All ReadPolicy settings except MASTER may return stale data
@@ -306,7 +306,7 @@ ANY
 extensions.filters.network.redis_proxy.v3.RedisProxy.PrefixRoutes
 -----------------------------------------------------------------
 
-`[extensions.filters.network.redis_proxy.v3.RedisProxy.PrefixRoutes proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto#L123>`_
+`[extensions.filters.network.redis_proxy.v3.RedisProxy.PrefixRoutes proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto#L123>`_
 
 
 .. code-block:: json
@@ -341,7 +341,7 @@ catch_all_route
 extensions.filters.network.redis_proxy.v3.RedisProxy.PrefixRoutes.Route
 -----------------------------------------------------------------------
 
-`[extensions.filters.network.redis_proxy.v3.RedisProxy.PrefixRoutes.Route proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto#L127>`_
+`[extensions.filters.network.redis_proxy.v3.RedisProxy.PrefixRoutes.Route proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto#L127>`_
 
 
 .. code-block:: json
@@ -383,7 +383,7 @@ request_mirror_policy
 extensions.filters.network.redis_proxy.v3.RedisProxy.PrefixRoutes.Route.RequestMirrorPolicy
 -------------------------------------------------------------------------------------------
 
-`[extensions.filters.network.redis_proxy.v3.RedisProxy.PrefixRoutes.Route.RequestMirrorPolicy proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto#L135>`_
+`[extensions.filters.network.redis_proxy.v3.RedisProxy.PrefixRoutes.Route.RequestMirrorPolicy proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto#L135>`_
 
 The router is capable of shadowing traffic from one cluster to another. The current
 implementation is "fire and forget," meaning Envoy will not wait for the shadow cluster to
@@ -431,7 +431,7 @@ exclude_read_commands
 extensions.filters.network.redis_proxy.v3.RedisProxy.RedisFault
 ---------------------------------------------------------------
 
-`[extensions.filters.network.redis_proxy.v3.RedisProxy.RedisFault proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto#L186>`_
+`[extensions.filters.network.redis_proxy.v3.RedisProxy.RedisFault proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto#L186>`_
 
 RedisFault defines faults used for fault injection.
 
@@ -475,7 +475,7 @@ commands
 Enum extensions.filters.network.redis_proxy.v3.RedisProxy.RedisFault.RedisFaultType
 -----------------------------------------------------------------------------------
 
-`[extensions.filters.network.redis_proxy.v3.RedisProxy.RedisFault.RedisFaultType proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto#L187>`_
+`[extensions.filters.network.redis_proxy.v3.RedisProxy.RedisFault.RedisFaultType proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto#L187>`_
 
 
 .. _envoy_v3_api_enum_value_extensions.filters.network.redis_proxy.v3.RedisProxy.RedisFault.RedisFaultType.DELAY:
@@ -497,7 +497,7 @@ ERROR
 extensions.filters.network.redis_proxy.v3.RedisProtocolOptions
 --------------------------------------------------------------
 
-`[extensions.filters.network.redis_proxy.v3.RedisProtocolOptions proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto#L308>`_
+`[extensions.filters.network.redis_proxy.v3.RedisProtocolOptions proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto#L308>`_
 
 RedisProtocolOptions specifies Redis upstream protocol options. This object is used in
 :ref:`typed_extension_protocol_options<envoy_v3_api_field_config.cluster.v3.Cluster.typed_extension_protocol_options>`,

@@ -9,7 +9,7 @@ Common rate limit components
 ratelimit.RateLimitDescriptor
 -----------------------------
 
-`[ratelimit.RateLimitDescriptor proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/api/v2/ratelimit/ratelimit.proto#L57>`_
+`[ratelimit.RateLimitDescriptor proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/api/v2/ratelimit/ratelimit.proto#L57>`_
 
 A RateLimitDescriptor is a list of hierarchical entries that are used by the service to
 determine the final rate limit key and overall allowed limit. Here are some examples of how
@@ -70,7 +70,7 @@ entries
 ratelimit.RateLimitDescriptor.Entry
 -----------------------------------
 
-`[ratelimit.RateLimitDescriptor.Entry proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/api/v2/ratelimit/ratelimit.proto#L58>`_
+`[ratelimit.RateLimitDescriptor.Entry proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/api/v2/ratelimit/ratelimit.proto#L58>`_
 
 
 .. code-block:: json

@@ -9,7 +9,7 @@ Backoff Strategy
 config.core.v3.BackoffStrategy
 ------------------------------
 
-`[config.core.v3.BackoffStrategy proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/config/core/v3/backoff.proto#L18>`_
+`[config.core.v3.BackoffStrategy proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/core/v3/backoff.proto#L18>`_
 
 Configuration defining a jittered exponential back off strategy.
 

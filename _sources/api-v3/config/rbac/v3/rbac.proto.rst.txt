@@ -9,7 +9,7 @@ Role Based Access Control (RBAC)
 config.rbac.v3.RBAC
 -------------------
 
-`[config.rbac.v3.RBAC proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/config/rbac/v3/rbac.proto#L71>`_
+`[config.rbac.v3.RBAC proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/rbac/v3/rbac.proto#L71>`_
 
 Role Based Access Control (RBAC) provides service-level and method-level access control for a
 service. RBAC policies are additive. The policies are examined in order. Requests are allowed
@@ -96,7 +96,7 @@ policies
 Enum config.rbac.v3.RBAC.Action
 -------------------------------
 
-`[config.rbac.v3.RBAC.Action proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/config/rbac/v3/rbac.proto#L75>`_
+`[config.rbac.v3.RBAC.Action proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/rbac/v3/rbac.proto#L75>`_
 
 Should we do safe-list or block-list style access control?
 
@@ -127,7 +127,7 @@ LOG
 config.rbac.v3.Policy
 ---------------------
 
-`[config.rbac.v3.Policy proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/config/rbac/v3/rbac.proto#L113>`_
+`[config.rbac.v3.Policy proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/rbac/v3/rbac.proto#L113>`_
 
 Policy specifies a role and the principals that are assigned/denied the role.
 A policy matches if and only if at least one of its permissions match the
@@ -176,7 +176,7 @@ condition
 config.rbac.v3.Permission
 -------------------------
 
-`[config.rbac.v3.Permission proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/config/rbac/v3/rbac.proto#L143>`_
+`[config.rbac.v3.Permission proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/rbac/v3/rbac.proto#L143>`_
 
 Permission defines an action (or actions) that a principal can take.
 
@@ -314,7 +314,7 @@ requested_server_name
 config.rbac.v3.Permission.Set
 -----------------------------
 
-`[config.rbac.v3.Permission.Set proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/config/rbac/v3/rbac.proto#L148>`_
+`[config.rbac.v3.Permission.Set proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/rbac/v3/rbac.proto#L148>`_
 
 Used in the `and_rules` and `or_rules` fields in the `rule` oneof. Depending on the context,
 each are applied with the associated behavior.
@@ -338,7 +338,7 @@ rules
 config.rbac.v3.Principal
 ------------------------
 
-`[config.rbac.v3.Principal proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/config/rbac/v3/rbac.proto#L217>`_
+`[config.rbac.v3.Principal proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/rbac/v3/rbac.proto#L217>`_
 
 Principal defines an identity or a group of identities for a downstream
 subject.
@@ -480,7 +480,7 @@ not_id
 config.rbac.v3.Principal.Set
 ----------------------------
 
-`[config.rbac.v3.Principal.Set proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/config/rbac/v3/rbac.proto#L222>`_
+`[config.rbac.v3.Principal.Set proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/rbac/v3/rbac.proto#L222>`_
 
 Used in the `and_ids` and `or_ids` fields in the `identifier` oneof.
 Depending on the context, each are applied with the associated behavior.
@@ -503,7 +503,7 @@ ids
 config.rbac.v3.Principal.Authenticated
 --------------------------------------
 
-`[config.rbac.v3.Principal.Authenticated proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/config/rbac/v3/rbac.proto#L230>`_
+`[config.rbac.v3.Principal.Authenticated proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/rbac/v3/rbac.proto#L230>`_
 
 Authentication attributes for a downstream.
 

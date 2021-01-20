@@ -20,7 +20,7 @@ Use the Original destination address on downstream connections.
 extensions.filters.listener.original_dst.v3.OriginalDst
 -------------------------------------------------------
 
-`[extensions.filters.listener.original_dst.v3.OriginalDst proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/extensions/filters/listener/original_dst/v3/original_dst.proto#L16>`_
+`[extensions.filters.listener.original_dst.v3.OriginalDst proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/extensions/filters/listener/original_dst/v3/original_dst.proto#L16>`_
 
 
 .. code-block:: json

@@ -20,7 +20,7 @@ Router :ref:`configuration overview <config_http_filters_router>`.
 config.filter.http.router.v2.Router
 -----------------------------------
 
-`[config.filter.http.router.v2.Router proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/config/filter/http/router/v2/router.proto#L23>`_
+`[config.filter.http.router.v2.Router proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/filter/http/router/v2/router.proto#L23>`_
 
 
 .. code-block:: json

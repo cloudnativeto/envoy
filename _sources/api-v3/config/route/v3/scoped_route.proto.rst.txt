@@ -10,7 +10,7 @@ HTTP scoped routing configuration
 config.route.v3.ScopedRouteConfiguration
 ----------------------------------------
 
-`[config.route.v3.ScopedRouteConfiguration proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/config/route/v3/scoped_route.proto#L75>`_
+`[config.route.v3.ScopedRouteConfiguration proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/route/v3/scoped_route.proto#L75>`_
 
 Specifies a routing scope, which associates a
 :ref:`Key<envoy_v3_api_msg_config.route.v3.ScopedRouteConfiguration.Key>` to a
@@ -112,7 +112,7 @@ key
 config.route.v3.ScopedRouteConfiguration.Key
 --------------------------------------------
 
-`[config.route.v3.ScopedRouteConfiguration.Key proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/config/route/v3/scoped_route.proto#L84>`_
+`[config.route.v3.ScopedRouteConfiguration.Key proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/route/v3/scoped_route.proto#L84>`_
 
 Specifies a key which is matched against the output of the
 :ref:`scope_key_builder<envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.ScopedRoutes.scope_key_builder>`
@@ -139,7 +139,7 @@ fragments
 config.route.v3.ScopedRouteConfiguration.Key.Fragment
 -----------------------------------------------------
 
-`[config.route.v3.ScopedRouteConfiguration.Key.Fragment proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/config/route/v3/scoped_route.proto#L88>`_
+`[config.route.v3.ScopedRouteConfiguration.Key.Fragment proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/route/v3/scoped_route.proto#L88>`_
 
 
 .. code-block:: json

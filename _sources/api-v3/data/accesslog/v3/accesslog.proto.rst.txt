@@ -18,7 +18,7 @@ in their name.
 data.accesslog.v3.TCPAccessLogEntry
 -----------------------------------
 
-`[data.accesslog.v3.TCPAccessLogEntry proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/data/accesslog/v3/accesslog.proto#L32>`_
+`[data.accesslog.v3.TCPAccessLogEntry proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/data/accesslog/v3/accesslog.proto#L32>`_
 
 
 .. code-block:: json
@@ -47,7 +47,7 @@ connection_properties
 data.accesslog.v3.HTTPAccessLogEntry
 ------------------------------------
 
-`[data.accesslog.v3.HTTPAccessLogEntry proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/data/accesslog/v3/accesslog.proto#L43>`_
+`[data.accesslog.v3.HTTPAccessLogEntry proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/data/accesslog/v3/accesslog.proto#L43>`_
 
 
 .. code-block:: json
@@ -88,7 +88,7 @@ response
 Enum data.accesslog.v3.HTTPAccessLogEntry.HTTPVersion
 -----------------------------------------------------
 
-`[data.accesslog.v3.HTTPAccessLogEntry.HTTPVersion proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/data/accesslog/v3/accesslog.proto#L48>`_
+`[data.accesslog.v3.HTTPAccessLogEntry.HTTPVersion proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/data/accesslog/v3/accesslog.proto#L48>`_
 
 HTTP version
 
@@ -123,7 +123,7 @@ HTTP3
 data.accesslog.v3.ConnectionProperties
 --------------------------------------
 
-`[data.accesslog.v3.ConnectionProperties proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/data/accesslog/v3/accesslog.proto#L69>`_
+`[data.accesslog.v3.ConnectionProperties proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/data/accesslog/v3/accesslog.proto#L69>`_
 
 Defines fields for a connection
 
@@ -153,7 +153,7 @@ sent_bytes
 data.accesslog.v3.AccessLogCommon
 ---------------------------------
 
-`[data.accesslog.v3.AccessLogCommon proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/data/accesslog/v3/accesslog.proto#L82>`_
+`[data.accesslog.v3.AccessLogCommon proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/data/accesslog/v3/accesslog.proto#L82>`_
 
 Defines fields that are shared by all Envoy access logs.
 
@@ -345,7 +345,7 @@ filter_state_objects
 data.accesslog.v3.ResponseFlags
 -------------------------------
 
-`[data.accesslog.v3.ResponseFlags proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/data/accesslog/v3/accesslog.proto#L189>`_
+`[data.accesslog.v3.ResponseFlags proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/data/accesslog/v3/accesslog.proto#L189>`_
 
 Flags indicating occurrences during request/response processing.
 
@@ -521,7 +521,7 @@ duration_timeout
 data.accesslog.v3.ResponseFlags.Unauthorized
 --------------------------------------------
 
-`[data.accesslog.v3.ResponseFlags.Unauthorized proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/data/accesslog/v3/accesslog.proto#L193>`_
+`[data.accesslog.v3.ResponseFlags.Unauthorized proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/data/accesslog/v3/accesslog.proto#L193>`_
 
 
 .. code-block:: json
@@ -541,7 +541,7 @@ reason
 Enum data.accesslog.v3.ResponseFlags.Unauthorized.Reason
 --------------------------------------------------------
 
-`[data.accesslog.v3.ResponseFlags.Unauthorized.Reason proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/data/accesslog/v3/accesslog.proto#L198>`_
+`[data.accesslog.v3.ResponseFlags.Unauthorized.Reason proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/data/accesslog/v3/accesslog.proto#L198>`_
 
 Reasons why the request was unauthorized
 
@@ -563,7 +563,7 @@ EXTERNAL_SERVICE
 data.accesslog.v3.TLSProperties
 -------------------------------
 
-`[data.accesslog.v3.TLSProperties proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/data/accesslog/v3/accesslog.proto#L281>`_
+`[data.accesslog.v3.TLSProperties proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/data/accesslog/v3/accesslog.proto#L281>`_
 
 Properties of a negotiated TLS connection.
 
@@ -623,7 +623,7 @@ tls_session_id
 data.accesslog.v3.TLSProperties.CertificateProperties
 -----------------------------------------------------
 
-`[data.accesslog.v3.TLSProperties.CertificateProperties proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/data/accesslog/v3/accesslog.proto#L293>`_
+`[data.accesslog.v3.TLSProperties.CertificateProperties proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/data/accesslog/v3/accesslog.proto#L293>`_
 
 
 .. code-block:: json
@@ -650,7 +650,7 @@ subject
 data.accesslog.v3.TLSProperties.CertificateProperties.SubjectAltName
 --------------------------------------------------------------------
 
-`[data.accesslog.v3.TLSProperties.CertificateProperties.SubjectAltName proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/data/accesslog/v3/accesslog.proto#L297>`_
+`[data.accesslog.v3.TLSProperties.CertificateProperties.SubjectAltName proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/data/accesslog/v3/accesslog.proto#L297>`_
 
 
 .. code-block:: json
@@ -674,7 +674,7 @@ uri
 Enum data.accesslog.v3.TLSProperties.TLSVersion
 -----------------------------------------------
 
-`[data.accesslog.v3.TLSProperties.TLSVersion proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/data/accesslog/v3/accesslog.proto#L285>`_
+`[data.accesslog.v3.TLSProperties.TLSVersion proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/data/accesslog/v3/accesslog.proto#L285>`_
 
 
 .. _envoy_v3_api_enum_value_data.accesslog.v3.TLSProperties.TLSVersion.VERSION_UNSPECIFIED:
@@ -708,7 +708,7 @@ TLSv1_3
 data.accesslog.v3.HTTPRequestProperties
 ---------------------------------------
 
-`[data.accesslog.v3.HTTPRequestProperties proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/data/accesslog/v3/accesslog.proto#L340>`_
+`[data.accesslog.v3.HTTPRequestProperties proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/data/accesslog/v3/accesslog.proto#L340>`_
 
 
 .. code-block:: json
@@ -825,7 +825,7 @@ request_headers
 data.accesslog.v3.HTTPResponseProperties
 ----------------------------------------
 
-`[data.accesslog.v3.HTTPResponseProperties proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/data/accesslog/v3/accesslog.proto#L396>`_
+`[data.accesslog.v3.HTTPResponseProperties proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/data/accesslog/v3/accesslog.proto#L396>`_
 
 
 .. code-block:: json

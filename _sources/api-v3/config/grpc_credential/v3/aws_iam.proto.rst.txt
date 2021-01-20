@@ -20,7 +20,7 @@ Configuration for AWS IAM Grpc Credentials Plugin
 config.grpc_credential.v3.AwsIamConfig
 --------------------------------------
 
-`[config.grpc_credential.v3.AwsIamConfig proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/config/grpc_credential/v3/aws_iam.proto#L17>`_
+`[config.grpc_credential.v3.AwsIamConfig proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/config/grpc_credential/v3/aws_iam.proto#L17>`_
 
 
 .. code-block:: json

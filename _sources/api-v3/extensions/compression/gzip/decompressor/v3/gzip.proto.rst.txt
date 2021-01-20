@@ -19,7 +19,7 @@ This extension may be referenced by the qualified name *envoy.compression.gzip.d
 extensions.compression.gzip.decompressor.v3.Gzip
 ------------------------------------------------
 
-`[extensions.compression.gzip.decompressor.v3.Gzip proto] <https://github.com/envoyproxy/envoy/blob/aa751a2233fff0dfd60f6cbe65012a69e8dd4cc0/api/envoy/extensions/compression/gzip/decompressor/v3/gzip.proto#L19>`_
+`[extensions.compression.gzip.decompressor.v3.Gzip proto] <https://github.com/envoyproxy/envoy/blob/87b557b5221c6573e8b554884bf0c51a804cbc91/api/envoy/extensions/compression/gzip/decompressor/v3/gzip.proto#L19>`_
 
 
 .. code-block:: json
