@@ -9,7 +9,7 @@ Server State
 admin.v3.ServerInfo
 -------------------
 
-`[admin.v3.ServerInfo proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/admin/v3/server_info.proto#L22>`_
+`[admin.v3.ServerInfo proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/admin/v3/server_info.proto#L22>`_
 
 Proto representation of the value returned by /server_info, containing
 server version/server status information.
@@ -74,7 +74,7 @@ node
 Enum admin.v3.ServerInfo.State
 ------------------------------
 
-`[admin.v3.ServerInfo.State proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/admin/v3/server_info.proto#L25>`_
+`[admin.v3.ServerInfo.State proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/admin/v3/server_info.proto#L25>`_
 
 
 .. _envoy_v3_api_enum_value_admin.v3.ServerInfo.State.LIVE:
@@ -107,7 +107,7 @@ INITIALIZING
 admin.v3.CommandLineOptions
 ---------------------------
 
-`[admin.v3.CommandLineOptions proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/admin/v3/server_info.proto#L62>`_
+`[admin.v3.CommandLineOptions proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/admin/v3/server_info.proto#L62>`_
 
 
 .. code-block:: json
@@ -352,7 +352,7 @@ socket_mode
 Enum admin.v3.CommandLineOptions.IpVersion
 ------------------------------------------
 
-`[admin.v3.CommandLineOptions.IpVersion proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/admin/v3/server_info.proto#L66>`_
+`[admin.v3.CommandLineOptions.IpVersion proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/admin/v3/server_info.proto#L66>`_
 
 
 .. _envoy_v3_api_enum_value_admin.v3.CommandLineOptions.IpVersion.v4:
@@ -371,7 +371,7 @@ v6
 Enum admin.v3.CommandLineOptions.Mode
 -------------------------------------
 
-`[admin.v3.CommandLineOptions.Mode proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/admin/v3/server_info.proto#L71>`_
+`[admin.v3.CommandLineOptions.Mode proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/admin/v3/server_info.proto#L71>`_
 
 
 .. _envoy_v3_api_enum_value_admin.v3.CommandLineOptions.Mode.Serve:
@@ -398,7 +398,7 @@ InitOnly
 Enum admin.v3.CommandLineOptions.DrainStrategy
 ----------------------------------------------
 
-`[admin.v3.CommandLineOptions.DrainStrategy proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/admin/v3/server_info.proto#L82>`_
+`[admin.v3.CommandLineOptions.DrainStrategy proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/admin/v3/server_info.proto#L82>`_
 
 
 .. _envoy_v3_api_enum_value_admin.v3.CommandLineOptions.DrainStrategy.Gradual:

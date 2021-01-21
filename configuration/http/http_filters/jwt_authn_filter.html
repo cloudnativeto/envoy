@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>JWT Authentication &mdash; envoy 1.16.0-e15e3c documentation</title>
+  <title>JWT 认证 &mdash; envoy 1.16.0-917aa0 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-e15e3c
+                1.16.0-917aa0
               </div>
             
           
@@ -134,7 +134,7 @@
 <li class="toctree-l4"><a class="reference internal" href="health_check_filter.html">健康检查</a></li>
 <li class="toctree-l4"><a class="reference internal" href="header_to_metadata_filter.html">Envoy Header-To-Metadata 过滤器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ip_tagging_filter.html">IP 标记</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">JWT Authentication</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">JWT 认证</a></li>
 <li class="toctree-l4"><a class="reference internal" href="local_rate_limit_filter.html">Local rate limit</a></li>
 <li class="toctree-l4"><a class="reference internal" href="lua_filter.html">Lua</a></li>
 <li class="toctree-l4"><a class="reference internal" href="oauth2_filter.html">OAuth2</a></li>
@@ -215,7 +215,7 @@
         
           <li><a href="http_filters.html">HTTP 过滤器</a> &raquo;</li>
         
-      <li>JWT Authentication</li>
+      <li>JWT 认证</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -234,11 +234,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="jwt-authentication">
-<span id="config-http-filters-jwt-authn"></span><h1>JWT Authentication<a class="headerlink" href="#jwt-authentication" title="Permalink to this headline">¶</a></h1>
-<p>This HTTP filter can be used to verify JSON Web Token (JWT). It will verify its signature, audiences and issuer. It will also check its time restrictions, such as expiration and nbf (not before) time. If the JWT verification fails, its request will be rejected. If the JWT verification succeeds, its payload can be forwarded to the upstream for further authorization if desired.</p>
-<p>JWKS is needed to verify JWT signatures. They can be specified in the filter config or can be fetched remotely from a JWKS server.</p>
-<p>Following are supported JWT alg:</p>
+  <div class="section" id="jwt">
+<span id="config-http-filters-jwt-authn"></span><h1>JWT 认证<a class="headerlink" href="#jwt" title="Permalink to this headline">¶</a></h1>
+<p>此 HTTP 过滤器可用于验证 JSON Web Token（JWT）。它将验证其签名、受众（audience）和发行人。它还将检查其时间限制，例如到期时间和 nbf（not before 不早于）时间。如果 JWT 验证失败，其请求将被拒绝。如果 JWT 验证成功，则可以将其有效负载转发到上游，以按需进行进一步授权。</p>
+<p>需要 JWKS 来验证 JWT 签名。它们可以在过滤器配置中指定，也可以从 JWKS 服务器远程获取。</p>
+<p>以下是支持的 JWT alg：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ES256</span><span class="p">,</span> <span class="n">ES384</span><span class="p">,</span> <span class="n">ES512</span><span class="p">,</span>
 <span class="n">HS256</span><span class="p">,</span> <span class="n">HS384</span><span class="p">,</span> <span class="n">HS512</span><span class="p">,</span>
 <span class="n">RS256</span><span class="p">,</span> <span class="n">RS384</span><span class="p">,</span> <span class="n">RS512</span><span class="p">,</span>
@@ -246,49 +246,48 @@
 <span class="n">EdDSA</span>
 </pre></div>
 </div>
-<div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<p>This filter should be configured with the name <em>envoy.filters.http.jwt_authn</em>.</p>
-<p>This HTTP <a class="reference internal" href="../../../api-v3/extensions/filters/http/jwt_authn/v3/config.proto.html#envoy-v3-api-msg-extensions-filters-http-jwt-authn-v3-jwtauthentication"><span class="std std-ref">filter config</span></a> has two fields:</p>
+<div class="section" id="id1">
+<h2>配置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>此过滤器应的名称应该配置为 <em>envoy.filters.http.jwt_authn</em>。</p>
+<p>此 HTTP <a class="reference internal" href="../../../api-v3/extensions/filters/http/jwt_authn/v3/config.proto.html#envoy-v3-api-msg-extensions-filters-http-jwt-authn-v3-jwtauthentication"><span class="std std-ref">过滤器配置</span></a> 包含两个字段：</p>
 <ul class="simple">
-<li><p>Field <em>providers</em> specifies how a JWT should be verified, such as where to extract the token, where to fetch the public key (JWKS) and where to output its payload.</p></li>
-<li><p>Field <em>rules</em> specifies matching rules and their requirements. If a request matches a rule, its requirement applies. The requirement specifies which JWT providers should be used.</p></li>
+<li><p>字段 <em>providers</em> 指定应如何验证 JWT，例如在哪里提取令牌，在哪里获取公共密钥（JWKS）以及在何处输出其有效负载。</p></li>
+<li><p>字段 <em>rules</em> 指定匹配的规则及其 requirements。如果请求符合规则，则应用其 requirement。该 requirement 指定应使用哪些 JWT providers。</p></li>
 </ul>
 <div class="section" id="jwtprovider">
 <h3>JwtProvider<a class="headerlink" href="#jwtprovider" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="../../../api-v3/extensions/filters/http/jwt_authn/v3/config.proto.html#envoy-v3-api-msg-extensions-filters-http-jwt-authn-v3-jwtprovider"><span class="std std-ref">JwtProvider</span></a> specifies how a JWT should be verified. It has the following fields:</p>
+<p><a class="reference internal" href="../../../api-v3/extensions/filters/http/jwt_authn/v3/config.proto.html#envoy-v3-api-msg-extensions-filters-http-jwt-authn-v3-jwtprovider"><span class="std std-ref">JwtProvider</span></a> 指定应如何验证 JWT。它具有以下字段：</p>
 <ul class="simple">
-<li><p><em>issuer</em>: the principal that issued the JWT, usually a URL or an email address.</p></li>
-<li><p><em>audiences</em>: a list of JWT audiences allowed to access. A JWT containing any of these audiences will be accepted.
-If not specified, the audiences in JWT will not be checked.</p></li>
-<li><p><em>local_jwks</em>: fetch JWKS in local data source, either in a local file or embedded in the inline string.</p></li>
-<li><p><em>remote_jwks</em>: fetch JWKS from a remote HTTP server, also specify cache duration.</p></li>
-<li><p><em>forward</em>: if true, JWT will be forwarded to the upstream.</p></li>
-<li><p><em>from_headers</em>: extract JWT from HTTP headers.</p></li>
-<li><p><em>from_params</em>: extract JWT from query parameters.</p></li>
-<li><p><em>forward_payload_header</em>: forward the JWT payload in the specified HTTP header.</p></li>
+<li><p><em>issuer</em>: 发行 JWT 的主体，通常是 URL 或电子邮件地址。</p></li>
+<li><p><em>audiences</em>: 允许访问的 JWT 受众列表。包含任何这些受众的 JWT 将被接受。如果未指定，将不检查 JWT 中的受众。</p></li>
+<li><p><em>local_jwks</em>: 在本地数据源中获取 JWKS，可以在本地文件中或嵌入在内联字符串中。</p></li>
+<li><p><em>remote_jwks</em>: 从远程 HTTP 服务器获取 JWKS，还可以指定缓存持续时间。</p></li>
+<li><p><em>forward</em>: 如果为 true，则将 JWT 转发到上游。</p></li>
+<li><p><em>from_headers</em>: 从 HTTP 头部中提取 JWT。</p></li>
+<li><p><em>from_params</em>: 从查询参数中提取 JWT。</p></li>
+<li><p><em>forward_payload_header</em>: 在指定的 HTTP 头部中转发 JWT 有效负载。</p></li>
 </ul>
 </div>
-<div class="section" id="default-extract-location">
-<h3>Default Extract Location<a class="headerlink" href="#default-extract-location" title="Permalink to this headline">¶</a></h3>
-<p>If <em>from_headers</em> and <em>from_params</em> is empty,  the default location to extract JWT is from HTTP header:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Authorization</span><span class="p">:</span> <span class="n">Bearer</span> <span class="o">&lt;</span><span class="n">token</span><span class="o">&gt;</span>
-</pre></div>
-</div>
-<p>and query parameter key <em>access_token</em> as:</p>
+<div class="section" id="id2">
+<h3>默认提取位置<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>如果 <em>from_headers</em> 和 <em>from_params</em> 为空，则默认从 HTTP 头部提取 JWT：</p>
+<blockquote>
+<div><p>Authorization: Bearer &lt;token&gt;</p>
+</div></blockquote>
+<p>和查询参数的 key <em>access_token</em></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/path?access_token=&lt;JWT&gt;
 </pre></div>
 </div>
-<p>If a request has two tokens, one from the header and the other from the query parameter, all of them must be valid.</p>
-<p>In the <a class="reference internal" href="../../../api-v3/extensions/filters/http/jwt_authn/v3/config.proto.html#envoy-v3-api-msg-extensions-filters-http-jwt-authn-v3-jwtauthentication"><span class="std std-ref">filter config</span></a>, <em>providers</em> is a map, to map <em>provider_name</em> to a <a class="reference internal" href="../../../api-v3/extensions/filters/http/jwt_authn/v3/config.proto.html#envoy-v3-api-msg-extensions-filters-http-jwt-authn-v3-jwtprovider"><span class="std std-ref">JwtProvider</span></a>. The <em>provider_name</em> must be unique, it is referred in the <cite>JwtRequirement &lt;envoy_v3_api_msg_extensions.filters.http.jwt_authn.v3.JwtRequirement&gt;</cite> in its <em>provider_name</em> field.</p>
+<p>如果一个请求有两个 token，一个来自 HTTP 头部，另一个来自 HTTP 查询参数，则所有这些 token 都必须有效。</p>
+<p>在 <a class="reference internal" href="../../../api-v3/extensions/filters/http/jwt_authn/v3/config.proto.html#envoy-v3-api-msg-extensions-filters-http-jwt-authn-v3-jwtauthentication"><span class="std std-ref">过滤器配置中</span></a>，<em>providers</em> 是一个映射，用于将 <em>provider_name</em> 映射到 <a class="reference internal" href="../../../api-v3/extensions/filters/http/jwt_authn/v3/config.proto.html#envoy-v3-api-msg-extensions-filters-http-jwt-authn-v3-jwtprovider"><span class="std std-ref">JwtProvider</span></a>。<em>provider_name</em> 必须是唯一的，它被 <a class="reference internal" href="../../../api-v3/extensions/filters/http/jwt_authn/v3/config.proto.html#envoy-v3-api-msg-extensions-filters-http-jwt-authn-v3-jwtrequirement"><span class="std std-ref">JwtRequirement</span></a> 中的 <em>provider_name</em> 字段引用。</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>For <em>remote_jwks</em>, a <strong>jwks_cluster</strong> cluster is required.</p>
+<p>对于 <em>remote_jwks</em>，<strong>jwks_cluster</strong> cluster 字段是必须提供的。</p>
 </div>
-<p>Due to above requirement, <a class="reference external" href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect Discovery</a> is not supported since the URL to fetch JWKS is in the response of the discovery. It is not easy to setup a cluster config for a dynamic URL.</p>
+<p>由于上述要求，<a class="reference external" href="https://openid.net/specs/openid-connect-discovery-1_0.html">OpenID Connect 发现</a> 是不支持的，因为要获取 JWKS 的 URL 是基于响应发现的。为动态 URL 设置集群配置并不容易。</p>
 </div>
-<div class="section" id="remote-jwks-config-example">
-<h3>Remote JWKS config example<a class="headerlink" href="#remote-jwks-config-example" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="jwks">
+<h3>远程 JWKS 配置示例<a class="headerlink" href="#jwks" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">providers</span><span class="p">:</span>
   <span class="nt">provider_name1</span><span class="p">:</span>
     <span class="nt">issuer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://example.com</span>
@@ -303,8 +302,8 @@ If not specified, the audiences in JWT will not be checked.</p></li>
         <span class="nt">seconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
 </pre></div>
 </div>
-<p>Above example fetches JWSK from a remote server with URL <a class="reference external" href="https://example.com/jwks.json">https://example.com/jwks.json</a>. The token will be extracted from the default extract locations. The token will not be forwarded to upstream. JWT payload will not be added to the request header.</p>
-<p>Following cluster <strong>example_jwks_cluster</strong> is needed to fetch JWKS.</p>
+<p>上面的示例使用 URL <a class="reference external" href="https://example.com/jwks.json">https://example.com/jwks.json</a> 从远程服务器获取 JWSK。令牌将从默认提取位置提取。令牌不会转发到上游。JWT 有效负载不会添加到请求头部中。</p>
+<p>需要以下 cluster <strong>example_jwks_cluster</strong> 来获取 JWKS。</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">cluster</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">example_jwks_cluster</span>
   <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">STRICT_DNS</span>
@@ -320,9 +319,9 @@ If not specified, the audiences in JWT will not be checked.</p></li>
 </pre></div>
 </div>
 </div>
-<div class="section" id="inline-jwks-config-example">
-<h3>Inline JWKS config example<a class="headerlink" href="#inline-jwks-config-example" title="Permalink to this headline">¶</a></h3>
-<p>Another config example using inline JWKS:</p>
+<div class="section" id="id3">
+<h3>内联 JWKS 配置示例<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>使用内联 JWKS 的另一个配置示例：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">providers</span><span class="p">:</span>
   <span class="nt">provider_name2</span><span class="p">:</span>
     <span class="nt">issuer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://example2.com</span>
@@ -334,33 +333,33 @@ If not specified, the audiences in JWT will not be checked.</p></li>
     <span class="nt">forward_payload_header</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">x-jwt-payload</span>
 </pre></div>
 </div>
-<p>Above example uses config inline string to specify JWKS. The JWT token will be extracted from HTTP headers as:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jwt</span><span class="o">-</span><span class="n">assertion</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">JWT</span><span class="o">&gt;.</span>
-</pre></div>
-</div>
-<p>JWT payload will be added to the request header as following format:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">-</span><span class="n">jwt</span><span class="o">-</span><span class="n">payload</span><span class="p">:</span> <span class="n">base64url_encoded</span><span class="p">(</span><span class="n">jwt_payload_in_JSON</span><span class="p">)</span>
-</pre></div>
-</div>
+<p>上面的示例使用内联字符指定 JWKS。JWT 令牌将从下面的 HTTP 头部中提取：</p>
+<blockquote>
+<div><p>jwt-assertion: &lt;JWT&gt;.</p>
+</div></blockquote>
+<p>JWT 有效负载将以以下格式添加到请求头部：</p>
+<blockquote>
+<div><p>x-jwt-payload: base64url_encoded(jwt_payload_in_JSON)</p>
+</div></blockquote>
 </div>
 <div class="section" id="requirementrule">
 <h3>RequirementRule<a class="headerlink" href="#requirementrule" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="../../../api-v3/extensions/filters/http/jwt_authn/v3/config.proto.html#envoy-v3-api-msg-extensions-filters-http-jwt-authn-v3-requirementrule"><span class="std std-ref">RequirementRule</span></a> has two fields:</p>
+<p><a class="reference internal" href="../../../api-v3/extensions/filters/http/jwt_authn/v3/config.proto.html#envoy-v3-api-msg-extensions-filters-http-jwt-authn-v3-requirementrule"><span class="std std-ref">RequirementRule</span></a> 具有两个字段：</p>
 <ul class="simple">
-<li><p>Field <em>match</em> specifies how a request can be matched; e.g. by HTTP headers, or by query parameters, or by path prefixes.</p></li>
-<li><p>Field <em>requires</em> specifies the JWT requirement, e.g. which provider is required.</p></li>
+<li><p>字段 <em>match</em> 指定如何匹配请求；例如通过 HTTP 头部，查询参数或路径前缀。</p></li>
+<li><p>字段 <em>requires</em> 指定 JWT requirement，例如需要哪个 provider。</p></li>
 </ul>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <ul class="simple">
-<li><p><strong>If a request matches multiple rules, the first matched rule will apply</strong>.</p></li>
-<li><p>If the matched rule has empty <em>requires</em> field, <strong>JWT verification is not required</strong>.</p></li>
-<li><p>If a request doesn’t match any rules, <strong>JWT verification is not required</strong>.</p></li>
+<li><p><strong>如果一个请求匹配多个规则，则将应用第一个匹配的规则。</strong>.</p></li>
+<li><p>如果匹配规则的 <em>requires</em> 字段为空，<strong>则不需要 JWT 验证</strong>。</p></li>
+<li><p>如果请求不符合任何规则，<strong>则不需要 JWT 验证</strong>。</p></li>
 </ul>
 </div>
 </div>
-<div class="section" id="single-requirement-config-example">
-<h3>Single requirement config example<a class="headerlink" href="#single-requirement-config-example" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="requirement">
+<h3>单一 requirement 配置示例<a class="headerlink" href="#requirement" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">providers</span><span class="p">:</span>
   <span class="nt">jwt_provider1</span><span class="p">:</span>
     <span class="nt">issuer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://example.com</span>
@@ -384,10 +383,10 @@ If not specified, the audiences in JWT will not be checked.</p></li>
     <span class="nt">provider_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">jwt_provider1</span>
 </pre></div>
 </div>
-<p>Above config uses single requirement rule, each rule may have either an empty requirement or a single requirement with one provider name.</p>
+<p>上面的配置使用单个 requirement 规则，每个规则可以具有空 requirement 或具有一个 provider 名称的单个 requirement。</p>
 </div>
-<div class="section" id="group-requirement-config-example">
-<h3>Group requirement config example<a class="headerlink" href="#group-requirement-config-example" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>组 requirement 配置示例<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">providers</span><span class="p">:</span>
   <span class="nt">provider1</span><span class="p">:</span>
     <span class="nt">issuer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://provider1.com</span>
@@ -414,10 +413,10 @@ If not specified, the audiences in JWT will not be checked.</p></li>
       <span class="p p-Indicator">-</span> <span class="nt">provider_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">provider2</span>
 </pre></div>
 </div>
-<p>Above config uses more complex <em>group</em> requirements:</p>
+<p>上面的配置使用更复杂的*组* requirements：</p>
 <ul class="simple">
-<li><p>The first <em>rule</em> specifies <em>requires_any</em>; if any of <strong>provider1</strong> or <strong>provider2</strong> requirement is satisfied, the request is OK to proceed.</p></li>
-<li><p>The second <em>rule</em> specifies <em>requires_all</em>; only if both <strong>provider1</strong> and <strong>provider2</strong> requirements are satisfied, the request is OK to proceed.</p></li>
+<li><p>第一条 <em>rule</em> 指定 <em>requires_any</em>；如果满足 <strong>provider1</strong> 或 <strong>provider2</strong> 的 requirement，请求可以继续。</p></li>
+<li><p>第二条 <em>rule</em> 指定 <em>requires_all</em>；只有同时满足 <strong>provider1</strong> 和 <strong>provider2</strong> 的 requirements，请求才能继续。</p></li>
 </ul>
 </div>
 </div>

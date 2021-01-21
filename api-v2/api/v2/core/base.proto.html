@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Common types &mdash; envoy 1.16.0-e15e3c documentation</title>
+  <title>Common types &mdash; envoy 1.16.0-917aa0 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-e15e3c
+                1.16.0-917aa0
               </div>
             
           
@@ -219,7 +219,7 @@
 <span id="envoy-api-file-envoy-api-v2-core-base-proto"></span><h1>Common types<a class="headerlink" href="#common-types" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="core-locality">
 <span id="envoy-api-msg-core-locality"></span><h2>core.Locality<a class="headerlink" href="#core-locality" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/api/v2/core/base.proto#L68">[core.Locality proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/base.proto#L68">[core.Locality proto]</a></p>
 <p>Identifies location of where either Envoy runs or where upstream hosts run.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;region&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -251,7 +251,7 @@ independently.</p>
 </div>
 <div class="section" id="core-buildversion">
 <span id="envoy-api-msg-core-buildversion"></span><h2>core.BuildVersion<a class="headerlink" href="#core-buildversion" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/api/v2/core/base.proto#L90">[core.BuildVersion proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/base.proto#L90">[core.BuildVersion proto]</a></p>
 <p>BuildVersion combines SemVer version of extension with free-form build information
 (i.e. ‘alpha’, ‘private-build’) as a set of strings.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -272,7 +272,7 @@ Envoy defines several well known keys in the source/common/version/version.h fil
 </div>
 <div class="section" id="core-extension">
 <span id="envoy-api-msg-core-extension"></span><h2>core.Extension<a class="headerlink" href="#core-extension" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/api/v2/core/base.proto#L101">[core.Extension proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/base.proto#L101">[core.Extension proto]</a></p>
 <p>Version and identification for an Envoy extension.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -307,7 +307,7 @@ This field is not set when extension did not provide version information.</p>
 </div>
 <div class="section" id="core-node">
 <span id="envoy-api-msg-core-node"></span><h2>core.Node<a class="headerlink" href="#core-node" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/api/v2/core/base.proto#L131">[core.Node proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/base.proto#L131">[core.Node proto]</a></p>
 <p>Identifies a specific Envoy instance. The node identifier is presented to the
 management server, which may use this identifier to distinguish per Envoy
 configuration for serving.</p>
@@ -399,7 +399,7 @@ SocketAddress <cite>(0.0.0.0,80)</cite>. The field is optional and just a hint.<
 </div>
 <div class="section" id="core-metadata">
 <span id="envoy-api-msg-core-metadata"></span><h2>core.Metadata<a class="headerlink" href="#core-metadata" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/api/v2/core/base.proto#L219">[core.Metadata proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/base.proto#L219">[core.Metadata proto]</a></p>
 <p>Metadata provides additional inputs to filters based on matched listeners,
 filter chains, routes and endpoints. It is structured as a map, usually from
 filter name (in reverse DNS format) to metadata specific to the filter. Metadata
@@ -432,7 +432,7 @@ namespace is reserved for Envoy’s built-in filters.</p>
 </div>
 <div class="section" id="core-runtimeuint32">
 <span id="envoy-api-msg-core-runtimeuint32"></span><h2>core.RuntimeUInt32<a class="headerlink" href="#core-runtimeuint32" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/api/v2/core/base.proto#L226">[core.RuntimeUInt32 proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/base.proto#L226">[core.RuntimeUInt32 proto]</a></p>
 <p>Runtime derived uint32 with a default when not specified.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;default_value&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -451,7 +451,7 @@ namespace is reserved for Envoy’s built-in filters.</p>
 </div>
 <div class="section" id="core-runtimedouble">
 <span id="envoy-api-msg-core-runtimedouble"></span><h2>core.RuntimeDouble<a class="headerlink" href="#core-runtimedouble" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/api/v2/core/base.proto#L235">[core.RuntimeDouble proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/base.proto#L235">[core.RuntimeDouble proto]</a></p>
 <p>Runtime derived double with a default when not specified.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;default_value&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -470,7 +470,7 @@ namespace is reserved for Envoy’s built-in filters.</p>
 </div>
 <div class="section" id="core-runtimefeatureflag">
 <span id="envoy-api-msg-core-runtimefeatureflag"></span><h2>core.RuntimeFeatureFlag<a class="headerlink" href="#core-runtimefeatureflag" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/api/v2/core/base.proto#L244">[core.RuntimeFeatureFlag proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/base.proto#L244">[core.RuntimeFeatureFlag proto]</a></p>
 <p>Runtime derived bool with a default when not specified.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;default_value&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -491,7 +491,7 @@ be represented via its
 </div>
 <div class="section" id="core-headervalue">
 <span id="envoy-api-msg-core-headervalue"></span><h2>core.HeaderValue<a class="headerlink" href="#core-headervalue" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/api/v2/core/base.proto#L255">[core.HeaderValue proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/base.proto#L255">[core.HeaderValue proto]</a></p>
 <p>Header name/value pair.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -513,7 +513,7 @@ unknown header values are replaced with the empty string instead of <cite>-</cit
 </div>
 <div class="section" id="core-headervalueoption">
 <span id="envoy-api-msg-core-headervalueoption"></span><h2>core.HeaderValueOption<a class="headerlink" href="#core-headervalueoption" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/api/v2/core/base.proto#L272">[core.HeaderValueOption proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/base.proto#L272">[core.HeaderValueOption proto]</a></p>
 <p>Header name/value pair plus option to control append behavior.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;header&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -533,7 +533,7 @@ existing values.</p>
 </div>
 <div class="section" id="core-headermap">
 <span id="envoy-api-msg-core-headermap"></span><h2>core.HeaderMap<a class="headerlink" href="#core-headermap" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/api/v2/core/base.proto#L282">[core.HeaderMap proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/base.proto#L282">[core.HeaderMap proto]</a></p>
 <p>Wrapper for a set of headers.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;headers&quot;</span><span class="p">:</span> <span class="p">[]</span>
@@ -547,7 +547,7 @@ existing values.</p>
 </div>
 <div class="section" id="core-datasource">
 <span id="envoy-api-msg-core-datasource"></span><h2>core.DataSource<a class="headerlink" href="#core-datasource" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/api/v2/core/base.proto#L287">[core.DataSource proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/base.proto#L287">[core.DataSource proto]</a></p>
 <p>Data source consisting of either a file or an inline value.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;filename&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -574,7 +574,7 @@ existing values.</p>
 </div>
 <div class="section" id="core-retrypolicy">
 <span id="envoy-api-msg-core-retrypolicy"></span><h2>core.RetryPolicy<a class="headerlink" href="#core-retrypolicy" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/api/v2/core/base.proto#L303">[core.RetryPolicy proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/base.proto#L303">[core.RetryPolicy proto]</a></p>
 <p>The message specifies the retry policy of remote data source when fetching fails.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;retry_back_off&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -596,7 +596,7 @@ defaults to 1.</p>
 </div>
 <div class="section" id="core-remotedatasource">
 <span id="envoy-api-msg-core-remotedatasource"></span><h2>core.RemoteDataSource<a class="headerlink" href="#core-remotedatasource" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/api/v2/core/base.proto#L315">[core.RemoteDataSource proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/base.proto#L315">[core.RemoteDataSource proto]</a></p>
 <p>The message specifies how to fetch data from remote and how to verify it.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;http_uri&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -620,7 +620,7 @@ defaults to 1.</p>
 </div>
 <div class="section" id="core-asyncdatasource">
 <span id="envoy-api-msg-core-asyncdatasource"></span><h2>core.AsyncDataSource<a class="headerlink" href="#core-asyncdatasource" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/api/v2/core/base.proto#L327">[core.AsyncDataSource proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/base.proto#L327">[core.AsyncDataSource proto]</a></p>
 <p>Async data source which support async data fetch.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;local&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -641,7 +641,7 @@ defaults to 1.</p>
 </div>
 <div class="section" id="core-transportsocket">
 <span id="envoy-api-msg-core-transportsocket"></span><h2>core.TransportSocket<a class="headerlink" href="#core-transportsocket" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/api/v2/core/base.proto#L343">[core.TransportSocket proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/base.proto#L343">[core.TransportSocket proto]</a></p>
 <p>Configuration for transport socket in <a class="reference internal" href="../../../../configuration/listeners/listeners.html#config-listeners"><span class="std std-ref">listeners</span></a> and
 <a class="reference internal" href="../cluster.proto.html#envoy-api-msg-cluster"><span class="std std-ref">clusters</span></a>. If the configuration is
 empty, a default transport socket implementation and configuration will be
@@ -675,7 +675,7 @@ See the supported transport socket implementations for further documentation.</p
 </div>
 <div class="section" id="core-runtimefractionalpercent">
 <span id="envoy-api-msg-core-runtimefractionalpercent"></span><h2>core.RuntimeFractionalPercent<a class="headerlink" href="#core-runtimefractionalpercent" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/api/v2/core/base.proto#L367">[core.RuntimeFractionalPercent proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/base.proto#L367">[core.RuntimeFractionalPercent proto]</a></p>
 <p>Runtime derived FractionalPercent with defaults for when the numerator or denominator is not
 specified via a runtime key.</p>
 <div class="admonition note">
@@ -703,7 +703,7 @@ as a <cite>FractionalPercent</cite> whose numerator is 42 and denominator is HUN
 </div>
 <div class="section" id="core-controlplane">
 <span id="envoy-api-msg-core-controlplane"></span><h2>core.ControlPlane<a class="headerlink" href="#core-controlplane" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/api/v2/core/base.proto#L376">[core.ControlPlane proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/base.proto#L376">[core.ControlPlane proto]</a></p>
 <p>Identifies a specific ControlPlane instance that Envoy is connected to.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
@@ -719,7 +719,7 @@ the Envoy is connected to.</p>
 </div>
 <div class="section" id="enum-core-routingpriority">
 <span id="envoy-api-enum-core-routingpriority"></span><h2>Enum core.RoutingPriority<a class="headerlink" href="#enum-core-routingpriority" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/api/v2/core/base.proto#L36">[core.RoutingPriority proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/base.proto#L36">[core.RoutingPriority proto]</a></p>
 <p>Envoy supports <a class="reference internal" href="../../../../intro/arch_overview/http/http_routing.html#arch-overview-http-routing-priority"><span class="std std-ref">upstream priority routing</span></a> both at the route and the virtual
 cluster level. The current priority implementation uses different connection
 pool and circuit breaking settings for each priority level. This means that
@@ -737,7 +737,7 @@ over a single upstream connection.</p>
 </div>
 <div class="section" id="enum-core-requestmethod">
 <span id="envoy-api-enum-core-requestmethod"></span><h2>Enum core.RequestMethod<a class="headerlink" href="#enum-core-requestmethod" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/api/v2/core/base.proto#L42">[core.RequestMethod proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/base.proto#L42">[core.RequestMethod proto]</a></p>
 <p>HTTP request method.</p>
 <dl class="simple" id="envoy-api-enum-value-core-requestmethod-method-unspecified">
 <dt>METHOD_UNSPECIFIED</dt><dd><p><em>(DEFAULT)</em> ⁣</p>
@@ -782,7 +782,7 @@ over a single upstream connection.</p>
 </div>
 <div class="section" id="enum-core-trafficdirection">
 <span id="envoy-api-enum-core-trafficdirection"></span><h2>Enum core.TrafficDirection<a class="headerlink" href="#enum-core-trafficdirection" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/api/v2/core/base.proto#L56">[core.TrafficDirection proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/base.proto#L56">[core.TrafficDirection proto]</a></p>
 <p>Identifies the direction of the traffic relative to the local Envoy.</p>
 <dl class="simple" id="envoy-api-enum-value-core-trafficdirection-unspecified">
 <dt>UNSPECIFIED</dt><dd><p><em>(DEFAULT)</em> ⁣Default option is unspecified.</p>

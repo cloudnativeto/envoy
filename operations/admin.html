@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Administration interface &mdash; envoy 1.16.0-e15e3c documentation</title>
+  <title>Administration interface &mdash; envoy 1.16.0-917aa0 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-e15e3c
+                1.16.0-917aa0
               </div>
             
           
@@ -767,7 +767,7 @@ but in response to user requests on high core-count machines, this
 can cause performance issues due to mutex contention.</p>
 <p>This admin endpoint requires Envoy to be started with option
 <cite>–use-fake-symbol-table 0</cite>.</p>
-<p>See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/source/docs/stats.md">source/docs/stats.md</a> for more details.</p>
+<p>See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/source/docs/stats.md">source/docs/stats.md</a> for more details.</p>
 <p>Note also that actual mutex contention can be tracked via <a class="reference internal" href="#get--contention" title="GET /contention"><code class="xref http http-get docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/contention</span></code></a>.</p>
 <dl class="http post">
 <dt id="post--stats-recentlookups-enable">
@@ -776,7 +776,7 @@ can cause performance issues due to mutex contention.</p>
 
 <p>Turns on collection of recent lookup of stat-names, thus enabling
 <cite>/stats/recentlookups</cite>.</p>
-<p>See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/source/docs/stats.md">source/docs/stats.md</a> for more details.</p>
+<p>See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/source/docs/stats.md">source/docs/stats.md</a> for more details.</p>
 <dl class="http post">
 <dt id="post--stats-recentlookups-disable">
 <code class="sig-name descname">POST </code><code class="sig-name descname">/stats/recentlookups/disable</code><a class="headerlink" href="#post--stats-recentlookups-disable" title="Permalink to this definition">¶</a></dt>
@@ -786,7 +786,7 @@ can cause performance issues due to mutex contention.</p>
 <cite>/stats/recentlookups</cite>. It also clears the list of lookups. However,
 the total count, visible as stat <cite>server.stats_recent_lookups</cite>, is
 not cleared, and continues to accumulate.</p>
-<p>See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/source/docs/stats.md">source/docs/stats.md</a> for more details.</p>
+<p>See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/source/docs/stats.md">source/docs/stats.md</a> for more details.</p>
 <dl class="http post">
 <dt id="post--stats-recentlookups-clear">
 <code class="sig-name descname">POST </code><code class="sig-name descname">/stats/recentlookups/clear</code><a class="headerlink" href="#post--stats-recentlookups-clear" title="Permalink to this definition">¶</a></dt>
@@ -795,7 +795,7 @@ not cleared, and continues to accumulate.</p>
 <p>Clears all outstanding lookups and counts. This clears all recent
 lookups data as well as the count, but collection continues if
 it is enabled.</p>
-<p>See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/source/docs/stats.md">source/docs/stats.md</a> for more details.</p>
+<p>See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/source/docs/stats.md">source/docs/stats.md</a> for more details.</p>
 </dd></dl>
 
 <span class="target" id="operations-admin-interface-runtime"></span><dl class="http get">

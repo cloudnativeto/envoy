@@ -19,7 +19,7 @@ This extension may be referenced by the qualified name *envoy.filters.http.decom
 extensions.filters.http.decompressor.v3.Decompressor
 ----------------------------------------------------
 
-`[extensions.filters.http.decompressor.v3.Decompressor proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/extensions/filters/http/decompressor/v3/decompressor.proto#L23>`_
+`[extensions.filters.http.decompressor.v3.Decompressor proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/extensions/filters/http/decompressor/v3/decompressor.proto#L23>`_
 
 
 .. code-block:: json
@@ -55,7 +55,7 @@ response_direction_config
 extensions.filters.http.decompressor.v3.Decompressor.CommonDirectionConfig
 --------------------------------------------------------------------------
 
-`[extensions.filters.http.decompressor.v3.Decompressor.CommonDirectionConfig proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/extensions/filters/http/decompressor/v3/decompressor.proto#L25>`_
+`[extensions.filters.http.decompressor.v3.Decompressor.CommonDirectionConfig proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/extensions/filters/http/decompressor/v3/decompressor.proto#L25>`_
 
 Common configuration for filter behavior on both the request and response direction.
 
@@ -79,7 +79,7 @@ enabled
 extensions.filters.http.decompressor.v3.Decompressor.RequestDirectionConfig
 ---------------------------------------------------------------------------
 
-`[extensions.filters.http.decompressor.v3.Decompressor.RequestDirectionConfig proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/extensions/filters/http/decompressor/v3/decompressor.proto#L32>`_
+`[extensions.filters.http.decompressor.v3.Decompressor.RequestDirectionConfig proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/extensions/filters/http/decompressor/v3/decompressor.proto#L32>`_
 
 Configuration for filter behavior on the request direction.
 
@@ -109,7 +109,7 @@ advertise_accept_encoding
 extensions.filters.http.decompressor.v3.Decompressor.ResponseDirectionConfig
 ----------------------------------------------------------------------------
 
-`[extensions.filters.http.decompressor.v3.Decompressor.ResponseDirectionConfig proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/extensions/filters/http/decompressor/v3/decompressor.proto#L41>`_
+`[extensions.filters.http.decompressor.v3.Decompressor.ResponseDirectionConfig proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/extensions/filters/http/decompressor/v3/decompressor.proto#L41>`_
 
 Configuration for filter behavior on the response direction.
 

@@ -19,7 +19,7 @@ This extension may be referenced by the qualified name *envoy.access_loggers.fil
 config.accesslog.v2.FileAccessLog
 ---------------------------------
 
-`[config.accesslog.v2.FileAccessLog proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/config/accesslog/v2/file.proto#L22>`_
+`[config.accesslog.v2.FileAccessLog proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/config/accesslog/v2/file.proto#L22>`_
 
 Custom configuration for an :ref:`AccessLog <envoy_api_msg_config.filter.accesslog.v2.AccessLog>`
 that writes log entries directly to a file. Configures the built-in *envoy.access_loggers.file*

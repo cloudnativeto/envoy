@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Application logging &mdash; envoy 1.16.0-e15e3c documentation</title>
+  <title>应用日志 &mdash; envoy 1.16.0-917aa0 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-e15e3c
+                1.16.0-917aa0
               </div>
             
           
@@ -112,8 +112,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../upstream/upstream.html">上游集群</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="observability.html">可观测性</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="statistics.html">统计</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Application logging</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#stackdriver-logging-with-gke">Stackdriver Logging with GKE</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">应用日志</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gke-stackdriver">使用 GKE 记录 Stackdriver</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="access_log/access_log.html">访问日志</a></li>
@@ -181,7 +181,7 @@
         
           <li><a href="observability.html">可观测性</a> &raquo;</li>
         
-      <li>Application logging</li>
+      <li>应用日志</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -200,26 +200,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="application-logging">
-<span id="config-application-logs"></span><h1>Application logging<a class="headerlink" href="#application-logging" title="Permalink to this headline">¶</a></h1>
-<p>Envoy and its filters write application logs for debuggability.
-Envoy can be configured to output application logs in a format that is compatible with common log viewers.
-This section documents how Envoy can be configured to enable integration with each log viewer.</p>
-<div class="section" id="stackdriver-logging-with-gke">
-<h2>Stackdriver Logging with GKE<a class="headerlink" href="#stackdriver-logging-with-gke" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://cloud.google.com/logging/">Stackdriver Logging</a> can read logs from containers running on
-<a class="reference external" href="https://cloud.google.com/kubernetes-engine/">Google Kubernetes Engine</a>. Envoy should be configured
-with the following <a class="reference internal" href="../../operations/cli.html#operations-cli"><span class="std std-ref">command line options</span></a>:</p>
+  <div class="section" id="config-application-logs">
+<span id="id1"></span><h1>应用日志<a class="headerlink" href="#config-application-logs" title="Permalink to this headline">¶</a></h1>
+<p>Envoy 及其过滤器会写应用程序日志来实现可调试性。
+可以给 Envoy 配置输出应用程序日志，并且日志格式可以配置成和常见日志查看器兼容的格式。
+本节介绍如何配置 Envoy 以实现与每个日志查看器的集成。</p>
+<div class="section" id="gke-stackdriver">
+<h2>使用 GKE 记录 Stackdriver<a class="headerlink" href="#gke-stackdriver" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://cloud.google.com/logging/">Stackdriver 记录</a> 可以读取运行在 <a class="reference external" href="https://cloud.google.com/kubernetes-engine/">Google Kubernetes Engine</a> 上的容器的日志。Envoy 应该用如下的 <a class="reference internal" href="../../operations/cli.html#operations-cli"><span class="std std-ref">命令行选项</span></a> 进行配置：</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">--log-format</span> <span class="pre">'%L%m%d</span> <span class="pre">%T.%e</span> <span class="pre">%t</span> <span class="pre">envoy]</span> <span class="pre">[%t][%n]%v'</span></code>: Logs are formatted in <a class="reference external" href="https://github.com/google/glog">glog</a>
-format, allowing Stackdriver to parse the log severity and timestamp.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--log-format-escaped</span></code>: Each string that is logged will be printed in a single line.
-C-style escape sequences (such as <code class="docutils literal notranslate"><span class="pre">\n</span></code>) will be escaped and prevent a single string
-from spanning multiple lines. This ensures each log line is structured with the glog prefix.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">--log-path</span></code> flag <strong>does not</strong> need to be set, since Stackdriver can read logs from STDERR.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">--log-level</span></code> flag can be set to control the log severity logged to Stackdriver.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--log-format</span> <span class="pre">'%L%m%d</span> <span class="pre">%T.%e</span> <span class="pre">%t</span> <span class="pre">envoy]</span> <span class="pre">[%t][%n]%v'</span></code>：使用 <a class="reference external" href="https://github.com/google/glog">glog</a> 格式对日志进行格式化，允许 Stackdriver 解析日志的级别和时间戳。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--log-format-escaped</span></code>：记录的每个字符串都将打印在一行中。
+C-style 转移序列 （例如 <code class="docutils literal notranslate"><span class="pre">\n</span></code>）将被转义，并避免单个字符串跨越多行。这样可以确保每个日志行都使用 glog 前缀进行结构化。</p></li>
+<li><p><strong>不</strong> 需要设置 <code class="docutils literal notranslate"><span class="pre">--log-path</span></code> 选项，因为 Stackdriver 可以从 STDERR 读取日志。</p></li>
+<li><p>可以设置 <code class="docutils literal notranslate"><span class="pre">--log-level</span></code> 选项来控制输出到 Stackdriver 的日志级别。</p></li>
 </ul>
-<p><a class="reference external" href="https://cloud.google.com/run/docs/logging#container-logs">Reference documentation</a> for Stackdriver on GKE.</p>
+<p>GKE Stackdriver 的 <a class="reference external" href="https://cloud.google.com/run/docs/logging#container-logs">参考文档</a>。</p>
 </div>
 </div>
 

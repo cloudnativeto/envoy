@@ -9,7 +9,7 @@ Metadata
 type.metadata.v2.MetadataKey
 ----------------------------
 
-`[type.metadata.v2.MetadataKey proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/type/metadata/v2/metadata.proto#L39>`_
+`[type.metadata.v2.MetadataKey proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/type/metadata/v2/metadata.proto#L39>`_
 
 MetadataKey provides a general interface using `key` and `path` to retrieve value from
 :ref:`Metadata <envoy_api_msg_core.Metadata>`.
@@ -65,7 +65,7 @@ path
 type.metadata.v2.MetadataKey.PathSegment
 ----------------------------------------
 
-`[type.metadata.v2.MetadataKey.PathSegment proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/type/metadata/v2/metadata.proto#L42>`_
+`[type.metadata.v2.MetadataKey.PathSegment proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/type/metadata/v2/metadata.proto#L42>`_
 
 Specifies the segment in a path to retrieve value from Metadata.
 Currently it is only supported to specify the key, i.e. field name, as one segment of a path.
@@ -91,7 +91,7 @@ key
 type.metadata.v2.MetadataKind
 -----------------------------
 
-`[type.metadata.v2.MetadataKind proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/type/metadata/v2/metadata.proto#L65>`_
+`[type.metadata.v2.MetadataKind proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/type/metadata/v2/metadata.proto#L65>`_
 
 Describes what kind of metadata.
 
@@ -145,7 +145,7 @@ host
 type.metadata.v2.MetadataKind.Request
 -------------------------------------
 
-`[type.metadata.v2.MetadataKind.Request proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/type/metadata/v2/metadata.proto#L67>`_
+`[type.metadata.v2.MetadataKind.Request proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/type/metadata/v2/metadata.proto#L67>`_
 
 Represents dynamic metadata associated with the request.
 
@@ -161,7 +161,7 @@ Represents dynamic metadata associated with the request.
 type.metadata.v2.MetadataKind.Route
 -----------------------------------
 
-`[type.metadata.v2.MetadataKind.Route proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/type/metadata/v2/metadata.proto#L71>`_
+`[type.metadata.v2.MetadataKind.Route proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/type/metadata/v2/metadata.proto#L71>`_
 
 Represents metadata from :ref:`the route<envoy_api_field_route.Route.metadata>`.
 
@@ -177,7 +177,7 @@ Represents metadata from :ref:`the route<envoy_api_field_route.Route.metadata>`.
 type.metadata.v2.MetadataKind.Cluster
 -------------------------------------
 
-`[type.metadata.v2.MetadataKind.Cluster proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/type/metadata/v2/metadata.proto#L75>`_
+`[type.metadata.v2.MetadataKind.Cluster proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/type/metadata/v2/metadata.proto#L75>`_
 
 Represents metadata from :ref:`the upstream cluster<envoy_api_field_Cluster.metadata>`.
 
@@ -193,7 +193,7 @@ Represents metadata from :ref:`the upstream cluster<envoy_api_field_Cluster.meta
 type.metadata.v2.MetadataKind.Host
 ----------------------------------
 
-`[type.metadata.v2.MetadataKind.Host proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/type/metadata/v2/metadata.proto#L80>`_
+`[type.metadata.v2.MetadataKind.Host proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/type/metadata/v2/metadata.proto#L80>`_
 
 Represents metadata from :ref:`the upstream
 host<envoy_api_field_endpoint.LbEndpoint.metadata>`.

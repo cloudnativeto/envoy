@@ -10,7 +10,7 @@ Tracing :ref:`architecture overview <arch_overview_tracing>`.
 config.trace.v2.Tracing
 -----------------------
 
-`[config.trace.v2.Tracing proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/config/trace/v2/http_tracer.proto#L27>`_
+`[config.trace.v2.Tracing proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/config/trace/v2/http_tracer.proto#L27>`_
 
 The tracing configuration specifies settings for an HTTP tracer provider used by Envoy.
 
@@ -39,7 +39,7 @@ http
 config.trace.v2.Tracing.Http
 ----------------------------
 
-`[config.trace.v2.Tracing.Http proto] <https://github.com/envoyproxy/envoy/blob/e15e3c52728bdab0a83b2dc9d264f36b932c54fb/api/envoy/config/trace/v2/http_tracer.proto#L34>`_
+`[config.trace.v2.Tracing.Http proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/config/trace/v2/http_tracer.proto#L34>`_
 
 Configuration for an HTTP tracer provider used by Envoy.
 
