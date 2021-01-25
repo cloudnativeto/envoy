@@ -151,118 +151,114 @@
 
 .. _config_cluster_manager_cluster_stats_circuit_breakers:
 
-Circuit breakers statistics
----------------------------
+断路器统计
+-------------
 
-Circuit breakers statistics will be rooted at *cluster.<name>.circuit_breakers.<priority>.* and contain the following:
+断路器统计以 *cluster.<name>.circuit_breakers.<priority>.* 为根，包含如下信息：
 
 .. csv-table::
-  :header: Name, Type, Description
+  :header: 名称, 类型, 描述
   :widths: 1, 1, 2
 
-  cx_open, Gauge, Whether the connection circuit breaker is closed (0) or open (1)
-  cx_pool_open, Gauge, Whether the connection pool circuit breaker is closed (0) or open (1)
-  rq_pending_open, Gauge, Whether the pending requests circuit breaker is closed (0) or open (1)
-  rq_open, Gauge, Whether the requests circuit breaker is closed (0) or open (1)
-  rq_retry_open, Gauge, Whether the retry circuit breaker is closed (0) or open (1)
-  remaining_cx, Gauge, Number of remaining connections until the circuit breaker opens
-  remaining_pending, Gauge, Number of remaining pending requests until the circuit breaker opens
-  remaining_rq, Gauge, Number of remaining requests until the circuit breaker opens
-  remaining_retries, Gauge, Number of remaining retries until the circuit breaker opens
+  cx_open, Gauge, 连接断路器是关闭（0）还是打开（1）
+  cx_pool_open, Gauge, 连接池断路器是关闭（0）还是打开（1）
+  rq_pending_open, Gauge, 挂起的请求断路器是关闭（0）还是打开（1）
+  rq_open, Gauge, 断路器是关闭（0）还是打开（1）
+  rq_retry_open, Gauge, 重试断路器是关闭（0）还是打开（1）
+  remaining_cx, Gauge, 断路器断开前的剩余连接数
+  remaining_pending, Gauge, 断路器断开前的剩余未决请求数
+  remaining_rq, Gauge, 断路器断开前的剩余请求数
+  remaining_retries, Gauge, 断路器断开前的剩余重试次数
 
 .. _config_cluster_manager_cluster_stats_timeout_budgets:
 
-Timeout budget statistics
+超时预算统计
 -------------------------
 
-If :ref:`timeout budget statistic tracking <envoy_v3_api_field_config.cluster.v3.Cluster.track_timeout_budgets>` is
-turned on, statistics will be added to *cluster.<name>* and contain the following:
+如果打开了 :ref:`超时预算统计跟踪 <envoy_v3_api_field_config.cluster.v3.Cluster.track_timeout_budgets>`，
+统计信息将添加到 *cluster.<name>* 并包含以下内容：
 
 .. csv-table::
-   :header: Name, Type, Description
+   :header: 名称, 类型, 描述
    :widths: 1, 1, 2
 
-   upstream_rq_timeout_budget_percent_used, Histogram, What percentage of the global timeout was used waiting for a response
-   upstream_rq_timeout_budget_per_try_percent_used, Histogram, What percentage of the per try timeout was used waiting for a response
+   upstream_rq_timeout_budget_percent_used, Histogram, 等待响应时使用的全局超时百分比是多少
+   upstream_rq_timeout_budget_per_try_percent_used, Histogram, 每次尝试超时等待响应的百分比是多少
 
 .. _config_cluster_manager_cluster_stats_dynamic_http:
 
-Dynamic HTTP statistics
------------------------
+动态 HTTP 统计
+---------------
 
-If HTTP is used, dynamic HTTP response code statistics are also available. These are emitted by
-various internal systems as well as some filters such as the :ref:`router filter
-<config_http_filters_router>` and :ref:`rate limit filter <config_http_filters_rate_limit>`. They
-are rooted at *cluster.<name>.* and contain the following statistics:
+如果使用 HTTP，还可以使用动态 HTTP 响应代码统计信息。
+这些信息由各种内部系统以及一些过滤器（如路由过滤器 :ref:`路由过滤器 <config_http_filters_router>`
+和 :ref:`速率限制过滤器 <config_http_filters_rate_limit>`）发出。它们的根位于 *cluster.<name>* 并包含以下统计信息：
 
 .. csv-table::
-  :header: Name, Type, Description
+  :header: 名称, 类型, 描述
   :widths: 1, 1, 2
 
-  upstream_rq_completed, Counter, "Total upstream requests completed"
-  upstream_rq_<\*xx>, Counter, "Aggregate HTTP response codes (e.g., 2xx, 3xx, etc.)"
-  upstream_rq_<\*>, Counter, "Specific HTTP response codes (e.g., 201, 302, etc.)"
-  upstream_rq_time, Histogram, Request time milliseconds
-  canary.upstream_rq_completed, Counter, "Total upstream canary requests completed"
-  canary.upstream_rq_<\*xx>, Counter, Upstream canary aggregate HTTP response codes
-  canary.upstream_rq_<\*>, Counter, Upstream canary specific HTTP response codes
-  canary.upstream_rq_time, Histogram, Upstream canary request time milliseconds
-  internal.upstream_rq_completed, Counter, "Total internal origin requests completed"
-  internal.upstream_rq_<\*xx>, Counter, Internal origin aggregate HTTP response codes
-  internal.upstream_rq_<\*>, Counter, Internal origin specific HTTP response codes
-  internal.upstream_rq_time, Histogram, Internal origin request time milliseconds
-  external.upstream_rq_completed, Counter, "Total external origin requests completed"
-  external.upstream_rq_<\*xx>, Counter, External origin aggregate HTTP response codes
-  external.upstream_rq_<\*>, Counter, External origin specific HTTP response codes
-  external.upstream_rq_time, Histogram, External origin request time milliseconds
+  upstream_rq_completed, Counter, "已完成的上游请求总数"
+  upstream_rq_<\*xx>, Counter, "聚合HTTP响应代码（例如 2xx、3xx 等）"
+  upstream_rq_<\*>, Counter, "特定的HTTP响应代码（例如 201、302 等）"
+  upstream_rq_time, Histogram, 请求时间毫秒数
+  canary.upstream_rq_completed, Counter, "已完成的上游金丝雀请求总数"
+  canary.upstream_rq_<\*xx>, Counter, 上游金丝雀聚合HTTP响应代码
+  canary.upstream_rq_<\*>, Counter, 上游特定于金丝雀的HTTP响应代码
+  canary.upstream_rq_time, Histogram, 上游金丝雀请求时间毫秒
+  internal.upstream_rq_completed, Counter, "已完成的内部来源请求总数"
+  internal.upstream_rq_<\*xx>, Counter, 内部源聚合 HTTP 响应代码
+  internal.upstream_rq_<\*>, Counter, 内部源指定 HTTP 响应代码
+  internal.upstream_rq_time, Histogram, 内部原点请求时间（毫秒）
+  external.upstream_rq_completed, Counter, "已完成的外部来源请求总数"
+  external.upstream_rq_<\*xx>, Counter, 外部源聚合 HTTP 响应代码
+  external.upstream_rq_<\*>, Counter, 外部源指定 HTTP 响应代码
+  external.upstream_rq_time, Histogram, 外部原点请求时间（毫秒）
 
 .. _config_cluster_manager_cluster_stats_alt_tree:
 
-Alternate tree dynamic HTTP statistics
---------------------------------------
+备用树动态 HTTP 统计信息
+-----------------------
 
-If alternate tree statistics are configured, they will be present in the
-*cluster.<name>.<alt name>.* namespace. The statistics produced are the same as documented in
-the dynamic HTTP statistics section :ref:`above
-<config_cluster_manager_cluster_stats_dynamic_http>`.
+如果配置了备用树统计信息，它们将出现在 *cluster.<name>.<alt name>.* 命名空间中。
+生成的统计信息与 :ref:`上面 <config_cluster_manager_cluster_stats_dynamic_http>` 的动态 HTTP 统计信息部分中记录的信息相同。
 
 .. _config_cluster_manager_cluster_per_az_stats:
 
-Per service zone dynamic HTTP statistics
-----------------------------------------
+每个服务区域的动态 HTTP 统计信息
+------------------------------
 
-If the service zone is available for the local service (via :option:`--service-zone`)
-and the :ref:`upstream cluster <arch_overview_service_discovery_types_eds>`,
-Envoy will track the following statistics in *cluster.<name>.zone.<from_zone>.<to_zone>.* namespace.
-
-.. csv-table::
-  :header: Name, Type, Description
-  :widths: 1, 1, 2
-
-  upstream_rq_<\*xx>, Counter, "Aggregate HTTP response codes (e.g., 2xx, 3xx, etc.)"
-  upstream_rq_<\*>, Counter, "Specific HTTP response codes (e.g., 201, 302, etc.)"
-  upstream_rq_time, Histogram, Request time milliseconds
-
-Load balancer statistics
-------------------------
-
-Statistics for monitoring load balancer decisions. Stats are rooted at *cluster.<name>.* and contain
-the following statistics:
+对于本地服务，如果服务区是可用的（通过 :option:`--service-zone`）
+或者 :ref:`上游集群 <arch_overview_service_discovery_types_eds>`，
+Envoy 将在 *cluster.<name>.zone.<from_zone>.<to_zone>.* 命名空间中跟踪以下统计信息：
 
 .. csv-table::
-  :header: Name, Type, Description
+  :header: 名称, 类型, 描述
   :widths: 1, 1, 2
 
-  lb_recalculate_zone_structures, Counter, The number of times locality aware routing structures are regenerated for fast decisions on upstream locality selection
-  lb_healthy_panic, Counter, Total requests load balanced with the load balancer in panic mode
-  lb_zone_cluster_too_small, Counter, No zone aware routing because of small upstream cluster size
-  lb_zone_routing_all_directly, Counter, Sending all requests directly to the same zone
-  lb_zone_routing_sampled, Counter, Sending some requests to the same zone
-  lb_zone_routing_cross_zone, Counter, Zone aware routing mode but have to send cross zone
-  lb_local_cluster_not_ok, Counter, Local host set is not set or it is panic mode for local cluster
-  lb_zone_number_differs, Counter, Number of zones in local and upstream cluster different
-  lb_zone_no_capacity_left, Counter, Total number of times ended with random zone selection due to rounding error
-  original_dst_host_invalid, Counter, Total number of invalid hosts passed to original destination load balancer
+  upstream_rq_<\*xx>, Counter, 聚合 HTTP 响应代码（例如 2xx、3xx 等）
+  upstream_rq_<\*>, Counter, 特定 HTTP 响应代码（例如 201、302 等）
+  upstream_rq_time, Histogram, 请求时间（毫秒）
+
+负载均衡统计信息
+-----------------
+
+用于监视负载均衡器决策的统计信息。统计数据以 *cluster.<name>* 为根并包含以下信息：
+
+.. csv-table::
+  :header: 名称, 类型, 描述
+  :widths: 1, 1, 2
+
+  lb_recalculate_zone_structures, Counter, 用于快速决定上游位置选择，重新生成位置感知路由结构的次数
+  lb_healthy_panic, Counter, 在紧急模式下与负载均衡器进行负载均衡的请求总数
+  lb_zone_cluster_too_small, Counter, 由于上游集群规模较小，因此没有区域感知路由
+  lb_zone_routing_all_directly, Counter, 将所有请求直接发送到同一区域
+  lb_zone_routing_sampled, Counter, 向同一区域发送一些请求
+  lb_zone_routing_cross_zone, Counter, 区域感知路由模式，但必须跨区域发送
+  lb_local_cluster_not_ok, Counter, 未设置本地主机集或本地群集处于紧急模式
+  lb_zone_number_differs, Counter, 本地和上游集群中的区域数不同
+  lb_zone_no_capacity_left, Counter, 由于舍入误差以随机区域选择结束的总次数
+  original_dst_host_invalid, Counter, 传递到原始目标负载均衡器的非法主机总数
 
 .. _config_cluster_manager_cluster_stats_subset_lb:
 
