@@ -262,22 +262,22 @@ Envoy 将在 *cluster.<name>.zone.<from_zone>.<to_zone>.* 命名空间中跟踪�
 
 .. _config_cluster_manager_cluster_stats_subset_lb:
 
-Load balancer subset statistics
--------------------------------
+负载均衡器子集统计信息
+--------------------
 
-Statistics for monitoring :ref:`load balancer subset <arch_overview_load_balancer_subsets>`
-decisions. Stats are rooted at *cluster.<name>.* and contain the following statistics:
+用于监视 :ref:`负载均衡器子集 <arch_overview_load_balancer_subsets>` 决策的统计信息。
+统计信息以 *cluster.<name>* 为根，并包含以下信息：
 
 .. csv-table::
-  :header: Name, Type, Description
+  :header: 名称, 类型, 描述
   :widths: 1, 1, 2
 
-  lb_subsets_active, Gauge, Number of currently available subsets
-  lb_subsets_created, Counter, Number of subsets created
-  lb_subsets_removed, Counter, Number of subsets removed due to no hosts
-  lb_subsets_selected, Counter, Number of times any subset was selected for load balancing
-  lb_subsets_fallback, Counter, Number of times the fallback policy was invoked
-  lb_subsets_fallback_panic, Counter, Number of times the subset panic mode triggered
+  lb_subsets_active, Gauge, 当前可用子集数
+  lb_subsets_created, Counter, 创建的子集数
+  lb_subsets_removed, Counter, 由于没有主机而删除的子集数
+  lb_subsets_selected, Counter, 选择任何子集进行负载均衡的次数
+  lb_subsets_fallback, Counter, 调用回退策略的次数
+  lb_subsets_fallback_panic, Counter, 触发子集合紧急模式的次数
   lb_subsets_single_host_per_subset_duplicate, Gauge, Number of duplicate (unused) hosts when using :ref:`single_host_per_subset <envoy_v3_api_field_config.cluster.v3.Cluster.LbSubsetConfig.LbSubsetSelector.single_host_per_subset>`
 
 .. _config_cluster_manager_cluster_stats_ring_hash_lb:
