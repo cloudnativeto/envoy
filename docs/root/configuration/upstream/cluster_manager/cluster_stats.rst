@@ -106,48 +106,48 @@
 如果配置了健康检查，集群会有一个额外的根在 *cluster.<name>.health_check.* 的统计树，有如下统计信息：
 
 .. csv-table::
-  :header: Name, Type, 描述
+  :header: 名称, 类型, 描述
   :widths: 1, 1, 2
 
-  attempt, Counter, Number of health checks
-  success, Counter, Number of successful health checks
-  failure, Counter, Number of immediately failed health checks (e.g. HTTP 503) as well as network failures
-  passive_failure, Counter, Number of health check failures due to passive events (e.g. x-envoy-immediate-health-check-fail)
-  network_failure, Counter, Number of health check failures due to network error
-  verify_cluster, Counter, Number of health checks that attempted cluster name verification
-  healthy, Gauge, Number of healthy members
+  attempt, Counter, 健康检查次数
+  success, Counter, 成功的健康检查次数
+  failure, Counter, 立即失败的健康检查（例如 HTTP 503）以及网络故障数
+  passive_failure, Counter, 由被动事件导致的健康检查失败次数（比如 x-envoy-immediate-health-check-fail）
+  network_failure, Counter, 由于网络错误导致的健康检查失败数
+  verify_cluster, Counter, 尝试群集名称验证的运行状况检查数
+  healthy, Gauge, 健康成员数
 
 .. _config_cluster_manager_cluster_stats_outlier_detection:
 
-Outlier detection statistics
+异常检测统计
 ----------------------------
 
-If :ref:`outlier detection <arch_overview_outlier_detection>` is configured for a cluster,
-statistics will be rooted at *cluster.<name>.outlier_detection.* and contain the following:
+如果在集群中配置了 :ref:`异常检测 <arch_overview_outlier_detection>`，
+集群将有一个根在 *cluster.<name>.outlier_detection.* 的统计树，包含如下统计信息：
 
 .. csv-table::
-  :header: Name, Type, Description
+  :header: 名称, 类型, 描述
   :widths: 1, 1, 2
 
-  ejections_enforced_total, Counter, Number of enforced ejections due to any outlier type
-  ejections_active, Gauge, Number of currently ejected hosts
-  ejections_overflow, Counter, Number of ejections aborted due to the max ejection %
-  ejections_enforced_consecutive_5xx, Counter, Number of enforced consecutive 5xx ejections
-  ejections_detected_consecutive_5xx, Counter, Number of detected consecutive 5xx ejections (even if unenforced)
-  ejections_enforced_success_rate, Counter, Number of enforced success rate outlier ejections. Exact meaning of this counter depends on :ref:`outlier_detection.split_external_local_origin_errors<envoy_v3_api_field_config.cluster.v3.OutlierDetection.split_external_local_origin_errors>` config item. Refer to :ref:`Outlier Detection documentation<arch_overview_outlier_detection>` for details.
-  ejections_detected_success_rate, Counter, Number of detected success rate outlier ejections (even if unenforced). Exact meaning of this counter depends on :ref:`outlier_detection.split_external_local_origin_errors<envoy_v3_api_field_config.cluster.v3.OutlierDetection.split_external_local_origin_errors>` config item. Refer to :ref:`Outlier Detection documentation<arch_overview_outlier_detection>` for details.
-  ejections_enforced_consecutive_gateway_failure, Counter, Number of enforced consecutive gateway failure ejections
-  ejections_detected_consecutive_gateway_failure, Counter, Number of detected consecutive gateway failure ejections (even if unenforced)
-  ejections_enforced_consecutive_local_origin_failure, Counter, Number of enforced consecutive local origin failure ejections
-  ejections_detected_consecutive_local_origin_failure, Counter, Number of detected consecutive local origin failure ejections (even if unenforced)
-  ejections_enforced_local_origin_success_rate, Counter, Number of enforced success rate outlier ejections for locally originated failures
-  ejections_detected_local_origin_success_rate, Counter, Number of detected success rate outlier ejections for locally originated failures (even if unenforced)
-  ejections_enforced_failure_percentage, Counter, Number of enforced failure percentage outlier ejections. Exact meaning of this counter depends on :ref:`outlier_detection.split_external_local_origin_errors<envoy_v3_api_field_config.cluster.v3.OutlierDetection.split_external_local_origin_errors>` config item. Refer to :ref:`Outlier Detection documentation<arch_overview_outlier_detection>` for details.
-  ejections_detected_failure_percentage, Counter, Number of detected failure percentage outlier ejections (even if unenforced). Exact meaning of this counter depends on :ref:`outlier_detection.split_external_local_origin_errors<envoy_v3_api_field_config.cluster.v3.OutlierDetection.split_external_local_origin_errors>` config item. Refer to :ref:`Outlier Detection documentation<arch_overview_outlier_detection>` for details.
-  ejections_enforced_failure_percentage_local_origin, Counter, Number of enforced failure percentage outlier ejections for locally originated failures
-  ejections_detected_failure_percentage_local_origin, Counter, Number of detected failure percentage outlier ejections for locally originated failures (even if unenforced)
-  ejections_total, Counter, Deprecated. Number of ejections due to any outlier type (even if unenforced)
-  ejections_consecutive_5xx, Counter, Deprecated. Number of consecutive 5xx ejections (even if unenforced)
+  ejections_enforced_total, Counter, 由于任何异常类型而强制弹出的次数
+  ejections_active, Gauge, 当前弹出的主机数
+  ejections_overflow, Counter, 由于最大弹出而中止的弹出数
+  ejections_enforced_consecutive_5xx, Counter, 强制连续 5xx 弹出次数
+  ejections_detected_consecutive_5xx, Counter, 检测到的连续的 5xx 弹出次数（即使未强制）
+  ejections_enforced_success_rate, Counter, 强制成功率异常值弹出数。 此计数器的确切含义取决于 :ref:`outlier_detection.split_external_local_origin_errors<envoy_v3_api_field_config.cluster.v3.OutlierDetection.split_external_local_origin_errors>` 配置项。 详情参考 :ref:`异常检测文档<arch_overview_outlier_detection>`。
+  ejections_detected_success_rate, Counter, 检测到的成功率异常值弹出数（即使未强制）。 此计数器的确切含义取决于 :ref:`outlier_detection.split_external_local_origin_errors<envoy_v3_api_field_config.cluster.v3.OutlierDetection.split_external_local_origin_errors>` 配置项。 详情参考 :ref:`异常过滤文档<arch_overview_outlier_detection>`。
+  ejections_enforced_consecutive_gateway_failure, Counter, 强制的连续网关故障弹出次数
+  ejections_detected_consecutive_gateway_failure, Counter, 检测到的连续网关故障弹出次数（即使未强制）
+  ejections_enforced_consecutive_local_origin_failure, Counter, 强制的连续本地源故障弹出数
+  ejections_detected_consecutive_local_origin_failure, Counter, 检测到的连续本地原点故障弹出次数（即使未强制）
+  ejections_enforced_local_origin_success_rate, Counter, 本地发生的故障的强制成功率异常值弹出数
+  ejections_detected_local_origin_success_rate, Counter, 检测到的本地故障的成功率异常值弹出数（即使未强制）
+  ejections_enforced_failure_percentage, Counter, 强制失败百分比异常值弹出数。 此计数器的确切含义取决于 :ref:`outlier_detection.split_external_local_origin_errors<envoy_v3_api_field_config.cluster.v3.OutlierDetection.split_external_local_origin_errors>` 配置项。 详情参考 :ref:`异常过滤文档<arch_overview_outlier_detection>`。
+  ejections_detected_failure_percentage, Counter, 检测到的故障百分比异常弹出数（即使未强制）。 此计数器的确切含义取决于 :ref:`outlier_detection.split_external_local_origin_errors<envoy_v3_api_field_config.cluster.v3.OutlierDetection.split_external_local_origin_errors>` 配置项。 详情参考 :ref:`异常过滤文档<arch_overview_outlier_detection>`。
+  ejections_enforced_failure_percentage_local_origin, Counter, 本地发生的故障的强制故障百分比异常值弹出数
+  ejections_detected_failure_percentage_local_origin, Counter, 本地故障的检测到的故障百分比异常值弹出数（即使未强制）
+  ejections_total, Counter, 已弃用。 任何异常值类型导致的弹出次数（即使未强制）
+  ejections_consecutive_5xx, Counter, 已弃用。 连续5xx弹出次数（即使未强制）
 
 .. _config_cluster_manager_cluster_stats_circuit_breakers:
 
