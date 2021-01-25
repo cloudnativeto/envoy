@@ -1,115 +1,112 @@
 .. _config_cluster_manager_cluster_stats:
 
-Statistics
+统计
 ==========
 
 .. contents::
   :local:
 
-General
+总则
 -------
 
-The cluster manager has a statistics tree rooted at *cluster_manager.* with the following
-statistics. Any ``:`` character in the stats name is replaced with ``_``. Stats include
-all clusters managed by the cluster manager, including both clusters used for data plane
-upstreams and control plane xDS clusters.
+集群管理有一个根在 *cluster_manager.* 的统计树，有如下统计信息。在 stats 名称中的任何 ``:`` 字符都将被替换为 ``_``。
+统计信息包含由集群管理器管理的所有集群，包括用于数据平面上游的集群和控制平面 xD 的集群。
 
 .. csv-table::
-  :header: Name, Type, Description
+  :header: 名称, 类型, 描述
   :widths: 1, 1, 2
 
-  cluster_added, Counter, Total clusters added (either via static config or CDS)
-  cluster_modified, Counter, Total clusters modified (via CDS)
-  cluster_removed, Counter, Total clusters removed (via CDS)
-  cluster_updated, Counter, Total cluster updates
-  cluster_updated_via_merge, Counter, Total cluster updates applied as merged updates
-  update_merge_cancelled, Counter, Total merged updates that got cancelled and delivered early
-  update_out_of_merge_window, Counter, Total updates which arrived out of a merge window
-  active_clusters, Gauge, Number of currently active (warmed) clusters
-  warming_clusters, Gauge, Number of currently warming (not active) clusters
+  cluster_added, Counter, 添加的群集总数（通过静态配置或 CD）
+  cluster_modified, Counter, 修改的群集总数（通过 CD）
+  cluster_removed, Counter, 删除的群集总数（通过 CD）
+  cluster_updated, Counter, 群集更新总数
+  cluster_updated_via_merge, Counter, 作为合并更新应用的群集更新总数
+  update_merge_cancelled, Counter, 已取消并提前交付的合并更新总数
+  update_out_of_merge_window, Counter, 从合并窗口到达的总更新数
+  active_clusters, Gauge, 当前活动（warmed）群集数
+  warming_clusters, Gauge, 当前处在 warming（非活动）的群集数
 
-Every cluster has a statistics tree rooted at *cluster.<name>.* with the following statistics:
+每个集群有一个根在 *cluster.<name>.* 的统计树，有如下统计信息：
 
 .. csv-table::
-  :header: Name, Type, Description
+  :header: 名称, 类型, 描述
   :widths: 1, 1, 2
 
-  upstream_cx_total, Counter, Total connections
-  upstream_cx_active, Gauge, Total active connections
-  upstream_cx_http1_total, Counter, Total HTTP/1.1 connections
-  upstream_cx_http2_total, Counter, Total HTTP/2 connections
-  upstream_cx_connect_fail, Counter, Total connection failures
-  upstream_cx_connect_timeout, Counter, Total connection connect timeouts
-  upstream_cx_idle_timeout, Counter, Total connection idle timeouts
-  upstream_cx_connect_attempts_exceeded, Counter, Total consecutive connection failures exceeding configured connection attempts
-  upstream_cx_overflow, Counter, Total times that the cluster's connection circuit breaker overflowed
-  upstream_cx_connect_ms, Histogram, Connection establishment milliseconds
-  upstream_cx_length_ms, Histogram, Connection length milliseconds
-  upstream_cx_destroy, Counter, Total destroyed connections
-  upstream_cx_destroy_local, Counter, Total connections destroyed locally
-  upstream_cx_destroy_remote, Counter, Total connections destroyed remotely
-  upstream_cx_destroy_with_active_rq, Counter, Total connections destroyed with 1+ active request
-  upstream_cx_destroy_local_with_active_rq, Counter, Total connections destroyed locally with 1+ active request
-  upstream_cx_destroy_remote_with_active_rq, Counter, Total connections destroyed remotely with 1+ active request
-  upstream_cx_close_notify, Counter, Total connections closed via HTTP/1.1 connection close header or HTTP/2 GOAWAY
-  upstream_cx_rx_bytes_total, Counter, Total received connection bytes
-  upstream_cx_rx_bytes_buffered, Gauge, Received connection bytes currently buffered
-  upstream_cx_tx_bytes_total, Counter, Total sent connection bytes
-  upstream_cx_tx_bytes_buffered, Gauge, Send connection bytes currently buffered
-  upstream_cx_pool_overflow, Counter, Total times that the cluster's connection pool circuit breaker overflowed
-  upstream_cx_protocol_error, Counter, Total connection protocol errors
-  upstream_cx_max_requests, Counter, Total connections closed due to maximum requests
-  upstream_cx_none_healthy, Counter, Total times connection not established due to no healthy hosts
-  upstream_rq_total, Counter, Total requests
-  upstream_rq_active, Gauge, Total active requests
-  upstream_rq_pending_total, Counter, Total requests pending a connection pool connection
-  upstream_rq_pending_overflow, Counter, Total requests that overflowed connection pool or requests (mainly for HTTP/2) circuit breaking and were failed
-  upstream_rq_pending_failure_eject, Counter, Total requests that were failed due to a connection pool connection failure or remote connection termination 
-  upstream_rq_pending_active, Gauge, Total active requests pending a connection pool connection
-  upstream_rq_cancelled, Counter, Total requests cancelled before obtaining a connection pool connection
-  upstream_rq_maintenance_mode, Counter, Total requests that resulted in an immediate 503 due to :ref:`maintenance mode<config_http_filters_router_runtime_maintenance_mode>`
-  upstream_rq_timeout, Counter, Total requests that timed out waiting for a response
-  upstream_rq_max_duration_reached, Counter, Total requests closed due to max duration reached
-  upstream_rq_per_try_timeout, Counter, Total requests that hit the per try timeout (except when request hedging is enabled)
-  upstream_rq_rx_reset, Counter, Total requests that were reset remotely
-  upstream_rq_tx_reset, Counter, Total requests that were reset locally
-  upstream_rq_retry, Counter, Total request retries
-  upstream_rq_retry_backoff_exponential, Counter, Total retries using the exponential backoff strategy
-  upstream_rq_retry_backoff_ratelimited, Counter, Total retries using the ratelimited backoff strategy
-  upstream_rq_retry_limit_exceeded, Counter, Total requests not retried due to exceeding :ref:`the configured number of maximum retries <config_http_filters_router_x-envoy-max-retries>`
-  upstream_rq_retry_success, Counter, Total request retry successes
-  upstream_rq_retry_overflow, Counter, Total requests not retried due to circuit breaking or exceeding the :ref:`retry budget <envoy_v3_api_field_config.cluster.v3.CircuitBreakers.Thresholds.retry_budget>`
-  upstream_flow_control_paused_reading_total, Counter, Total number of times flow control paused reading from upstream
-  upstream_flow_control_resumed_reading_total, Counter, Total number of times flow control resumed reading from upstream
-  upstream_flow_control_backed_up_total, Counter, Total number of times the upstream connection backed up and paused reads from downstream
-  upstream_flow_control_drained_total, Counter, Total number of times the upstream connection drained and resumed reads from downstream
-  upstream_internal_redirect_failed_total, Counter, Total number of times failed internal redirects resulted in redirects being passed downstream.
-  upstream_internal_redirect_succeed_total, Counter, Total number of times internal redirects resulted in a second upstream request.
-  membership_change, Counter, Total cluster membership changes
-  membership_healthy, Gauge, Current cluster healthy total (inclusive of both health checking and outlier detection)
-  membership_degraded, Gauge, Current cluster degraded total
-  membership_total, Gauge, Current cluster membership total
-  retry_or_shadow_abandoned, Counter, Total number of times shadowing or retry buffering was canceled due to buffer limits
-  config_reload, Counter, Total API fetches that resulted in a config reload due to a different config
-  update_attempt, Counter, Total attempted cluster membership updates by service discovery
-  update_success, Counter, Total successful cluster membership updates by service discovery
-  update_failure, Counter, Total failed cluster membership updates by service discovery
-  update_empty, Counter, Total cluster membership updates ending with empty cluster load assignment and continuing with previous config
-  update_no_rebuild, Counter, Total successful cluster membership updates that didn't result in any cluster load balancing structure rebuilds
-  version, Gauge, Hash of the contents from the last successful API fetch
-  max_host_weight, Gauge, Maximum weight of any host in the cluster
-  bind_errors, Counter, Total errors binding the socket to the configured source address
-  assignment_timeout_received, Counter, Total assignments received with endpoint lease information.
-  assignment_stale, Counter, Number of times the received assignments went stale before new assignments arrived.
+  upstream_cx_total, Counter, 连接总数
+  upstream_cx_active, Gauge, 活动的连接总数
+  upstream_cx_http1_total, Counter, HTTP/1.1 连接总数
+  upstream_cx_http2_total, Counter, HTTP/2 连接总数
+  upstream_cx_connect_fail, Counter, 连接失败总数
+  upstream_cx_connect_timeout, Counter, 连接超时总数
+  upstream_cx_idle_timeout, Counter, 连接 idle 超时总数
+  upstream_cx_connect_attempts_exceeded, Counter, 超过配置连接尝试次数的连续连接失败总数
+  upstream_cx_overflow, Counter, 群集连接断路器溢出的总次数
+  upstream_cx_connect_ms, Histogram, 连接建立毫秒数
+  upstream_cx_length_ms, Histogram, 连接长度毫秒数
+  upstream_cx_destroy, Counter, 断开的连接总数
+  upstream_cx_destroy_local, Counter, 本地断开的连接总数
+  upstream_cx_destroy_remote, Counter, 远程断开的连接总数
+  upstream_cx_destroy_with_active_rq, Counter, 1+ 个活动请求断开的连接总数
+  upstream_cx_destroy_local_with_active_rq, Counter, 使用 1+ 个活动请求在本地断开的连接总数
+  upstream_cx_destroy_remote_with_active_rq, Counter, 使用 1+ 个活动请求远程断开的连接总数
+  upstream_cx_close_notify, Counter, 通过 HTTP/1.1 连接关闭头或 HTTP/2 GOAWAY 关闭的连接总数
+  upstream_cx_rx_bytes_total, Counter, 接收的连接字节总数
+  upstream_cx_rx_bytes_buffered, Gauge, 当前缓冲的接收连接字节数
+  upstream_cx_tx_bytes_total, Counter, 发送的连接字节总数
+  upstream_cx_tx_bytes_buffered, Gauge, 当前缓冲的发送连接字节数
+  upstream_cx_pool_overflow, Counter, 群集的连接池断路器溢出的总次数
+  upstream_cx_protocol_error, Counter, 连接协议错误总数
+  upstream_cx_max_requests, Counter, 由于最大请求数而关闭的连接总数
+  upstream_cx_none_healthy, Counter, 由于没有正常主机而未建立连接的总次数
+  upstream_rq_total, Counter, 请求总数
+  upstream_rq_active, Gauge, 活动的请求总数
+  upstream_rq_pending_total, Counter, 挂起连接池连接的请求总数
+  upstream_rq_pending_overflow, Counter, 溢出连接池或请求（主要针对 HTTP/2）断路并失败的请求总数
+  upstream_rq_pending_failure_eject, Counter, 由于连接池连接失败或远程连接终止失败的请求总数
+  upstream_rq_pending_active, Gauge, 挂起连接池连接的活动请求总数
+  upstream_rq_cancelled, Counter, 在获取连接池连接之前取消的请求总数
+  upstream_rq_maintenance_mode, Counter, 由于 :ref:`维护模式<config_http_filters_router_runtime_maintenance_mode>` 导致立即 503 的请求总数
+  upstream_rq_timeout, Counter, 等待响应超时的请求总数
+  upstream_rq_max_duration_reached, Counter, 由于达到最大持续时间而关闭的请求总数
+  upstream_rq_per_try_timeout, Counter, 达到每次尝试超时的请求总数（启用请求对冲时除外）
+  upstream_rq_rx_reset, Counter, 远程重置的请求总数
+  upstream_rq_tx_reset, Counter, 本地重置的请求总数
+  upstream_rq_retry, Counter, 请求重试总次数
+  upstream_rq_retry_backoff_exponential, Counter, 使用指数退避策略的总重试次数
+  upstream_rq_retry_backoff_ratelimited, Counter, 使用有限退避策略的总重试次数
+  upstream_rq_retry_limit_exceeded, Counter, 由于超过 :ref:`配置的最大重试次数 <config_http_filters_router_x-envoy-max-retries>` 而未重试的请求总数
+  upstream_rq_retry_success, Counter, 请求重试成功总数
+  upstream_rq_retry_overflow, Counter, 由于线路中断或超出 :ref:`预置的重试次数 <envoy_v3_api_field_config.cluster.v3.CircuitBreakers.Thresholds.retry_budget>` 而未重试的请求总数
+  upstream_flow_control_paused_reading_total, Counter, 流量控制从上游暂停读取的总次数
+  upstream_flow_control_resumed_reading_total, Counter, 流量控制从上游恢复读取的总次数
+  upstream_flow_control_backed_up_total, Counter, 上游连接备份并暂停从下游读取的总次数
+  upstream_flow_control_drained_total, Counter, 上游连接从下游排出并恢复读取的总次数
+  upstream_internal_redirect_failed_total, Counter, 失败的内部重定向导致向下游传递重定向的总次数。
+  upstream_internal_redirect_succeed_total, Counter, 内部重定向导致第二个上行请求的总次数。
+  membership_change, Counter, 集群成员更改总数
+  membership_healthy, Gauge, 当前群集健康总数（包括健康检查和异常值检测）
+  membership_degraded, Gauge, 当前集群降级总数
+  membership_total, Gauge, 当前集群成员总数
+  retry_or_shadow_abandoned, Counter, 由于缓冲区限制而取消映射或重试缓冲的总次数
+  config_reload, Counter, 由于配置不同而导致配置重新加载的API获取总数
+  update_attempt, Counter, 通过服务发现尝试的群集成员更新总数
+  update_success, Counter, 通过服务发现列出的成功群集成员更新总数
+  update_failure, Counter, 通过服务发现列出的失败群集成员更新总数
+  update_empty, Counter, 集群成员更新以空集群负载分配结束并继续以前的配置总数
+  update_no_rebuild, Counter, 未导致任何群集负载平衡结构重建的成功群集成员更新总数
+  version, Gauge, 上次成功获取 API 的内容的哈希
+  max_host_weight, Gauge, 群集中任意主机的最大权重
+  bind_errors, Counter, 将套接字绑定到配置的源地址的错误总数
+  assignment_timeout_received, Counter, 接收到的具有终结点租用信息的总分配数
+  assignment_stale, Counter, 新分配到达之前接收的分配过期的次数
 
-Health check statistics
------------------------
+健康检查统计
+------------
 
-If health check is configured, the cluster has an additional statistics tree rooted at
-*cluster.<name>.health_check.* with the following statistics:
+如果配置了健康检查，集群会有一个额外的根在 *cluster.<name>.health_check.* 的统计树，有如下统计信息：
 
 .. csv-table::
-  :header: Name, Type, Description
+  :header: Name, Type, 描述
   :widths: 1, 1, 2
 
   attempt, Counter, Number of health checks
