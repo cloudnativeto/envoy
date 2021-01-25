@@ -101,7 +101,7 @@
   assignment_stale, Counter, 新分配到达之前接收的分配过期的次数
 
 健康检查统计
-------------
+-----------------
 
 如果配置了健康检查，集群会有一个额外的根在 *cluster.<name>.health_check.* 的统计树，有如下统计信息：
 
@@ -152,7 +152,7 @@
 .. _config_cluster_manager_cluster_stats_circuit_breakers:
 
 断路器统计
--------------
+----------------
 
 断路器统计以 *cluster.<name>.circuit_breakers.<priority>.* 为根，包含如下信息：
 
@@ -188,11 +188,10 @@
 .. _config_cluster_manager_cluster_stats_dynamic_http:
 
 动态 HTTP 统计
----------------
+--------------------
 
 如果使用 HTTP，还可以使用动态 HTTP 响应代码统计信息。
-这些信息由各种内部系统以及一些过滤器（如路由过滤器 :ref:`路由过滤器 <config_http_filters_router>`
-和 :ref:`速率限制过滤器 <config_http_filters_rate_limit>`）发出。它们的根位于 *cluster.<name>* 并包含以下统计信息：
+这些信息由各种内部系统以及一些过滤器（如路由过滤器 :ref:`路由过滤器 <config_http_filters_router>` 和 :ref:`速率限制过滤器 <config_http_filters_rate_limit>`）发出。它们的根位于 *cluster.<name>* 并包含以下统计信息：
 
 .. csv-table::
   :header: 名称, 类型, 描述
@@ -218,7 +217,7 @@
 .. _config_cluster_manager_cluster_stats_alt_tree:
 
 备用树动态 HTTP 统计信息
------------------------
+----------------------------
 
 如果配置了备用树统计信息，它们将出现在 *cluster.<name>.<alt name>.* 命名空间中。
 生成的统计信息与 :ref:`上面 <config_cluster_manager_cluster_stats_dynamic_http>` 的动态 HTTP 统计信息部分中记录的信息相同。
@@ -226,7 +225,7 @@
 .. _config_cluster_manager_cluster_per_az_stats:
 
 每个服务区域的动态 HTTP 统计信息
-------------------------------
+----------------------------------
 
 对于本地服务，如果服务区是可用的（通过 :option:`--service-zone`）
 或者 :ref:`上游集群 <arch_overview_service_discovery_types_eds>`，
@@ -278,54 +277,53 @@ Envoy 将在 *cluster.<name>.zone.<from_zone>.<to_zone>.* 命名空间中跟踪�
   lb_subsets_selected, Counter, 选择任何子集进行负载均衡的次数
   lb_subsets_fallback, Counter, 调用回退策略的次数
   lb_subsets_fallback_panic, Counter, 触发子集合紧急模式的次数
-  lb_subsets_single_host_per_subset_duplicate, Gauge, Number of duplicate (unused) hosts when using :ref:`single_host_per_subset <envoy_v3_api_field_config.cluster.v3.Cluster.LbSubsetConfig.LbSubsetSelector.single_host_per_subset>`
+  lb_subsets_single_host_per_subset_duplicate, Gauge, 使用 :ref:`single_host_per_subset <envoy_v3_api_field_config.cluster.v3.Cluster.LbSubsetConfig.LbSubsetSelector.single_host_per_subset>` 时的重复（未使用）主机数
 
 .. _config_cluster_manager_cluster_stats_ring_hash_lb:
 
-Ring hash load balancer statistics
-----------------------------------
+环哈希负载均衡器统计信息
+----------------------
 
-Statistics for monitoring the size and effective distribution of hashes when using the
-:ref:`ring hash load balancer <arch_overview_load_balancing_types_ring_hash>`. Stats are rooted at
-*cluster.<name>.ring_hash_lb.* and contain the following statistics:
+使用 :ref:`环哈希负载均衡器 <arch_overview_load_balancing_types_ring_hash>` 时，监视哈希大小和有效分布的统计信息。
+统计信息以 *cluster.<name>.ring_hash_lb.* 为根，并包含以下信息：
 
 .. csv-table::
-  :header: Name, Type, Description
+  :header: 名称, 类型, 描述
   :widths: 1, 1, 2
 
-  size, Gauge, Total number of host hashes on the ring
-  min_hashes_per_host, Gauge, Minimum number of hashes for a single host
-  max_hashes_per_host, Gauge, Maximum number of hashes for a single host
+  size, Gauge, 环上的主机哈希总数
+  min_hashes_per_host, Gauge, 单个主机的最小哈希数
+  max_hashes_per_host, Gauge, 单个主机的最大哈希数
 
 .. _config_cluster_manager_cluster_stats_maglev_lb:
 
-Maglev load balancer statistics
+磁浮负载均衡器统计
 -------------------------------
 
-Statistics for monitoring effective host weights when using the
-:ref:`Maglev load balancer <arch_overview_load_balancing_types_maglev>`. Stats are rooted at
-*cluster.<name>.maglev_lb.* and contain the following statistics:
+使用 :ref:`Maglev load balancer <arch_overview_load_balancing_types_maglev>` 时，监控有效主机权重的统计信息。
+Stats are rooted at *cluster.<name>.maglev_lb.* and contain the following statistics:
+统计数据来源于 *cluster.<name>.maglev_lb.* 并包含以下信息：
 
 .. csv-table::
-  :header: Name, Type, Description
+  :header: 名称, 类型, 描述
   :widths: 1, 1, 2
 
-  min_entries_per_host, Gauge, Minimum number of entries for a single host
-  max_entries_per_host, Gauge, Maximum number of entries for a single host
+  min_entries_per_host, Gauge, 单个主机的最小条目数
+  max_entries_per_host, Gauge, 单个主机的最大条目数
 
 .. _config_cluster_manager_cluster_stats_request_response_sizes:
 
-Request Response Size statistics
+请求-响应大小统计信息
 --------------------------------
 
-If :ref:`request response size statistics <envoy_v3_api_field_config.cluster.v3.Cluster.track_cluster_stats>` are tracked,
-statistics will be added to *cluster.<name>* and contain the following:
+如果跟踪了请求-响应大小统计信息，
+统计信息将添加到 *cluster.<name>* 并包含以下内容：
 
 .. csv-table::
-   :header: Name, Type, Description
+   :header:名称, 类型, 描述
    :widths: 1, 1, 2
 
-   upstream_rq_headers_size, Histogram, Request headers size in bytes per upstream
-   upstream_rq_body_size, Histogram, Request body size in bytes per upstream
-   upstream_rs_headers_size, Histogram, Response headers size in bytes per upstream
-   upstream_rs_body_size, Histogram, Response body size in bytes per upstream
+   upstream_rq_headers_size, Histogram, 每个上游的请求头大小（字节）
+   upstream_rq_body_size, Histogram, 每个上游的请求正文大小（字节）
+   upstream_rs_headers_size, Histogram, 每个上游的响应头大小（字节）
+   upstream_rs_body_size, Histogram, 每个上游的响应正文大小（字节）
