@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>开始 &mdash; envoy 1.16.0-917aa0 documentation</title>
+  <title>开始 &mdash; envoy 1.16.0-23f527 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-917aa0
+                1.16.0-23f527
               </div>
             
           
@@ -205,9 +205,9 @@
 <div class="section" id="id2">
 <h2>快速开始运行简单示例<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>这些指导说明使用 Envoy 仓库中的文件来运行示例。下面的章节对配置文件和相同配置下的执行步骤做了更详细的解释。</p>
-<p>在 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/configs/google_com_proxy.v2.yaml">configs/google_com_proxy.v2.yaml</a>  中提供了一个非常简单的 Envoy 配置，可以用来验证基本的纯 HTTP 代理。但这并不代表真实的 Envoy 部署：</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker pull envoyproxy/envoy-dev:917aa09a7a01807d7d738e12aa09e3381a8e5e37
-$ docker run --rm -d -p 10000:10000 envoyproxy/envoy-dev:917aa09a7a01807d7d738e12aa09e3381a8e5e37
+<p>在 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/configs/google_com_proxy.v2.yaml">configs/google_com_proxy.v2.yaml</a>  中提供了一个非常简单的 Envoy 配置，可以用来验证基本的纯 HTTP 代理。但这并不代表真实的 Envoy 部署：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker pull envoyproxy/envoy-dev:23f5271659ed88cc259ce5ba164fe626c439ed6c
+$ docker run --rm -d -p 10000:10000 envoyproxy/envoy-dev:23f5271659ed88cc259ce5ba164fe626c439ed6c
 $ curl -v localhost:10000
 </pre></div>
 </div>
@@ -279,7 +279,7 @@ $ curl -v localhost:10000
 <div class="section" id="envoy-docker">
 <h2>使用 Envoy Docker 镜像<a class="headerlink" href="#envoy-docker" title="Permalink to this headline">¶</a></h2>
 <p>创建一个简单的 Dockerfile 运行 Envoy，这需要假定在你本地的目录中有 envoy.yaml （如上描述）文件。</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FROM envoyproxy/envoy-dev:917aa09a7a01807d7d738e12aa09e3381a8e5e37
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FROM envoyproxy/envoy-dev:23f5271659ed88cc259ce5ba164fe626c439ed6c
 COPY envoy.yaml /etc/envoy/envoy.yaml
 </pre></div>
 </div>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Header-To-Metadata Filter &mdash; envoy 1.16.0-917aa0 documentation</title>
+  <title>Header-To-Metadata Filter &mdash; envoy 1.16.0-23f527 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-917aa0
+                1.16.0-23f527
               </div>
             
           
@@ -117,7 +117,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../../clusters/clusters.html">集群</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../http_routes/http_routes.html">HTTP 路由管理</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../../../../../config/config.html">扩展</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="../../../../../config/filter/filter.html">Filters</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../../../../config/filter/filter.html">过滤器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../config/accesslog/accesslog.html">Access loggers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../config/rbac/rbac.html">RBAC</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../config/health_checker/health_checker.html">健康检查器</a></li>
@@ -200,7 +200,7 @@
         
           <li><a href="../../../../../config/config.html">扩展</a> &raquo;</li>
         
-          <li><a href="../../../../../config/filter/filter.html">Filters</a> &raquo;</li>
+          <li><a href="../../../../../config/filter/filter.html">过滤器</a> &raquo;</li>
         
           <li><a href="../../../../../config/filter/http/http.html">HTTP 过滤器</a> &raquo;</li>
         
@@ -235,7 +235,7 @@ for matching load balancer subsets, logging, etc.</p>
 <p>Header to Metadata <a class="reference internal" href="../../../../../../configuration/http/http_filters/header_to_metadata_filter.html#config-http-filters-header-to-metadata"><span class="std std-ref">configuration overview</span></a>.</p>
 <div class="section" id="extensions-filters-http-header-to-metadata-v3-config">
 <span id="envoy-v3-api-msg-extensions-filters-http-header-to-metadata-v3-config"></span><h2>extensions.filters.http.header_to_metadata.v3.Config<a class="headerlink" href="#extensions-filters-http-header-to-metadata-v3-config" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/extensions/filters/http/header_to_metadata/v3/header_to_metadata.proto#L24">[extensions.filters.http.header_to_metadata.v3.Config proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/extensions/filters/http/header_to_metadata/v3/header_to_metadata.proto#L24">[extensions.filters.http.header_to_metadata.v3.Config proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;request_rules&quot;</span><span class="p">:</span> <span class="p">[],</span>
   <span class="nt">&quot;response_rules&quot;</span><span class="p">:</span> <span class="p">[]</span>
@@ -253,7 +253,7 @@ for matching load balancer subsets, logging, etc.</p>
 </div>
 <div class="section" id="extensions-filters-http-header-to-metadata-v3-config-keyvaluepair">
 <span id="envoy-v3-api-msg-extensions-filters-http-header-to-metadata-v3-config-keyvaluepair"></span><h2>extensions.filters.http.header_to_metadata.v3.Config.KeyValuePair<a class="headerlink" href="#extensions-filters-http-header-to-metadata-v3-config-keyvaluepair" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/extensions/filters/http/header_to_metadata/v3/header_to_metadata.proto#L50">[extensions.filters.http.header_to_metadata.v3.Config.KeyValuePair proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/extensions/filters/http/header_to_metadata/v3/header_to_metadata.proto#L50">[extensions.filters.http.header_to_metadata.v3.Config.KeyValuePair proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;metadata_namespace&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -300,7 +300,7 @@ The value will be decoded accordingly before storing to metadata.</p>
 </div>
 <div class="section" id="extensions-filters-http-header-to-metadata-v3-config-rule">
 <span id="envoy-v3-api-msg-extensions-filters-http-header-to-metadata-v3-config-rule"></span><h2>extensions.filters.http.header_to_metadata.v3.Config.Rule<a class="headerlink" href="#extensions-filters-http-header-to-metadata-v3-config-rule" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/extensions/filters/http/header_to_metadata/v3/header_to_metadata.proto#L89">[extensions.filters.http.header_to_metadata.v3.Config.Rule proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/extensions/filters/http/header_to_metadata/v3/header_to_metadata.proto#L89">[extensions.filters.http.header_to_metadata.v3.Config.Rule proto]</a></p>
 <p>A Rule defines what metadata to apply when a header is present or missing.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;header&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -341,7 +341,7 @@ This field is not supported in case of a cookie.</p>
 </div>
 <div class="section" id="enum-extensions-filters-http-header-to-metadata-v3-config-valuetype">
 <span id="envoy-v3-api-enum-extensions-filters-http-header-to-metadata-v3-config-valuetype"></span><h2>Enum extensions.filters.http.header_to_metadata.v3.Config.ValueType<a class="headerlink" href="#enum-extensions-filters-http-header-to-metadata-v3-config-valuetype" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/extensions/filters/http/header_to_metadata/v3/header_to_metadata.proto#L28">[extensions.filters.http.header_to_metadata.v3.Config.ValueType proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/extensions/filters/http/header_to_metadata/v3/header_to_metadata.proto#L28">[extensions.filters.http.header_to_metadata.v3.Config.ValueType proto]</a></p>
 <dl class="simple" id="envoy-v3-api-enum-value-extensions-filters-http-header-to-metadata-v3-config-valuetype-string">
 <dt>STRING</dt><dd><p><em>(DEFAULT)</em> ⁣</p>
 </dd>
@@ -357,7 +357,7 @@ This field is not supported in case of a cookie.</p>
 </div>
 <div class="section" id="enum-extensions-filters-http-header-to-metadata-v3-config-valueencode">
 <span id="envoy-v3-api-enum-extensions-filters-http-header-to-metadata-v3-config-valueencode"></span><h2>Enum extensions.filters.http.header_to_metadata.v3.Config.ValueEncode<a class="headerlink" href="#enum-extensions-filters-http-header-to-metadata-v3-config-valueencode" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/extensions/filters/http/header_to_metadata/v3/header_to_metadata.proto#L39">[extensions.filters.http.header_to_metadata.v3.Config.ValueEncode proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/extensions/filters/http/header_to_metadata/v3/header_to_metadata.proto#L39">[extensions.filters.http.header_to_metadata.v3.Config.ValueEncode proto]</a></p>
 <p>ValueEncode defines the encoding algorithm.</p>
 <dl class="simple" id="envoy-v3-api-enum-value-extensions-filters-http-header-to-metadata-v3-config-valueencode-none">
 <dt>NONE</dt><dd><p><em>(DEFAULT)</em> ⁣The value is not encoded.</p>

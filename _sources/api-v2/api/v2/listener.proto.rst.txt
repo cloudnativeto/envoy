@@ -10,7 +10,7 @@ Listener :ref:`configuration overview <config_listeners>`
 Listener
 --------
 
-`[Listener proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/listener.proto#L30>`_
+`[Listener proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/api/v2/listener.proto#L30>`_
 
 
 .. code-block:: json
@@ -265,7 +265,7 @@ access_log
 Listener.ConnectionBalanceConfig
 --------------------------------
 
-`[Listener.ConnectionBalanceConfig proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/listener.proto#L58>`_
+`[Listener.ConnectionBalanceConfig proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/api/v2/listener.proto#L58>`_
 
 Configuration for listener connection balancing.
 
@@ -287,7 +287,7 @@ exact_balance
 Listener.ConnectionBalanceConfig.ExactBalance
 ---------------------------------------------
 
-`[Listener.ConnectionBalanceConfig.ExactBalance proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/listener.proto#L65>`_
+`[Listener.ConnectionBalanceConfig.ExactBalance proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/api/v2/listener.proto#L65>`_
 
 A connection balancer implementation that does exact balancing. This means that a lock is
 held during balancing so that connection counts are nearly exactly balanced between worker
@@ -309,7 +309,7 @@ connections that rarely cycle (e.g., service mesh gRPC egress).
 Enum Listener.DrainType
 -----------------------
 
-`[Listener.DrainType proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/listener.proto#L31>`_
+`[Listener.DrainType proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/api/v2/listener.proto#L31>`_
 
 
 .. _envoy_api_enum_value_Listener.DrainType.DEFAULT:

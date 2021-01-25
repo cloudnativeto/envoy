@@ -9,7 +9,7 @@ gRPC Access Log Service (ALS)
 extensions.access_loggers.grpc.v3.HttpGrpcAccessLogConfig
 ---------------------------------------------------------
 
-`[extensions.access_loggers.grpc.v3.HttpGrpcAccessLogConfig proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/extensions/access_loggers/grpc/v3/als.proto#L26>`_
+`[extensions.access_loggers.grpc.v3.HttpGrpcAccessLogConfig proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/extensions/access_loggers/grpc/v3/als.proto#L26>`_
 
 Configuration for the built-in *envoy.access_loggers.http_grpc*
 :ref:`AccessLog <envoy_v3_api_msg_config.accesslog.v3.AccessLog>`. This configuration will
@@ -68,7 +68,7 @@ additional_response_trailers_to_log
 extensions.access_loggers.grpc.v3.TcpGrpcAccessLogConfig
 --------------------------------------------------------
 
-`[extensions.access_loggers.grpc.v3.TcpGrpcAccessLogConfig proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/extensions/access_loggers/grpc/v3/als.proto#L48>`_
+`[extensions.access_loggers.grpc.v3.TcpGrpcAccessLogConfig proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/extensions/access_loggers/grpc/v3/als.proto#L48>`_
 
 Configuration for the built-in *envoy.access_loggers.tcp_grpc* type. This configuration will
 populate *StreamAccessLogsMessage.tcp_logs*.
@@ -101,7 +101,7 @@ common_config
 extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig
 -----------------------------------------------------------
 
-`[extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/extensions/access_loggers/grpc/v3/als.proto#L57>`_
+`[extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/extensions/access_loggers/grpc/v3/als.proto#L57>`_
 
 Common configuration for gRPC access logs.
 

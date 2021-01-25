@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Health check &mdash; envoy 1.16.0-917aa0 documentation</title>
+  <title>Health check &mdash; envoy 1.16.0-23f527 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-917aa0
+                1.16.0-23f527
               </div>
             
           
@@ -218,7 +218,7 @@ documented <a class="reference internal" href="../../../../configuration/upstrea
 </ul>
 <div class="section" id="core-healthcheck">
 <span id="envoy-api-msg-core-healthcheck"></span><h2>core.HealthCheck<a class="headerlink" href="#core-healthcheck" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/health_check.proto#L58">[core.HealthCheck proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/api/v2/core/health_check.proto#L58">[core.HealthCheck proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;timeout&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;interval&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -356,7 +356,7 @@ The default value is false.</p>
 </div>
 <div class="section" id="core-healthcheck-payload">
 <span id="envoy-api-msg-core-healthcheck-payload"></span><h2>core.HealthCheck.Payload<a class="headerlink" href="#core-healthcheck-payload" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/health_check.proto#L60">[core.HealthCheck.Payload proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/api/v2/core/health_check.proto#L60">[core.HealthCheck.Payload proto]</a></p>
 <p>Describes the encoding of the payload bytes in the payload.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
@@ -370,7 +370,7 @@ The default value is false.</p>
 </div>
 <div class="section" id="core-healthcheck-httphealthcheck">
 <span id="envoy-api-msg-core-healthcheck-httphealthcheck"></span><h2>core.HealthCheck.HttpHealthCheck<a class="headerlink" href="#core-healthcheck-httphealthcheck" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/health_check.proto#L73">[core.HealthCheck.HttpHealthCheck proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/api/v2/core/health_check.proto#L73">[core.HealthCheck.HttpHealthCheck proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -441,7 +441,7 @@ the health checked cluster using a <a class="reference internal" href="../../../
 </div>
 <div class="section" id="core-healthcheck-tcphealthcheck">
 <span id="envoy-api-msg-core-healthcheck-tcphealthcheck"></span><h2>core.HealthCheck.TcpHealthCheck<a class="headerlink" href="#core-healthcheck-tcphealthcheck" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/health_check.proto#L132">[core.HealthCheck.TcpHealthCheck proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/api/v2/core/health_check.proto#L132">[core.HealthCheck.TcpHealthCheck proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;send&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;receive&quot;</span><span class="p">:</span> <span class="p">[]</span>
@@ -461,7 +461,7 @@ necessarily contiguous.</p>
 </div>
 <div class="section" id="core-healthcheck-redishealthcheck">
 <span id="envoy-api-msg-core-healthcheck-redishealthcheck"></span><h2>core.HealthCheck.RedisHealthCheck<a class="headerlink" href="#core-healthcheck-redishealthcheck" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/health_check.proto#L142">[core.HealthCheck.RedisHealthCheck proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/api/v2/core/health_check.proto#L142">[core.HealthCheck.RedisHealthCheck proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
 <span class="p">}</span>
@@ -477,7 +477,7 @@ by setting the specified key to any value and waiting for traffic to drain.</p>
 </div>
 <div class="section" id="core-healthcheck-grpchealthcheck">
 <span id="envoy-api-msg-core-healthcheck-grpchealthcheck"></span><h2>core.HealthCheck.GrpcHealthCheck<a class="headerlink" href="#core-healthcheck-grpchealthcheck" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/health_check.proto#L154">[core.HealthCheck.GrpcHealthCheck proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/api/v2/core/health_check.proto#L154">[core.HealthCheck.GrpcHealthCheck proto]</a></p>
 <p><a class="reference external" href="https://github.com/grpc/grpc/blob/master/src/proto/grpc/health/v1/health.proto">grpc.health.v1.Health</a>-based
 healthcheck. See <a class="reference external" href="https://github.com/grpc/grpc/blob/master/doc/health-checking.md">gRPC doc</a>
 for details.</p>
@@ -503,7 +503,7 @@ the <a class="reference internal" href="../endpoint/endpoint_components.proto.ht
 </div>
 <div class="section" id="core-healthcheck-customhealthcheck">
 <span id="envoy-api-msg-core-healthcheck-customhealthcheck"></span><h2>core.HealthCheck.CustomHealthCheck<a class="headerlink" href="#core-healthcheck-customhealthcheck" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/health_check.proto#L170">[core.HealthCheck.CustomHealthCheck proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/api/v2/core/health_check.proto#L170">[core.HealthCheck.CustomHealthCheck proto]</a></p>
 <p>Custom health check.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -519,21 +519,21 @@ the <a class="reference internal" href="../endpoint/endpoint_components.proto.ht
 <dl id="envoy-api-field-core-healthcheck-customhealthcheck-config">
 <dt>config</dt><dd><p>(<a class="reference external" href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct">Struct</a>)
 A custom health checker specific configuration which depends on the custom health checker
-being instantiated. See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/config/health_checker">envoy/config/health_checker</a> for reference.</p>
+being instantiated. See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/health_checker">envoy/config/health_checker</a> for reference.</p>
 <p>Only one of <a class="reference internal" href="#envoy-api-field-core-healthcheck-customhealthcheck-config"><span class="std std-ref">config</span></a>, <a class="reference internal" href="#envoy-api-field-core-healthcheck-customhealthcheck-typed-config"><span class="std std-ref">typed_config</span></a> may be set.</p>
 </dd>
 </dl>
 <dl id="envoy-api-field-core-healthcheck-customhealthcheck-typed-config">
 <dt>typed_config</dt><dd><p>(<a class="reference external" href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#any">Any</a>)
 A custom health checker specific configuration which depends on the custom health checker
-being instantiated. See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/config/health_checker">envoy/config/health_checker</a> for reference.</p>
+being instantiated. See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/health_checker">envoy/config/health_checker</a> for reference.</p>
 <p>Only one of <a class="reference internal" href="#envoy-api-field-core-healthcheck-customhealthcheck-config"><span class="std std-ref">config</span></a>, <a class="reference internal" href="#envoy-api-field-core-healthcheck-customhealthcheck-typed-config"><span class="std std-ref">typed_config</span></a> may be set.</p>
 </dd>
 </dl>
 </div>
 <div class="section" id="core-healthcheck-tlsoptions">
 <span id="envoy-api-msg-core-healthcheck-tlsoptions"></span><h2>core.HealthCheck.TlsOptions<a class="headerlink" href="#core-healthcheck-tlsoptions" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/health_check.proto#L187">[core.HealthCheck.TlsOptions proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/api/v2/core/health_check.proto#L187">[core.HealthCheck.TlsOptions proto]</a></p>
 <p>Health checks occur over the transport socket specified for the cluster. This implies that if a
 cluster is using a TLS-enabled transport socket, the health check will also occur over TLS.</p>
 <p>This allows overriding the cluster TLS settings, just for health check connections.</p>
@@ -551,7 +551,7 @@ versus data connections. If empty, no ALPN protocols will be set on health check
 </div>
 <div class="section" id="enum-core-healthstatus">
 <span id="envoy-api-enum-core-healthstatus"></span><h2>Enum core.HealthStatus<a class="headerlink" href="#enum-core-healthstatus" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/api/v2/core/health_check.proto#L32">[core.HealthStatus proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/api/v2/core/health_check.proto#L32">[core.HealthStatus proto]</a></p>
 <p>Endpoint health status.</p>
 <dl class="simple" id="envoy-api-enum-value-core-healthstatus-unknown">
 <dt>UNKNOWN</dt><dd><p><em>(DEFAULT)</em> ⁣The health status is not known. This is interpreted by Envoy as <em>HEALTHY</em>.</p>

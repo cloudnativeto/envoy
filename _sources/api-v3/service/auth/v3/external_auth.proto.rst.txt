@@ -13,7 +13,7 @@ The authorization service request messages used by external authorization :ref:`
 service.auth.v3.CheckRequest
 ----------------------------
 
-`[service.auth.v3.CheckRequest proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/service/auth/v3/external_auth.proto#L35>`_
+`[service.auth.v3.CheckRequest proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/service/auth/v3/external_auth.proto#L35>`_
 
 
 .. code-block:: json
@@ -35,7 +35,7 @@ attributes
 service.auth.v3.DeniedHttpResponse
 ----------------------------------
 
-`[service.auth.v3.DeniedHttpResponse proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/service/auth/v3/external_auth.proto#L43>`_
+`[service.auth.v3.DeniedHttpResponse proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/service/auth/v3/external_auth.proto#L43>`_
 
 HTTP attributes for a denied response.
 
@@ -76,7 +76,7 @@ body
 service.auth.v3.OkHttpResponse
 ------------------------------
 
-`[service.auth.v3.OkHttpResponse proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/service/auth/v3/external_auth.proto#L63>`_
+`[service.auth.v3.OkHttpResponse proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/service/auth/v3/external_auth.proto#L63>`_
 
 HTTP attributes for an OK response.
 
@@ -136,7 +136,7 @@ dynamic_metadata
 service.auth.v3.CheckResponse
 -----------------------------
 
-`[service.auth.v3.CheckResponse proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/service/auth/v3/external_auth.proto#L101>`_
+`[service.auth.v3.CheckResponse proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/service/auth/v3/external_auth.proto#L101>`_
 
 Intended for gRPC and Network Authorization servers `only`.
 

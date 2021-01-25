@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Stats &mdash; envoy 1.16.0-917aa0 documentation</title>
+  <title>Stats &mdash; envoy 1.16.0-23f527 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-917aa0
+                1.16.0-23f527
               </div>
             
           
@@ -212,7 +212,7 @@
 <p>Statistics <a class="reference internal" href="../../../../intro/arch_overview/observability/statistics.html#arch-overview-statistics"><span class="std std-ref">architecture overview</span></a>.</p>
 <div class="section" id="config-metrics-v2-statssink">
 <span id="envoy-api-msg-config-metrics-v2-statssink"></span><h2>config.metrics.v2.StatsSink<a class="headerlink" href="#config-metrics-v2-statssink" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/config/metrics/v2/stats.proto#L23">[config.metrics.v2.StatsSink proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/metrics/v2/stats.proto#L23">[config.metrics.v2.StatsSink proto]</a></p>
 <p>Configuration for pluggable stats sinks.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -250,7 +250,7 @@ Stats sink specific configuration which depends on the sink being instantiated. 
 </div>
 <div class="section" id="config-metrics-v2-statsconfig">
 <span id="envoy-api-msg-config-metrics-v2-statsconfig"></span><h2>config.metrics.v2.StatsConfig<a class="headerlink" href="#config-metrics-v2-statsconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/config/metrics/v2/stats.proto#L45">[config.metrics.v2.StatsConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/metrics/v2/stats.proto#L45">[config.metrics.v2.StatsConfig proto]</a></p>
 <p>Statistics configuration such as tagging.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;stats_tags&quot;</span><span class="p">:</span> <span class="p">[],</span>
@@ -275,7 +275,7 @@ the custom tags.</p>
 <p>If any default tags are specified twice, the config will be considered
 invalid.</p>
 </div>
-<p>See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/source/common/config/well_known_names.h">well_known_names.h</a> for a list of the
+<p>See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/source/common/config/well_known_names.h">well_known_names.h</a> for a list of the
 default tags in Envoy.</p>
 <p>If not provided, the value is assumed to be true.</p>
 </dd>
@@ -295,7 +295,7 @@ If any unexpected behavior changes are observed, please open a new issue immedia
 </div>
 <div class="section" id="config-metrics-v2-statsmatcher">
 <span id="envoy-api-msg-config-metrics-v2-statsmatcher"></span><h2>config.metrics.v2.StatsMatcher<a class="headerlink" href="#config-metrics-v2-statsmatcher" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/config/metrics/v2/stats.proto#L80">[config.metrics.v2.StatsMatcher proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/metrics/v2/stats.proto#L80">[config.metrics.v2.StatsMatcher proto]</a></p>
 <p>Configuration for disabling stat instantiation.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;reject_all&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -325,7 +325,7 @@ StringMatcher protos.</p>
 </div>
 <div class="section" id="config-metrics-v2-tagspecifier">
 <span id="envoy-api-msg-config-metrics-v2-tagspecifier"></span><h2>config.metrics.v2.TagSpecifier<a class="headerlink" href="#config-metrics-v2-tagspecifier" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/config/metrics/v2/stats.proto#L170">[config.metrics.v2.TagSpecifier proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/metrics/v2/stats.proto#L170">[config.metrics.v2.TagSpecifier proto]</a></p>
 <p>Designates a tag name and value pair. The value may be either a fixed value
 or a regex providing the value via capture groups. The specified tag will be
 unconditionally set if a fixed value, otherwise it will only be set if one
@@ -340,7 +340,7 @@ or more capture groups in the regex match.</p>
 <dl id="envoy-api-field-config-metrics-v2-tagspecifier-tag-name">
 <dt>tag_name</dt><dd><p>(<a class="reference external" href="https://developers.google.com/protocol-buffers/docs/proto#scalar">string</a>) Attaches an identifier to the tag values to identify the tag being in the
 sink. Envoy has a set of default names and regexes to extract dynamic
-portions of existing stats, which can be found in <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/source/common/config/well_known_names.h">well_known_names.h</a> in the Envoy repository. If a <a class="reference internal" href="#envoy-api-field-config-metrics-v2-tagspecifier-tag-name"><span class="std std-ref">tag_name</span></a> is provided in the config and
+portions of existing stats, which can be found in <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/source/common/config/well_known_names.h">well_known_names.h</a> in the Envoy repository. If a <a class="reference internal" href="#envoy-api-field-config-metrics-v2-tagspecifier-tag-name"><span class="std std-ref">tag_name</span></a> is provided in the config and
 neither <a class="reference internal" href="#envoy-api-field-config-metrics-v2-tagspecifier-regex"><span class="std std-ref">regex</span></a> or
 <a class="reference internal" href="#envoy-api-field-config-metrics-v2-tagspecifier-fixed-value"><span class="std std-ref">fixed_value</span></a> were specified,
 Envoy will attempt to find that name in its set of defaults and use the accompanying regex.</p>
@@ -407,7 +407,7 @@ extracted name produced by the first regex
 </div>
 <div class="section" id="config-metrics-v2-statsdsink">
 <span id="envoy-api-msg-config-metrics-v2-statsdsink"></span><h2>config.metrics.v2.StatsdSink<a class="headerlink" href="#config-metrics-v2-statsdsink" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/config/metrics/v2/stats.proto#L250">[config.metrics.v2.StatsdSink proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/metrics/v2/stats.proto#L250">[config.metrics.v2.StatsdSink proto]</a></p>
 <p>Stats configuration proto schema for built-in <em>envoy.stat_sinks.statsd</em> sink. This sink does not support
 tagged metrics.</p>
 <p id="extension-envoy-stat-sinks-statsd">This extension may be referenced by the qualified name <em>envoy.stat_sinks.statsd</em></p>
@@ -461,7 +461,7 @@ specified.</p>
 </div>
 <div class="section" id="config-metrics-v2-dogstatsdsink">
 <span id="envoy-api-msg-config-metrics-v2-dogstatsdsink"></span><h2>config.metrics.v2.DogStatsdSink<a class="headerlink" href="#config-metrics-v2-dogstatsdsink" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/config/metrics/v2/stats.proto#L299">[config.metrics.v2.DogStatsdSink proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/metrics/v2/stats.proto#L299">[config.metrics.v2.DogStatsdSink proto]</a></p>
 <p>Stats configuration proto schema for built-in <em>envoy.stat_sinks.dog_statsd</em> sink.
 The sink emits stats with <a class="reference external" href="https://docs.datadoghq.com/guides/dogstatsd/">DogStatsD</a>
 compatible tags. Tags are configurable via <a class="reference internal" href="#envoy-api-msg-config-metrics-v2-statsconfig"><span class="std std-ref">StatsConfig</span></a>.</p>
@@ -488,7 +488,7 @@ statistics will be flushed to this address.</p>
 </div>
 <div class="section" id="config-metrics-v2-hystrixsink">
 <span id="envoy-api-msg-config-metrics-v2-hystrixsink"></span><h2>config.metrics.v2.HystrixSink<a class="headerlink" href="#config-metrics-v2-hystrixsink" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/config/metrics/v2/stats.proto#L325">[config.metrics.v2.HystrixSink proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/metrics/v2/stats.proto#L325">[config.metrics.v2.HystrixSink proto]</a></p>
 <p>Stats configuration proto schema for built-in <em>envoy.stat_sinks.hystrix</em> sink.
 The sink emits stats in <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events">text/event-stream</a>
 formatted stream for use by <a class="reference external" href="https://github.com/Netflix-Skunkworks/hystrix-dashboard/wiki">Hystrix dashboard</a>.</p>

@@ -9,7 +9,7 @@ Metadata
 type.metadata.v3.MetadataKey
 ----------------------------
 
-`[type.metadata.v3.MetadataKey proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/type/metadata/v3/metadata.proto#L38>`_
+`[type.metadata.v3.MetadataKey proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/type/metadata/v3/metadata.proto#L38>`_
 
 MetadataKey provides a general interface using `key` and `path` to retrieve value from
 :ref:`Metadata <envoy_v3_api_msg_config.core.v3.Metadata>`.
@@ -65,7 +65,7 @@ path
 type.metadata.v3.MetadataKey.PathSegment
 ----------------------------------------
 
-`[type.metadata.v3.MetadataKey.PathSegment proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/type/metadata/v3/metadata.proto#L43>`_
+`[type.metadata.v3.MetadataKey.PathSegment proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/type/metadata/v3/metadata.proto#L43>`_
 
 Specifies the segment in a path to retrieve value from Metadata.
 Currently it is only supported to specify the key, i.e. field name, as one segment of a path.
@@ -91,7 +91,7 @@ key
 type.metadata.v3.MetadataKind
 -----------------------------
 
-`[type.metadata.v3.MetadataKind proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/type/metadata/v3/metadata.proto#L69>`_
+`[type.metadata.v3.MetadataKind proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/type/metadata/v3/metadata.proto#L69>`_
 
 Describes what kind of metadata.
 
@@ -145,7 +145,7 @@ host
 type.metadata.v3.MetadataKind.Request
 -------------------------------------
 
-`[type.metadata.v3.MetadataKind.Request proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/type/metadata/v3/metadata.proto#L74>`_
+`[type.metadata.v3.MetadataKind.Request proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/type/metadata/v3/metadata.proto#L74>`_
 
 Represents dynamic metadata associated with the request.
 
@@ -161,7 +161,7 @@ Represents dynamic metadata associated with the request.
 type.metadata.v3.MetadataKind.Route
 -----------------------------------
 
-`[type.metadata.v3.MetadataKind.Route proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/type/metadata/v3/metadata.proto#L80>`_
+`[type.metadata.v3.MetadataKind.Route proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/type/metadata/v3/metadata.proto#L80>`_
 
 Represents metadata from :ref:`the route<envoy_v3_api_field_config.route.v3.Route.metadata>`.
 
@@ -177,7 +177,7 @@ Represents metadata from :ref:`the route<envoy_v3_api_field_config.route.v3.Rout
 type.metadata.v3.MetadataKind.Cluster
 -------------------------------------
 
-`[type.metadata.v3.MetadataKind.Cluster proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/type/metadata/v3/metadata.proto#L86>`_
+`[type.metadata.v3.MetadataKind.Cluster proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/type/metadata/v3/metadata.proto#L86>`_
 
 Represents metadata from :ref:`the upstream cluster<envoy_v3_api_field_config.cluster.v3.Cluster.metadata>`.
 
@@ -193,7 +193,7 @@ Represents metadata from :ref:`the upstream cluster<envoy_v3_api_field_config.cl
 type.metadata.v3.MetadataKind.Host
 ----------------------------------
 
-`[type.metadata.v3.MetadataKind.Host proto] <https://github.com/envoyproxy/envoy/blob/917aa09a7a01807d7d738e12aa09e3381a8e5e37/api/envoy/type/metadata/v3/metadata.proto#L93>`_
+`[type.metadata.v3.MetadataKind.Host proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/type/metadata/v3/metadata.proto#L93>`_
 
 Represents metadata from :ref:`the upstream
 host<envoy_v3_api_field_config.endpoint.v3.LbEndpoint.metadata>`.
