@@ -11,7 +11,7 @@ sequences on a socket.
 data.tap.v3.Connection
 ----------------------
 
-`[data.tap.v3.Connection proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/data/tap/v3/transport.proto#L22>`_
+`[data.tap.v3.Connection proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/data/tap/v3/transport.proto#L22>`_
 
 Connection properties.
 
@@ -41,7 +41,7 @@ remote_address
 data.tap.v3.SocketEvent
 -----------------------
 
-`[data.tap.v3.SocketEvent proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/data/tap/v3/transport.proto#L33>`_
+`[data.tap.v3.SocketEvent proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/data/tap/v3/transport.proto#L33>`_
 
 Event in a socket trace.
 
@@ -92,7 +92,7 @@ closed
 data.tap.v3.SocketEvent.Read
 ----------------------------
 
-`[data.tap.v3.SocketEvent.Read proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/data/tap/v3/transport.proto#L37>`_
+`[data.tap.v3.SocketEvent.Read proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/data/tap/v3/transport.proto#L37>`_
 
 Data read by Envoy from the transport socket.
 
@@ -115,7 +115,7 @@ data
 data.tap.v3.SocketEvent.Write
 -----------------------------
 
-`[data.tap.v3.SocketEvent.Write proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/data/tap/v3/transport.proto#L48>`_
+`[data.tap.v3.SocketEvent.Write proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/data/tap/v3/transport.proto#L48>`_
 
 Data written by Envoy to the transport socket.
 
@@ -145,7 +145,7 @@ end_stream
 data.tap.v3.SocketEvent.Closed
 ------------------------------
 
-`[data.tap.v3.SocketEvent.Closed proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/data/tap/v3/transport.proto#L60>`_
+`[data.tap.v3.SocketEvent.Closed proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/data/tap/v3/transport.proto#L60>`_
 
 The connection was closed.
 
@@ -162,7 +162,7 @@ The connection was closed.
 data.tap.v3.SocketBufferedTrace
 -------------------------------
 
-`[data.tap.v3.SocketBufferedTrace proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/data/tap/v3/transport.proto#L82>`_
+`[data.tap.v3.SocketBufferedTrace proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/data/tap/v3/transport.proto#L82>`_
 
 Sequence of read/write events that constitute a buffered trace on a socket.
 
@@ -216,7 +216,7 @@ write_truncated
 data.tap.v3.SocketStreamedTraceSegment
 --------------------------------------
 
-`[data.tap.v3.SocketStreamedTraceSegment proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/data/tap/v3/transport.proto#L106>`_
+`[data.tap.v3.SocketStreamedTraceSegment proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/data/tap/v3/transport.proto#L106>`_
 
 A streamed socket trace segment. Multiple segments make up a full trace.
 

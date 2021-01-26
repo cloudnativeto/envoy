@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Common tap configuration &mdash; envoy 1.16.0-23f527 documentation</title>
+  <title>Common tap configuration &mdash; envoy 1.16.0-ced63e documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-23f527
+                1.16.0-ced63e
               </div>
             
           
@@ -219,7 +219,7 @@
 <span id="envoy-v3-api-file-envoy-config-tap-v3-common-proto"></span><h1>Common tap configuration<a class="headerlink" href="#common-tap-configuration" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="config-tap-v3-tapconfig">
 <span id="envoy-v3-api-msg-config-tap-v3-tapconfig"></span><h2>config.tap.v3.TapConfig<a class="headerlink" href="#config-tap-v3-tapconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/tap/v3/common.proto#L23">[config.tap.v3.TapConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/tap/v3/common.proto#L23">[config.tap.v3.TapConfig proto]</a></p>
 <p>Tap configuration.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;match_config&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -252,7 +252,7 @@ a tap will occur and the data will be written to the configured output.</p>
 </div>
 <div class="section" id="config-tap-v3-matchpredicate">
 <span id="envoy-v3-api-msg-config-tap-v3-matchpredicate"></span><h2>config.tap.v3.MatchPredicate<a class="headerlink" href="#config-tap-v3-matchpredicate" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/tap/v3/common.proto#L61">[config.tap.v3.MatchPredicate proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/tap/v3/common.proto#L61">[config.tap.v3.MatchPredicate proto]</a></p>
 <p>Tap match configuration. This is a recursive structure which allows complex nested match
 configurations to be built using various logical operators.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -324,7 +324,7 @@ matches.</p>
 </div>
 <div class="section" id="config-tap-v3-matchpredicate-matchset">
 <span id="envoy-v3-api-msg-config-tap-v3-matchpredicate-matchset"></span><h2>config.tap.v3.MatchPredicate.MatchSet<a class="headerlink" href="#config-tap-v3-matchpredicate-matchset" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/tap/v3/common.proto#L66">[config.tap.v3.MatchPredicate.MatchSet proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/tap/v3/common.proto#L66">[config.tap.v3.MatchPredicate.MatchSet proto]</a></p>
 <p>A set of match configurations used for logical operations.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;rules&quot;</span><span class="p">:</span> <span class="p">[]</span>
@@ -338,7 +338,7 @@ matches.</p>
 </div>
 <div class="section" id="config-tap-v3-httpheadersmatch">
 <span id="envoy-v3-api-msg-config-tap-v3-httpheadersmatch"></span><h2>config.tap.v3.HttpHeadersMatch<a class="headerlink" href="#config-tap-v3-httpheadersmatch" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/tap/v3/common.proto#L112">[config.tap.v3.HttpHeadersMatch proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/tap/v3/common.proto#L112">[config.tap.v3.HttpHeadersMatch proto]</a></p>
 <p>HTTP headers match configuration.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;headers&quot;</span><span class="p">:</span> <span class="p">[]</span>
@@ -352,7 +352,7 @@ matches.</p>
 </div>
 <div class="section" id="config-tap-v3-httpgenericbodymatch">
 <span id="envoy-v3-api-msg-config-tap-v3-httpgenericbodymatch"></span><h2>config.tap.v3.HttpGenericBodyMatch<a class="headerlink" href="#config-tap-v3-httpgenericbodymatch" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/tap/v3/common.proto#L130">[config.tap.v3.HttpGenericBodyMatch proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/tap/v3/common.proto#L130">[config.tap.v3.HttpGenericBodyMatch proto]</a></p>
 <p>HTTP generic body match configuration.
 List of text strings and hex strings to be located in HTTP body.
 All specified strings must be found in the HTTP body for positive match.
@@ -380,7 +380,7 @@ to scan only part of the http body.</p>
 </div>
 <div class="section" id="config-tap-v3-httpgenericbodymatch-generictextmatch">
 <span id="envoy-v3-api-msg-config-tap-v3-httpgenericbodymatch-generictextmatch"></span><h2>config.tap.v3.HttpGenericBodyMatch.GenericTextMatch<a class="headerlink" href="#config-tap-v3-httpgenericbodymatch-generictextmatch" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/tap/v3/common.proto#L131">[config.tap.v3.HttpGenericBodyMatch.GenericTextMatch proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/tap/v3/common.proto#L131">[config.tap.v3.HttpGenericBodyMatch.GenericTextMatch proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;string_match&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;binary_match&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
@@ -400,7 +400,7 @@ to scan only part of the http body.</p>
 </div>
 <div class="section" id="config-tap-v3-outputconfig">
 <span id="envoy-v3-api-msg-config-tap-v3-outputconfig"></span><h2>config.tap.v3.OutputConfig<a class="headerlink" href="#config-tap-v3-outputconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/tap/v3/common.proto#L151">[config.tap.v3.OutputConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/tap/v3/common.proto#L151">[config.tap.v3.OutputConfig proto]</a></p>
 <p>Tap output configuration.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;sinks&quot;</span><span class="p">:</span> <span class="p">[],</span>
@@ -437,7 +437,7 @@ match can be determined. See the HTTP tap filter <a class="reference internal" h
 </div>
 <div class="section" id="config-tap-v3-outputsink">
 <span id="envoy-v3-api-msg-config-tap-v3-outputsink"></span><h2>config.tap.v3.OutputSink<a class="headerlink" href="#config-tap-v3-outputsink" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/tap/v3/common.proto#L181">[config.tap.v3.OutputSink proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/tap/v3/common.proto#L181">[config.tap.v3.OutputSink proto]</a></p>
 <p>Tap output sink configuration.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -470,7 +470,7 @@ file, XDS, etc.) configuring the streaming admin output type will fail.</p>
 </div>
 <div class="section" id="enum-config-tap-v3-outputsink-format">
 <span id="envoy-v3-api-enum-config-tap-v3-outputsink-format"></span><h2>Enum config.tap.v3.OutputSink.Format<a class="headerlink" href="#enum-config-tap-v3-outputsink-format" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/tap/v3/common.proto#L189">[config.tap.v3.OutputSink.Format proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/tap/v3/common.proto#L189">[config.tap.v3.OutputSink.Format proto]</a></p>
 <p>Output format. All output is in the form of one or more <a class="reference internal" href="../../../data/tap/v3/wrapper.proto.html#envoy-v3-api-msg-data-tap-v3-tracewrapper"><span class="std std-ref">TraceWrapper</span></a> messages. This enumeration indicates
 how those messages are written. Note that not all sinks support all output formats. See
 individual sink documentation for more information.</p>
@@ -509,7 +509,7 @@ protobuf coded stream implementation to obtain the message length and the messag
 </div>
 <div class="section" id="config-tap-v3-streamingadminsink">
 <span id="envoy-v3-api-msg-config-tap-v3-streamingadminsink"></span><h2>config.tap.v3.StreamingAdminSink<a class="headerlink" href="#config-tap-v3-streamingadminsink" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/tap/v3/common.proto#L250">[config.tap.v3.StreamingAdminSink proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/tap/v3/common.proto#L250">[config.tap.v3.StreamingAdminSink proto]</a></p>
 <p>Streaming admin sink configuration.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
 </pre></div>
@@ -517,7 +517,7 @@ protobuf coded stream implementation to obtain the message length and the messag
 </div>
 <div class="section" id="config-tap-v3-filepertapsink">
 <span id="envoy-v3-api-msg-config-tap-v3-filepertapsink"></span><h2>config.tap.v3.FilePerTapSink<a class="headerlink" href="#config-tap-v3-filepertapsink" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/tap/v3/common.proto#L256">[config.tap.v3.FilePerTapSink proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/tap/v3/common.proto#L256">[config.tap.v3.FilePerTapSink proto]</a></p>
 <p>The file per tap sink outputs a discrete file for every tapped stream.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;path_prefix&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>

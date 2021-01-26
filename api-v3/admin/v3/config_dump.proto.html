@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ConfigDump &mdash; envoy 1.16.0-23f527 documentation</title>
+  <title>ConfigDump &mdash; envoy 1.16.0-ced63e documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-23f527
+                1.16.0-ced63e
               </div>
             
           
@@ -216,7 +216,7 @@
 <span id="envoy-v3-api-file-envoy-admin-v3-config-dump-proto"></span><h1>ConfigDump<a class="headerlink" href="#configdump" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="admin-v3-configdump">
 <span id="envoy-v3-api-msg-admin-v3-configdump"></span><h2>admin.v3.ConfigDump<a class="headerlink" href="#admin-v3-configdump" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/admin/v3/config_dump.proto#L21">[admin.v3.ConfigDump proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/admin/v3/config_dump.proto#L21">[admin.v3.ConfigDump proto]</a></p>
 <p>The <a class="reference internal" href="../../../operations/admin.html#operations-admin-interface-config-dump"><span class="std std-ref">/config_dump</span></a> admin endpoint uses this wrapper
 message to maintain and serve arbitrary configuration information from any component in Envoy.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -246,7 +246,7 @@ or <a class="reference internal" href="../../../operations/admin.html#operations
 </div>
 <div class="section" id="admin-v3-updatefailurestate">
 <span id="envoy-v3-api-msg-admin-v3-updatefailurestate"></span><h2>admin.v3.UpdateFailureState<a class="headerlink" href="#admin-v3-updatefailurestate" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/admin/v3/config_dump.proto#L46">[admin.v3.UpdateFailureState proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/admin/v3/config_dump.proto#L46">[admin.v3.UpdateFailureState proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;failed_configuration&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;last_update_attempt&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -269,7 +269,7 @@ or <a class="reference internal" href="../../../operations/admin.html#operations
 </div>
 <div class="section" id="admin-v3-bootstrapconfigdump">
 <span id="envoy-v3-api-msg-admin-v3-bootstrapconfigdump"></span><h2>admin.v3.BootstrapConfigDump<a class="headerlink" href="#admin-v3-bootstrapconfigdump" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/admin/v3/config_dump.proto#L64">[admin.v3.BootstrapConfigDump proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/admin/v3/config_dump.proto#L64">[admin.v3.BootstrapConfigDump proto]</a></p>
 <p>This message describes the bootstrap configuration that Envoy was started with. This includes
 any CLI overrides that were merged. Bootstrap configuration information can be used to recreate
 the static portions of an Envoy configuration by reusing the output as the bootstrap
@@ -291,7 +291,7 @@ configuration for another Envoy.</p>
 </div>
 <div class="section" id="admin-v3-listenersconfigdump">
 <span id="envoy-v3-api-msg-admin-v3-listenersconfigdump"></span><h2>admin.v3.ListenersConfigDump<a class="headerlink" href="#admin-v3-listenersconfigdump" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/admin/v3/config_dump.proto#L77">[admin.v3.ListenersConfigDump proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/admin/v3/config_dump.proto#L77">[admin.v3.ListenersConfigDump proto]</a></p>
 <p>Envoy’s listener manager fills this message with all currently known listeners. Listener
 configuration information can be used to recreate an Envoy configuration by populating all
 listeners as static listeners or by returning them in a LDS response.</p>
@@ -319,7 +319,7 @@ will be “”.</p>
 </div>
 <div class="section" id="admin-v3-listenersconfigdump-staticlistener">
 <span id="envoy-v3-api-msg-admin-v3-listenersconfigdump-staticlistener"></span><h2>admin.v3.ListenersConfigDump.StaticListener<a class="headerlink" href="#admin-v3-listenersconfigdump-staticlistener" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/admin/v3/config_dump.proto#L82">[admin.v3.ListenersConfigDump.StaticListener proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/admin/v3/config_dump.proto#L82">[admin.v3.ListenersConfigDump.StaticListener proto]</a></p>
 <p>Describes a statically loaded listener.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;listener&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -338,7 +338,7 @@ will be “”.</p>
 </div>
 <div class="section" id="admin-v3-listenersconfigdump-dynamiclistenerstate">
 <span id="envoy-v3-api-msg-admin-v3-listenersconfigdump-dynamiclistenerstate"></span><h2>admin.v3.ListenersConfigDump.DynamicListenerState<a class="headerlink" href="#admin-v3-listenersconfigdump-dynamiclistenerstate" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/admin/v3/config_dump.proto#L93">[admin.v3.ListenersConfigDump.DynamicListenerState proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/admin/v3/config_dump.proto#L93">[admin.v3.ListenersConfigDump.DynamicListenerState proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;version_info&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;listener&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -364,7 +364,7 @@ by the API.</p>
 </div>
 <div class="section" id="admin-v3-listenersconfigdump-dynamiclistener">
 <span id="envoy-v3-api-msg-admin-v3-listenersconfigdump-dynamiclistener"></span><h2>admin.v3.ListenersConfigDump.DynamicListener<a class="headerlink" href="#admin-v3-listenersconfigdump-dynamiclistener" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/admin/v3/config_dump.proto#L112">[admin.v3.ListenersConfigDump.DynamicListener proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/admin/v3/config_dump.proto#L112">[admin.v3.ListenersConfigDump.DynamicListener proto]</a></p>
 <p>Describes a dynamically loaded listener via the LDS API.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -405,7 +405,7 @@ configuration dump, the draining listeners should generally be discarded.</p>
 </div>
 <div class="section" id="admin-v3-clustersconfigdump">
 <span id="envoy-v3-api-msg-admin-v3-clustersconfigdump"></span><h2>admin.v3.ClustersConfigDump<a class="headerlink" href="#admin-v3-clustersconfigdump" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/admin/v3/config_dump.proto#L154">[admin.v3.ClustersConfigDump proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/admin/v3/config_dump.proto#L154">[admin.v3.ClustersConfigDump proto]</a></p>
 <p>Envoy’s cluster manager fills this message with all currently known clusters. Cluster
 configuration information can be used to recreate an Envoy configuration by populating all
 clusters as static clusters or by returning them in a CDS response.</p>
@@ -442,7 +442,7 @@ discarded.</p>
 </div>
 <div class="section" id="admin-v3-clustersconfigdump-staticcluster">
 <span id="envoy-v3-api-msg-admin-v3-clustersconfigdump-staticcluster"></span><h2>admin.v3.ClustersConfigDump.StaticCluster<a class="headerlink" href="#admin-v3-clustersconfigdump-staticcluster" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/admin/v3/config_dump.proto#L159">[admin.v3.ClustersConfigDump.StaticCluster proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/admin/v3/config_dump.proto#L159">[admin.v3.ClustersConfigDump.StaticCluster proto]</a></p>
 <p>Describes a statically loaded cluster.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;cluster&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -461,7 +461,7 @@ discarded.</p>
 </div>
 <div class="section" id="admin-v3-clustersconfigdump-dynamiccluster">
 <span id="envoy-v3-api-msg-admin-v3-clustersconfigdump-dynamiccluster"></span><h2>admin.v3.ClustersConfigDump.DynamicCluster<a class="headerlink" href="#admin-v3-clustersconfigdump-dynamiccluster" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/admin/v3/config_dump.proto#L171">[admin.v3.ClustersConfigDump.DynamicCluster proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/admin/v3/config_dump.proto#L171">[admin.v3.ClustersConfigDump.DynamicCluster proto]</a></p>
 <p>Describes a dynamically loaded cluster via the CDS API.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;version_info&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -488,7 +488,7 @@ the API.</p>
 </div>
 <div class="section" id="admin-v3-routesconfigdump">
 <span id="envoy-v3-api-msg-admin-v3-routesconfigdump"></span><h2>admin.v3.RoutesConfigDump<a class="headerlink" href="#admin-v3-routesconfigdump" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/admin/v3/config_dump.proto#L212">[admin.v3.RoutesConfigDump proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/admin/v3/config_dump.proto#L212">[admin.v3.RoutesConfigDump proto]</a></p>
 <p>Envoy’s RDS implementation fills this message with all currently loaded routes, as described by
 their RouteConfiguration objects. Static routes that are either defined in the bootstrap configuration
 or defined inline while configuring listeners are separated from those configured dynamically via RDS.
@@ -511,7 +511,7 @@ as static routes or by returning them in RDS responses.</p>
 </div>
 <div class="section" id="admin-v3-routesconfigdump-staticrouteconfig">
 <span id="envoy-v3-api-msg-admin-v3-routesconfigdump-staticrouteconfig"></span><h2>admin.v3.RoutesConfigDump.StaticRouteConfig<a class="headerlink" href="#admin-v3-routesconfigdump-staticrouteconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/admin/v3/config_dump.proto#L216">[admin.v3.RoutesConfigDump.StaticRouteConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/admin/v3/config_dump.proto#L216">[admin.v3.RoutesConfigDump.StaticRouteConfig proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;route_config&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;last_updated&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>
@@ -529,7 +529,7 @@ as static routes or by returning them in RDS responses.</p>
 </div>
 <div class="section" id="admin-v3-routesconfigdump-dynamicrouteconfig">
 <span id="envoy-v3-api-msg-admin-v3-routesconfigdump-dynamicrouteconfig"></span><h2>admin.v3.RoutesConfigDump.DynamicRouteConfig<a class="headerlink" href="#admin-v3-routesconfigdump-dynamicrouteconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/admin/v3/config_dump.proto#L227">[admin.v3.RoutesConfigDump.DynamicRouteConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/admin/v3/config_dump.proto#L227">[admin.v3.RoutesConfigDump.DynamicRouteConfig proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;version_info&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;route_config&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -554,7 +554,7 @@ the route configuration was loaded.</p>
 </div>
 <div class="section" id="admin-v3-scopedroutesconfigdump">
 <span id="envoy-v3-api-msg-admin-v3-scopedroutesconfigdump"></span><h2>admin.v3.ScopedRoutesConfigDump<a class="headerlink" href="#admin-v3-scopedroutesconfigdump" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/admin/v3/config_dump.proto#L254">[admin.v3.ScopedRoutesConfigDump proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/admin/v3/config_dump.proto#L254">[admin.v3.ScopedRoutesConfigDump proto]</a></p>
 <p>Envoy’s scoped RDS implementation fills this message with all currently loaded route
 configuration scopes (defined via ScopedRouteConfigurationsSet protos). This message lists both
 the scopes defined inline with the higher order object (i.e., the HttpConnectionManager) and the
@@ -576,7 +576,7 @@ dynamically obtained scopes via the SRDS API.</p>
 </div>
 <div class="section" id="admin-v3-scopedroutesconfigdump-inlinescopedrouteconfigs">
 <span id="envoy-v3-api-msg-admin-v3-scopedroutesconfigdump-inlinescopedrouteconfigs"></span><h2>admin.v3.ScopedRoutesConfigDump.InlineScopedRouteConfigs<a class="headerlink" href="#admin-v3-scopedroutesconfigdump-inlinescopedrouteconfigs" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/admin/v3/config_dump.proto#L258">[admin.v3.ScopedRoutesConfigDump.InlineScopedRouteConfigs proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/admin/v3/config_dump.proto#L258">[admin.v3.ScopedRoutesConfigDump.InlineScopedRouteConfigs proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;scoped_route_configs&quot;</span><span class="p">:</span> <span class="p">[],</span>
@@ -599,7 +599,7 @@ dynamically obtained scopes via the SRDS API.</p>
 </div>
 <div class="section" id="admin-v3-scopedroutesconfigdump-dynamicscopedrouteconfigs">
 <span id="envoy-v3-api-msg-admin-v3-scopedroutesconfigdump-dynamicscopedrouteconfigs"></span><h2>admin.v3.ScopedRoutesConfigDump.DynamicScopedRouteConfigs<a class="headerlink" href="#admin-v3-scopedroutesconfigdump-dynamicscopedrouteconfigs" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/admin/v3/config_dump.proto#L272">[admin.v3.ScopedRoutesConfigDump.DynamicScopedRouteConfigs proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/admin/v3/config_dump.proto#L272">[admin.v3.ScopedRoutesConfigDump.DynamicScopedRouteConfigs proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;version_info&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -629,7 +629,7 @@ the scoped routes configuration was loaded.</p>
 </div>
 <div class="section" id="admin-v3-secretsconfigdump">
 <span id="envoy-v3-api-msg-admin-v3-secretsconfigdump"></span><h2>admin.v3.SecretsConfigDump<a class="headerlink" href="#admin-v3-secretsconfigdump" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/admin/v3/config_dump.proto#L299">[admin.v3.SecretsConfigDump proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/admin/v3/config_dump.proto#L299">[admin.v3.SecretsConfigDump proto]</a></p>
 <p>Envoys SDS implementation fills this message with all secrets fetched dynamically via SDS.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;static_secrets&quot;</span><span class="p">:</span> <span class="p">[],</span>
@@ -655,7 +655,7 @@ warming in preparation to service clusters or listeners.</p>
 </div>
 <div class="section" id="admin-v3-secretsconfigdump-dynamicsecret">
 <span id="envoy-v3-api-msg-admin-v3-secretsconfigdump-dynamicsecret"></span><h2>admin.v3.SecretsConfigDump.DynamicSecret<a class="headerlink" href="#admin-v3-secretsconfigdump-dynamicsecret" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/admin/v3/config_dump.proto#L304">[admin.v3.SecretsConfigDump.DynamicSecret proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/admin/v3/config_dump.proto#L304">[admin.v3.SecretsConfigDump.DynamicSecret proto]</a></p>
 <p>DynamicSecret contains secret information fetched via SDS.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -686,7 +686,7 @@ private keys and passwords in TLS certificates.</p>
 </div>
 <div class="section" id="admin-v3-secretsconfigdump-staticsecret">
 <span id="envoy-v3-api-msg-admin-v3-secretsconfigdump-staticsecret"></span><h2>admin.v3.SecretsConfigDump.StaticSecret<a class="headerlink" href="#admin-v3-secretsconfigdump-staticsecret" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/admin/v3/config_dump.proto#L324">[admin.v3.SecretsConfigDump.StaticSecret proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/admin/v3/config_dump.proto#L324">[admin.v3.SecretsConfigDump.StaticSecret proto]</a></p>
 <p>StaticSecret specifies statically loaded secret in bootstrap.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -712,7 +712,7 @@ private keys and passwords in TLS certificates.</p>
 </div>
 <div class="section" id="admin-v3-endpointsconfigdump">
 <span id="envoy-v3-api-msg-admin-v3-endpointsconfigdump"></span><h2>admin.v3.EndpointsConfigDump<a class="headerlink" href="#admin-v3-endpointsconfigdump" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/admin/v3/config_dump.proto#L355">[admin.v3.EndpointsConfigDump proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/admin/v3/config_dump.proto#L355">[admin.v3.EndpointsConfigDump proto]</a></p>
 <p>Envoy’s admin fill this message with all currently known endpoints. Endpoint
 configuration information can be used to recreate an Envoy configuration by populating all
 endpoints as static endpoints or by returning them in an EDS response.</p>
@@ -733,7 +733,7 @@ endpoints as static endpoints or by returning them in an EDS response.</p>
 </div>
 <div class="section" id="admin-v3-endpointsconfigdump-staticendpointconfig">
 <span id="envoy-v3-api-msg-admin-v3-endpointsconfigdump-staticendpointconfig"></span><h2>admin.v3.EndpointsConfigDump.StaticEndpointConfig<a class="headerlink" href="#admin-v3-endpointsconfigdump-staticendpointconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/admin/v3/config_dump.proto#L356">[admin.v3.EndpointsConfigDump.StaticEndpointConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/admin/v3/config_dump.proto#L356">[admin.v3.EndpointsConfigDump.StaticEndpointConfig proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;endpoint_config&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>
 <span class="p">}</span>
@@ -746,7 +746,7 @@ endpoints as static endpoints or by returning them in an EDS response.</p>
 </div>
 <div class="section" id="admin-v3-endpointsconfigdump-dynamicendpointconfig">
 <span id="envoy-v3-api-msg-admin-v3-endpointsconfigdump-dynamicendpointconfig"></span><h2>admin.v3.EndpointsConfigDump.DynamicEndpointConfig<a class="headerlink" href="#admin-v3-endpointsconfigdump-dynamicendpointconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/admin/v3/config_dump.proto#L364">[admin.v3.EndpointsConfigDump.DynamicEndpointConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/admin/v3/config_dump.proto#L364">[admin.v3.EndpointsConfigDump.DynamicEndpointConfig proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;endpoint_config&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>
 <span class="p">}</span>

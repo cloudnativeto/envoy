@@ -20,7 +20,7 @@ Thrift Proxy :ref:`configuration overview <config_network_filters_thrift_proxy>`
 config.filter.network.thrift_proxy.v2alpha1.ThriftProxy
 -------------------------------------------------------
 
-`[config.filter.network.thrift_proxy.v2alpha1.ThriftProxy proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/filter/network/thrift_proxy/v2alpha1/thrift_proxy.proto#L63>`_
+`[config.filter.network.thrift_proxy.v2alpha1.ThriftProxy proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/filter/network/thrift_proxy/v2alpha1/thrift_proxy.proto#L63>`_
 
 
 .. code-block:: json
@@ -75,7 +75,7 @@ thrift_filters
 config.filter.network.thrift_proxy.v2alpha1.ThriftFilter
 --------------------------------------------------------
 
-`[config.filter.network.thrift_proxy.v2alpha1.ThriftFilter proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/filter/network/thrift_proxy/v2alpha1/thrift_proxy.proto#L86>`_
+`[config.filter.network.thrift_proxy.v2alpha1.ThriftFilter proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/filter/network/thrift_proxy/v2alpha1/thrift_proxy.proto#L86>`_
 
 ThriftFilter configures a Thrift filter.
 
@@ -124,7 +124,7 @@ typed_config
 config.filter.network.thrift_proxy.v2alpha1.ThriftProtocolOptions
 -----------------------------------------------------------------
 
-`[config.filter.network.thrift_proxy.v2alpha1.ThriftProtocolOptions proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/filter/network/thrift_proxy/v2alpha1/thrift_proxy.proto#L108>`_
+`[config.filter.network.thrift_proxy.v2alpha1.ThriftProtocolOptions proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/filter/network/thrift_proxy/v2alpha1/thrift_proxy.proto#L108>`_
 
 ThriftProtocolOptions specifies Thrift upstream protocol options. This object is used in
 in
@@ -162,7 +162,7 @@ protocol
 Enum config.filter.network.thrift_proxy.v2alpha1.TransportType
 --------------------------------------------------------------
 
-`[config.filter.network.thrift_proxy.v2alpha1.TransportType proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/filter/network/thrift_proxy/v2alpha1/thrift_proxy.proto#L25>`_
+`[config.filter.network.thrift_proxy.v2alpha1.TransportType proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/filter/network/thrift_proxy/v2alpha1/thrift_proxy.proto#L25>`_
 
 Thrift transport types supported by Envoy.
 
@@ -198,7 +198,7 @@ HEADER
 Enum config.filter.network.thrift_proxy.v2alpha1.ProtocolType
 -------------------------------------------------------------
 
-`[config.filter.network.thrift_proxy.v2alpha1.ProtocolType proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/filter/network/thrift_proxy/v2alpha1/thrift_proxy.proto#L42>`_
+`[config.filter.network.thrift_proxy.v2alpha1.ProtocolType proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/filter/network/thrift_proxy/v2alpha1/thrift_proxy.proto#L42>`_
 
 Thrift Protocol types supported by Envoy.
 

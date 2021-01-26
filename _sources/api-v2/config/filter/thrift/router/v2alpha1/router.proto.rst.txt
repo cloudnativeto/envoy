@@ -20,7 +20,7 @@ Thrift router :ref:`configuration overview <config_thrift_filters_router>`.
 config.filter.thrift.router.v2alpha1.Router
 -------------------------------------------
 
-`[config.filter.thrift.router.v2alpha1.Router proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/filter/thrift/router/v2alpha1/router.proto#L15>`_
+`[config.filter.thrift.router.v2alpha1.Router proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/filter/thrift/router/v2alpha1/router.proto#L15>`_
 
 
 .. code-block:: json

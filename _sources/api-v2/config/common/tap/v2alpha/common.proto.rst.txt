@@ -9,7 +9,7 @@ Common tap extension configuration
 config.common.tap.v2alpha.CommonExtensionConfig
 -----------------------------------------------
 
-`[config.common.tap.v2alpha.CommonExtensionConfig proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/common/tap/v2alpha/common.proto#L20>`_
+`[config.common.tap.v2alpha.CommonExtensionConfig proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/common/tap/v2alpha/common.proto#L20>`_
 
 Common configuration for all tap extensions.
 
@@ -47,7 +47,7 @@ static_config
 config.common.tap.v2alpha.AdminConfig
 -------------------------------------
 
-`[config.common.tap.v2alpha.AdminConfig proto] <https://github.com/envoyproxy/envoy/blob/23f5271659ed88cc259ce5ba164fe626c439ed6c/api/envoy/config/common/tap/v2alpha/common.proto#L47>`_
+`[config.common.tap.v2alpha.AdminConfig proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/common/tap/v2alpha/common.proto#L47>`_
 
 Configuration for the admin handler. See :ref:`here <config_http_filters_tap_admin_handler>` for
 more information.

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>扩展配置 &mdash; envoy 1.16.0-23f527 documentation</title>
+  <title>扩展配置 &mdash; envoy 1.16.0-ced63e documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-23f527
+                1.16.0-ced63e
               </div>
             
           
@@ -253,9 +253,6 @@
 <div class="section" id="config-overview-extension-discovery">
 <span id="id2"></span><h2>发现服务<a class="headerlink" href="#config-overview-extension-discovery" title="Permalink to this headline">¶</a></h2>
 <p>扩展配置可以使用 <a class="reference internal" href="../../api-v3/service/extension/v3/config_discovery.proto.html#envoy-v3-api-file-envoy-service-extension-v3-config-discovery-proto"><span class="std std-ref">ExtensionConfiguration 发现服务</span></a> 的 <a class="reference internal" href="../../api-docs/xds_protocol.html#xds-protocol"><span class="std std-ref">xDS 管理服务器</span></a> 来动态提供。扩展配置中的 name 字段充当资源标识符。比如，HTTP 连接管理器支持 HTTP 过滤器的 <a class="reference internal" href="../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpfilter-config-discovery"><span class="std std-ref">动态过滤器重配置</span></a>。</p>
-<p>Extension config discovery service has a <a class="reference internal" href="mgmt_server.html#subscription-statistics"><span class="std std-ref">statistics</span></a> tree rooted at
-<em>&lt;stat_prefix&gt;.extension_config_discovery.&lt;extension_config_name&gt;</em>. In addition
-to the common subscription statistics, it also provides the following:</p>
 <p>扩展配置发现服务有一个以 <em>&lt;stat_prefix&gt;.extension_config_discovery.&lt;extension_config_name&gt;</em> 为根的 <a class="reference internal" href="mgmt_server.html#subscription-statistics"><span class="std std-ref">统计</span></a> 树。除了公共订阅统计，它还提供如下统计：</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>

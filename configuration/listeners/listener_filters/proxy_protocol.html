@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>代理协议 &mdash; envoy 1.16.0-23f527 documentation</title>
+  <title>代理协议 &mdash; envoy 1.16.0-ced63e documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-23f527
+                1.16.0-ced63e
               </div>
             
           
@@ -218,8 +218,8 @@
 <p>这种实现同时支持版本 v1 和版本 v2，它会基于每一个连接（per-connection）来自动决定使用两个版本中的哪个。注意：如果开启了过滤器，代理协议必须存在于连接中（版本 1 或者版本 2），因为标准不允许通过解析来确定它是否存在。</p>
 <p>如果有协议错误或者不支持的地址簇（比如 AF_UNIX），则连接将被关闭且抛出错误。</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../../api-v3/config/listener/v3/listener_components.proto.html#envoy-v3-api-field-config-listener-v3-filter-name"><span class="std std-ref">v3 API reference</span></a></p></li>
-<li><p>This filter should be configured with the name <em>envoy.filters.listener.proxy_protocol</em>.</p></li>
+<li><p><a class="reference internal" href="../../../api-v3/config/listener/v3/listener_components.proto.html#envoy-v3-api-field-config-listener-v3-filter-name"><span class="std std-ref">v3 API 参考</span></a></p></li>
+<li><p>此过滤器应使用 <em>envoy.filters.listener.proxy_protocol</em> 名称进行配置。</p></li>
 </ul>
 <div class="section" id="id2">
 <h2>统计<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>

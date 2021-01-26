@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Compressor &mdash; envoy 1.16.0-23f527 documentation</title>
+  <title>压缩器 &mdash; envoy 1.16.0-ced63e documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-23f527
+                1.16.0-ced63e
               </div>
             
           
@@ -117,7 +117,7 @@
 <li class="toctree-l4"><a class="reference internal" href="aws_request_signing_filter.html">AWS 请求签名</a></li>
 <li class="toctree-l4"><a class="reference internal" href="buffer_filter.html">缓冲区</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cdn_loop_filter.html">CDN-Loop 头部</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Compressor</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">压缩器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cors_filter.html">CORS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="csrf_filter.html">CSRF</a></li>
 <li class="toctree-l4"><a class="reference internal" href="decompressor_filter.html">解压缩器</a></li>
@@ -215,7 +215,7 @@
         
           <li><a href="http_filters.html">HTTP 过滤器</a> &raquo;</li>
         
-      <li>Compressor</li>
+      <li>压缩器</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -234,32 +234,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="compressor">
-<span id="config-http-filters-compressor"></span><h1>Compressor<a class="headerlink" href="#compressor" title="Permalink to this headline">¶</a></h1>
-<p>Compressor is an HTTP filter which enables Envoy to compress dispatched data
-from an upstream service upon client request. Compression is useful in
-situations when bandwidth is scarce and large payloads can be effectively compressed
-at the expense of higher CPU load or offloading it to a compression accelerator.</p>
+  <div class="section" id="config-http-filters-compressor">
+<span id="id1"></span><h1>压缩器<a class="headerlink" href="#config-http-filters-compressor" title="Permalink to this headline">¶</a></h1>
+<p>压缩器是一个 HTTP 过滤器，它允许 Envoy 基于客户端请求将从上游服务发过来的数据进行压缩。
+当带宽有限或者负载（payload）很大时，压缩是非常有用的，只不过代价是更高的 CPU 负载或者
+把压缩卸载到一个压缩加速器。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This filter deprecates the <a class="reference internal" href="gzip_filter.html#config-http-filters-gzip"><span class="std std-ref">HTTP Gzip filter</span></a>.</p>
+<p>这个过滤器是为了替换 <a class="reference internal" href="gzip_filter.html#config-http-filters-gzip"><span class="std std-ref">HTTP Gzip 过滤器</span></a></p>
 </div>
-<div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2>配置说明<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../../api-v3/extensions/filters/http/compressor/v3/compressor.proto.html#envoy-v3-api-msg-extensions-filters-http-compressor-v3-compressor"><span class="std std-ref">v3 API reference</span></a></p></li>
-<li><p>This filter should be configured with the name <em>envoy.filters.http.compressor</em>.</p></li>
+<li><p><a class="reference internal" href="../../../api-v3/extensions/filters/http/compressor/v3/compressor.proto.html#envoy-v3-api-msg-extensions-filters-http-compressor-v3-compressor"><span class="std std-ref">v3 API 参考</span></a></p></li>
+<li><p>这个过滤器配置的名称为 <em>envoy.filters.http.compressor</em></p></li>
 </ul>
 </div>
-<div class="section" id="how-it-works">
-<h2>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h2>
-<p>When compressor filter is enabled, request and response headers are inspected to
-determine whether or not the content should be compressed. The content is
-compressed and then sent to the client with the appropriate headers, if
-response and request allow.</p>
-<p>Currently the filter supports <a class="reference internal" href="../../../api-v3/extensions/compression/gzip/compressor/v3/gzip.proto.html#envoy-v3-api-msg-extensions-compression-gzip-compressor-v3-gzip"><span class="std std-ref">gzip compression</span></a>
-only. Other compression libraries can be supported as extensions.</p>
-<p>An example configuration of the filter may look like the following:</p>
+<div class="section" id="id3">
+<h2>工作原理<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>当过滤器启用后，会根据请求和应答报文头判断是否需要压缩报文体。
+如果请求与应答允许，则正文将被压缩，然后使用适当的报文头将其发送到客户端。</p>
+<p>当前过滤器只支持 <a class="reference internal" href="../../../api-v3/extensions/compression/gzip/compressor/v3/gzip.proto.html#envoy-v3-api-msg-extensions-compression-gzip-compressor-v3-gzip"><span class="std std-ref">gzip compression</span></a>
+其它压缩库可作为扩展来支持。</p>
+<p>配置示例如下：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">http_filters</span><span class="p">:</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.filters.http.compressor</span>
   <span class="nt">typed_config</span><span class="p">:</span>
@@ -279,50 +276,42 @@ only. Other compression libraries can be supported as extensions.</p>
         <span class="nt">compression_strategy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">default_strategy</span>
 </pre></div>
 </div>
-<p>By <em>default</em> compression will be <em>skipped</em> when:</p>
+<p>这些情况下，压缩器将不启用：</p>
 <ul class="simple">
-<li><p>A request does NOT contain <em>accept-encoding</em> header.</p></li>
-<li><p>A request includes <em>accept-encoding</em> header, but it does not contain “gzip” or “*”.</p></li>
-<li><p>A request includes <em>accept-encoding</em> with “gzip” or “*” with the weight “q=0”. Note
-that the “gzip” will have a higher weight then “*”. For example, if <em>accept-encoding</em>
-is “gzip;q=0,*;q=1”, the filter will not compress. But if the header is set to
-“*;q=0,gzip;q=1”, the filter will compress.</p></li>
-<li><p>A request whose <em>accept-encoding</em> header includes any encoding type with a higher
-weight than “gzip“‘s given the corresponding compression filter is present in the chain.</p></li>
-<li><p>A response contains a <em>content-encoding</em> header.</p></li>
-<li><p>A response contains a <em>cache-control</em> header whose value includes “no-transform”.</p></li>
-<li><p>A response contains a <em>transfer-encoding</em> header whose value includes “gzip”.</p></li>
-<li><p>A response does not contain a <em>content-type</em> value that matches one of the selected
-mime-types, which default to <em>application/javascript</em>, <em>application/json</em>,
+<li><p>请求头中不包含 <em>accept-encoding</em></p></li>
+<li><p>请求头中虽然包含 <em>accept-encoding</em> ，但取值中不包含“gzip”或者“*”</p></li>
+<li><p>请求头中 <em>accept-encoding</em> 取值包含“gzip” or “*”但权重配置“q=0”
+需要注意的是：“gzip”优先级比“*”高。例如，当 <em>accept-encoding</em>
+取值为“gzip;q=0,*;q=1”，过滤器将不会压缩。但如果它取值为
+“*;q=0,gzip;q=1”，过滤器将进行压缩</p></li>
+<li><p>请求头中 <em>accept-encoding</em> 中包含其它比“gzip”权重更高的压缩算法，
+且该算法过滤器在处理链中存在。</p></li>
+<li><p>应答报文头中包含 <em>content-encoding</em></p></li>
+<li><p>应答报文头中 <em>cache-control</em> 取值包含“no-transform”</p></li>
+<li><p>应答报文头中 <em>transfer-encoding</em> 取值包含“gzip”</p></li>
+<li><p>应答报文头中 <em>content-type</em> 取值不在这些当中：<em>application/javascript</em>, <em>application/json</em>,
 <em>application/xhtml+xml</em>, <em>image/svg+xml</em>, <em>text/css</em>, <em>text/html</em>, <em>text/plain</em>,
-<em>text/xml</em>.</p></li>
-<li><p>Neither <em>content-length</em> nor <em>transfer-encoding</em> headers are present in
-the response.</p></li>
-<li><p>Response size is smaller than 30 bytes (only applicable when <em>transfer-encoding</em>
-is not chunked).</p></li>
+<em>text/xml</em></p></li>
+<li><p>应答报文头中不包含 <em>content-length</em> 和 <em>transfer-encoding</em></p></li>
+<li><p>应答报文体小于 30 字节 (仅适用于 <em>transfer-encoding</em> 取值不为：chunked)</p></li>
 </ul>
-<p>Please note that in case the filter is configured to use a compression library extension
-other than gzip it looks for content encoding in the <em>accept-encoding</em> header provided by
-the extension.</p>
-<p>When compression is <em>applied</em>:</p>
+<p>需要注意的是，如果过滤器配置的是 gzip 之外的扩展压缩库，将从扩展提供的报文头 <em>accept-encoding</em> 中获取
+编码方式。</p>
+<p>当压缩器生效，将有如下影响：</p>
 <ul class="simple">
-<li><p>The <em>content-length</em> is removed from response headers.</p></li>
-<li><p>Response headers contain “<em>transfer-encoding: chunked</em>” and do not contain
-“<em>content-encoding</em>” header.</p></li>
-<li><p>The “<em>vary: accept-encoding</em>” header is inserted on every response.</p></li>
+<li><p>应答报文头中 <em>content-length</em> 字段将被去除</p></li>
+<li><p>应答报文头中包含“<em>transfer-encoding: chunked</em>”且不包含“<em>content-encoding</em>”。</p></li>
+<li><p>每个应答报文头中都会带上“<em>vary: accept-encoding</em>”</p></li>
 </ul>
-<p>Also the “<em>vary: accept-encoding</em>” header may be inserted even if compression is <em>not</em>
-applied due to incompatible “<em>accept-encoding</em>” header in a request. This happens
-when the requested resource still can be compressed given compatible “<em>accept-encoding</em>”.
-Otherwise, if an uncompressed response is cached by a caching proxy in front of Envoy,
-the proxy won’t know to fetch a new incoming request with compatible “<em>accept-encoding</em>”
-from upstream.</p>
+<p>同时，即使由于不兼容的 “accept-encoding” 头部，压缩没有被启用，”<em>vary: accept-encoding</em>” 头部也可以被插入。
+当给定兼容的 “<em>accept-encoding</em>” 仍可以被压缩时，这种情况就会发生。否则，如果未压缩的响应被 Envoy
+前面的缓存代理缓存，那么该代理将不知道如何用兼容的 “<em>accept-encoding</em>” 从上游获取新传入的请求。</p>
 </div>
-<div class="section" id="statistics">
-<span id="compressor-statistics"></span><h2>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h2>
-<p>Every configured Compressor filter has statistics rooted at
+<div class="section" id="compressor-statistics">
+<span id="id4"></span><h2>统计信息<a class="headerlink" href="#compressor-statistics" title="Permalink to this headline">¶</a></h2>
+<p>所有配置压缩过滤器的指标前缀为
 &lt;stat_prefix&gt;.compressor.&lt;compressor_library.name&gt;.&lt;compressor_library_stat_prefix&gt;.*
-with the following:</p>
+指标项如下:</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -330,59 +319,59 @@ with the following:</p>
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>compressed</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of requests compressed.</p></td>
+<td><p>已压缩的请求数</p></td>
 </tr>
 <tr class="row-odd"><td><p>not_compressed</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of requests not compressed.</p></td>
+<td><p>未压缩的请求数</p></td>
 </tr>
 <tr class="row-even"><td><p>no_accept_header</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of requests with no accept header sent.</p></td>
+<td><p>请求头不匹配的请求数</p></td>
 </tr>
 <tr class="row-odd"><td><p>header_identity</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of requests sent with “identity” set as the <em>accept-encoding</em>.</p></td>
+<td><p>请求头中包含 <em>accept-encoding</em> 的请求数</p></td>
 </tr>
 <tr class="row-even"><td><p>header_compressor_used</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of requests sent with “gzip” set as the <em>accept-encoding</em>.</p></td>
+<td><p>请求头中 <em>accept-encoding</em> 设置为“gzip”的请求数</p></td>
 </tr>
 <tr class="row-odd"><td><p>header_compressor_overshadowed</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of requests skipped by this filter instance because they were handled by another filter in the same filter chain.</p></td>
+<td><p>由于已经匹配链路中其它过滤器而跳过的请求数</p></td>
 </tr>
 <tr class="row-even"><td><p>header_wildcard</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of requests sent with “*” set as the <em>accept-encoding</em>.</p></td>
+<td><p>请求头中 <em>accept-encoding</em> 设置为“*”的请求数</p></td>
 </tr>
 <tr class="row-odd"><td><p>header_not_valid</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of requests sent with a not valid <em>accept-encoding</em> header (aka “q=0” or an unsupported encoding type).</p></td>
+<td><p>请求头中 <em>accept-encoding</em> 取值不合法的请求数（比如“q=0”或者其它不支持的压缩方式）</p></td>
 </tr>
 <tr class="row-even"><td><p>total_uncompressed_bytes</p></td>
 <td><p>Counter</p></td>
-<td><p>The total uncompressed bytes of all the requests that were marked for compression.</p></td>
+<td><p>标记为需要压缩但未进行压缩的字节总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>total_compressed_bytes</p></td>
 <td><p>Counter</p></td>
-<td><p>The total compressed bytes of all the requests that were marked for compression.</p></td>
+<td><p>标记为需要压缩且已经压缩的字节总数</p></td>
 </tr>
 <tr class="row-even"><td><p>content_length_too_small</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of requests that accepted gzip encoding but did not compress because the payload was too small.</p></td>
+<td><p>标记为需要压缩但由于报文字节数太小未进行压缩的请求数</p></td>
 </tr>
 <tr class="row-odd"><td><p>not_compressed_etag</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of requests that were not compressed due to the etag header. <em>disable_on_etag_header</em> must be turned on for this to happen.</p></td>
+<td><p>由于扩展报文头而未进行压缩的请求数。只有当开启 <em>disable_on_etag_header</em> 时才有该指标</p></td>
 </tr>
 </tbody>
 </table>
