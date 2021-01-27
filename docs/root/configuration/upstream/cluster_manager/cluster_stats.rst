@@ -262,7 +262,7 @@ Envoy 将在 *cluster.<name>.zone.<from_zone>.<to_zone>.* 命名空间中跟踪�
 .. _config_cluster_manager_cluster_stats_subset_lb:
 
 负载均衡器子集统计信息
---------------------
+----------------------------------------
 
 用于监视 :ref:`负载均衡器子集 <arch_overview_load_balancer_subsets>` 决策的统计信息。
 统计信息以 *cluster.<name>* 为根，并包含以下信息：
@@ -282,7 +282,7 @@ Envoy 将在 *cluster.<name>.zone.<from_zone>.<to_zone>.* 命名空间中跟踪�
 .. _config_cluster_manager_cluster_stats_ring_hash_lb:
 
 环哈希负载均衡器统计信息
-----------------------
+------------------------------------------------
 
 使用 :ref:`环哈希负载均衡器 <arch_overview_load_balancing_types_ring_hash>` 时，监视哈希大小和有效分布的统计信息。
 统计信息以 *cluster.<name>.ring_hash_lb.* 为根，并包含以下信息：
