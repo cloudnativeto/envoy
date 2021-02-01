@@ -20,7 +20,7 @@ External Authorization :ref:`configuration overview <config_http_filters_ext_aut
 config.filter.http.ext_authz.v2.ExtAuthz
 ----------------------------------------
 
-`[config.filter.http.ext_authz.v2.ExtAuthz proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/filter/http/ext_authz/v2/ext_authz.proto#L27>`_
+`[config.filter.http.ext_authz.v2.ExtAuthz proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/config/filter/http/ext_authz/v2/ext_authz.proto#L27>`_
 
 
 .. code-block:: json
@@ -171,7 +171,7 @@ include_peer_certificate
 config.filter.http.ext_authz.v2.BufferSettings
 ----------------------------------------------
 
-`[config.filter.http.ext_authz.v2.BufferSettings proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/filter/http/ext_authz/v2/ext_authz.proto#L117>`_
+`[config.filter.http.ext_authz.v2.BufferSettings proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/config/filter/http/ext_authz/v2/ext_authz.proto#L117>`_
 
 Configuration for buffering the request data.
 
@@ -206,7 +206,7 @@ allow_partial_message
 config.filter.http.ext_authz.v2.HttpService
 -------------------------------------------
 
-`[config.filter.http.ext_authz.v2.HttpService proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/filter/http/ext_authz/v2/ext_authz.proto#L155>`_
+`[config.filter.http.ext_authz.v2.HttpService proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/config/filter/http/ext_authz/v2/ext_authz.proto#L155>`_
 
 HttpService is used for raw HTTP communication between the filter and the authorization service.
 When configured, the filter will parse the client request and use these attributes to call the
@@ -273,7 +273,7 @@ authorization_response
 config.filter.http.ext_authz.v2.AuthorizationRequest
 ----------------------------------------------------
 
-`[config.filter.http.ext_authz.v2.AuthorizationRequest proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/filter/http/ext_authz/v2/ext_authz.proto#L171>`_
+`[config.filter.http.ext_authz.v2.AuthorizationRequest proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/config/filter/http/ext_authz/v2/ext_authz.proto#L171>`_
 
 
 .. code-block:: json
@@ -315,7 +315,7 @@ headers_to_add
 config.filter.http.ext_authz.v2.AuthorizationResponse
 -----------------------------------------------------
 
-`[config.filter.http.ext_authz.v2.AuthorizationResponse proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/filter/http/ext_authz/v2/ext_authz.proto#L192>`_
+`[config.filter.http.ext_authz.v2.AuthorizationResponse proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/config/filter/http/ext_authz/v2/ext_authz.proto#L192>`_
 
 
 .. code-block:: json
@@ -350,7 +350,7 @@ allowed_client_headers
 config.filter.http.ext_authz.v2.ExtAuthzPerRoute
 ------------------------------------------------
 
-`[config.filter.http.ext_authz.v2.ExtAuthzPerRoute proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/filter/http/ext_authz/v2/ext_authz.proto#L207>`_
+`[config.filter.http.ext_authz.v2.ExtAuthzPerRoute proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/config/filter/http/ext_authz/v2/ext_authz.proto#L207>`_
 
 Extra settings on a per virtualhost/route/weighted-cluster level.
 
@@ -387,7 +387,7 @@ check_settings
 config.filter.http.ext_authz.v2.CheckSettings
 ---------------------------------------------
 
-`[config.filter.http.ext_authz.v2.CheckSettings proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/config/filter/http/ext_authz/v2/ext_authz.proto#L225>`_
+`[config.filter.http.ext_authz.v2.CheckSettings proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/config/filter/http/ext_authz/v2/ext_authz.proto#L225>`_
 
 Extra settings for the check request. You can use this to provide extra context for the
 external authorization server on specific virtual hosts \ routes. For example, adding a context

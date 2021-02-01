@@ -11,7 +11,7 @@ sequences on a socket.
 data.tap.v2alpha.Connection
 ---------------------------
 
-`[data.tap.v2alpha.Connection proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/data/tap/v2alpha/transport.proto#L21>`_
+`[data.tap.v2alpha.Connection proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/data/tap/v2alpha/transport.proto#L21>`_
 
 Connection properties.
 
@@ -41,7 +41,7 @@ remote_address
 data.tap.v2alpha.SocketEvent
 ----------------------------
 
-`[data.tap.v2alpha.SocketEvent proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/data/tap/v2alpha/transport.proto#L30>`_
+`[data.tap.v2alpha.SocketEvent proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/data/tap/v2alpha/transport.proto#L30>`_
 
 Event in a socket trace.
 
@@ -92,7 +92,7 @@ closed
 data.tap.v2alpha.SocketEvent.Read
 ---------------------------------
 
-`[data.tap.v2alpha.SocketEvent.Read proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/data/tap/v2alpha/transport.proto#L32>`_
+`[data.tap.v2alpha.SocketEvent.Read proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/data/tap/v2alpha/transport.proto#L32>`_
 
 Data read by Envoy from the transport socket.
 
@@ -115,7 +115,7 @@ data
 data.tap.v2alpha.SocketEvent.Write
 ----------------------------------
 
-`[data.tap.v2alpha.SocketEvent.Write proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/data/tap/v2alpha/transport.proto#L40>`_
+`[data.tap.v2alpha.SocketEvent.Write proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/data/tap/v2alpha/transport.proto#L40>`_
 
 Data written by Envoy to the transport socket.
 
@@ -145,7 +145,7 @@ end_stream
 data.tap.v2alpha.SocketEvent.Closed
 -----------------------------------
 
-`[data.tap.v2alpha.SocketEvent.Closed proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/data/tap/v2alpha/transport.proto#L49>`_
+`[data.tap.v2alpha.SocketEvent.Closed proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/data/tap/v2alpha/transport.proto#L49>`_
 
 The connection was closed.
 
@@ -162,7 +162,7 @@ The connection was closed.
 data.tap.v2alpha.SocketBufferedTrace
 ------------------------------------
 
-`[data.tap.v2alpha.SocketBufferedTrace proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/data/tap/v2alpha/transport.proto#L68>`_
+`[data.tap.v2alpha.SocketBufferedTrace proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/data/tap/v2alpha/transport.proto#L68>`_
 
 Sequence of read/write events that constitute a buffered trace on a socket.
 
@@ -216,7 +216,7 @@ write_truncated
 data.tap.v2alpha.SocketStreamedTraceSegment
 -------------------------------------------
 
-`[data.tap.v2alpha.SocketStreamedTraceSegment proto] <https://github.com/envoyproxy/envoy/blob/ced63ea9ab4c86d348c0f661ee551fd71fb6355b/api/envoy/data/tap/v2alpha/transport.proto#L89>`_
+`[data.tap.v2alpha.SocketStreamedTraceSegment proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/data/tap/v2alpha/transport.proto#L89>`_
 
 A streamed socket trace segment. Multiple segments make up a full trace.
 
