@@ -9,7 +9,7 @@ Endpoints
 endpoint.Endpoint
 -----------------
 
-`[endpoint.Endpoint proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/api/v2/endpoint/endpoint_components.proto#L23>`_
+`[endpoint.Endpoint proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/api/v2/endpoint/endpoint_components.proto#L23>`_
 
 Upstream host identifier.
 
@@ -61,7 +61,7 @@ hostname
 endpoint.Endpoint.HealthCheckConfig
 -----------------------------------
 
-`[endpoint.Endpoint.HealthCheckConfig proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/api/v2/endpoint/endpoint_components.proto#L25>`_
+`[endpoint.Endpoint.HealthCheckConfig proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/api/v2/endpoint/endpoint_components.proto#L25>`_
 
 The optional health check configuration.
 
@@ -101,7 +101,7 @@ hostname
 endpoint.LbEndpoint
 -------------------
 
-`[endpoint.LbEndpoint proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/api/v2/endpoint/endpoint_components.proto#L71>`_
+`[endpoint.LbEndpoint proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/api/v2/endpoint/endpoint_components.proto#L71>`_
 
 An Endpoint that Envoy can route traffic to.
 
@@ -161,7 +161,7 @@ load_balancing_weight
 endpoint.LocalityLbEndpoints
 ----------------------------
 
-`[endpoint.LocalityLbEndpoints proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/api/v2/endpoint/endpoint_components.proto#L109>`_
+`[endpoint.LocalityLbEndpoints proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/api/v2/endpoint/endpoint_components.proto#L109>`_
 
 A group of endpoints belonging to a Locality.
 One can have multiple LocalityLbEndpoints for a locality, but this is

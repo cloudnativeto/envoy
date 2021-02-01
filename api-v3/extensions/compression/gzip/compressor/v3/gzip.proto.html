@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Gzip Compressor &mdash; envoy 1.16.0-3f3465 documentation</title>
+  <title>Gzip Compressor &mdash; envoy 1.16.0-80a199 documentation</title>
   
 
   
@@ -47,7 +47,7 @@
     <link rel="index" title="Index" href="../../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../../search.html" />
     <link rel="next" title="Gzip Decompressor" href="../../decompressor/v3/gzip.proto.html" />
-    <link rel="prev" title="Compression" href="../../../../../config/compression/compression.html" /> 
+    <link rel="prev" title="压缩" href="../../../../../config/compression/compression.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-3f3465
+                1.16.0-80a199
               </div>
             
           
@@ -124,7 +124,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../config/transport_socket/transport_socket.html">Transport sockets</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../config/resource_monitor/resource_monitor.html">Resource monitors</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../config/common/common.html">Common</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../../../../../config/compression/compression.html">Compression</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../../../../config/compression/compression.html">压缩</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../config/cluster/cluster.html">集群</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../config/grpc_credential/grpc_credential.html">Grpc Credentials</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../config/retry/retry.html">Retry Predicates</a></li>
@@ -133,7 +133,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../config/endpoint/endpoint.html">Endpoint</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../config/upstream/upstream.html">上游配置</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../config/wasm/wasm.html">WASM</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../../config/watchdog/watchdog.html">Watchdog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../config/watchdog/watchdog.html">看门狗（watchdog）</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../admin/admin.html">管理</a></li>
@@ -200,7 +200,7 @@
         
           <li><a href="../../../../../config/config.html">扩展</a> &raquo;</li>
         
-          <li><a href="../../../../../config/compression/compression.html">Compression</a> &raquo;</li>
+          <li><a href="../../../../../config/compression/compression.html">压缩</a> &raquo;</li>
         
       <li>Gzip Compressor</li>
     
@@ -230,7 +230,7 @@
 </div>
 <div class="section" id="extensions-compression-gzip-compressor-v3-gzip">
 <span id="envoy-v3-api-msg-extensions-compression-gzip-compressor-v3-gzip"></span><h2>extensions.compression.gzip.compressor.v3.Gzip<a class="headerlink" href="#extensions-compression-gzip-compressor-v3-gzip" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/extensions/compression/gzip/compressor/v3/gzip.proto#L19">[extensions.compression.gzip.compressor.v3.Gzip proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/extensions/compression/gzip/compressor/v3/gzip.proto#L19">[extensions.compression.gzip.compressor.v3.Gzip proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;memory_level&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;compression_level&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -280,7 +280,7 @@ See <a class="reference external" href="https://www.zlib.net/manual.html">https:
 </div>
 <div class="section" id="enum-extensions-compression-gzip-compressor-v3-gzip-compressionstrategy">
 <span id="envoy-v3-api-enum-extensions-compression-gzip-compressor-v3-gzip-compressionstrategy"></span><h2>Enum extensions.compression.gzip.compressor.v3.Gzip.CompressionStrategy<a class="headerlink" href="#enum-extensions-compression-gzip-compressor-v3-gzip-compressionstrategy" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/extensions/compression/gzip/compressor/v3/gzip.proto#L22">[extensions.compression.gzip.compressor.v3.Gzip.CompressionStrategy proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/extensions/compression/gzip/compressor/v3/gzip.proto#L22">[extensions.compression.gzip.compressor.v3.Gzip.CompressionStrategy proto]</a></p>
 <p>All the values of this enumeration translate directly to zlib’s compression strategies.
 For more information about each strategy, please refer to zlib manual.</p>
 <dl class="simple" id="envoy-v3-api-enum-value-extensions-compression-gzip-compressor-v3-gzip-compressionstrategy-default-strategy">
@@ -306,7 +306,7 @@ For more information about each strategy, please refer to zlib manual.</p>
 </div>
 <div class="section" id="enum-extensions-compression-gzip-compressor-v3-gzip-compressionlevel">
 <span id="envoy-v3-api-enum-extensions-compression-gzip-compressor-v3-gzip-compressionlevel"></span><h2>Enum extensions.compression.gzip.compressor.v3.Gzip.CompressionLevel<a class="headerlink" href="#enum-extensions-compression-gzip-compressor-v3-gzip-compressionlevel" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/extensions/compression/gzip/compressor/v3/gzip.proto#L30">[extensions.compression.gzip.compressor.v3.Gzip.CompressionLevel proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/extensions/compression/gzip/compressor/v3/gzip.proto#L30">[extensions.compression.gzip.compressor.v3.Gzip.CompressionLevel proto]</a></p>
 <dl class="simple" id="envoy-v3-api-enum-value-extensions-compression-gzip-compressor-v3-gzip-compressionlevel-default-compression">
 <dt>DEFAULT_COMPRESSION</dt><dd><p><em>(DEFAULT)</em> ⁣</p>
 </dd>
@@ -369,7 +369,7 @@ For more information about each strategy, please refer to zlib manual.</p>
         <a href="../../decompressor/v3/gzip.proto.html" class="btn btn-neutral float-right" title="Gzip Decompressor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../../../../config/compression/compression.html" class="btn btn-neutral float-left" title="Compression" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../../../../config/compression/compression.html" class="btn btn-neutral float-left" title="压缩" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

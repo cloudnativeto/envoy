@@ -9,7 +9,7 @@ Common discovery API components
 DiscoveryRequest
 ----------------
 
-`[DiscoveryRequest proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/api/v2/discovery.proto#L23>`_
+`[DiscoveryRequest proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/api/v2/discovery.proto#L23>`_
 
 A DiscoveryRequest requests a set of versioned resources of the same type for
 a given Envoy node on some API.
@@ -89,7 +89,7 @@ error_detail
 DiscoveryResponse
 -----------------
 
-`[DiscoveryResponse proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/api/v2/discovery.proto#L65>`_
+`[DiscoveryResponse proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/api/v2/discovery.proto#L65>`_
 
 
 .. code-block:: json
@@ -142,7 +142,7 @@ nonce
 DeltaDiscoveryRequest
 ---------------------
 
-`[DeltaDiscoveryRequest proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/api/v2/discovery.proto#L140>`_
+`[DeltaDiscoveryRequest proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/api/v2/discovery.proto#L140>`_
 
 DeltaDiscoveryRequest and DeltaDiscoveryResponse are used in a new gRPC
 endpoint for Delta xDS.
@@ -271,7 +271,7 @@ error_detail
 DeltaDiscoveryResponse
 ----------------------
 
-`[DeltaDiscoveryResponse proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/api/v2/discovery.proto#L197>`_
+`[DeltaDiscoveryResponse proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/api/v2/discovery.proto#L197>`_
 
 
 .. code-block:: json
@@ -325,7 +325,7 @@ nonce
 Resource
 --------
 
-`[Resource proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/api/v2/discovery.proto#L220>`_
+`[Resource proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/api/v2/discovery.proto#L220>`_
 
 
 .. code-block:: json

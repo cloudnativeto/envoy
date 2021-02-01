@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Endpoints &mdash; envoy 1.16.0-3f3465 documentation</title>
+  <title>Endpoints &mdash; envoy 1.16.0-80a199 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-3f3465
+                1.16.0-80a199
               </div>
             
           
@@ -124,7 +124,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../transport_socket/transport_socket.html">Transport sockets</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../resource_monitor/resource_monitor.html">Resource monitors</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../common/common.html">Common</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../compression/compression.html">Compression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../compression/compression.html">压缩</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../cluster/cluster.html">集群</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../grpc_credential/grpc_credential.html">Grpc Credentials</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../retry/retry.html">Retry Predicates</a></li>
@@ -133,7 +133,7 @@
 <li class="toctree-l4 current"><a class="reference internal" href="../endpoint.html">Endpoint</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../upstream/upstream.html">上游配置</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../wasm/wasm.html">WASM</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../watchdog/watchdog.html">Watchdog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../watchdog/watchdog.html">看门狗（watchdog）</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../admin/admin.html">管理</a></li>
@@ -223,7 +223,7 @@
 <span id="envoy-v3-api-file-envoy-config-endpoint-v3-endpoint-components-proto"></span><h1>Endpoints<a class="headerlink" href="#endpoints" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="config-endpoint-v3-endpoint">
 <span id="envoy-v3-api-msg-config-endpoint-v3-endpoint"></span><h2>config.endpoint.v3.Endpoint<a class="headerlink" href="#config-endpoint-v3-endpoint" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/config/endpoint/v3/endpoint_components.proto#L22">[config.endpoint.v3.Endpoint proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/endpoint/v3/endpoint_components.proto#L22">[config.endpoint.v3.Endpoint proto]</a></p>
 <p>Upstream host identifier.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -264,7 +264,7 @@ that require a hostname, like
 </div>
 <div class="section" id="config-endpoint-v3-endpoint-healthcheckconfig">
 <span id="envoy-v3-api-msg-config-endpoint-v3-endpoint-healthcheckconfig"></span><h2>config.endpoint.v3.Endpoint.HealthCheckConfig<a class="headerlink" href="#config-endpoint-v3-endpoint-healthcheckconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/config/endpoint/v3/endpoint_components.proto#L26">[config.endpoint.v3.Endpoint.HealthCheckConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/endpoint/v3/endpoint_components.proto#L26">[config.endpoint.v3.Endpoint.HealthCheckConfig proto]</a></p>
 <p>The optional health check configuration.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;port_value&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -291,7 +291,7 @@ endpoint.</p>
 </div>
 <div class="section" id="config-endpoint-v3-lbendpoint">
 <span id="envoy-v3-api-msg-config-endpoint-v3-lbendpoint"></span><h2>config.endpoint.v3.LbEndpoint<a class="headerlink" href="#config-endpoint-v3-lbendpoint" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/config/endpoint/v3/endpoint_components.proto#L75">[config.endpoint.v3.LbEndpoint proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/endpoint/v3/endpoint_components.proto#L75">[config.endpoint.v3.LbEndpoint proto]</a></p>
 <p>An Endpoint that Envoy can route traffic to.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -335,7 +335,7 @@ endpoint’s locality must not exceed uint32_t maximal value (4294967295).</p>
 </div>
 <div class="section" id="config-endpoint-v3-localitylbendpoints">
 <span id="envoy-v3-api-msg-config-endpoint-v3-localitylbendpoints"></span><h2>config.endpoint.v3.LocalityLbEndpoints<a class="headerlink" href="#config-endpoint-v3-localitylbendpoints" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/config/endpoint/v3/endpoint_components.proto#L115">[config.endpoint.v3.LocalityLbEndpoints proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/endpoint/v3/endpoint_components.proto#L115">[config.endpoint.v3.LocalityLbEndpoints proto]</a></p>
 <p>A group of endpoints belonging to a Locality.
 One can have multiple LocalityLbEndpoints for a locality, but this is
 generally only done if the different groups need to have different load

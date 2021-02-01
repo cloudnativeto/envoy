@@ -9,7 +9,7 @@ OpenCensus tracer
 config.trace.v3.OpenCensusConfig
 --------------------------------
 
-`[config.trace.v3.OpenCensusConfig proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/config/trace/v3/opencensus.proto#L25>`_
+`[config.trace.v3.OpenCensusConfig proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/trace/v3/opencensus.proto#L25>`_
 
 Configuration for the OpenCensus tracer.
 
@@ -137,7 +137,7 @@ outgoing_trace_context
 Enum config.trace.v3.OpenCensusConfig.TraceContext
 --------------------------------------------------
 
-`[config.trace.v3.OpenCensusConfig.TraceContext proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/config/trace/v3/opencensus.proto#L29>`_
+`[config.trace.v3.OpenCensusConfig.TraceContext proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/trace/v3/opencensus.proto#L29>`_
 
 
 .. _envoy_v3_api_enum_value_config.trace.v3.OpenCensusConfig.TraceContext.NONE:

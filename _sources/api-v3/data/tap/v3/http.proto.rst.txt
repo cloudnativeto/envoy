@@ -9,7 +9,7 @@ HTTP tap data
 data.tap.v3.HttpBufferedTrace
 -----------------------------
 
-`[data.tap.v3.HttpBufferedTrace proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/data/tap/v3/http.proto#L18>`_
+`[data.tap.v3.HttpBufferedTrace proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/data/tap/v3/http.proto#L18>`_
 
 A fully buffered HTTP trace message.
 
@@ -37,7 +37,7 @@ response
 data.tap.v3.HttpBufferedTrace.Message
 -------------------------------------
 
-`[data.tap.v3.HttpBufferedTrace.Message proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/data/tap/v3/http.proto#L23>`_
+`[data.tap.v3.HttpBufferedTrace.Message proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/data/tap/v3/http.proto#L23>`_
 
 HTTP message wrapper.
 
@@ -75,7 +75,7 @@ trailers
 data.tap.v3.HttpStreamedTraceSegment
 ------------------------------------
 
-`[data.tap.v3.HttpStreamedTraceSegment proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/data/tap/v3/http.proto#L46>`_
+`[data.tap.v3.HttpStreamedTraceSegment proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/data/tap/v3/http.proto#L46>`_
 
 A streamed HTTP trace segment. Multiple segments make up a full trace.
 

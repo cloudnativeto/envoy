@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>HTTP 升级 &mdash; envoy 1.16.0-3f3465 documentation</title>
+  <title>HTTP 升级 &mdash; envoy 1.16.0-80a199 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-3f3465
+                1.16.0-80a199
               </div>
             
           
@@ -284,7 +284,7 @@
 <p>Envoy 还支持将原始 TCP 请求转化为 HTTP/2 CONNECT 请求，这是通过提前预备的安全链路来代理多路传输的 TCP 请求，并且可以分摊 TLS 握手的成本。
 例如设置代理 SMTP 的流程如下：</p>
 <p>[SMTP Upstream] — raw SMTP — [L2 Envoy]  — SMTP tunneled over HTTP/2  — [L1 Envoy]  — raw SMTP  — [Client]</p>
-<p>如果运行 <code class="docutils literal notranslate"><span class="pre">bazel-bin/source/exe/envoy-static</span> <span class="pre">–config-path</span> <span class="pre">configs/encapsulate_in_connect.yaml</span> <span class="pre">–base-id</span> <span class="pre">1</span> <span class="pre">and</span> <span class="pre">bazel-bin/source/exe/envoy-static</span> <span class="pre">–config-path</span> <span class="pre">configs/terminate_connect.yaml</span></code> 则能在示例配置 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/configs/">文件</a> 中找到对应的示例。
+<p>如果运行 <code class="docutils literal notranslate"><span class="pre">bazel-bin/source/exe/envoy-static</span> <span class="pre">–config-path</span> <span class="pre">configs/encapsulate_in_connect.yaml</span> <span class="pre">–base-id</span> <span class="pre">1</span> <span class="pre">and</span> <span class="pre">bazel-bin/source/exe/envoy-static</span> <span class="pre">–config-path</span> <span class="pre">configs/terminate_connect.yaml</span></code> 则能在示例配置 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/configs/">文件</a> 中找到对应的示例。
 其中将要运行两个 Envoy ，第一个会监听 10000 端口 上的 TCP 流量，接着会将其封装为 HTTP/2 请求；另一个会监听 10001 端口上的 HTTP/2 请求，去掉请求的请求头，接着将原始 TCP 请求转到上游，在本示例中是 google.com。</p>
 </div>
 </div>

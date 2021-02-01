@@ -21,7 +21,7 @@ Client TLS authentication
 extensions.filters.network.client_ssl_auth.v3.ClientSSLAuth
 -----------------------------------------------------------
 
-`[extensions.filters.network.client_ssl_auth.v3.ClientSSLAuth proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/extensions/filters/network/client_ssl_auth/v3/client_ssl_auth.proto#L23>`_
+`[extensions.filters.network.client_ssl_auth.v3.ClientSSLAuth proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/extensions/filters/network/client_ssl_auth/v3/client_ssl_auth.proto#L23>`_
 
 
 .. code-block:: json

@@ -9,7 +9,7 @@ Server State
 admin.v2alpha.ServerInfo
 ------------------------
 
-`[admin.v2alpha.ServerInfo proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/admin/v2alpha/server_info.proto#L19>`_
+`[admin.v2alpha.ServerInfo proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/admin/v2alpha/server_info.proto#L19>`_
 
 Proto representation of the value returned by /server_info, containing
 server version/server status information.
@@ -67,7 +67,7 @@ command_line_options
 Enum admin.v2alpha.ServerInfo.State
 -----------------------------------
 
-`[admin.v2alpha.ServerInfo.State proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/admin/v2alpha/server_info.proto#L20>`_
+`[admin.v2alpha.ServerInfo.State proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/admin/v2alpha/server_info.proto#L20>`_
 
 
 .. _envoy_api_enum_value_admin.v2alpha.ServerInfo.State.LIVE:
@@ -100,7 +100,7 @@ INITIALIZING
 admin.v2alpha.CommandLineOptions
 --------------------------------
 
-`[admin.v2alpha.CommandLineOptions proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/admin/v2alpha/server_info.proto#L54>`_
+`[admin.v2alpha.CommandLineOptions proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/admin/v2alpha/server_info.proto#L54>`_
 
 
 .. code-block:: json
@@ -302,7 +302,7 @@ disabled_extensions
 Enum admin.v2alpha.CommandLineOptions.IpVersion
 -----------------------------------------------
 
-`[admin.v2alpha.CommandLineOptions.IpVersion proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/admin/v2alpha/server_info.proto#L55>`_
+`[admin.v2alpha.CommandLineOptions.IpVersion proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/admin/v2alpha/server_info.proto#L55>`_
 
 
 .. _envoy_api_enum_value_admin.v2alpha.CommandLineOptions.IpVersion.v4:
@@ -321,7 +321,7 @@ v6
 Enum admin.v2alpha.CommandLineOptions.Mode
 ------------------------------------------
 
-`[admin.v2alpha.CommandLineOptions.Mode proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/admin/v2alpha/server_info.proto#L60>`_
+`[admin.v2alpha.CommandLineOptions.Mode proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/admin/v2alpha/server_info.proto#L60>`_
 
 
 .. _envoy_api_enum_value_admin.v2alpha.CommandLineOptions.Mode.Serve:

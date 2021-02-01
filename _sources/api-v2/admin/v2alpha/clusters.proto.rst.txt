@@ -9,7 +9,7 @@ Clusters
 admin.v2alpha.Clusters
 ----------------------
 
-`[admin.v2alpha.Clusters proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/admin/v2alpha/clusters.proto#L21>`_
+`[admin.v2alpha.Clusters proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/admin/v2alpha/clusters.proto#L21>`_
 
 Admin endpoint uses this wrapper for `/clusters` to display cluster status information.
 See :ref:`/clusters <operations_admin_interface_clusters>` for more information.
@@ -33,7 +33,7 @@ cluster_statuses
 admin.v2alpha.ClusterStatus
 ---------------------------
 
-`[admin.v2alpha.ClusterStatus proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/admin/v2alpha/clusters.proto#L28>`_
+`[admin.v2alpha.ClusterStatus proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/admin/v2alpha/clusters.proto#L28>`_
 
 Details an individual cluster's current status.
 
@@ -114,7 +114,7 @@ local_origin_success_rate_ejection_threshold
 admin.v2alpha.HostStatus
 ------------------------
 
-`[admin.v2alpha.HostStatus proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/admin/v2alpha/clusters.proto#L77>`_
+`[admin.v2alpha.HostStatus proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/admin/v2alpha/clusters.proto#L77>`_
 
 Current state of a particular host.
 
@@ -216,7 +216,7 @@ locality
 admin.v2alpha.HostHealthStatus
 ------------------------------
 
-`[admin.v2alpha.HostHealthStatus proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/admin/v2alpha/clusters.proto#L131>`_
+`[admin.v2alpha.HostHealthStatus proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/admin/v2alpha/clusters.proto#L131>`_
 
 Health status for a host.
 

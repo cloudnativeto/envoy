@@ -9,7 +9,7 @@ Dynamic forward proxy cluster configuration
 extensions.clusters.dynamic_forward_proxy.v3.ClusterConfig
 ----------------------------------------------------------
 
-`[extensions.clusters.dynamic_forward_proxy.v3.ClusterConfig proto] <https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/extensions/clusters/dynamic_forward_proxy/v3/cluster.proto#L20>`_
+`[extensions.clusters.dynamic_forward_proxy.v3.ClusterConfig proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/extensions/clusters/dynamic_forward_proxy/v3/cluster.proto#L20>`_
 
 Configuration for the dynamic forward proxy cluster. See the :ref:`architecture overview
 <arch_overview_http_dynamic_forward_proxy>` for more information.

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Unified Matcher API &mdash; envoy 1.16.0-3f3465 documentation</title>
+  <title>Unified Matcher API &mdash; envoy 1.16.0-80a199 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-3f3465
+                1.16.0-80a199
               </div>
             
           
@@ -124,7 +124,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../transport_socket/transport_socket.html">Transport sockets</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../resource_monitor/resource_monitor.html">Resource monitors</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="../../common.html">Common</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../compression/compression.html">Compression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../compression/compression.html">压缩</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../cluster/cluster.html">集群</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../grpc_credential/grpc_credential.html">Grpc Credentials</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../retry/retry.html">Retry Predicates</a></li>
@@ -133,7 +133,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../endpoint/endpoint.html">Endpoint</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../upstream/upstream.html">上游配置</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../wasm/wasm.html">WASM</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../watchdog/watchdog.html">Watchdog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../watchdog/watchdog.html">看门狗（watchdog）</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../admin/admin.html">管理</a></li>
@@ -225,7 +225,7 @@
 <span id="envoy-v3-api-file-envoy-config-common-matcher-v3-matcher-proto"></span><h1>Unified Matcher API<a class="headerlink" href="#unified-matcher-api" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="config-common-matcher-v3-matchpredicate">
 <span id="envoy-v3-api-msg-config-common-matcher-v3-matchpredicate"></span><h2>config.common.matcher.v3.MatchPredicate<a class="headerlink" href="#config-common-matcher-v3-matchpredicate" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/config/common/matcher/v3/matcher.proto#L21">[config.common.matcher.v3.MatchPredicate proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/common/matcher/v3/matcher.proto#L21">[config.common.matcher.v3.MatchPredicate proto]</a></p>
 <p>Match configuration. This is a recursive structure which allows complex nested match
 configurations to be built using various logical operators.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -297,7 +297,7 @@ matches.</p>
 </div>
 <div class="section" id="config-common-matcher-v3-matchpredicate-matchset">
 <span id="envoy-v3-api-msg-config-common-matcher-v3-matchpredicate-matchset"></span><h2>config.common.matcher.v3.MatchPredicate.MatchSet<a class="headerlink" href="#config-common-matcher-v3-matchpredicate-matchset" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/config/common/matcher/v3/matcher.proto#L23">[config.common.matcher.v3.MatchPredicate.MatchSet proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/common/matcher/v3/matcher.proto#L23">[config.common.matcher.v3.MatchPredicate.MatchSet proto]</a></p>
 <p>A set of match configurations used for logical operations.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;rules&quot;</span><span class="p">:</span> <span class="p">[]</span>
@@ -311,7 +311,7 @@ matches.</p>
 </div>
 <div class="section" id="config-common-matcher-v3-httpheadersmatch">
 <span id="envoy-v3-api-msg-config-common-matcher-v3-httpheadersmatch"></span><h2>config.common.matcher.v3.HttpHeadersMatch<a class="headerlink" href="#config-common-matcher-v3-httpheadersmatch" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/config/common/matcher/v3/matcher.proto#L66">[config.common.matcher.v3.HttpHeadersMatch proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/common/matcher/v3/matcher.proto#L66">[config.common.matcher.v3.HttpHeadersMatch proto]</a></p>
 <p>HTTP headers match configuration.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;headers&quot;</span><span class="p">:</span> <span class="p">[]</span>
@@ -325,7 +325,7 @@ matches.</p>
 </div>
 <div class="section" id="config-common-matcher-v3-httpgenericbodymatch">
 <span id="envoy-v3-api-msg-config-common-matcher-v3-httpgenericbodymatch"></span><h2>config.common.matcher.v3.HttpGenericBodyMatch<a class="headerlink" href="#config-common-matcher-v3-httpgenericbodymatch" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/config/common/matcher/v3/matcher.proto#L81">[config.common.matcher.v3.HttpGenericBodyMatch proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/common/matcher/v3/matcher.proto#L81">[config.common.matcher.v3.HttpGenericBodyMatch proto]</a></p>
 <p>HTTP generic body match configuration.
 List of text strings and hex strings to be located in HTTP body.
 All specified strings must be found in the HTTP body for positive match.
@@ -353,7 +353,7 @@ to scan only part of the http body.</p>
 </div>
 <div class="section" id="config-common-matcher-v3-httpgenericbodymatch-generictextmatch">
 <span id="envoy-v3-api-msg-config-common-matcher-v3-httpgenericbodymatch-generictextmatch"></span><h2>config.common.matcher.v3.HttpGenericBodyMatch.GenericTextMatch<a class="headerlink" href="#config-common-matcher-v3-httpgenericbodymatch-generictextmatch" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3f3465207584267a41f734ecb4b02e1a11bcb3be/api/envoy/config/common/matcher/v3/matcher.proto#L82">[config.common.matcher.v3.HttpGenericBodyMatch.GenericTextMatch proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/common/matcher/v3/matcher.proto#L82">[config.common.matcher.v3.HttpGenericBodyMatch.GenericTextMatch proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;string_match&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;binary_match&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
