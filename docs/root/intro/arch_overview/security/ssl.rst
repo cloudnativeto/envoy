@@ -106,7 +106,7 @@ OCSP 响应将从来不会被绑定到那些通过 ``status_request`` 扩展来�
 * ``envoy.reloadable_features.check_ocsp_policy`` ：禁用此标志可以禁用 OCSP 的策略检查功能。如果客户端支持 OCSP 响应，可在 OCSP 响应可用时进行绑定，即使 OCSP 响应已过期。如果没有响应存在，绑定会被跳过。
 
 OCSP 响应会被 :ref:`UpstreamTlsContexts
-<envoy_v3_api_msg_extensions.transport_sockets.tls.v3.UpstreamTlsContext>` 所忽略.
+<envoy_v3_api_msg_extensions.transport_sockets.tls.v3.UpstreamTlsContext>` 所忽略。
 
 .. _arch_overview_ssl_auth_filter:
 
