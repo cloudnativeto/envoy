@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Adaptive Concurrency &mdash; envoy 1.16.0-b98f42 documentation</title>
+  <title>Adaptive Concurrency &mdash; envoy 1.16.0-9b3ba5 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-b98f42
+                1.16.0-9b3ba5
               </div>
             
           
@@ -109,7 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../operations/operations.html">操作和管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../../extending/extending.html">Extending Envoy for custom use cases</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../../../api/api.html">API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../../../../../api/api_supported_versions.html">Supported API versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../api/api_supported_versions.html">支持的 API 版本</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../../api-v2/api.html">v2 API 参考</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../../../../api.html">v3 API 参考</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../../../bootstrap/bootstrap.html">Bootstrap</a></li>
@@ -234,7 +234,7 @@
 <p>Adaptive Concurrency Control <a class="reference internal" href="../../../../../../configuration/http/http_filters/adaptive_concurrency_filter.html#config-http-filters-adaptive-concurrency"><span class="std std-ref">configuration overview</span></a>.</p>
 <div class="section" id="extensions-filters-http-adaptive-concurrency-v3-gradientcontrollerconfig">
 <span id="envoy-v3-api-msg-extensions-filters-http-adaptive-concurrency-v3-gradientcontrollerconfig"></span><h2>extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig<a class="headerlink" href="#extensions-filters-http-adaptive-concurrency-v3-gradientcontrollerconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/extensions/filters/http/adaptive_concurrency/v3/adaptive_concurrency.proto#L25">[extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/extensions/filters/http/adaptive_concurrency/v3/adaptive_concurrency.proto#L25">[extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig proto]</a></p>
 <p>Configuration parameters for the gradient controller.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;sample_aggregate_percentile&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -258,7 +258,7 @@
 </div>
 <div class="section" id="extensions-filters-http-adaptive-concurrency-v3-gradientcontrollerconfig-concurrencylimitcalculationparams">
 <span id="envoy-v3-api-msg-extensions-filters-http-adaptive-concurrency-v3-gradientcontrollerconfig-concurrencylimitcalculationparams"></span><h2>extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig.ConcurrencyLimitCalculationParams<a class="headerlink" href="#extensions-filters-http-adaptive-concurrency-v3-gradientcontrollerconfig-concurrencylimitcalculationparams" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/extensions/filters/http/adaptive_concurrency/v3/adaptive_concurrency.proto#L31">[extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig.ConcurrencyLimitCalculationParams proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/extensions/filters/http/adaptive_concurrency/v3/adaptive_concurrency.proto#L31">[extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig.ConcurrencyLimitCalculationParams proto]</a></p>
 <p>Parameters controlling the periodic recalculation of the concurrency limit from sampled request
 latencies.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -278,7 +278,7 @@ latencies.</p>
 </div>
 <div class="section" id="extensions-filters-http-adaptive-concurrency-v3-gradientcontrollerconfig-minimumrttcalculationparams">
 <span id="envoy-v3-api-msg-extensions-filters-http-adaptive-concurrency-v3-gradientcontrollerconfig-minimumrttcalculationparams"></span><h2>extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig.MinimumRTTCalculationParams<a class="headerlink" href="#extensions-filters-http-adaptive-concurrency-v3-gradientcontrollerconfig-minimumrttcalculationparams" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/extensions/filters/http/adaptive_concurrency/v3/adaptive_concurrency.proto#L48">[extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig.MinimumRTTCalculationParams proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/extensions/filters/http/adaptive_concurrency/v3/adaptive_concurrency.proto#L48">[extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig.MinimumRTTCalculationParams proto]</a></p>
 <p>Parameters controlling the periodic minRTT recalculation.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;interval&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -320,7 +320,7 @@ adjusted to allow more or less tolerance to the sampled latency values.</p>
 </div>
 <div class="section" id="extensions-filters-http-adaptive-concurrency-v3-adaptiveconcurrency">
 <span id="envoy-v3-api-msg-extensions-filters-http-adaptive-concurrency-v3-adaptiveconcurrency"></span><h2>extensions.filters.http.adaptive_concurrency.v3.AdaptiveConcurrency<a class="headerlink" href="#extensions-filters-http-adaptive-concurrency-v3-adaptiveconcurrency" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/extensions/filters/http/adaptive_concurrency/v3/adaptive_concurrency.proto#L91">[extensions.filters.http.adaptive_concurrency.v3.AdaptiveConcurrency proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/extensions/filters/http/adaptive_concurrency/v3/adaptive_concurrency.proto#L91">[extensions.filters.http.adaptive_concurrency.v3.AdaptiveConcurrency proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;gradient_controller_config&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>gRPC Access Log Service (ALS) &mdash; envoy 1.16.0-b98f42 documentation</title>
+  <title>gRPC Access Log Service (ALS) &mdash; envoy 1.16.0-9b3ba5 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-b98f42
+                1.16.0-9b3ba5
               </div>
             
           
@@ -109,7 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../operations/operations.html">操作和管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../extending/extending.html">Extending Envoy for custom use cases</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../api/api.html">API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../../../api/api_supported_versions.html">Supported API versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/api_supported_versions.html">支持的 API 版本</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../../api.html">v2 API 参考</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../bootstrap/bootstrap.html">Bootstrap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../listeners/listeners.html">监听器</a></li>
@@ -219,7 +219,7 @@
 <span id="envoy-api-file-envoy-service-accesslog-v2-als-proto"></span><h1>gRPC Access Log Service (ALS)<a class="headerlink" href="#grpc-access-log-service-als" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="service-accesslog-v2-streamaccesslogsresponse">
 <span id="envoy-api-msg-service-accesslog-v2-streamaccesslogsresponse"></span><h2>service.accesslog.v2.StreamAccessLogsResponse<a class="headerlink" href="#service-accesslog-v2-streamaccesslogsresponse" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/service/accesslog/v2/als.proto#L31">[service.accesslog.v2.StreamAccessLogsResponse proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/service/accesslog/v2/als.proto#L31">[service.accesslog.v2.StreamAccessLogsResponse proto]</a></p>
 <p>Empty response for the StreamAccessLogs API. Will never be sent. See below.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
 </pre></div>
@@ -227,7 +227,7 @@
 </div>
 <div class="section" id="service-accesslog-v2-streamaccesslogsmessage">
 <span id="envoy-api-msg-service-accesslog-v2-streamaccesslogsmessage"></span><h2>service.accesslog.v2.StreamAccessLogsMessage<a class="headerlink" href="#service-accesslog-v2-streamaccesslogsmessage" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/service/accesslog/v2/als.proto#L36">[service.accesslog.v2.StreamAccessLogsMessage proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/service/accesslog/v2/als.proto#L36">[service.accesslog.v2.StreamAccessLogsMessage proto]</a></p>
 <p>Stream message for the StreamAccessLogs API. Envoy will open a stream to the server and stream
 access logs without ever expecting a response.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -259,7 +259,7 @@ ever include one type of log entry.</p>
 </div>
 <div class="section" id="service-accesslog-v2-streamaccesslogsmessage-identifier">
 <span id="envoy-api-msg-service-accesslog-v2-streamaccesslogsmessage-identifier"></span><h2>service.accesslog.v2.StreamAccessLogsMessage.Identifier<a class="headerlink" href="#service-accesslog-v2-streamaccesslogsmessage-identifier" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/service/accesslog/v2/als.proto#L37">[service.accesslog.v2.StreamAccessLogsMessage.Identifier proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/service/accesslog/v2/als.proto#L37">[service.accesslog.v2.StreamAccessLogsMessage.Identifier proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;node&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;log_name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
@@ -277,7 +277,7 @@ ever include one type of log entry.</p>
 </div>
 <div class="section" id="service-accesslog-v2-streamaccesslogsmessage-httpaccesslogentries">
 <span id="envoy-api-msg-service-accesslog-v2-streamaccesslogsmessage-httpaccesslogentries"></span><h2>service.accesslog.v2.StreamAccessLogsMessage.HTTPAccessLogEntries<a class="headerlink" href="#service-accesslog-v2-streamaccesslogsmessage-httpaccesslogentries" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/service/accesslog/v2/als.proto#L47">[service.accesslog.v2.StreamAccessLogsMessage.HTTPAccessLogEntries proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/service/accesslog/v2/als.proto#L47">[service.accesslog.v2.StreamAccessLogsMessage.HTTPAccessLogEntries proto]</a></p>
 <p>Wrapper for batches of HTTP access log entries.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;log_entry&quot;</span><span class="p">:</span> <span class="p">[]</span>
@@ -291,7 +291,7 @@ ever include one type of log entry.</p>
 </div>
 <div class="section" id="service-accesslog-v2-streamaccesslogsmessage-tcpaccesslogentries">
 <span id="envoy-api-msg-service-accesslog-v2-streamaccesslogsmessage-tcpaccesslogentries"></span><h2>service.accesslog.v2.StreamAccessLogsMessage.TCPAccessLogEntries<a class="headerlink" href="#service-accesslog-v2-streamaccesslogsmessage-tcpaccesslogentries" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/service/accesslog/v2/als.proto#L53">[service.accesslog.v2.StreamAccessLogsMessage.TCPAccessLogEntries proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/service/accesslog/v2/als.proto#L53">[service.accesslog.v2.StreamAccessLogsMessage.TCPAccessLogEntries proto]</a></p>
 <p>Wrapper for batches of TCP access log entries.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;log_entry&quot;</span><span class="p">:</span> <span class="p">[]</span>

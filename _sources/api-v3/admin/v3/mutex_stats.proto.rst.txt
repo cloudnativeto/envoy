@@ -9,7 +9,7 @@ MutexStats
 admin.v3.MutexStats
 -------------------
 
-`[admin.v3.MutexStats proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/admin/v3/mutex_stats.proto#L21>`_
+`[admin.v3.MutexStats proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/admin/v3/mutex_stats.proto#L21>`_
 
 Proto representation of the statistics collected upon absl::Mutex contention, if Envoy is run
 under :option:`--enable-mutex-tracing`. For more information, see the `absl::Mutex`

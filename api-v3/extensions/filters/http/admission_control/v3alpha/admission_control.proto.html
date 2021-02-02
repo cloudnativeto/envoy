@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Admission Control &mdash; envoy 1.16.0-b98f42 documentation</title>
+  <title>Admission Control &mdash; envoy 1.16.0-9b3ba5 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-b98f42
+                1.16.0-9b3ba5
               </div>
             
           
@@ -195,7 +195,7 @@
 </div>
 <div class="section" id="extensions-filters-http-admission-control-v3alpha-admissioncontrol">
 <span id="envoy-v3-api-msg-extensions-filters-http-admission-control-v3alpha-admissioncontrol"></span><h2>extensions.filters.http.admission_control.v3alpha.AdmissionControl<a class="headerlink" href="#extensions-filters-http-admission-control-v3alpha-admissioncontrol" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/extensions/filters/http/admission_control/v3alpha/admission_control.proto#L26">[extensions.filters.http.admission_control.v3alpha.AdmissionControl proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/extensions/filters/http/admission_control/v3alpha/admission_control.proto#L26">[extensions.filters.http.admission_control.v3alpha.AdmissionControl proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;enabled&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;success_criteria&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -241,7 +241,7 @@ results in a rejection probability of 0. Defaults to 95%.</p>
 </div>
 <div class="section" id="extensions-filters-http-admission-control-v3alpha-admissioncontrol-successcriteria">
 <span id="envoy-v3-api-msg-extensions-filters-http-admission-control-v3alpha-admissioncontrol-successcriteria"></span><h2>extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteria<a class="headerlink" href="#extensions-filters-http-admission-control-v3alpha-admissioncontrol-successcriteria" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/extensions/filters/http/admission_control/v3alpha/admission_control.proto#L30">[extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteria proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/extensions/filters/http/admission_control/v3alpha/admission_control.proto#L30">[extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteria proto]</a></p>
 <p>Default method of specifying what constitutes a successful request. All status codes that
 indicate a successful request must be explicitly specified if not relying on the default
 values.</p>
@@ -277,7 +277,7 @@ chosen because of the unlikelihood that sending fewer requests will change the b
 </div>
 <div class="section" id="extensions-filters-http-admission-control-v3alpha-admissioncontrol-successcriteria-httpcriteria">
 <span id="envoy-v3-api-msg-extensions-filters-http-admission-control-v3alpha-admissioncontrol-successcriteria-httpcriteria"></span><h2>extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteria.HttpCriteria<a class="headerlink" href="#extensions-filters-http-admission-control-v3alpha-admissioncontrol-successcriteria-httpcriteria" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/extensions/filters/http/admission_control/v3alpha/admission_control.proto#L31">[extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteria.HttpCriteria proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/extensions/filters/http/admission_control/v3alpha/admission_control.proto#L31">[extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteria.HttpCriteria proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;http_success_status&quot;</span><span class="p">:</span> <span class="p">[]</span>
 <span class="p">}</span>
@@ -291,7 +291,7 @@ range [100, 600).</p>
 </div>
 <div class="section" id="extensions-filters-http-admission-control-v3alpha-admissioncontrol-successcriteria-grpccriteria">
 <span id="envoy-v3-api-msg-extensions-filters-http-admission-control-v3alpha-admissioncontrol-successcriteria-grpccriteria"></span><h2>extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteria.GrpcCriteria<a class="headerlink" href="#extensions-filters-http-admission-control-v3alpha-admissioncontrol-successcriteria-grpccriteria" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/extensions/filters/http/admission_control/v3alpha/admission_control.proto#L38">[extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteria.GrpcCriteria proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/extensions/filters/http/admission_control/v3alpha/admission_control.proto#L38">[extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteria.GrpcCriteria proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;grpc_success_status&quot;</span><span class="p">:</span> <span class="p">[]</span>
 <span class="p">}</span>

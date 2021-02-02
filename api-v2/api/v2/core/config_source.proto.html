@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Configuration sources &mdash; envoy 1.16.0-b98f42 documentation</title>
+  <title>Configuration sources &mdash; envoy 1.16.0-9b3ba5 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-b98f42
+                1.16.0-9b3ba5
               </div>
             
           
@@ -109,7 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../operations/operations.html">操作和管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../extending/extending.html">Extending Envoy for custom use cases</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../api/api.html">API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../../../api/api_supported_versions.html">Supported API versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/api_supported_versions.html">支持的 API 版本</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../../api.html">v2 API 参考</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../bootstrap/bootstrap.html">Bootstrap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../listeners/listeners.html">监听器</a></li>
@@ -219,7 +219,7 @@
 <span id="envoy-api-file-envoy-api-v2-core-config-source-proto"></span><h1>Configuration sources<a class="headerlink" href="#configuration-sources" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="core-apiconfigsource">
 <span id="envoy-api-msg-core-apiconfigsource"></span><h2>core.ApiConfigSource<a class="headerlink" href="#core-apiconfigsource" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/config_source.proto#L40">[core.ApiConfigSource proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/config_source.proto#L40">[core.ApiConfigSource proto]</a></p>
 <p>API configuration source. This identifies the API type and cluster that Envoy
 will use to fetch an xDS API.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -279,7 +279,7 @@ rate limited.</p>
 </div>
 <div class="section" id="enum-core-apiconfigsource-apitype">
 <span id="envoy-api-enum-core-apiconfigsource-apitype"></span><h2>Enum core.ApiConfigSource.ApiType<a class="headerlink" href="#enum-core-apiconfigsource-apitype" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/config_source.proto#L42">[core.ApiConfigSource.ApiType proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/config_source.proto#L42">[core.ApiConfigSource.ApiType proto]</a></p>
 <p>APIs may be fetched via either REST or gRPC.</p>
 <dl class="simple" id="envoy-api-enum-value-core-apiconfigsource-apitype-unsupported-rest-legacy">
 <dt>UNSUPPORTED_REST_LEGACY</dt><dd><p><em>(DEFAULT)</em> ⁣Ideally this would be ‘reserved 0’ but one can’t reserve the default
@@ -304,7 +304,7 @@ with every update, the xDS server only sends what has changed since the last upd
 </div>
 <div class="section" id="core-aggregatedconfigsource">
 <span id="envoy-api-msg-core-aggregatedconfigsource"></span><h2>core.AggregatedConfigSource<a class="headerlink" href="#core-aggregatedconfigsource" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/config_source.proto#L100">[core.AggregatedConfigSource proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/config_source.proto#L100">[core.AggregatedConfigSource proto]</a></p>
 <p>Aggregated Discovery Service (ADS) options. This is currently empty, but when
 set in <a class="reference internal" href="#envoy-api-msg-core-configsource"><span class="std std-ref">ConfigSource</span></a> can be used to
 specify that ADS is to be used.</p>
@@ -314,7 +314,7 @@ specify that ADS is to be used.</p>
 </div>
 <div class="section" id="core-ratelimitsettings">
 <span id="envoy-api-msg-core-ratelimitsettings"></span><h2>core.RateLimitSettings<a class="headerlink" href="#core-ratelimitsettings" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/config_source.proto#L114">[core.RateLimitSettings proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/config_source.proto#L114">[core.RateLimitSettings proto]</a></p>
 <p>Rate Limit settings to be applied for discovery requests made by Envoy.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;max_tokens&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -335,7 +335,7 @@ per second will be used.</p>
 </div>
 <div class="section" id="core-configsource">
 <span id="envoy-api-msg-core-configsource"></span><h2>core.ConfigSource<a class="headerlink" href="#core-configsource" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/config_source.proto#L131">[core.ConfigSource proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/config_source.proto#L131">[core.ConfigSource proto]</a></p>
 <p>Configuration for <a class="reference internal" href="../../../../configuration/listeners/listeners.html#config-listeners"><span class="std std-ref">listeners</span></a>, <a class="reference internal" href="../../../../configuration/upstream/cluster_manager/cluster_manager.html#config-cluster-manager"><span class="std std-ref">clusters</span></a>, <a class="reference internal" href="../route.proto.html#envoy-api-msg-routeconfiguration"><span class="std std-ref">routes</span></a>, <a class="reference internal" href="../../../../intro/arch_overview/upstream/service_discovery.html#arch-overview-service-discovery"><span class="std std-ref">endpoints</span></a> etc. may either be sourced from the
 filesystem or from an xDS API source. Filesystem configs are watched with
 inotify for updates.</p>
@@ -394,7 +394,7 @@ turn expect to be delivered.</p>
 </div>
 <div class="section" id="enum-core-apiversion">
 <span id="envoy-api-enum-core-apiversion"></span><h2>Enum core.ApiVersion<a class="headerlink" href="#enum-core-apiversion" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/config_source.proto#L24">[core.ApiVersion proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/config_source.proto#L24">[core.ApiVersion proto]</a></p>
 <p>xDS API version. This is used to describe both resource and transport
 protocol versions (in distinct configuration fields).</p>
 <dl class="simple" id="envoy-api-enum-value-core-apiversion-auto">

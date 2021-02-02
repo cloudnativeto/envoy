@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>TLS &mdash; envoy 1.16.0-b98f42 documentation</title>
+  <title>TLS &mdash; envoy 1.16.0-9b3ba5 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-b98f42
+                1.16.0-9b3ba5
               </div>
             
           
@@ -297,10 +297,7 @@
 <p>其他 TLS 选项可参考 <a class="reference internal" href="../../../api-v3/extensions/transport_sockets/tls/v3/tls.proto.html#envoy-v3-api-msg-extensions-transport-sockets-tls-v3-upstreamtlscontext"><span class="std std-ref">UpstreamTlsContexts</span></a> 和 <a class="reference internal" href="../../../api-v3/extensions/transport_sockets/tls/v3/tls.proto.html#envoy-v3-api-msg-extensions-transport-sockets-tls-v3-downstreamtlscontext"><span class="std std-ref">DownstreamTlsContexts</span></a> 。</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>If only <a class="reference internal" href="../../../api-v3/extensions/transport_sockets/tls/v3/common.proto.html#envoy-v3-api-field-extensions-transport-sockets-tls-v3-certificatevalidationcontext-trusted-ca"><span class="std std-ref">trusted_ca</span></a> is
-specified, Envoy will verify the certificate chain of the presented certificate, but not its
-subject name, hash, etc. Other validation context configuration is typically required depending
-on the deployment.</p>
+<p>如果只指定了 <a class="reference internal" href="../../../api-v3/extensions/transport_sockets/tls/v3/common.proto.html#envoy-v3-api-field-extensions-transport-sockets-tls-v3-certificatevalidationcontext-trusted-ca"><span class="std std-ref">trusted_ca</span></a>, 则 Envoy 将会验证所提供证书的证书链, 而不验证其主题名称、哈希等。根据部署，通常需要其他验证上下文配置。</p>
 </div>
 </div>
 </div>
@@ -317,9 +314,9 @@ on the deployment.</p>
 <li><p>被选择的证书必须符合 OCSP 策略。如果没找到符合条件的证书，连接会被拒绝。</p></li>
 </ul>
 <p>目前只提供单个 TLS 证书 <a class="reference internal" href="../../../api-v3/extensions/transport_sockets/tls/v3/tls.proto.html#envoy-v3-api-msg-extensions-transport-sockets-tls-v3-upstreamtlscontext"><span class="std std-ref">UpstreamTlsContexts</span></a> 。</p>
-<p>Secret discovery service (SDS)
-安全发现服务（SDS）
-——————————</p>
+</div>
+<div class="section" id="sds">
+<h2>安全发现服务（SDS）<a class="headerlink" href="#sds" title="Permalink to this headline">¶</a></h2>
 <p>TLS 证书可以在静态资源中指定或者从远端获取。静态资源的证书轮换是支持的，可以通过 <a class="reference internal" href="../../../configuration/security/secret.html#xds-certificate-rotation"><span class="std std-ref">SDS 文件系统配置</span></a> 或者从 SDS 服务器端获取更新信息来实现。详细信息请看 <a class="reference internal" href="../../../configuration/security/secret.html#config-secret-discovery-service"><span class="std std-ref">SDS</span></a> 。</p>
 </div>
 <div class="section" id="ocsp-stapling">
@@ -334,7 +331,7 @@ on the deployment.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">envoy.reloadable_features.require_ocsp_response_for_must_staple_certs</span></code> ：禁用此标志可允许操作者在配置中忽略 must-staple 证书的 OCSP 响应。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">envoy.reloadable_features.check_ocsp_policy</span></code> ：禁用此标志可以禁用 OCSP 的策略检查功能。如果客户端支持 OCSP 响应，可在 OCSP 响应可用时进行绑定，即使 OCSP 响应已过期。如果没有响应存在，绑定会被跳过。</p></li>
 </ul>
-<p>OCSP responses are ignored for <a class="reference internal" href="../../../api-v3/extensions/transport_sockets/tls/v3/tls.proto.html#envoy-v3-api-msg-extensions-transport-sockets-tls-v3-upstreamtlscontext"><span class="std std-ref">UpstreamTlsContexts</span></a>.</p>
+<p>OCSP 响应会被 <a class="reference internal" href="../../../api-v3/extensions/transport_sockets/tls/v3/tls.proto.html#envoy-v3-api-msg-extensions-transport-sockets-tls-v3-upstreamtlscontext"><span class="std std-ref">UpstreamTlsContexts</span></a> 所忽略。</p>
 </div>
 <div class="section" id="arch-overview-ssl-auth-filter">
 <span id="id7"></span><h2>认证过滤器<a class="headerlink" href="#arch-overview-ssl-auth-filter" title="Permalink to this headline">¶</a></h2>

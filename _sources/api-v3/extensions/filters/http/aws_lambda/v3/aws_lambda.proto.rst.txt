@@ -20,7 +20,7 @@ AWS Lambda :ref:`configuration overview <config_http_filters_aws_lambda>`.
 extensions.filters.http.aws_lambda.v3.Config
 --------------------------------------------
 
-`[extensions.filters.http.aws_lambda.v3.Config proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/extensions/filters/http/aws_lambda/v3/aws_lambda.proto#L18>`_
+`[extensions.filters.http.aws_lambda.v3.Config proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/extensions/filters/http/aws_lambda/v3/aws_lambda.proto#L18>`_
 
 AWS Lambda filter config
 
@@ -58,7 +58,7 @@ invocation_mode
 Enum extensions.filters.http.aws_lambda.v3.Config.InvocationMode
 ----------------------------------------------------------------
 
-`[extensions.filters.http.aws_lambda.v3.Config.InvocationMode proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/extensions/filters/http/aws_lambda/v3/aws_lambda.proto#L22>`_
+`[extensions.filters.http.aws_lambda.v3.Config.InvocationMode proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/extensions/filters/http/aws_lambda/v3/aws_lambda.proto#L22>`_
 
 
 .. _envoy_v3_api_enum_value_extensions.filters.http.aws_lambda.v3.Config.InvocationMode.SYNCHRONOUS:
@@ -82,7 +82,7 @@ ASYNCHRONOUS
 extensions.filters.http.aws_lambda.v3.PerRouteConfig
 ----------------------------------------------------
 
-`[extensions.filters.http.aws_lambda.v3.PerRouteConfig proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/extensions/filters/http/aws_lambda/v3/aws_lambda.proto#L47>`_
+`[extensions.filters.http.aws_lambda.v3.PerRouteConfig proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/extensions/filters/http/aws_lambda/v3/aws_lambda.proto#L47>`_
 
 Per-route configuration for AWS Lambda. This can be useful when invoking a different Lambda function or a different
 version of the same Lambda depending on the route.

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>gRPC services &mdash; envoy 1.16.0-b98f42 documentation</title>
+  <title>gRPC services &mdash; envoy 1.16.0-9b3ba5 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-b98f42
+                1.16.0-9b3ba5
               </div>
             
           
@@ -109,7 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../operations/operations.html">操作和管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../extending/extending.html">Extending Envoy for custom use cases</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../api/api.html">API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../../../api/api_supported_versions.html">Supported API versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/api_supported_versions.html">支持的 API 版本</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../../api.html">v2 API 参考</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../bootstrap/bootstrap.html">Bootstrap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../listeners/listeners.html">监听器</a></li>
@@ -219,7 +219,7 @@
 <span id="envoy-api-file-envoy-api-v2-core-grpc-service-proto"></span><h1>gRPC services<a class="headerlink" href="#grpc-services" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="core-grpcservice">
 <span id="envoy-api-msg-core-grpcservice"></span><h2>core.GrpcService<a class="headerlink" href="#core-grpcservice" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/grpc_service.proto#L27">[core.GrpcService proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/grpc_service.proto#L27">[core.GrpcService proto]</a></p>
 <p>gRPC service configuration. This is used by <a class="reference internal" href="config_source.proto.html#envoy-api-msg-core-apiconfigsource"><span class="std std-ref">ApiConfigSource</span></a> and filter configurations.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;envoy_grpc&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -257,7 +257,7 @@ headers (e.g. <code class="docutils literal notranslate"><span class="pre">x-foo
 </div>
 <div class="section" id="core-grpcservice-envoygrpc">
 <span id="envoy-api-msg-core-grpcservice-envoygrpc"></span><h2>core.GrpcService.EnvoyGrpc<a class="headerlink" href="#core-grpcservice-envoygrpc" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/grpc_service.proto#L28">[core.GrpcService.EnvoyGrpc proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/grpc_service.proto#L28">[core.GrpcService.EnvoyGrpc proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;cluster_name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
 <span class="p">}</span>
@@ -271,7 +271,7 @@ in the <a class="reference internal" href="../cluster.proto.html#envoy-api-msg-c
 </div>
 <div class="section" id="core-grpcservice-googlegrpc">
 <span id="envoy-api-msg-core-grpcservice-googlegrpc"></span><h2>core.GrpcService.GoogleGrpc<a class="headerlink" href="#core-grpcservice-googlegrpc" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/grpc_service.proto#L36">[core.GrpcService.GoogleGrpc proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/grpc_service.proto#L36">[core.GrpcService.GoogleGrpc proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;target_uri&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;channel_credentials&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -337,7 +337,7 @@ gRPC library.</p>
 </div>
 <div class="section" id="core-grpcservice-googlegrpc-sslcredentials">
 <span id="envoy-api-msg-core-grpcservice-googlegrpc-sslcredentials"></span><h2>core.GrpcService.GoogleGrpc.SslCredentials<a class="headerlink" href="#core-grpcservice-googlegrpc-sslcredentials" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/grpc_service.proto#L38">[core.GrpcService.GoogleGrpc.SslCredentials proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/grpc_service.proto#L38">[core.GrpcService.GoogleGrpc.SslCredentials proto]</a></p>
 <p>See <a class="reference external" href="https://grpc.io/grpc/cpp/structgrpc_1_1_ssl_credentials_options.html">https://grpc.io/grpc/cpp/structgrpc_1_1_ssl_credentials_options.html</a>.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;root_certs&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -361,7 +361,7 @@ gRPC library.</p>
 </div>
 <div class="section" id="core-grpcservice-googlegrpc-googlelocalcredentials">
 <span id="envoy-api-msg-core-grpcservice-googlegrpc-googlelocalcredentials"></span><h2>core.GrpcService.GoogleGrpc.GoogleLocalCredentials<a class="headerlink" href="#core-grpcservice-googlegrpc-googlelocalcredentials" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/grpc_service.proto#L51">[core.GrpcService.GoogleGrpc.GoogleLocalCredentials proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/grpc_service.proto#L51">[core.GrpcService.GoogleGrpc.GoogleLocalCredentials proto]</a></p>
 <p>Local channel credentials. Only UDS is supported for now.
 See <a class="reference external" href="https://github.com/grpc/grpc/pull/15909">https://github.com/grpc/grpc/pull/15909</a>.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
@@ -370,7 +370,7 @@ See <a class="reference external" href="https://github.com/grpc/grpc/pull/15909"
 </div>
 <div class="section" id="core-grpcservice-googlegrpc-channelcredentials">
 <span id="envoy-api-msg-core-grpcservice-googlegrpc-channelcredentials"></span><h2>core.GrpcService.GoogleGrpc.ChannelCredentials<a class="headerlink" href="#core-grpcservice-googlegrpc-channelcredentials" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/grpc_service.proto#L56">[core.GrpcService.GoogleGrpc.ChannelCredentials proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/grpc_service.proto#L56">[core.GrpcService.GoogleGrpc.ChannelCredentials proto]</a></p>
 <p>See <a class="reference external" href="https://grpc.io/docs/guides/auth.html#credential-types">https://grpc.io/docs/guides/auth.html#credential-types</a> to understand Channel and Call
 credential types.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -398,7 +398,7 @@ credential types.</p>
 </div>
 <div class="section" id="core-grpcservice-googlegrpc-callcredentials">
 <span id="envoy-api-msg-core-grpcservice-googlegrpc-callcredentials"></span><h2>core.GrpcService.GoogleGrpc.CallCredentials<a class="headerlink" href="#core-grpcservice-googlegrpc-callcredentials" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/grpc_service.proto#L70">[core.GrpcService.GoogleGrpc.CallCredentials proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/grpc_service.proto#L70">[core.GrpcService.GoogleGrpc.CallCredentials proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;google_compute_engine&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -457,7 +457,7 @@ See <a class="reference external" href="https://github.com/grpc/grpc/pull/19587"
 </div>
 <div class="section" id="core-grpcservice-googlegrpc-callcredentials-serviceaccountjwtaccesscredentials">
 <span id="envoy-api-msg-core-grpcservice-googlegrpc-callcredentials-serviceaccountjwtaccesscredentials"></span><h2>core.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials<a class="headerlink" href="#core-grpcservice-googlegrpc-callcredentials-serviceaccountjwtaccesscredentials" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/grpc_service.proto#L71">[core.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/grpc_service.proto#L71">[core.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;json_key&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;token_lifetime_seconds&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
@@ -475,7 +475,7 @@ See <a class="reference external" href="https://github.com/grpc/grpc/pull/19587"
 </div>
 <div class="section" id="core-grpcservice-googlegrpc-callcredentials-googleiamcredentials">
 <span id="envoy-api-msg-core-grpcservice-googlegrpc-callcredentials-googleiamcredentials"></span><h2>core.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials<a class="headerlink" href="#core-grpcservice-googlegrpc-callcredentials-googleiamcredentials" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/grpc_service.proto#L77">[core.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/grpc_service.proto#L77">[core.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;authorization_token&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;authority_selector&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
@@ -493,7 +493,7 @@ See <a class="reference external" href="https://github.com/grpc/grpc/pull/19587"
 </div>
 <div class="section" id="core-grpcservice-googlegrpc-callcredentials-metadatacredentialsfromplugin">
 <span id="envoy-api-msg-core-grpcservice-googlegrpc-callcredentials-metadatacredentialsfromplugin"></span><h2>core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin<a class="headerlink" href="#core-grpcservice-googlegrpc-callcredentials-metadatacredentialsfromplugin" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/grpc_service.proto#L83">[core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/grpc_service.proto#L83">[core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -518,7 +518,7 @@ See <a class="reference external" href="https://github.com/grpc/grpc/pull/19587"
 </div>
 <div class="section" id="core-grpcservice-googlegrpc-callcredentials-stsservice">
 <span id="envoy-api-msg-core-grpcservice-googlegrpc-callcredentials-stsservice"></span><h2>core.GrpcService.GoogleGrpc.CallCredentials.StsService<a class="headerlink" href="#core-grpcservice-googlegrpc-callcredentials-stsservice" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/grpc_service.proto#L98">[core.GrpcService.GoogleGrpc.CallCredentials.StsService proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/grpc_service.proto#L98">[core.GrpcService.GoogleGrpc.CallCredentials.StsService proto]</a></p>
 <p>Security token service configuration that allows Google gRPC to
 fetch security token from an OAuth 2.0 authorization server.
 See <a class="reference external" href="https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-16">https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-16</a> and

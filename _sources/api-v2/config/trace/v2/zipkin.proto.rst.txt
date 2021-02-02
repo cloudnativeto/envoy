@@ -9,7 +9,7 @@ Zipkin tracer
 config.trace.v2.ZipkinConfig
 ----------------------------
 
-`[config.trace.v2.ZipkinConfig proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/config/trace/v2/zipkin.proto#L20>`_
+`[config.trace.v2.ZipkinConfig proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/config/trace/v2/zipkin.proto#L20>`_
 
 Configuration for the Zipkin tracer.
 
@@ -76,7 +76,7 @@ collector_endpoint_version
 Enum config.trace.v2.ZipkinConfig.CollectorEndpointVersion
 ----------------------------------------------------------
 
-`[config.trace.v2.ZipkinConfig.CollectorEndpointVersion proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/config/trace/v2/zipkin.proto#L22>`_
+`[config.trace.v2.ZipkinConfig.CollectorEndpointVersion proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/config/trace/v2/zipkin.proto#L22>`_
 
 Available Zipkin collector endpoint versions.
 

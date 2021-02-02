@@ -9,7 +9,7 @@ gRPC services
 core.GrpcService
 ----------------
 
-`[core.GrpcService proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/grpc_service.proto#L27>`_
+`[core.GrpcService proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/grpc_service.proto#L27>`_
 
 gRPC service configuration. This is used by :ref:`ApiConfigSource
 <envoy_api_msg_core.ApiConfigSource>` and filter configurations.
@@ -65,7 +65,7 @@ initial_metadata
 core.GrpcService.EnvoyGrpc
 --------------------------
 
-`[core.GrpcService.EnvoyGrpc proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/grpc_service.proto#L28>`_
+`[core.GrpcService.EnvoyGrpc proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/grpc_service.proto#L28>`_
 
 
 .. code-block:: json
@@ -89,7 +89,7 @@ cluster_name
 core.GrpcService.GoogleGrpc
 ---------------------------
 
-`[core.GrpcService.GoogleGrpc proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/grpc_service.proto#L36>`_
+`[core.GrpcService.GoogleGrpc proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/grpc_service.proto#L36>`_
 
 
 .. code-block:: json
@@ -157,7 +157,7 @@ config
 core.GrpcService.GoogleGrpc.SslCredentials
 ------------------------------------------
 
-`[core.GrpcService.GoogleGrpc.SslCredentials proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/grpc_service.proto#L38>`_
+`[core.GrpcService.GoogleGrpc.SslCredentials proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/grpc_service.proto#L38>`_
 
 See https://grpc.io/grpc/cpp/structgrpc_1_1_ssl_credentials_options.html.
 
@@ -194,7 +194,7 @@ cert_chain
 core.GrpcService.GoogleGrpc.GoogleLocalCredentials
 --------------------------------------------------
 
-`[core.GrpcService.GoogleGrpc.GoogleLocalCredentials proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/grpc_service.proto#L51>`_
+`[core.GrpcService.GoogleGrpc.GoogleLocalCredentials proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/grpc_service.proto#L51>`_
 
 Local channel credentials. Only UDS is supported for now.
 See https://github.com/grpc/grpc/pull/15909.
@@ -211,7 +211,7 @@ See https://github.com/grpc/grpc/pull/15909.
 core.GrpcService.GoogleGrpc.ChannelCredentials
 ----------------------------------------------
 
-`[core.GrpcService.GoogleGrpc.ChannelCredentials proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/grpc_service.proto#L56>`_
+`[core.GrpcService.GoogleGrpc.ChannelCredentials proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/grpc_service.proto#L56>`_
 
 See https://grpc.io/docs/guides/auth.html#credential-types to understand Channel and Call
 credential types.
@@ -256,7 +256,7 @@ local_credentials
 core.GrpcService.GoogleGrpc.CallCredentials
 -------------------------------------------
 
-`[core.GrpcService.GoogleGrpc.CallCredentials proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/grpc_service.proto#L70>`_
+`[core.GrpcService.GoogleGrpc.CallCredentials proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/grpc_service.proto#L70>`_
 
 
 .. code-block:: json
@@ -348,7 +348,7 @@ sts_service
 core.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials
 ------------------------------------------------------------------------------
 
-`[core.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/grpc_service.proto#L71>`_
+`[core.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/grpc_service.proto#L71>`_
 
 
 .. code-block:: json
@@ -375,7 +375,7 @@ token_lifetime_seconds
 core.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials
 ----------------------------------------------------------------
 
-`[core.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/grpc_service.proto#L77>`_
+`[core.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/grpc_service.proto#L77>`_
 
 
 .. code-block:: json
@@ -402,7 +402,7 @@ authority_selector
 core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin
 -------------------------------------------------------------------------
 
-`[core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/grpc_service.proto#L83>`_
+`[core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/grpc_service.proto#L83>`_
 
 
 .. code-block:: json
@@ -441,7 +441,7 @@ typed_config
 core.GrpcService.GoogleGrpc.CallCredentials.StsService
 ------------------------------------------------------
 
-`[core.GrpcService.GoogleGrpc.CallCredentials.StsService proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/api/v2/core/grpc_service.proto#L98>`_
+`[core.GrpcService.GoogleGrpc.CallCredentials.StsService proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/core/grpc_service.proto#L98>`_
 
 Security token service configuration that allows Google gRPC to
 fetch security token from an OAuth 2.0 authorization server.

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Supported API versions &mdash; envoy 1.16.0-b98f42 documentation</title>
+  <title>支持的 API 版本 &mdash; envoy 1.16.0-9b3ba5 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-b98f42
+                1.16.0-9b3ba5
               </div>
             
           
@@ -109,7 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../operations/operations.html">操作和管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../extending/extending.html">Extending Envoy for custom use cases</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Supported API versions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">支持的 API 版本</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api-v2/api.html">v2 API 参考</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api-v3/api.html">v3 API 参考</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api-docs/xds_protocol.html">xDS REST and gRPC protocol</a></li>
@@ -165,7 +165,7 @@
         
           <li><a href="api.html">API</a> &raquo;</li>
         
-      <li>Supported API versions</li>
+      <li>支持的 API 版本</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -184,20 +184,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="supported-api-versions">
-<span id="api-supported-versions"></span><h1>Supported API versions<a class="headerlink" href="#supported-api-versions" title="Permalink to this headline">¶</a></h1>
-<p>Envoy’s APIs follow a <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/API_VERSIONING.md">versioning scheme</a> in which Envoy supports
-multiple major API versions at any point in time. The following versions are currently supported:</p>
+  <div class="section" id="api">
+<span id="api-supported-versions"></span><h1>支持的 API 版本<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<p>Envoy 的 API 遵循 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/API_VERSIONING.md">版本方案</a>，其中 Envoy 在任何时候都支持多个主要的 API 版本。下面就是目前为止支持的版本：</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../api-v2/api.html#envoy-api-reference"><span class="std std-ref">v2 xDS API</span></a> (<em>deprecated</em>, end-of-life EOY 2020). This API will not
-accept new features after the end of Q1 2020.</p></li>
-<li><p><a class="reference internal" href="../api-v3/api.html#envoy-v3-api-reference"><span class="std std-ref">v3 xDS API</span></a> (<em>active</em>, end-of-life unknown). Envoy developers and
-operators are encouraged to be actively adopting and working with v3 xDS.</p></li>
+<li><p><a class="reference internal" href="../api-v2/api.html#envoy-api-reference"><span class="std std-ref">v2 xDS API</span></a> （<em>弃用的</em>, 在 2020 年废弃）。此 API 在 2020 年第一季度后，将不再接受新的功能特性。</p></li>
+<li><p><a class="reference internal" href="../api-v3/api.html#envoy-v3-api-reference"><span class="std std-ref">v3 xDS API</span></a> （<em>正在使用的</em>, 废弃时间未知）。Envoy 鼓励开发人员和维护人员积极采用 v3 xDS 并积极使用。</p></li>
 </ul>
-<p>The following API versions are no longer supported by Envoy:</p>
+<p>Envoy 不再支持下述的 API 版本：</p>
 <ul class="simple">
-<li><p>v1 xDS API. This was the legacy REST-JSON API that preceded the current Protobuf and dual
-REST/gRPC xDS APIs.</p></li>
+<li><p>这是在当前 Protobuf 和双 REST/gRPC xDS API 之前的老旧 REST-JSON API。</p></li>
 </ul>
 </div>
 

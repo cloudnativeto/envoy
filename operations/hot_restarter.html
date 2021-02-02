@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Hot restart Python wrapper &mdash; envoy 1.16.0-b98f42 documentation</title>
+  <title>热重启 Python 封装器 &mdash; envoy 1.16.0-9b3ba5 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-b98f42
+                1.16.0-9b3ba5
               </div>
             
           
@@ -108,7 +108,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">配置参考</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="operations.html">操作和管理</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="cli.html">命令行选项</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Hot restart Python wrapper</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">热重启 Python 封装器</a></li>
 <li class="toctree-l2"><a class="reference internal" href="admin.html">Administration interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stats_overview.html">统计概览</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runtime.html">Runtime</a></li>
@@ -169,7 +169,7 @@
         
           <li><a href="operations.html">操作和管理</a> &raquo;</li>
         
-      <li>Hot restart Python wrapper</li>
+      <li>热重启 Python 封装器</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -188,16 +188,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="hot-restart-python-wrapper">
-<span id="operations-hot-restarter"></span><h1>Hot restart Python wrapper<a class="headerlink" href="#hot-restart-python-wrapper" title="Permalink to this headline">¶</a></h1>
-<p>Typically, Envoy will be <a class="reference internal" href="../intro/arch_overview/operations/hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">hot restarted</span></a> for config changes and
-binary updates. However, in many cases, users will wish to use a standard process manager such as
-monit, runit, etc. We provide <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c//restarter/hot-restarter.py">/restarter/hot-restarter.py</a> to make this straightforward.</p>
-<p>The restarter is invoked like so:</p>
+  <div class="section" id="python">
+<span id="operations-hot-restarter"></span><h1>热重启 Python 封装器<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<p>通常情况下，在配置修改或代码变更后，Envoy 将会 <a class="reference internal" href="../intro/arch_overview/operations/hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">热重启</span></a> 。然而在许多情况下用户希望通过标准的流程管理器进行管理（例如 monit、runit）。所以我们提供 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757//restarter/hot-restarter.py">/restarter/hot-restarter.py</a> 来简化这个流程。</p>
+<p>重启的调用方式如下：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">hot-restarter.py start_envoy.sh</span>
 </pre></div>
 </div>
-<p><cite>start_envoy.sh</cite> might be defined like so (using salt/jinja like syntax):</p>
+<p><cite>start_envoy.sh</cite> 可以按如下方法定义（类似 salt/jinja 语法）：</p>
 <div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="x">#!/bin/bash</span>
 
 <span class="x">ulimit -n </span><span class="cp">{{</span> <span class="nv">pillar.get</span><span class="o">(</span><span class="s1">&#39;envoy_max_open_files&#39;</span><span class="o">,</span> <span class="s1">&#39;102400&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
@@ -206,27 +204,20 @@ monit, runit, etc. We provide <a class="reference external" href="https://github
 <span class="x">exec /usr/sbin/envoy -c /etc/envoy/envoy.cfg --restart-epoch $RESTART_EPOCH --service-cluster </span><span class="cp">{{</span> <span class="nv">grains</span><span class="o">[</span><span class="s1">&#39;cluster_name&#39;</span><span class="o">]</span> <span class="cp">}}</span><span class="x"> --service-node </span><span class="cp">{{</span> <span class="nv">grains</span><span class="o">[</span><span class="s1">&#39;service_node&#39;</span><span class="o">]</span> <span class="cp">}}</span><span class="x"> --service-zone </span><span class="cp">{{</span> <span class="nv">grains.get</span><span class="o">(</span><span class="s1">&#39;ec2_availability-zone&#39;</span><span class="o">,</span> <span class="s1">&#39;unknown&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
 </pre></div>
 </div>
-<p>Note on <cite>inotify.max_user_watches</cite>: If Envoy is being configured to watch many files for configuration in a directory
-on a Linux machine, increase this value as Linux enforces limits on the maximum number of files that can be watched.</p>
-<p>The <em>RESTART_EPOCH</em> environment variable is set by the restarter on each restart and must be passed
-to the <a class="reference internal" href="cli.html#cmdoption-restart-epoch"><code class="xref std std-option docutils literal notranslate"><span class="pre">--restart-epoch</span></code></a> option.</p>
+<p>留意 <cite>inotify.max_user_watches</cite>：当 Envoy 被配置用于监视 Linux 机器目录中的多个文件时，请增加此值，因为 Linux 强制限制了最大可监视的文件数。</p>
+<p><em>RESTART_EPOCH</em> 环境变量由重启程序在每次重启的时候设置，并且必须通过 <a class="reference internal" href="cli.html#cmdoption-restart-epoch"><code class="xref std std-option docutils literal notranslate"><span class="pre">--restart-epoch</span></code></a> 选项完成传递。</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Special care must be taken if you wish to use the <a class="reference internal" href="cli.html#cmdoption-use-dynamic-base-id"><code class="xref std std-option docutils literal notranslate"><span class="pre">--use-dynamic-base-id</span></code></a> option. That
-flag may only be set when the <em>RESTART_EPOCH</em> is 0 and your <em>start_envoy.sh</em> must obtain the
-chosen base ID (via <a class="reference internal" href="cli.html#cmdoption-base-id-path"><code class="xref std std-option docutils literal notranslate"><span class="pre">--base-id-path</span></code></a>), store it, and use it as the <a class="reference internal" href="cli.html#cmdoption-base-id"><code class="xref std std-option docutils literal notranslate"><span class="pre">--base-id</span></code></a>
-value on subsequent invocations (when <em>RESTART_EPOCH</em> is greater than 0).</p>
+<p>如果使用 <a class="reference internal" href="cli.html#cmdoption-use-dynamic-base-id"><code class="xref std std-option docutils literal notranslate"><span class="pre">--use-dynamic-base-id</span></code></a> 选项要特别小心。只有当 <em>RESTART_EPOCH</em> 是 0，
+并且你的 <em>start_envoy.sh</em> 必须获得所选的基本 ID（例如 <a class="reference internal" href="cli.html#cmdoption-base-id-path"><code class="xref std std-option docutils literal notranslate"><span class="pre">--base-id-path</span></code></a> ）并存储，
+然后在后续的调用中作为 <a class="reference internal" href="cli.html#cmdoption-base-id"><code class="xref std std-option docutils literal notranslate"><span class="pre">--base-id</span></code></a> 的值（当 <em>RESTART_EPOCH</em> 大于 0 时），才能设置该标志。</p>
 </div>
-<p>The restarter handles the following signals:</p>
+<p>重启程序处理以下信号：</p>
 <ul class="simple">
-<li><p><strong>SIGTERM</strong> or <strong>SIGINT</strong> (Ctrl-C): Will cleanly terminate all child processes and exit.</p></li>
-<li><p><strong>SIGHUP</strong>: Will hot restart by re-invoking whatever is passed as the first argument to the
-hot restart script.</p></li>
-<li><p><strong>SIGCHLD</strong>: If any of the child processes shut down unexpectedly, the restart script will shut
-everything down and exit to avoid being in an unexpected state. The controlling process manager
-should then restart the restarter script to start Envoy again.</p></li>
-<li><p><strong>SIGUSR1</strong>: Will be forwarded to Envoy as a signal to reopen all access logs. This is used for
-atomic move and reopen log rotation.</p></li>
+<li><p><strong>SIGTERM</strong> 或 <strong>SIGINT</strong> （Ctrl-C）：快速地清除所有子进程并退出。</p></li>
+<li><p><strong>SIGHUP</strong>：通过重新调用作为热重启脚本的第一个参数来进行热重启。</p></li>
+<li><p><strong>SIGCHLD</strong>：如果任意子进程意外关闭，热重启脚本将会关闭所有进程并退出，以避免处于意外状态。然后，控制进程管理器应该再次启动重启脚本来启动 Envoy 。</p></li>
+<li><p><strong>SIGUSR1</strong>：作为重新打开所有访问日志的型号发送给 Envoy，这是用于原子移动和重新打开日志循环。</p></li>
 </ul>
 </div>
 

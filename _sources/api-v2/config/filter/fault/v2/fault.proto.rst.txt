@@ -9,7 +9,7 @@ Common fault injection types
 config.filter.fault.v2.FaultDelay
 ---------------------------------
 
-`[config.filter.fault.v2.FaultDelay proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/config/filter/fault/v2/fault.proto#L24>`_
+`[config.filter.fault.v2.FaultDelay proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/config/filter/fault/v2/fault.proto#L24>`_
 
 Delay specification is used to inject latency into the
 HTTP/gRPC/Mongo/Redis operation or delay proxying of TCP connections.
@@ -63,7 +63,7 @@ percentage
 config.filter.fault.v2.FaultDelay.HeaderDelay
 ---------------------------------------------
 
-`[config.filter.fault.v2.FaultDelay.HeaderDelay proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/config/filter/fault/v2/fault.proto#L33>`_
+`[config.filter.fault.v2.FaultDelay.HeaderDelay proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/config/filter/fault/v2/fault.proto#L33>`_
 
 Fault delays are controlled via an HTTP header (if applicable). See the
 :ref:`HTTP fault filter <config_http_filters_fault_injection_http_header>` documentation for
@@ -81,7 +81,7 @@ more information.
 Enum config.filter.fault.v2.FaultDelay.FaultDelayType
 -----------------------------------------------------
 
-`[config.filter.fault.v2.FaultDelay.FaultDelayType proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/config/filter/fault/v2/fault.proto#L25>`_
+`[config.filter.fault.v2.FaultDelay.FaultDelayType proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/config/filter/fault/v2/fault.proto#L25>`_
 
 
 .. _envoy_api_enum_value_config.filter.fault.v2.FaultDelay.FaultDelayType.FIXED:
@@ -96,7 +96,7 @@ FIXED
 config.filter.fault.v2.FaultRateLimit
 -------------------------------------
 
-`[config.filter.fault.v2.FaultRateLimit proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/config/filter/fault/v2/fault.proto#L61>`_
+`[config.filter.fault.v2.FaultRateLimit proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/config/filter/fault/v2/fault.proto#L61>`_
 
 Describes a rate limit to be applied.
 
@@ -137,7 +137,7 @@ percentage
 config.filter.fault.v2.FaultRateLimit.FixedLimit
 ------------------------------------------------
 
-`[config.filter.fault.v2.FaultRateLimit.FixedLimit proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/config/filter/fault/v2/fault.proto#L63>`_
+`[config.filter.fault.v2.FaultRateLimit.FixedLimit proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/config/filter/fault/v2/fault.proto#L63>`_
 
 Describes a fixed/constant rate limit.
 
@@ -160,7 +160,7 @@ limit_kbps
 config.filter.fault.v2.FaultRateLimit.HeaderLimit
 -------------------------------------------------
 
-`[config.filter.fault.v2.FaultRateLimit.HeaderLimit proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/config/filter/fault/v2/fault.proto#L71>`_
+`[config.filter.fault.v2.FaultRateLimit.HeaderLimit proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/config/filter/fault/v2/fault.proto#L71>`_
 
 Rate limits are controlled via an HTTP header (if applicable). See the
 :ref:`HTTP fault filter <config_http_filters_fault_injection_http_header>` documentation for

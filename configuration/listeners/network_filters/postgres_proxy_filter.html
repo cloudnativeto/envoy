@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Postgres proxy &mdash; envoy 1.16.0-b98f42 documentation</title>
+  <title>Postgres 代理 &mdash; envoy 1.16.0-9b3ba5 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-b98f42
+                1.16.0-9b3ba5
               </div>
             
           
@@ -122,7 +122,7 @@
 <li class="toctree-l4"><a class="reference internal" href="local_rate_limit_filter.html">本地限流</a></li>
 <li class="toctree-l4"><a class="reference internal" href="mongo_proxy_filter.html">Mongo 代理</a></li>
 <li class="toctree-l4"><a class="reference internal" href="mysql_proxy_filter.html">MySQL 代理</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Postgres proxy</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Postgres 代理</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rate_limit_filter.html">限流</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rbac_filter.html">基于角色的访问控制（RBAC）网络过滤器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="redis_proxy_filter.html">Redis 代理</a></li>
@@ -205,7 +205,7 @@
         
           <li><a href="network_filters.html">网络过滤器</a> &raquo;</li>
         
-      <li>Postgres proxy</li>
+      <li>Postgres 代理</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -224,34 +224,26 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="postgres-proxy">
-<span id="config-network-filters-postgres-proxy"></span><h1>Postgres proxy<a class="headerlink" href="#postgres-proxy" title="Permalink to this headline">¶</a></h1>
-<p>The Postgres proxy filter decodes the wire protocol between a Postgres client (downstream) and a Postgres server
-(upstream). The decoded information is used to produce Postgres level statistics like sessions,
-statements or transactions executed, among others. The Postgres proxy filter parses SQL queries carried in <code class="docutils literal notranslate"><span class="pre">Query</span></code> and <code class="docutils literal notranslate"><span class="pre">Parse</span></code> messages.
-When SQL query has been parsed successfully, the <a class="reference internal" href="#config-network-filters-postgres-proxy-dynamic-metadata"><span class="std std-ref">metadata</span></a> is created,
-which may be used by other filters like <a class="reference internal" href="rbac_filter.html#config-network-filters-rbac"><span class="std std-ref">RBAC</span></a>.
-When the Postgres filter detects that a session is encrypted, the messages are ignored and no decoding takes
-place. More information:</p>
+  <div class="section" id="postgres">
+<span id="config-network-filters-postgres-proxy"></span><h1>Postgres 代理<a class="headerlink" href="#postgres" title="Permalink to this headline">¶</a></h1>
+<p>Postgres 代理过滤器解码 Postgres 客户端（下游）和 Postgres 服务端（上游）之间的连接协议。解码后的信息会被用于生成 Postgres 级别的统计信息，例如其中的会话、语句和已执行的事务等。Postgres 代理过滤器还会解析 <code class="docutils literal notranslate"><span class="pre">Query</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Parse</span></code> 消息中携带的 SQL 查询。
+当成功解析 SQL 查询后, 元数据:ref:<cite>metadata &lt;config_network_filters_postgres_proxy_dynamic_metadata&gt;</cite> 会被创建, 这个元数据可能会被其他过滤器使用，比如 <a class="reference internal" href="rbac_filter.html#config-network-filters-rbac"><span class="std std-ref">RBAC</span></a> 。
+当 Postgres 过滤器检测到会话已加密的时候，消息会被忽略并且不会进行解码。更多信息：</p>
 <ul class="simple">
-<li><p>Postgres <a class="reference internal" href="../../../intro/arch_overview/other_protocols/postgres.html#arch-overview-postgres"><span class="std std-ref">architecture overview</span></a></p></li>
+<li><p>Postgres <a class="reference internal" href="../../../intro/arch_overview/other_protocols/postgres.html#arch-overview-postgres"><span class="std std-ref">架构概述</span></a></p></li>
 </ul>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>The <cite>postgres_proxy</cite> filter is experimental and is currently under active development.
-Capabilities will be expanded over time and the configuration structures are likely to change.</p>
+<p><cite>postgres_proxy</cite> 过滤器是实验性的，目前正在积极开发中。
+功能会随着时间的推移而扩展，并且配置结构也可能会发生变化。</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The <cite>postgreql_proxy</cite> filter was tested only with
-<a class="reference external" href="https://www.postgresql.org/docs/current/protocol.html">Postgres frontend/backend protocol version 3.0</a>, which was introduced in
-Postgres 7.4. Earlier versions are thus not supported. Testing is limited
-anyway to not EOL-ed versions.</p>
+<p><cite>postgreql_proxy</cite> 过滤器仅使用 <a class="reference external" href="https://www.postgresql.org/docs/current/protocol.html">Postgres frontend/backend protocol version 3.0</a> 测试过, 这个版本在 Postgres 7.4 被引入。因此不支持早期版本。无论如何，测试只限于非最终（EOL-ed）版本。</p>
 </div>
-<div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<p>The Postgres proxy filter should be chained with the TCP proxy as shown in the configuration
-example below:</p>
+<div class="section" id="id1">
+<h2>配置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Postgres 代理过滤器应该与 TCP 代理串联在一起使用，如以下配置示例所示：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">filter_chains</span><span class="p">:</span>
 <span class="p p-Indicator">-</span> <span class="nt">filters</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.filters.network.postgres_proxy</span>
@@ -266,9 +258,9 @@ example below:</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="statistics">
-<span id="config-network-filters-postgres-proxy-stats"></span><h2>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h2>
-<p>Every configured Postgres proxy filter has statistics rooted at postgres.&lt;stat_prefix&gt; with the following statistics:</p>
+<div class="section" id="config-network-filters-postgres-proxy-stats">
+<span id="id2"></span><h2>统计<a class="headerlink" href="#config-network-filters-postgres-proxy-stats" title="Permalink to this headline">¶</a></h2>
+<p>每个配置的 Postgres 代理过滤器都有如下基于 postgres.&lt;stat_prefix&gt; 的统计信息：</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 40%" />
@@ -276,139 +268,138 @@ example below:</p>
 <col style="width: 40%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>errors</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of times the server replied with ERROR message</p></td>
+<td><p>服务器回复 ERROR message 的次数</p></td>
 </tr>
 <tr class="row-odd"><td><p>errors_error</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of times the server replied with ERROR message with ERROR severity</p></td>
+<td><p>服务器回复 ERROR message 和 ERROR severity 的次数</p></td>
 </tr>
 <tr class="row-even"><td><p>errors_fatal</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of times the server replied with ERROR message with FATAL severity</p></td>
+<td><p>服务器回复 ERROR message 和 FATAL severity 的次数</p></td>
 </tr>
 <tr class="row-odd"><td><p>errors_panic</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of times the server replied with ERROR message with PANIC severity</p></td>
+<td><p>服务器回复 ERROR message 和 PANIC severity 的次数</p></td>
 </tr>
 <tr class="row-even"><td><p>errors_unknown</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of times the server replied with ERROR message but the decoder could not parse it</p></td>
+<td><p>服务器回复 ERROR message 但解码器无法解析它的次数</p></td>
 </tr>
 <tr class="row-odd"><td><p>messages</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of messages processed by the filter</p></td>
+<td><p>过滤器处理的消息总数</p></td>
 </tr>
 <tr class="row-even"><td><p>messages_backend</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of backend messages detected by the filter</p></td>
+<td><p>过滤器检测到的后端消息总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>messages_frontend</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of frontend messages detected by the filter</p></td>
+<td><p>过滤器检测到的前端消息数</p></td>
 </tr>
 <tr class="row-even"><td><p>messages_unknown</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of times the filter successfully decoded a message but did not know what to do with it</p></td>
+<td><p>过滤器成功解码但不知道如何处理消息的次数</p></td>
 </tr>
 <tr class="row-odd"><td><p>sessions</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of successful logins</p></td>
+<td><p>成功登陆总数</p></td>
 </tr>
 <tr class="row-even"><td><p>sessions_encrypted</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of times the filter detected encrypted sessions</p></td>
+<td><p>过滤器检测到加密会话的次数</p></td>
 </tr>
 <tr class="row-odd"><td><p>sessions_unencrypted</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of messages indicating unencrypted successful login</p></td>
+<td><p>表示未加密成功登录的消息数</p></td>
 </tr>
 <tr class="row-even"><td><p>statements</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of SQL statements</p></td>
+<td><p>SQL语句总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>statements_delete</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of DELETE statements</p></td>
+<td><p>DELETE 语句数</p></td>
 </tr>
 <tr class="row-even"><td><p>statements_insert</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of INSERT statements</p></td>
+<td><p>INSERT 语句数</p></td>
 </tr>
 <tr class="row-odd"><td><p>statements_select</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of SELECT statements</p></td>
+<td><p>SELECT 语句数</p></td>
 </tr>
 <tr class="row-even"><td><p>statements_update</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of UPDATE statements</p></td>
+<td><p>UPDATE 语句数</p></td>
 </tr>
 <tr class="row-odd"><td><p>statements_other</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of statements other than DELETE, INSERT, SELECT or UPDATE</p></td>
+<td><p>“除 DELETE，INSERT，SELECT 或 UPDATE 以外的语句数”</p></td>
 </tr>
 <tr class="row-even"><td><p>statements_parsed</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of SQL queries parsed successfully</p></td>
+<td><p>成功解析的 SQL 查询数</p></td>
 </tr>
 <tr class="row-odd"><td><p>statements_parse_error</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of SQL queries not parsed successfully</p></td>
+<td><p>未成功解析的 SQL 查询数</p></td>
 </tr>
 <tr class="row-even"><td><p>transactions</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of SQL transactions</p></td>
+<td><p>SQL事务总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>transactions_commit</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of COMMIT transactions</p></td>
+<td><p>COMMIT 事务数</p></td>
 </tr>
 <tr class="row-even"><td><p>transactions_rollback</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of ROLLBACK transactions</p></td>
+<td><p>ROLLBACK 事务数</p></td>
 </tr>
 <tr class="row-odd"><td><p>notices</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of NOTICE messages</p></td>
+<td><p>NOTICE 消息总数</p></td>
 </tr>
 <tr class="row-even"><td><p>notices_notice</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of NOTICE messages with NOTICE subtype</p></td>
+<td><p>带有 NOTICE subtype 的 NOTICE 消息数</p></td>
 </tr>
 <tr class="row-odd"><td><p>notices_log</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of NOTICE messages with LOG subtype</p></td>
+<td><p>带有 LOG subtype 的 NOTICE 消息数</p></td>
 </tr>
 <tr class="row-even"><td><p>notices_warning</p></td>
 <td><p>Counter</p></td>
-<td><p>Number ofr NOTICE messags with WARNING severity</p></td>
+<td><p>带有 WARNING severity 的 NOTICE 消息数</p></td>
 </tr>
 <tr class="row-odd"><td><p>notices_debug</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of NOTICE messages with DEBUG severity</p></td>
+<td><p>带有 DEBUG severity 的 NOTICE 消息数</p></td>
 </tr>
 <tr class="row-even"><td><p>notices_info</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of NOTICE messages with INFO severity</p></td>
+<td><p>带有 INFO severity 的 NOTICE 消息数</p></td>
 </tr>
 <tr class="row-odd"><td><p>notices_unknown</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of NOTICE messages which could not be recognized</p></td>
+<td><p>无法识别的 NOTICE 消息数</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="dynamic-metadata">
-<span id="config-network-filters-postgres-proxy-dynamic-metadata"></span><h2>Dynamic Metadata<a class="headerlink" href="#dynamic-metadata" title="Permalink to this headline">¶</a></h2>
-<p>The Postgres filter emits Dynamic Metadata based on SQL statements carried in <code class="docutils literal notranslate"><span class="pre">Query</span></code> and <code class="docutils literal notranslate"><span class="pre">Parse</span></code> messages. <code class="docutils literal notranslate"><span class="pre">statements_parsed</span></code> statistics Counter tracks how many times
-SQL statement was parsed successfully and metadata was created. The metadata is emitted in the following format:</p>
+<div class="section" id="config-network-filters-postgres-proxy-dynamic-metadata">
+<span id="id3"></span><h2>动态元数据<a class="headerlink" href="#config-network-filters-postgres-proxy-dynamic-metadata" title="Permalink to this headline">¶</a></h2>
+<p>Postgres 过滤器根据 <code class="docutils literal notranslate"><span class="pre">Query</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Parse</span></code> 消息中携带的 SQL 语句发出动态元数据。<code class="docutils literal notranslate"><span class="pre">statements_parsed</span></code> 统计计数器追踪有多少次 SQL 语句被成功解析，并创建元数据。这个元数据会以以下的格式发出：</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -416,29 +407,28 @@ SQL statement was parsed successfully and metadata was created. The metadata is 
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>&lt;table.db&gt;</p></td>
 <td><p>string</p></td>
-<td><p>The resource name in <em>table.db</em> format.</p></td>
+<td><p><em>table.db</em> 格式的资源名称。</p></td>
 </tr>
 <tr class="row-odd"><td><p>[]</p></td>
 <td><p>list</p></td>
-<td><p>A list of strings representing the operations executed on the resource. Operations can be one of insert/update/select/drop/delete/create/alter/show.</p></td>
+<td><p>表示在资源上执行的操作的字符串列表。操作可以是 insert/update/select/drop/delete/create/alter/show 操作之一。</p></td>
 </tr>
 </tbody>
 </table>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>Currently used parser does not successfully parse all SQL statements and it cannot be assumed that all SQL queries will successfully produce Dynamic Metadata.
-Creating Dynamic Metadata from SQL queries is on best-effort basis at the moment. If parsing of an SQL query fails, <code class="docutils literal notranslate"><span class="pre">statements_parse_error</span></code> counter is increased, log message is created, Dynamic Metadata is not
-produced, but the Postgres message is still forwarded to upstream Postgres server.</p>
+<p>当前使用的解析器无法成功解析所有的 SQL 语句，并且不能假定所有的 SQL 查询都会成功生成动态元数据。
+目前基于 SQL 查询创建动态元数据是在尽力而为的基础上。如果解析 SQL 查询失败，<code class="docutils literal notranslate"><span class="pre">statements_parse_error</span></code> 计数值会增加，并且创建日志消息，动态元数据不会生成，但是 Postgres 消息会继续转发到上游 Postgres 服务器。</p>
 </div>
-<p>Parsing SQL statements and emitting Dynamic Metadata can be disabled by setting <a class="reference internal" href="../../../api-v3/extensions/filters/network/postgres_proxy/v3alpha/postgres_proxy.proto.html#envoy-v3-api-field-extensions-filters-network-postgres-proxy-v3alpha-postgresproxy-enable-sql-parsing"><span class="std std-ref">enable_sql_parsing</span></a> to false.</p>
+<p>可以通过设置 <a class="reference internal" href="../../../api-v3/extensions/filters/network/postgres_proxy/v3alpha/postgres_proxy.proto.html#envoy-v3-api-field-extensions-filters-network-postgres-proxy-v3alpha-postgresproxy-enable-sql-parsing"><span class="std std-ref">enable_sql_parsing</span></a> 为 false 来禁用 解析 SQL 语句和发出动态元数据。</p>
 </div>
 </div>
 
