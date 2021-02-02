@@ -88,8 +88,7 @@ PCAP 传播
 ---------------
 
 生成的跟踪文件可以转换为 `libpcap format
-<https://wiki.wireshark.org/Development/LibpcapFileFormat>`_,格式， 可以使用如
- `Wireshark <https://www.wireshark.org/>`_ 和 tap2pcap 这样的工具进行分析, 例如:
+<https://wiki.wireshark.org/Development/LibpcapFileFormat>`_，格式，可以使用如 `Wireshark <https://www.wireshark.org/>`_ 和 tap2pcap 这样的工具进行分析，例如:
 
 .. code-block:: bash
 
