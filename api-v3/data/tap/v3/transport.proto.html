@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Transport tap data &mdash; envoy 1.16.0-80a199 documentation</title>
+  <title>Transport tap data &mdash; envoy 1.16.0-b98f42 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-80a199
+                1.16.0-b98f42
               </div>
             
           
@@ -119,10 +119,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../config/config.html">扩展</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../admin/admin.html">管理</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../../data.html">Envoy 数据</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../../accesslog/accesslog.html">Access logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../accesslog/accesslog.html">访问日志</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../cluster/cluster.html">集群数据</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../core/core.html">Core data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../dns/dns.html">Extensions objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../core/core.html">核心数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../dns/dns.html">扩展对象</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="../tap.html">Tap</a></li>
 </ul>
 </li>
@@ -215,7 +215,7 @@
 sequences on a socket.</p>
 <div class="section" id="data-tap-v3-connection">
 <span id="envoy-v3-api-msg-data-tap-v3-connection"></span><h2>data.tap.v3.Connection<a class="headerlink" href="#data-tap-v3-connection" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/data/tap/v3/transport.proto#L22">[data.tap.v3.Connection proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/data/tap/v3/transport.proto#L22">[data.tap.v3.Connection proto]</a></p>
 <p>Connection properties.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;local_address&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -234,7 +234,7 @@ sequences on a socket.</p>
 </div>
 <div class="section" id="data-tap-v3-socketevent">
 <span id="envoy-v3-api-msg-data-tap-v3-socketevent"></span><h2>data.tap.v3.SocketEvent<a class="headerlink" href="#data-tap-v3-socketevent" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/data/tap/v3/transport.proto#L33">[data.tap.v3.SocketEvent proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/data/tap/v3/transport.proto#L33">[data.tap.v3.SocketEvent proto]</a></p>
 <p>Event in a socket trace.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -269,7 +269,7 @@ Read or write with content as bytes string.</p>
 </div>
 <div class="section" id="data-tap-v3-socketevent-read">
 <span id="envoy-v3-api-msg-data-tap-v3-socketevent-read"></span><h2>data.tap.v3.SocketEvent.Read<a class="headerlink" href="#data-tap-v3-socketevent-read" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/data/tap/v3/transport.proto#L37">[data.tap.v3.SocketEvent.Read proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/data/tap/v3/transport.proto#L37">[data.tap.v3.SocketEvent.Read proto]</a></p>
 <p>Data read by Envoy from the transport socket.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>
@@ -283,7 +283,7 @@ Read or write with content as bytes string.</p>
 </div>
 <div class="section" id="data-tap-v3-socketevent-write">
 <span id="envoy-v3-api-msg-data-tap-v3-socketevent-write"></span><h2>data.tap.v3.SocketEvent.Write<a class="headerlink" href="#data-tap-v3-socketevent-write" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/data/tap/v3/transport.proto#L48">[data.tap.v3.SocketEvent.Write proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/data/tap/v3/transport.proto#L48">[data.tap.v3.SocketEvent.Write proto]</a></p>
 <p>Data written by Envoy to the transport socket.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -302,7 +302,7 @@ Read or write with content as bytes string.</p>
 </div>
 <div class="section" id="data-tap-v3-socketevent-closed">
 <span id="envoy-v3-api-msg-data-tap-v3-socketevent-closed"></span><h2>data.tap.v3.SocketEvent.Closed<a class="headerlink" href="#data-tap-v3-socketevent-closed" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/data/tap/v3/transport.proto#L60">[data.tap.v3.SocketEvent.Closed proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/data/tap/v3/transport.proto#L60">[data.tap.v3.SocketEvent.Closed proto]</a></p>
 <p>The connection was closed.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
 </pre></div>
@@ -310,7 +310,7 @@ Read or write with content as bytes string.</p>
 </div>
 <div class="section" id="data-tap-v3-socketbufferedtrace">
 <span id="envoy-v3-api-msg-data-tap-v3-socketbufferedtrace"></span><h2>data.tap.v3.SocketBufferedTrace<a class="headerlink" href="#data-tap-v3-socketbufferedtrace" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/data/tap/v3/transport.proto#L82">[data.tap.v3.SocketBufferedTrace proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/data/tap/v3/transport.proto#L82">[data.tap.v3.SocketBufferedTrace proto]</a></p>
 <p>Sequence of read/write events that constitute a buffered trace on a socket.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;trace_id&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -345,7 +345,7 @@ for long term stable uniqueness. Matches connection IDs used in Envoy logs.</p>
 </div>
 <div class="section" id="data-tap-v3-socketstreamedtracesegment">
 <span id="envoy-v3-api-msg-data-tap-v3-socketstreamedtracesegment"></span><h2>data.tap.v3.SocketStreamedTraceSegment<a class="headerlink" href="#data-tap-v3-socketstreamedtracesegment" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/data/tap/v3/transport.proto#L106">[data.tap.v3.SocketStreamedTraceSegment proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/data/tap/v3/transport.proto#L106">[data.tap.v3.SocketStreamedTraceSegment proto]</a></p>
 <p>A streamed socket trace segment. Multiple segments make up a full trace.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;trace_id&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>

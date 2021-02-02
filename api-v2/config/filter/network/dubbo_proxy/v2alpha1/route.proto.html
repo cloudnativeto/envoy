@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Dubbo Proxy Route Configuration &mdash; envoy 1.16.0-80a199 documentation</title>
+  <title>Dubbo Proxy Route Configuration &mdash; envoy 1.16.0-b98f42 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-80a199
+                1.16.0-b98f42
               </div>
             
           
@@ -125,8 +125,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../common/common.html">通用</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../cluster/cluster.html">集群</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../listener/listener.html">监听器</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../grpc_credential/grpc_credential.html">Grpc Credentials</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../retry/retry.html">Retry Predicates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../grpc_credential/grpc_credential.html">Grpc 凭证</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../retry/retry.html">重试谓词</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../trace/trace.html">HTTP 追踪器</a></li>
 </ul>
 </li>
@@ -197,7 +197,7 @@
         
           <li><a href="../../../filter.html">过滤器</a> &raquo;</li>
         
-          <li><a href="../../network.html">Network filters</a> &raquo;</li>
+          <li><a href="../../network.html">网络过滤器</a> &raquo;</li>
         
       <li>Dubbo Proxy Route Configuration</li>
     
@@ -223,7 +223,7 @@
 <p>Dubbo Proxy <a class="reference internal" href="../../../../../../configuration/listeners/network_filters/dubbo_proxy_filter.html#config-network-filters-dubbo-proxy"><span class="std std-ref">configuration overview</span></a>.</p>
 <div class="section" id="config-filter-network-dubbo-proxy-v2alpha1-routeconfiguration">
 <span id="envoy-api-msg-config-filter-network-dubbo-proxy-v2alpha1-routeconfiguration"></span><h2>config.filter.network.dubbo_proxy.v2alpha1.RouteConfiguration<a class="headerlink" href="#config-filter-network-dubbo-proxy-v2alpha1-routeconfiguration" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/filter/network/dubbo_proxy/v2alpha1/route.proto#L23">[config.filter.network.dubbo_proxy.v2alpha1.RouteConfiguration proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/config/filter/network/dubbo_proxy/v2alpha1/route.proto#L23">[config.filter.network.dubbo_proxy.v2alpha1.RouteConfiguration proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;interface&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -257,7 +257,7 @@ that matches will be used.</p>
 </div>
 <div class="section" id="config-filter-network-dubbo-proxy-v2alpha1-route">
 <span id="envoy-api-msg-config-filter-network-dubbo-proxy-v2alpha1-route"></span><h2>config.filter.network.dubbo_proxy.v2alpha1.Route<a class="headerlink" href="#config-filter-network-dubbo-proxy-v2alpha1-route" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/filter/network/dubbo_proxy/v2alpha1/route.proto#L41">[config.filter.network.dubbo_proxy.v2alpha1.Route proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/config/filter/network/dubbo_proxy/v2alpha1/route.proto#L41">[config.filter.network.dubbo_proxy.v2alpha1.Route proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;match&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;route&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>
@@ -275,7 +275,7 @@ that matches will be used.</p>
 </div>
 <div class="section" id="config-filter-network-dubbo-proxy-v2alpha1-routematch">
 <span id="envoy-api-msg-config-filter-network-dubbo-proxy-v2alpha1-routematch"></span><h2>config.filter.network.dubbo_proxy.v2alpha1.RouteMatch<a class="headerlink" href="#config-filter-network-dubbo-proxy-v2alpha1-routematch" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/filter/network/dubbo_proxy/v2alpha1/route.proto#L49">[config.filter.network.dubbo_proxy.v2alpha1.RouteMatch proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/config/filter/network/dubbo_proxy/v2alpha1/route.proto#L49">[config.filter.network.dubbo_proxy.v2alpha1.RouteMatch proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;headers&quot;</span><span class="p">:</span> <span class="p">[]</span>
@@ -296,7 +296,7 @@ the value field is not in the config).</p>
 </div>
 <div class="section" id="config-filter-network-dubbo-proxy-v2alpha1-routeaction">
 <span id="envoy-api-msg-config-filter-network-dubbo-proxy-v2alpha1-routeaction"></span><h2>config.filter.network.dubbo_proxy.v2alpha1.RouteAction<a class="headerlink" href="#config-filter-network-dubbo-proxy-v2alpha1-routeaction" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/filter/network/dubbo_proxy/v2alpha1/route.proto#L60">[config.filter.network.dubbo_proxy.v2alpha1.RouteAction proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/config/filter/network/dubbo_proxy/v2alpha1/route.proto#L60">[config.filter.network.dubbo_proxy.v2alpha1.RouteAction proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;cluster&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;weighted_clusters&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>
@@ -319,7 +319,7 @@ Currently ClusterWeight only supports the name and weight fields.</p>
 </div>
 <div class="section" id="config-filter-network-dubbo-proxy-v2alpha1-methodmatch">
 <span id="envoy-api-msg-config-filter-network-dubbo-proxy-v2alpha1-methodmatch"></span><h2>config.filter.network.dubbo_proxy.v2alpha1.MethodMatch<a class="headerlink" href="#config-filter-network-dubbo-proxy-v2alpha1-methodmatch" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/filter/network/dubbo_proxy/v2alpha1/route.proto#L75">[config.filter.network.dubbo_proxy.v2alpha1.MethodMatch proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/config/filter/network/dubbo_proxy/v2alpha1/route.proto#L75">[config.filter.network.dubbo_proxy.v2alpha1.MethodMatch proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;params_match&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>
@@ -339,7 +339,7 @@ The value is the parameter matching type.</p>
 </div>
 <div class="section" id="config-filter-network-dubbo-proxy-v2alpha1-methodmatch-parametermatchspecifier">
 <span id="envoy-api-msg-config-filter-network-dubbo-proxy-v2alpha1-methodmatch-parametermatchspecifier"></span><h2>config.filter.network.dubbo_proxy.v2alpha1.MethodMatch.ParameterMatchSpecifier<a class="headerlink" href="#config-filter-network-dubbo-proxy-v2alpha1-methodmatch-parametermatchspecifier" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/filter/network/dubbo_proxy/v2alpha1/route.proto#L77">[config.filter.network.dubbo_proxy.v2alpha1.MethodMatch.ParameterMatchSpecifier proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/config/filter/network/dubbo_proxy/v2alpha1/route.proto#L77">[config.filter.network.dubbo_proxy.v2alpha1.MethodMatch.ParameterMatchSpecifier proto]</a></p>
 <p>The parameter matching type.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;exact_match&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>

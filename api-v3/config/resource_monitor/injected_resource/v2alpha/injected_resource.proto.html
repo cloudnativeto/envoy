@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Injected resource &mdash; envoy 1.16.0-80a199 documentation</title>
+  <title>Injected resource &mdash; envoy 1.16.0-b98f42 documentation</title>
   
 
   
@@ -46,7 +46,7 @@
     
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="Common" href="../../../common/common.html" />
+    <link rel="next" title="通用" href="../../../common/common.html" />
     <link rel="prev" title="Fixed heap" href="../../fixed_heap/v2alpha/fixed_heap.proto.html" /> 
 </head>
 
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-80a199
+                1.16.0-b98f42
               </div>
             
           
@@ -118,19 +118,19 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../http_routes/http_routes.html">HTTP 路由管理</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../../../config.html">扩展</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../../filter/filter.html">过滤器</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../accesslog/accesslog.html">Access loggers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../accesslog/accesslog.html">访问记录器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../rbac/rbac.html">RBAC</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../health_checker/health_checker.html">健康检查器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../transport_socket/transport_socket.html">Transport sockets</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../../resource_monitor.html">Resource monitors</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../common/common.html">Common</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../resource_monitor.html">资源监控器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../common/common.html">通用</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../compression/compression.html">压缩</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../cluster/cluster.html">集群</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../grpc_credential/grpc_credential.html">Grpc Credentials</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../retry/retry.html">Retry Predicates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../trace/trace.html">HTTP Tracers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../internal_redirect/internal_redirect.html">Internal Redirect Predicates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../endpoint/endpoint.html">Endpoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../grpc_credential/grpc_credential.html">Grpc 凭证</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../retry/retry.html">重试谓词</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../trace/trace.html">HTTP 追踪器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../internal_redirect/internal_redirect.html">内部重定向谓词</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../endpoint/endpoint.html">端点</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../upstream/upstream.html">上游配置</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../wasm/wasm.html">WASM</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../watchdog/watchdog.html">看门狗（watchdog）</a></li>
@@ -200,7 +200,7 @@
         
           <li><a href="../../../config.html">扩展</a> &raquo;</li>
         
-          <li><a href="../../resource_monitor.html">Resource monitors</a> &raquo;</li>
+          <li><a href="../../resource_monitor.html">资源监控器</a> &raquo;</li>
         
       <li>Injected resource</li>
     
@@ -231,7 +231,7 @@
 </div>
 <div class="section" id="config-resource-monitor-injected-resource-v2alpha-injectedresourceconfig">
 <span id="envoy-v3-api-msg-config-resource-monitor-injected-resource-v2alpha-injectedresourceconfig"></span><h2>config.resource_monitor.injected_resource.v2alpha.InjectedResourceConfig<a class="headerlink" href="#config-resource-monitor-injected-resource-v2alpha-injectedresourceconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/resource_monitor/injected_resource/v2alpha/injected_resource.proto#L19">[config.resource_monitor.injected_resource.v2alpha.InjectedResourceConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/config/resource_monitor/injected_resource/v2alpha/injected_resource.proto#L19">[config.resource_monitor.injected_resource.v2alpha.InjectedResourceConfig proto]</a></p>
 <p>The injected resource monitor allows injecting a synthetic resource pressure into Envoy
 via a text file, which must contain a floating-point number in the range [0..1] representing
 the resource pressure and be updated atomically by a symbolic link swap.
@@ -256,7 +256,7 @@ This is intended primarily for integration tests to force Envoy into an overload
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../../common/common.html" class="btn btn-neutral float-right" title="Common" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../../common/common.html" class="btn btn-neutral float-right" title="通用" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../../fixed_heap/v2alpha/fixed_heap.proto.html" class="btn btn-neutral float-left" title="Fixed heap" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1.16.0 (October 8, 2020) &mdash; envoy 1.16.0-80a199 documentation</title>
+  <title>1.16.0 (October 8, 2020) &mdash; envoy 1.16.0-b98f42 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-80a199
+                1.16.0-b98f42
               </div>
             
           
@@ -234,7 +234,7 @@
 <h2>Incompatible Behavior Changes<a class="headerlink" href="#incompatible-behavior-changes" title="Permalink to this headline">¶</a></h2>
 <p><em>Changes that are expected to cause an incompatibility if applicable; deployment changes are likely required</em></p>
 <ul class="simple">
-<li><p>build: added visibility rules for upstream. If these cause visibility related breakage, see notes in <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/BUILD">BUILD</a>.</p></li>
+<li><p>build: added visibility rules for upstream. If these cause visibility related breakage, see notes in <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/BUILD">BUILD</a>.</p></li>
 <li><p>build: tcmalloc changes require Clang 9. This requirement change can be avoided by building with <cite>–define tcmalloc=gperftools</cite> to use the older tcmalloc code.</p></li>
 <li><p>config: additional warnings have been added for the use of v2 APIs. These appear as log messages
 and are also captured in the <a class="reference internal" href="../configuration/operations/runtime.html#runtime-stats"><span class="std std-ref">deprecated_feature_use</span></a> counter after server

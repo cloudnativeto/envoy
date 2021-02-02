@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>过滤器 &mdash; envoy 1.16.0-80a199 documentation</title>
+  <title>过滤器 &mdash; envoy 1.16.0-b98f42 documentation</title>
   
 
   
@@ -46,7 +46,7 @@
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Listener filters" href="listener/listener.html" />
+    <link rel="next" title="监听过滤器" href="listener/listener.html" />
     <link rel="prev" title="扩展" href="../config.html" /> 
 </head>
 
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-80a199
+                1.16.0-b98f42
               </div>
             
           
@@ -125,8 +125,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../common/common.html">通用</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../cluster/cluster.html">集群</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../listener/listener.html">监听器</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../grpc_credential/grpc_credential.html">Grpc Credentials</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../retry/retry.html">Retry Predicates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../grpc_credential/grpc_credential.html">Grpc 凭证</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../retry/retry.html">重试谓词</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../trace/trace.html">HTTP 追踪器</a></li>
 </ul>
 </li>
@@ -218,7 +218,7 @@
 <h1>过滤器<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="listener/listener.html">Listener filters</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="listener/listener.html">监听过滤器</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="listener/http_inspector/empty/http_inspector.html">HTTP Inspector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="listener/original_dst/empty/original_dst.html">Original Destination</a></li>
 <li class="toctree-l2"><a class="reference internal" href="listener/proxy_protocol/empty/proxy_protocol.html">Proxy Protocol</a></li>
@@ -230,7 +230,7 @@
 <li class="toctree-l2"><a class="reference internal" href="listener/tls_inspector/v2/tls_inspector.proto.html">TLS Inspector Filter</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="network/network.html">Network filters</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="network/network.html">网络过滤器</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="network/echo/empty/echo.html">Echo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="network/sni_cluster/empty/sni_cluster.html">SNI Cluster</a></li>
 <li class="toctree-l2"><a class="reference internal" href="network/mysql_proxy/v1alpha1/mysql_proxy.proto.html">MySQL proxy</a></li>
@@ -254,11 +254,11 @@
 <li class="toctree-l2"><a class="reference internal" href="network/thrift_proxy/v2alpha1/thrift_proxy.proto.html">Thrift Proxy</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="udp/udp.html">UDP listener filters</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="udp/udp.html">UDP 监听过滤器</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="udp/udp_proxy/v2alpha/udp_proxy.proto.html">UDP proxy</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="http/http.html">HTTP filters</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="http/http.html">HTTP 过滤器</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="http/cors/empty/cors.html">CORS processing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="http/dynamo/empty/dynamo.html">AWS DynamoDB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="http/grpc_http1_bridge/empty/grpc_http1_bridge.html">gRPC HTTP/1 bridge</a></li>
@@ -323,11 +323,11 @@
 <li class="toctree-l2"><a class="reference internal" href="fault/v2/fault.proto.html#config-filter-fault-v2-faultratelimit-headerlimit">config.filter.fault.v2.FaultRateLimit.HeaderLimit</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="dubbo/dubbo.html">Dubbo filters</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="dubbo/dubbo.html">Dubbo 过滤器</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="dubbo/router/v2alpha1/router.proto.html">Router</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="thrift/thrift.html">Thrift filters</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="thrift/thrift.html">Thrift 过滤器</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="thrift/rate_limit/v2alpha1/rate_limit.proto.html">Rate limit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="thrift/router/v2alpha1/router.proto.html">Router</a></li>
 </ul>
@@ -344,7 +344,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="listener/listener.html" class="btn btn-neutral float-right" title="Listener filters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="listener/listener.html" class="btn btn-neutral float-right" title="监听过滤器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../config.html" class="btn btn-neutral float-left" title="扩展" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

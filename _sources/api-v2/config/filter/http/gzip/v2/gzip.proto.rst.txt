@@ -20,7 +20,7 @@ Gzip :ref:`configuration overview <config_http_filters_gzip>`.
 config.filter.http.gzip.v2.Gzip
 -------------------------------
 
-`[config.filter.http.gzip.v2.Gzip proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/filter/http/gzip/v2/gzip.proto#L23>`_
+`[config.filter.http.gzip.v2.Gzip proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/config/filter/http/gzip/v2/gzip.proto#L23>`_
 
 
 .. code-block:: json
@@ -128,7 +128,7 @@ compressor
 config.filter.http.gzip.v2.Gzip.CompressionLevel
 ------------------------------------------------
 
-`[config.filter.http.gzip.v2.Gzip.CompressionLevel proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/filter/http/gzip/v2/gzip.proto#L31>`_
+`[config.filter.http.gzip.v2.Gzip.CompressionLevel proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/config/filter/http/gzip/v2/gzip.proto#L31>`_
 
 
 .. code-block:: json
@@ -142,7 +142,7 @@ config.filter.http.gzip.v2.Gzip.CompressionLevel
 Enum config.filter.http.gzip.v2.Gzip.CompressionLevel.Enum
 ----------------------------------------------------------
 
-`[config.filter.http.gzip.v2.Gzip.CompressionLevel.Enum proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/filter/http/gzip/v2/gzip.proto#L32>`_
+`[config.filter.http.gzip.v2.Gzip.CompressionLevel.Enum proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/config/filter/http/gzip/v2/gzip.proto#L32>`_
 
 
 .. _envoy_api_enum_value_config.filter.http.gzip.v2.Gzip.CompressionLevel.Enum.DEFAULT:
@@ -166,7 +166,7 @@ SPEED
 Enum config.filter.http.gzip.v2.Gzip.CompressionStrategy
 --------------------------------------------------------
 
-`[config.filter.http.gzip.v2.Gzip.CompressionStrategy proto] <https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/filter/http/gzip/v2/gzip.proto#L24>`_
+`[config.filter.http.gzip.v2.Gzip.CompressionStrategy proto] <https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/config/filter/http/gzip/v2/gzip.proto#L24>`_
 
 
 .. _envoy_api_enum_value_config.filter.http.gzip.v2.Gzip.CompressionStrategy.DEFAULT:

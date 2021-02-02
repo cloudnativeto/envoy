@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Google 漏洞奖励计划（VRP） &mdash; envoy 1.16.0-80a199 documentation</title>
+  <title>Google 漏洞奖励计划（VRP） &mdash; envoy 1.16.0-b98f42 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-80a199
+                1.16.0-b98f42
               </div>
             
           
@@ -221,7 +221,7 @@
 <a class="reference internal" href="#arch-overview-google-vrp-ee"><span class="std std-ref">执行环境</span></a> 进行演示，并且与项目中的
 <a class="reference internal" href="#arch-overview-google-vrp-threat-model"><span class="std std-ref">威胁模型</span></a> 保持一致。</p></li>
 <li><p>漏洞必须报告给 <a class="reference external" href="mailto:envoy-security&#37;&#52;&#48;googlegroups&#46;com">envoy-security<span>&#64;</span>googlegroups<span>&#46;</span>com</a>，并保证具有潜在的安全问题的版本不被泄漏。提交报告时请遵循
-<a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/SECURITY.md#disclosures">披露指南</a> 。披露 SLO 被记录在 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/SECURITY.md#fix-and-disclosure-slos">这里</a>。
+<a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/SECURITY.md#disclosures">披露指南</a> 。披露 SLO 被记录在 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/SECURITY.md#fix-and-disclosure-slos">这里</a>。
 一般而言，安全信息的披漏要遵守 <a class="reference external" href="https://www.linuxfoundation.org/privacy/">Linux 基金会的隐私政策</a> ，
 并附加了一个条件，即 VRP 报告（包括报告的电子邮件地址和姓名）可以基于 VRP 的目的与谷歌共享。</p></li>
 <li><p>漏洞一定不能是公共论坛上已知的，比如，Github 的问题追踪，CVE 数据库（与 Envoy 关联的）等。
@@ -257,13 +257,13 @@
 </ul>
 <p>当这些镜像通过 “docker run” 启动时，有两个 Envoy 进程可用:</p>
 <ul class="simple">
-<li><p>Envoy 的 <em>edge</em> 监听端口是 10000 （HTTPS），通过 Envoy 的 <a class="reference internal" href="../../../faq/configuration/edge.html#faq-edge"><span class="std std-ref">边缘硬化原则</span></a>，有一个配置好的 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99//configs/google-vrp/envoy-edge.yaml">静态配置</a>，它具有 sinkhole，直接响应和请求转发路由规则（按顺序）</p>
+<li><p>Envoy 的 <em>edge</em> 监听端口是 10000 （HTTPS），通过 Envoy 的 <a class="reference internal" href="../../../faq/configuration/edge.html#faq-edge"><span class="std std-ref">边缘硬化原则</span></a>，有一个配置好的 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c//configs/google-vrp/envoy-edge.yaml">静态配置</a>，它具有 sinkhole，直接响应和请求转发路由规则（按顺序）</p>
 <ol class="arabic simple">
 <li><p><cite>/content/*</cite>: 路由到原始的 Envoy 服务器。</p></li>
 <li><p><cite>/*</cite>: 返回 403 （拒绝）。</p></li>
 </ol>
 </li>
-<li><p><em>原始</em> Envoy 是边缘 Envoy 的上游。有一个 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99//configs/google-vrp/envoy-origin.yaml">静态配置</a> 只提供直接响应，
+<li><p><em>原始</em> Envoy 是边缘 Envoy 的上游。有一个 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c//configs/google-vrp/envoy-origin.yaml">静态配置</a> 只提供直接响应，
 有效地充当 HTTP 源服务器，有两种路由规则（按顺序）：</p>
 <ol class="arabic simple">
 <li><p><cite>/blockedz</cite>: 返回 200 <cite>hidden treasure</cite>。除非存在一个限定的漏洞，否则 Envoy 边缘服务器的 10000 端口上的通信永远不可能接收到此响应。</p></li>
@@ -312,13 +312,13 @@
 </pre></div>
 </div>
 <p>Docker 镜像包括 gdb, strace, tshark (欢迎通过 PRs 更新
-<a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99//ci/Dockerfile-envoy-google-vrp">Docker 构建文件</a> 来提供其他建议
+<a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c//ci/Dockerfile-envoy-google-vrp">Docker 构建文件</a> 来提供其他建议
 )。</p>
 </div>
 <div class="section" id="id5">
 <h2>重建 Docker 镜像<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>这有助于重新生成你自己的 Docker 基础镜像，来用于研究的目的。要在不依赖 CI 的情况下执行此操作，
-请按照 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/ci/docker_rebuild_google-vrp.sh">ci/docker_rebuild_google-vrp.sh</a> 顶部的说明进行操作。示例如下：</p>
+请按照 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/ci/docker_rebuild_google-vrp.sh">ci/docker_rebuild_google-vrp.sh</a> 顶部的说明进行操作。示例如下：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bazel build //source/exe:envoy-static
 ./ci/docker_rebuild_google-vrp.sh bazel-bin/source/exe/envoy-static
 docker run -m 3g -p <span class="m">10000</span>:10000 --name envoy-google-vrp <span class="se">\</span>

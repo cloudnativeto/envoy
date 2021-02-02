@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Attribute Context &mdash; envoy 1.16.0-80a199 documentation</title>
+  <title>Attribute Context &mdash; envoy 1.16.0-b98f42 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-80a199
+                1.16.0-b98f42
               </div>
             
           
@@ -217,7 +217,7 @@
 and <a class="reference internal" href="../../../../configuration/http/http_filters/ext_authz_filter.html#config-http-filters-ext-authz"><span class="std std-ref">HTTP filter configuration overview</span></a>.</p>
 <div class="section" id="service-auth-v3-attributecontext">
 <span id="envoy-v3-api-msg-service-auth-v3-attributecontext"></span><h2>service.auth.v3.AttributeContext<a class="headerlink" href="#service-auth-v3-attributecontext" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/service/auth/v3/attribute_context.proto#L40">[service.auth.v3.AttributeContext proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/service/auth/v3/attribute_context.proto#L40">[service.auth.v3.AttributeContext proto]</a></p>
 <p>An attribute is a piece of metadata that describes an activity on a network.
 For example, the size of an HTTP request, or the status code of an HTTP response.</p>
 <p>Each attribute has a type and a name, which is logically defined as a proto message field
@@ -262,7 +262,7 @@ internal opaque context in the filter chain.</p>
 </div>
 <div class="section" id="service-auth-v3-attributecontext-peer">
 <span id="envoy-v3-api-msg-service-auth-v3-attributecontext-peer"></span><h2>service.auth.v3.AttributeContext.Peer<a class="headerlink" href="#service-auth-v3-attributecontext-peer" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/service/auth/v3/attribute_context.proto#L49">[service.auth.v3.AttributeContext.Peer proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/service/auth/v3/attribute_context.proto#L49">[service.auth.v3.AttributeContext.Peer proto]</a></p>
 <p>This message defines attributes for a node that handles a network request.
 The node can be either a service or an application that sends, forwards,
 or receives the request. Service peers should fill in the <cite>service</cite>,
@@ -313,7 +313,7 @@ When present, the certificate contents are encoded in URL and PEM format.</p>
 </div>
 <div class="section" id="service-auth-v3-attributecontext-request">
 <span id="envoy-v3-api-msg-service-auth-v3-attributecontext-request"></span><h2>service.auth.v3.AttributeContext.Request<a class="headerlink" href="#service-auth-v3-attributecontext-request" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/service/auth/v3/attribute_context.proto#L86">[service.auth.v3.AttributeContext.Request proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/service/auth/v3/attribute_context.proto#L86">[service.auth.v3.AttributeContext.Request proto]</a></p>
 <p>Represents a network request, such as an HTTP request.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;time&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -332,7 +332,7 @@ When present, the certificate contents are encoded in URL and PEM format.</p>
 </div>
 <div class="section" id="service-auth-v3-attributecontext-httprequest">
 <span id="envoy-v3-api-msg-service-auth-v3-attributecontext-httprequest"></span><h2>service.auth.v3.AttributeContext.HttpRequest<a class="headerlink" href="#service-auth-v3-attributecontext-httprequest" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/service/auth/v3/attribute_context.proto#L100">[service.auth.v3.AttributeContext.HttpRequest proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/service/auth/v3/attribute_context.proto#L100">[service.auth.v3.AttributeContext.HttpRequest proto]</a></p>
 <p>This message defines attributes for an HTTP request.
 HTTP/1.x, HTTP/2, gRPC are all considered as HTTP requests.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -397,7 +397,7 @@ not submitted as part of HTTP requests; it is unknowable.</p>
 </dl>
 <dl id="envoy-v3-api-field-service-auth-v3-attributecontext-httprequest-protocol">
 <dt>protocol</dt><dd><p>(<a class="reference external" href="https://developers.google.com/protocol-buffers/docs/proto#scalar">string</a>) The network protocol used with the request, such as “HTTP/1.0”, “HTTP/1.1”, or “HTTP/2”.</p>
-<p>See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/source/common/http/headers.h">headers.h:ProtocolStrings</a> for a list of all
+<p>See <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/source/common/http/headers.h">headers.h:ProtocolStrings</a> for a list of all
 possible values.</p>
 </dd>
 </dl>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>扩展 &mdash; envoy 1.16.0-80a199 documentation</title>
+  <title>扩展 &mdash; envoy 1.16.0-b98f42 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-80a199
+                1.16.0-b98f42
               </div>
             
           
@@ -118,19 +118,19 @@
 <li class="toctree-l3"><a class="reference internal" href="../http_routes/http_routes.html">HTTP 路由管理</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">扩展</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="filter/filter.html">过滤器</a></li>
-<li class="toctree-l4"><a class="reference internal" href="accesslog/accesslog.html">Access loggers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accesslog/accesslog.html">访问记录器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rbac/rbac.html">RBAC</a></li>
 <li class="toctree-l4"><a class="reference internal" href="health_checker/health_checker.html">健康检查器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="transport_socket/transport_socket.html">Transport sockets</a></li>
-<li class="toctree-l4"><a class="reference internal" href="resource_monitor/resource_monitor.html">Resource monitors</a></li>
-<li class="toctree-l4"><a class="reference internal" href="common/common.html">Common</a></li>
+<li class="toctree-l4"><a class="reference internal" href="resource_monitor/resource_monitor.html">资源监控器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common/common.html">通用</a></li>
 <li class="toctree-l4"><a class="reference internal" href="compression/compression.html">压缩</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cluster/cluster.html">集群</a></li>
-<li class="toctree-l4"><a class="reference internal" href="grpc_credential/grpc_credential.html">Grpc Credentials</a></li>
-<li class="toctree-l4"><a class="reference internal" href="retry/retry.html">Retry Predicates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="trace/trace.html">HTTP Tracers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="internal_redirect/internal_redirect.html">Internal Redirect Predicates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="endpoint/endpoint.html">Endpoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="grpc_credential/grpc_credential.html">Grpc 凭证</a></li>
+<li class="toctree-l4"><a class="reference internal" href="retry/retry.html">重试谓词</a></li>
+<li class="toctree-l4"><a class="reference internal" href="trace/trace.html">HTTP 追踪器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="internal_redirect/internal_redirect.html">内部重定向谓词</a></li>
+<li class="toctree-l4"><a class="reference internal" href="endpoint/endpoint.html">端点</a></li>
 <li class="toctree-l4"><a class="reference internal" href="upstream/upstream.html">上游配置</a></li>
 <li class="toctree-l4"><a class="reference internal" href="wasm/wasm.html">WASM</a></li>
 <li class="toctree-l4"><a class="reference internal" href="watchdog/watchdog.html">看门狗（watchdog）</a></li>
@@ -222,15 +222,15 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="filter/filter.html">过滤器</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="filter/listener/listener.html">Listener filters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="filter/network/network.html">Network filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter/listener/listener.html">监听过滤器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter/network/network.html">网络过滤器</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filter/udp/udp.html">UDP 监听过滤器</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filter/http/http.html">HTTP 过滤器</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filter/dubbo/dubbo.html">Dubbo 过滤器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="filter/thrift/thrift.html">Thrift filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter/thrift/thrift.html">Thrift 过滤器</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="accesslog/accesslog.html">Access loggers</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="accesslog/accesslog.html">访问记录器</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="accesslog/v3/accesslog.proto.html">Common access log types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../extensions/access_loggers/file/v3/file.proto.html">File access log</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../extensions/access_loggers/grpc/v3/als.proto.html">gRPC Access Log Service (ALS)</a></li>
@@ -257,12 +257,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../extensions/transport_sockets/tls/v3/tls.proto.html">TLS transport socket</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="resource_monitor/resource_monitor.html">Resource monitors</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="resource_monitor/resource_monitor.html">资源监控器</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="resource_monitor/fixed_heap/v2alpha/fixed_heap.proto.html">Fixed heap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resource_monitor/injected_resource/v2alpha/injected_resource.proto.html">Injected resource</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="common/common.html">Common</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="common/common.html">通用</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="common/matcher/v3/matcher.proto.html">Unified Matcher API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../extensions/common/dynamic_forward_proxy/v3/dns_cache.proto.html">Dynamic forward proxy common configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../extensions/common/tap/v3/common.proto.html">Common tap extension configuration</a></li>
@@ -279,12 +279,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../extensions/clusters/redis/v3/redis_cluster.proto.html">Redis Cluster Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="grpc_credential/grpc_credential.html">Grpc Credentials</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="grpc_credential/grpc_credential.html">Grpc 凭证</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="grpc_credential/v3/aws_iam.proto.html">Grpc Credentials AWS IAM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="grpc_credential/v3/file_based_metadata.proto.html">Grpc Credentials File Based Metadata</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="retry/retry.html">Retry Predicates</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="retry/retry.html">重试谓词</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="retry/omit_canary_hosts/empty/omit_canary_hosts.html">Omit Canary Hosts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="retry/previous_hosts/empty/previous_hosts.html">Previous Hosts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="retry/omit_canary_hosts/v2/omit_canary_hosts.proto.html">Omit Canary Hosts Predicate</a></li>
@@ -293,7 +293,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../extensions/retry/priority/previous_priorities/v3/previous_priorities_config.proto.html">Previous priorities retry selector</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="trace/trace.html">HTTP Tracers</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="trace/trace.html">HTTP 追踪器</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="trace/v3/datadog.proto.html">Datadog tracer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="trace/v3/dynamic_ot.proto.html">Dynamically loadable OpenTracing tracer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="trace/v3/http_tracer.proto.html">Tracing</a></li>
@@ -305,13 +305,13 @@
 <li class="toctree-l2"><a class="reference internal" href="trace/v3/zipkin.proto.html">Zipkin tracer</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="internal_redirect/internal_redirect.html">Internal Redirect Predicates</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="internal_redirect/internal_redirect.html">内部重定向谓词</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../extensions/internal_redirect/allow_listed_routes/v3/allow_listed_routes_config.proto.html">Allow listed routes internal redirect predicate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../extensions/internal_redirect/previous_routes/v3/previous_routes_config.proto.html">Previous routes internal redirect predicate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../extensions/internal_redirect/safe_cross_scheme/v3/safe_cross_scheme_config.proto.html">SafeCrossScheme internal redirect predicate</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="endpoint/endpoint.html">Endpoint</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="endpoint/endpoint.html">端点</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="endpoint/v3/endpoint.proto.html">Endpoint configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="endpoint/v3/endpoint_components.proto.html">Endpoints</a></li>
 <li class="toctree-l2"><a class="reference internal" href="endpoint/v3/load_report.proto.html">Load Report</a></li>

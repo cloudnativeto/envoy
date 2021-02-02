@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Common TLS configuration &mdash; envoy 1.16.0-80a199 documentation</title>
+  <title>Common TLS configuration &mdash; envoy 1.16.0-b98f42 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-80a199
+                1.16.0-b98f42
               </div>
             
           
@@ -118,19 +118,19 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../http_routes/http_routes.html">HTTP 路由管理</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../../../../config/config.html">扩展</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../../../config/filter/filter.html">过滤器</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../config/accesslog/accesslog.html">Access loggers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../config/accesslog/accesslog.html">访问记录器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../config/rbac/rbac.html">RBAC</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../config/health_checker/health_checker.html">健康检查器</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="../../../../config/transport_socket/transport_socket.html">Transport sockets</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../config/resource_monitor/resource_monitor.html">Resource monitors</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../config/common/common.html">Common</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../config/resource_monitor/resource_monitor.html">资源监控器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../config/common/common.html">通用</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../config/compression/compression.html">压缩</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../config/cluster/cluster.html">集群</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../config/grpc_credential/grpc_credential.html">Grpc Credentials</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../config/retry/retry.html">Retry Predicates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../config/trace/trace.html">HTTP Tracers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../config/internal_redirect/internal_redirect.html">Internal Redirect Predicates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../config/endpoint/endpoint.html">Endpoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../config/grpc_credential/grpc_credential.html">Grpc 凭证</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../config/retry/retry.html">重试谓词</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../config/trace/trace.html">HTTP 追踪器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../config/internal_redirect/internal_redirect.html">内部重定向谓词</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../config/endpoint/endpoint.html">端点</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../config/upstream/upstream.html">上游配置</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../config/wasm/wasm.html">WASM</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../config/watchdog/watchdog.html">看门狗（watchdog）</a></li>
@@ -225,7 +225,7 @@
 <span id="envoy-v3-api-file-envoy-extensions-transport-sockets-tls-v3-common-proto"></span><h1>Common TLS configuration<a class="headerlink" href="#common-tls-configuration" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="extensions-transport-sockets-tls-v3-tlsparameters">
 <span id="envoy-v3-api-msg-extensions-transport-sockets-tls-v3-tlsparameters"></span><h2>extensions.transport_sockets.tls.v3.TlsParameters<a class="headerlink" href="#extensions-transport-sockets-tls-v3-tlsparameters" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L23">[extensions.transport_sockets.tls.v3.TlsParameters proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L23">[extensions.transport_sockets.tls.v3.TlsParameters proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;tls_minimum_protocol_version&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;tls_maximum_protocol_version&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -297,7 +297,7 @@ P-256
 </div>
 <div class="section" id="enum-extensions-transport-sockets-tls-v3-tlsparameters-tlsprotocol">
 <span id="envoy-v3-api-enum-extensions-transport-sockets-tls-v3-tlsparameters-tlsprotocol"></span><h2>Enum extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol<a class="headerlink" href="#enum-extensions-transport-sockets-tls-v3-tlsparameters-tlsprotocol" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L26">[extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L26">[extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol proto]</a></p>
 <dl class="simple" id="envoy-v3-api-enum-value-extensions-transport-sockets-tls-v3-tlsparameters-tlsprotocol-tls-auto">
 <dt>TLS_AUTO</dt><dd><p><em>(DEFAULT)</em> ⁣Envoy will choose the optimal TLS version.</p>
 </dd>
@@ -321,7 +321,7 @@ P-256
 </div>
 <div class="section" id="extensions-transport-sockets-tls-v3-privatekeyprovider">
 <span id="envoy-v3-api-msg-extensions-transport-sockets-tls-v3-privatekeyprovider"></span><h2>extensions.transport_sockets.tls.v3.PrivateKeyProvider<a class="headerlink" href="#extensions-transport-sockets-tls-v3-privatekeyprovider" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L112">[extensions.transport_sockets.tls.v3.PrivateKeyProvider proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L112">[extensions.transport_sockets.tls.v3.PrivateKeyProvider proto]</a></p>
 <p>BoringSSL private key method configuration. The private key methods are used for external
 (potentially asynchronous) signing and decryption operations. Some use cases for private key
 methods would be TPM support and TLS acceleration.</p>
@@ -344,7 +344,7 @@ Private key method provider specific configuration.</p>
 </div>
 <div class="section" id="extensions-transport-sockets-tls-v3-tlscertificate">
 <span id="envoy-v3-api-msg-extensions-transport-sockets-tls-v3-tlscertificate"></span><h2>extensions.transport_sockets.tls.v3.TlsCertificate<a class="headerlink" href="#extensions-transport-sockets-tls-v3-tlscertificate" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L131">[extensions.transport_sockets.tls.v3.TlsCertificate proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L131">[extensions.transport_sockets.tls.v3.TlsCertificate proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;certificate_chain&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;private_key&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -383,7 +383,7 @@ The response must be DER-encoded and may only be  provided via <code class="docu
 </div>
 <div class="section" id="extensions-transport-sockets-tls-v3-tlssessionticketkeys">
 <span id="envoy-v3-api-msg-extensions-transport-sockets-tls-v3-tlssessionticketkeys"></span><h2>extensions.transport_sockets.tls.v3.TlsSessionTicketKeys<a class="headerlink" href="#extensions-transport-sockets-tls-v3-tlssessionticketkeys" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L162">[extensions.transport_sockets.tls.v3.TlsSessionTicketKeys proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L162">[extensions.transport_sockets.tls.v3.TlsSessionTicketKeys proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[]</span>
 <span class="p">}</span>
@@ -417,7 +417,7 @@ discussion. To minimize the risk, you must:</p>
 </div>
 <div class="section" id="extensions-transport-sockets-tls-v3-certificatevalidationcontext">
 <span id="envoy-v3-api-msg-extensions-transport-sockets-tls-v3-certificatevalidationcontext"></span><h2>extensions.transport_sockets.tls.v3.CertificateValidationContext<a class="headerlink" href="#extensions-transport-sockets-tls-v3-certificatevalidationcontext" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L194">[extensions.transport_sockets.tls.v3.CertificateValidationContext proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L194">[extensions.transport_sockets.tls.v3.CertificateValidationContext proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;trusted_ca&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;verify_certificate_spki&quot;</span><span class="p">:</span> <span class="p">[],</span>
@@ -535,7 +535,7 @@ from that chain.</p>
 </div>
 <div class="section" id="enum-extensions-transport-sockets-tls-v3-certificatevalidationcontext-trustchainverification">
 <span id="envoy-v3-api-enum-extensions-transport-sockets-tls-v3-certificatevalidationcontext-trustchainverification"></span><h2>Enum extensions.transport_sockets.tls.v3.CertificateValidationContext.TrustChainVerification<a class="headerlink" href="#enum-extensions-transport-sockets-tls-v3-certificatevalidationcontext-trustchainverification" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L199">[extensions.transport_sockets.tls.v3.CertificateValidationContext.TrustChainVerification proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/extensions/transport_sockets/tls/v3/common.proto#L199">[extensions.transport_sockets.tls.v3.CertificateValidationContext.TrustChainVerification proto]</a></p>
 <p>Peer certificate verification mode.</p>
 <dl class="simple" id="envoy-v3-api-enum-value-extensions-transport-sockets-tls-v3-certificatevalidationcontext-trustchainverification-verify-trust-chain">
 <dt>VERIFY_TRUST_CHAIN</dt><dd><p><em>(DEFAULT)</em> ⁣Perform default certificate verification (e.g., against CA / verification lists)</p>

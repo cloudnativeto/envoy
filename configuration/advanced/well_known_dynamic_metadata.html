@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>众所周知的动态元数据 &mdash; envoy 1.16.0-80a199 documentation</title>
+  <title>众所周知的动态元数据 &mdash; envoy 1.16.0-b98f42 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-80a199
+                1.16.0-b98f42
               </div>
             
           
@@ -200,7 +200,7 @@
             
   <div class="section" id="well-known-dynamic-metadata">
 <span id="id1"></span><h1>众所周知的动态元数据<a class="headerlink" href="#well-known-dynamic-metadata" title="Permalink to this headline">¶</a></h1>
-<p>过滤器可以通过 <em>setDynamicMetadata</em> 来发送动态元数据，而通常在 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/include/envoy/network/connection.h">连接</a> 中的 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/include/envoy/stream_info/stream_info.h">StreamInfo</a> 接口中。过滤器发送的元数据可以被其他过滤器所消费，可以通过级联这种过滤器来构建有用的特性。比如，一个日志过滤器可以消费来自 RBAC 过滤器的动态元数据，以此来记录运行时影子规则的详细日志信息。另外一个例子是 RBAC 过滤器通过查看由 MongoDB 过滤器发出的操作元数据，来对 MySQL/MongoDB 的操作作出许可/限制。</p>
+<p>过滤器可以通过 <em>setDynamicMetadata</em> 来发送动态元数据，而通常在 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/include/envoy/network/connection.h">连接</a> 中的 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/include/envoy/stream_info/stream_info.h">StreamInfo</a> 接口中。过滤器发送的元数据可以被其他过滤器所消费，可以通过级联这种过滤器来构建有用的特性。比如，一个日志过滤器可以消费来自 RBAC 过滤器的动态元数据，以此来记录运行时影子规则的详细日志信息。另外一个例子是 RBAC 过滤器通过查看由 MongoDB 过滤器发出的操作元数据，来对 MySQL/MongoDB 的操作作出许可/限制。</p>
 <p>如下 Envoy 过滤器发出动态元数据，然后数据被其他过滤器所使用。</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../http/http_filters/ext_authz_filter.html#config-http-filters-ext-authz-dynamic-metadata"><span class="std std-ref">外部授权过滤器</span></a></p></li>

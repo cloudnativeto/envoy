@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>DNS Filter Table Data &mdash; envoy 1.16.0-80a199 documentation</title>
+  <title>DNS Filter Table Data &mdash; envoy 1.16.0-b98f42 documentation</title>
   
 
   
@@ -47,7 +47,7 @@
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="Tap" href="../../tap/tap.html" />
-    <link rel="prev" title="Extensions objects" href="../dns.html" /> 
+    <link rel="prev" title="扩展对象" href="../dns.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-80a199
+                1.16.0-b98f42
               </div>
             
           
@@ -120,8 +120,8 @@
 <li class="toctree-l3 current"><a class="reference internal" href="../../data.html">Envoy 数据</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../accesslog/accesslog.html">访问日志</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../cluster/cluster.html">集群数据</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../core/core.html">Core data</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../dns.html">Extensions objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../core/core.html">核心数据</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../dns.html">扩展对象</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../tap/tap.html">Tap</a></li>
 </ul>
 </li>
@@ -188,7 +188,7 @@
         
           <li><a href="../../data.html">Envoy 数据</a> &raquo;</li>
         
-          <li><a href="../dns.html">Extensions objects</a> &raquo;</li>
+          <li><a href="../dns.html">扩展对象</a> &raquo;</li>
         
       <li>DNS Filter Table Data</li>
     
@@ -218,7 +218,7 @@
 <p><a class="reference internal" href="../../../../configuration/listeners/udp_filters/dns_filter.html#config-udp-listener-filters-dns-filter"><span class="std std-ref">DNS Filter config overview</span></a>.</p>
 <div class="section" id="data-dns-v2alpha-dnstable">
 <span id="envoy-api-msg-data-dns-v2alpha-dnstable"></span><h2>data.dns.v2alpha.DnsTable<a class="headerlink" href="#data-dns-v2alpha-dnstable" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/data/dns/v2alpha/dns_table.proto#L22">[data.dns.v2alpha.DnsTable proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/data/dns/v2alpha/dns_table.proto#L22">[data.dns.v2alpha.DnsTable proto]</a></p>
 <p>This message contains the configuration for the DNS Filter if populated
 from the control plane</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -247,7 +247,7 @@ the query to an upstream DNS server</p>
 </div>
 <div class="section" id="data-dns-v2alpha-dnstable-addresslist">
 <span id="envoy-api-msg-data-dns-v2alpha-dnstable-addresslist"></span><h2>data.dns.v2alpha.DnsTable.AddressList<a class="headerlink" href="#data-dns-v2alpha-dnstable-addresslist" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/data/dns/v2alpha/dns_table.proto#L24">[data.dns.v2alpha.DnsTable.AddressList proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/data/dns/v2alpha/dns_table.proto#L24">[data.dns.v2alpha.DnsTable.AddressList proto]</a></p>
 <p>This message contains a list of IP addresses returned for a query for a known name</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="p">[]</span>
@@ -267,7 +267,7 @@ clients pinning on a single address for a configured domain</p>
 </div>
 <div class="section" id="data-dns-v2alpha-dnstable-dnsendpoint">
 <span id="envoy-api-msg-data-dns-v2alpha-dnstable-dnsendpoint"></span><h2>data.dns.v2alpha.DnsTable.DnsEndpoint<a class="headerlink" href="#data-dns-v2alpha-dnstable-dnsendpoint" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/data/dns/v2alpha/dns_table.proto#L41">[data.dns.v2alpha.DnsTable.DnsEndpoint proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/data/dns/v2alpha/dns_table.proto#L41">[data.dns.v2alpha.DnsTable.DnsEndpoint proto]</a></p>
 <p>This message type is extensible and can contain a list of addresses
 or dictate some other method for resolving the addresses for an
 endpoint</p>
@@ -283,7 +283,7 @@ endpoint</p>
 </div>
 <div class="section" id="data-dns-v2alpha-dnstable-dnsvirtualdomain">
 <span id="envoy-api-msg-data-dns-v2alpha-dnstable-dnsvirtualdomain"></span><h2>data.dns.v2alpha.DnsTable.DnsVirtualDomain<a class="headerlink" href="#data-dns-v2alpha-dnstable-dnsvirtualdomain" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/data/dns/v2alpha/dns_table.proto#L49">[data.dns.v2alpha.DnsTable.DnsVirtualDomain proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/data/dns/v2alpha/dns_table.proto#L49">[data.dns.v2alpha.DnsTable.DnsVirtualDomain proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -318,7 +318,7 @@ of this endpoint</p>
         <a href="../../tap/tap.html" class="btn btn-neutral float-right" title="Tap" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../dns.html" class="btn btn-neutral float-left" title="Extensions objects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../dns.html" class="btn btn-neutral float-left" title="扩展对象" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

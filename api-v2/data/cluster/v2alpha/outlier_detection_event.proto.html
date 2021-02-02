@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Outlier detection logging events &mdash; envoy 1.16.0-80a199 documentation</title>
+  <title>Outlier detection logging events &mdash; envoy 1.16.0-b98f42 documentation</title>
   
 
   
@@ -46,7 +46,7 @@
     
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Core data" href="../../core/core.html" />
+    <link rel="next" title="核心数据" href="../../core/core.html" />
     <link rel="prev" title="集群数据" href="../cluster.html" /> 
 </head>
 
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-80a199
+                1.16.0-b98f42
               </div>
             
           
@@ -120,8 +120,8 @@
 <li class="toctree-l3 current"><a class="reference internal" href="../../data.html">Envoy 数据</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../accesslog/accesslog.html">访问日志</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="../cluster.html">集群数据</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../core/core.html">Core data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../dns/dns.html">Extensions objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../core/core.html">核心数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../dns/dns.html">扩展对象</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../tap/tap.html">Tap</a></li>
 </ul>
 </li>
@@ -214,7 +214,7 @@
 <p><a class="reference internal" href="../../../../intro/arch_overview/upstream/outlier.html#arch-overview-outlier-detection-logging"><span class="std std-ref">Outlier detection logging</span></a>.</p>
 <div class="section" id="data-cluster-v2alpha-outlierdetectionevent">
 <span id="envoy-api-msg-data-cluster-v2alpha-outlierdetectionevent"></span><h2>data.cluster.v2alpha.OutlierDetectionEvent<a class="headerlink" href="#data-cluster-v2alpha-outlierdetectionevent" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L77">[data.cluster.v2alpha.OutlierDetectionEvent proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L77">[data.cluster.v2alpha.OutlierDetectionEvent proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -283,7 +283,7 @@ ejected. <code class="docutils literal notranslate"><span class="pre">false</spa
 </div>
 <div class="section" id="data-cluster-v2alpha-outlierejectsuccessrate">
 <span id="envoy-api-msg-data-cluster-v2alpha-outlierejectsuccessrate"></span><h2>data.cluster.v2alpha.OutlierEjectSuccessRate<a class="headerlink" href="#data-cluster-v2alpha-outlierejectsuccessrate" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L116">[data.cluster.v2alpha.OutlierEjectSuccessRate proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L116">[data.cluster.v2alpha.OutlierEjectSuccessRate proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;host_success_rate&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;cluster_average_success_rate&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -307,14 +307,14 @@ range.</p>
 </div>
 <div class="section" id="data-cluster-v2alpha-outlierejectconsecutive">
 <span id="envoy-api-msg-data-cluster-v2alpha-outlierejectconsecutive"></span><h2>data.cluster.v2alpha.OutlierEjectConsecutive<a class="headerlink" href="#data-cluster-v2alpha-outlierejectconsecutive" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L128">[data.cluster.v2alpha.OutlierEjectConsecutive proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L128">[data.cluster.v2alpha.OutlierEjectConsecutive proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="data-cluster-v2alpha-outlierejectfailurepercentage">
 <span id="envoy-api-msg-data-cluster-v2alpha-outlierejectfailurepercentage"></span><h2>data.cluster.v2alpha.OutlierEjectFailurePercentage<a class="headerlink" href="#data-cluster-v2alpha-outlierejectfailurepercentage" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L131">[data.cluster.v2alpha.OutlierEjectFailurePercentage proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L131">[data.cluster.v2alpha.OutlierEjectFailurePercentage proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;host_success_rate&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
 <span class="p">}</span>
@@ -327,7 +327,7 @@ range.</p>
 </div>
 <div class="section" id="enum-data-cluster-v2alpha-outlierejectiontype">
 <span id="envoy-api-enum-data-cluster-v2alpha-outlierejectiontype"></span><h2>Enum data.cluster.v2alpha.OutlierEjectionType<a class="headerlink" href="#enum-data-cluster-v2alpha-outlierejectiontype" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L21">[data.cluster.v2alpha.OutlierEjectionType proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L21">[data.cluster.v2alpha.OutlierEjectionType proto]</a></p>
 <p>Type of ejection that took place</p>
 <dl class="simple" id="envoy-api-enum-value-data-cluster-v2alpha-outlierejectiontype-consecutive-5xx">
 <dt>CONSECUTIVE_5XX</dt><dd><p><em>(DEFAULT)</em> ⁣In case upstream host returns certain number of consecutive 5xx.
@@ -383,7 +383,7 @@ cluster and selects hosts for which ratio of failed replies is above configured 
 </div>
 <div class="section" id="enum-data-cluster-v2alpha-action">
 <span id="envoy-api-enum-data-cluster-v2alpha-action"></span><h2>Enum data.cluster.v2alpha.Action<a class="headerlink" href="#enum-data-cluster-v2alpha-action" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L68">[data.cluster.v2alpha.Action proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/data/cluster/v2alpha/outlier_detection_event.proto#L68">[data.cluster.v2alpha.Action proto]</a></p>
 <p>Represents possible action applied to upstream host</p>
 <dl class="simple" id="envoy-api-enum-value-data-cluster-v2alpha-action-eject">
 <dt>EJECT</dt><dd><p><em>(DEFAULT)</em> ⁣In case host was excluded from service</p>
@@ -404,7 +404,7 @@ cluster and selects hosts for which ratio of failed replies is above configured 
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../core/core.html" class="btn btn-neutral float-right" title="Core data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../core/core.html" class="btn btn-neutral float-right" title="核心数据" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../cluster.html" class="btn btn-neutral float-left" title="集群数据" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

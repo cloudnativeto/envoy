@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Endpoint configuration &mdash; envoy 1.16.0-80a199 documentation</title>
+  <title>Endpoint configuration &mdash; envoy 1.16.0-b98f42 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-80a199
+                1.16.0-b98f42
               </div>
             
           
@@ -118,19 +118,19 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../http_routes/http_routes.html">HTTP 路由管理</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../../config.html">扩展</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../filter/filter.html">过滤器</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../accesslog/accesslog.html">Access loggers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../accesslog/accesslog.html">访问记录器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../rbac/rbac.html">RBAC</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../health_checker/health_checker.html">健康检查器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../transport_socket/transport_socket.html">Transport sockets</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../resource_monitor/resource_monitor.html">Resource monitors</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../common/common.html">Common</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../resource_monitor/resource_monitor.html">资源监控器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../common/common.html">通用</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../compression/compression.html">压缩</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../cluster/cluster.html">集群</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../grpc_credential/grpc_credential.html">Grpc Credentials</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../retry/retry.html">Retry Predicates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../trace/trace.html">HTTP Tracers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../internal_redirect/internal_redirect.html">Internal Redirect Predicates</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../endpoint.html">Endpoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../grpc_credential/grpc_credential.html">Grpc 凭证</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../retry/retry.html">重试谓词</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../trace/trace.html">HTTP 追踪器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../internal_redirect/internal_redirect.html">内部重定向谓词</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../endpoint.html">端点</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../upstream/upstream.html">上游配置</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../wasm/wasm.html">WASM</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../watchdog/watchdog.html">看门狗（watchdog）</a></li>
@@ -224,7 +224,7 @@
 <p>Endpoint discovery <a class="reference internal" href="../../../../intro/arch_overview/upstream/service_discovery.html#arch-overview-service-discovery-types-eds"><span class="std std-ref">architecture overview</span></a></p>
 <div class="section" id="config-endpoint-v3-clusterloadassignment">
 <span id="envoy-v3-api-msg-config-endpoint-v3-clusterloadassignment"></span><h2>config.endpoint.v3.ClusterLoadAssignment<a class="headerlink" href="#config-endpoint-v3-clusterloadassignment" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/endpoint/v3/endpoint.proto#L33">[config.endpoint.v3.ClusterLoadAssignment proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/config/endpoint/v3/endpoint.proto#L33">[config.endpoint.v3.ClusterLoadAssignment proto]</a></p>
 <p>Each route from RDS will map to a single cluster or traffic split across
 clusters using weights expressed in the RDS WeightedCluster.</p>
 <p>With EDS, each cluster is treated independently from a LB perspective, with
@@ -256,7 +256,7 @@ in the cluster <a class="reference internal" href="../../cluster/v3/cluster.prot
 </div>
 <div class="section" id="config-endpoint-v3-clusterloadassignment-policy">
 <span id="envoy-v3-api-msg-config-endpoint-v3-clusterloadassignment-policy"></span><h2>config.endpoint.v3.ClusterLoadAssignment.Policy<a class="headerlink" href="#config-endpoint-v3-clusterloadassignment-policy" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/80a1998040b919c2d607a9479e2f205afc590c99/api/envoy/config/endpoint/v3/endpoint.proto#L38">[config.endpoint.v3.ClusterLoadAssignment.Policy proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/b98f4211876ac9b1e9489ffdd5e4b35670ec788c/api/envoy/config/endpoint/v3/endpoint.proto#L38">[config.endpoint.v3.ClusterLoadAssignment.Policy proto]</a></p>
 <p>Load balancing policy settings.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;overprovisioning_factor&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
