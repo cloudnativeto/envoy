@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>前端代理 &mdash; envoy 1.16.0-9b3ba5 documentation</title>
+  <title>前端代理 &mdash; envoy 1.16.0-3a944f documentation</title>
   
 
   
@@ -76,7 +76,7 @@
             
             
               <div class="version">
-                1.16.0-9b3ba5
+                1.16.0-3a944f
               </div>
             
           
@@ -209,9 +209,9 @@
 <p>为了帮助大家了解如何使用 Envoy 作为前端代理，我们发布了一个 <a class="reference external" href="https://docs.docker.com/compose/">docker compose</a> 沙盒，该沙盒中部署了一个前端 Envoy 和几个后端服务，每个后端由 Envoy 和应用（简单的 Flask 应用）合并部署在一起组成。这三个容器将被部署在名为 <code class="docutils literal notranslate"><span class="pre">envoymesh</span></code> 的虚拟网络中。</p>
 <p>下面是使用 docker compose 部署的架构图：</p>
 <a class="reference internal image-reference" href="../../_images/docker_compose_front_proxy.svg"><img alt="../../_images/docker_compose_front_proxy.svg" src="../../_images/docker_compose_front_proxy.svg" width="100%" /></a>
-<p>所有的入向请求都通过前端 Envoy 进行路由，该 Envoy 相当于 <code class="docutils literal notranslate"><span class="pre">envoymesh</span></code> 网络边缘的反向代理。docker compose（参阅：<a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757//examples/front-proxy/docker-compose.yaml">/examples/front-proxy/docker-compose.yaml</a>）暴露了 <code class="docutils literal notranslate"><span class="pre">8080</span></code>，<code class="docutils literal notranslate"><span class="pre">8443</span></code> 端口来接受 <code class="docutils literal notranslate"><span class="pre">HTTP</span></code>，<code class="docutils literal notranslate"><span class="pre">HTTPS</span></code> 请求，并根据路径分别将它们路由到对应的服务上，以及通过 <code class="docutils literal notranslate"><span class="pre">8001</span></code> 端口来接受 Envoy 自带的 <code class="docutils literal notranslate"><span class="pre">admin</span></code> 服务。</p>
-<p>此外请注意，所有流量实际上从前端 Envoy 路由到服务容器的 Envoy 上（参阅 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757//examples/front-proxy/front-envoy.yaml">/examples/front-proxy/front-envoy.yaml</a> 中的路由设置）。</p>
-<p>然后，Envoy 通过 loopback 地址（参阅 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757//examples/front-proxy/service-envoy.yaml">/examples/front-proxy/service-envoy.yaml</a> 中的路由设置）将请求路由到 Flask 应用程序。这种设置演示了将 Envoy 与你的服务合并部署的优势：所有请求都由 Envoy 处理，并有效地路由到你的服务。</p>
+<p>所有的入向请求都通过前端 Envoy 进行路由，该 Envoy 相当于 <code class="docutils literal notranslate"><span class="pre">envoymesh</span></code> 网络边缘的反向代理。docker compose（参阅：<a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379//examples/front-proxy/docker-compose.yaml">/examples/front-proxy/docker-compose.yaml</a>）暴露了 <code class="docutils literal notranslate"><span class="pre">8080</span></code>，<code class="docutils literal notranslate"><span class="pre">8443</span></code> 端口来接受 <code class="docutils literal notranslate"><span class="pre">HTTP</span></code>，<code class="docutils literal notranslate"><span class="pre">HTTPS</span></code> 请求，并根据路径分别将它们路由到对应的服务上，以及通过 <code class="docutils literal notranslate"><span class="pre">8001</span></code> 端口来接受 Envoy 自带的 <code class="docutils literal notranslate"><span class="pre">admin</span></code> 服务。</p>
+<p>此外请注意，所有流量实际上从前端 Envoy 路由到服务容器的 Envoy 上（参阅 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379//examples/front-proxy/front-envoy.yaml">/examples/front-proxy/front-envoy.yaml</a> 中的路由设置）。</p>
+<p>然后，Envoy 通过 loopback 地址（参阅 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379//examples/front-proxy/service-envoy.yaml">/examples/front-proxy/service-envoy.yaml</a> 中的路由设置）将请求路由到 Flask 应用程序。这种设置演示了将 Envoy 与你的服务合并部署的优势：所有请求都由 Envoy 处理，并有效地路由到你的服务。</p>
 <div class="section" id="id2">
 <h2>运行沙盒<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>以下文档说明了上述对于 Envoy 容器编译环境进行设置的过程。</p>

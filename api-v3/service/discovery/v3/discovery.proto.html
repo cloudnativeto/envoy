@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Common discovery API components &mdash; envoy 1.16.0-9b3ba5 documentation</title>
+  <title>Common discovery API components &mdash; envoy 1.16.0-3a944f documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-9b3ba5
+                1.16.0-3a944f
               </div>
             
           
@@ -222,7 +222,7 @@
 <span id="envoy-v3-api-file-envoy-service-discovery-v3-discovery-proto"></span><h1>Common discovery API components<a class="headerlink" href="#common-discovery-api-components" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="service-discovery-v3-discoveryrequest">
 <span id="envoy-v3-api-msg-service-discovery-v3-discoveryrequest"></span><h2>service.discovery.v3.DiscoveryRequest<a class="headerlink" href="#service-discovery-v3-discoveryrequest" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/service/discovery/v3/discovery.proto#L26">[service.discovery.v3.DiscoveryRequest proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/service/discovery/v3/discovery.proto#L26">[service.discovery.v3.DiscoveryRequest proto]</a></p>
 <p>A DiscoveryRequest requests a set of versioned resources of the same type for
 a given Envoy node on some API.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -283,7 +283,7 @@ debugging, the string provided is not guaranteed to be stable across Envoy versi
 </div>
 <div class="section" id="service-discovery-v3-discoveryresponse">
 <span id="envoy-v3-api-msg-service-discovery-v3-discoveryresponse"></span><h2>service.discovery.v3.DiscoveryResponse<a class="headerlink" href="#service-discovery-v3-discoveryresponse" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/service/discovery/v3/discovery.proto#L70">[service.discovery.v3.DiscoveryResponse proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/service/discovery/v3/discovery.proto#L70">[service.discovery.v3.DiscoveryResponse proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;version_info&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;resources&quot;</span><span class="p">:</span> <span class="p">[],</span>
@@ -319,7 +319,7 @@ required for non-stream based xDS implementations.</p>
 </div>
 <div class="section" id="service-discovery-v3-deltadiscoveryrequest">
 <span id="envoy-v3-api-msg-service-discovery-v3-deltadiscoveryrequest"></span><h2>service.discovery.v3.DeltaDiscoveryRequest<a class="headerlink" href="#service-discovery-v3-deltadiscoveryrequest" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/service/discovery/v3/discovery.proto#L147">[service.discovery.v3.DeltaDiscoveryRequest proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/service/discovery/v3/discovery.proto#L147">[service.discovery.v3.DeltaDiscoveryRequest proto]</a></p>
 <p>DeltaDiscoveryRequest and DeltaDiscoveryResponse are used in a new gRPC
 endpoint for Delta xDS.</p>
 <p>With Delta xDS, the DeltaDiscoveryResponses do not need to include a full
@@ -421,7 +421,7 @@ provides the Envoy internal exception related to the failure.</p>
 </div>
 <div class="section" id="service-discovery-v3-deltadiscoveryresponse">
 <span id="envoy-v3-api-msg-service-discovery-v3-deltadiscoveryresponse"></span><h2>service.discovery.v3.DeltaDiscoveryResponse<a class="headerlink" href="#service-discovery-v3-deltadiscoveryresponse" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/service/discovery/v3/discovery.proto#L221">[service.discovery.v3.DeltaDiscoveryResponse proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/service/discovery/v3/discovery.proto#L221">[service.discovery.v3.DeltaDiscoveryResponse proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;system_version_info&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;resources&quot;</span><span class="p">:</span> <span class="p">[],</span>
@@ -460,7 +460,7 @@ reference a DeltaDiscoveryResponse when (N)ACKing. The nonce is required.</p>
 </div>
 <div class="section" id="service-discovery-v3-resource">
 <span id="envoy-v3-api-msg-service-discovery-v3-resource"></span><h2>service.discovery.v3.Resource<a class="headerlink" href="#service-discovery-v3-resource" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/service/discovery/v3/discovery.proto#L255">[service.discovery.v3.Resource proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/service/discovery/v3/discovery.proto#L255">[service.discovery.v3.Resource proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;udpa_resource_name&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>

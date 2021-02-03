@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>On-demand VHDS and S/RDS Updates &mdash; envoy 1.16.0-9b3ba5 documentation</title>
+  <title>按需更新 VHDS 和 S/RDS &mdash; envoy 1.16.0-3a944f documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-9b3ba5
+                1.16.0-3a944f
               </div>
             
           
@@ -138,7 +138,7 @@
 <li class="toctree-l4"><a class="reference internal" href="local_rate_limit_filter.html">Local rate limit</a></li>
 <li class="toctree-l4"><a class="reference internal" href="lua_filter.html">Lua</a></li>
 <li class="toctree-l4"><a class="reference internal" href="oauth2_filter.html">OAuth2</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">On-demand VHDS and S/RDS Updates</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">按需更新 VHDS 和 S/RDS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="original_src_filter.html">请求源</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rate_limit_filter.html">Rate limit</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rbac_filter.html">基于角色的访问控制（RBAC）过滤器</a></li>
@@ -215,7 +215,7 @@
         
           <li><a href="http_filters.html">HTTP 过滤器</a> &raquo;</li>
         
-      <li>On-demand VHDS and S/RDS Updates</li>
+      <li>按需更新 VHDS 和 S/RDS</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -234,24 +234,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="on-demand-vhds-and-s-rds-updates">
-<span id="config-http-filters-on-demand"></span><h1>On-demand VHDS and S/RDS Updates<a class="headerlink" href="#on-demand-vhds-and-s-rds-updates" title="Permalink to this headline">¶</a></h1>
-<p>The on demand filter can be used to support either on demand VHDS or S/RDS update if configured in the filter chain.</p>
-<p>The on-demand update filter can be used to request a <a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-msg-config-route-v3-virtualhost"><span class="std std-ref">virtual host</span></a>
-data if it’s not already present in the <a class="reference internal" href="../../../api-v3/config/route/v3/route.proto.html#envoy-v3-api-msg-config-route-v3-routeconfiguration"><span class="std std-ref">Route Configuration</span></a>. The
-contents of the <em>Host</em> or <em>:authority</em> header is used to create the on-demand request. For an on-demand
-request to be created, <a class="reference internal" href="../../../api-v3/config/route/v3/route.proto.html#envoy-v3-api-field-config-route-v3-routeconfiguration-vhds"><span class="std std-ref">VHDS</span></a> must be enabled and either <em>Host</em>
-or <em>:authority</em> header be present.</p>
-<p>The on-demand update filter can also be used to request a <em>Route Configuration</em> data if RouteConfiguration is specified to be
-loaded on demand in the <a class="reference internal" href="../../../api-v3/config/route/v3/scoped_route.proto.html#envoy-v3-api-msg-config-route-v3-scopedrouteconfiguration"><span class="std std-ref">Scoped RouteConfiguration</span></a>.
-The contents of the HTTP header is used to find the scope and create the on-demand request.</p>
-<p>On-demand VHDS and on-demand S/RDS can not be used at the same time at this point.</p>
-<div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="vhds-s-rds">
+<span id="config-http-filters-on-demand"></span><h1>按需更新 VHDS 和 S/RDS<a class="headerlink" href="#vhds-s-rds" title="Permalink to this headline">¶</a></h1>
+<p>如果在过滤器链中配置了这个按需过滤器，则可用于支持按需的 VHDS 或 S/RDS 更新。</p>
+<p>如在 <a class="reference internal" href="../../../api-v3/config/route/v3/route.proto.html#envoy-v3-api-msg-config-route-v3-routeconfiguration"><span class="std std-ref">路由配置</span></a> 中不存在虚拟主机的信息，则按需更新过滤器可用于请求 <a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-msg-config-route-v3-virtualhost"><span class="std std-ref">虚拟主机</span></a> 的数据。
+的数据。<em>Host</em> 或者 <em>:authority</em> 头部的内容可以用于创建按需请求。对于要创建的按需请求， <a class="reference internal" href="../../../api-v3/config/route/v3/route.proto.html#envoy-v3-api-field-config-route-v3-routeconfiguration-vhds"><span class="std std-ref">VHDS</span></a> 必须启用，并且 <em>Host</em> 或者 <em>:authority</em> 头部要存在。</p>
+<p>如果 <a class="reference internal" href="../../../api-v3/config/route/v3/scoped_route.proto.html#envoy-v3-api-msg-config-route-v3-scopedrouteconfiguration"><span class="std std-ref">RouteConfiguration 作用域</span></a> 中指定了按需加载 RouteConfiguration，则按需更新过滤器还可以用于请求*路由配置*数据。
+HTTP 头部的内容用于查找作用域并创建按需请求。</p>
+<p>按需 VHDS 和按需 S/RDS 目前不能同时使用。</p>
+<div class="section" id="id1">
+<h2>配置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../../api-v3/extensions/filters/http/on_demand/v3/on_demand.proto.html#envoy-v3-api-msg-extensions-filters-http-on-demand-v3-ondemand"><span class="std std-ref">v3 API reference</span></a></p></li>
-<li><p>This filter should be configured with the name <em>envoy.filters.http.on_demand</em>.</p></li>
-<li><p>The filter should be placed before <em>envoy.filters.http.router</em> filter in the HttpConnectionManager’s filter chain.</p></li>
+<li><p><a class="reference internal" href="../../../api-v3/extensions/filters/http/on_demand/v3/on_demand.proto.html#envoy-v3-api-msg-extensions-filters-http-on-demand-v3-ondemand"><span class="std std-ref">v3 API 参考</span></a></p></li>
+<li><p>该过滤器的名称应该配置为 <em>envoy.filters.http.on_demand</em>。</p></li>
+<li><p>该过滤器应放在 HttpConnectionManager 的过滤器链中，并在 <em>envoy.filters.http.router</em> 过滤器之前。</p></li>
 </ul>
 </div>
 </div>

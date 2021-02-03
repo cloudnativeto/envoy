@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Redis Proxy &mdash; envoy 1.16.0-9b3ba5 documentation</title>
+  <title>Redis Proxy &mdash; envoy 1.16.0-3a944f documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-9b3ba5
+                1.16.0-3a944f
               </div>
             
           
@@ -228,7 +228,7 @@
 <p>Redis Proxy <a class="reference internal" href="../../../../../../configuration/listeners/network_filters/redis_proxy_filter.html#config-network-filters-redis-proxy"><span class="std std-ref">configuration overview</span></a>.</p>
 <div class="section" id="config-filter-network-redis-proxy-v2-redisproxy">
 <span id="envoy-api-msg-config-filter-network-redis-proxy-v2-redisproxy"></span><h2>config.filter.network.redis_proxy.v2.RedisProxy<a class="headerlink" href="#config-filter-network-redis-proxy-v2-redisproxy" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/config/filter/network/redis_proxy/v2/redis_proxy.proto#L27">[config.filter.network.redis_proxy.v2.RedisProxy proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/config/filter/network/redis_proxy/v2/redis_proxy.proto#L27">[config.filter.network.redis_proxy.v2.RedisProxy proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;stat_prefix&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;cluster&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -303,7 +303,7 @@ AUTH, but no password is set” error will be returned.</p>
 </div>
 <div class="section" id="config-filter-network-redis-proxy-v2-redisproxy-connpoolsettings">
 <span id="envoy-api-msg-config-filter-network-redis-proxy-v2-redisproxy-connpoolsettings"></span><h2>config.filter.network.redis_proxy.v2.RedisProxy.ConnPoolSettings<a class="headerlink" href="#config-filter-network-redis-proxy-v2-redisproxy-connpoolsettings" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/config/filter/network/redis_proxy/v2/redis_proxy.proto#L30">[config.filter.network.redis_proxy.v2.RedisProxy.ConnPoolSettings proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/config/filter/network/redis_proxy/v2/redis_proxy.proto#L30">[config.filter.network.redis_proxy.v2.RedisProxy.ConnPoolSettings proto]</a></p>
 <p>Redis connection pool settings.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;op_timeout&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -389,7 +389,7 @@ count.</p>
 </div>
 <div class="section" id="enum-config-filter-network-redis-proxy-v2-redisproxy-connpoolsettings-readpolicy">
 <span id="envoy-api-enum-config-filter-network-redis-proxy-v2-redisproxy-connpoolsettings-readpolicy"></span><h2>Enum config.filter.network.redis_proxy.v2.RedisProxy.ConnPoolSettings.ReadPolicy<a class="headerlink" href="#enum-config-filter-network-redis-proxy-v2-redisproxy-connpoolsettings-readpolicy" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/config/filter/network/redis_proxy/v2/redis_proxy.proto#L35">[config.filter.network.redis_proxy.v2.RedisProxy.ConnPoolSettings.ReadPolicy proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/config/filter/network/redis_proxy/v2/redis_proxy.proto#L35">[config.filter.network.redis_proxy.v2.RedisProxy.ConnPoolSettings.ReadPolicy proto]</a></p>
 <p>ReadPolicy controls how Envoy routes read commands to Redis nodes. This is currently
 supported for Redis Cluster. All ReadPolicy settings except MASTER may return stale data
 because replication is asynchronous and requires some delay. You need to ensure that your
@@ -420,7 +420,7 @@ replicas, healthy nodes have precedent over unhealthy nodes.</p>
 </div>
 <div class="section" id="config-filter-network-redis-proxy-v2-redisproxy-prefixroutes">
 <span id="envoy-api-msg-config-filter-network-redis-proxy-v2-redisproxy-prefixroutes"></span><h2>config.filter.network.redis_proxy.v2.RedisProxy.PrefixRoutes<a class="headerlink" href="#config-filter-network-redis-proxy-v2-redisproxy-prefixroutes" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/config/filter/network/redis_proxy/v2/redis_proxy.proto#L118">[config.filter.network.redis_proxy.v2.RedisProxy.PrefixRoutes proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/config/filter/network/redis_proxy/v2/redis_proxy.proto#L118">[config.filter.network.redis_proxy.v2.RedisProxy.PrefixRoutes proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;routes&quot;</span><span class="p">:</span> <span class="p">[],</span>
   <span class="nt">&quot;case_insensitive&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -456,7 +456,7 @@ catch-all route becomes required when no routes are specified.</p>
 </div>
 <div class="section" id="config-filter-network-redis-proxy-v2-redisproxy-prefixroutes-route">
 <span id="envoy-api-msg-config-filter-network-redis-proxy-v2-redisproxy-prefixroutes-route"></span><h2>config.filter.network.redis_proxy.v2.RedisProxy.PrefixRoutes.Route<a class="headerlink" href="#config-filter-network-redis-proxy-v2-redisproxy-prefixroutes-route" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/config/filter/network/redis_proxy/v2/redis_proxy.proto#L119">[config.filter.network.redis_proxy.v2.RedisProxy.PrefixRoutes.Route proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/config/filter/network/redis_proxy/v2/redis_proxy.proto#L119">[config.filter.network.redis_proxy.v2.RedisProxy.PrefixRoutes.Route proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;prefix&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;remove_prefix&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -485,7 +485,7 @@ longest match.</p>
 </div>
 <div class="section" id="config-filter-network-redis-proxy-v2-redisproxy-prefixroutes-route-requestmirrorpolicy">
 <span id="envoy-api-msg-config-filter-network-redis-proxy-v2-redisproxy-prefixroutes-route-requestmirrorpolicy"></span><h2>config.filter.network.redis_proxy.v2.RedisProxy.PrefixRoutes.Route.RequestMirrorPolicy<a class="headerlink" href="#config-filter-network-redis-proxy-v2-redisproxy-prefixroutes-route-requestmirrorpolicy" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/config/filter/network/redis_proxy/v2/redis_proxy.proto#L124">[config.filter.network.redis_proxy.v2.RedisProxy.PrefixRoutes.Route.RequestMirrorPolicy proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/config/filter/network/redis_proxy/v2/redis_proxy.proto#L124">[config.filter.network.redis_proxy.v2.RedisProxy.PrefixRoutes.Route.RequestMirrorPolicy proto]</a></p>
 <p>The router is capable of shadowing traffic from one cluster to another. The current
 implementation is “fire and forget,” meaning Envoy will not wait for the shadow cluster to
 respond before returning the response from the primary cluster. All normal statistics are
@@ -517,7 +517,7 @@ writes in a “fire and forget” manner.</p>
 </div>
 <div class="section" id="config-filter-network-redis-proxy-v2-redisprotocoloptions">
 <span id="envoy-api-msg-config-filter-network-redis-proxy-v2-redisprotocoloptions"></span><h2>config.filter.network.redis_proxy.v2.RedisProtocolOptions<a class="headerlink" href="#config-filter-network-redis-proxy-v2-redisprotocoloptions" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/config/filter/network/redis_proxy/v2/redis_proxy.proto#L240">[config.filter.network.redis_proxy.v2.RedisProtocolOptions proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/config/filter/network/redis_proxy/v2/redis_proxy.proto#L240">[config.filter.network.redis_proxy.v2.RedisProtocolOptions proto]</a></p>
 <p>RedisProtocolOptions specifies Redis upstream protocol options. This object is used in
 <a class="reference internal" href="../../../../../api/v2/cluster.proto.html#envoy-api-field-cluster-typed-extension-protocol-options"><span class="std std-ref">typed_extension_protocol_options</span></a>,
 keyed by the name <cite>envoy.filters.network.redis_proxy</cite>.</p>

@@ -9,7 +9,7 @@ Common rate limit components
 extensions.common.ratelimit.v3.RateLimitDescriptor
 --------------------------------------------------
 
-`[extensions.common.ratelimit.v3.RateLimitDescriptor proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/extensions/common/ratelimit/v3/ratelimit.proto#L62>`_
+`[extensions.common.ratelimit.v3.RateLimitDescriptor proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/extensions/common/ratelimit/v3/ratelimit.proto#L62>`_
 
 A RateLimitDescriptor is a list of hierarchical entries that are used by the service to
 determine the final rate limit key and overall allowed limit. Here are some examples of how
@@ -81,7 +81,7 @@ limit
 extensions.common.ratelimit.v3.RateLimitDescriptor.Entry
 --------------------------------------------------------
 
-`[extensions.common.ratelimit.v3.RateLimitDescriptor.Entry proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/extensions/common/ratelimit/v3/ratelimit.proto#L66>`_
+`[extensions.common.ratelimit.v3.RateLimitDescriptor.Entry proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/extensions/common/ratelimit/v3/ratelimit.proto#L66>`_
 
 
 .. code-block:: json
@@ -110,7 +110,7 @@ value
 extensions.common.ratelimit.v3.RateLimitDescriptor.RateLimitOverride
 --------------------------------------------------------------------
 
-`[extensions.common.ratelimit.v3.RateLimitDescriptor.RateLimitOverride proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/extensions/common/ratelimit/v3/ratelimit.proto#L80>`_
+`[extensions.common.ratelimit.v3.RateLimitDescriptor.RateLimitOverride proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/extensions/common/ratelimit/v3/ratelimit.proto#L80>`_
 
 Override rate limit to apply to this descriptor instead of the limit
 configured in the rate limit service. See :ref:`rate limit override

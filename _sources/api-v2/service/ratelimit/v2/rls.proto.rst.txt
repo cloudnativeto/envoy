@@ -9,7 +9,7 @@ Rate Limit Service (RLS)
 service.ratelimit.v2.RateLimitRequest
 -------------------------------------
 
-`[service.ratelimit.v2.RateLimitRequest proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/service/ratelimit/v2/rls.proto#L32>`_
+`[service.ratelimit.v2.RateLimitRequest proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/service/ratelimit/v2/rls.proto#L32>`_
 
 Main message for a rate limit request. The rate limit service is designed to be fully generic
 in the sense that it can operate on arbitrary hierarchical key/value pairs. The loaded
@@ -56,7 +56,7 @@ hits_addend
 service.ratelimit.v2.RateLimitResponse
 --------------------------------------
 
-`[service.ratelimit.v2.RateLimitResponse proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/service/ratelimit/v2/rls.proto#L48>`_
+`[service.ratelimit.v2.RateLimitResponse proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/service/ratelimit/v2/rls.proto#L48>`_
 
 A response from a ShouldRateLimit call.
 
@@ -101,7 +101,7 @@ request_headers_to_add
 service.ratelimit.v2.RateLimitResponse.RateLimit
 ------------------------------------------------
 
-`[service.ratelimit.v2.RateLimitResponse.RateLimit proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/service/ratelimit/v2/rls.proto#L61>`_
+`[service.ratelimit.v2.RateLimitResponse.RateLimit proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/service/ratelimit/v2/rls.proto#L61>`_
 
 Defines an actual rate limit in terms of requests per unit of time and the unit itself.
 
@@ -137,7 +137,7 @@ unit
 Enum service.ratelimit.v2.RateLimitResponse.RateLimit.Unit
 ----------------------------------------------------------
 
-`[service.ratelimit.v2.RateLimitResponse.RateLimit.Unit proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/service/ratelimit/v2/rls.proto#L62>`_
+`[service.ratelimit.v2.RateLimitResponse.RateLimit.Unit proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/service/ratelimit/v2/rls.proto#L62>`_
 
 
 .. _envoy_api_enum_value_service.ratelimit.v2.RateLimitResponse.RateLimit.Unit.UNKNOWN:
@@ -176,7 +176,7 @@ DAY
 service.ratelimit.v2.RateLimitResponse.DescriptorStatus
 -------------------------------------------------------
 
-`[service.ratelimit.v2.RateLimitResponse.DescriptorStatus proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/service/ratelimit/v2/rls.proto#L89>`_
+`[service.ratelimit.v2.RateLimitResponse.DescriptorStatus proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/service/ratelimit/v2/rls.proto#L89>`_
 
 
 .. code-block:: json
@@ -212,7 +212,7 @@ limit_remaining
 Enum service.ratelimit.v2.RateLimitResponse.Code
 ------------------------------------------------
 
-`[service.ratelimit.v2.RateLimitResponse.Code proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/service/ratelimit/v2/rls.proto#L49>`_
+`[service.ratelimit.v2.RateLimitResponse.Code proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/service/ratelimit/v2/rls.proto#L49>`_
 
 
 .. _envoy_api_enum_value_service.ratelimit.v2.RateLimitResponse.Code.UNKNOWN:

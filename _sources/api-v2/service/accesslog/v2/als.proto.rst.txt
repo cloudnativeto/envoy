@@ -9,7 +9,7 @@ gRPC Access Log Service (ALS)
 service.accesslog.v2.StreamAccessLogsResponse
 ---------------------------------------------
 
-`[service.accesslog.v2.StreamAccessLogsResponse proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/service/accesslog/v2/als.proto#L31>`_
+`[service.accesslog.v2.StreamAccessLogsResponse proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/service/accesslog/v2/als.proto#L31>`_
 
 Empty response for the StreamAccessLogs API. Will never be sent. See below.
 
@@ -25,7 +25,7 @@ Empty response for the StreamAccessLogs API. Will never be sent. See below.
 service.accesslog.v2.StreamAccessLogsMessage
 --------------------------------------------
 
-`[service.accesslog.v2.StreamAccessLogsMessage proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/service/accesslog/v2/als.proto#L36>`_
+`[service.accesslog.v2.StreamAccessLogsMessage proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/service/accesslog/v2/als.proto#L36>`_
 
 Stream message for the StreamAccessLogs API. Envoy will open a stream to the server and stream
 access logs without ever expecting a response.
@@ -70,7 +70,7 @@ tcp_logs
 service.accesslog.v2.StreamAccessLogsMessage.Identifier
 -------------------------------------------------------
 
-`[service.accesslog.v2.StreamAccessLogsMessage.Identifier proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/service/accesslog/v2/als.proto#L37>`_
+`[service.accesslog.v2.StreamAccessLogsMessage.Identifier proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/service/accesslog/v2/als.proto#L37>`_
 
 
 .. code-block:: json
@@ -100,7 +100,7 @@ log_name
 service.accesslog.v2.StreamAccessLogsMessage.HTTPAccessLogEntries
 -----------------------------------------------------------------
 
-`[service.accesslog.v2.StreamAccessLogsMessage.HTTPAccessLogEntries proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/service/accesslog/v2/als.proto#L47>`_
+`[service.accesslog.v2.StreamAccessLogsMessage.HTTPAccessLogEntries proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/service/accesslog/v2/als.proto#L47>`_
 
 Wrapper for batches of HTTP access log entries.
 
@@ -122,7 +122,7 @@ log_entry
 service.accesslog.v2.StreamAccessLogsMessage.TCPAccessLogEntries
 ----------------------------------------------------------------
 
-`[service.accesslog.v2.StreamAccessLogsMessage.TCPAccessLogEntries proto] <https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/service/accesslog/v2/als.proto#L53>`_
+`[service.accesslog.v2.StreamAccessLogsMessage.TCPAccessLogEntries proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/service/accesslog/v2/als.proto#L53>`_
 
 Wrapper for batches of TCP access log entries.
 

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Listener configuration &mdash; envoy 1.16.0-9b3ba5 documentation</title>
+  <title>Listener configuration &mdash; envoy 1.16.0-3a944f documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-9b3ba5
+                1.16.0-3a944f
               </div>
             
           
@@ -211,7 +211,7 @@
 <p>Listener <a class="reference internal" href="../../../configuration/listeners/listeners.html#config-listeners"><span class="std std-ref">configuration overview</span></a></p>
 <div class="section" id="listener">
 <span id="envoy-api-msg-listener"></span><h2>Listener<a class="headerlink" href="#listener" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/listener.proto#L30">[Listener proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/listener.proto#L30">[Listener proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -405,7 +405,7 @@ emitted by this listener.</p>
 </div>
 <div class="section" id="listener-connectionbalanceconfig">
 <span id="envoy-api-msg-listener-connectionbalanceconfig"></span><h2>Listener.ConnectionBalanceConfig<a class="headerlink" href="#listener-connectionbalanceconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/listener.proto#L58">[Listener.ConnectionBalanceConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/listener.proto#L58">[Listener.ConnectionBalanceConfig proto]</a></p>
 <p>Configuration for listener connection balancing.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;exact_balance&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>
@@ -419,7 +419,7 @@ emitted by this listener.</p>
 </div>
 <div class="section" id="listener-connectionbalanceconfig-exactbalance">
 <span id="envoy-api-msg-listener-connectionbalanceconfig-exactbalance"></span><h2>Listener.ConnectionBalanceConfig.ExactBalance<a class="headerlink" href="#listener-connectionbalanceconfig-exactbalance" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/listener.proto#L65">[Listener.ConnectionBalanceConfig.ExactBalance proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/listener.proto#L65">[Listener.ConnectionBalanceConfig.ExactBalance proto]</a></p>
 <p>A connection balancer implementation that does exact balancing. This means that a lock is
 held during balancing so that connection counts are nearly exactly balanced between worker
 threads. This is “nearly” exact in the sense that a connection might close in parallel thus
@@ -432,7 +432,7 @@ connections that rarely cycle (e.g., service mesh gRPC egress).</p>
 </div>
 <div class="section" id="enum-listener-draintype">
 <span id="envoy-api-enum-listener-draintype"></span><h2>Enum Listener.DrainType<a class="headerlink" href="#enum-listener-draintype" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9b3ba567f1be9a8e9fa857b786f1a7faf0c52757/api/envoy/api/v2/listener.proto#L31">[Listener.DrainType proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/listener.proto#L31">[Listener.DrainType proto]</a></p>
 <dl class="simple" id="envoy-api-enum-value-listener-draintype-default">
 <dt>DEFAULT</dt><dd><p><em>(DEFAULT)</em> ⁣Drain in response to calling /healthcheck/fail admin endpoint (along with the health check
 filter), listener removal/modification, and hot restart.</p>
