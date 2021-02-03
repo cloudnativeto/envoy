@@ -40,16 +40,16 @@ Envoy公开了两个统计指标，以监视所有这些线程上事件循环的
 
 .. _operations_performance_watchdog:
 
-监视器
+看门狗
 --------
-除了事件循环统计信息外，Envoy还包括一个可配置的:ref: 监视器 
+除了事件循环统计信息外，Envoy还包括一个可配置的:ref: 看门狗 
 <envoy_v3_api_field_config.bootstrap.v3.Bootstrap.watchdogs> 系统，该系统可以在 Envoy 不响应时增加
 统计信息并有选择地杀死服务器。此系统具有两个单独的看门狗配置，一个用于主线程，一个用于工作线程。
 这是有用的，因为不同的线程有不同的工作负载。该系统还有一个扩展点，允许根据看门狗事件采取自定义操作。
 这些统计信息对于从高层次了解 Envoy 的事件循环是否没有响应是有用的，这是因为它进行了过多的工作，正在
 阻塞或未被操作系统调度。
 
-监视器在 main_thread 和 worker 中都发出聚合的统计信息。另外，它在服务器下发出单独的统计信息
+看门狗在 main_thread 和 worker 中都发出聚合的统计信息。另外，它在服务器下发出单独的统计信息
 <thread_name> 树 <thread_name>等于 main_thread，worker_0，worker_1等。
 
 .. csv-table::
