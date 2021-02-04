@@ -3,12 +3,12 @@
 本地回复修改
 =================
 
-:ref:`HTTP connection manager <arch_overview_http_conn_man>` 支持本地回复修改，这个回复是 Envoy 返回的响应。
+:ref:`HTTP 连接管理器 <arch_overview_http_conn_man>` 支持本地回复修改，这个回复是 Envoy 返回的响应。
 
 功能：
 
-* :ref:`本地回复内容修改 <config_http_conn_man_local_reply_modification>`.
-* :ref:`本地回复格式修改 <config_http_conn_man_local_reply_format>`.
+* :ref:`本地回复内容修改 <config_http_conn_man_local_reply_modification>`。
+* :ref:`本地回复格式修改 <config_http_conn_man_local_reply_format>`。
 
 .. _config_http_conn_man_local_reply_modification:
 
@@ -45,7 +45,7 @@ LocalReplyConfig 示例
 本地回复格式修改
 -----------------------
 
-响应主体内容类型可以自定义。如果未指定，则内容类型为 plain/text。有两个 `body_format` 字段；一个是 :ref:`body_format <envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.LocalReplyConfig.body_format>` 在 :ref:`LocalReplyConfig <envoy_v3_api_msg_extensions.filters.network.http_connection_manager.v3.LocalReplyConfig>` message 和另一个 :ref:`body_format_override <envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.ResponseMapper.body_format_override>` 字段在`映射器`中。后者仅在其映射器匹配时使用。如果没有匹配的映射器，或者匹配的映射器没有指定body_format，则使用前者。
+响应主体内容类型可以自定义。如果未指定，则内容类型为 plain/text。有两个 `body_format` 字段；一个是 :ref:`body_format <envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.LocalReplyConfig.body_format>` 在 :ref:`LocalReplyConfig <envoy_v3_api_msg_extensions.filters.network.http_connection_manager.v3.LocalReplyConfig>` message 和另一个 :ref:`body_format_override <envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.ResponseMapper.body_format_override>` 字段在`映射器`中。后者仅在其映射器匹配时使用。如果没有匹配的映射器，或者匹配的映射器没有指定 body_format，则使用前者。
 
 本地回复格式可以指定为 :ref:`SubstitutionFormatString <envoy_v3_api_msg_config.core.v3.SubstitutionFormatString>`。它支持 :ref:`text_format <envoy_v3_api_field_config.core.v3.SubstitutionFormatString.text_format>` 和 :ref:`json_format <envoy_v3_api_field_config.core.v3.SubstitutionFormatString.json_format>`。
 
