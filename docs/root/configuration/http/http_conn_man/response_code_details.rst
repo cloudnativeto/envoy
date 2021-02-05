@@ -81,7 +81,7 @@ Http1 详细信息
    http1.unexpected_underscore, 在配置不允许的情况下，在标头中发送了 underscore。
 
 
-Http2 相信信息
+Http2 详细信息
 ~~~~~~~~~~~~~~~~~~~
 
 所有 http2 的详细信息都源于 *http2.*
