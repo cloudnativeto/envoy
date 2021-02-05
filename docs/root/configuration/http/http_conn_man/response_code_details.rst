@@ -5,7 +5,7 @@
 
 如果通过 :ref:`访问日志<config_access_log_format_response_code_details>`，或
 :ref:`自定义头部<config_http_conn_man_headers_custom_request_headers>` 配置了 _%RESPONSE_CODE_DETAILS%_，
-Envoy 将针对一个指定的、已经结束的流，给出详细原因。另外，由 HttpConnectionManager、路由过滤器、和解码器发送的详细信息，将在本页列示。
+Envoy 会给出指定流结束的详细原因。另外，由 HttpConnectionManager、路由过滤器、和编解码器发送的详细信息，将在本页列示。
 但此列表并不全面，这是因为其他过滤器也可以发送带有自定义细节的本地答复。
 
 下面是 HttpConnectionManager 或路由过滤器可能会发送的响应或重置流的原因列表。
