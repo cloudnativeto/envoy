@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Protocol options &mdash; envoy 1.16.0-3a944f documentation</title>
+  <title>Protocol options &mdash; envoy 1.16.0-470412 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-3a944f
+                1.16.0-470412
               </div>
             
           
@@ -219,7 +219,7 @@
 <span id="envoy-api-file-envoy-api-v2-core-protocol-proto"></span><h1>Protocol options<a class="headerlink" href="#protocol-options" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="core-upstreamhttpprotocoloptions">
 <span id="envoy-api-msg-core-upstreamhttpprotocoloptions"></span><h2>core.UpstreamHttpProtocolOptions<a class="headerlink" href="#core-upstreamhttpprotocoloptions" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/protocol.proto#L23">[core.UpstreamHttpProtocolOptions proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/protocol.proto#L23">[core.UpstreamHttpProtocolOptions proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;auto_sni&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;auto_san_validation&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
@@ -242,7 +242,7 @@ This field is intended to set with <cite>auto_sni</cite> field.</p>
 </div>
 <div class="section" id="core-httpprotocoloptions">
 <span id="envoy-api-msg-core-httpprotocoloptions"></span><h2>core.HttpProtocolOptions<a class="headerlink" href="#core-httpprotocoloptions" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/protocol.proto#L37">[core.HttpProtocolOptions proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/protocol.proto#L37">[core.HttpProtocolOptions proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;idle_timeout&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;max_connection_duration&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -295,7 +295,7 @@ Note: upstream responses are not affected by this setting.</p>
 </div>
 <div class="section" id="enum-core-httpprotocoloptions-headerswithunderscoresaction">
 <span id="envoy-api-enum-core-httpprotocoloptions-headerswithunderscoresaction"></span><h2>Enum core.HttpProtocolOptions.HeadersWithUnderscoresAction<a class="headerlink" href="#enum-core-httpprotocoloptions-headerswithunderscoresaction" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/protocol.proto#L43">[core.HttpProtocolOptions.HeadersWithUnderscoresAction proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/protocol.proto#L43">[core.HttpProtocolOptions.HeadersWithUnderscoresAction proto]</a></p>
 <p>Action to take when Envoy receives client request with header names containing underscore
 characters.
 Underscore character is allowed in header names by the RFC-7230 and this behavior is implemented
@@ -320,7 +320,7 @@ invoked and as such filters will not see dropped headers. The
 </div>
 <div class="section" id="core-http1protocoloptions">
 <span id="envoy-api-msg-core-http1protocoloptions"></span><h2>core.Http1ProtocolOptions<a class="headerlink" href="#core-http1protocoloptions" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/protocol.proto#L96">[core.Http1ProtocolOptions proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/protocol.proto#L96">[core.Http1ProtocolOptions proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;allow_absolute_url&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;accept_http_10&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -370,7 +370,7 @@ are lower cased.</p>
 </div>
 <div class="section" id="core-http1protocoloptions-headerkeyformat">
 <span id="envoy-api-msg-core-http1protocoloptions-headerkeyformat"></span><h2>core.Http1ProtocolOptions.HeaderKeyFormat<a class="headerlink" href="#core-http1protocoloptions-headerkeyformat" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/protocol.proto#L97">[core.Http1ProtocolOptions.HeaderKeyFormat proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/protocol.proto#L97">[core.Http1ProtocolOptions.HeaderKeyFormat proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;proper_case_words&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>
 <span class="p">}</span>
@@ -387,14 +387,14 @@ are not covered. For example, the “TE” header will be formatted as “Te”.
 </div>
 <div class="section" id="core-http1protocoloptions-headerkeyformat-propercasewords">
 <span id="envoy-api-msg-core-http1protocoloptions-headerkeyformat-propercasewords"></span><h2>core.Http1ProtocolOptions.HeaderKeyFormat.ProperCaseWords<a class="headerlink" href="#core-http1protocoloptions-headerkeyformat-propercasewords" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/protocol.proto#L98">[core.Http1ProtocolOptions.HeaderKeyFormat.ProperCaseWords proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/protocol.proto#L98">[core.Http1ProtocolOptions.HeaderKeyFormat.ProperCaseWords proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="core-http2protocoloptions">
 <span id="envoy-api-msg-core-http2protocoloptions"></span><h2>core.Http2ProtocolOptions<a class="headerlink" href="#core-http2protocoloptions" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/protocol.proto#L147">[core.Http2ProtocolOptions proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/protocol.proto#L147">[core.Http2ProtocolOptions proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;hpack_table_size&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;max_concurrent_streams&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -505,7 +505,7 @@ when this option is enabled, only the offending stream is terminated.</p>
 </div>
 <div class="section" id="core-http2protocoloptions-settingsparameter">
 <span id="envoy-api-msg-core-http2protocoloptions-settingsparameter"></span><h2>core.Http2ProtocolOptions.SettingsParameter<a class="headerlink" href="#core-http2protocoloptions-settingsparameter" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/protocol.proto#L150">[core.Http2ProtocolOptions.SettingsParameter proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/protocol.proto#L150">[core.Http2ProtocolOptions.SettingsParameter proto]</a></p>
 <p>Defines a parameter to be sent in the SETTINGS frame.
 See <a class="reference external" href="https://tools.ietf.org/html/rfc7540#section-6.5.1">RFC7540, sec. 6.5.1</a> for details.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>

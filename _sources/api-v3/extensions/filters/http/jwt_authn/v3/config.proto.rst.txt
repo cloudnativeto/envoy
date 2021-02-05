@@ -20,7 +20,7 @@ JWT Authentication :ref:`configuration overview <config_http_filters_jwt_authn>`
 extensions.filters.http.jwt_authn.v3.JwtProvider
 ------------------------------------------------
 
-`[extensions.filters.http.jwt_authn.v3.JwtProvider proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/extensions/filters/http/jwt_authn/v3/config.proto#L54>`_
+`[extensions.filters.http.jwt_authn.v3.JwtProvider proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/extensions/filters/http/jwt_authn/v3/config.proto#L54>`_
 
 Please see following for JWT authentication flow:
 
@@ -239,7 +239,7 @@ payload_in_metadata
 extensions.filters.http.jwt_authn.v3.RemoteJwks
 -----------------------------------------------
 
-`[extensions.filters.http.jwt_authn.v3.RemoteJwks proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/extensions/filters/http/jwt_authn/v3/config.proto#L196>`_
+`[extensions.filters.http.jwt_authn.v3.RemoteJwks proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/extensions/filters/http/jwt_authn/v3/config.proto#L196>`_
 
 This message specifies how to fetch JWKS from remote and how to cache it.
 
@@ -277,7 +277,7 @@ cache_duration
 extensions.filters.http.jwt_authn.v3.JwtHeader
 ----------------------------------------------
 
-`[extensions.filters.http.jwt_authn.v3.JwtHeader proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/extensions/filters/http/jwt_authn/v3/config.proto#L216>`_
+`[extensions.filters.http.jwt_authn.v3.JwtHeader proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/extensions/filters/http/jwt_authn/v3/config.proto#L216>`_
 
 This message specifies a header location to extract JWT token.
 
@@ -309,7 +309,7 @@ value_prefix
 extensions.filters.http.jwt_authn.v3.ProviderWithAudiences
 ----------------------------------------------------------
 
-`[extensions.filters.http.jwt_authn.v3.ProviderWithAudiences proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/extensions/filters/http/jwt_authn/v3/config.proto#L232>`_
+`[extensions.filters.http.jwt_authn.v3.ProviderWithAudiences proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/extensions/filters/http/jwt_authn/v3/config.proto#L232>`_
 
 Specify a required provider with audiences.
 
@@ -339,7 +339,7 @@ audiences
 extensions.filters.http.jwt_authn.v3.JwtRequirement
 ---------------------------------------------------
 
-`[extensions.filters.http.jwt_authn.v3.JwtRequirement proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/extensions/filters/http/jwt_authn/v3/config.proto#L300>`_
+`[extensions.filters.http.jwt_authn.v3.JwtRequirement proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/extensions/filters/http/jwt_authn/v3/config.proto#L300>`_
 
 This message specifies a Jwt requirement. An empty message means JWT verification is not
 required. Here are some config examples:
@@ -478,7 +478,7 @@ allow_missing
 extensions.filters.http.jwt_authn.v3.JwtRequirementOrList
 ---------------------------------------------------------
 
-`[extensions.filters.http.jwt_authn.v3.JwtRequirementOrList proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/extensions/filters/http/jwt_authn/v3/config.proto#L335>`_
+`[extensions.filters.http.jwt_authn.v3.JwtRequirementOrList proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/extensions/filters/http/jwt_authn/v3/config.proto#L335>`_
 
 This message specifies a list of RequiredProvider.
 Their results are OR-ed; if any one of them passes, the result is passed
@@ -502,7 +502,7 @@ requirements
 extensions.filters.http.jwt_authn.v3.JwtRequirementAndList
 ----------------------------------------------------------
 
-`[extensions.filters.http.jwt_authn.v3.JwtRequirementAndList proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/extensions/filters/http/jwt_authn/v3/config.proto#L345>`_
+`[extensions.filters.http.jwt_authn.v3.JwtRequirementAndList proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/extensions/filters/http/jwt_authn/v3/config.proto#L345>`_
 
 This message specifies a list of RequiredProvider.
 Their results are AND-ed; all of them must pass, if one of them fails or missing, it fails.
@@ -526,7 +526,7 @@ requirements
 extensions.filters.http.jwt_authn.v3.RequirementRule
 ----------------------------------------------------
 
-`[extensions.filters.http.jwt_authn.v3.RequirementRule proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/extensions/filters/http/jwt_authn/v3/config.proto#L374>`_
+`[extensions.filters.http.jwt_authn.v3.RequirementRule proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/extensions/filters/http/jwt_authn/v3/config.proto#L374>`_
 
 This message specifies a Jwt requirement for a specific Route condition.
 Example 1:
@@ -585,7 +585,7 @@ requires
 extensions.filters.http.jwt_authn.v3.FilterStateRule
 ----------------------------------------------------
 
-`[extensions.filters.http.jwt_authn.v3.FilterStateRule proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/extensions/filters/http/jwt_authn/v3/config.proto#L411>`_
+`[extensions.filters.http.jwt_authn.v3.FilterStateRule proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/extensions/filters/http/jwt_authn/v3/config.proto#L411>`_
 
 This message specifies Jwt requirements based on stream_info.filterState.
 This FilterState should use `Router::StringAccessor` object to set a string value.
@@ -632,7 +632,7 @@ requires
 extensions.filters.http.jwt_authn.v3.JwtAuthentication
 ------------------------------------------------------
 
-`[extensions.filters.http.jwt_authn.v3.JwtAuthentication proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/extensions/filters/http/jwt_authn/v3/config.proto#L464>`_
+`[extensions.filters.http.jwt_authn.v3.JwtAuthentication proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/extensions/filters/http/jwt_authn/v3/config.proto#L464>`_
 
 This is the Envoy HTTP filter config for JWT authentication.
 

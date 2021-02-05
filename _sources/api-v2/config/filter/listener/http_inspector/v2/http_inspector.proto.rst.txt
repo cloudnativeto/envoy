@@ -20,7 +20,7 @@ Detect whether the application protocol is HTTP.
 config.filter.listener.http_inspector.v2.HttpInspector
 ------------------------------------------------------
 
-`[config.filter.listener.http_inspector.v2.HttpInspector proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/config/filter/listener/http_inspector/v2/http_inspector.proto#L18>`_
+`[config.filter.listener.http_inspector.v2.HttpInspector proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/config/filter/listener/http_inspector/v2/http_inspector.proto#L18>`_
 
 
 .. code-block:: json

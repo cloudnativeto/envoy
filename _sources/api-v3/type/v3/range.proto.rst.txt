@@ -9,7 +9,7 @@ Range
 type.v3.Int64Range
 ------------------
 
-`[type.v3.Int64Range proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/type/v3/range.proto#L16>`_
+`[type.v3.Int64Range proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/type/v3/range.proto#L16>`_
 
 Specifies the int64 start and end of the range using half-open interval semantics [start,
 end).
@@ -40,7 +40,7 @@ end
 type.v3.Int32Range
 ------------------
 
-`[type.v3.Int32Range proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/type/v3/range.proto#L28>`_
+`[type.v3.Int32Range proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/type/v3/range.proto#L28>`_
 
 Specifies the int32 start and end of the range using half-open interval semantics [start,
 end).
@@ -71,7 +71,7 @@ end
 type.v3.DoubleRange
 -------------------
 
-`[type.v3.DoubleRange proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/type/v3/range.proto#L40>`_
+`[type.v3.DoubleRange proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/type/v3/range.proto#L40>`_
 
 Specifies the double start and end of the range using half-open interval semantics [start,
 end).

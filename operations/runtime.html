@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Runtime &mdash; envoy 1.16.0-3a944f documentation</title>
+  <title>运行时 &mdash; envoy 1.16.0-470412 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-3a944f
+                1.16.0-470412
               </div>
             
           
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="hot_restarter.html">热重启 Python 封装器</a></li>
 <li class="toctree-l2"><a class="reference internal" href="admin.html">Administration interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stats_overview.html">统计概览</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Runtime</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">运行时</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fs_flags.html">文件系统标志</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_tapping.html">Traffic tapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="certificates.html">证书管理</a></li>
@@ -169,7 +169,7 @@
         
           <li><a href="operations.html">操作和管理</a> &raquo;</li>
         
-      <li>Runtime</li>
+      <li>运行时</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -188,19 +188,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="runtime">
-<span id="operations-runtime"></span><h1>Runtime<a class="headerlink" href="#runtime" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference internal" href="../configuration/operations/runtime.html#config-runtime"><span class="std std-ref">Runtime configuration</span></a> can be used to modify various server settings
-without restarting Envoy. The runtime settings that are available depend on how the server is
-configured. They are documented in the relevant sections of the <a class="reference internal" href="../configuration/configuration.html#config"><span class="std std-ref">configuration guide</span></a>.</p>
-<p>Runtime guards are also used as a mechanism to disable new behavior or risky changes not otherwise
-guarded by configuration. Such changes will tend to introduce a runtime guard that can be used to
-disable the new behavior/code path. The names of these runtime guards will be included in the
-release notes alongside an explanation of the change that warrented the runtime guard.</p>
-<p>Due to this usage of runtime guards, some deployments might find it useful to set up
-dynamic runtime configuration as a safety measure to be able to quickly disable the new behavior
-without having to revert to an older version of Envoy or redeploy it with a new set of static
-runtime flags.</p>
+  <div class="section" id="operations-runtime">
+<span id="id1"></span><h1>运行时<a class="headerlink" href="#operations-runtime" title="Permalink to this headline">¶</a></h1>
+<p>使用 <a class="reference internal" href="../configuration/operations/runtime.html#config-runtime"><span class="std std-ref">运行时配置</span></a> 不用重启 Envoy 就能修改不同的服务配置。
+运行时配置是否可用取决于服务如何配置。它们记录在 <a class="reference internal" href="../configuration/configuration.html#config"><span class="std std-ref">配置指南</span></a> 的相关部分中。</p>
+<p>运行时保护还用作禁用不受配置保护的新行为或危险更改的机制。这类修改往往会引入禁用新行为/代码路径的运行时保护。
+运行时保护的名称将包含在发布说明中，同时还附含保证运行时保护的修改说明。</p>
+<p>由于运行时保护的使用，在一些部署中设置动态运行时配置作为一种安全手段可以有效地在不回滚 Envoy 到旧版本
+或使用一组新的静态运行时标识重新部署的情况下快速禁用新行为。</p>
 </div>
 
 

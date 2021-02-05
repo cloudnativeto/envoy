@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>External Authorization &mdash; envoy 1.16.0-3a944f documentation</title>
+  <title>External Authorization &mdash; envoy 1.16.0-470412 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-3a944f
+                1.16.0-470412
               </div>
             
           
@@ -233,7 +233,7 @@
 <p>External Authorization <a class="reference internal" href="../../../../../../configuration/http/http_filters/ext_authz_filter.html#config-http-filters-ext-authz"><span class="std std-ref">configuration overview</span></a>.</p>
 <div class="section" id="extensions-filters-http-ext-authz-v3-extauthz">
 <span id="envoy-v3-api-msg-extensions-filters-http-ext-authz-v3-extauthz"></span><h2>extensions.filters.http.ext_authz.v3.ExtAuthz<a class="headerlink" href="#extensions-filters-http-ext-authz-v3-extauthz" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L27">[extensions.filters.http.ext_authz.v3.ExtAuthz proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L27">[extensions.filters.http.ext_authz.v3.ExtAuthz proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;grpc_service&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;http_service&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -360,7 +360,7 @@ emitted statistics between configured <em>ext_authz</em> filters in an HTTP filt
 </div>
 <div class="section" id="extensions-filters-http-ext-authz-v3-buffersettings">
 <span id="envoy-v3-api-msg-extensions-filters-http-ext-authz-v3-buffersettings"></span><h2>extensions.filters.http.ext_authz.v3.BufferSettings<a class="headerlink" href="#extensions-filters-http-ext-authz-v3-buffersettings" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L144">[extensions.filters.http.ext_authz.v3.BufferSettings proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L144">[extensions.filters.http.ext_authz.v3.BufferSettings proto]</a></p>
 <p>Configuration for buffering the request data.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;max_request_bytes&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -392,7 +392,7 @@ with UTF-8 string request body.</p>
 </div>
 <div class="section" id="extensions-filters-http-ext-authz-v3-httpservice">
 <span id="envoy-v3-api-msg-extensions-filters-http-ext-authz-v3-httpservice"></span><h2>extensions.filters.http.ext_authz.v3.HttpService<a class="headerlink" href="#extensions-filters-http-ext-authz-v3-httpservice" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L192">[extensions.filters.http.ext_authz.v3.HttpService proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L192">[extensions.filters.http.ext_authz.v3.HttpService proto]</a></p>
 <p>HttpService is used for raw HTTP communication between the filter and the authorization service.
 When configured, the filter will parse the client request and use these attributes to call the
 authorization server. Depending on the response, the filter may reject or accept the client
@@ -437,7 +437,7 @@ for details.</p>
 </div>
 <div class="section" id="extensions-filters-http-ext-authz-v3-authorizationrequest">
 <span id="envoy-v3-api-msg-extensions-filters-http-ext-authz-v3-authorizationrequest"></span><h2>extensions.filters.http.ext_authz.v3.AuthorizationRequest<a class="headerlink" href="#extensions-filters-http-ext-authz-v3-authorizationrequest" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L211">[extensions.filters.http.ext_authz.v3.AuthorizationRequest proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L211">[extensions.filters.http.ext_authz.v3.AuthorizationRequest proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;allowed_headers&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;headers_to_add&quot;</span><span class="p">:</span> <span class="p">[]</span>
@@ -466,7 +466,7 @@ client request of the same key will be overridden.</p>
 </div>
 <div class="section" id="extensions-filters-http-ext-authz-v3-authorizationresponse">
 <span id="envoy-v3-api-msg-extensions-filters-http-ext-authz-v3-authorizationresponse"></span><h2>extensions.filters.http.ext_authz.v3.AuthorizationResponse<a class="headerlink" href="#extensions-filters-http-ext-authz-v3-authorizationresponse" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L235">[extensions.filters.http.ext_authz.v3.AuthorizationResponse proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L235">[extensions.filters.http.ext_authz.v3.AuthorizationResponse proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;allowed_upstream_headers&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;allowed_upstream_headers_to_append&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -497,7 +497,7 @@ that when this list is <em>not</em> set, all the authorization response headers,
 </div>
 <div class="section" id="extensions-filters-http-ext-authz-v3-extauthzperroute">
 <span id="envoy-v3-api-msg-extensions-filters-http-ext-authz-v3-extauthzperroute"></span><h2>extensions.filters.http.ext_authz.v3.ExtAuthzPerRoute<a class="headerlink" href="#extensions-filters-http-ext-authz-v3-extauthzperroute" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L258">[extensions.filters.http.ext_authz.v3.ExtAuthzPerRoute proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L258">[extensions.filters.http.ext_authz.v3.ExtAuthzPerRoute proto]</a></p>
 <p>Extra settings on a per virtualhost/route/weighted-cluster level.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;disabled&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -519,7 +519,7 @@ If disabled is specified in multiple per-filter-configs, the most specific one w
 </div>
 <div class="section" id="extensions-filters-http-ext-authz-v3-checksettings">
 <span id="envoy-v3-api-msg-extensions-filters-http-ext-authz-v3-checksettings"></span><h2>extensions.filters.http.ext_authz.v3.CheckSettings<a class="headerlink" href="#extensions-filters-http-ext-authz-v3-checksettings" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L275">[extensions.filters.http.ext_authz.v3.CheckSettings proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto#L275">[extensions.filters.http.ext_authz.v3.CheckSettings proto]</a></p>
 <p>Extra settings for the check request.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;context_extensions&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>

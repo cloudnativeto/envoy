@@ -9,7 +9,7 @@ Dynamic forward proxy
 extensions.filters.http.dynamic_forward_proxy.v3.FilterConfig
 -------------------------------------------------------------
 
-`[extensions.filters.http.dynamic_forward_proxy.v3.FilterConfig proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/extensions/filters/http/dynamic_forward_proxy/v3/dynamic_forward_proxy.proto#L20>`_
+`[extensions.filters.http.dynamic_forward_proxy.v3.FilterConfig proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/extensions/filters/http/dynamic_forward_proxy/v3/dynamic_forward_proxy.proto#L20>`_
 
 Configuration for the dynamic forward proxy HTTP filter. See the :ref:`architecture overview
 <arch_overview_http_dynamic_forward_proxy>` for more information.
@@ -45,7 +45,7 @@ dns_cache_config
 extensions.filters.http.dynamic_forward_proxy.v3.PerRouteConfig
 ---------------------------------------------------------------
 
-`[extensions.filters.http.dynamic_forward_proxy.v3.PerRouteConfig proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/extensions/filters/http/dynamic_forward_proxy/v3/dynamic_forward_proxy.proto#L32>`_
+`[extensions.filters.http.dynamic_forward_proxy.v3.PerRouteConfig proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/extensions/filters/http/dynamic_forward_proxy/v3/dynamic_forward_proxy.proto#L32>`_
 
 Per route Configuration for the dynamic forward proxy HTTP filter.
 

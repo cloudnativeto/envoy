@@ -9,7 +9,7 @@ Substitution format string
 config.core.v3.SubstitutionFormatString
 ---------------------------------------
 
-`[config.core.v3.SubstitutionFormatString proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/config/core/v3/substitution_format_string.proto#L18>`_
+`[config.core.v3.SubstitutionFormatString proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/config/core/v3/substitution_format_string.proto#L18>`_
 
 Configuration to use multiple :ref:`command operators <config_access_log_command_operators>`
 to generate a new string in either plain text or JSON format.

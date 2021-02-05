@@ -9,7 +9,7 @@ Network addresses
 core.Pipe
 ---------
 
-`[core.Pipe proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/address.proto#L20>`_
+`[core.Pipe proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/address.proto#L20>`_
 
 
 .. code-block:: json
@@ -41,7 +41,7 @@ mode
 core.SocketAddress
 ------------------
 
-`[core.SocketAddress proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/address.proto#L32>`_
+`[core.SocketAddress proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/address.proto#L32>`_
 
 
 .. code-block:: json
@@ -118,7 +118,7 @@ ipv4_compat
 Enum core.SocketAddress.Protocol
 --------------------------------
 
-`[core.SocketAddress.Protocol proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/address.proto#L33>`_
+`[core.SocketAddress.Protocol proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/address.proto#L33>`_
 
 
 .. _envoy_api_enum_value_core.SocketAddress.Protocol.TCP:
@@ -137,7 +137,7 @@ UDP
 core.TcpKeepalive
 -----------------
 
-`[core.TcpKeepalive proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/address.proto#L78>`_
+`[core.TcpKeepalive proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/address.proto#L78>`_
 
 
 .. code-block:: json
@@ -178,7 +178,7 @@ keepalive_interval
 core.BindConfig
 ---------------
 
-`[core.BindConfig proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/address.proto#L94>`_
+`[core.BindConfig proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/address.proto#L94>`_
 
 
 .. code-block:: json
@@ -221,7 +221,7 @@ socket_options
 core.Address
 ------------
 
-`[core.Address proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/address.proto#L115>`_
+`[core.Address proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/address.proto#L115>`_
 
 Addresses specify either a logical or physical address and port, which are
 used to tell Envoy where to bind/listen, connect to upstream and find
@@ -257,7 +257,7 @@ pipe
 core.CidrRange
 --------------
 
-`[core.CidrRange proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/address.proto#L127>`_
+`[core.CidrRange proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/address.proto#L127>`_
 
 CidrRange specifies an IP Address and a prefix length to construct
 the subnet mask for a `CIDR <https://tools.ietf.org/html/rfc4632>`_ range.

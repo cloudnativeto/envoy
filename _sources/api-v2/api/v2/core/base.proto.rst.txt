@@ -9,7 +9,7 @@ Common types
 core.Locality
 -------------
 
-`[core.Locality proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/base.proto#L68>`_
+`[core.Locality proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/base.proto#L68>`_
 
 Identifies location of where either Envoy runs or where upstream hosts run.
 
@@ -55,7 +55,7 @@ sub_zone
 core.BuildVersion
 -----------------
 
-`[core.BuildVersion proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/base.proto#L90>`_
+`[core.BuildVersion proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/base.proto#L90>`_
 
 BuildVersion combines SemVer version of extension with free-form build information
 (i.e. 'alpha', 'private-build') as a set of strings.
@@ -87,7 +87,7 @@ metadata
 core.Extension
 --------------
 
-`[core.Extension proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/base.proto#L101>`_
+`[core.Extension proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/base.proto#L101>`_
 
 Version and identification for an Envoy extension.
 
@@ -138,7 +138,7 @@ disabled
 core.Node
 ---------
 
-`[core.Node proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/base.proto#L131>`_
+`[core.Node proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/base.proto#L131>`_
 
 Identifies a specific Envoy instance. The node identifier is presented to the
 management server, which may use this identifier to distinguish per Envoy
@@ -268,7 +268,7 @@ listening_addresses
 core.Metadata
 -------------
 
-`[core.Metadata proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/base.proto#L219>`_
+`[core.Metadata proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/base.proto#L219>`_
 
 Metadata provides additional inputs to filters based on matched listeners,
 filter chains, routes and endpoints. It is structured as a map, usually from
@@ -312,7 +312,7 @@ filter_metadata
 core.RuntimeUInt32
 ------------------
 
-`[core.RuntimeUInt32 proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/base.proto#L226>`_
+`[core.RuntimeUInt32 proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/base.proto#L226>`_
 
 Runtime derived uint32 with a default when not specified.
 
@@ -342,7 +342,7 @@ runtime_key
 core.RuntimeDouble
 ------------------
 
-`[core.RuntimeDouble proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/base.proto#L235>`_
+`[core.RuntimeDouble proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/base.proto#L235>`_
 
 Runtime derived double with a default when not specified.
 
@@ -372,7 +372,7 @@ runtime_key
 core.RuntimeFeatureFlag
 -----------------------
 
-`[core.RuntimeFeatureFlag proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/base.proto#L244>`_
+`[core.RuntimeFeatureFlag proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/base.proto#L244>`_
 
 Runtime derived bool with a default when not specified.
 
@@ -404,7 +404,7 @@ runtime_key
 core.HeaderValue
 ----------------
 
-`[core.HeaderValue proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/base.proto#L255>`_
+`[core.HeaderValue proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/base.proto#L255>`_
 
 Header name/value pair.
 
@@ -438,7 +438,7 @@ value
 core.HeaderValueOption
 ----------------------
 
-`[core.HeaderValueOption proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/base.proto#L272>`_
+`[core.HeaderValueOption proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/base.proto#L272>`_
 
 Header name/value pair plus option to control append behavior.
 
@@ -469,7 +469,7 @@ append
 core.HeaderMap
 --------------
 
-`[core.HeaderMap proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/base.proto#L282>`_
+`[core.HeaderMap proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/base.proto#L282>`_
 
 Wrapper for a set of headers.
 
@@ -491,7 +491,7 @@ headers
 core.DataSource
 ---------------
 
-`[core.DataSource proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/base.proto#L287>`_
+`[core.DataSource proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/base.proto#L287>`_
 
 Data source consisting of either a file or an inline value.
 
@@ -537,7 +537,7 @@ inline_string
 core.RetryPolicy
 ----------------
 
-`[core.RetryPolicy proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/base.proto#L303>`_
+`[core.RetryPolicy proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/base.proto#L303>`_
 
 The message specifies the retry policy of remote data source when fetching fails.
 
@@ -570,7 +570,7 @@ num_retries
 core.RemoteDataSource
 ---------------------
 
-`[core.RemoteDataSource proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/base.proto#L315>`_
+`[core.RemoteDataSource proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/base.proto#L315>`_
 
 The message specifies how to fetch data from remote and how to verify it.
 
@@ -607,7 +607,7 @@ retry_policy
 core.AsyncDataSource
 --------------------
 
-`[core.AsyncDataSource proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/base.proto#L327>`_
+`[core.AsyncDataSource proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/base.proto#L327>`_
 
 Async data source which support async data fetch.
 
@@ -643,7 +643,7 @@ remote
 core.TransportSocket
 --------------------
 
-`[core.TransportSocket proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/base.proto#L343>`_
+`[core.TransportSocket proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/base.proto#L343>`_
 
 Configuration for transport socket in :ref:`listeners <config_listeners>` and
 :ref:`clusters <envoy_api_msg_Cluster>`. If the configuration is
@@ -692,7 +692,7 @@ typed_config
 core.RuntimeFractionalPercent
 -----------------------------
 
-`[core.RuntimeFractionalPercent proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/base.proto#L367>`_
+`[core.RuntimeFractionalPercent proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/base.proto#L367>`_
 
 Runtime derived FractionalPercent with defaults for when the numerator or denominator is not
 specified via a runtime key.
@@ -731,7 +731,7 @@ runtime_key
 core.ControlPlane
 -----------------
 
-`[core.ControlPlane proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/base.proto#L376>`_
+`[core.ControlPlane proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/base.proto#L376>`_
 
 Identifies a specific ControlPlane instance that Envoy is connected to.
 
@@ -755,7 +755,7 @@ identifier
 Enum core.RoutingPriority
 -------------------------
 
-`[core.RoutingPriority proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/base.proto#L36>`_
+`[core.RoutingPriority proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/base.proto#L36>`_
 
 Envoy supports :ref:`upstream priority routing
 <arch_overview_http_routing_priority>` both at the route and the virtual
@@ -781,7 +781,7 @@ HIGH
 Enum core.RequestMethod
 -----------------------
 
-`[core.RequestMethod proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/base.proto#L42>`_
+`[core.RequestMethod proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/base.proto#L42>`_
 
 HTTP request method.
 
@@ -841,7 +841,7 @@ PATCH
 Enum core.TrafficDirection
 --------------------------
 
-`[core.TrafficDirection proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/api/v2/core/base.proto#L56>`_
+`[core.TrafficDirection proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/core/base.proto#L56>`_
 
 Identifies the direction of the traffic relative to the local Envoy.
 

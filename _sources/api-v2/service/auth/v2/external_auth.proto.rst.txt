@@ -13,7 +13,7 @@ The authorization service request messages used by external authorization :ref:`
 service.auth.v2.CheckRequest
 ----------------------------
 
-`[service.auth.v2.CheckRequest proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/service/auth/v2/external_auth.proto#L33>`_
+`[service.auth.v2.CheckRequest proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/service/auth/v2/external_auth.proto#L33>`_
 
 
 .. code-block:: json
@@ -35,7 +35,7 @@ attributes
 service.auth.v2.DeniedHttpResponse
 ----------------------------------
 
-`[service.auth.v2.DeniedHttpResponse proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/service/auth/v2/external_auth.proto#L39>`_
+`[service.auth.v2.DeniedHttpResponse proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/service/auth/v2/external_auth.proto#L39>`_
 
 HTTP attributes for a denied response.
 
@@ -76,7 +76,7 @@ body
 service.auth.v2.OkHttpResponse
 ------------------------------
 
-`[service.auth.v2.OkHttpResponse proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/service/auth/v2/external_auth.proto#L55>`_
+`[service.auth.v2.OkHttpResponse proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/service/auth/v2/external_auth.proto#L55>`_
 
 HTTP attributes for an ok response.
 
@@ -105,7 +105,7 @@ headers
 service.auth.v2.CheckResponse
 -----------------------------
 
-`[service.auth.v2.CheckResponse proto] <https://github.com/envoyproxy/envoy/blob/3a944fc3550b5f245a6f454d4c4560884f27e379/api/envoy/service/auth/v2/external_auth.proto#L67>`_
+`[service.auth.v2.CheckResponse proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/service/auth/v2/external_auth.proto#L67>`_
 
 Intended for gRPC and Network Authorization servers `only`.
 
