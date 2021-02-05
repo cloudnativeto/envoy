@@ -69,16 +69,16 @@ Http1 详细信息
 
    http1.body_disallowed, 在不允许请求体的请求下发送了请求体。
    http1.codec_error, http_parser 内部遇到了一些错误。
-   http1.connection_header_rejected, 连接头格式不正确或者过长。
-   http1.content_length_and_chunked_not_allowed, 在配置不允许的情况下，使用 Transfer-Encoding: 和 Content-Length 头发送请求。
+   http1.connection_header_rejected, 连接头部格式不正确或者过长。
+   http1.content_length_and_chunked_not_allowed, 在配置不允许的情况下，使用 Transfer-Encoding: 和 Content-Length 头部发送请求。
    http1.content_length_not_allowed, 在不允许内容长度的响应上发送了内容长度。
    http1.headers_too_large, 请求头部的总字节大小大于配置的限制。
-   http1.invalid_characters, 请求头包含非法的字符。
-   http1.invalid_transfer_encoding, 不合法的 Transfer-Encoding 标头.
+   http1.invalid_characters, 请求头部包含非法的字符。
+   http1.invalid_transfer_encoding, 不合法的 Transfer-Encoding 头部.
    http1.invalid_url, 请求的 URL 不合法。
-   http1.too_many_headers, 与此请求一起发送的标头太多。
+   http1.too_many_headers, 与此请求一起发送的头部太多。
    http1.transfer_encoding_not_allowed, 传输编码在不允许的响应上发送。
-   http1.unexpected_underscore, 在配置不允许的情况下，在标头中发送了 underscore。
+   http1.unexpected_underscore, 在配置不允许的情况下，在头部中发送了 underscore。
 
 
 Http2 相信信息
@@ -91,9 +91,9 @@ Http2 相信信息
    :widths: 1, 2
 
     http2.inbound_empty_frames_flood, Envoy 检测到入站 HTTP/2 帧泛洪。
-    http2.invalid.header.field, 其中一个 HTTP/2 标头无效。
+    http2.invalid.header.field, 其中一个 HTTP/2 头部无效。
     http2.outbound_frames_flood, Envoy 检测到一个来自服务器的 HTTP/2 帧泛洪。
     http2.too_many_headers, headers（或 trailers）的数量超过了配置的限制。
-    http2.unexpected_underscore, Envoy 被配置为丢掉以 underscores 为开头的标头键的请求。
+    http2.unexpected_underscore, Envoy 被配置为丢掉以 underscores 为开头的头部键的请求。
     http2.unknown.nghttp2.error, nghttp2 遇到未知错误。
     http2.violation.of.messaging.rule, 该流违反了 HTTP/2 的消息传递规则。
