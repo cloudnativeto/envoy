@@ -9,8 +9,8 @@
 总则
 -------
 
-集群管理有一个根在 *cluster_manager.* 的统计树，有如下统计信息。在 stats 名称中的任何 ``:`` 字符都将被替换为 ``_``。
-统计信息包含由集群管理器管理的所有集群，包括用于数据平面上游的集群和控制平面 xD 的集群。
+集群管理有一个以 *cluster_manager.* 为根的统计树，且有如下统计信息。在 stats 名称中的任何 ``:`` 字符都将被替换为 ``_``。
+统计信息包含由集群管理器管理的所有集群，包括用于数据平面上游的集群和控制平面 xDs 的集群。
 
 .. csv-table::
   :header: 名称, 类型, 描述
@@ -103,7 +103,7 @@
 健康检查统计
 -----------------
 
-如果配置了健康检查，集群会有一个额外的根在 *cluster.<name>.health_check.* 的统计树，有如下统计信息：
+如果配置了健康检查，每个集群有一个以 *cluster.<name>.health_check.* 为根的统计树，且有如下统计信息：
 
 .. csv-table::
   :header: 名称, 类型, 描述
@@ -123,7 +123,7 @@
 ----------------------------
 
 如果在集群中配置了 :ref:`异常检测 <arch_overview_outlier_detection>`，
-集群将有一个根在 *cluster.<name>.outlier_detection.* 的统计树，包含如下统计信息：
+集群有一个以 *cluster.<name>.outlier_detection.* 为根的统计树，且有如下统计信息：
 
 .. csv-table::
   :header: 名称, 类型, 描述
@@ -281,10 +281,10 @@ Envoy 将在 *cluster.<name>.zone.<from_zone>.<to_zone>.* 命名空间中跟踪�
 
 .. _config_cluster_manager_cluster_stats_ring_hash_lb:
 
-环哈希负载均衡器统计信息
+哈希环负载均衡器统计信息
 ------------------------------------------------
 
-使用 :ref:`环哈希负载均衡器 <arch_overview_load_balancing_types_ring_hash>` 时，监视哈希大小和有效分布的统计信息。
+使用 :ref:`哈希环负载均衡器 <arch_overview_load_balancing_types_ring_hash>` 时，监视哈希大小和有效分布的统计信息。
 统计信息以 *cluster.<name>.ring_hash_lb.* 为根，并包含以下信息：
 
 .. csv-table::
