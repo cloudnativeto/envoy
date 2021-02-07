@@ -20,7 +20,7 @@ The TLS contexts below provide the transport socket configuration for upstream/d
 auth.UpstreamTlsContext
 -----------------------
 
-`[auth.UpstreamTlsContext proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/auth/tls.proto#L25>`_
+`[auth.UpstreamTlsContext proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/api/v2/auth/tls.proto#L25>`_
 
 
 .. code-block:: json
@@ -76,7 +76,7 @@ max_session_keys
 auth.DownstreamTlsContext
 -------------------------
 
-`[auth.DownstreamTlsContext proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/auth/tls.proto#L53>`_
+`[auth.DownstreamTlsContext proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/api/v2/auth/tls.proto#L53>`_
 
 
 .. code-block:: json
@@ -154,7 +154,7 @@ session_timeout
 auth.CommonTlsContext
 ---------------------
 
-`[auth.CommonTlsContext proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/auth/tls.proto#L95>`_
+`[auth.CommonTlsContext proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/api/v2/auth/tls.proto#L95>`_
 
 TLS context shared by both client and server TLS contexts.
 
@@ -246,7 +246,7 @@ alpn_protocols
 auth.CommonTlsContext.CombinedCertificateValidationContext
 ----------------------------------------------------------
 
-`[auth.CommonTlsContext.CombinedCertificateValidationContext proto] <https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/api/v2/auth/tls.proto#L96>`_
+`[auth.CommonTlsContext.CombinedCertificateValidationContext proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/api/v2/auth/tls.proto#L96>`_
 
 
 .. code-block:: json

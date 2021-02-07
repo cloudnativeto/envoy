@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Client Status Discovery Service (CSDS) &mdash; envoy 1.16.0-470412 documentation</title>
+  <title>Client Status Discovery Service (CSDS) &mdash; envoy 1.16.0-27b0be documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-470412
+                1.16.0-27b0be
               </div>
             
           
@@ -219,7 +219,7 @@
 <span id="envoy-api-file-envoy-service-status-v2-csds-proto"></span><h1>Client Status Discovery Service (CSDS)<a class="headerlink" href="#client-status-discovery-service-csds" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="service-status-v2-clientstatusrequest">
 <span id="envoy-api-msg-service-status-v2-clientstatusrequest"></span><h2>service.status.v2.ClientStatusRequest<a class="headerlink" href="#service-status-v2-clientstatusrequest" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/service/status/v2/csds.proto#L55">[service.status.v2.ClientStatusRequest proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/service/status/v2/csds.proto#L55">[service.status.v2.ClientStatusRequest proto]</a></p>
 <p>Request for client status of clients identified by a list of NodeMatchers.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;node_matchers&quot;</span><span class="p">:</span> <span class="p">[]</span>
@@ -234,7 +234,7 @@ The match follows OR semantics.</p>
 </div>
 <div class="section" id="service-status-v2-perxdsconfig">
 <span id="envoy-api-msg-service-status-v2-perxdsconfig"></span><h2>service.status.v2.PerXdsConfig<a class="headerlink" href="#service-status-v2-perxdsconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/service/status/v2/csds.proto#L63">[service.status.v2.PerXdsConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/service/status/v2/csds.proto#L63">[service.status.v2.PerXdsConfig proto]</a></p>
 <p>Detailed config (per xDS) with status.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -272,7 +272,7 @@ The match follows OR semantics.</p>
 </div>
 <div class="section" id="service-status-v2-clientconfig">
 <span id="envoy-api-msg-service-status-v2-clientconfig"></span><h2>service.status.v2.ClientConfig<a class="headerlink" href="#service-status-v2-clientconfig" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/service/status/v2/csds.proto#L78">[service.status.v2.ClientConfig proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/service/status/v2/csds.proto#L78">[service.status.v2.ClientConfig proto]</a></p>
 <p>All xds configs for a particular client.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;node&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -291,7 +291,7 @@ The match follows OR semantics.</p>
 </div>
 <div class="section" id="service-status-v2-clientstatusresponse">
 <span id="envoy-api-msg-service-status-v2-clientstatusresponse"></span><h2>service.status.v2.ClientStatusResponse<a class="headerlink" href="#service-status-v2-clientstatusresponse" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/service/status/v2/csds.proto#L85">[service.status.v2.ClientStatusResponse proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/service/status/v2/csds.proto#L85">[service.status.v2.ClientStatusResponse proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">[]</span>
 <span class="p">}</span>
@@ -304,7 +304,7 @@ The match follows OR semantics.</p>
 </div>
 <div class="section" id="enum-service-status-v2-configstatus">
 <span id="envoy-api-enum-service-status-v2-configstatus"></span><h2>Enum service.status.v2.ConfigStatus<a class="headerlink" href="#enum-service-status-v2-configstatus" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/api/envoy/service/status/v2/csds.proto#L36">[service.status.v2.ConfigStatus proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/service/status/v2/csds.proto#L36">[service.status.v2.ConfigStatus proto]</a></p>
 <p>Status of a config.</p>
 <dl class="simple" id="envoy-api-enum-value-service-status-v2-configstatus-unknown">
 <dt>UNKNOWN</dt><dd><p><em>(DEFAULT)</em> ⁣Status info is not available/unknown.</p>

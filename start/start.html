@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>开始 &mdash; envoy 1.16.0-470412 documentation</title>
+  <title>开始 &mdash; envoy 1.16.0-27b0be documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-470412
+                1.16.0-27b0be
               </div>
             
           
@@ -118,7 +118,7 @@
 <li class="toctree-l3"><a class="reference internal" href="sandboxes/jaeger_tracing.html">Jaeger 追踪</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sandboxes/load_reporting_service.html">负载报告服务 (LRS)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sandboxes/lua.html">Lua 过滤器</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sandboxes/mysql.html">MySQL Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sandboxes/mysql.html">MySQL 过滤器</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sandboxes/redis.html">Redis 过滤器</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sandboxes/zipkin_tracing.html">Zipkin 追踪（trace）</a></li>
 </ul>
@@ -205,9 +205,9 @@
 <div class="section" id="id2">
 <h2>快速开始运行简单示例<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>这些指导说明使用 Envoy 仓库中的文件来运行示例。下面的章节对配置文件和相同配置下的执行步骤做了更详细的解释。</p>
-<p>在 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/47041200939c778239efa9627e612c972e0fb1e5/configs/google_com_proxy.v2.yaml">configs/google_com_proxy.v2.yaml</a>  中提供了一个非常简单的 Envoy 配置，可以用来验证基本的纯 HTTP 代理。但这并不代表真实的 Envoy 部署：</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker pull envoyproxy/envoy-dev:47041200939c778239efa9627e612c972e0fb1e5
-$ docker run --rm -d -p 10000:10000 envoyproxy/envoy-dev:47041200939c778239efa9627e612c972e0fb1e5
+<p>在 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/configs/google_com_proxy.v2.yaml">configs/google_com_proxy.v2.yaml</a>  中提供了一个非常简单的 Envoy 配置，可以用来验证基本的纯 HTTP 代理。但这并不代表真实的 Envoy 部署：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker pull envoyproxy/envoy-dev:27b0be839513b94440d49e6f6a972dde924c5f1d
+$ docker run --rm -d -p 10000:10000 envoyproxy/envoy-dev:27b0be839513b94440d49e6f6a972dde924c5f1d
 $ curl -v localhost:10000
 </pre></div>
 </div>
@@ -279,7 +279,7 @@ $ curl -v localhost:10000
 <div class="section" id="envoy-docker">
 <h2>使用 Envoy Docker 镜像<a class="headerlink" href="#envoy-docker" title="Permalink to this headline">¶</a></h2>
 <p>创建一个简单的 Dockerfile 运行 Envoy，这需要假定在你本地的目录中有 envoy.yaml （如上描述）文件。</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FROM envoyproxy/envoy-dev:47041200939c778239efa9627e612c972e0fb1e5
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FROM envoyproxy/envoy-dev:27b0be839513b94440d49e6f6a972dde924c5f1d
 COPY envoy.yaml /etc/envoy/envoy.yaml
 </pre></div>
 </div>
@@ -371,8 +371,8 @@ $ docker run -d -v `pwd`/logs:/var/log --name envoy -e ENVOY_UID=777 -p 9901:990
 <li class="toctree-l2"><a class="reference internal" href="sandboxes/lua.html#id1">运行沙盒</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="sandboxes/mysql.html">MySQL Filter</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sandboxes/mysql.html#running-the-sandboxes">Running the Sandboxes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sandboxes/mysql.html">MySQL 过滤器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sandboxes/mysql.html#id1">运行沙盒</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sandboxes/redis.html">Redis 过滤器</a><ul>

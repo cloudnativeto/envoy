@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>MySQL Filter &mdash; envoy 1.16.0-470412 documentation</title>
+  <title>MySQL 过滤器 &mdash; envoy 1.16.0-27b0be documentation</title>
   
 
   
@@ -76,7 +76,7 @@
             
             
               <div class="version">
-                1.16.0-470412
+                1.16.0-27b0be
               </div>
             
           
@@ -120,8 +120,8 @@
 <li class="toctree-l3"><a class="reference internal" href="jaeger_tracing.html">Jaeger 追踪</a></li>
 <li class="toctree-l3"><a class="reference internal" href="load_reporting_service.html">负载报告服务 (LRS)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lua.html">Lua 过滤器</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">MySQL Filter</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#running-the-sandboxes">Running the Sandboxes</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">MySQL 过滤器</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">运行沙盒</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="redis.html">Redis 过滤器</a></li>
@@ -185,7 +185,7 @@
         
           <li><a href="../start.html">开始</a> &raquo;</li>
         
-      <li>MySQL Filter</li>
+      <li>MySQL 过滤器</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -204,12 +204,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="mysql-filter">
-<span id="install-sandboxes-mysql"></span><h1>MySQL Filter<a class="headerlink" href="#mysql-filter" title="Permalink to this headline">¶</a></h1>
-<p>In this example, we show how the <a class="reference internal" href="../../configuration/listeners/network_filters/mysql_proxy_filter.html#config-network-filters-mysql-proxy"><span class="std std-ref">MySQL filter</span></a> can be used with the Envoy proxy. The Envoy proxy configuration includes a MySQL filter that parses queries and collects MySQL-specific
-metrics.</p>
-<div class="section" id="running-the-sandboxes">
-<h2>Running the Sandboxes<a class="headerlink" href="#running-the-sandboxes" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="mysql">
+<span id="install-sandboxes-mysql"></span><h1>MySQL 过滤器<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h1>
+<p>在这个例子中，我们展示了 <a class="reference internal" href="../../configuration/listeners/network_filters/mysql_proxy_filter.html#config-network-filters-mysql-proxy"><span class="std std-ref">MySQL 过滤器</span></a> 如何与 Envoy 代理一起使用。Envoy 的代理配置包含一个 MySQL 过滤器，它可以解析查询并收集 MySQL 特定的指标。</p>
+<div class="section" id="id1">
+<h2>运行沙盒<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>以下文档说明了上述对于 Envoy 容器编译环境进行设置的过程。</p>
 <div class="section" id="docker">
 <h3>步骤 1：安装 Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h3>
@@ -244,9 +243,9 @@ metrics.</p>
 </div>
 </div>
 </div>
-<div class="section" id="step-3-build-the-sandbox">
-<h3>Step 3: Build the sandbox<a class="headerlink" href="#step-3-build-the-sandbox" title="Permalink to this headline">¶</a></h3>
-<p>Terminal 1</p>
+<div class="section" id="id2">
+<h3>步骤 3：构建沙盒<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>终端 1</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">pwd</span>
 <span class="go">envoy/examples/mysql</span>
 <span class="gp">$</span> docker-compose pull
@@ -260,13 +259,10 @@ metrics.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="step-4-issue-commands-using-mysql">
-<h3>Step 4: Issue commands using mysql<a class="headerlink" href="#step-4-issue-commands-using-mysql" title="Permalink to this headline">¶</a></h3>
-<p>Use <code class="docutils literal notranslate"><span class="pre">mysql</span></code> to issue some commands and verify they are routed via Envoy. Note
-that the current implementation of the protocol filter was tested with MySQL
-v5.5. It may, however, not work with other versions of MySQL due to differences
-in the protocol implementation.</p>
-<p>Terminal 1</p>
+<div class="section" id="id3">
+<h3>步骤 4：使用 mysql 发出命令<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">mysql</span></code> 发出一些命令，并验证它们是否通过 Envoy 路由。注意，协议过滤器的当前实现已通过 MySQL v5.5 的测试。但是，由于协议实现方面的差异，它可能不适用于其他版本的 MySQL。</p>
+<p>终端 1</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> docker run --rm -it --network envoymesh mysql:5.5 mysql -h envoy -P <span class="m">1999</span> -u root
 <span class="go">... snip ...</span>
 
@@ -302,10 +298,10 @@ in the protocol implementation.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="step-5-check-egress-stats">
-<h3>Step 5: Check egress stats<a class="headerlink" href="#step-5-check-egress-stats" title="Permalink to this headline">¶</a></h3>
-<p>Check egress stats were updated.</p>
-<p>Terminal 1</p>
+<div class="section" id="egress">
+<h3>步骤 5：检查 egress 统计信息<a class="headerlink" href="#egress" title="Permalink to this headline">¶</a></h3>
+<p>检查 egress 统计信息已更新。</p>
+<p>终端 1</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl -s http://localhost:8001/stats?filter<span class="o">=</span>egress_mysql
 <span class="go">mysql.egress_mysql.auth_switch_request: 0</span>
 <span class="go">mysql.egress_mysql.decoder_errors: 0</span>
@@ -319,10 +315,10 @@ in the protocol implementation.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="step-6-check-tcp-stats">
-<h3>Step 6: Check TCP stats<a class="headerlink" href="#step-6-check-tcp-stats" title="Permalink to this headline">¶</a></h3>
-<p>Check TCP stats were updated.</p>
-<p>Terminal 1</p>
+<div class="section" id="tcp">
+<h3>步骤 6：检查 TCP 统计信息<a class="headerlink" href="#tcp" title="Permalink to this headline">¶</a></h3>
+<p>检查 TCP 统计信息已更新。</p>
+<p>终端 1</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl -s http://localhost:8001/stats?filter<span class="o">=</span>mysql_tcp
 <span class="go">tcp.mysql_tcp.downstream_cx_no_route: 0</span>
 <span class="go">tcp.mysql_tcp.downstream_cx_rx_bytes_buffered: 0</span>
