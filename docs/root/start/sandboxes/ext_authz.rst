@@ -3,7 +3,7 @@
 外部授权过滤器
 =============================
 
-外部授权沙箱演示了 Envoy 的 :ref:`ext_authz 过滤器 <config_http_filters_ext_authz>`功能，该功能可将通过 Envoy 传入请求的授权委派给外部服务。
+外部授权沙箱演示了 Envoy 的 :ref:`ext_authz 过滤器 <config_http_filters_ext_authz>` 功能，该功能可将通过 Envoy 传入请求的授权委派给外部服务。
 
 尽管 ext_authz 也可以用作网络过滤器，但此沙箱仅限于展示 ext_authz HTTP 过滤器，该过滤器支持调用 HTTP 或 gRPC 服务。
 
