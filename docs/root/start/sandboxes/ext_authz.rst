@@ -3,12 +3,11 @@
 外部授权过滤器
 =============================
 
-外部授权沙箱演示了 Envoy 的 :ref:`ext_authz 过滤器 <config_http_filters_ext_authz>`
-功能，该功能可将通过 Envoy 传入请求的授权委派给外部服务。
+外部授权沙箱演示了 Envoy 的 :ref:`ext_authz 过滤器 <config_http_filters_ext_authz>`功能，该功能可将通过 Envoy 传入请求的授权委派给外部服务。
 
 尽管 ext_authz 也可以用作网络过滤器，但此沙箱仅限于展示 ext_authz HTTP 过滤器，该过滤器支持调用 HTTP 或 gRPC 服务。
 
-此沙箱的设置与 front-proxy 部署非常相似，但是外部 HTTP 或 gRPC 服务会检查对代理后面上游服务的调用。在此沙箱中，对于每个授权的调用，外部授权服务都会在原请求头部添加 ``x-current-user``，然后转发到上游服务。
+此沙箱的设置与 front-proxy 部署非常相似，但是外部 HTTP 或 gRPC 服务会检查对代理后面上游服务的调用。在此沙箱中，对于每个授权的调用，外部授权服务都会在原始请求头部添加 ``x-current-user``，然后该调用会被转发到上游服务。
 
 运行沙箱
 ~~~~~~~~~~~~~~~~~~~
@@ -37,7 +36,7 @@
 
 .. note::
 
-    此沙箱具有受 ``FRONT_ENVOY_YAML`` 环境变量控制的多个设置，这些设置指向要使用的有效 Envoy 配置。``FRONT_ENVOY_YAML`` 可以在 ``.env`` 文件中定义默认值，也可以在运行 ``docker-compose up`` 命令时内联提供。有关更多信息，请参阅 `Compose 文档中的环境变量 <https://docs.docker.com/compose/environment-variables>`_。
+    此沙箱具有受 ``FRONT_ENVOY_YAML`` 环境变量控制的多个设置，这些设置指向要使用的有效 Envoy 配置。``FRONT_ENVOY_YAML`` 可以在 ``.env`` 文件中定义默认值，也可以在运行 ``docker-compose up`` 命令时内联提供。更多有关信息，请参阅 `Compose 文档中的环境变量 <https://docs.docker.com/compose/environment-variables>`_。
 
 默认情况下，``FRONT_ENVOY_YAML`` 指向 ``config/grpc-service/v3.yaml`` 文件，该文件使用 ext_authz HTTP 过滤器引导 front-envoy，此 ext_authz HTTP 过滤器使用 gRPC v3 服务（这是在 :ref:`transport_api_version 字段 <envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.transport_api_version>` 中指定的）。
 
@@ -76,7 +75,7 @@
     < server: envoy
     < content-length: 0
 
-如观察到的，该请求失败了，返回的是 ``403 Forbidden`` 状态码。这是因为 Envoy 使用的 ext_authz 过滤器拒绝了调用。为了使请求到达上游服务，你需要通过 ``Authorization`` 头部提供一个 ``Bearer`` 令牌。
+如观察到的，该请求失败了，返回的是 ``403 Forbidden`` 状态码。这是因为 Envoy 使用的 ext_authz 过滤器拒绝了调用。为了使请求到达上游服务，你需要在 ``Authorization`` 头部添加一个 ``Bearer`` 令牌。
 
 .. note::
 
