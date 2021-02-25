@@ -61,7 +61,7 @@ Envoy 将传达一个给定流结束的详细原因。此页列出了 HttpConnec
 Http1 详细信息
 ~~~~~~~~~~~~~~~~
 
-所有 http1 的详细信息都源于 *http1.*
+所有 http1 的详细信息都以 *http1.* 为根。
 
 .. csv-table::
    :header: 名称, 描述
