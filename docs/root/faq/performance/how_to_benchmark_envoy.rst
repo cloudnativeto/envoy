@@ -17,7 +17,7 @@ Envoy 基准测试的最佳实践
 
 * 确保 TLS 设置（如果有）是现实的，并且在任何比较中都使用一致的密码。会话重用可能会对结果产生重大影响，应通过 :ref:`监听器SSL统计信息 <config_listener_stats>` 进行跟踪。
 
-* 确保 :ref:`HTTP/2 设置 <envoy_v3_api_msg_config.core.v3.Http2ProtocolOptions>`（尤其是那些影响流控制和流并发的设置）在任何对照组中都是一致的。在优化任何 HTTP/2 设置时，理想情况下应考虑 BDP 和网络链接延迟。
+* 确保 :ref:`HTTP/2 设置 <envoy_v3_api_msg_config.core.v3.Http2ProtocolOptions>` （尤其是那些影响流控制和流并发的设置）在任何对照组中都是一致的。在优化任何 HTTP/2 设置时，理想情况下应考虑 BDP 和网络链接延迟。
 
 * 在监听器和群集统计信息中验证流，连接和错误的数量是否与任何给定实验中预期的数量匹配。
 
