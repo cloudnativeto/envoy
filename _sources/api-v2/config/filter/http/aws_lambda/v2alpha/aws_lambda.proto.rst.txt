@@ -23,7 +23,7 @@ AWS Lambda :ref:`configuration overview <config_http_filters_aws_lambda>`.
 config.filter.http.aws_lambda.v2alpha.Config
 --------------------------------------------
 
-`[config.filter.http.aws_lambda.v2alpha.Config proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/config/filter/http/aws_lambda/v2alpha/aws_lambda.proto#L21>`_
+`[config.filter.http.aws_lambda.v2alpha.Config proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/config/filter/http/aws_lambda/v2alpha/aws_lambda.proto#L21>`_
 
 AWS Lambda filter config
 
@@ -61,7 +61,7 @@ invocation_mode
 Enum config.filter.http.aws_lambda.v2alpha.Config.InvocationMode
 ----------------------------------------------------------------
 
-`[config.filter.http.aws_lambda.v2alpha.Config.InvocationMode proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/config/filter/http/aws_lambda/v2alpha/aws_lambda.proto#L22>`_
+`[config.filter.http.aws_lambda.v2alpha.Config.InvocationMode proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/config/filter/http/aws_lambda/v2alpha/aws_lambda.proto#L22>`_
 
 
 .. _envoy_api_enum_value_config.filter.http.aws_lambda.v2alpha.Config.InvocationMode.SYNCHRONOUS:
@@ -85,7 +85,7 @@ ASYNCHRONOUS
 config.filter.http.aws_lambda.v2alpha.PerRouteConfig
 ----------------------------------------------------
 
-`[config.filter.http.aws_lambda.v2alpha.PerRouteConfig proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/config/filter/http/aws_lambda/v2alpha/aws_lambda.proto#L47>`_
+`[config.filter.http.aws_lambda.v2alpha.PerRouteConfig proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/config/filter/http/aws_lambda/v2alpha/aws_lambda.proto#L47>`_
 
 Per-route configuration for AWS Lambda. This can be useful when invoking a different Lambda function or a different
 version of the same Lambda depending on the route.

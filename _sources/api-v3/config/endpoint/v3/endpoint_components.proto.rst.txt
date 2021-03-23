@@ -9,7 +9,7 @@ Endpoints
 config.endpoint.v3.Endpoint
 ---------------------------
 
-`[config.endpoint.v3.Endpoint proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/config/endpoint/v3/endpoint_components.proto#L22>`_
+`[config.endpoint.v3.Endpoint proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/config/endpoint/v3/endpoint_components.proto#L22>`_
 
 Upstream host identifier.
 
@@ -61,7 +61,7 @@ hostname
 config.endpoint.v3.Endpoint.HealthCheckConfig
 ---------------------------------------------
 
-`[config.endpoint.v3.Endpoint.HealthCheckConfig proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/config/endpoint/v3/endpoint_components.proto#L26>`_
+`[config.endpoint.v3.Endpoint.HealthCheckConfig proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/config/endpoint/v3/endpoint_components.proto#L26>`_
 
 The optional health check configuration.
 
@@ -101,7 +101,7 @@ hostname
 config.endpoint.v3.LbEndpoint
 -----------------------------
 
-`[config.endpoint.v3.LbEndpoint proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/config/endpoint/v3/endpoint_components.proto#L75>`_
+`[config.endpoint.v3.LbEndpoint proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/config/endpoint/v3/endpoint_components.proto#L75>`_
 
 An Endpoint that Envoy can route traffic to.
 
@@ -161,7 +161,7 @@ load_balancing_weight
 config.endpoint.v3.LocalityLbEndpoints
 --------------------------------------
 
-`[config.endpoint.v3.LocalityLbEndpoints proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/config/endpoint/v3/endpoint_components.proto#L115>`_
+`[config.endpoint.v3.LocalityLbEndpoints proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/config/endpoint/v3/endpoint_components.proto#L115>`_
 
 A group of endpoints belonging to a Locality.
 One can have multiple LocalityLbEndpoints for a locality, but this is

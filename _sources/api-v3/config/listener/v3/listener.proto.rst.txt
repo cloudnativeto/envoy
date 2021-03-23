@@ -11,7 +11,7 @@ Listener :ref:`configuration overview <config_listeners>`
 config.listener.v3.Listener
 ---------------------------
 
-`[config.listener.v3.Listener proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/config/listener/v3/listener.proto#L39>`_
+`[config.listener.v3.Listener proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/config/listener/v3/listener.proto#L39>`_
 
 
 .. code-block:: json
@@ -262,7 +262,7 @@ tcp_backlog_size
 config.listener.v3.Listener.ConnectionBalanceConfig
 ---------------------------------------------------
 
-`[config.listener.v3.Listener.ConnectionBalanceConfig proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/config/listener/v3/listener.proto#L72>`_
+`[config.listener.v3.Listener.ConnectionBalanceConfig proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/config/listener/v3/listener.proto#L72>`_
 
 Configuration for listener connection balancing.
 
@@ -284,7 +284,7 @@ exact_balance
 config.listener.v3.Listener.ConnectionBalanceConfig.ExactBalance
 ----------------------------------------------------------------
 
-`[config.listener.v3.Listener.ConnectionBalanceConfig.ExactBalance proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/config/listener/v3/listener.proto#L82>`_
+`[config.listener.v3.Listener.ConnectionBalanceConfig.ExactBalance proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/config/listener/v3/listener.proto#L82>`_
 
 A connection balancer implementation that does exact balancing. This means that a lock is
 held during balancing so that connection counts are nearly exactly balanced between worker
@@ -306,7 +306,7 @@ connections that rarely cycle (e.g., service mesh gRPC egress).
 Enum config.listener.v3.Listener.DrainType
 ------------------------------------------
 
-`[config.listener.v3.Listener.DrainType proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/config/listener/v3/listener.proto#L42>`_
+`[config.listener.v3.Listener.DrainType proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/config/listener/v3/listener.proto#L42>`_
 
 
 .. _envoy_v3_api_enum_value_config.listener.v3.Listener.DrainType.DEFAULT:

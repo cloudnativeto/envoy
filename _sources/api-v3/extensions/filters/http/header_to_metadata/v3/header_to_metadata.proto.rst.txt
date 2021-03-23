@@ -24,7 +24,7 @@ Header to Metadata :ref:`configuration overview <config_http_filters_header_to_m
 extensions.filters.http.header_to_metadata.v3.Config
 ----------------------------------------------------
 
-`[extensions.filters.http.header_to_metadata.v3.Config proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/extensions/filters/http/header_to_metadata/v3/header_to_metadata.proto#L24>`_
+`[extensions.filters.http.header_to_metadata.v3.Config proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/extensions/filters/http/header_to_metadata/v3/header_to_metadata.proto#L24>`_
 
 
 .. code-block:: json
@@ -51,7 +51,7 @@ response_rules
 extensions.filters.http.header_to_metadata.v3.Config.KeyValuePair
 -----------------------------------------------------------------
 
-`[extensions.filters.http.header_to_metadata.v3.Config.KeyValuePair proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/extensions/filters/http/header_to_metadata/v3/header_to_metadata.proto#L50>`_
+`[extensions.filters.http.header_to_metadata.v3.Config.KeyValuePair proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/extensions/filters/http/header_to_metadata/v3/header_to_metadata.proto#L50>`_
 
 
 .. code-block:: json
@@ -121,7 +121,7 @@ encode
 extensions.filters.http.header_to_metadata.v3.Config.Rule
 ---------------------------------------------------------
 
-`[extensions.filters.http.header_to_metadata.v3.Config.Rule proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/extensions/filters/http/header_to_metadata/v3/header_to_metadata.proto#L89>`_
+`[extensions.filters.http.header_to_metadata.v3.Config.Rule proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/extensions/filters/http/header_to_metadata/v3/header_to_metadata.proto#L89>`_
 
 A Rule defines what metadata to apply when a header is present or missing.
 
@@ -183,7 +183,7 @@ remove
 Enum extensions.filters.http.header_to_metadata.v3.Config.ValueType
 -------------------------------------------------------------------
 
-`[extensions.filters.http.header_to_metadata.v3.Config.ValueType proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/extensions/filters/http/header_to_metadata/v3/header_to_metadata.proto#L28>`_
+`[extensions.filters.http.header_to_metadata.v3.Config.ValueType proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/extensions/filters/http/header_to_metadata/v3/header_to_metadata.proto#L28>`_
 
 
 .. _envoy_v3_api_enum_value_extensions.filters.http.header_to_metadata.v3.Config.ValueType.STRING:
@@ -209,7 +209,7 @@ PROTOBUF_VALUE
 Enum extensions.filters.http.header_to_metadata.v3.Config.ValueEncode
 ---------------------------------------------------------------------
 
-`[extensions.filters.http.header_to_metadata.v3.Config.ValueEncode proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/extensions/filters/http/header_to_metadata/v3/header_to_metadata.proto#L39>`_
+`[extensions.filters.http.header_to_metadata.v3.Config.ValueEncode proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/extensions/filters/http/header_to_metadata/v3/header_to_metadata.proto#L39>`_
 
 ValueEncode defines the encoding algorithm.
 

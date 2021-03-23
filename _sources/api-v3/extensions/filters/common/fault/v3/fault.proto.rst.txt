@@ -9,7 +9,7 @@ Common fault injection types
 extensions.filters.common.fault.v3.FaultDelay
 ---------------------------------------------
 
-`[extensions.filters.common.fault.v3.FaultDelay proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/extensions/filters/common/fault/v3/fault.proto#L23>`_
+`[extensions.filters.common.fault.v3.FaultDelay proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/extensions/filters/common/fault/v3/fault.proto#L23>`_
 
 Delay specification is used to inject latency into the
 HTTP/gRPC/Mongo/Redis operation or delay proxying of TCP connections.
@@ -56,7 +56,7 @@ percentage
 extensions.filters.common.fault.v3.FaultDelay.HeaderDelay
 ---------------------------------------------------------
 
-`[extensions.filters.common.fault.v3.FaultDelay.HeaderDelay proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/extensions/filters/common/fault/v3/fault.proto#L35>`_
+`[extensions.filters.common.fault.v3.FaultDelay.HeaderDelay proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/extensions/filters/common/fault/v3/fault.proto#L35>`_
 
 Fault delays are controlled via an HTTP header (if applicable). See the
 :ref:`HTTP fault filter <config_http_filters_fault_injection_http_header>` documentation for
@@ -74,7 +74,7 @@ more information.
 Enum extensions.filters.common.fault.v3.FaultDelay.FaultDelayType
 -----------------------------------------------------------------
 
-`[extensions.filters.common.fault.v3.FaultDelay.FaultDelayType proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/extensions/filters/common/fault/v3/fault.proto#L27>`_
+`[extensions.filters.common.fault.v3.FaultDelay.FaultDelayType proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/extensions/filters/common/fault/v3/fault.proto#L27>`_
 
 
 .. _envoy_v3_api_enum_value_extensions.filters.common.fault.v3.FaultDelay.FaultDelayType.FIXED:
@@ -89,7 +89,7 @@ FIXED
 extensions.filters.common.fault.v3.FaultRateLimit
 -------------------------------------------------
 
-`[extensions.filters.common.fault.v3.FaultRateLimit proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/extensions/filters/common/fault/v3/fault.proto#L64>`_
+`[extensions.filters.common.fault.v3.FaultRateLimit proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/extensions/filters/common/fault/v3/fault.proto#L64>`_
 
 Describes a rate limit to be applied.
 
@@ -130,7 +130,7 @@ percentage
 extensions.filters.common.fault.v3.FaultRateLimit.FixedLimit
 ------------------------------------------------------------
 
-`[extensions.filters.common.fault.v3.FaultRateLimit.FixedLimit proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/extensions/filters/common/fault/v3/fault.proto#L69>`_
+`[extensions.filters.common.fault.v3.FaultRateLimit.FixedLimit proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/extensions/filters/common/fault/v3/fault.proto#L69>`_
 
 Describes a fixed/constant rate limit.
 
@@ -153,7 +153,7 @@ limit_kbps
 extensions.filters.common.fault.v3.FaultRateLimit.HeaderLimit
 -------------------------------------------------------------
 
-`[extensions.filters.common.fault.v3.FaultRateLimit.HeaderLimit proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/extensions/filters/common/fault/v3/fault.proto#L80>`_
+`[extensions.filters.common.fault.v3.FaultRateLimit.HeaderLimit proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/extensions/filters/common/fault/v3/fault.proto#L80>`_
 
 Rate limits are controlled via an HTTP header (if applicable). See the
 :ref:`HTTP fault filter <config_http_filters_fault_injection_http_header>` documentation for

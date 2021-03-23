@@ -9,7 +9,7 @@ Listeners
 admin.v2alpha.Listeners
 -----------------------
 
-`[admin.v2alpha.Listeners proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/admin/v2alpha/listeners.proto#L17>`_
+`[admin.v2alpha.Listeners proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/admin/v2alpha/listeners.proto#L17>`_
 
 Admin endpoint uses this wrapper for `/listeners` to display listener status information.
 See :ref:`/listeners <operations_admin_interface_listeners>` for more information.
@@ -33,7 +33,7 @@ listener_statuses
 admin.v2alpha.ListenerStatus
 ----------------------------
 
-`[admin.v2alpha.ListenerStatus proto] <https://github.com/envoyproxy/envoy/blob/27b0be839513b94440d49e6f6a972dde924c5f1d/api/envoy/admin/v2alpha/listeners.proto#L23>`_
+`[admin.v2alpha.ListenerStatus proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/admin/v2alpha/listeners.proto#L23>`_
 
 Details an individual listener's current status.
 
