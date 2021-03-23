@@ -1,4 +1,4 @@
 我在哪里获取二进制文件？
 ========================
 
-请参见 :ref:`这里 <install_binaries>`.
+请参见 :ref:`这里 <install_binaries>`。
