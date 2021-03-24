@@ -23,7 +23,7 @@ DNS Filter :ref:`configuration overview <config_udp_listener_filters_dns_filter>
 extensions.filters.udp.dns_filter.v3alpha.DnsFilterConfig
 ---------------------------------------------------------
 
-`[extensions.filters.udp.dns_filter.v3alpha.DnsFilterConfig proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/extensions/filters/udp/dns_filter/v3alpha/dns_filter.proto#L24>`_
+`[extensions.filters.udp.dns_filter.v3alpha.DnsFilterConfig proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/extensions/filters/udp/dns_filter/v3alpha/dns_filter.proto#L24>`_
 
 Configuration for the DNS filter.
 
@@ -61,7 +61,7 @@ client_config
 extensions.filters.udp.dns_filter.v3alpha.DnsFilterConfig.ServerContextConfig
 -----------------------------------------------------------------------------
 
-`[extensions.filters.udp.dns_filter.v3alpha.DnsFilterConfig.ServerContextConfig proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/extensions/filters/udp/dns_filter/v3alpha/dns_filter.proto#L28>`_
+`[extensions.filters.udp.dns_filter.v3alpha.DnsFilterConfig.ServerContextConfig proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/extensions/filters/udp/dns_filter/v3alpha/dns_filter.proto#L28>`_
 
 This message contains the configuration for the DNS Filter operating
 in a server context. This message will contain the virtual hosts and
@@ -101,7 +101,7 @@ external_dns_table
 extensions.filters.udp.dns_filter.v3alpha.DnsFilterConfig.ClientContextConfig
 -----------------------------------------------------------------------------
 
-`[extensions.filters.udp.dns_filter.v3alpha.DnsFilterConfig.ClientContextConfig proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/extensions/filters/udp/dns_filter/v3alpha/dns_filter.proto#L46>`_
+`[extensions.filters.udp.dns_filter.v3alpha.DnsFilterConfig.ClientContextConfig proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/extensions/filters/udp/dns_filter/v3alpha/dns_filter.proto#L46>`_
 
 This message contains the configuration for the DNS Filter operating
 in a client context. This message will contain the timeouts, retry,

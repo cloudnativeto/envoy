@@ -20,7 +20,7 @@ Role-Based Access Control :ref:`configuration overview <config_http_filters_rbac
 config.filter.http.rbac.v2.RBAC
 -------------------------------
 
-`[config.filter.http.rbac.v2.RBAC proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/config/filter/http/rbac/v2/rbac.proto#L21>`_
+`[config.filter.http.rbac.v2.RBAC proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/config/filter/http/rbac/v2/rbac.proto#L21>`_
 
 RBAC filter config.
 
@@ -53,7 +53,7 @@ shadow_rules
 config.filter.http.rbac.v2.RBACPerRoute
 ---------------------------------------
 
-`[config.filter.http.rbac.v2.RBACPerRoute proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/config/filter/http/rbac/v2/rbac.proto#L32>`_
+`[config.filter.http.rbac.v2.RBACPerRoute proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/config/filter/http/rbac/v2/rbac.proto#L32>`_
 
 
 .. code-block:: json

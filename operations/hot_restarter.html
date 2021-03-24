@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>热重启 Python 封装器 &mdash; envoy 1.16.0-a42d93 documentation</title>
+  <title>热重启 Python 封装器 &mdash; envoy 1.16.0-e52534 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-a42d93
+                1.16.0-e52534
               </div>
             
           
@@ -190,7 +190,7 @@
             
   <div class="section" id="python">
 <span id="operations-hot-restarter"></span><h1>热重启 Python 封装器<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
-<p>通常情况下，在配置修改或代码变更后，Envoy 将会 <a class="reference internal" href="../intro/arch_overview/operations/hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">热重启</span></a> 。然而在许多情况下用户希望通过标准的流程管理器进行管理（例如 monit、runit）。所以我们提供 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c//restarter/hot-restarter.py">/restarter/hot-restarter.py</a> 来简化这个流程。</p>
+<p>通常情况下，在配置修改或代码变更后，Envoy 将会 <a class="reference internal" href="../intro/arch_overview/operations/hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">热重启</span></a> 。然而在许多情况下用户希望通过标准的流程管理器进行管理（例如 monit、runit）。所以我们提供 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946//restarter/hot-restarter.py">/restarter/hot-restarter.py</a> 来简化这个流程。</p>
 <p>重启的调用方式如下：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">hot-restarter.py start_envoy.sh</span>
 </pre></div>

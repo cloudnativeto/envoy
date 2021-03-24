@@ -19,7 +19,7 @@ This extension may be referenced by the qualified name *envoy.transport_sockets.
 config.transport_socket.raw_buffer.v2.RawBuffer
 -----------------------------------------------
 
-`[config.transport_socket.raw_buffer.v2.RawBuffer proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/config/transport_socket/raw_buffer/v2/raw_buffer.proto#L18>`_
+`[config.transport_socket.raw_buffer.v2.RawBuffer proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/config/transport_socket/raw_buffer/v2/raw_buffer.proto#L18>`_
 
 Configuration for raw buffer transport socket.
 

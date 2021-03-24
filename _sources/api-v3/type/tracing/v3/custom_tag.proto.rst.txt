@@ -9,7 +9,7 @@ Custom Tag
 type.tracing.v3.CustomTag
 -------------------------
 
-`[type.tracing.v3.CustomTag proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/type/tracing/v3/custom_tag.proto#L19>`_
+`[type.tracing.v3.CustomTag proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/type/tracing/v3/custom_tag.proto#L19>`_
 
 Describes custom tags for the active span.
 
@@ -74,7 +74,7 @@ metadata
 type.tracing.v3.CustomTag.Literal
 ---------------------------------
 
-`[type.tracing.v3.CustomTag.Literal proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/type/tracing/v3/custom_tag.proto#L23>`_
+`[type.tracing.v3.CustomTag.Literal proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/type/tracing/v3/custom_tag.proto#L23>`_
 
 Literal type custom tag with static value for the tag value.
 
@@ -97,7 +97,7 @@ value
 type.tracing.v3.CustomTag.Environment
 -------------------------------------
 
-`[type.tracing.v3.CustomTag.Environment proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/type/tracing/v3/custom_tag.proto#L32>`_
+`[type.tracing.v3.CustomTag.Environment proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/type/tracing/v3/custom_tag.proto#L32>`_
 
 Environment type custom tag with environment name and default value.
 
@@ -129,7 +129,7 @@ default_value
 type.tracing.v3.CustomTag.Header
 --------------------------------
 
-`[type.tracing.v3.CustomTag.Header proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/type/tracing/v3/custom_tag.proto#L46>`_
+`[type.tracing.v3.CustomTag.Header proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/type/tracing/v3/custom_tag.proto#L46>`_
 
 Header type custom tag with header name and default value.
 
@@ -161,7 +161,7 @@ default_value
 type.tracing.v3.CustomTag.Metadata
 ----------------------------------
 
-`[type.tracing.v3.CustomTag.Metadata proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/type/tracing/v3/custom_tag.proto#L65>`_
+`[type.tracing.v3.CustomTag.Metadata proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/type/tracing/v3/custom_tag.proto#L65>`_
 
 Metadata type custom tag using
 :ref:`MetadataKey <envoy_v3_api_msg_type.metadata.v3.MetadataKey>` to retrieve the protobuf value

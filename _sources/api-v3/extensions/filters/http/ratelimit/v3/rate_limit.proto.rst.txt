@@ -20,7 +20,7 @@ Rate limit :ref:`configuration overview <config_http_filters_rate_limit>`.
 extensions.filters.http.ratelimit.v3.RateLimit
 ----------------------------------------------
 
-`[extensions.filters.http.ratelimit.v3.RateLimit proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/extensions/filters/http/ratelimit/v3/rate_limit.proto#L22>`_
+`[extensions.filters.http.ratelimit.v3.RateLimit proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/extensions/filters/http/ratelimit/v3/rate_limit.proto#L22>`_
 
 
 .. code-block:: json
@@ -130,7 +130,7 @@ enable_x_ratelimit_headers
 Enum extensions.filters.http.ratelimit.v3.RateLimit.XRateLimitHeadersRFCVersion
 -------------------------------------------------------------------------------
 
-`[extensions.filters.http.ratelimit.v3.RateLimit.XRateLimitHeadersRFCVersion proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/extensions/filters/http/ratelimit/v3/rate_limit.proto#L27>`_
+`[extensions.filters.http.ratelimit.v3.RateLimit.XRateLimitHeadersRFCVersion proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/extensions/filters/http/ratelimit/v3/rate_limit.proto#L27>`_
 
 Defines the version of the standard to use for X-RateLimit headers.
 
@@ -152,7 +152,7 @@ DRAFT_VERSION_03
 extensions.filters.http.ratelimit.v3.RateLimitPerRoute
 ------------------------------------------------------
 
-`[extensions.filters.http.ratelimit.v3.RateLimitPerRoute proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/extensions/filters/http/ratelimit/v3/rate_limit.proto#L103>`_
+`[extensions.filters.http.ratelimit.v3.RateLimitPerRoute proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/extensions/filters/http/ratelimit/v3/rate_limit.proto#L103>`_
 
 
 .. code-block:: json
@@ -173,7 +173,7 @@ vh_rate_limits
 Enum extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions
 -------------------------------------------------------------------------------
 
-`[extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions proto] <https://github.com/envoyproxy/envoy/blob/a42d93d77b3532f78ce1712874898d51dc4fcb0c/api/envoy/extensions/filters/http/ratelimit/v3/rate_limit.proto#L104>`_
+`[extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/extensions/filters/http/ratelimit/v3/rate_limit.proto#L104>`_
 
 
 .. _envoy_v3_api_enum_value_extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions.OVERRIDE:
