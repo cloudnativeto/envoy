@@ -3,7 +3,7 @@
 HTTP 头部操作
 ========================
 
-HTTP 连接管理器在解码时（当接收到请求时）以及编码时（当发送响应时）操作多项 HTTP 头部。
+HTTP 连接管理器在解码过程中（接收请求时）和编码过程中（发送响应时）都会操作多项 HTTP 头部。
 
 .. contents::
   :local:
@@ -48,7 +48,7 @@ x-envoy-downstream-service-node
 x-envoy-external-address
 ------------------------
 
-服务希望根据原始客户端的 IP 地址做分析，这是一种常见的需求。然而真的实现它却可能是一件非常复杂的事情，可以参阅关于 :ref:`XFF <config_http_conn_man_headers_x-forwarded-for>` 的冗长讨论。因此 Envoy 提供的简化方案是，当请求来源于外部客户端时，将 *x-envoy-external-address* 设为 :ref:`trusted client address <config_http_conn_man_headers_x-forwarded-for_trusted_client_address>`，当请求来源于内部时，将 *x-envoy-external-address* 设空或重置。为了达到分析目的，可以在内部服务之间安全地转发此头部，而无需处理复杂的 XFF。
+服务希望根据原始客户端的 IP 地址做分析，这是一种常见的案例。然而真的实现它却可能是一件非常复杂的事情，可以参阅关于 :ref:`XFF <config_http_conn_man_headers_x-forwarded-for>` 的冗长讨论。因此 Envoy 提供的简化方案是，当请求来源于外部客户端时，将 *x-envoy-external-address* 设为 :ref:`可信客户端地址 <config_http_conn_man_headers_x-forwarded-for_trusted_client_address>`，当请求来源于内部时，将 *x-envoy-external-address* 设空或重置。为了达到分析目的，可以在内部服务之间安全地转发此头部，而无需处理复杂的 XFF。
 
 .. _config_http_conn_man_headers_x-envoy-force-trace:
 
@@ -69,7 +69,7 @@ x-envoy-internal
 x-envoy-original-dst-host
 -------------------------
 
-当启用 :ref:`Original Destination <arch_overview_load_balancing_types_original_destination>` 负载均衡策略时，可以使用该头部来覆盖目标地址。
+当启用 :ref:`原始目标 <arch_overview_load_balancing_types_original_destination>` 负载均衡策略时，可以使用该头部来覆盖目标地址。
 
 默认设置是忽略该头部，除非通过 :ref:`use_http_header <envoy_v3_api_field_config.cluster.v3.Cluster.OriginalDstLbConfig.use_http_header>` 启用。
 
@@ -80,9 +80,9 @@ x-forwarded-client-cert
 
 *x-forwarded-client-cert* (XFCC) 是一个代理头部，它携带了从客户端到服务器的请求路径中的部分或全部客户端、代理服务器的证书信息。代理服务器可以在代理请求之前清理/追加/转发 XFCC 头部。
 
-XFCC 头部值是一个用逗号（,）分隔的字符串。每个子字符串是一个 XFCC 元素，它保存了每个代理添加的信息。代理可以将当前客户端证书信息作为 XFCC 元素追加到请求的 XFCC 头部的结尾，并用逗号分隔。
+XFCC 头部值是一个用逗号（“,”）分隔的字符串。每个子字符串是一个 XFCC 元素，它保存了每个代理添加的信息。代理可以将当前客户端证书信息作为 XFCC 元素追加到请求的 XFCC 头部的结尾，并用逗号分隔。
 
-每个 XFCC 元素是一个用分号（;）分隔的字符串。每个子字符串是一个用等号（=）组合的键值对。键不区分大小写，值区分大小写。如果值中存在字符 ","、";" 或 "="，则应该用双引号（"）标出。如果值中存在字符双引号，则应该使用反斜杠标出（\"）。
+每个 XFCC 元素是一个用分号“;”分隔的字符串。每个子字符串是一个用等号（“=”）组合的键值对。键不区分大小写，值区分大小写。如果值中存在字符 “,”、“;”或“=”，则应该用双引号标出。如果值中存在字符双引号，则应该使用反斜杠加双引号标出（\"）。
 
 支持以下键名：
 
@@ -104,7 +104,7 @@ XFCC 头部值是一个用逗号（,）分隔的字符串。每个子字符串�
 2. 两个客户端证书，且只有 URI 类型 SAN 字段的例子：``x-forwarded-client-cert: By=http://frontend.lyft.com;Hash=468ed33be74eee6556d90c0149c1309e9ba61d6425303443c0748a02dd8de688;URI=http://testclient.lyft.com,By=http://backend.lyft.com;Hash=9ba61d6425303443c0748a02dd8de688468ed33be74eee6556d90c0149c1309e;URI=http://frontend.lyft.com``
 3. 单客户端证书，但同时有 URI 类型和 DNS 类型 SAN 字段的例子：``x-forwarded-client-cert: By=http://frontend.lyft.com;Hash=468ed33be74eee6556d90c0149c1309e9ba61d6425303443c0748a02dd8de688;Subject="/C=US/ST=CA/L=San Francisco/OU=Lyft/CN=Test Client";URI=http://testclient.lyft.com;DNS=lyft.com;DNS=www.lyft.com``
 
-Envoy 处理 XFCC 的方式由 :ref:`forward_client_cert_details<envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.forward_client_cert_details>` 和 :ref:`set_current_client_cert_details<envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.set_current_client_cert_details>` 
+Envoy 处理 XFCC 的方式由 :ref:`forward_client_cert_details<envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.forward_client_cert_details>` 和 :ref:`set_current_client_cert_details<envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.set_current_client_cert_details>`
 HTTP 连接管理器选项指定。如果未设置 *forward_client_cert_details*，默认情况下会清理 XFCC 头部。
 
 .. _config_http_conn_man_headers_x-forwarded-for:
@@ -231,15 +231,15 @@ Envoy 使用可信的客户端地址内容来确定请求是发起于外部还�
 
 关于 XFF 的一些非常重要的点：
 
-1. 如果 *use_remote_address* 被设置为 true，Envoy 会将 :ref:`config_http_conn_man_headers_x-envoy-external-address` 头部设置为受信任的客户端地址。
+1. 如果 *use_remote_address* 被设置为 true，Envoy 会将 :ref:`config_http_conn_man_headers_x-envoy-external-address` 头部设置为可信的客户端地址。
 
 .. _config_http_conn_man_headers_x-forwarded-for_internal_origin:
 
 2. Envoy 用 XFF 来确定请求是内部源还是外部源。如果 *use_remote_address* 被设置为 true，当且仅当请求不包含 XFF 且与 Envoy 直接连接的下游节点具有内部（RFC1918 或 RFC4193）源地址时，该请求为内部请求。如果 *use_remote_address* 被设置为 false，当且仅当 XFF 包含单个 RFC1918 或 RFC4193 地址时，该请求为内部请求。
 
    * **注意**: 如果一个内部服务在代理外部请求至另一个内部服务时包含了原始的 XFF 头部，并且设置了 :ref:`use_remote_address <envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.use_remote_address>`，那么 Envoy 将在出口处继续追加。这会导致对方认为请求是来自外部的。通常来说，这就是传递 XFF 头部的目的。但如果场景并非如此，不要传递 XFF，应该改用 :ref:`config_http_conn_man_headers_x-envoy-internal`。
-   
-   * **注意**: 如果将内部服务调用转发到其它内部服务（保留 XFF），Envoy 将不会认为这是一个内部服务。这是一个已知的 "bug"，原因是 XFF 将解析以及判定一个请求是否来自内部的工作进行了简化。在此种场景下，请不要转发 XFF，应该让 Envoy使用一个内部原始 IP 生成一个新的 XFF。
+
+   * **注意**: 如果将内部服务调用转发到其它内部服务（保留 XFF），Envoy 将不会认为这是一个内部服务。这是一个已知的“bug”，原因是 XFF 将解析以及判定一个请求是否来自内部的工作进行了简化。在此种场景下，请不要转发 XFF，应该让 Envoy使用一个内部原始 IP 生成一个新的 XFF。
 
 .. _config_http_conn_man_headers_x-forwarded-proto:
 
@@ -253,7 +253,7 @@ x-forwarded-proto
 x-request-id
 ------------
 
-Envoy 使用 *x-request-id* 头部来唯一标识请求并执行稳定的访问日志记录和跟踪。Envoy 将为所有外部来源请求生成一个 *x-request-id* 头部（原头部被清理）。它还会为没有 *x-request-id* 头部的内部请求新生成一个。这意味着 *x-request-id* 可以并且应该在客户端应用程序间传播，以便在整个网格中拥有一个稳定的 ID。由于 Envoy 的架构被设计为与流程无关，Envoy 本身不能自动地转发头部。这是少数领域应当引入瘦客户端库来完成工作的一个例子。具体如何去做，这个话题超出了本文档的范围。如果能做到 *x-request-id* 跨所有主机传播，则可以使用如下功能：
+Envoy 使用 *x-request-id* 头部来唯一标识请求并执行稳定的访问日志记录和跟踪。Envoy 将为所有外部来源请求生成一个 *x-request-id* 头部（原头部被清理）。它还会为没有 *x-request-id* 头部的内部请求新生成一个。这意味着 *x-request-id* 可以并且应该在客户端应用程序间传播，以便在整个网格中拥有一个稳定的 ID。由于 Envoy 的进程外架构，Envoy 本身不能自动地转发头部。这是少数领域应当引入瘦客户端库来完成工作的一个例子。具体如何去做，这个话题超出了本文档的范围。如果能做到 *x-request-id* 跨所有主机传播，则可以使用如下功能：
 
 * 通过 :ref:`v3 API runtime filter<envoy_v3_api_field_config.accesslog.v3.AccessLogFilter.runtime_filter>` 实现稳定的 :ref:`access logging <config_access_log>`。
 * 通过开启 :ref:`tracing.random_sampling
@@ -461,7 +461,7 @@ Envoy 支持向请求和响应头部里添加动态值。用百分号（%）来�
 
 %UPSTREAM_METADATA(["namespace", "key", ...])%
     用来自路由选中的上游主机的 :ref:`EDS endpoint metadata <envoy_v3_api_field_config.endpoint.v3.LbEndpoint.metadata>` 填充头部。元数据可以从任何命名空间中选择。元数据值可以是字符串、数字、布尔值、列表、嵌套结构或空值。如果指定了多个键，可以从嵌套结构中选择上游元数据值，否则只支持字符串、布尔值或数字。如果未找到命名空间或键，则不会发送头部。命名空间和键通过 JSON 字符串数组指定。最后，如果在选中值中存在百分号，或者选中值不是支持的类型，则不会发送头部。**不要** 通过重复百分号来转义。上游的元数据是无法被添加到请求头部中的，因为生成请求头部时上游主机还没有被选中。
-  
+
 %DYNAMIC_METADATA(["namespace", "key", ...])%
     与 UPSTREAM_METADATA 类似，可以用请求中的动态元数据填充头部。（例如来自于过滤器，如 header-to-metadata 过滤器）。
 
