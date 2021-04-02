@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>External Authorization Filter &mdash; envoy 1.16.0-e52534 documentation</title>
+  <title>外部授权过滤器 &mdash; envoy 1.16.0-374832 documentation</title>
   
 
   
@@ -76,7 +76,7 @@
             
             
               <div class="version">
-                1.16.0-e52534
+                1.16.0-374832
               </div>
             
           
@@ -112,8 +112,8 @@
 <li class="toctree-l3"><a class="reference internal" href="cache.html">缓存过滤器</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cors.html">CORS 过滤器</a></li>
 <li class="toctree-l3"><a class="reference internal" href="csrf.html">CSRF 过滤器</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">External Authorization Filter</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#running-the-sandbox">Running the Sandbox</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">外部授权过滤器</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">运行沙箱</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="fault_injection.html">故障注入过滤器</a></li>
@@ -185,7 +185,7 @@
         
           <li><a href="../start.html">开始</a> &raquo;</li>
         
-      <li>External Authorization Filter</li>
+      <li>外部授权过滤器</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -204,18 +204,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="external-authorization-filter">
-<span id="install-sandboxes-ext-authz"></span><h1>External Authorization Filter<a class="headerlink" href="#external-authorization-filter" title="Permalink to this headline">¶</a></h1>
-<p>The External Authorization sandbox demonstrates Envoy’s <a class="reference internal" href="../../configuration/http/http_filters/ext_authz_filter.html#config-http-filters-ext-authz"><span class="std std-ref">ext_authz filter</span></a>
-capability to delegate authorization of incoming requests through Envoy to an external services.</p>
-<p>While ext_authz can also be employed as a network filter, this sandbox is limited to exhibit
-ext_authz HTTP Filter, which supports to call HTTP or gRPC service.</p>
-<p>The setup of this sandbox is very similar to front-proxy deployment, however calls to upstream
-service behind the proxy will be checked by an external HTTP or gRPC service. In this sandbox,
-for every authorized call, the external authorization service adds additional <code class="docutils literal notranslate"><span class="pre">x-current-user</span></code>
-header entry to the original request headers to be forwarded to the upstream service.</p>
-<div class="section" id="running-the-sandbox">
-<h2>Running the Sandbox<a class="headerlink" href="#running-the-sandbox" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="install-sandboxes-ext-authz">
+<span id="id1"></span><h1>外部授权过滤器<a class="headerlink" href="#install-sandboxes-ext-authz" title="Permalink to this headline">¶</a></h1>
+<p>外部授权沙箱演示了 Envoy 的 <a class="reference internal" href="../../configuration/http/http_filters/ext_authz_filter.html#config-http-filters-ext-authz"><span class="std std-ref">ext_authz 过滤器</span></a> 功能，该功能可将通过 Envoy 传入请求的授权委派给外部服务。</p>
+<p>尽管 ext_authz 也可以用作网络过滤器，但此沙箱仅限于展示 ext_authz HTTP 过滤器，该过滤器支持调用 HTTP 或 gRPC 服务。</p>
+<p>此沙箱的设置与 front-proxy 部署非常相似，但是对代理后面上游服务的调用会被外部 HTTP 或 gRPC 服务检查。在此沙箱中，对于每个授权的调用，外部授权服务都会在原始请求头部添加 <code class="docutils literal notranslate"><span class="pre">x-current-user</span></code>，然后该调用会被转发到上游服务。</p>
+<div class="section" id="id2">
+<h2>运行沙箱<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>以下文档说明了上述对于 Envoy 容器编译环境进行设置的过程。</p>
 <div class="section" id="docker">
 <h3>步骤 1：安装 Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h3>
@@ -250,9 +245,9 @@ header entry to the original request headers to be forwarded to the upstream ser
 </div>
 </div>
 </div>
-<div class="section" id="step-3-start-all-of-our-containers">
-<h3>Step 3: Start all of our containers<a class="headerlink" href="#step-3-start-all-of-our-containers" title="Permalink to this headline">¶</a></h3>
-<p>To build this sandbox example and start the example services, run the following commands:</p>
+<div class="section" id="id3">
+<h3>步骤 3： 启动所有容器<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>要构建此沙箱示例并启动示例服务，请运行以下命令：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">pwd</span>
 <span class="go">envoy/examples/ext_authz</span>
 <span class="gp">$</span> docker-compose pull
@@ -269,16 +264,11 @@ header entry to the original request headers to be forwarded to the upstream ser
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This sandbox has multiple setup controlled by <code class="docutils literal notranslate"><span class="pre">FRONT_ENVOY_YAML</span></code> environment variable which
-points to the effective Envoy configuration to be used. The default value of <code class="docutils literal notranslate"><span class="pre">FRONT_ENVOY_YAML</span></code>
-can be defined in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file or provided inline when running the <code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">up</span></code>
-command. For more information, pease take a look at <a class="reference external" href="https://docs.docker.com/compose/environment-variables">environment variables in Compose documentation</a>.</p>
+<p>此沙箱具有受 <code class="docutils literal notranslate"><span class="pre">FRONT_ENVOY_YAML</span></code> 环境变量控制的多个设置，这些设置指向要使用的有效 Envoy 配置。<code class="docutils literal notranslate"><span class="pre">FRONT_ENVOY_YAML</span></code> 可以在 <code class="docutils literal notranslate"><span class="pre">.env</span></code> 文件中定义默认值，也可以在运行 <code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">up</span></code> 命令时内联提供。更多有关信息，请参阅 <a class="reference external" href="https://docs.docker.com/compose/environment-variables">Compose 文档中的环境变量</a>。</p>
 </div>
-<p>By default, <code class="docutils literal notranslate"><span class="pre">FRONT_ENVOY_YAML</span></code> points to <code class="docutils literal notranslate"><span class="pre">config/grpc-service/v3.yaml</span></code> file which bootstraps
-front-envoy with ext_authz HTTP filter with gRPC service <code class="docutils literal notranslate"><span class="pre">V3</span></code> (this is specified by <a class="reference internal" href="../../api-v3/extensions/filters/http/ext_authz/v3/ext_authz.proto.html#envoy-v3-api-field-extensions-filters-http-ext-authz-v3-extauthz-transport-api-version"><span class="std std-ref">transport_api_version field</span></a>).
-The possible values of <code class="docutils literal notranslate"><span class="pre">FRONT_ENVOY_YAML</span></code> can be found inside the <code class="docutils literal notranslate"><span class="pre">envoy/examples/ext_authz/config</span></code>
-directory.</p>
-<p>For example, to run Envoy with ext_authz HTTP filter with HTTP service will be:</p>
+<p>默认情况下，<code class="docutils literal notranslate"><span class="pre">FRONT_ENVOY_YAML</span></code> 指向 <code class="docutils literal notranslate"><span class="pre">config/grpc-service/v3.yaml</span></code> 文件，该文件使用 ext_authz HTTP 过滤器引导 front-envoy，此 ext_authz HTTP 过滤器使用 gRPC v3 服务（这是在 <a class="reference internal" href="../../api-v3/extensions/filters/http/ext_authz/v3/ext_authz.proto.html#envoy-v3-api-field-extensions-filters-http-ext-authz-v3-extauthz-transport-api-version"><span class="std std-ref">transport_api_version 字段</span></a> 中指定的）。</p>
+<p><code class="docutils literal notranslate"><span class="pre">FRONT_ENVOY_YAML</span></code> 的可选值可以在 <code class="docutils literal notranslate"><span class="pre">envoy/examples/ext_authz/config</span></code> 目录内找到。</p>
+<p>例如，使用带有 HTTP 服务的 ext_authz HTTP 过滤器运行 Envoy 将是：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">pwd</span>
 <span class="go">envoy/examples/ext_authz</span>
 <span class="gp">$</span> docker-compose pull
@@ -289,9 +279,9 @@ directory.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="step-4-access-the-upstream-service-behind-the-front-envoy">
-<h3>Step 4: Access the upstream-service behind the Front Envoy<a class="headerlink" href="#step-4-access-the-upstream-service-behind-the-front-envoy" title="Permalink to this headline">¶</a></h3>
-<p>You can now try to send a request to upstream-service via the front-envoy as follows:</p>
+<div class="section" id="front-envoy">
+<h3>步骤 4： 访问 Front Envoy 后面的上游服务<a class="headerlink" href="#front-envoy" title="Permalink to this headline">¶</a></h3>
+<p>现在，你可以尝试通过 front-envoy 向上游服务发送请求，如下所示：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl -v localhost:8000/service
 <span class="go">*   Trying 127.0.0.1...</span>
 <span class="go">* TCP_NODELAY set</span>
@@ -307,15 +297,12 @@ directory.</p>
 <span class="go">&lt; content-length: 0</span>
 </pre></div>
 </div>
-<p>As observed, the request failed with <code class="docutils literal notranslate"><span class="pre">403</span> <span class="pre">Forbidden</span></code> status code. This happened since the ext_authz
-filter employed by Envoy rejected the call. To let the request reach the upstream service, you need
-to provide a <code class="docutils literal notranslate"><span class="pre">Bearer</span></code> token via the <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> header.</p>
+<p>如观察到的，该请求失败了，返回的是 <code class="docutils literal notranslate"><span class="pre">403</span> <span class="pre">Forbidden</span></code> 状态码。这是因为 Envoy 使用的 ext_authz 过滤器拒绝了调用。为了使请求到达上游服务，你需要在 <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> 头部添加一个 <code class="docutils literal notranslate"><span class="pre">Bearer</span></code> 令牌。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>A complete list of users is defined in <code class="docutils literal notranslate"><span class="pre">envoy/examples/ext_authz/auth/users.json</span></code> file. For
-example, the <code class="docutils literal notranslate"><span class="pre">token1</span></code> used in the below example is corresponding to <code class="docutils literal notranslate"><span class="pre">user1</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">envoy/examples/ext_authz/auth/users.json</span></code> 文件中定义了完整的用户列表。例如，以下示例中使用的 <code class="docutils literal notranslate"><span class="pre">token1</span></code> 与 <code class="docutils literal notranslate"><span class="pre">user1</span></code> 相对应。</p>
 </div>
-<p>An example of successful requests can be observed as follows:</p>
+<p>下面是一个成功请求的示例：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl -v -H <span class="s2">&quot;Authorization: Bearer token1&quot;</span> localhost:8000/service
 <span class="go">*   Trying 127.0.0.1...</span>
 <span class="go">* TCP_NODELAY set</span>
@@ -337,9 +324,7 @@ example, the <code class="docutils literal notranslate"><span class="pre">token1
 <span class="go">Hello user1 from behind Envoy!</span>
 </pre></div>
 </div>
-<p>We can also employ <a class="reference external" href="https://www.openpolicyagent.org/">Open Policy Agent</a> server
-(with <a class="reference external" href="https://github.com/open-policy-agent/opa-istio-plugin">envoy_ext_authz_grpc</a> plugin enabled)
-as the authorization server. To run this example:</p>
+<p>我们还可以使用 <a class="reference external" href="https://www.openpolicyagent.org/">Open Policy Agent</a> 服务器（已启用 <a class="reference external" href="https://github.com/open-policy-agent/opa-istio-plugin">envoy_ext_authz_grpc</a> 插件）作为授权服务器。要运行此示例：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">pwd</span>
 <span class="go">envoy/examples/ext_authz</span>
 <span class="gp">$</span> docker-compose pull
@@ -348,7 +333,7 @@ as the authorization server. To run this example:</p>
 <span class="gp">$</span> <span class="nv">FRONT_ENVOY_YAML</span><span class="o">=</span>config/opa-service/v2.yaml docker-compose up --build -d
 </pre></div>
 </div>
-<p>And sending a request to the upstream service (via the Front Envoy) gives:</p>
+<p>并向上游服务（通过 Front Envoy）发送请求将得到：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl localhost:8000/service --verbose
 <span class="go">*   Trying ::1...</span>
 <span class="go">* TCP_NODELAY set</span>
@@ -369,8 +354,7 @@ as the authorization server. To run this example:</p>
 <span class="go">Hello OPA from behind Envoy!</span>
 </pre></div>
 </div>
-<p>From the logs, we can observe the policy decision message from the Open Policy Agent server (for
-the above request against the defined policy in <code class="docutils literal notranslate"><span class="pre">config/opa-service/policy.rego</span></code>):</p>
+<p>从日志中，我们可以观察到来自 Open Policy Agent 服务器的策略决策消息（和上述请求对应的策略在 <code class="docutils literal notranslate"><span class="pre">config/opa-service/policy.rego</span></code> 中定义）：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> docker-compose logs ext_authz-opa-service <span class="p">|</span> grep decision_id -A <span class="m">30</span>
 <span class="go">ext_authz-opa-service_1   |   &quot;decision_id&quot;: &quot;8143ca68-42d8-43e6-ade6-d1169bf69110&quot;,</span>
 <span class="go">ext_authz-opa-service_1   |   &quot;input&quot;: {</span>
@@ -405,7 +389,7 @@ the above request against the defined policy in <code class="docutils literal no
 <span class="go">ext_authz-opa-service_1   |           &quot;path&quot;: &quot;/service&quot;,</span>
 </pre></div>
 </div>
-<p>Trying to send a request with method other than <code class="docutils literal notranslate"><span class="pre">GET</span></code> gives a rejection:</p>
+<p>尝试使用除 <code class="docutils literal notranslate"><span class="pre">GET</span></code> 之外的方法发送请求，会被拒绝：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> curl -X POST localhost:8000/service --verbose
 <span class="go">*   Trying ::1...</span>
 <span class="go">* TCP_NODELAY set</span>

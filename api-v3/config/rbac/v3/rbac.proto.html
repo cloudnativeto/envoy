@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Role Based Access Control (RBAC) &mdash; envoy 1.16.0-e52534 documentation</title>
+  <title>Role Based Access Control (RBAC) &mdash; envoy 1.16.0-374832 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-e52534
+                1.16.0-374832
               </div>
             
           
@@ -225,7 +225,7 @@
 <span id="envoy-v3-api-file-envoy-config-rbac-v3-rbac-proto"></span><h1>Role Based Access Control (RBAC)<a class="headerlink" href="#role-based-access-control-rbac" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="config-rbac-v3-rbac">
 <span id="envoy-v3-api-msg-config-rbac-v3-rbac"></span><h2>config.rbac.v3.RBAC<a class="headerlink" href="#config-rbac-v3-rbac" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/config/rbac/v3/rbac.proto#L71">[config.rbac.v3.RBAC proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/config/rbac/v3/rbac.proto#L71">[config.rbac.v3.RBAC proto]</a></p>
 <p>Role Based Access Control (RBAC) provides service-level and method-level access control for a
 service. RBAC policies are additive. The policies are examined in order. Requests are allowed
 or denied based on the <cite>action</cite> and whether a matching policy is found. For instance, if the
@@ -301,7 +301,7 @@ Other actions do not modify this key.</p></li>
 </div>
 <div class="section" id="enum-config-rbac-v3-rbac-action">
 <span id="envoy-v3-api-enum-config-rbac-v3-rbac-action"></span><h2>Enum config.rbac.v3.RBAC.Action<a class="headerlink" href="#enum-config-rbac-v3-rbac-action" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/config/rbac/v3/rbac.proto#L75">[config.rbac.v3.RBAC.Action proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/config/rbac/v3/rbac.proto#L75">[config.rbac.v3.RBAC.Action proto]</a></p>
 <p>Should we do safe-list or block-list style access control?</p>
 <dl class="simple" id="envoy-v3-api-enum-value-config-rbac-v3-rbac-action-allow">
 <dt>ALLOW</dt><dd><p><em>(DEFAULT)</em> ⁣The policies grant access to principals. The rest are denied. This is safe-list style
@@ -321,7 +321,7 @@ All requests are allowed.</p>
 </div>
 <div class="section" id="config-rbac-v3-policy">
 <span id="envoy-v3-api-msg-config-rbac-v3-policy"></span><h2>config.rbac.v3.Policy<a class="headerlink" href="#config-rbac-v3-policy" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/config/rbac/v3/rbac.proto#L113">[config.rbac.v3.Policy proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/config/rbac/v3/rbac.proto#L113">[config.rbac.v3.Policy proto]</a></p>
 <p>Policy specifies a role and the principals that are assigned/denied the role.
 A policy matches if and only if at least one of its permissions match the
 action taking place AND at least one of its principals match the downstream
@@ -356,7 +356,7 @@ Only be used when checked_condition is not used.</p>
 </div>
 <div class="section" id="config-rbac-v3-permission">
 <span id="envoy-v3-api-msg-config-rbac-v3-permission"></span><h2>config.rbac.v3.Permission<a class="headerlink" href="#config-rbac-v3-permission" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/config/rbac/v3/rbac.proto#L143">[config.rbac.v3.Permission proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/config/rbac/v3/rbac.proto#L143">[config.rbac.v3.Permission proto]</a></p>
 <p>Permission defines an action (or actions) that a principal can take.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;and_rules&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -447,7 +447,7 @@ setup SNI.</p>
 </div>
 <div class="section" id="config-rbac-v3-permission-set">
 <span id="envoy-v3-api-msg-config-rbac-v3-permission-set"></span><h2>config.rbac.v3.Permission.Set<a class="headerlink" href="#config-rbac-v3-permission-set" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/config/rbac/v3/rbac.proto#L148">[config.rbac.v3.Permission.Set proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/config/rbac/v3/rbac.proto#L148">[config.rbac.v3.Permission.Set proto]</a></p>
 <p>Used in the <cite>and_rules</cite> and <cite>or_rules</cite> fields in the <cite>rule</cite> oneof. Depending on the context,
 each are applied with the associated behavior.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -462,7 +462,7 @@ each are applied with the associated behavior.</p>
 </div>
 <div class="section" id="config-rbac-v3-principal">
 <span id="envoy-v3-api-msg-config-rbac-v3-principal"></span><h2>config.rbac.v3.Principal<a class="headerlink" href="#config-rbac-v3-principal" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/config/rbac/v3/rbac.proto#L217">[config.rbac.v3.Principal proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/config/rbac/v3/rbac.proto#L217">[config.rbac.v3.Principal proto]</a></p>
 <p>Principal defines an identity or a group of identities for a downstream
 subject.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -554,7 +554,7 @@ value of <cite>not_id</cite> would not match, this principal would match.</p>
 </div>
 <div class="section" id="config-rbac-v3-principal-set">
 <span id="envoy-v3-api-msg-config-rbac-v3-principal-set"></span><h2>config.rbac.v3.Principal.Set<a class="headerlink" href="#config-rbac-v3-principal-set" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/config/rbac/v3/rbac.proto#L222">[config.rbac.v3.Principal.Set proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/config/rbac/v3/rbac.proto#L222">[config.rbac.v3.Principal.Set proto]</a></p>
 <p>Used in the <cite>and_ids</cite> and <cite>or_ids</cite> fields in the <cite>identifier</cite> oneof.
 Depending on the context, each are applied with the associated behavior.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -569,7 +569,7 @@ Depending on the context, each are applied with the associated behavior.</p>
 </div>
 <div class="section" id="config-rbac-v3-principal-authenticated">
 <span id="envoy-v3-api-msg-config-rbac-v3-principal-authenticated"></span><h2>config.rbac.v3.Principal.Authenticated<a class="headerlink" href="#config-rbac-v3-principal-authenticated" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/config/rbac/v3/rbac.proto#L230">[config.rbac.v3.Principal.Authenticated proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/config/rbac/v3/rbac.proto#L230">[config.rbac.v3.Principal.Authenticated proto]</a></p>
 <p>Authentication attributes for a downstream.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;principal_name&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>

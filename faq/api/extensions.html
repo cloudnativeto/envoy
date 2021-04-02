@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>How does API versioning interact with a new extension? &mdash; envoy 1.16.0-e52534 documentation</title>
+  <title>How does API versioning interact with a new extension? &mdash; envoy 1.16.0-374832 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-e52534
+                1.16.0-374832
               </div>
             
           
@@ -120,7 +120,7 @@
 <li class="toctree-l3"><a class="reference internal" href="control_plane.html">How do I support multiple xDS API major versions in my control plane?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="package_naming.html">What do the v2, v3, vN etc. mean in API package names?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="why_versioning.html">Why are the Envoy xDS APIs versioned? What is the benefit?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="incremental.html">What is the status of incremental xDS support?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="incremental.html">增量 xDS 支持的状态有哪些？</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#debugging">Debugging</a></li>
@@ -199,7 +199,7 @@
             
   <div class="section" id="how-does-api-versioning-interact-with-a-new-extension">
 <h1>How does API versioning interact with a new extension?<a class="headerlink" href="#how-does-api-versioning-interact-with-a-new-extension" title="Permalink to this headline">¶</a></h1>
-<p>For extension configuration API, please follow the <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/STYLE.md#adding-an-extension-configuration-to-the-api">new extension configuration steps</a> in the style guide.</p>
+<p>For extension configuration API, please follow the <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/STYLE.md#adding-an-extension-configuration-to-the-api">new extension configuration steps</a> in the style guide.</p>
 <p>Extension implementations should operate with v3 messages internally, for both their own
 configuration and other Envoy configuration messages. Unit tests should be written against v3
 configuration.</p>

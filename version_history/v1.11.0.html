@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1.11.0 (July 11, 2019) &mdash; envoy 1.16.0-e52534 documentation</title>
+  <title>1.11.0 (July 11, 2019) &mdash; envoy 1.16.0-374832 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-e52534
+                1.16.0-374832
               </div>
             
           
@@ -307,7 +307,7 @@ more info in the <a class="reference external" href="https://github.com/envoypro
 <li><p>subset: added <a class="reference internal" href="../api-v2/api/v2/cluster.proto.html#envoy-api-field-cluster-lbsubsetconfig-list-as-any"><span class="std std-ref">list_as_any</span></a> option to
 the subset lb which allows matching metadata against any of the values in a list value
 on the endpoints.</p></li>
-<li><p>tools: added <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/test/tools/router_check/validation.proto">proto</a> support for <a class="reference internal" href="../install/tools/route_table_check_tool.html#install-tools-route-table-check-tool"><span class="std std-ref">router check tool</span></a> tests.</p></li>
+<li><p>tools: added <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/test/tools/router_check/validation.proto">proto</a> support for <a class="reference internal" href="../install/tools/route_table_check_tool.html#install-tools-route-table-check-tool"><span class="std std-ref">router check tool</span></a> tests.</p></li>
 <li><p>tracing: add trace sampling configuration to the route, to override the route level.</p></li>
 <li><p>upstream: added <a class="reference internal" href="../configuration/upstream/cluster_manager/cluster_stats.html#config-cluster-manager-cluster-stats"><span class="std std-ref">upstream_cx_pool_overflow</span></a> for the connection pool circuit breaker.</p></li>
 <li><p>upstream: an EDS management server can now force removal of a host that is still passing active
@@ -330,7 +330,7 @@ displays the current resolved IP address in admin output instead of 0.0.0.0.</p>
 <li><p>The –max-stats and –max-obj-name-len flags no longer has any effect.</p></li>
 <li><p>Use of <a class="reference internal" href="../api-v2/config/filter/network/redis_proxy/v2/redis_proxy.proto.html#envoy-api-field-config-filter-network-redis-proxy-v2-redisproxy-cluster"><span class="std std-ref">cluster</span></a> in <a class="reference internal" href="../api-v2/config/filter/network/redis_proxy/v2/redis_proxy.proto.html#envoy-api-file-envoy-config-filter-network-redis-proxy-v2-redis-proxy-proto"><span class="std std-ref">redis_proxy.proto</span></a> is deprecated. Set a <a class="reference internal" href="../api-v2/config/filter/network/redis_proxy/v2/redis_proxy.proto.html#envoy-api-field-config-filter-network-redis-proxy-v2-redisproxy-prefixroutes-catch-all-route"><span class="std std-ref">catch_all_route</span></a> instead.</p></li>
 <li><p>Use of <a class="reference internal" href="../api-v2/config/filter/network/redis_proxy/v2/redis_proxy.proto.html#envoy-api-field-config-filter-network-redis-proxy-v2-redisproxy-prefixroutes-catch-all-cluster"><span class="std std-ref">catch_all_cluster</span></a> in <a class="reference internal" href="../api-v2/config/filter/network/redis_proxy/v2/redis_proxy.proto.html#envoy-api-file-envoy-config-filter-network-redis-proxy-v2-redis-proxy-proto"><span class="std std-ref">redis_proxy.proto</span></a> is deprecated. Set a <a class="reference internal" href="../api-v2/config/filter/network/redis_proxy/v2/redis_proxy.proto.html#envoy-api-field-config-filter-network-redis-proxy-v2-redisproxy-prefixroutes-catch-all-route"><span class="std std-ref">catch_all_route</span></a> instead.</p></li>
-<li><p>Use of json based schema in router check tool tests. The tests should follow validation <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/test/tools/router_check/validation.proto">schema</a>.</p></li>
+<li><p>Use of json based schema in router check tool tests. The tests should follow validation <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/test/tools/router_check/validation.proto">schema</a>.</p></li>
 <li><p>Use of the v1 style route configuration for the <a class="reference internal" href="../configuration/listeners/network_filters/tcp_proxy_filter.html#config-network-filters-tcp-proxy"><span class="std std-ref">TCP proxy filter</span></a>
 is now fully replaced with listener <a class="reference internal" href="../api-v2/api/v2/listener/listener_components.proto.html#envoy-api-msg-listener-filterchainmatch"><span class="std std-ref">filter chain matching</span></a>.
 Use this instead.</p></li>

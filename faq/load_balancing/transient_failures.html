@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>How do I handle transient failures? &mdash; envoy 1.16.0-e52534 documentation</title>
+  <title>How do I handle transient failures? &mdash; envoy 1.16.0-374832 documentation</title>
   
 
   
@@ -46,7 +46,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="How do I make Envoy fail over to another region during service degradation?" href="region_failover.html" />
+    <link rel="next" title="服务降级期间如何使 Envoy 故障转移到另一个区域？" href="region_failover.html" />
     <link rel="prev" title="Is there a way to disable circuit breaking?" href="disable_circuit_breaking.html" /> 
 </head>
 
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-e52534
+                1.16.0-374832
               </div>
             
           
@@ -116,7 +116,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#performance">Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#configuration">Configuration</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../overview.html#load-balancing">Load balancing</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="lb_panic_threshold.html">I setup health checking. When I fail some hosts, Envoy starts routing to all of them again. Why?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lb_panic_threshold.html">我设置了健康检查。当某些主机发生故障时，Envoy 再次开始路由到所有这些主机。为什么？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="concurrency_lb.html">Why doesn’t RR load balancing appear to be even?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="disable_circuit_breaking.html">Is there a way to disable circuit breaking?</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">How do I handle transient failures?</a><ul>
@@ -126,7 +126,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#outlier-detection">Outlier Detection</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="region_failover.html">How do I make Envoy fail over to another region during service degradation?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="region_failover.html">服务降级期间如何使 Envoy 故障转移到另一个区域？</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#extensions">Extensions</a></li>
@@ -310,7 +310,7 @@ for some time and immediate retry would have less chance of success.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="region_failover.html" class="btn btn-neutral float-right" title="How do I make Envoy fail over to another region during service degradation?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="region_failover.html" class="btn btn-neutral float-right" title="服务降级期间如何使 Envoy 故障转移到另一个区域？" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="disable_circuit_breaking.html" class="btn btn-neutral float-left" title="Is there a way to disable circuit breaking?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

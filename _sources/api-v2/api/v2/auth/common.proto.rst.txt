@@ -9,7 +9,7 @@ Common TLS configuration
 auth.TlsParameters
 ------------------
 
-`[auth.TlsParameters proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/api/v2/auth/common.proto#L25>`_
+`[auth.TlsParameters proto] <https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/api/v2/auth/common.proto#L25>`_
 
 
 .. code-block:: json
@@ -104,7 +104,7 @@ ecdh_curves
 Enum auth.TlsParameters.TlsProtocol
 -----------------------------------
 
-`[auth.TlsParameters.TlsProtocol proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/api/v2/auth/common.proto#L26>`_
+`[auth.TlsParameters.TlsProtocol proto] <https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/api/v2/auth/common.proto#L26>`_
 
 
 .. _envoy_api_enum_value_auth.TlsParameters.TlsProtocol.TLS_AUTO:
@@ -143,7 +143,7 @@ TLSv1_3
 auth.PrivateKeyProvider
 -----------------------
 
-`[auth.PrivateKeyProvider proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/api/v2/auth/common.proto#L112>`_
+`[auth.PrivateKeyProvider proto] <https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/api/v2/auth/common.proto#L112>`_
 
 BoringSSL private key method configuration. The private key methods are used for external
 (potentially asynchronous) signing and decryption operations. Some use cases for private key
@@ -189,7 +189,7 @@ typed_config
 auth.TlsCertificate
 -------------------
 
-`[auth.TlsCertificate proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/api/v2/auth/common.proto#L126>`_
+`[auth.TlsCertificate proto] <https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/api/v2/auth/common.proto#L126>`_
 
 
 .. code-block:: json
@@ -241,7 +241,7 @@ password
 auth.TlsSessionTicketKeys
 -------------------------
 
-`[auth.TlsSessionTicketKeys proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/api/v2/auth/common.proto#L153>`_
+`[auth.TlsSessionTicketKeys proto] <https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/api/v2/auth/common.proto#L153>`_
 
 
 .. code-block:: json
@@ -285,7 +285,7 @@ keys
 auth.CertificateValidationContext
 ---------------------------------
 
-`[auth.CertificateValidationContext proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/api/v2/auth/common.proto#L182>`_
+`[auth.CertificateValidationContext proto] <https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/api/v2/auth/common.proto#L182>`_
 
 
 .. code-block:: json
@@ -457,7 +457,7 @@ trust_chain_verification
 Enum auth.CertificateValidationContext.TrustChainVerification
 -------------------------------------------------------------
 
-`[auth.CertificateValidationContext.TrustChainVerification proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/api/v2/auth/common.proto#L184>`_
+`[auth.CertificateValidationContext.TrustChainVerification proto] <https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/api/v2/auth/common.proto#L184>`_
 
 Peer certificate verification mode.
 

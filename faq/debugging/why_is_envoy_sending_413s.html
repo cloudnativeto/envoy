@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Why is Envoy sending 413s? &mdash; envoy 1.16.0-e52534 documentation</title>
+  <title>为什么 Envoy 会发送 413 ？ &mdash; envoy 1.16.0-374832 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-e52534
+                1.16.0-374832
               </div>
             
           
@@ -116,7 +116,7 @@
 <li class="toctree-l3"><a class="reference internal" href="why_is_envoy_sending_internal_responses.html">Why is Envoy sending internal responses?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="why_is_envoy_sending_http2_resets.html">Why is Envoy sending HTTP/2 resets?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="why_is_envoy_404ing_connect_requests.html">Why is Envoy sending 404s to CONNECT requests?</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Why is Envoy sending 413s?</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">为什么 Envoy 会发送 413 ？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="why_is_my_route_not_found.html">Why is my route not found?</a></li>
 </ul>
 </li>
@@ -174,7 +174,7 @@
         
           <li><a href="../overview.html">FAQ</a> &raquo;</li>
         
-      <li>Why is Envoy sending 413s?</li>
+      <li>为什么 Envoy 会发送 413 ？</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -193,9 +193,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="why-is-envoy-sending-413s">
-<span id="faq-why-is-envoy-sending-413"></span><h1>Why is Envoy sending 413s?<a class="headerlink" href="#why-is-envoy-sending-413s" title="Permalink to this headline">¶</a></h1>
-<p>Envoy by default imposes limits to how much it will buffer for a given request. Generally, Envoy filters are designed to be streaming, and will pass data from downstream to upstream, or will simply pause processing while waiting for an external event (e.g. doing auth checks). Some filters, for example the buffer filter, require buffering the full request or response. If a request body is too large to buffer, but buffering is required by the filter, Envoy will send a 413. The buffer limits can be increased at the risk of making OOMs more possible. Please see the ref:<cite>flow control docs &lt;faq_flow_control&gt;</cite> for details.</p>
+  <div class="section" id="envoy-413">
+<span id="faq-why-is-envoy-sending-413"></span><h1>为什么 Envoy 会发送 413 ？<a class="headerlink" href="#envoy-413" title="Permalink to this headline">¶</a></h1>
+<p>默认情况下，Envoy 会对给定的请求限制使用缓冲大小。
+一般来说，Envoy 过滤器被设计为流式，将数据从下游传递到上游，或者在等待外部事件时暂停处理（例如，执行认证检查）。
+一些过滤器，例如缓冲过滤器，需要缓冲完整的请求或响应。
+如果一个请求体太大而无法缓冲，但过滤器仍然需要缓存，那么 Envoy 就会发送 413。
+缓存区限制可以加大，但这也会增加 OOM 的可能性。
+更多详细信息，请参阅 ref:<cite>流控制文档 &lt;faq_flow_control&gt;</cite> 。</p>
 </div>
 
 

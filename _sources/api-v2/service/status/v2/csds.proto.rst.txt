@@ -9,7 +9,7 @@ Client Status Discovery Service (CSDS)
 service.status.v2.ClientStatusRequest
 -------------------------------------
 
-`[service.status.v2.ClientStatusRequest proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/service/status/v2/csds.proto#L55>`_
+`[service.status.v2.ClientStatusRequest proto] <https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/service/status/v2/csds.proto#L55>`_
 
 Request for client status of clients identified by a list of NodeMatchers.
 
@@ -33,7 +33,7 @@ node_matchers
 service.status.v2.PerXdsConfig
 ------------------------------
 
-`[service.status.v2.PerXdsConfig proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/service/status/v2/csds.proto#L63>`_
+`[service.status.v2.PerXdsConfig proto] <https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/service/status/v2/csds.proto#L63>`_
 
 Detailed config (per xDS) with status.
 
@@ -91,7 +91,7 @@ scoped_route_config
 service.status.v2.ClientConfig
 ------------------------------
 
-`[service.status.v2.ClientConfig proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/service/status/v2/csds.proto#L78>`_
+`[service.status.v2.ClientConfig proto] <https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/service/status/v2/csds.proto#L78>`_
 
 All xds configs for a particular client.
 
@@ -120,7 +120,7 @@ xds_config
 service.status.v2.ClientStatusResponse
 --------------------------------------
 
-`[service.status.v2.ClientStatusResponse proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/service/status/v2/csds.proto#L85>`_
+`[service.status.v2.ClientStatusResponse proto] <https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/service/status/v2/csds.proto#L85>`_
 
 
 .. code-block:: json
@@ -141,7 +141,7 @@ config
 Enum service.status.v2.ConfigStatus
 -----------------------------------
 
-`[service.status.v2.ConfigStatus proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/service/status/v2/csds.proto#L36>`_
+`[service.status.v2.ConfigStatus proto] <https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/service/status/v2/csds.proto#L36>`_
 
 Status of a config.
 

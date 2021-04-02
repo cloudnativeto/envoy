@@ -19,7 +19,7 @@ This extension may be referenced by the qualified name *envoy.compression.gzip.c
 extensions.compression.gzip.compressor.v3.Gzip
 ----------------------------------------------
 
-`[extensions.compression.gzip.compressor.v3.Gzip proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/extensions/compression/gzip/compressor/v3/gzip.proto#L19>`_
+`[extensions.compression.gzip.compressor.v3.Gzip proto] <https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/extensions/compression/gzip/compressor/v3/gzip.proto#L19>`_
 
 
 .. code-block:: json
@@ -85,7 +85,7 @@ chunk_size
 Enum extensions.compression.gzip.compressor.v3.Gzip.CompressionStrategy
 -----------------------------------------------------------------------
 
-`[extensions.compression.gzip.compressor.v3.Gzip.CompressionStrategy proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/extensions/compression/gzip/compressor/v3/gzip.proto#L22>`_
+`[extensions.compression.gzip.compressor.v3.Gzip.CompressionStrategy proto] <https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/extensions/compression/gzip/compressor/v3/gzip.proto#L22>`_
 
 All the values of this enumeration translate directly to zlib's compression strategies.
 For more information about each strategy, please refer to zlib manual.
@@ -121,7 +121,7 @@ FIXED
 Enum extensions.compression.gzip.compressor.v3.Gzip.CompressionLevel
 --------------------------------------------------------------------
 
-`[extensions.compression.gzip.compressor.v3.Gzip.CompressionLevel proto] <https://github.com/envoyproxy/envoy/blob/e52534a84fcfc76780f6951e27a39724f8687946/api/envoy/extensions/compression/gzip/compressor/v3/gzip.proto#L30>`_
+`[extensions.compression.gzip.compressor.v3.Gzip.CompressionLevel proto] <https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/extensions/compression/gzip/compressor/v3/gzip.proto#L30>`_
 
 
 .. _envoy_v3_api_enum_value_extensions.compression.gzip.compressor.v3.Gzip.CompressionLevel.DEFAULT_COMPRESSION:

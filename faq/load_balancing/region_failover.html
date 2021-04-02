@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>How do I make Envoy fail over to another region during service degradation? &mdash; envoy 1.16.0-e52534 documentation</title>
+  <title>服务降级期间如何使 Envoy 故障转移到另一个区域？ &mdash; envoy 1.16.0-374832 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-e52534
+                1.16.0-374832
               </div>
             
           
@@ -116,11 +116,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#performance">Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#configuration">Configuration</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../overview.html#load-balancing">Load balancing</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="lb_panic_threshold.html">I setup health checking. When I fail some hosts, Envoy starts routing to all of them again. Why?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lb_panic_threshold.html">我设置了健康检查。当某些主机发生故障时，Envoy 再次开始路由到所有这些主机。为什么？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="concurrency_lb.html">Why doesn’t RR load balancing appear to be even?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="disable_circuit_breaking.html">Is there a way to disable circuit breaking?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="transient_failures.html">How do I handle transient failures?</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">How do I make Envoy fail over to another region during service degradation?</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">服务降级期间如何使 Envoy 故障转移到另一个区域？</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#extensions">Extensions</a></li>
@@ -174,7 +174,7 @@
         
           <li><a href="../overview.html">FAQ</a> &raquo;</li>
         
-      <li>How do I make Envoy fail over to another region during service degradation?</li>
+      <li>服务降级期间如何使 Envoy 故障转移到另一个区域？</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -193,17 +193,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="how-do-i-make-envoy-fail-over-to-another-region-during-service-degradation">
-<h1>How do I make Envoy fail over to another region during service degradation?<a class="headerlink" href="#how-do-i-make-envoy-fail-over-to-another-region-during-service-degradation" title="Permalink to this headline">¶</a></h1>
-<p>Envoy uses the concept of
-<cite>priorities &lt;arch_overview_load_balancing_priority_levels&gt;</cite> to express
-the idea that a certain set of endpoints should be preferred over others.</p>
-<p>By putting the preferred endpoints into the lower priority, Envoy will
-always select one of these endpoints as long as that priority is sufficiently
-available. This means that common failover scenarios can be expressed by
-putting the fallback endpoints in a different priority. See the
-<cite>priority &lt;arch_overview_load_balancing_priority_levels&gt;</cite> for more information
-about this.</p>
+  <div class="section" id="envoy">
+<h1>服务降级期间如何使 Envoy 故障转移到另一个区域？<a class="headerlink" href="#envoy" title="Permalink to this headline">¶</a></h1>
+<p>Envoy 使用 <cite>优先级 &lt;arch_overview_load_balancing_priority_levels&gt;</cite> 的概念来表达这样一种想法，即某一组端点应该优先于其他端点。</p>
+<p>通过将首选端点设置为较低的优先级，只要该优先级足够可用，Envoy 将始终选择这些端点之一。这意味着可以通过将备用端点置于不同的优先级来表示常见的故障转移场景。有关更多信息参见
+<cite>优先级 &lt;arch_overview_load_balancing_priority_levels&gt;</cite>。</p>
 </div>
 
 

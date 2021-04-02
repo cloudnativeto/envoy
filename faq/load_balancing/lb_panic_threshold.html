@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>I setup health checking. When I fail some hosts, Envoy starts routing to all of them again. Why? &mdash; envoy 1.16.0-e52534 documentation</title>
+  <title>我设置了健康检查。当某些主机发生故障时，Envoy 再次开始路由到所有这些主机。为什么？ &mdash; envoy 1.16.0-374832 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-e52534
+                1.16.0-374832
               </div>
             
           
@@ -116,11 +116,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#performance">Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#configuration">Configuration</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../overview.html#load-balancing">Load balancing</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">I setup health checking. When I fail some hosts, Envoy starts routing to all of them again. Why?</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">我设置了健康检查。当某些主机发生故障时，Envoy 再次开始路由到所有这些主机。为什么？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="concurrency_lb.html">Why doesn’t RR load balancing appear to be even?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="disable_circuit_breaking.html">Is there a way to disable circuit breaking?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="transient_failures.html">How do I handle transient failures?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="region_failover.html">How do I make Envoy fail over to another region during service degradation?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="region_failover.html">服务降级期间如何使 Envoy 故障转移到另一个区域？</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#extensions">Extensions</a></li>
@@ -174,7 +174,7 @@
         
           <li><a href="../overview.html">FAQ</a> &raquo;</li>
         
-      <li>I setup health checking. When I fail some hosts, Envoy starts routing to all of them again. Why?</li>
+      <li>我设置了健康检查。当某些主机发生故障时，Envoy 再次开始路由到所有这些主机。为什么？</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -193,10 +193,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="i-setup-health-checking-when-i-fail-some-hosts-envoy-starts-routing-to-all-of-them-again-why">
-<h1>I setup health checking. When I fail some hosts, Envoy starts routing to all of them again. Why?<a class="headerlink" href="#i-setup-health-checking-when-i-fail-some-hosts-envoy-starts-routing-to-all-of-them-again-why" title="Permalink to this headline">¶</a></h1>
-<p>This feature is known as the load balancer <a class="reference internal" href="../../intro/arch_overview/upstream/load_balancing/panic_threshold.html#arch-overview-load-balancing-panic-threshold"><span class="std std-ref">panic threshold</span></a>. It is used to prevent cascading failure when
-upstream hosts start failing health checks in large numbers.</p>
+  <div class="section" id="envoy">
+<h1>我设置了健康检查。当某些主机发生故障时，Envoy 再次开始路由到所有这些主机。为什么？<a class="headerlink" href="#envoy" title="Permalink to this headline">¶</a></h1>
+<p>这个特性被称为负载均衡器的:ref:<cite>紧急阈值
+&lt;arch_overview_load_balancing_panic_threshold&gt;</cite>。 当上游主机健康检查大量失败时，它用于防止级联失败。</p>
 </div>
 
 
