@@ -17,7 +17,7 @@ Envoy 将传达一个给定流结束的详细原因。此页列出了 HttpConnec
    :header: 名称, 描述
    :widths: 1, 2
 
-   absolute_path_rejected, 由于在不支持请求的路由上使用绝对路径，请求被拒绝。
+   absolute_path_rejected, 由于在不支持绝对路径的路由上使用绝对路径，请求被拒绝。
    admin_filter_response, 响应由管理过滤器生成。
    cluster_not_found, 由于找不到所选路由的集群，路由器过滤器拒绝了请求。
    downstream_local_disconnect, 由于未指定的原因，客户端连接在本地关闭。
