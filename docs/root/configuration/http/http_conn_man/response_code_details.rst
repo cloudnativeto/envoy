@@ -42,7 +42,7 @@ Envoy 将传达一个给定流结束的详细原因。此页列出了 HttpConnec
    route_configuration_not_found, 由于找不到路由配置，请求被拒绝。
    route_not_found, 由于找不到路由，请求被拒绝。
    stream_idle_timeout, 已超出每个流的 keepalive 超时时间。
-   upgrade_failed, 由于请求一个受支持的升级，请求被拒绝。
+   upgrade_failed, 由于请求一个不受支持的升级，请求被拒绝。
    upstream_max_stream_duration_reached, 由于请求超出了配置的最大流持续时间，请求被销毁。
    upstream_per_try_timeout, 最后一次上游尝试失败。
    upstream_reset_after_response_started{details}, 响应启动后，上游连接被重置。可能包括有关断开原因的更多详细信息。
