@@ -1,48 +1,35 @@
 .. _faq_filter_contract:
 
-Is there a contract my HTTP filter must adhere to?
---------------------------------------------------
+我的 HTTP 过滤器必须遵守合约吗？
+-----------------------------------
 
-* Headers encoding/decoding
+* 标头 编码/解码
 
-  * During encoding/decoding of headers if a filter returns ``FilterHeadersStatus::StopIteration``,
-    the processing can be resumed if ``encodeData()``/``decodeData()`` return
-    ``FilterDataStatus::Continue`` or by explicitly calling
-    ``continueEncoding()``/``continueDecoding()``.
+  * 在标头编码/解码期间，如果过滤器返回 ``FilterHeadersStatus::StopIteration``，则如果 ``encodeData()``/``decodeData()`` 返回 ``FilterDataStatus::Continue`` 或者通过显式调用 ``continueEncoding()``/``continueDecoding()`` 可以恢复处理。
 
-  * During encoding/decoding of headers if a filter returns
-    ``FilterHeadersStatus::StopAllIterationAndBuffer`` or
-    ``FilterHeadersStatus::StopAllIterationAndWatermark``, the processing can be resumed by calling
-    ``continueEncoding()``/``continueDecoding()``.
+  * 在标头编码/解码期间，如果过滤器返回 ``FilterHeadersStatus::StopAllIterationAndBuffer`` 或者 ``FilterHeadersStatus::StopAllIterationAndWatermark``，可以通过调用 ``continueEncoding()``/``continueDecoding()`` 可以恢复处理。
 
-  * A filter's ``decodeHeaders()`` implementation must not return
-    ``FilterHeadersStatus::ContinueAndEndStream`` when called with ``end_stream`` set to *true*. In this case
-    ``FilterHeadersStatus::Continue`` should be returned.
+  * 在将 ``end_stream`` 设置为 *true* 的调用时，过滤器的 ``decodeHeaders()`` 实现不得返回 ``FilterHeadersStatus::ContinueAndEndStream``。在这种情况下应该返回 ``FilterHeadersStatus::Continue``。
 
-  * A filter's ``encode100ContinueHeaders()`` must return ``FilterHeadersStatus::Continue`` or
-    ``FilterHeadersStatus::StopIteration``.
+  * 过滤器的 ``encode100ContinueHeaders()`` 必须返回 ``FilterHeadersStatus::Continue`` 或者 ``FilterHeadersStatus::StopIteration``。
 
-* Data encoding/decoding
+* 数据 编码/解码
 
-  * During encoding/decoding of data if a filter returns
-    ``FilterDataStatus::StopIterationAndBuffer``, ``FilterDataStatus::StopIterationAndWatermark``,
-    or ``FilterDataStatus::StopIterationNoBuffer``, the processing can be resumed if
-    ``encodeData()``/``decodeData()`` return ``FilterDataStatus::Continue`` or by explicitly
-    calling ``continueEncoding()``/``continueDecoding()``.
+  * 在数据编码/解码期间，如果过滤器返回 ``FilterDataStatus::StopIterationAndBuffer``、``FilterDataStatus::StopIterationAndWatermark``，或者``FilterDataStatus::StopIterationNoBuffer``，则如果 ``encodeData()``/``decodeData()`` 返回 ``FilterDataStatus::Continue`` 或者通过显式调用 ``continueEncoding()``/``continueDecoding()`` 可以恢复处理。
 
-* Trailers encoding/decoding
+* Trailer 编码/解码
 
-  * During encoding/decoding of trailers if a filter returns ``FilterTrailersStatus::StopIteration``,
-    the processing can be resumed by explicitly calling ``continueEncoding()``/``continueDecoding()``.
+  * 在 Trailer 编码/解码期间，如果过滤器返回 ``FilterTrailersStatus::StopIteration``，通过显式调用 ``continueEncoding()``/``continueDecoding()`` 可以恢复处理。
 
 Are there well-known headers that will appear in the given headers map of ``decodeHeaders()``?
-----------------------------------------------------------------------------------------------
+是否存在将出现在 ``decodeHeaders()`` 给定标头映射中的知名标头？
+---------------------------------------------------------------
 
 The first filter of the decoding filter chain will have the following headers in the map:
+解码过滤器链的第一个过滤器在映射中将具有以下标头：
 
 * ``Host``
-* ``Path`` (this might be omitted for CONNECT requests).
+* ``Path`` （对于CONNECT请求可能会省略）。
 
-Although these headers may be omitted by one of the filters on the decoding filter chain,
-they should be reinserted before the terminal filter is triggered.
+尽管可以通过解码过滤器链上的任一过滤器省略这些标头，但应在触发终端过滤器之前重新插入它们。
 
