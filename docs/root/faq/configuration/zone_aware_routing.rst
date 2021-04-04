@@ -1,22 +1,19 @@
 .. _common_configuration_zone_aware_routing:
 
-How do I configure zone aware routing?
+如何配置区域感知路由？
 ======================================
 
-There are several steps required for enabling :ref:`zone aware routing <arch_overview_load_balancing_zone_aware_routing>`
-between source service ("cluster_a") and destination service ("cluster_b").
+在源服务（"cluster_a"）和目的服务（"cluster_b"）之间启用 :ref:`区域感知路由 <arch_overview_load_balancing_zone_aware_routing>` 需要经过几个必要的步骤。
 
-Envoy configuration on the source service
+在源服务端配置 Envoy
 -----------------------------------------
-This section describes the specific configuration for the Envoy running side by side with the source service.
-These are the requirements:
+这部分描述了与源服务并行运行的 Envoy 的特定配置。具有下述要求：
 
-* Envoy must be launched with :option:`--service-zone` option which defines the zone for the current host.
-* Both definitions of the source and the destination clusters must have :ref:`EDS <envoy_v3_api_field_config.cluster.v3.Cluster.type>` type.
-* :ref:`local_cluster_name <envoy_v3_api_field_config.bootstrap.v3.ClusterManager.local_cluster_name>` must be set to the
-  source cluster.
+* Envoy 必须以 :option:`--service-zone` 选项启动，此选项定义了当前主机的区域。
+* 源集群和目的集群的定义必须有 :ref:`EDS <envoy_v3_api_field_config.cluster.v3.Cluster.type>` 类型 。
+* :ref:`local_cluster_name <envoy_v3_api_field_config.bootstrap.v3.ClusterManager.local_cluster_name>` 必须被设置为源集群相同。
 
-  Only essential parts are listed in the configuration below for the cluster manager.
+  对于群集管理器，下面的配置中只列出了必要部分。
 
 .. code-block:: yaml
 
@@ -31,25 +28,21 @@ These are the requirements:
       type: EDS
       eds_cluster_config: ...
 
-Envoy configuration on the destination service
+在目的服务端配置 Envoy
 ----------------------------------------------
-It's not necessary to run Envoy side by side with the destination service, but it's important that each host in the
-destination cluster registers with the discovery service :ref:`queried by the source service Envoy
-<config_overview_management_server>`. :ref:`Zone <envoy_v3_api_msg_config.endpoint.v3.LocalityLbEndpoints>`
-information must be available as part of that response.
+没有必要与目的服务并行运行 Envoy，但是目标集群中的每个主机都要向 :ref:`源服务 Envoy 查询 <config_overview_management_server>` 的服务发现进行注册。:ref:` 区域 <envoy_v3_api_msg_config.endpoint.v3.LocalityLbEndpoints>` 信息必须作为响应的一部分能够被获取到。
 
-Only zone related data is listed in the response below.
+下面的响应只列出了与区域相关的数据。
 
 .. code-block:: yaml
 
   locality:
     zone: us-east-1d
 
-Infrastructure setup
+基础设施设置
 --------------------
-The above configuration is necessary for zone aware routing, but there are certain conditions
-when zone aware routing is :ref:`not performed <arch_overview_load_balancing_zone_aware_routing_preconditions>`.
+上述的配置对于区域感知路由是非常必要的，但是在某些特定情况下，区域感知路由是 :ref:`不被执行的 <arch_overview_load_balancing_zone_aware_routing_preconditions>`。
 
-Verification steps
+验证步骤
 ------------------
-* Use :ref:`per zone <config_cluster_manager_cluster_per_az_stats>` Envoy stats to monitor cross zone traffic.
+* 使用 Envoy 的 :ref:`每一个区域 <config_cluster_manager_cluster_per_az_stats>` 统计来监控跨区域流量。
