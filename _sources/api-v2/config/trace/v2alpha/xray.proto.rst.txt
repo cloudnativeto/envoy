@@ -10,7 +10,7 @@ Configuration for AWS X-Ray tracer
 config.trace.v2alpha.XRayConfig
 -------------------------------
 
-`[config.trace.v2alpha.XRayConfig proto] <https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/config/trace/v2alpha/xray.proto#L18>`_
+`[config.trace.v2alpha.XRayConfig proto] <https://github.com/envoyproxy/envoy/blob/e647ee2a2e802f05744ba7d2443f70dcda069318/api/envoy/config/trace/v2alpha/xray.proto#L18>`_
 
 
 .. code-block:: json

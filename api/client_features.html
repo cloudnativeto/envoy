@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Well Known Client Features &mdash; envoy 1.16.0-374832 documentation</title>
+  <title>众所周知的客户端功能 &mdash; envoy 1.16.0-e647ee documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-374832
+                1.16.0-e647ee
               </div>
             
           
@@ -113,8 +113,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../api-v2/api.html">v2 API 参考</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api-v3/api.html">v3 API 参考</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api-docs/xds_protocol.html">xDS REST and gRPC protocol</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Well Known Client Features</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#currently-defined-client-features">Currently Defined Client Features</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">众所周知的客户端功能</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">当前定义的客户端功能</a></li>
 </ul>
 </li>
 </ul>
@@ -168,7 +168,7 @@
         
           <li><a href="api.html">API</a> &raquo;</li>
         
-      <li>Well Known Client Features</li>
+      <li>众所周知的客户端功能</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -187,25 +187,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="well-known-client-features">
-<span id="client-features"></span><h1>Well Known Client Features<a class="headerlink" href="#well-known-client-features" title="Permalink to this headline">¶</a></h1>
-<p>Authoritative list of features that an xDS client may support. An xDS client supplies the list of
-features it supports in the <a class="reference internal" href="../api-v2/api/v2/core/base.proto.html#envoy-api-field-core-node-client-features"><span class="std std-ref">client_features</span></a> field.
-Client features use reverse DNS naming scheme, for example <cite>com.acme.feature</cite>.</p>
-<div class="section" id="currently-defined-client-features">
-<h2>Currently Defined Client Features<a class="headerlink" href="#currently-defined-client-features" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="client-features">
+<span id="id1"></span><h1>众所周知的客户端功能<a class="headerlink" href="#client-features" title="Permalink to this headline">¶</a></h1>
+<p>xDS 客户端可能支持的功能的权威列表。xDS 客户端在 <a class="reference internal" href="../api-v2/api/v2/core/base.proto.html#envoy-api-field-core-node-client-features"><span class="std std-ref">client_features</span></a> 字段中提供了它支持的功能列表。客户端功能使用反向 DNS 命名方案，例如 <cite>com.acme.feature</cite>。</p>
+<div class="section" id="id2">
+<h2>当前定义的客户端功能<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><strong>envoy.config.require-any-fields-contain-struct</strong>: This feature indicates that xDS client
-requires that the configuration entries of type  <em>google.protobuf.Any</em> contain messages of type
-<em>udpa.type.v1.TypedStruct</em> only.</p></li>
-<li><p><strong>envoy.lb.does_not_support_overprovisioning</strong>: This feature indicates that the client does not
-support overprovisioning for priority failover and locality weighting as configured by the
-<a class="reference internal" href="../api-v2/api/v2/endpoint.proto.html#envoy-api-field-clusterloadassignment-policy-overprovisioning-factor"><span class="std std-ref">overprovisioning_factor</span></a>
-field. If graceful failover functionality is required, it must be supplied by the management
-server.</p></li>
-<li><p><strong>envoy.lrs.supports_send_all_clusters</strong>: This feature indicates that the client supports
-the <em>envoy_api_field_service.load_stats.v2.LoadStatsResponse.send_all_clusters</em>
-field in the LRS response.</p></li>
+<li><p><strong>envoy.config.require-any-fields-contain-struct</strong>: 此功能表明 xDS 客户端要求 <em>google.protobuf.Any</em> 类型的配置条目仅包含 <em>udpa.type.v1.TypedStruct</em> 类型的消息。</p></li>
+<li><p><strong>envoy.lb.does_not_support_overprovisioning</strong>: 此功能表明客户端不支持通过 <a class="reference internal" href="../api-v2/api/v2/endpoint.proto.html#envoy-api-field-clusterloadassignment-policy-overprovisioning-factor"><span class="std std-ref">overprovisioning_factor</span></a> 字段配置的优先级故障转移和位置加权的过度配置。如果需要正常的故障转移功能，则必须由管理服务器提供。</p></li>
+<li><p><strong>envoy.lrs.supports_send_all_clusters</strong>: 此功能表明客户端支持 LRS 响应中的 <em>envoy_api_field_service.load_stats.v2.LoadStatsResponse.send_all_clusters</em> 字段。</p></li>
 </ul>
 </div>
 </div>

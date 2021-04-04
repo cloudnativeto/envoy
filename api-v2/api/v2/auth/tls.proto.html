@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>TLS transport socket &mdash; envoy 1.16.0-374832 documentation</title>
+  <title>TLS transport socket &mdash; envoy 1.16.0-e647ee documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-374832
+                1.16.0-e647ee
               </div>
             
           
@@ -139,7 +139,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api-v3/api.html">v3 API 参考</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api-docs/xds_protocol.html">xDS REST and gRPC protocol</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../api/client_features.html">Well Known Client Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/client_features.html">众所周知的客户端功能</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../faq/overview.html">FAQ</a></li>
@@ -226,7 +226,7 @@
 <p>The TLS contexts below provide the transport socket configuration for upstream/downstream TLS.</p>
 <div class="section" id="auth-upstreamtlscontext">
 <span id="envoy-api-msg-auth-upstreamtlscontext"></span><h2>auth.UpstreamTlsContext<a class="headerlink" href="#auth-upstreamtlscontext" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/api/v2/auth/tls.proto#L25">[auth.UpstreamTlsContext proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e647ee2a2e802f05744ba7d2443f70dcda069318/api/envoy/api/v2/auth/tls.proto#L25">[auth.UpstreamTlsContext proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;common_tls_context&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;sni&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
@@ -266,7 +266,7 @@ for TLSv1.2 and older) to store for the purpose of session resumption.</p>
 </div>
 <div class="section" id="auth-downstreamtlscontext">
 <span id="envoy-api-msg-auth-downstreamtlscontext"></span><h2>auth.DownstreamTlsContext<a class="headerlink" href="#auth-downstreamtlscontext" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/api/v2/auth/tls.proto#L53">[auth.DownstreamTlsContext proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e647ee2a2e802f05744ba7d2443f70dcda069318/api/envoy/api/v2/auth/tls.proto#L53">[auth.DownstreamTlsContext proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;common_tls_context&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;require_client_certificate&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -318,7 +318,7 @@ only seconds could be specified (fractional seconds are going to be ignored).</p
 </div>
 <div class="section" id="auth-commontlscontext">
 <span id="envoy-api-msg-auth-commontlscontext"></span><h2>auth.CommonTlsContext<a class="headerlink" href="#auth-commontlscontext" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/api/v2/auth/tls.proto#L95">[auth.CommonTlsContext proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e647ee2a2e802f05744ba7d2443f70dcda069318/api/envoy/api/v2/auth/tls.proto#L95">[auth.CommonTlsContext proto]</a></p>
 <p>TLS context shared by both client and server TLS contexts.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;tls_params&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
@@ -383,7 +383,7 @@ parameter in the HTTP connection manager for more information):</p>
 </div>
 <div class="section" id="auth-commontlscontext-combinedcertificatevalidationcontext">
 <span id="envoy-api-msg-auth-commontlscontext-combinedcertificatevalidationcontext"></span><h2>auth.CommonTlsContext.CombinedCertificateValidationContext<a class="headerlink" href="#auth-commontlscontext-combinedcertificatevalidationcontext" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/374832c784d2793845572fede59b714262bdf6f7/api/envoy/api/v2/auth/tls.proto#L96">[auth.CommonTlsContext.CombinedCertificateValidationContext proto]</a></p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e647ee2a2e802f05744ba7d2443f70dcda069318/api/envoy/api/v2/auth/tls.proto#L96">[auth.CommonTlsContext.CombinedCertificateValidationContext proto]</a></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;default_validation_context&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span><span class="p">,</span>
   <span class="nt">&quot;validation_context_sds_secret_config&quot;</span><span class="p">:</span> <span class="s2">&quot;{...}&quot;</span>

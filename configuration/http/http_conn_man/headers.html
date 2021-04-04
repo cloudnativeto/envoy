@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>HTTP header manipulation &mdash; envoy 1.16.0-374832 documentation</title>
+  <title>HTTP 头部操作 &mdash; envoy 1.16.0-e647ee documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-374832
+                1.16.0-e647ee
               </div>
             
           
@@ -114,7 +114,7 @@
 <li class="toctree-l4"><a class="reference internal" href="route_matching.html">路由匹配</a></li>
 <li class="toctree-l4"><a class="reference internal" href="traffic_splitting.html">流量转移/拆分</a></li>
 <li class="toctree-l4"><a class="reference internal" href="header_casing.html">HTTP/1.1 头部大小写转换</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">HTTP header manipulation</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">HTTP 头部操作</a></li>
 <li class="toctree-l4"><a class="reference internal" href="header_sanitizing.html">HTTP header sanitizing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="local_reply.html">本地回复修改</a></li>
 <li class="toctree-l4"><a class="reference internal" href="response_code_details.html">响应代码详细信息</a></li>
@@ -193,7 +193,7 @@
         
           <li><a href="http_conn_man.html">HTTP 连接管理器</a> &raquo;</li>
         
-      <li>HTTP header manipulation</li>
+      <li>HTTP 头部操作</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -212,612 +212,450 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="http-header-manipulation">
-<span id="config-http-conn-man-headers"></span><h1>HTTP header manipulation<a class="headerlink" href="#http-header-manipulation" title="Permalink to this headline">¶</a></h1>
-<p>The HTTP connection manager manipulates several HTTP headers both during decoding (when the request
-is being received) as well as during encoding (when the response is being sent).</p>
+  <div class="section" id="http">
+<span id="config-http-conn-man-headers"></span><h1>HTTP 头部操作<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h1>
+<p>HTTP 连接管理器在解码过程中（接收请求时）和编码过程中（发送响应时）都会操作多项 HTTP 头部。</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#user-agent" id="id1">user-agent</a></p></li>
-<li><p><a class="reference internal" href="#server" id="id2">server</a></p></li>
-<li><p><a class="reference internal" href="#x-client-trace-id" id="id3">x-client-trace-id</a></p></li>
-<li><p><a class="reference internal" href="#x-envoy-downstream-service-cluster" id="id4">x-envoy-downstream-service-cluster</a></p></li>
-<li><p><a class="reference internal" href="#x-envoy-downstream-service-node" id="id5">x-envoy-downstream-service-node</a></p></li>
-<li><p><a class="reference internal" href="#x-envoy-external-address" id="id6">x-envoy-external-address</a></p></li>
-<li><p><a class="reference internal" href="#x-envoy-force-trace" id="id7">x-envoy-force-trace</a></p></li>
-<li><p><a class="reference internal" href="#x-envoy-internal" id="id8">x-envoy-internal</a></p></li>
-<li><p><a class="reference internal" href="#x-envoy-original-dst-host" id="id9">x-envoy-original-dst-host</a></p></li>
-<li><p><a class="reference internal" href="#x-forwarded-client-cert" id="id10">x-forwarded-client-cert</a></p></li>
-<li><p><a class="reference internal" href="#x-forwarded-for" id="id11">x-forwarded-for</a></p></li>
-<li><p><a class="reference internal" href="#x-forwarded-proto" id="id12">x-forwarded-proto</a></p></li>
-<li><p><a class="reference internal" href="#x-request-id" id="id13">x-request-id</a></p></li>
-<li><p><a class="reference internal" href="#x-ot-span-context" id="id14">x-ot-span-context</a></p></li>
-<li><p><a class="reference internal" href="#x-b3-traceid" id="id15">x-b3-traceid</a></p></li>
-<li><p><a class="reference internal" href="#x-b3-spanid" id="id16">x-b3-spanid</a></p></li>
-<li><p><a class="reference internal" href="#x-b3-parentspanid" id="id17">x-b3-parentspanid</a></p></li>
-<li><p><a class="reference internal" href="#x-b3-sampled" id="id18">x-b3-sampled</a></p></li>
-<li><p><a class="reference internal" href="#x-b3-flags" id="id19">x-b3-flags</a></p></li>
-<li><p><a class="reference internal" href="#b3" id="id20">b3</a></p></li>
-<li><p><a class="reference internal" href="#x-datadog-trace-id" id="id21">x-datadog-trace-id</a></p></li>
-<li><p><a class="reference internal" href="#x-datadog-parent-id" id="id22">x-datadog-parent-id</a></p></li>
-<li><p><a class="reference internal" href="#x-datadog-sampling-priority" id="id23">x-datadog-sampling-priority</a></p></li>
-<li><p><a class="reference internal" href="#custom-request-response-headers" id="id24">Custom request/response headers</a></p></li>
+<li><p><a class="reference internal" href="#user-agent" id="id2">user-agent</a></p></li>
+<li><p><a class="reference internal" href="#server" id="id3">server</a></p></li>
+<li><p><a class="reference internal" href="#x-client-trace-id" id="id4">x-client-trace-id</a></p></li>
+<li><p><a class="reference internal" href="#x-envoy-downstream-service-cluster" id="id5">x-envoy-downstream-service-cluster</a></p></li>
+<li><p><a class="reference internal" href="#x-envoy-downstream-service-node" id="id6">x-envoy-downstream-service-node</a></p></li>
+<li><p><a class="reference internal" href="#x-envoy-external-address" id="id7">x-envoy-external-address</a></p></li>
+<li><p><a class="reference internal" href="#x-envoy-force-trace" id="id8">x-envoy-force-trace</a></p></li>
+<li><p><a class="reference internal" href="#x-envoy-internal" id="id9">x-envoy-internal</a></p></li>
+<li><p><a class="reference internal" href="#x-envoy-original-dst-host" id="id10">x-envoy-original-dst-host</a></p></li>
+<li><p><a class="reference internal" href="#x-forwarded-client-cert" id="id11">x-forwarded-client-cert</a></p></li>
+<li><p><a class="reference internal" href="#x-forwarded-for" id="id12">x-forwarded-for</a></p></li>
+<li><p><a class="reference internal" href="#x-forwarded-proto" id="id13">x-forwarded-proto</a></p></li>
+<li><p><a class="reference internal" href="#x-request-id" id="id14">x-request-id</a></p></li>
+<li><p><a class="reference internal" href="#x-ot-span-context" id="id15">x-ot-span-context</a></p></li>
+<li><p><a class="reference internal" href="#x-b3-traceid" id="id16">x-b3-traceid</a></p></li>
+<li><p><a class="reference internal" href="#x-b3-spanid" id="id17">x-b3-spanid</a></p></li>
+<li><p><a class="reference internal" href="#x-b3-parentspanid" id="id18">x-b3-parentspanid</a></p></li>
+<li><p><a class="reference internal" href="#x-b3-sampled" id="id19">x-b3-sampled</a></p></li>
+<li><p><a class="reference internal" href="#x-b3-flags" id="id20">x-b3-flags</a></p></li>
+<li><p><a class="reference internal" href="#b3" id="id21">b3</a></p></li>
+<li><p><a class="reference internal" href="#x-datadog-trace-id" id="id22">x-datadog-trace-id</a></p></li>
+<li><p><a class="reference internal" href="#x-datadog-parent-id" id="id23">x-datadog-parent-id</a></p></li>
+<li><p><a class="reference internal" href="#x-datadog-sampling-priority" id="id24">x-datadog-sampling-priority</a></p></li>
+<li><p><a class="reference internal" href="#config-http-conn-man-headers-custom-request-headers" id="id25">自定义的请求/响应头部</a></p></li>
 </ul>
 </div>
 <div class="section" id="user-agent">
-<span id="config-http-conn-man-headers-user-agent"></span><h2><a class="toc-backref" href="#id1">user-agent</a><a class="headerlink" href="#user-agent" title="Permalink to this headline">¶</a></h2>
-<p>The <em>user-agent</em> header may be set by the connection manager during decoding if the <a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-add-user-agent"><span class="std std-ref">add_user_agent</span></a> option is
-enabled. The header is only modified if it is not already set. If the connection manager does set the header, the value
-is determined by the <a class="reference internal" href="../../../operations/cli.html#cmdoption-service-cluster"><code class="xref std std-option docutils literal notranslate"><span class="pre">--service-cluster</span></code></a> command line option.</p>
+<span id="config-http-conn-man-headers-user-agent"></span><h2><a class="toc-backref" href="#id2">user-agent</a><a class="headerlink" href="#user-agent" title="Permalink to this headline">¶</a></h2>
+<p>当启用 <a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-add-user-agent"><span class="std std-ref">add_user_agent</span></a> 选项后，连接管理器可以在解码时设定 <em>user-agent</em> 头部。该头部只有在尚未设置的情况下才能被修改。如果由连接管理器来设置该头部，则该值由 <a class="reference internal" href="../../../operations/cli.html#cmdoption-service-cluster"><code class="xref std std-option docutils literal notranslate"><span class="pre">--service-cluster</span></code></a> 命令行选项来确定。</p>
 </div>
 <div class="section" id="server">
-<span id="config-http-conn-man-headers-server"></span><h2><a class="toc-backref" href="#id2">server</a><a class="headerlink" href="#server" title="Permalink to this headline">¶</a></h2>
-<p>The <em>server</em> header will be set during encoding to the value in the <a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-server-name"><span class="std std-ref">server_name</span></a> option.</p>
+<span id="config-http-conn-man-headers-server"></span><h2><a class="toc-backref" href="#id3">server</a><a class="headerlink" href="#server" title="Permalink to this headline">¶</a></h2>
+<p><em>server</em> 头部会在编码时被设置为 <a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-server-name"><span class="std std-ref">server_name</span></a> 选项中的值。</p>
 </div>
 <div class="section" id="x-client-trace-id">
-<span id="config-http-conn-man-headers-x-client-trace-id"></span><h2><a class="toc-backref" href="#id3">x-client-trace-id</a><a class="headerlink" href="#x-client-trace-id" title="Permalink to this headline">¶</a></h2>
-<p>If an external client sets this header, Envoy will join the provided trace ID with the internally
-generated <a class="reference internal" href="#config-http-conn-man-headers-x-request-id"><span class="std std-ref">x-request-id</span></a>. x-client-trace-id needs to be globally
-unique and generating a uuid4 is recommended. If this header is set, it has similar effect to
-<a class="reference internal" href="#config-http-conn-man-headers-x-envoy-force-trace"><span class="std std-ref">x-envoy-force-trace</span></a>. See the <a class="reference internal" href="runtime.html#config-http-conn-man-runtime-client-enabled"><span class="std std-ref">tracing.client_enabled</span></a> runtime configuration setting.</p>
+<span id="config-http-conn-man-headers-x-client-trace-id"></span><h2><a class="toc-backref" href="#id4">x-client-trace-id</a><a class="headerlink" href="#x-client-trace-id" title="Permalink to this headline">¶</a></h2>
+<p>如果外部客户端设置了该头部, Envoy 会将设置的 trace ID 与内部生成的 <a class="reference internal" href="#config-http-conn-man-headers-x-request-id"><span class="std std-ref">x-request-id</span></a> 拼接起来。x-client-trace-id 需要保持全局的唯一性，我们推荐以 uuid4 的方式生成 ID。如果设置了此头部，它与 <a class="reference internal" href="#config-http-conn-man-headers-x-envoy-force-trace"><span class="std std-ref">x-envoy-force-trace</span></a> 有类似的效果。请参考 <a class="reference internal" href="runtime.html#config-http-conn-man-runtime-client-enabled"><span class="std std-ref">tracing.client_enabled</span></a> 运行时设置。</p>
 </div>
 <div class="section" id="x-envoy-downstream-service-cluster">
-<span id="config-http-conn-man-headers-downstream-service-cluster"></span><h2><a class="toc-backref" href="#id4">x-envoy-downstream-service-cluster</a><a class="headerlink" href="#x-envoy-downstream-service-cluster" title="Permalink to this headline">¶</a></h2>
-<p>Internal services often want to know which service is calling them. This header is cleaned from
-external requests, but for internal requests will contain the service cluster of the caller. Note
-that in the current implementation, this should be considered a hint as it is set by the caller and
-could be easily spoofed by any internal entity. In the future Envoy will support a mutual
-authentication TLS mesh which will make this header fully secure. Like <em>user-agent</em>, the value
-is determined by the <a class="reference internal" href="../../../operations/cli.html#cmdoption-service-cluster"><code class="xref std std-option docutils literal notranslate"><span class="pre">--service-cluster</span></code></a> command line option. In order to enable this
-feature you need to set the <a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-add-user-agent"><span class="std std-ref">user_agent</span></a> option to true.</p>
+<span id="config-http-conn-man-headers-downstream-service-cluster"></span><h2><a class="toc-backref" href="#id5">x-envoy-downstream-service-cluster</a><a class="headerlink" href="#x-envoy-downstream-service-cluster" title="Permalink to this headline">¶</a></h2>
+<p>内部服务通常想知道哪个服务正在调用它们。外部调用的该头部会被清除，而内部调用则会在该头部中携带调用者的服务器集群信息。请注意在当前的实现中，它只是一个参考值，因为它虽然是由调用方设置的，但很容易被任意内部的实体篡改。将来，Envoy 将支持相互认证的 TLS 网格，从而让这个头部具有完整的安全性。类似 <em>user-agent</em>，该值由 <a class="reference internal" href="../../../operations/cli.html#cmdoption-service-cluster"><code class="xref std std-option docutils literal notranslate"><span class="pre">--service-cluster</span></code></a> 命令行选项决定。如果要启用此功能，你需要设置 <a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-add-user-agent"><span class="std std-ref">user_agent</span></a> 选项为 true。</p>
 </div>
 <div class="section" id="x-envoy-downstream-service-node">
-<span id="config-http-conn-man-headers-downstream-service-node"></span><h2><a class="toc-backref" href="#id5">x-envoy-downstream-service-node</a><a class="headerlink" href="#x-envoy-downstream-service-node" title="Permalink to this headline">¶</a></h2>
-<p>Internal services may want to know the downstream node request comes from. This header
-is quite similar to <a class="reference internal" href="#config-http-conn-man-headers-downstream-service-cluster"><span class="std std-ref">x-envoy-downstream-service-cluster</span></a>, except the value is taken from
-the  <a class="reference internal" href="../../../operations/cli.html#cmdoption-service-node"><code class="xref std std-option docutils literal notranslate"><span class="pre">--service-node</span></code></a> option.</p>
+<span id="config-http-conn-man-headers-downstream-service-node"></span><h2><a class="toc-backref" href="#id6">x-envoy-downstream-service-node</a><a class="headerlink" href="#x-envoy-downstream-service-node" title="Permalink to this headline">¶</a></h2>
+<p>内部服务通常想知道哪个下游节点在调用它们。该头部与 <a class="reference internal" href="#config-http-conn-man-headers-downstream-service-cluster"><span class="std std-ref">x-envoy-downstream-service-cluster</span></a> 非常类似，不同之处在于它的值来自于 <a class="reference internal" href="../../../operations/cli.html#cmdoption-service-node"><code class="xref std std-option docutils literal notranslate"><span class="pre">--service-node</span></code></a> 选项。</p>
 </div>
 <div class="section" id="x-envoy-external-address">
-<span id="config-http-conn-man-headers-x-envoy-external-address"></span><h2><a class="toc-backref" href="#id6">x-envoy-external-address</a><a class="headerlink" href="#x-envoy-external-address" title="Permalink to this headline">¶</a></h2>
-<p>It is a common case where a service wants to perform analytics based on the origin client’s IP
-address. Per the lengthy discussion on <a class="reference internal" href="#config-http-conn-man-headers-x-forwarded-for"><span class="std std-ref">XFF</span></a>,
-this can get quite complicated, so Envoy simplifies this by setting <em>x-envoy-external-address</em>
-to the <a class="reference internal" href="#config-http-conn-man-headers-x-forwarded-for-trusted-client-address"><span class="std std-ref">trusted client address</span></a>
-if the request is from an external client. <em>x-envoy-external-address</em> is not set or overwritten
-for internal requests. This header can be safely forwarded between internal services for analytics
-purposes without having to deal with the complexities of XFF.</p>
+<span id="config-http-conn-man-headers-x-envoy-external-address"></span><h2><a class="toc-backref" href="#id7">x-envoy-external-address</a><a class="headerlink" href="#x-envoy-external-address" title="Permalink to this headline">¶</a></h2>
+<p>服务希望根据原始客户端的 IP 地址做分析，这是一种常见的案例。然而真的实现它却可能是一件非常复杂的事情，可以参阅关于 <a class="reference internal" href="#config-http-conn-man-headers-x-forwarded-for"><span class="std std-ref">XFF</span></a> 的冗长讨论。因此 Envoy 提供的简化方案是，当请求来源于外部客户端时，将 <em>x-envoy-external-address</em> 设为 <a class="reference internal" href="#config-http-conn-man-headers-x-forwarded-for-trusted-client-address"><span class="std std-ref">可信客户端地址</span></a>，当请求来源于内部时，将 <em>x-envoy-external-address</em> 设空或重置。为了达到分析目的，可以在内部服务之间安全地转发此头部，而无需处理复杂的 XFF。</p>
 </div>
 <div class="section" id="x-envoy-force-trace">
-<span id="config-http-conn-man-headers-x-envoy-force-trace"></span><h2><a class="toc-backref" href="#id7">x-envoy-force-trace</a><a class="headerlink" href="#x-envoy-force-trace" title="Permalink to this headline">¶</a></h2>
-<p>If an internal request sets this header, Envoy will modify the generated
-<a class="reference internal" href="#config-http-conn-man-headers-x-request-id"><span class="std std-ref">x-request-id</span></a> such that it forces traces to be collected.
-This also forces <a class="reference internal" href="#config-http-conn-man-headers-x-request-id"><span class="std std-ref">x-request-id</span></a> to be returned in the response
-headers. If this request ID is then propagated to other hosts, traces will also be collected on
-those hosts which will provide a consistent trace for an entire request flow. See the
-<a class="reference internal" href="runtime.html#config-http-conn-man-runtime-global-enabled"><span class="std std-ref">tracing.global_enabled</span></a> and
-<a class="reference internal" href="runtime.html#config-http-conn-man-runtime-random-sampling"><span class="std std-ref">tracing.random_sampling</span></a> runtime
-configuration settings.</p>
+<span id="config-http-conn-man-headers-x-envoy-force-trace"></span><h2><a class="toc-backref" href="#id8">x-envoy-force-trace</a><a class="headerlink" href="#x-envoy-force-trace" title="Permalink to this headline">¶</a></h2>
+<p>如果内部请求设置了这个头部，Envoy 会修改生成的 <a class="reference internal" href="#config-http-conn-man-headers-x-request-id"><span class="std std-ref">x-request-id</span></a> 并强制采集跟踪信息。这也使得响应头部中强制返回  <a class="reference internal" href="#config-http-conn-man-headers-x-request-id"><span class="std std-ref">x-request-id</span></a>。如果 request ID 随后传播到其它主机，这些主机也会采集跟踪信息，从而形成一个完整的请求跟踪链。请参考 <a class="reference internal" href="runtime.html#config-http-conn-man-runtime-global-enabled"><span class="std std-ref">tracing.global_enabled</span></a> 和 <a class="reference internal" href="runtime.html#config-http-conn-man-runtime-random-sampling"><span class="std std-ref">tracing.random_sampling</span></a> 的运行时配置。</p>
 </div>
 <div class="section" id="x-envoy-internal">
-<span id="config-http-conn-man-headers-x-envoy-internal"></span><h2><a class="toc-backref" href="#id8">x-envoy-internal</a><a class="headerlink" href="#x-envoy-internal" title="Permalink to this headline">¶</a></h2>
-<p>It is a common case where a service wants to know whether a request is internal origin or not. Envoy
-uses <a class="reference internal" href="#config-http-conn-man-headers-x-forwarded-for"><span class="std std-ref">XFF</span></a> to determine this and then will set
-the header value to <em>true</em>.</p>
-<p>This is a convenience to avoid having to parse and understand XFF.</p>
+<span id="config-http-conn-man-headers-x-envoy-internal"></span><h2><a class="toc-backref" href="#id9">x-envoy-internal</a><a class="headerlink" href="#x-envoy-internal" title="Permalink to this headline">¶</a></h2>
+<p>服务通常想知道请求是否来源于内部。Envoy 使用 <a class="reference internal" href="#config-http-conn-man-headers-x-forwarded-for"><span class="std std-ref">XFF</span></a> 作为判断依据来决定是否将该值设置为 <em>true</em>。这有利于避免解析和处理 XFF。</p>
 </div>
 <div class="section" id="x-envoy-original-dst-host">
-<span id="config-http-conn-man-headers-x-envoy-original-dst-host"></span><h2><a class="toc-backref" href="#id9">x-envoy-original-dst-host</a><a class="headerlink" href="#x-envoy-original-dst-host" title="Permalink to this headline">¶</a></h2>
-<p>The header used to override destination address when using the
-<a class="reference internal" href="../../../intro/arch_overview/upstream/load_balancing/original_dst.html#arch-overview-load-balancing-types-original-destination"><span class="std std-ref">Original Destination</span></a>
-load balancing policy.</p>
-<p>It is ignored, unless the use of it is enabled via
-<a class="reference internal" href="../../../api-v3/config/cluster/v3/cluster.proto.html#envoy-v3-api-field-config-cluster-v3-cluster-originaldstlbconfig-use-http-header"><span class="std std-ref">use_http_header</span></a>.</p>
+<span id="config-http-conn-man-headers-x-envoy-original-dst-host"></span><h2><a class="toc-backref" href="#id10">x-envoy-original-dst-host</a><a class="headerlink" href="#x-envoy-original-dst-host" title="Permalink to this headline">¶</a></h2>
+<p>当启用 <a class="reference internal" href="../../../intro/arch_overview/upstream/load_balancing/original_dst.html#arch-overview-load-balancing-types-original-destination"><span class="std std-ref">原始目标</span></a> 负载均衡策略时，可以使用该头部来覆盖目标地址。</p>
+<p>默认设置是忽略该头部，除非通过 <a class="reference internal" href="../../../api-v3/config/cluster/v3/cluster.proto.html#envoy-v3-api-field-config-cluster-v3-cluster-originaldstlbconfig-use-http-header"><span class="std std-ref">use_http_header</span></a> 启用。</p>
 </div>
 <div class="section" id="x-forwarded-client-cert">
-<span id="config-http-conn-man-headers-x-forwarded-client-cert"></span><h2><a class="toc-backref" href="#id10">x-forwarded-client-cert</a><a class="headerlink" href="#x-forwarded-client-cert" title="Permalink to this headline">¶</a></h2>
-<p><em>x-forwarded-client-cert</em> (XFCC) is a proxy header which indicates certificate information of part
-or all of the clients or proxies that a request has flowed through, on its way from the client to the
-server. A proxy may choose to sanitize/append/forward the XFCC header before proxying the request.</p>
-<p>The XFCC header value is a comma (“,”) separated string. Each substring is an XFCC element, which
-holds information added by a single proxy. A proxy can append the current client certificate
-information as an XFCC element, to the end of the request’s XFCC header after a comma.</p>
-<p>Each XFCC element is a semicolon “;” separated string. Each substring is a key-value pair, grouped
-together by an equals (“=”) sign. The keys are case-insensitive, the values are case-sensitive. If
-“,”, “;” or “=” appear in a value, the value should be double-quoted. Double-quotes in the value
-should be replaced by backslash-double-quote (&quot;).</p>
-<p>The following keys are supported:</p>
+<span id="config-http-conn-man-headers-x-forwarded-client-cert"></span><h2><a class="toc-backref" href="#id11">x-forwarded-client-cert</a><a class="headerlink" href="#x-forwarded-client-cert" title="Permalink to this headline">¶</a></h2>
+<p><em>x-forwarded-client-cert</em> (XFCC) 是一个代理头部，它携带了从客户端到服务器的请求路径中的部分或全部客户端、代理服务器的证书信息。代理服务器可以在代理请求之前清理/追加/转发 XFCC 头部。</p>
+<p>XFCC 头部值是一个用逗号（“,”）分隔的字符串。每个子字符串是一个 XFCC 元素，它保存了每个代理添加的信息。代理可以将当前客户端证书信息作为 XFCC 元素追加到请求的 XFCC 头部的结尾，并用逗号分隔。</p>
+<p>每个 XFCC 元素是一个用分号“;”分隔的字符串。每个子字符串是一个用等号（“=”）组合的键值对。键不区分大小写，值区分大小写。如果值中存在字符 “,”、“;”或“=”，则应该用双引号标出。如果值中存在字符双引号，则应该使用反斜杠加双引号标出（&quot;）。</p>
+<p>支持以下键名：</p>
 <ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">By</span></code> The Subject Alternative Name (URI type) of the current proxy’s certificate.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Hash</span></code> The SHA 256 digest of the current client certificate.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Cert</span></code> The entire client certificate in URL encoded PEM format.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Chain</span></code> The entire client certificate chain (including the leaf certificate) in URL encoded PEM format.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Subject</span></code> The Subject field of the current client certificate. The value is always double-quoted.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">URI</span></code> The URI type Subject Alternative Name field of the current client certificate.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DNS</span></code> The DNS type Subject Alternative Name field of the current client certificate. A client certificate may contain multiple DNS type Subject Alternative Names, each will be a separate key-value pair.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">By</span></code> 当前代理的证书的主体别名（Subject Alternative Name，SAN，URI 类型）。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Hash</span></code> 当前客户端证书的 SHA 256 摘要。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Cert</span></code> 当前客户端的完整证书，格式为 URL 编码的 PEM 格式。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Chain</span></code> 完整的证书链（包括叶节点证书），格式为 URL 编码的 PEM 格式。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Subject</span></code> 当前客户端的主题（Subject）字段。该值总是用双引号括起来。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">URI</span></code> 当前客户端的证书的 URI 类型的 SAN 字段。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DNS</span></code> 当前客户端的证书的 DNS 类型的 SAN 字段。一个客户端证书可能包含多个 DNS 类型的 SAN 字段，这些字段都是独立的键值对。</p></li>
 </ol>
-<p>A client certificate may contain multiple Subject Alternative Name types. For details on different Subject Alternative Name types, please refer <a class="reference external" href="https://tools.ietf.org/html/rfc2459#section-4.2.1.7">RFC 2459</a>.</p>
-<p>Some examples of the XFCC header are:</p>
+<p>一个客户端证书可能包含多个 SAN 类型。关于不同 SAN 类型的说明，请参考 <a class="reference external" href="https://tools.ietf.org/html/rfc2459#section-4.2.1.7">RFC 2459</a>。</p>
+<p>以下为 XFCC 头部的一些例子：</p>
 <ol class="arabic simple">
-<li><p>For one client certificate with only URI type Subject Alternative Name: <code class="docutils literal notranslate"><span class="pre">x-forwarded-client-cert:</span> <span class="pre">By=http://frontend.lyft.com;Hash=468ed33be74eee6556d90c0149c1309e9ba61d6425303443c0748a02dd8de688;Subject=&quot;/C=US/ST=CA/L=San</span> <span class="pre">Francisco/OU=Lyft/CN=Test</span> <span class="pre">Client&quot;;URI=http://testclient.lyft.com</span></code></p></li>
-<li><p>For two client certificates with only URI type Subject Alternative Name: <code class="docutils literal notranslate"><span class="pre">x-forwarded-client-cert:</span> <span class="pre">By=http://frontend.lyft.com;Hash=468ed33be74eee6556d90c0149c1309e9ba61d6425303443c0748a02dd8de688;URI=http://testclient.lyft.com,By=http://backend.lyft.com;Hash=9ba61d6425303443c0748a02dd8de688468ed33be74eee6556d90c0149c1309e;URI=http://frontend.lyft.com</span></code></p></li>
-<li><p>For one client certificate with both URI type and DNS type Subject Alternative Name: <code class="docutils literal notranslate"><span class="pre">x-forwarded-client-cert:</span> <span class="pre">By=http://frontend.lyft.com;Hash=468ed33be74eee6556d90c0149c1309e9ba61d6425303443c0748a02dd8de688;Subject=&quot;/C=US/ST=CA/L=San</span> <span class="pre">Francisco/OU=Lyft/CN=Test</span> <span class="pre">Client&quot;;URI=http://testclient.lyft.com;DNS=lyft.com;DNS=www.lyft.com</span></code></p></li>
+<li><p>单客户端证书，且只有 URI 类型 SAN 字段的例子：<code class="docutils literal notranslate"><span class="pre">x-forwarded-client-cert:</span> <span class="pre">By=http://frontend.lyft.com;Hash=468ed33be74eee6556d90c0149c1309e9ba61d6425303443c0748a02dd8de688;Subject=&quot;/C=US/ST=CA/L=San</span> <span class="pre">Francisco/OU=Lyft/CN=Test</span> <span class="pre">Client&quot;;URI=http://testclient.lyft.com</span></code></p></li>
+<li><p>两个客户端证书，且只有 URI 类型 SAN 字段的例子：<code class="docutils literal notranslate"><span class="pre">x-forwarded-client-cert:</span> <span class="pre">By=http://frontend.lyft.com;Hash=468ed33be74eee6556d90c0149c1309e9ba61d6425303443c0748a02dd8de688;URI=http://testclient.lyft.com,By=http://backend.lyft.com;Hash=9ba61d6425303443c0748a02dd8de688468ed33be74eee6556d90c0149c1309e;URI=http://frontend.lyft.com</span></code></p></li>
+<li><p>单客户端证书，但同时有 URI 类型和 DNS 类型 SAN 字段的例子：<code class="docutils literal notranslate"><span class="pre">x-forwarded-client-cert:</span> <span class="pre">By=http://frontend.lyft.com;Hash=468ed33be74eee6556d90c0149c1309e9ba61d6425303443c0748a02dd8de688;Subject=&quot;/C=US/ST=CA/L=San</span> <span class="pre">Francisco/OU=Lyft/CN=Test</span> <span class="pre">Client&quot;;URI=http://testclient.lyft.com;DNS=lyft.com;DNS=www.lyft.com</span></code></p></li>
 </ol>
-<p>How Envoy processes XFCC is specified by the
-<a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-forward-client-cert-details"><span class="std std-ref">forward_client_cert_details</span></a>
-and the
-<a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-set-current-client-cert-details"><span class="std std-ref">set_current_client_cert_details</span></a>
-HTTP connection manager options. If <em>forward_client_cert_details</em> is unset, the XFCC header will be sanitized by
-default.</p>
+<p>Envoy 处理 XFCC 的方式由 <a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-forward-client-cert-details"><span class="std std-ref">forward_client_cert_details</span></a> 和 <a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-set-current-client-cert-details"><span class="std std-ref">set_current_client_cert_details</span></a>
+HTTP 连接管理器选项指定。如果未设置 <em>forward_client_cert_details</em>，默认情况下会清理 XFCC 头部。</p>
 </div>
 <div class="section" id="x-forwarded-for">
-<span id="config-http-conn-man-headers-x-forwarded-for"></span><h2><a class="toc-backref" href="#id11">x-forwarded-for</a><a class="headerlink" href="#x-forwarded-for" title="Permalink to this headline">¶</a></h2>
-<p><em>x-forwarded-for</em> (XFF) is a standard proxy header which indicates the IP addresses that a request has
-flowed through on its way from the client to the server. A compliant proxy will <em>append</em> the IP
-address of the nearest client to the XFF list before proxying the request. Some examples of XFF are:</p>
+<span id="config-http-conn-man-headers-x-forwarded-for"></span><h2><a class="toc-backref" href="#id12">x-forwarded-for</a><a class="headerlink" href="#x-forwarded-for" title="Permalink to this headline">¶</a></h2>
+<p><em>x-forwarded-for</em> (XFF) 是一个标准的代理头部，它携带了请求从客户端到服务器的路径上流经的每个节点的 IP 地址。遵守兼容规范的代理会在代理请求前，将最近一个客户端的 IP <em>追加</em> 至 XFF 列表的末端。XFF 的一些例子是：</p>
 <ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">x-forwarded-for:</span> <span class="pre">50.0.0.1</span></code> (single client)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x-forwarded-for:</span> <span class="pre">50.0.0.1,</span> <span class="pre">40.0.0.1</span></code> (external proxy hop)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x-forwarded-for:</span> <span class="pre">50.0.0.1,</span> <span class="pre">10.0.0.1</span></code> (internal proxy hop)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x-forwarded-for:</span> <span class="pre">50.0.0.1</span></code> （单客户端）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x-forwarded-for:</span> <span class="pre">50.0.0.1,</span> <span class="pre">40.0.0.1</span></code> （外部代理跳）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x-forwarded-for:</span> <span class="pre">50.0.0.1,</span> <span class="pre">10.0.0.1</span></code> （内部代理跳）</p></li>
 </ol>
-<p>Envoy will only append to XFF if the <a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-use-remote-address"><span class="std std-ref">use_remote_address</span></a>
-HTTP connection manager option is set to true and the <a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-skip-xff-append"><span class="std std-ref">skip_xff_append</span></a>
-is set false. This means that if <em>use_remote_address</em> is false (which is the default) or
-<em>skip_xff_append</em> is true, the connection manager operates in a transparent mode where it does not
-modify XFF.</p>
+<p>Envoy 追加 XFF 的前提是 <a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-use-remote-address"><span class="std std-ref">use_remote_address</span></a>
+HTTP 连接管理选项设置为 true 并且 <a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-skip-xff-append"><span class="std std-ref">skip_xff_append</span></a> 设置为 false。这意味着如果 <em>use_remote_address</em> 为 false（这是默认值）或 <em>skip_xff_append</em> 为 true，则连接管理器将以不修改 XFF 的透明模式运行。</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>In general, <em>use_remote_address</em> should be set to true when Envoy is deployed as an edge
-node (aka a front proxy), whereas it may need to be set to false when Envoy is used as
-an internal service node in a mesh deployment.</p>
+<p>通常来说，如果把 Envoy 作为边缘节点（又名前端代理）部署使用时，应当将 <em>use_remote_address</em> 设置为 true。如果将 Envoy 作为网格中的内部服务节点部署时，应当将它设置为 false。</p>
 </div>
-<p id="config-http-conn-man-headers-x-forwarded-for-trusted-client-address">The value of <em>use_remote_address</em> controls how Envoy determines the <em>trusted client address</em>.
-Given an HTTP request that has traveled through a series of zero or more proxies to reach
-Envoy, the trusted client address is the earliest source IP address that is known to be
-accurate. The source IP address of the immediate downstream node’s connection to Envoy is
-trusted. XFF <em>sometimes</em> can be trusted. Malicious clients can forge XFF, but the last
-address in XFF can be trusted if it was put there by a trusted proxy.</p>
-<p>Envoy’s default rules for determining the trusted client address (<em>before</em> appending anything
-to XFF) are:</p>
+<p id="config-http-conn-man-headers-x-forwarded-for-trusted-client-address"><em>use_remote_address</em> 的值控制 Envoy 如何确定*可信客户端地址*。当 HTTP 请求经由一系列代理（零个或多个）传到 Envoy，可信的客户端地址是指已知准确的源 IP 地址中最早的那个。与 Envoy 直接连接的下游节点的源 IP 地址是可信的。XFF 在*有些场景下*是可信的。恶意客户端可以伪造 XFF，但如果 XFF 中最后一个地址是由可信代理传入的，那么它也是可信的。</p>
+<p>Envoy 用于确定可信客户端地址（在向 XFF 追加任何内容*之前*）的默认规则是：</p>
 <ul class="simple">
-<li><p>If <em>use_remote_address</em> is false and an XFF containing at least one IP address is
-present in the request, the trusted client address is the <em>last</em> (rightmost) IP address in XFF.</p></li>
-<li><p>Otherwise, the trusted client address is the source IP address of the immediate downstream
-node’s connection to Envoy.</p></li>
+<li><p>如果 <em>use_remote_address</em> 为 false 且请求的 XFF 中至少包含一个 IP address，则可信客户端地址取 XFF 中*最后*（即最右）一个 IP 地址。</p></li>
+<li><p>否则，可信客户端地址取与 Envoy 直接连接的下游节点的源 IP 地址。</p></li>
 </ul>
-<p>In an environment where there are one or more trusted proxies in front of an edge
-Envoy instance, the <em>xff_num_trusted_hops</em> configuration option can be used to trust
-additional addresses from XFF:</p>
+<p>如果在边缘部署的 Envoy 实例前还部署有一个或多个可信的代理时，可以使用 <em>xff_num_trusted_hops</em> 配置项来信任更多的来自于 XFF 的地址。</p>
 <ul class="simple">
-<li><p>If <em>use_remote_address</em> is false and <em>xff_num_trusted_hops</em> is set to a value <em>N</em> that is
-greater than zero, the trusted client address is the (N+1)th address from the right end
-of XFF. (If the XFF contains fewer than N+1 addresses, Envoy falls back to using the
-immediate downstream connection’s source address as trusted client address.)</p></li>
-<li><p>If <em>use_remote_address</em> is true and <em>xff_num_trusted_hops</em> is set to a value <em>N</em> that is
-greater than zero, the trusted client address is the Nth address from the right end
-of XFF. (If the XFF contains fewer than N addresses, Envoy falls back to using the
-immediate downstream connection’s source address as trusted client address.)</p></li>
+<li><p>如果 <em>use_remote_address</em> 为 false 且 <em>xff_num_trusted_hops</em> 被设置为一个大于零的值 <em>N</em>，则可信客户端地址为 XFF 右侧起的第 N+1 个地址。（如果 XFF 中的地址数量少于 N+1，则 Envoy 会使用直接连接的下游节点的源 IP 地址）。</p></li>
+<li><p>如果 <em>use_remote_address</em> 为 true 且 <em>xff_num_trusted_hops</em> 被设置为一个大于零的值 <em>N</em>，则可信客户端地址为 XFF 右侧起的第 N 个地址。（如果 XFF 中的地址数量少于 N，则 Envoy 会使用直接连接的下游节点的源 IP 地址）。</p></li>
 </ul>
-<p>Envoy uses the trusted client address contents to determine whether a request originated
-externally or internally. This influences whether the
-<a class="reference internal" href="#config-http-conn-man-headers-x-envoy-internal"><span class="std std-ref">x-envoy-internal</span></a> header is set.</p>
+<p>Envoy 使用可信的客户端地址内容来确定请求是发起于外部还是内部。这会影响是否设置了 <a class="reference internal" href="#config-http-conn-man-headers-x-envoy-internal"><span class="std std-ref">x-envoy-internal</span></a> 头部。</p>
 <dl>
-<dt>Example 1: Envoy as edge proxy, without a trusted proxy in front of it</dt><dd><dl>
-<dt>Settings:</dt><dd><div class="line-block">
+<dt>示例 1：Envoy 作为边缘代理，在它前面没有可信代理</dt><dd><dl>
+<dt>设置：</dt><dd><div class="line-block">
 <div class="line">use_remote_address = true</div>
 <div class="line">xff_num_trusted_hops = 0</div>
 </div>
 </dd>
-<dt>Request details:</dt><dd><div class="line-block">
+<dt>请求详情：</dt><dd><div class="line-block">
 <div class="line">Downstream IP address = 192.0.2.5</div>
 <div class="line">XFF = “203.0.113.128, 203.0.113.10, 203.0.113.1”</div>
 </div>
 </dd>
-<dt>Result:</dt><dd><div class="line-block">
-<div class="line">Trusted client address = 192.0.2.5 (XFF is ignored)</div>
-<div class="line">X-Envoy-External-Address is set to 192.0.2.5</div>
-<div class="line">XFF is changed to “203.0.113.128, 203.0.113.10, 203.0.113.1, 192.0.2.5”</div>
-<div class="line">X-Envoy-Internal is removed (if it was present in the incoming request)</div>
+<dt>结果：</dt><dd><div class="line-block">
+<div class="line">Trusted client address = 192.0.2.5 （忽略了 XFF）</div>
+<div class="line">X-Envoy-External-Address 被设置为 192.0.2.5</div>
+<div class="line">XFF 被改成了 “203.0.113.128, 203.0.113.10, 203.0.113.1, 192.0.2.5”</div>
+<div class="line">X-Envoy-Internal 被删除（如果在请求中带了这个头部）</div>
 </div>
 </dd>
 </dl>
 </dd>
-<dt>Example 2: Envoy as internal proxy, with the Envoy edge proxy from Example 1 in front of it</dt><dd><dl>
-<dt>Settings:</dt><dd><div class="line-block">
+<dt>示例 2：Envoy 作为内部代理，在它前面有一个如示例 1 的边缘代理</dt><dd><dl>
+<dt>设置：</dt><dd><div class="line-block">
 <div class="line">use_remote_address = false</div>
 <div class="line">xff_num_trusted_hops = 0</div>
 </div>
 </dd>
-<dt>Request details:</dt><dd><div class="line-block">
-<div class="line">Downstream IP address = 10.11.12.13 (address of the Envoy edge proxy)</div>
+<dt>请求详情：</dt><dd><div class="line-block">
+<div class="line">Downstream IP address = 10.11.12.13 （即边缘 Envoy 代理的地址）</div>
 <div class="line">XFF = “203.0.113.128, 203.0.113.10, 203.0.113.1, 192.0.2.5”</div>
 </div>
 </dd>
-<dt>Result:</dt><dd><div class="line-block">
-<div class="line">Trusted client address = 192.0.2.5 (last address in XFF is trusted)</div>
-<div class="line">X-Envoy-External-Address is not modified</div>
-<div class="line">X-Envoy-Internal is removed (if it was present in the incoming request)</div>
+<dt>结果：</dt><dd><div class="line-block">
+<div class="line">Trusted client address = 192.0.2.5 （XFF 中的最后一个地址为可信地址）</div>
+<div class="line">X-Envoy-External-Address 没有改变</div>
+<div class="line">X-Envoy-Internal 被删除（如果在请求中带了这个头部）</div>
 </div>
 </dd>
 </dl>
 </dd>
-<dt>Example 3: Envoy as edge proxy, with two trusted external proxies in front of it</dt><dd><dl>
-<dt>Settings:</dt><dd><div class="line-block">
+<dt>示例 3：Envoy 作为边缘代理，在它前面有两个信任的外部代理</dt><dd><dl>
+<dt>设置：</dt><dd><div class="line-block">
 <div class="line">use_remote_address = true</div>
 <div class="line">xff_num_trusted_hops = 2</div>
 </div>
 </dd>
-<dt>Request details:</dt><dd><div class="line-block">
+<dt>请求详情：</dt><dd><div class="line-block">
 <div class="line">Downstream IP address = 192.0.2.5</div>
 <div class="line">XFF = “203.0.113.128, 203.0.113.10, 203.0.113.1”</div>
 </div>
 </dd>
-<dt>Result:</dt><dd><div class="line-block">
-<div class="line">Trusted client address = 203.0.113.10 (2nd to last address in XFF is trusted)</div>
-<div class="line">X-Envoy-External-Address is set to 203.0.113.10</div>
-<div class="line">XFF is changed to “203.0.113.128, 203.0.113.10, 203.0.113.1, 192.0.2.5”</div>
-<div class="line">X-Envoy-Internal is removed (if it was present in the incoming request)</div>
+<dt>结果：</dt><dd><div class="line-block">
+<div class="line">Trusted client address = 203.0.113.10 （XFF 中的倒数第 2 个地址为可信地址）</div>
+<div class="line">X-Envoy-External-Address 被设置为 203.0.113.10</div>
+<div class="line">XFF 被改成了 “203.0.113.128, 203.0.113.10, 203.0.113.1, 192.0.2.5”</div>
+<div class="line">X-Envoy-Internal 被删除（如果在请求中带了这个头部）</div>
 </div>
 </dd>
 </dl>
 </dd>
-<dt>Example 4: Envoy as internal proxy, with the edge proxy from Example 3 in front of it</dt><dd><dl>
-<dt>Settings:</dt><dd><div class="line-block">
+<dt>示例 4：Envoy 作为内部代理, 它前面有一个如示例 3 的边缘代理</dt><dd><dl>
+<dt>设置：</dt><dd><div class="line-block">
 <div class="line">use_remote_address = false</div>
 <div class="line">xff_num_trusted_hops = 2</div>
 </div>
 </dd>
-<dt>Request details:</dt><dd><div class="line-block">
-<div class="line">Downstream IP address = 10.11.12.13 (address of the Envoy edge proxy)</div>
+<dt>请求详情：</dt><dd><div class="line-block">
+<div class="line">Downstream IP address = 10.11.12.13 （边缘 Envoy 代理的地址）</div>
 <div class="line">XFF = “203.0.113.128, 203.0.113.10, 203.0.113.1, 192.0.2.5”</div>
 </div>
 </dd>
-<dt>Result:</dt><dd><div class="line-block">
+<dt>结果：</dt><dd><div class="line-block">
 <div class="line">Trusted client address = 203.0.113.10</div>
-<div class="line">X-Envoy-External-Address is not modified</div>
-<div class="line">X-Envoy-Internal is removed (if it was present in the incoming request)</div>
+<div class="line">X-Envoy-External-Address 没有改变</div>
+<div class="line">X-Envoy-Internal 被删除（如果在请求中带了这个头部）</div>
 </div>
 </dd>
 </dl>
 </dd>
-<dt>Example 5: Envoy as an internal proxy, receiving a request from an internal client</dt><dd><dl>
-<dt>Settings:</dt><dd><div class="line-block">
+<dt>示例 5：Envoy 作为内部代理，接收来自一个内部客户端的请求</dt><dd><dl>
+<dt>设置：</dt><dd><div class="line-block">
 <div class="line">use_remote_address = false</div>
 <div class="line">xff_num_trusted_hops = 0</div>
 </div>
 </dd>
-<dt>Request details:</dt><dd><div class="line-block">
-<div class="line">Downstream IP address = 10.20.30.40 (address of the internal client)</div>
-<div class="line">XFF is not present</div>
+<dt>请求详情：</dt><dd><div class="line-block">
+<div class="line">Downstream IP address = 10.20.30.40 （内部客户端的地址）</div>
+<div class="line">XFF 不存在</div>
 </div>
 </dd>
-<dt>Result:</dt><dd><div class="line-block">
+<dt>结果：</dt><dd><div class="line-block">
 <div class="line">Trusted client address = 10.20.30.40</div>
-<div class="line">X-Envoy-External-Address remains unset</div>
-<div class="line">X-Envoy-Internal is set to “false”</div>
+<div class="line">X-Envoy-External-Address 保持未设置</div>
+<div class="line">X-Envoy-Internal 被设置为 “false”</div>
 </div>
 </dd>
 </dl>
 </dd>
-<dt>Example 6: The internal Envoy from Example 5, receiving a request proxied by another Envoy</dt><dd><dl>
-<dt>Settings:</dt><dd><div class="line-block">
+<dt>示例 6：来自示例 5 的内部 Envoy，接收由另外一个 Envoy 代理的请求</dt><dd><dl>
+<dt>设置：</dt><dd><div class="line-block">
 <div class="line">use_remote_address = false</div>
 <div class="line">xff_num_trusted_hops = 0</div>
 </div>
 </dd>
-<dt>Request details:</dt><dd><div class="line-block">
-<div class="line">Downstream IP address = 10.20.30.50 (address of the Envoy instance proxying to this one)</div>
+<dt>请求详情：</dt><dd><div class="line-block">
+<div class="line">Downstream IP address = 10.20.30.50 （将请求代理至本机的另一台 Envoy 实例的地址）</div>
 <div class="line">XFF = “10.20.30.40”</div>
 </div>
 </dd>
-<dt>Result:</dt><dd><div class="line-block">
+<dt>结果：</dt><dd><div class="line-block">
 <div class="line">Trusted client address = 10.20.30.40</div>
-<div class="line">X-Envoy-External-Address remains unset</div>
-<div class="line">X-Envoy-Internal is set to “true”</div>
+<div class="line">X-Envoy-External-Address 保持未设置</div>
+<div class="line">X-Envoy-Internal 被设置为 “true”</div>
 </div>
 </dd>
 </dl>
 </dd>
 </dl>
-<p>A few very important notes about XFF:</p>
+<p>关于 XFF 的一些非常重要的点：</p>
 <ol class="arabic simple">
-<li><p>If <em>use_remote_address</em> is set to true, Envoy sets the
-<a class="reference internal" href="#config-http-conn-man-headers-x-envoy-external-address"><span class="std std-ref">x-envoy-external-address</span></a> header to the trusted
-client address.</p></li>
+<li><p>如果 <em>use_remote_address</em> 被设置为 true，Envoy 会将 <a class="reference internal" href="#config-http-conn-man-headers-x-envoy-external-address"><span class="std std-ref">x-envoy-external-address</span></a> 头部设置为可信的客户端地址。</p></li>
 </ol>
 <ol class="arabic simple" id="config-http-conn-man-headers-x-forwarded-for-internal-origin" start="2">
-<li><p>XFF is what Envoy uses to determine whether a request is internal origin or external origin.
-If <em>use_remote_address</em> is set to true, the request is internal if and only if the
-request contains no XFF and the immediate downstream node’s connection to Envoy has
-an internal (RFC1918 or RFC4193) source address. If <em>use_remote_address</em> is false, the
-request is internal if and only if XFF contains a single RFC1918 or RFC4193 address.</p>
+<li><p>Envoy 用 XFF 来确定请求是内部源还是外部源。如果 <em>use_remote_address</em> 被设置为 true，当且仅当请求不包含 XFF 且与 Envoy 直接连接的下游节点具有内部（RFC1918 或 RFC4193）源地址时，该请求为内部请求。如果 <em>use_remote_address</em> 被设置为 false，当且仅当 XFF 包含单个 RFC1918 或 RFC4193 地址时，该请求为内部请求。</p>
 <ul class="simple">
-<li><p><strong>NOTE</strong>: If an internal service proxies an external request to another internal service, and
-includes the original XFF header, Envoy will append to it on egress if
-<a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-use-remote-address"><span class="std std-ref">use_remote_address</span></a> is set. This will cause
-the other side to think the request is external. Generally, this is what is intended if XFF is
-being forwarded. If it is not intended, do not forward XFF, and forward
-<a class="reference internal" href="#config-http-conn-man-headers-x-envoy-internal"><span class="std std-ref">x-envoy-internal</span></a> instead.</p></li>
-<li><p><strong>NOTE</strong>: If an internal service call is forwarded to another internal service (preserving XFF),
-Envoy will not consider it internal. This is a known “bug” due to the simplification of how
-XFF is parsed to determine if a request is internal. In this scenario, do not forward XFF and
-allow Envoy to generate a new one with a single internal origin IP.</p></li>
+<li><p><strong>注意</strong>: 如果一个内部服务在代理外部请求至另一个内部服务时包含了原始的 XFF 头部，并且设置了 <a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-use-remote-address"><span class="std std-ref">use_remote_address</span></a>，那么 Envoy 将在出口处继续追加。这会导致对方认为请求是来自外部的。通常来说，这就是传递 XFF 头部的目的。但如果场景并非如此，不要传递 XFF，应该改用 <a class="reference internal" href="#config-http-conn-man-headers-x-envoy-internal"><span class="std std-ref">x-envoy-internal</span></a>。</p></li>
+<li><p><strong>注意</strong>: 如果将内部服务调用转发到其它内部服务（保留 XFF），Envoy 将不会认为这是一个内部服务。这是一个已知的“bug”，原因是 XFF 将解析以及判定一个请求是否来自内部的工作进行了简化。在此种场景下，请不要转发 XFF，应该让 Envoy使用一个内部原始 IP 生成一个新的 XFF。</p></li>
 </ul>
 </li>
 </ol>
 </div>
 <div class="section" id="x-forwarded-proto">
-<span id="config-http-conn-man-headers-x-forwarded-proto"></span><h2><a class="toc-backref" href="#id12">x-forwarded-proto</a><a class="headerlink" href="#x-forwarded-proto" title="Permalink to this headline">¶</a></h2>
-<p>It is a common case where a service wants to know what the originating protocol (HTTP or HTTPS) was
-of the connection terminated by front/edge Envoy. <em>x-forwarded-proto</em> contains this information. It
-will be set to either <em>http</em> or <em>https</em>.</p>
+<span id="config-http-conn-man-headers-x-forwarded-proto"></span><h2><a class="toc-backref" href="#id13">x-forwarded-proto</a><a class="headerlink" href="#x-forwarded-proto" title="Permalink to this headline">¶</a></h2>
+<p>通常，服务想要知道前端/边缘 Enovy 始发处的协议是什么（HTTP 或 HTTPS）。<em>x-forwarded-proto</em> 包含了这些信息。它会被设置为 <em>http</em> 或 <em>https</em>。</p>
 </div>
 <div class="section" id="x-request-id">
-<span id="config-http-conn-man-headers-x-request-id"></span><h2><a class="toc-backref" href="#id13">x-request-id</a><a class="headerlink" href="#x-request-id" title="Permalink to this headline">¶</a></h2>
-<p>The <em>x-request-id</em> header is used by Envoy to uniquely identify a request as well as perform stable
-access logging and tracing. Envoy will generate an <em>x-request-id</em> header for all external origin
-requests (the header is sanitized). It will also generate an <em>x-request-id</em> header for internal
-requests that do not already have one. This means that <em>x-request-id</em> can and should be propagated
-between client applications in order to have stable IDs across the entire mesh. Due to the out of
-process architecture of Envoy, the header can not be automatically forwarded by Envoy itself. This
-is one of the few areas where a thin client library is needed to perform this duty. How that is done
-is out of scope for this documentation. If <em>x-request-id</em> is propagated across all hosts, the
-following features are available:</p>
+<span id="config-http-conn-man-headers-x-request-id"></span><h2><a class="toc-backref" href="#id14">x-request-id</a><a class="headerlink" href="#x-request-id" title="Permalink to this headline">¶</a></h2>
+<p>Envoy 使用 <em>x-request-id</em> 头部来唯一标识请求并执行稳定的访问日志记录和跟踪。Envoy 将为所有外部来源请求生成一个 <em>x-request-id</em> 头部（原头部被清理）。它还会为没有 <em>x-request-id</em> 头部的内部请求新生成一个。这意味着 <em>x-request-id</em> 可以并且应该在客户端应用程序间传播，以便在整个网格中拥有一个稳定的 ID。由于 Envoy 的进程外架构，Envoy 本身不能自动地转发头部。这是少数领域应当引入瘦客户端库来完成工作的一个例子。具体如何去做，这个话题超出了本文档的范围。如果能做到 <em>x-request-id</em> 跨所有主机传播，则可以使用如下功能：</p>
 <ul class="simple">
-<li><p>Stable <a class="reference internal" href="../../observability/access_log/usage.html#config-access-log"><span class="std std-ref">access logging</span></a> via the
-<a class="reference internal" href="../../../api-v3/config/accesslog/v3/accesslog.proto.html#envoy-v3-api-field-config-accesslog-v3-accesslogfilter-runtime-filter"><span class="std std-ref">v3 API runtime filter</span></a>.</p></li>
-<li><p>Stable tracing when performing random sampling via the <a class="reference internal" href="runtime.html#config-http-conn-man-runtime-random-sampling"><span class="std std-ref">tracing.random_sampling</span></a> runtime setting or via forced tracing using the
-<a class="reference internal" href="#config-http-conn-man-headers-x-envoy-force-trace"><span class="std std-ref">x-envoy-force-trace</span></a> and
-<a class="reference internal" href="#config-http-conn-man-headers-x-client-trace-id"><span class="std std-ref">x-client-trace-id</span></a> headers.</p></li>
+<li><p>通过 <a class="reference internal" href="../../../api-v3/config/accesslog/v3/accesslog.proto.html#envoy-v3-api-field-config-accesslog-v3-accesslogfilter-runtime-filter"><span class="std std-ref">v3 API runtime filter</span></a> 实现稳定的 <a class="reference internal" href="../../observability/access_log/usage.html#config-access-log"><span class="std std-ref">access logging</span></a>。</p></li>
+<li><p>通过开启 <a class="reference internal" href="runtime.html#config-http-conn-man-runtime-random-sampling"><span class="std std-ref">tracing.random_sampling</span></a> 运行时配置，或通过强制开启基于 <a class="reference internal" href="#config-http-conn-man-headers-x-envoy-force-trace"><span class="std std-ref">x-envoy-force-trace</span></a> 和 <a class="reference internal" href="#config-http-conn-man-headers-x-client-trace-id"><span class="std std-ref">x-client-trace-id</span></a> 头部的追踪，实现稳定的追踪或随机抽样追踪。</p></li>
 </ul>
 </div>
 <div class="section" id="x-ot-span-context">
-<span id="config-http-conn-man-headers-x-ot-span-context"></span><h2><a class="toc-backref" href="#id14">x-ot-span-context</a><a class="headerlink" href="#x-ot-span-context" title="Permalink to this headline">¶</a></h2>
-<p>The <em>x-ot-span-context</em> HTTP header is used by Envoy to establish proper parent-child relationships
-between tracing spans when used with the LightStep tracer.
-For example, an egress span is a child of an ingress
-span (if the ingress span was present). Envoy injects the <em>x-ot-span-context</em> header on ingress requests and
-forwards it to the local service. Envoy relies on the application to propagate <em>x-ot-span-context</em> on
-the egress call to an upstream. See more on tracing <a class="reference internal" href="../../../intro/arch_overview/observability/tracing.html#arch-overview-tracing"><span class="std std-ref">here</span></a>.</p>
+<span id="config-http-conn-man-headers-x-ot-span-context"></span><h2><a class="toc-backref" href="#id15">x-ot-span-context</a><a class="headerlink" href="#x-ot-span-context" title="Permalink to this headline">¶</a></h2>
+<p>当采用 LightStep 追踪方案时，Envoy 使用 <em>x-ot-span-context</em> HTTP 头部在追踪区间之间建立适当的父子关系。例如，出口区间是入口区间的子节点（如果入口区间存在）。Envoy 在入口请求注入 <em>x-ot-span-context</em> 并将其转发给本地服务。Envoy 依赖应用程序将出口处的 <em>x-ot-span-context</em> 传播给上游。更多资料请参考 <a class="reference internal" href="../../../intro/arch_overview/observability/tracing.html#arch-overview-tracing"><span class="std std-ref">here</span></a>。</p>
 </div>
 <div class="section" id="x-b3-traceid">
-<span id="config-http-conn-man-headers-x-b3-traceid"></span><h2><a class="toc-backref" href="#id15">x-b3-traceid</a><a class="headerlink" href="#x-b3-traceid" title="Permalink to this headline">¶</a></h2>
-<p>The <em>x-b3-traceid</em> HTTP header is used by the Zipkin tracer in Envoy.
-The TraceId is 64-bit in length and indicates the overall ID of the
-trace. Every span in a trace shares this ID. See more on zipkin tracing
-<a class="reference external" href="https://github.com/openzipkin/b3-propagation">here</a>.</p>
+<span id="config-http-conn-man-headers-x-b3-traceid"></span><h2><a class="toc-backref" href="#id16">x-b3-traceid</a><a class="headerlink" href="#x-b3-traceid" title="Permalink to this headline">¶</a></h2>
+<p>当采用 Zipkin 追踪方案时，Envoy 会用到 <em>x-b3-traceid</em> HTTP 头部。TraceId 的长度为 64-bit，它标识了总体的追踪 ID。追踪中的每个区间都共享此 ID。更多资料请参考 <cite>&lt;https://github.com/openzipkin/b3-propagation&gt;</cite>。</p>
 </div>
 <div class="section" id="x-b3-spanid">
-<span id="config-http-conn-man-headers-x-b3-spanid"></span><h2><a class="toc-backref" href="#id16">x-b3-spanid</a><a class="headerlink" href="#x-b3-spanid" title="Permalink to this headline">¶</a></h2>
-<p>The <em>x-b3-spanid</em> HTTP header is used by the Zipkin tracer in Envoy.
-The SpanId is 64-bit in length and indicates the position of the current
-operation in the trace tree. The value should not be interpreted: it may or
-may not be derived from the value of the TraceId. See more on zipkin tracing
-<a class="reference external" href="https://github.com/openzipkin/b3-propagation">here</a>.</p>
+<span id="config-http-conn-man-headers-x-b3-spanid"></span><h2><a class="toc-backref" href="#id17">x-b3-spanid</a><a class="headerlink" href="#x-b3-spanid" title="Permalink to this headline">¶</a></h2>
+<p>当采用 Zipkin 追踪方案时，Envoy 会用到 <em>x-b3-spanid</em> HTTP 头部。SpanId 的长度为 64-bit，它标识了当前操作在追踪树中的位置。该值不应该被转译：它可能是从 TraceId 派生出来的，也可能不是。关于 Zipkin 的更多资料请参考 <cite>&lt;https://github.com/openzipkin/b3-propagation&gt;</cite>。</p>
 </div>
 <div class="section" id="x-b3-parentspanid">
-<span id="config-http-conn-man-headers-x-b3-parentspanid"></span><h2><a class="toc-backref" href="#id17">x-b3-parentspanid</a><a class="headerlink" href="#x-b3-parentspanid" title="Permalink to this headline">¶</a></h2>
-<p>The <em>x-b3-parentspanid</em> HTTP header is used by the Zipkin tracer in Envoy.
-The ParentSpanId is 64-bit in length and indicates the position of the
-parent operation in the trace tree. When the span is the root of the trace
-tree, the ParentSpanId is absent. See more on zipkin tracing
-<a class="reference external" href="https://github.com/openzipkin/b3-propagation">here</a>.</p>
+<span id="config-http-conn-man-headers-x-b3-parentspanid"></span><h2><a class="toc-backref" href="#id18">x-b3-parentspanid</a><a class="headerlink" href="#x-b3-parentspanid" title="Permalink to this headline">¶</a></h2>
+<p>当采用 Zipkin 追踪方案时，Envoy 会用到 <em>x-b3-parentspanid</em> HTTP 头部。ParentSpanId 的长度为 64-bit，它标识了父操作在追踪树中的位置。如果该区间是追踪树的根节点，那么就没有 ParentSpanId。关于 Zipkin 的更多资料请参考 <cite>&lt;https://github.com/openzipkin/b3-propagation&gt;</cite>。</p>
 </div>
 <div class="section" id="x-b3-sampled">
-<span id="config-http-conn-man-headers-x-b3-sampled"></span><h2><a class="toc-backref" href="#id18">x-b3-sampled</a><a class="headerlink" href="#x-b3-sampled" title="Permalink to this headline">¶</a></h2>
-<p>The <em>x-b3-sampled</em> HTTP header is used by the Zipkin tracer in Envoy.
-When the Sampled flag is either not specified or set to 1, the span will be reported to the tracing
-system. Once Sampled is set to 0 or 1, the same
-value should be consistently sent downstream. See more on zipkin tracing
-<a class="reference external" href="https://github.com/openzipkin/b3-propagation">here</a>.</p>
+<span id="config-http-conn-man-headers-x-b3-sampled"></span><h2><a class="toc-backref" href="#id19">x-b3-sampled</a><a class="headerlink" href="#x-b3-sampled" title="Permalink to this headline">¶</a></h2>
+<p>当采用 Zipkin 追踪方案时，Envoy 会用到 <em>x-b3-sampled</em> HTTP 头部。如果没有设置 Sampled 标记或被设置为 1，该区间会被上报到追踪系统。一旦 Sampled 标记被设置了 0 或 1 的值，那么这个值应当被传递至下游且保持不变。关于 Zipkin 的更多资料请参考 <cite>&lt;https://github.com/openzipkin/b3-propagation&gt;</cite>。</p>
 </div>
 <div class="section" id="x-b3-flags">
-<span id="config-http-conn-man-headers-x-b3-flags"></span><h2><a class="toc-backref" href="#id19">x-b3-flags</a><a class="headerlink" href="#x-b3-flags" title="Permalink to this headline">¶</a></h2>
-<p>The <em>x-b3-flags</em> HTTP header is used by the Zipkin tracer in Envoy.
-The encode one or more options. For example, Debug is encoded as
-<code class="docutils literal notranslate"><span class="pre">X-B3-Flags:</span> <span class="pre">1</span></code>. See more on zipkin tracing
-<a class="reference external" href="https://github.com/openzipkin/b3-propagation">here</a>.</p>
+<span id="config-http-conn-man-headers-x-b3-flags"></span><h2><a class="toc-backref" href="#id20">x-b3-flags</a><a class="headerlink" href="#x-b3-flags" title="Permalink to this headline">¶</a></h2>
+<p>当采用 Zipkin 追踪方案时，Envoy 会用到 <em>x-b3-flags</em> HTTP 头部。它被用来编码单个或多个选项。例如 Debug 被编码为 <code class="docutils literal notranslate"><span class="pre">X-B3-Flags:</span> <span class="pre">1</span></code>。关于 Zipkin 的更多资料请参考 <cite>&lt;https://github.com/openzipkin/b3-propagation&gt;</cite>。</p>
 </div>
 <div class="section" id="b3">
-<span id="config-http-conn-man-headers-b3"></span><h2><a class="toc-backref" href="#id20">b3</a><a class="headerlink" href="#b3" title="Permalink to this headline">¶</a></h2>
-<p>The <em>b3</em> HTTP header is used by the Zipkin tracer in Envoy.
-Is a more compressed header format. See more on zipkin tracing
-<a class="reference external" href="https://github.com/openzipkin/b3-propagation#single-header">here</a>.</p>
+<span id="config-http-conn-man-headers-b3"></span><h2><a class="toc-backref" href="#id21">b3</a><a class="headerlink" href="#b3" title="Permalink to this headline">¶</a></h2>
+<p>当采用 Zipkin 追踪方案时，Envoy 会用到 <em>b3</em> HTTP 头部。这是一个压缩过的头部格式。关于 Zipkin 的更多资料请参考 <cite>&lt;https://github.com/openzipkin/b3-propagation#single-header&gt;</cite>。</p>
 </div>
 <div class="section" id="x-datadog-trace-id">
-<span id="config-http-conn-man-headers-x-datadog-trace-id"></span><h2><a class="toc-backref" href="#id21">x-datadog-trace-id</a><a class="headerlink" href="#x-datadog-trace-id" title="Permalink to this headline">¶</a></h2>
-<p>The <em>x-datadog-trace-id</em> HTTP header is used by the Datadog tracer in Envoy.
-The 64-bit value represents the ID of the overall trace, and is used to correlate
-the spans.</p>
+<span id="config-http-conn-man-headers-x-datadog-trace-id"></span><h2><a class="toc-backref" href="#id22">x-datadog-trace-id</a><a class="headerlink" href="#x-datadog-trace-id" title="Permalink to this headline">¶</a></h2>
+<p>当使用 Datadog 追踪方案时，Envoy 会用到 <em>x-datadog-trace-id</em> HTTP 头部。该值的长度为 64-bit，它标识了整个追踪过程，和用来关联各个区间。</p>
 </div>
 <div class="section" id="x-datadog-parent-id">
-<span id="config-http-conn-man-headers-x-datadog-parent-id"></span><h2><a class="toc-backref" href="#id22">x-datadog-parent-id</a><a class="headerlink" href="#x-datadog-parent-id" title="Permalink to this headline">¶</a></h2>
-<p>The <em>x-datadog-parent-id</em> HTTP header is used by the Datadog tracer in Envoy.
-The 64-bit value uniquely identifies the span within the trace, and is used to
-create parent-child relationships between spans.</p>
+<span id="config-http-conn-man-headers-x-datadog-parent-id"></span><h2><a class="toc-backref" href="#id23">x-datadog-parent-id</a><a class="headerlink" href="#x-datadog-parent-id" title="Permalink to this headline">¶</a></h2>
+<p>当使用 Datadog 追踪方案时，Envoy 会用到 <em>x-datadog-parent-id</em> HTTP 头部。该值的长度为 64-bit，它唯一标识了追踪的每个区间，和用来标识区间之间的父子关系。</p>
 </div>
 <div class="section" id="x-datadog-sampling-priority">
-<span id="config-http-conn-man-headers-x-datadog-sampling-priority"></span><h2><a class="toc-backref" href="#id23">x-datadog-sampling-priority</a><a class="headerlink" href="#x-datadog-sampling-priority" title="Permalink to this headline">¶</a></h2>
-<p>The <em>x-datadog-sampling-priority</em> HTTP header is used by the Datadog tracer in Envoy.
-The integer value indicates the sampling decision that has been made for this trace.
-A value of 0 indicates that the trace should not be collected, and a value of 1
-requests that spans are sampled and reported.</p>
+<span id="config-http-conn-man-headers-x-datadog-sampling-priority"></span><h2><a class="toc-backref" href="#id24">x-datadog-sampling-priority</a><a class="headerlink" href="#x-datadog-sampling-priority" title="Permalink to this headline">¶</a></h2>
+<p>当使用 Datadog 追踪方案时，Envoy 会用到 <em>x-datadog-sampling-priority</em> HTTP 头部。该值为 integer 类型，用来标识当前追踪的取样策略。值为 0 即追踪不需要被上报，值为 1 即应该被取样和上报。</p>
 </div>
-<div class="section" id="custom-request-response-headers">
-<span id="config-http-conn-man-headers-custom-request-headers"></span><h2><a class="toc-backref" href="#id24">Custom request/response headers</a><a class="headerlink" href="#custom-request-response-headers" title="Permalink to this headline">¶</a></h2>
-<p>Custom request/response headers can be added to a request/response at the weighted cluster,
-route, virtual host, and/or global route configuration level. See the
-<a class="reference internal" href="../../../api-v3/config/route/v3/route.proto.html#envoy-v3-api-msg-config-route-v3-routeconfiguration"><span class="std std-ref">v3</span></a> API documentation.</p>
-<p>No <em>:-prefixed</em> pseudo-header may be modified via this mechanism. The <em>:path</em>
-and <em>:authority</em> headers may instead be modified via mechanisms such as
-<a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-field-config-route-v3-routeaction-prefix-rewrite"><span class="std std-ref">prefix_rewrite</span></a>,
-<a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-field-config-route-v3-routeaction-regex-rewrite"><span class="std std-ref">regex_rewrite</span></a>, and
-<a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-field-config-route-v3-routeaction-host-rewrite-literal"><span class="std std-ref">host_rewrite</span></a>.</p>
-<p>Headers are appended to requests/responses in the following order: weighted cluster level headers,
-route level headers, virtual host level headers and finally global level headers.</p>
-<p>Envoy supports adding dynamic values to request and response headers. The percent symbol (%) is
-used to delimit variable names.</p>
+<div class="section" id="config-http-conn-man-headers-custom-request-headers">
+<span id="id1"></span><h2><a class="toc-backref" href="#id25">自定义的请求/响应头部</a><a class="headerlink" href="#config-http-conn-man-headers-custom-request-headers" title="Permalink to this headline">¶</a></h2>
+<p>可以在加权集群、路由、虚拟主机和/或全局路由配置级别将自定义请求/响应头部添加到请求/响应中。参考 <a class="reference internal" href="../../../api-v3/config/route/v3/route.proto.html#envoy-v3-api-msg-config-route-v3-routeconfiguration"><span class="std std-ref">v3</span></a> API 文档。</p>
+<p>该机制不会改动 <em>:-prefixed</em> pseudo-header。该机制可能会改动诸如 <a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-field-config-route-v3-routeaction-prefix-rewrite"><span class="std std-ref">prefix_rewrite</span></a>，
+<a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-field-config-route-v3-routeaction-regex-rewrite"><span class="std std-ref">regex_rewrite</span></a> 和 <a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-field-config-route-v3-routeaction-host-rewrite-literal"><span class="std std-ref">host_rewrite</span></a>。</p>
+<p>头部将按照以下顺序追加到请求/响应中：加权集群级别头部、路由级别头部、虚拟主机级别头部以及全局级别头部。</p>
+<p>Envoy 支持向请求和响应头部里添加动态值。用百分号（%）来分割变量名称。</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>If a literal percent symbol (%) is desired in a request/response header, it must be escaped by
-doubling it. For example, to emit a header with the value <code class="docutils literal notranslate"><span class="pre">100%</span></code>, the custom header value in
-the Envoy configuration must be <code class="docutils literal notranslate"><span class="pre">100%%</span></code>.</p>
+<p>如果需要在请求/响应头部中添加百分号字面量，则需要重复它以达到转义的效果。例如，要发送值为 <code class="docutils literal notranslate"><span class="pre">100%</span></code> 的头部，那么 Envoy 配置中的自定义的头部值必须为 <code class="docutils literal notranslate"><span class="pre">100%%</span></code>。</p>
 </div>
-<p>Supported variable names are:</p>
+<p>支持的变量名有：</p>
 <dl>
-<dt>%DOWNSTREAM_REMOTE_ADDRESS%</dt><dd><p>Remote address of the downstream connection. If the address is an IP address it includes both
-address and port.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This may not be the physical remote address of the peer if the address has been inferred from
-<a class="reference internal" href="../../../api-v3/config/listener/v3/listener_components.proto.html#envoy-v3-api-field-config-listener-v3-filterchain-use-proxy-proto"><span class="std std-ref">proxy proto</span></a> or <a class="reference internal" href="#config-http-conn-man-headers-x-forwarded-for"><span class="std std-ref">x-forwarded-for</span></a>.</p>
+<dt>%DOWNSTREAM_REMOTE_ADDRESS%</dt><dd><p>下游连接的远端地址。如果是 IP 地址，则地址还会包含端口。</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>如果是从 <a class="reference internal" href="../../../api-v3/config/listener/v3/listener_components.proto.html#envoy-v3-api-field-config-listener-v3-filterchain-use-proxy-proto"><span class="std std-ref">proxy proto</span></a> 或 <a class="reference internal" href="#config-http-conn-man-headers-x-forwarded-for"><span class="std std-ref">x-forwarded-for</span></a> 推断出的地址，那么它可能并不是远端真实的物理地址。</p>
 </div>
 </dd>
-<dt>%DOWNSTREAM_REMOTE_ADDRESS_WITHOUT_PORT%</dt><dd><p>Same as <strong>%DOWNSTREAM_REMOTE_ADDRESS%</strong> excluding port if the address is an IP address.</p>
+<dt>%DOWNSTREAM_REMOTE_ADDRESS_WITHOUT_PORT%</dt><dd><p>同上 <strong>%DOWNSTREAM_REMOTE_ADDRESS%</strong>，区别在于即使地址是 IP 地址，也不会包含端口。</p>
 </dd>
-<dt>%DOWNSTREAM_LOCAL_ADDRESS%</dt><dd><p>Local address of the downstream connection. If the address is an IP address it includes both
-address and port.
-If the original connection was redirected by iptables REDIRECT, this represents
-the original destination address restored by the
-<a class="reference internal" href="../../listeners/listener_filters/original_dst_filter.html#config-listener-filters-original-dst"><span class="std std-ref">Original Destination Filter</span></a> using SO_ORIGINAL_DST socket option.
-If the original connection was redirected by iptables TPROXY, and the listener’s transparent
-option was set to true, this represents the original destination address and port.</p>
+<dt>%DOWNSTREAM_LOCAL_ADDRESS%</dt><dd><p>下游连接的本地地址，如果是 IP 地址，则地址还会包含端口。如果原始连接被 iptables REDIRECT 重定向，则该值标识 <a class="reference internal" href="../../listeners/listener_filters/original_dst_filter.html#config-listener-filters-original-dst"><span class="std std-ref">Original Destination Filter</span></a> 使用 SO_ORIGINAL_DST Socket 选项恢复的原始目标地址。如果原始连接被 iptables TPROXY 重定向，且监听器的透明选项设置为 true，则该值标识原始目标地址和端口。</p>
 </dd>
-<dt>%DOWNSTREAM_LOCAL_ADDRESS_WITHOUT_PORT%</dt><dd><p>Same as <strong>%DOWNSTREAM_LOCAL_ADDRESS%</strong> excluding port if the address is an IP address.</p>
+<dt>%DOWNSTREAM_LOCAL_ADDRESS_WITHOUT_PORT%</dt><dd><p>同上 <strong>%DOWNSTREAM_LOCAL_ADDRESS%</strong>，区别在于即使地址是 IP 地址，也不会包含端口。</p>
 </dd>
-<dt>%DOWNSTREAM_LOCAL_PORT%</dt><dd><p>Similar to <strong>%DOWNSTREAM_LOCAL_ADDRESS_WITHOUT_PORT%</strong>, but only extracts the port portion of the <strong>%DOWNSTREAM_LOCAL_ADDRESS%</strong></p>
+<dt>%DOWNSTREAM_LOCAL_PORT%</dt><dd><p>和 <strong>%DOWNSTREAM_LOCAL_ADDRESS_WITHOUT_PORT%</strong> 类似，但仅包含 <strong>%DOWNSTREAM_LOCAL_ADDRESS%</strong> 的端口部分。</p>
 </dd>
 <dt>%DOWNSTREAM_LOCAL_URI_SAN%</dt><dd><dl class="simple">
-<dt>HTTP</dt><dd><p>The URIs present in the SAN of the local certificate used to establish the downstream TLS connection.</p>
+<dt>HTTP</dt><dd><p>用以和下游建立 TSL 连接时使用的本地证书中的 SAN 字段的 URI。</p>
 </dd>
-<dt>TCP</dt><dd><p>The URIs present in the SAN of the local certificate used to establish the downstream TLS connection.</p>
+<dt>TCP</dt><dd><p>用以和下游建立 TSL 连接时使用的本地证书中的 SAN 字段的 URI。</p>
 </dd>
 </dl>
 </dd>
 <dt>%DOWNSTREAM_PEER_URI_SAN%</dt><dd><dl class="simple">
-<dt>HTTP</dt><dd><p>The URIs present in the SAN of the peer certificate used to establish the downstream TLS connection.</p>
+<dt>HTTP</dt><dd><p>用以和下游建立 TSL 连接时使用的对等证书中的 SAN 字段的 URI。</p>
 </dd>
-<dt>TCP</dt><dd><p>The URIs present in the SAN of the peer certificate used to establish the downstream TLS connection.</p>
+<dt>TCP</dt><dd><p>用以和下游建立 TSL 连接时使用的对等证书中的 SAN 字段的 URI。</p>
 </dd>
 </dl>
 </dd>
 <dt>%DOWNSTREAM_LOCAL_SUBJECT%</dt><dd><dl class="simple">
-<dt>HTTP</dt><dd><p>The subject present in the local certificate used to establish the downstream TLS connection.</p>
+<dt>HTTP</dt><dd><p>用以和下游建立 TSL 连接时使用的本地证书中的 subject。</p>
 </dd>
-<dt>TCP</dt><dd><p>The subject present in the local certificate used to establish the downstream TLS connection.</p>
+<dt>TCP</dt><dd><p>用以和下游建立 TSL 连接时使用的本地证书中的 subject。</p>
 </dd>
 </dl>
 </dd>
 <dt>%DOWNSTREAM_PEER_SUBJECT%</dt><dd><dl class="simple">
-<dt>HTTP</dt><dd><p>The subject present in the peer certificate used to establish the downstream TLS connection.</p>
+<dt>HTTP</dt><dd><p>用以和下游建立 TSL 连接时使用的对等证书中的 subject。</p>
 </dd>
-<dt>TCP</dt><dd><p>The subject present in the peer certificate used to establish the downstream TLS connection.</p>
+<dt>TCP</dt><dd><p>用以和下游建立 TSL 连接时使用的对等证书中的 subject。</p>
 </dd>
 </dl>
 </dd>
 <dt>%DOWNSTREAM_PEER_ISSUER%</dt><dd><dl class="simple">
-<dt>HTTP</dt><dd><p>The issuer present in the peer certificate used to establish the downstream TLS connection.</p>
+<dt>HTTP</dt><dd><p>用以和下游建立 TSL 连接时使用的对等证书中的 issuer。</p>
 </dd>
-<dt>TCP</dt><dd><p>The issuer present in the peer certificate used to establish the downstream TLS connection.</p>
+<dt>TCP</dt><dd><p>用以和下游建立 TSL 连接时使用的对等证书中的 issuer。</p>
 </dd>
 </dl>
 </dd>
 <dt>%DOWNSTREAM_TLS_SESSION_ID%</dt><dd><dl class="simple">
-<dt>HTTP</dt><dd><p>The session ID for the established downstream TLS connection.</p>
+<dt>HTTP</dt><dd><p>用以和下游建立 TSL 连接时使用的对等证书中的 session ID。</p>
 </dd>
-<dt>TCP</dt><dd><p>The session ID for the established downstream TLS connection.</p>
+<dt>TCP</dt><dd><p>用以和下游建立 TSL 连接时使用的对等证书中的 session ID。</p>
 </dd>
 </dl>
 </dd>
 <dt>%DOWNSTREAM_TLS_CIPHER%</dt><dd><dl class="simple">
-<dt>HTTP</dt><dd><p>The OpenSSL name for the set of ciphers used to establish the downstream TLS connection.</p>
+<dt>HTTP</dt><dd><p>用以和下游建立 TSL 连接时使用的加密组的 OpenSSL 名称。</p>
 </dd>
-<dt>TCP</dt><dd><p>The OpenSSL name for the set of ciphers used to establish the downstream TLS connection.</p>
+<dt>TCP</dt><dd><p>用以和下游建立 TSL 连接时使用的加密组的 OpenSSL 名称。</p>
 </dd>
 </dl>
 </dd>
 <dt>%DOWNSTREAM_TLS_VERSION%</dt><dd><dl class="simple">
-<dt>HTTP</dt><dd><p>The TLS version (e.g., <code class="docutils literal notranslate"><span class="pre">TLSv1.2</span></code>, <code class="docutils literal notranslate"><span class="pre">TLSv1.3</span></code>) used to establish the downstream TLS connection.</p>
+<dt>HTTP</dt><dd><p>用以和下游建立 TSL 连接时使用的 TLS 版本（如 <code class="docutils literal notranslate"><span class="pre">TLSv1.2</span></code>, <code class="docutils literal notranslate"><span class="pre">TLSv1.3</span></code>）。</p>
 </dd>
-<dt>TCP</dt><dd><p>The TLS version (e.g., <code class="docutils literal notranslate"><span class="pre">TLSv1.2</span></code>, <code class="docutils literal notranslate"><span class="pre">TLSv1.3</span></code>) used to establish the downstream TLS connection.</p>
+<dt>TCP</dt><dd><p>用以和下游建立 TSL 连接时使用的 TLS 版本（如 <code class="docutils literal notranslate"><span class="pre">TLSv1.2</span></code>, <code class="docutils literal notranslate"><span class="pre">TLSv1.3</span></code>）。</p>
 </dd>
 </dl>
 </dd>
 <dt>%DOWNSTREAM_PEER_FINGERPRINT_256%</dt><dd><dl class="simple">
-<dt>HTTP</dt><dd><p>The hex-encoded SHA256 fingerprint of the client certificate used to establish the downstream TLS connection.</p>
+<dt>HTTP</dt><dd><p>用以和下游建立 TSL 连接时使用的客户端证书的 16 进制编码的 SHA256 指纹。</p>
 </dd>
-<dt>TCP</dt><dd><p>The hex-encoded SHA256 fingerprint of the client certificate used to establish the downstream TLS connection.</p>
+<dt>TCP</dt><dd><p>用以和下游建立 TSL 连接时使用的客户端证书的 16 进制编码的 SHA256 指纹。</p>
 </dd>
 </dl>
 </dd>
 <dt>%DOWNSTREAM_PEER_FINGERPRINT_1%</dt><dd><dl class="simple">
-<dt>HTTP</dt><dd><p>The hex-encoded SHA1 fingerprint of the client certificate used to establish the downstream TLS connection.</p>
+<dt>HTTP</dt><dd><p>用以和下游建立 TSL 连接时使用的客户端证书的 16 进制编码的 SHA1 指纹。</p>
 </dd>
-<dt>TCP</dt><dd><p>The hex-encoded SHA1 fingerprint of the client certificate used to establish the downstream TLS connection.</p>
+<dt>TCP</dt><dd><p>用以和下游建立 TSL 连接时使用的客户端证书的 16 进制编码的 SHA1 指纹。</p>
 </dd>
 </dl>
 </dd>
 <dt>%DOWNSTREAM_PEER_SERIAL%</dt><dd><dl class="simple">
-<dt>HTTP</dt><dd><p>The serial number of the client certificate used to establish the downstream TLS connection.</p>
+<dt>HTTP</dt><dd><p>用以和下游建立 TSL 连接时使用的客户端证书的 16 进制编码的序列号。</p>
 </dd>
-<dt>TCP</dt><dd><p>The serial number of the client certificate used to establish the downstream TLS connection.</p>
+<dt>TCP</dt><dd><p>用以和下游建立 TSL 连接时使用的客户端证书的 16 进制编码的序列号。</p>
 </dd>
 </dl>
 </dd>
 <dt>%DOWNSTREAM_PEER_CERT%</dt><dd><dl class="simple">
-<dt>HTTP</dt><dd><p>The client certificate in the URL-encoded PEM format used to establish the downstream TLS connection.</p>
+<dt>HTTP</dt><dd><p>用以和下游建立 TSL 连接时使用的客户端证书的 URL 编码 PEM 格式。</p>
 </dd>
-<dt>TCP</dt><dd><p>The client certificate in the URL-encoded PEM format used to establish the downstream TLS connection.</p>
+<dt>TCP</dt><dd><p>用以和下游建立 TSL 连接时使用的客户端证书的 URL 编码 PEM 格式。</p>
 </dd>
 </dl>
 </dd>
 <dt>%DOWNSTREAM_PEER_CERT_V_START%</dt><dd><dl class="simple">
-<dt>HTTP</dt><dd><p>The validity start date of the client certificate used to establish the downstream TLS connection.</p>
+<dt>HTTP</dt><dd><p>用以和下游建立 TSL 连接时使用的客户端证书的起始有效期。</p>
 </dd>
-<dt>TCP</dt><dd><p>The validity start date of the client certificate used to establish the downstream TLS connection.</p>
+<dt>TCP</dt><dd><p>用以和下游建立 TSL 连接时使用的客户端证书的起始有效期。</p>
 </dd>
 </dl>
 </dd>
 <dt>%DOWNSTREAM_PEER_CERT_V_END%</dt><dd><dl class="simple">
-<dt>HTTP</dt><dd><p>The validity end date of the client certificate used to establish the downstream TLS connection.</p>
+<dt>HTTP</dt><dd><p>用以和下游建立 TSL 连接时使用的客户端证书的结束有效期。</p>
 </dd>
-<dt>TCP</dt><dd><p>The validity end date of the client certificate used to establish the downstream TLS connection.</p>
+<dt>TCP</dt><dd><p>用以和下游建立 TSL 连接时使用的客户端证书的结束有效期。</p>
 </dd>
 </dl>
 </dd>
-<dt>%HOSTNAME%</dt><dd><p>The system hostname.</p>
+<dt>%HOSTNAME%</dt><dd><p>系统主机名。</p>
 </dd>
-<dt>%PROTOCOL%</dt><dd><p>The original protocol which is already added by Envoy as a
-<a class="reference internal" href="#config-http-conn-man-headers-x-forwarded-proto"><span class="std std-ref">x-forwarded-proto</span></a> request header.</p>
+<dt>%PROTOCOL%</dt><dd><p>原始协议名，已由 Envoy 通过 <a class="reference internal" href="#config-http-conn-man-headers-x-forwarded-proto"><span class="std std-ref">x-forwarded-proto</span></a> 请求头部添加。</p>
 </dd>
-<dt>%UPSTREAM_METADATA([“namespace”, “key”, …])%</dt><dd><p>Populates the header with <a class="reference internal" href="../../../api-v3/config/endpoint/v3/endpoint_components.proto.html#envoy-v3-api-field-config-endpoint-v3-lbendpoint-metadata"><span class="std std-ref">EDS endpoint metadata</span></a> from the
-upstream host selected by the router. Metadata may be selected from any namespace. In general,
-metadata values may be strings, numbers, booleans, lists, nested structures, or null. Upstream
-metadata values may be selected from nested structs by specifying multiple keys. Otherwise,
-only string, boolean, and numeric values are supported. If the namespace or key(s) are not
-found, or if the selected value is not a supported type, then no header is emitted. The
-namespace and key(s) are specified as a JSON array of strings. Finally, percent symbols in the
-parameters <strong>do not</strong> need to be escaped by doubling them.</p>
-<p>Upstream metadata cannot be added to request headers as the upstream host has not been selected
-when custom request headers are generated.</p>
+<dt>%UPSTREAM_METADATA([“namespace”, “key”, …])%</dt><dd><p>用来自路由选中的上游主机的 <a class="reference internal" href="../../../api-v3/config/endpoint/v3/endpoint_components.proto.html#envoy-v3-api-field-config-endpoint-v3-lbendpoint-metadata"><span class="std std-ref">EDS endpoint metadata</span></a> 填充头部。元数据可以从任何命名空间中选择。元数据值可以是字符串、数字、布尔值、列表、嵌套结构或空值。如果指定了多个键，可以从嵌套结构中选择上游元数据值，否则只支持字符串、布尔值或数字。如果未找到命名空间或键，则不会发送头部。命名空间和键通过 JSON 字符串数组指定。最后，如果在选中值中存在百分号，或者选中值不是支持的类型，则不会发送头部。<strong>不要</strong> 通过重复百分号来转义。上游的元数据是无法被添加到请求头部中的，因为生成请求头部时上游主机还没有被选中。</p>
 </dd>
-<dt>%DYNAMIC_METADATA([“namespace”, “key”, …])%</dt><dd><p>Similar to UPSTREAM_METADATA, populates the header with dynamic metadata available in a request
-(e.g.: added by filters like the header-to-metadata filter).</p>
-<p>This works both on request and response headers.</p>
+<dt>%DYNAMIC_METADATA([“namespace”, “key”, …])%</dt><dd><p>与 UPSTREAM_METADATA 类似，可以用请求中的动态元数据填充头部。（例如来自于过滤器，如 header-to-metadata 过滤器）。</p>
+<p>该功能在请求和响应头部中都适用。</p>
 </dd>
-<dt>%UPSTREAM_REMOTE_ADDRESS%</dt><dd><p>Remote address of the upstream host. If the address is an IP address it includes both address
-and port. The upstream remote address cannot be added to request headers as the upstream host
-has not been selected when custom request headers are generated.</p>
+<dt>%UPSTREAM_REMOTE_ADDRESS%</dt><dd><p>上游主机的远端地址。如果该地址是一个 IP，那么它会包含地址和端口。上游的远端地址是无法被添加到请求头部中的，因为生成自定义请求头部时上游主机还没有被选中。</p>
 </dd>
-<dt>%PER_REQUEST_STATE(reverse.dns.data.name)%</dt><dd><p>Populates the header with values set on the stream info filterState() object. To be
-usable in custom request/response headers, these values must be of type
-Envoy::Router::StringAccessor. These values should be named in standard reverse DNS style,
-identifying the organization that created the value and ending in a unique name for the data.</p>
+<dt>%PER_REQUEST_STATE(reverse.dns.data.name)%</dt><dd><p>将流信息中通过 filterState() 对象设置的值填充入头部。为了能在自定义的请求/响应头部中使用，这些值的类型必须是 Envoy::Router::StringAccessor。这些值的命名必须符合标准的反向 DNS 规范，用以标识创建该值的组织的唯一名称。</p>
 </dd>
-<dt>%REQ(header-name)%</dt><dd><p>Populates the header with a value of the request header.</p>
+<dt>%REQ(header-name)%</dt><dd><p>用请求头部中的指定值来填充。</p>
 </dd>
-<dt>%START_TIME%</dt><dd><p>Request start time. START_TIME can be customized with specifiers as specified in
-<a class="reference internal" href="../../observability/access_log/usage.html#config-access-log-format-start-time"><span class="std std-ref">access log format rules</span></a>.</p>
-<p>An example of setting a custom header with current time in seconds with the milliseconds resolution:</p>
+<dt>%START_TIME%</dt><dd><p>请求开始时间。START_TIME 可以通过配置 <a class="reference internal" href="../../observability/access_log/usage.html#config-access-log-format-start-time"><span class="std std-ref">access log format rules</span></a> 来格式化。</p>
+<p>在自定义头部里添加毫秒精度的时间的例子：</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>route:
   cluster: www
 request_headers_to_add:
@@ -828,11 +666,9 @@ request_headers_to_add:
 </pre></div>
 </div>
 </dd>
-<dt>%RESPONSE_FLAGS%</dt><dd><p>Additional details about the response or connection, if any. Possible values and their meanings
-are listed in the access log formatter <a class="reference internal" href="../../observability/access_log/usage.html#config-access-log-format-response-flags"><span class="std std-ref">documentation</span></a>.</p>
+<dt>%RESPONSE_FLAGS%</dt><dd><p>有关响应或连接的附加信息。可选的值和含义请参考 access log formatter <a class="reference internal" href="../../observability/access_log/usage.html#config-access-log-format-response-flags"><span class="std std-ref">documentation</span></a>。</p>
 </dd>
-<dt>%RESPONSE_CODE_DETAILS%</dt><dd><p>Response code details provides additional information about the HTTP response code, such as
-who set it (the upstream or envoy) and why.</p>
+<dt>%RESPONSE_CODE_DETAILS%</dt><dd><p>响应码详情。可以提供关于 HTTP 响应码的附加信息，例如谁/为什么（上游或 Envoy）设置了这个值。</p>
 </dd>
 </dl>
 </div>
