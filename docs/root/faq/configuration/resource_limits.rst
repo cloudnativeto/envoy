@@ -11,4 +11,4 @@ Envoy 如何防止文件描述符耗尽？
 
 .. note::
 
-    这个按监听器连接的限制最终将由 :ref:`负载管理器 <arch_overview_overload_manager>` 处理。
+    这个监听器连接的限制最终将由 :ref:`过载管理器 <arch_overview_overload_manager>` 来处理。
