@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Why are the Envoy xDS APIs versioned? What is the benefit? &mdash; envoy 1.16.0-e647ee documentation</title>
+  <title>为什么要对 Envoy xDS API 进行版本控制？有什么好处？ &mdash; envoy 1.16.0-3edd36 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-e647ee
+                1.16.0-3edd36
               </div>
             
           
@@ -119,7 +119,7 @@
 <li class="toctree-l3"><a class="reference internal" href="control_plane_version_support.html">Which xDS transport and resource versions does my control plane need to support?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="control_plane.html">How do I support multiple xDS API major versions in my control plane?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="package_naming.html">What do the v2, v3, vN etc. mean in API package names?</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Why are the Envoy xDS APIs versioned? What is the benefit?</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">为什么要对 Envoy xDS API 进行版本控制？有什么好处？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="incremental.html">增量 xDS 支持的状态有哪些？</a></li>
 </ul>
 </li>
@@ -178,7 +178,7 @@
         
           <li><a href="../overview.html">FAQ</a> &raquo;</li>
         
-      <li>Why are the Envoy xDS APIs versioned? What is the benefit?</li>
+      <li>为什么要对 Envoy xDS API 进行版本控制？有什么好处？</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -197,38 +197,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="why-are-the-envoy-xds-apis-versioned-what-is-the-benefit">
-<h1>Why are the Envoy xDS APIs versioned? What is the benefit?<a class="headerlink" href="#why-are-the-envoy-xds-apis-versioned-what-is-the-benefit" title="Permalink to this headline">¶</a></h1>
-<p>Envoy is a platform and needs to allow its APIs to grow and evolve to encompass new features,
-improve ergonomics and address new use cases. At the same time, we need a disciplined approach to
-turning down stale functionality and removing APIs and their supporting code that are no longer
-maintained. If we don’t do this, we lose the ability in the long term to provide a reliable,
-maintainable, scalable code base and set of APIs for our users.</p>
-<p>We had previously put in place policies around <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e647ee2a2e802f05744ba7d2443f70dcda069318/CONTRIBUTING.md#breaking-change-policy">breaking changes</a> across releases, the <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/e647ee2a2e802f05744ba7d2443f70dcda069318/api/API_VERSIONING.md">API versioning policy</a> takes this a step further, articulating a guaranteed multi-year support
-window for APIs that provides control plane authors a predictable clock when considering support
-for a range of Envoy versions.</p>
-<p>For the v3 xDS APIs, a brief list of the key improvements that were made with a clean break from v2:</p>
+  <div class="section" id="envoy-xds-api">
+<h1>为什么要对 Envoy xDS API 进行版本控制？有什么好处？<a class="headerlink" href="#envoy-xds-api" title="Permalink to this headline">¶</a></h1>
+<p>Envoy 是一个平台，需要允许其 API 不断发展以包含新功能、改进人机工程学并解决新用例。同时，我们需要一种严谨的方法来拒绝过时的功能并删除不再维护的 API 及其支持代码。如果我们不这样做，从长远来看我们将失去为用户提供可靠的、可维护、可扩展的代码库和 API 集的能力。</p>
+<p>我们曾针对在各个发行版之间的 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3edd36c4b9b31bea80d8466bdfaf4457437a6434/CONTRIBUTING.md#breaking-change-policy">重大更改</a> 制定了相关政策，而 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3edd36c4b9b31bea80d8466bdfaf4457437a6434/api/API_VERSIONING.md">API版本控制策略</a> 则对此做了进一步提升，明确说明了 API 的有保证的多年支持窗口，当考虑支持一系列 Envoy 版本时，该窗口为控制平面作者提供了可预测的时钟。</p>
+<p>对于 v3 xDS API，简要列出了与 v2 相比所做的主要改进：</p>
 <ul class="simple">
-<li><p>Packages organization was improved to reflect a more logical grouping of related APIs:</p>
+<li><p>软件包的组织得到了改进，以反映相关 API 的更合理的分组：</p>
 <ul>
-<li><p>The legacy <cite>envoy.api.v2</cite> tree was eliminated, with protos moved to their logical groupings,
-e.g. <cite>envoy.config.core.v3</cite>, <cite>envoy.server.listener.v3</cite>.</p></li>
-<li><p>All packages are now versioned with a <cite>vN</cite> at the end. This allows for type-level identification
-of major version.</p></li>
-<li><p>xDS service endpoints/transport and configuration are split between <cite>envoy.service</cite> and
-<cite>envoy.config</cite>.</p></li>
-<li><p>Extensions now reflect the Envoy source tree layout under <cite>envoy.extensions</cite>.</p></li>
+<li><p>现在所有软件包通过末尾的 <cite>vN</cite> 进行版本控制。这允许对主要版本进行类型级别的标识。</p></li>
+<li><p>xDS服务端点/传输和配置在 <cite>envoy.service</cite> 和 <cite>envoy.config</cite>。</p></li>
+<li><p>扩展现在反映了 <cite>envoy.extensions</cite> 下的 Envoy 源代码树布局。</p></li>
 </ul>
 </li>
-<li><p><cite>std::regex</cite> regular expressions were dropped from the API, in favor of RE2. The former have dangerous
-security implications.</p></li>
-<li><p><cite>google.protobuf.Struct</cite> configuration of extensions was dropped from the API, in favor of
-typed configuration. This provides for better support for multiple instances of extensions, e.g.
-in filter chains, and more flexible naming of extension instances.</p></li>
-<li><p>Over 60 deprecated fields were removed from the API.</p></li>
-<li><p>Tooling and processes were established for API versioning support. This has now been reflected in
-the bootstrap <cite>Node</cite>, providing a long term notion of API support that control planes can depend
-upon for client negotiation.</p></li>
+<li><p>正则表达式 <cite>std::regex</cite> 已从 API 中删除，以支持 RE2。前者具有危险的安全隐患。</p></li>
+<li><p>扩展的配置 <cite>google.protobuf.Struct</cite> 已从 API 中删除，这有利于类型化配置。也为扩展的多个实例提供了更好的支持，例如，在过滤器链中，并且扩展实例的命名更加灵活。</p></li>
+<li><p>从 API 中删除了 60 多个不赞成使用的字段。</p></li>
+<li><p>建立了用于 API 版本支持的工具和流程。现在，这已经反映在引导程序 <cite>Node</cite> 中，它提供了控制平面可以依赖于客户端协商的 API 支持的长期概念。</p></li>
 </ul>
 </div>
 
