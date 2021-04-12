@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Lua &mdash; envoy 1.16.0-3edd36 documentation</title>
+  <title>Lua &mdash; envoy 1.16.0-8e29fc documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-3edd36
+                1.16.0-8e29fc
               </div>
             
           
@@ -238,59 +238,40 @@
 <span id="config-http-filters-lua"></span><h1>Lua<a class="headerlink" href="#lua" title="Permalink to this headline">¶</a></h1>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>By default Envoy is built without exporting symbols that you may need when interacting with Lua
-modules installed as shared objects. Envoy may need to be built with support for exported symbols.
-Please see the <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3edd36c4b9b31bea80d8466bdfaf4457437a6434/bazel/README.md">Bazel docs</a> for more information.</p>
+<p>默认情况下构建出的 Envoy 不会提供以共享库方式安装 Lua 模块时需要的 symbols。但是 Envoy 可以按支持提供 symbols 的方式进行构建。请查看 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/8e29fc2a93a25fff72efa1ba582ec4492e215649/bazel/README.md">Bazel 文档</a> 获取更多信息。</p>
 </div>
-<div class="section" id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>The HTTP Lua filter allows <a class="reference external" href="https://www.lua.org/">Lua</a> scripts to be run during both the request
-and response flows. <a class="reference external" href="https://luajit.org/">LuaJIT</a> is used as the runtime. Because of this, the
-supported Lua version is mostly 5.1 with some 5.2 features. See the <a class="reference external" href="https://luajit.org/extensions.html">LuaJIT documentation</a> for more details.</p>
+<div class="section" id="id1">
+<h2>概述<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>HTTP Lua 过滤器允许在请求和响应流期间运行 <a class="reference external" href="https://www.lua.org/">Lua</a> 脚本。<a class="reference external" href="https://luajit.org/">LuaJIT</a> 作为运行时使用，因此，支持的 Lua 版本主要是 5.1，同时也包括部分 5.2 的特性。查看 <a class="reference external" href="https://luajit.org/extensions.html">LuaJIT 文档</a> 获取更多详情。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><a class="reference external" href="https://github.com/moonjit/moonjit/">moonjit</a> is a continuation of LuaJIT development, which
-supports more 5.2 features and additional architectures. Envoy can be built with moonjit support
-by using the following bazel option: <code class="docutils literal notranslate"><span class="pre">--//source/extensions/filters/common/lua:moonjit=1</span></code>.</p>
+<p><a class="reference external" href="https://github.com/moonjit/moonjit/">moonjit</a> 是 LuaJIT 开发的延续，它支持了更多的 5.2 特性和额外的结构。可以使用如下 bazel 选项构建支持 moonjit 的 Envoy： <code class="docutils literal notranslate"><span class="pre">--//source/extensions/filters/common/lua:moonjit=1</span></code>。</p>
 </div>
-<p>The design of the filter and Lua support at a high level is as follows:</p>
+<p>过滤器和 Lua 支持的高层设计如下：</p>
 <ul class="simple">
-<li><p>All Lua environments are <a class="reference internal" href="../../../intro/arch_overview/intro/threading_model.html#arch-overview-threading"><span class="std std-ref">per worker thread</span></a>. This means that
-there is no truly global data. Any globals created and populated at load time will be visible
-from each worker thread in isolation. True global support may be added via an API in the future.</p></li>
-<li><p>All scripts are run as coroutines. This means that they are written in a synchronous style even
-though they may perform complex asynchronous tasks. This makes the scripts substantially easier
-to write. All network/async processing is performed by Envoy via a set of APIs. Envoy will
-suspend execution of the script as appropriate and resume it when async tasks are complete.</p></li>
-<li><p><strong>Do not perform blocking operations from scripts.</strong> It is critical for performance that
-Envoy APIs are used for all IO.</p></li>
+<li><p>所有的 Lua 环境都是 <a class="reference internal" href="../../../intro/arch_overview/intro/threading_model.html#arch-overview-threading"><span class="std std-ref">每个工作线程内的</span></a>。这意味着不存在真正的全局数据。在加载时创建和填充的所有全局变量都将在每个工作线程中独立展示。将来可能通过 API 添加真正的全局支持。</p></li>
+<li><p>所有的脚本都以协程方式运行。这意味着即便它们可能执行复杂的异步任务，但它们也是按照同步的方式编写。这使得脚本实际上更容易编写。Envoy 通过一组 API 执行所有的网络/异步处理。Envoy 将适当地暂停脚本地执行，并在异步任务完成后继续执行脚本。</p></li>
+<li><p><strong>不要在脚本中执行阻塞操作。</strong> Envoy API 用于所有的 IO，所以这对性能至关重要。</p></li>
 </ul>
 </div>
-<div class="section" id="currently-supported-high-level-features">
-<h2>Currently supported high level features<a class="headerlink" href="#currently-supported-high-level-features" title="Permalink to this headline">¶</a></h2>
-<p><strong>NOTE:</strong> It is expected that this list will expand over time as the filter is used in production.
-The API surface has been kept small on purpose. The goal is to make scripts extremely simple and
-safe to write. Very complex or high performance use cases are assumed to use the native C++ filter
-API.</p>
+<div class="section" id="id4">
+<h2>当前支持的高级特性<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p><strong>注意：</strong> 随着生产中使用该过滤器，预计该列表会随着时间的推移而拓展。API 表层保持精简。目的是使脚本尽可能简单和编写安全。非常复杂或高性能的使用场景应当使用原生的 C++ 过滤器 API。</p>
 <ul class="simple">
-<li><p>Inspection of headers, body, and trailers while streaming in either the request flow, response
-flow, or both.</p></li>
-<li><p>Modification of headers and trailers.</p></li>
-<li><p>Blocking and buffering the full request/response body for inspection.</p></li>
-<li><p>Performing an outbound async HTTP call to an upstream host. Such a call can be performed while
-buffering body data so that when the call completes upstream headers can be modified.</p></li>
-<li><p>Performing a direct response and skipping further filter iteration. For example, a script
-could make an upstream HTTP call for authentication, and then directly respond with a 403
-response code.</p></li>
+<li><p>在流式传输的请求流和/或响应流中检查头部、正文和尾部。</p></li>
+<li><p>修改头部和尾部。</p></li>
+<li><p>阻塞并缓存整个请求/响应正文以进行检查。</p></li>
+<li><p>对上游主机执行出站异步 HTTP 调用。可以在缓冲正文数据的同时执行此类调用，以便在调用完成时可以修改上游头部。</p></li>
+<li><p>执行直接响应并跳过后续的过滤器迭代。例如，脚本可以向上游发起 HTTP 身份认证调用，然后直接响应 403 响应码。</p></li>
 </ul>
 </div>
-<div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h2>配置<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../../api-v3/extensions/filters/http/lua/v3/lua.proto.html#envoy-v3-api-msg-extensions-filters-http-lua-v3-lua"><span class="std std-ref">v3 API reference</span></a></p></li>
-<li><p>This filter should be configured with the name <em>envoy.filters.http.lua</em>.</p></li>
+<li><p><a class="reference internal" href="../../../api-v3/extensions/filters/http/lua/v3/lua.proto.html#envoy-v3-api-msg-extensions-filters-http-lua-v3-lua"><span class="std std-ref">v3 API 参考</span></a></p></li>
+<li><p>此过滤器应使用配置名称 <em>envoy.filters.http.lua</em>。</p></li>
 </ul>
-<p>A simple example of configuring Lua HTTP filter that contains only <a class="reference internal" href="../../../api-v3/extensions/filters/http/lua/v3/lua.proto.html#envoy-v3-api-field-extensions-filters-http-lua-v3-lua-inline-code"><span class="std std-ref">inline_code</span></a> is as follow:</p>
+<p>配置仅包含 <a class="reference internal" href="../../../api-v3/extensions/filters/http/lua/v3/lua.proto.html#envoy-v3-api-field-extensions-filters-http-lua-v3-lua-inline-code"><span class="std std-ref">inline_code</span></a> 的 Lua HTTP 过滤器的简单示例如下：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.filters.http.lua</span>
 <span class="nt">typed_config</span><span class="p">:</span>
   <span class="s">&quot;@type&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua</span>
@@ -305,27 +286,23 @@ response code.</p></li>
     <span class="no">end</span>
 </pre></div>
 </div>
-<p>By default, Lua script defined in <code class="docutils literal notranslate"><span class="pre">inline_code</span></code> will be treated as a <code class="docutils literal notranslate"><span class="pre">GLOBAL</span></code> script. Envoy will
-execute it for every HTTP request.</p>
+<p>默认情况下，定义在 <code class="docutils literal notranslate"><span class="pre">inline_code</span></code> 中的 Lua 脚本会被认定为 <code class="docutils literal notranslate"><span class="pre">GLOBAL</span></code> 脚本。Envoy 将会在每个 HTTP 请求中执行该脚本。</p>
 </div>
-<div class="section" id="per-route-configuration">
-<h2>Per-Route Configuration<a class="headerlink" href="#per-route-configuration" title="Permalink to this headline">¶</a></h2>
-<p>The Lua HTTP filter also can be disabled or overridden on a per-route basis by providing a
-<a class="reference internal" href="../../../api-v3/extensions/filters/http/lua/v3/lua.proto.html#envoy-v3-api-msg-extensions-filters-http-lua-v3-luaperroute"><span class="std std-ref">LuaPerRoute</span></a> configuration
-on the virtual host, route, or weighted cluster.</p>
-<p>LuaPerRoute provides two ways of overriding the <cite>GLOBAL</cite> Lua script:</p>
+<div class="section" id="id6">
+<h2>基于每条路由的配置<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>通过在虚拟主机、路由或加权集群上提供 <a class="reference internal" href="../../../api-v3/extensions/filters/http/lua/v3/lua.proto.html#envoy-v3-api-msg-extensions-filters-http-lua-v3-luaperroute"><span class="std std-ref">LuaPerRoute</span></a> 配置，还可以基于每条路由禁用或覆盖 Lua HTTP 过滤器。</p>
+<p>LuaPerRoute 提供了两种覆盖 <cite>GLOBAL</cite> Lua 脚本的方式：</p>
 <ul class="simple">
-<li><p>By providing a name reference to the defined <a class="reference internal" href="../../../api-v3/extensions/filters/http/lua/v3/lua.proto.html#envoy-v3-api-field-extensions-filters-http-lua-v3-lua-source-codes"><span class="std std-ref">named Lua source codes map</span></a>.</p></li>
-<li><p>By providing inline <a class="reference internal" href="../../../api-v3/extensions/filters/http/lua/v3/lua.proto.html#envoy-v3-api-field-extensions-filters-http-lua-v3-luaperroute-source-code"><span class="std std-ref">source code</span></a> (This allows the
-code to be sent through RDS).</p></li>
+<li><p>通过提供一个与已定义的 <a class="reference internal" href="../../../api-v3/extensions/filters/http/lua/v3/lua.proto.html#envoy-v3-api-field-extensions-filters-http-lua-v3-lua-source-codes"><span class="std std-ref">命名 Lua 源码映射</span></a> 相关联的名称。</p></li>
+<li><p>通过提供内联 <a class="reference internal" href="../../../api-v3/extensions/filters/http/lua/v3/lua.proto.html#envoy-v3-api-field-extensions-filters-http-lua-v3-luaperroute-source-code"><span class="std std-ref">源码</span></a> （这允许通过 RDS 发送代码）。</p></li>
 </ul>
-<p>As a concrete example, given the following Lua filter configuration:</p>
+<p>给出以下 Lua 过滤器配置作为具体实例：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.filters.http.lua</span>
 <span class="nt">typed_config</span><span class="p">:</span>
   <span class="s">&quot;@type&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua</span>
   <span class="nt">inline_code</span><span class="p">:</span> <span class="p p-Indicator">|</span>
     <span class="no">function envoy_on_request(request_handle)</span>
-      <span class="no">-- do something</span>
+      <span class="no">-- 执行某些逻辑</span>
     <span class="no">end</span>
   <span class="nt">source_codes</span><span class="p">:</span>
     <span class="nt">hello.lua</span><span class="p">:</span>
@@ -340,16 +317,13 @@ code to be sent through RDS).</p></li>
         <span class="no">end</span>
 </pre></div>
 </div>
-<p>The HTTP Lua filter can be disabled on some virtual host, route, or weighted cluster by the
-<a class="reference internal" href="../../../api-v3/extensions/filters/http/lua/v3/lua.proto.html#envoy-v3-api-msg-extensions-filters-http-lua-v3-luaperroute"><span class="std std-ref">LuaPerRoute</span></a> configuration as
-follow:</p>
+<p>可以通过 <a class="reference internal" href="../../../api-v3/extensions/filters/http/lua/v3/lua.proto.html#envoy-v3-api-msg-extensions-filters-http-lua-v3-luaperroute"><span class="std std-ref">LuaPerRoute</span></a> 配置在某些虚拟主机、路由或加权集群上禁用 HTTP Lua 过滤器，如下所示：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">per_filter_config</span><span class="p">:</span>
   <span class="nt">envoy.filters.http.lua</span><span class="p">:</span>
     <span class="nt">disabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
-<p>We can also refer to a Lua script in the filter configuration by specifying a name in LuaPerRoute.
-The <code class="docutils literal notranslate"><span class="pre">GLOBAL</span></code> Lua script will be overridden by the referenced script:</p>
+<p>我们还可以通过在 LuaPerRoute 中指定名称来引用过滤器配置中的 Lua 脚本。<code class="docutils literal notranslate"><span class="pre">GLOBAL</span></code> Lua 脚本会被引用的脚本覆盖：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">per_filter_config</span><span class="p">:</span>
   <span class="nt">envoy.filters.http.lua</span><span class="p">:</span>
     <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">hello.lua</span>
@@ -357,11 +331,9 @@ The <code class="docutils literal notranslate"><span class="pre">GLOBAL</span></
 </div>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>The name <code class="docutils literal notranslate"><span class="pre">GLOBAL</span></code> is reserved for <a class="reference internal" href="../../../api-v3/extensions/filters/http/lua/v3/lua.proto.html#envoy-v3-api-field-extensions-filters-http-lua-v3-lua-inline-code"><span class="std std-ref">Lua.inline_code</span></a>. Therefore, do not use
-<code class="docutils literal notranslate"><span class="pre">GLOBAL</span></code> as name for other Lua scripts.</p>
+<p><code class="docutils literal notranslate"><span class="pre">GLOBAL</span></code> 作为 <a class="reference internal" href="../../../api-v3/extensions/filters/http/lua/v3/lua.proto.html#envoy-v3-api-field-extensions-filters-http-lua-v3-lua-inline-code"><span class="std std-ref">Lua.inline_code</span></a> 中的保留名称。因此，请勿使用 <code class="docutils literal notranslate"><span class="pre">GLOBAL</span></code> 作为其他 Lua 脚本的名称。</p>
 </div>
-<p>Or we can define a new Lua script in the LuaPerRoute configuration directly to override the <cite>GLOBAL</cite>
-Lua script as follows:</p>
+<p>或者我们可以直接在 LuaPerRoute 中定义一个新的脚本，以覆盖 <cite>GLOBAL</cite> Lua 脚本，如下所示：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">per_filter_config</span><span class="p">:</span>
   <span class="nt">envoy.filters.http.lua</span><span class="p">:</span>
     <span class="nt">source_code</span><span class="p">:</span>
@@ -372,28 +344,26 @@ Lua script as follows:</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="script-examples">
-<h2>Script examples<a class="headerlink" href="#script-examples" title="Permalink to this headline">¶</a></h2>
-<p>This section provides some concrete examples of Lua scripts as a more gentle introduction and quick
-start. Please refer to the <a class="reference internal" href="#config-http-filters-lua-stream-handle-api"><span class="std std-ref">stream handle API</span></a> for
-more details on the supported API.</p>
-<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Called on the request path.</span>
+<div class="section" id="id7">
+<h2>脚本示例<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>本章节提供一些具体的 Lua 脚本示例，作为更友好的介绍和快速入门。更多的 API 支持详情请参考 <a class="reference internal" href="#config-http-filters-lua-stream-handle-api"><span class="std std-ref">流处理 API</span></a>。</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- 在请求路径上调用。</span>
 <span class="kr">function</span> <span class="nf">envoy_on_request</span><span class="p">(</span><span class="n">request_handle</span><span class="p">)</span>
-  <span class="c1">-- Wait for the entire request body and add a request header with the body size.</span>
+  <span class="c1">-- 等待整个请求正文并添加正文大小到请求头部。</span>
   <span class="n">request_handle</span><span class="p">:</span><span class="n">headers</span><span class="p">():</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;request_body_size&quot;</span><span class="p">,</span> <span class="n">request_handle</span><span class="p">:</span><span class="n">body</span><span class="p">():</span><span class="n">length</span><span class="p">())</span>
 <span class="kr">end</span>
 
-<span class="c1">-- Called on the response path.</span>
+<span class="c1">-- 在响应路径上调用。</span>
 <span class="kr">function</span> <span class="nf">envoy_on_response</span><span class="p">(</span><span class="n">response_handle</span><span class="p">)</span>
-  <span class="c1">-- Wait for the entire response body and add a response header with the body size.</span>
+  <span class="c1">-- 等待整个响应正文并添加正文大小到响应头部。</span>
   <span class="n">response_handle</span><span class="p">:</span><span class="n">headers</span><span class="p">():</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;response_body_size&quot;</span><span class="p">,</span> <span class="n">response_handle</span><span class="p">:</span><span class="n">body</span><span class="p">():</span><span class="n">length</span><span class="p">())</span>
-  <span class="c1">-- Remove a response header named &#39;foo&#39;</span>
+  <span class="c1">-- 移除响应头部 ‘foo’</span>
   <span class="n">response_handle</span><span class="p">:</span><span class="n">headers</span><span class="p">():</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">)</span>
 <span class="kr">end</span>
 </pre></div>
 </div>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">envoy_on_request</span><span class="p">(</span><span class="n">request_handle</span><span class="p">)</span>
-  <span class="c1">-- Make an HTTP call to an upstream host with the following headers, body, and timeout.</span>
+  <span class="c1">-- 使用如下头部、正文和超时时间向上游主机发起 HTTP 调用。</span>
   <span class="kd">local</span> <span class="n">headers</span><span class="p">,</span> <span class="n">body</span> <span class="o">=</span> <span class="n">request_handle</span><span class="p">:</span><span class="n">httpCall</span><span class="p">(</span>
   <span class="s2">&quot;lua_cluster&quot;</span><span class="p">,</span>
   <span class="p">{</span>
@@ -404,15 +374,14 @@ more details on the supported API.</p>
   <span class="s2">&quot;hello world&quot;</span><span class="p">,</span>
   <span class="mi">5000</span><span class="p">)</span>
 
-  <span class="c1">-- Add information from the HTTP call into the headers that are about to be sent to the next</span>
-  <span class="c1">-- filter in the filter chain.</span>
+  <span class="c1">-- 将来自 HTTP 调用的信息添加到过滤器链中即将发送的下一个过滤器上。</span>
   <span class="n">request_handle</span><span class="p">:</span><span class="n">headers</span><span class="p">():</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;upstream_foo&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="p">[</span><span class="s2">&quot;foo&quot;</span><span class="p">])</span>
   <span class="n">request_handle</span><span class="p">:</span><span class="n">headers</span><span class="p">():</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;upstream_body_size&quot;</span><span class="p">,</span> <span class="o">#</span><span class="n">body</span><span class="p">)</span>
 <span class="kr">end</span>
 </pre></div>
 </div>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">envoy_on_request</span><span class="p">(</span><span class="n">request_handle</span><span class="p">)</span>
-  <span class="c1">-- Make an HTTP call.</span>
+  <span class="c1">-- 发起 HTTP 调用。</span>
   <span class="kd">local</span> <span class="n">headers</span><span class="p">,</span> <span class="n">body</span> <span class="o">=</span> <span class="n">request_handle</span><span class="p">:</span><span class="n">httpCall</span><span class="p">(</span>
   <span class="s2">&quot;lua_cluster&quot;</span><span class="p">,</span>
   <span class="p">{</span>
@@ -424,8 +393,7 @@ more details on the supported API.</p>
   <span class="s2">&quot;hello world&quot;</span><span class="p">,</span>
   <span class="mi">5000</span><span class="p">)</span>
 
-  <span class="c1">-- Response directly and set a header from the HTTP call. No further filter iteration</span>
-  <span class="c1">-- occurs.</span>
+  <span class="c1">-- 直接响应并设置 HTTP 调用的头部。不会迭代到后续的过滤器。</span>
   <span class="n">request_handle</span><span class="p">:</span><span class="n">respond</span><span class="p">(</span>
     <span class="p">{[</span><span class="s2">&quot;:status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;403&quot;</span><span class="p">,</span>
      <span class="p">[</span><span class="s2">&quot;upstream_foo&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">headers</span><span class="p">[</span><span class="s2">&quot;foo&quot;</span><span class="p">]},</span>
@@ -434,21 +402,20 @@ more details on the supported API.</p>
 </pre></div>
 </div>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">envoy_on_request</span><span class="p">(</span><span class="n">request_handle</span><span class="p">)</span>
-  <span class="c1">-- Log information about the request</span>
+  <span class="c1">-- 记录请求信息</span>
   <span class="n">request_handle</span><span class="p">:</span><span class="n">logInfo</span><span class="p">(</span><span class="s2">&quot;Authority: &quot;</span><span class="o">..</span><span class="n">request_handle</span><span class="p">:</span><span class="n">headers</span><span class="p">():</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;:authority&quot;</span><span class="p">))</span>
   <span class="n">request_handle</span><span class="p">:</span><span class="n">logInfo</span><span class="p">(</span><span class="s2">&quot;Method: &quot;</span><span class="o">..</span><span class="n">request_handle</span><span class="p">:</span><span class="n">headers</span><span class="p">():</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;:method&quot;</span><span class="p">))</span>
   <span class="n">request_handle</span><span class="p">:</span><span class="n">logInfo</span><span class="p">(</span><span class="s2">&quot;Path: &quot;</span><span class="o">..</span><span class="n">request_handle</span><span class="p">:</span><span class="n">headers</span><span class="p">():</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;:path&quot;</span><span class="p">))</span>
 <span class="kr">end</span>
 
 <span class="kr">function</span> <span class="nf">envoy_on_response</span><span class="p">(</span><span class="n">response_handle</span><span class="p">)</span>
-  <span class="c1">-- Log response status code</span>
+  <span class="c1">-- 记录响应状态码</span>
   <span class="n">response_handle</span><span class="p">:</span><span class="n">logInfo</span><span class="p">(</span><span class="s2">&quot;Status: &quot;</span><span class="o">..</span><span class="n">response_handle</span><span class="p">:</span><span class="n">headers</span><span class="p">():</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;:status&quot;</span><span class="p">))</span>
 <span class="kr">end</span>
 </pre></div>
 </div>
-<p>A common use-case is to rewrite upstream response body, for example: an upstream sends non-2xx
-response with JSON data, but the application requires HTML page to be sent to browsers.</p>
-<p>There are two ways of doing this, the first one is via the <cite>body()</cite> API.</p>
+<p>一个常见的使用场景是重写上游的响应正文，例如：上游发送了非 2xx 的 JSON 数据响应，但应用要求发送 HTML 页面到浏览器端。</p>
+<p>有两种方式可以实现，第一种是通过 <cite>body()</cite> API。</p>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">envoy_on_response</span><span class="p">(</span><span class="n">response_handle</span><span class="p">)</span>
   <span class="kd">local</span> <span class="n">content_length</span> <span class="o">=</span> <span class="n">response_handle</span><span class="p">:</span><span class="n">body</span><span class="p">():</span><span class="n">setBytes</span><span class="p">(</span><span class="s2">&quot;&lt;html&gt;&lt;b&gt;Not Found&lt;b&gt;&lt;/html&gt;&quot;</span><span class="p">)</span>
   <span class="n">response_handle</span><span class="p">:</span><span class="n">headers</span><span class="p">():</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;content-length&quot;</span><span class="p">,</span> <span class="n">content_length</span><span class="p">)</span>
@@ -456,16 +423,16 @@ response with JSON data, but the application requires HTML page to be sent to br
 <span class="kr">end</span>
 </pre></div>
 </div>
-<p>Or, through <cite>bodyChunks()</cite> API, which let Envoy to skip buffering the upstream response data.</p>
+<p>或者，通过 <cite>bodyChunks()</cite> API，使 Envoy 跳过缓存上游的响应数据。</p>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">envoy_on_response</span><span class="p">(</span><span class="n">response_handle</span><span class="p">)</span>
 
-  <span class="c1">-- Sets the content-length.</span>
+  <span class="c1">-- 设置 content-length。</span>
   <span class="n">response_handle</span><span class="p">:</span><span class="n">headers</span><span class="p">():</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;content-length&quot;</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>
   <span class="n">response_handle</span><span class="p">:</span><span class="n">headers</span><span class="p">():</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;content-type&quot;</span><span class="p">,</span> <span class="s2">&quot;text/html&quot;</span><span class="p">)</span>
 
   <span class="kd">local</span> <span class="n">last</span>
   <span class="kr">for</span> <span class="n">chunk</span> <span class="kr">in</span> <span class="n">response_handle</span><span class="p">:</span><span class="n">bodyChunks</span><span class="p">()</span> <span class="kr">do</span>
-    <span class="c1">-- Clears each received chunk.</span>
+    <span class="c1">-- 清除每个接收到的响应正文数据块。</span>
     <span class="n">chunk</span><span class="p">:</span><span class="n">setBytes</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
     <span class="n">last</span> <span class="o">=</span> <span class="n">chunk</span>
   <span class="kr">end</span>
@@ -475,14 +442,13 @@ response with JSON data, but the application requires HTML page to be sent to br
 </pre></div>
 </div>
 </div>
-<div class="section" id="complete-example">
-<span id="config-http-filters-lua-stream-handle-api"></span><h2>Complete example<a class="headerlink" href="#complete-example" title="Permalink to this headline">¶</a></h2>
-<p>A complete example using Docker is available in <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3edd36c4b9b31bea80d8466bdfaf4457437a6434//examples/lua">/examples/lua</a>.</p>
+<div class="section" id="config-http-filters-lua-stream-handle-api">
+<span id="id8"></span><h2>完整示例<a class="headerlink" href="#config-http-filters-lua-stream-handle-api" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/8e29fc2a93a25fff72efa1ba582ec4492e215649//examples/lua">/examples/lua</a> 中提供了使用 Docker 的完整示例。</p>
 </div>
-<div class="section" id="stream-handle-api">
-<h2>Stream handle API<a class="headerlink" href="#stream-handle-api" title="Permalink to this headline">¶</a></h2>
-<p>When Envoy loads the script in the configuration, it looks for two global functions that the
-script defines:</p>
+<div class="section" id="api">
+<h2>流处理 API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<p>当 Envoy 加载了脚本中的配置时，它将执行脚本中定义的两个全局方法：</p>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">envoy_on_request</span><span class="p">(</span><span class="n">request_handle</span><span class="p">)</span>
 <span class="kr">end</span>
 
@@ -490,62 +456,48 @@ script defines:</p>
 <span class="kr">end</span>
 </pre></div>
 </div>
-<p>A script can define either or both of these functions. During the request path, Envoy will
-run <em>envoy_on_request</em> as a coroutine, passing a handle to the request API. During the
-response path, Envoy will run <em>envoy_on_response</em> as a coroutine, passing handle to the
-response API.</p>
+<p>脚本中可以同时定义这些方法。请求路径中，Envoy 将会以协程方式运行 <em>envoy_on_request</em>，将处理方法传递到请求 API。在响应路径中，Envoy 将以协程方式运行 <em>envoy_on_response</em>，将处理方法传递到响应 API。</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>It is critical that all interaction with Envoy occur through the passed stream handle. The stream
-handle should not be assigned to any global variable and should not be used outside of the
-coroutine. Envoy will fail your script if the handle is used incorrectly.</p>
+<p>与 Envoy 的所有交互都要通过传递的流处理方法进行，这点至关重要。流处理方法中不应该指定任何全局变量，且不能在协程外部使用。如果处理方法被错误使用，Envoy 将使脚本失败。</p>
 </div>
-<p>The following methods on the stream handle are supported:</p>
+<p>支持如下的流处理方法：</p>
 <div class="section" id="headers">
 <h3>headers()<a class="headerlink" href="#headers" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">handle</span><span class="p">:</span><span class="n">headers</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns the stream’s headers. The headers can be modified as long as they have not been sent to
-the next filter in the header chain. For example, they can be modified after an <em>httpCall()</em> or
-after a <em>body()</em> call returns. The script will fail if the headers are modified in any other
-situation.</p>
-<p>Returns a <a class="reference internal" href="#config-http-filters-lua-header-wrapper"><span class="std std-ref">header object</span></a>.</p>
+<p>返回流的头部。只要头部尚未被发送到头部链中的下一个过滤器，就可以对其进行修改。例如，在 <em>body()</em> 或 <em>httpCall()</em> 调用返回后它们可以被修改。如果在其他任何情况下修改头部，将使脚本失败。</p>
+<p>返回一个 <a class="reference internal" href="#config-http-filters-lua-header-wrapper"><span class="std std-ref">头部对象</span></a>。</p>
 </div>
 <div class="section" id="body">
 <h3>body()<a class="headerlink" href="#body" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">body</span> <span class="o">=</span> <span class="n">handle</span><span class="p">:</span><span class="n">body</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns the stream’s body. This call will cause Envoy to suspend execution of the script until
-the entire body has been received in a buffer. Note that all buffering must adhere to the
-flow-control policies in place. Envoy will not buffer more data than is allowed by the connection
-manager.</p>
-<p>Returns a <a class="reference internal" href="#config-http-filters-lua-buffer-wrapper"><span class="std std-ref">buffer object</span></a>.</p>
+<p>返回流的正文。此调用将导致 Envoy 暂停脚本的执行直到整个正文被接收到缓冲区中。注意所有的缓冲都必须遵守适当的流控制策略。Envoy 不会缓冲超出连接管理器所允许的多出数据。</p>
+<p>返回一个 <a class="reference internal" href="#config-http-filters-lua-buffer-wrapper"><span class="std std-ref">缓冲对象</span></a>。</p>
 </div>
 <div class="section" id="bodychunks">
 <h3>bodyChunks()<a class="headerlink" href="#bodychunks" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">iterator</span> <span class="o">=</span> <span class="n">handle</span><span class="p">:</span><span class="n">bodyChunks</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns an iterator that can be used to iterate through all received body chunks as they arrive.
-Envoy will suspend executing the script in between chunks, but <em>will not buffer</em> them. This can be
-used by a script to inspect data as it is streaming by.</p>
+<p>返回一个迭代器，可在所有接收到的正文块到达时用其进行迭代。在块与块之间 Envoy 将暂停执行脚本，但 <em>不会缓存</em> 它们。脚本可以用其检查流式传输的数据。</p>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span> <span class="n">chunk</span> <span class="kr">in</span> <span class="n">request_handle</span><span class="p">:</span><span class="n">bodyChunks</span><span class="p">()</span> <span class="kr">do</span>
   <span class="n">request_handle</span><span class="p">:</span><span class="n">log</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">chunk</span><span class="p">:</span><span class="n">length</span><span class="p">())</span>
 <span class="kr">end</span>
 </pre></div>
 </div>
-<p>Each chunk the iterator returns is a <a class="reference internal" href="#config-http-filters-lua-buffer-wrapper"><span class="std std-ref">buffer object</span></a>.</p>
+<p>迭代器返回的每个块都是一个 <a class="reference internal" href="#config-http-filters-lua-buffer-wrapper"><span class="std std-ref">缓冲对象</span></a>。</p>
 </div>
 <div class="section" id="trailers">
 <h3>trailers()<a class="headerlink" href="#trailers" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">trailers</span> <span class="o">=</span> <span class="n">handle</span><span class="p">:</span><span class="n">trailers</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns the stream’s trailers. May return nil if there are no trailers. The trailers may be
-modified before they are sent to the next filter.</p>
-<p>Returns a <a class="reference internal" href="#config-http-filters-lua-header-wrapper"><span class="std std-ref">header object</span></a>.</p>
+<p>返回流的尾部。如果没有尾部则可能返回 nil。尾部在被发送到下一个过滤器前是可以被修改的。</p>
+<p>返回一个 <a class="reference internal" href="#config-http-filters-lua-header-wrapper"><span class="std std-ref">头部对象</span></a>。</p>
 </div>
 <div class="section" id="log">
 <h3>log*()<a class="headerlink" href="#log" title="Permalink to this headline">¶</a></h3>
@@ -557,31 +509,23 @@ modified before they are sent to the next filter.</p>
 <span class="n">handle</span><span class="p">:</span><span class="n">logCritical</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Logs a message using Envoy’s application logging. <em>message</em> is a string to log.</p>
+<p>使用 Envoy 的应用日志记录一条消息。<em>message</em> 是要记录的字符串。</p>
 </div>
 <div class="section" id="httpcall">
 <h3>httpCall()<a class="headerlink" href="#httpcall" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">headers</span><span class="p">,</span> <span class="n">body</span> <span class="o">=</span> <span class="n">handle</span><span class="p">:</span><span class="n">httpCall</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">timeout</span><span class="p">,</span> <span class="n">asynchronous</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Makes an HTTP call to an upstream host. <em>cluster</em> is a string which maps to a configured cluster manager cluster. <em>headers</em>
-is a table of key/value pairs to send (the value can be a string or table of strings). Note that
-the <em>:method</em>, <em>:path</em>, and <em>:authority</em> headers must be set. <em>body</em> is an optional string of body
-data to send. <em>timeout</em> is an integer that specifies the call timeout in milliseconds.</p>
-<p><em>asynchronous</em> is a boolean flag. If asynchronous is set to true, Envoy will make the HTTP request and continue,
-regardless of the response success or failure. If this is set to false, or not set, Envoy will suspend executing the script
-until the call completes or has an error.</p>
-<p>Returns <em>headers</em> which is a table of response headers. Returns <em>body</em> which is the string response
-body. May be nil if there is no body.</p>
+<p>向上游主机发起一个 HTTP 调用。<em>cluster</em> 是一个字符串，它映射到集群管理器中已配置的集群。<em>headers</em> 是要发送的键/值对表（值可以是字符串或者字符串表）。注意必须设置 <em>:method</em>、<em>:path</em> 和 <em>:authority</em> 头部。<em>body</em> 是一个可选的字符串，表示要发送的正文数据。<em>timeout</em> 是一个整型，用于指定调用的超时时间（毫秒单位）。</p>
+<p><em>asynchronous</em> 是一个布尔型标记。如果 asynchronous 设置为 true，无论响应成功与否，Envoy 都会发出 HTTP 请求并继续。如果此标记设置为 false，或者没设置，Envoy 将暂停执行脚本直到调用完成或者发生错误。</p>
+<p>返回的 <em>headers</em> 是指响应头部表。返回的 <em>body</em> 是指字符串响应正文，如果没有正文则为 nil。</p>
 </div>
 <div class="section" id="respond">
 <h3>respond()<a class="headerlink" href="#respond" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">handle</span><span class="p">:</span><span class="n">respond</span><span class="p">(</span><span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Respond immediately and do not continue further filter iteration. This call is <em>only valid in
-the request flow</em>. Additionally, a response is only possible if the request headers have not yet been
-passed to subsequent filters. Meaning, the following Lua code is invalid:</p>
+<p>立即响应并且不再执行后续的过滤器迭代。此调用仅在请求流中生效。此外，仅当请求头部尚未传递到后续过滤器时，才可以响应。这意味着，以下 Lua 代码是无效的：</p>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">envoy_on_request</span><span class="p">(</span><span class="n">request_handle</span><span class="p">)</span>
   <span class="kr">for</span> <span class="n">chunk</span> <span class="kr">in</span> <span class="n">request_handle</span><span class="p">:</span><span class="n">bodyChunks</span><span class="p">()</span> <span class="kr">do</span>
     <span class="n">request_handle</span><span class="p">:</span><span class="n">respond</span><span class="p">(</span>
@@ -591,18 +535,14 @@ passed to subsequent filters. Meaning, the following Lua code is invalid:</p>
 <span class="kr">end</span>
 </pre></div>
 </div>
-<p><em>headers</em> is a table of key/value pairs to send (the value can be a string or table of strings).
-Note that the <em>:status</em> header must be set. <em>body</em> is a string and supplies the optional response
-body. May be nil.</p>
+<p><em>headers</em> 是要发送的键/值对表（值可以是字符串或者字符串表）。注意必须设置 <em>:status</em> 头部。<em>body</em> 是一个字符串，并提供了可选的响应正文，可能为 nil。</p>
 </div>
 <div class="section" id="metadata">
 <h3>metadata()<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">handle</span><span class="p">:</span><span class="n">metadata</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns the current route entry metadata. Note that the metadata should be specified
-under the filter name i.e. <em>envoy.filters.http.lua</em>. Below is an example of a <em>metadata</em> in a
-<a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-msg-config-route-v3-route"><span class="std std-ref">route entry</span></a>.</p>
+<p>返回当前路由的整个元数据。注意元数据应在过滤器名称下指定，即 <em>envoy.filters.http.lua</em>。以下是 <a class="reference internal" href="../../../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-msg-config-route-v3-route"><span class="std std-ref">路由条目</span></a> 中元数据的配置示例：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">filter_metadata</span><span class="p">:</span>
     <span class="nt">envoy.filters.http.lua</span><span class="p">:</span>
@@ -612,68 +552,62 @@ under the filter name i.e. <em>envoy.filters.http.lua</em>. Below is an example 
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">baz</span>
 </pre></div>
 </div>
-<p>Returns a <a class="reference internal" href="#config-http-filters-lua-metadata-wrapper"><span class="std std-ref">metadata object</span></a>.</p>
+<p>返回一个 <a class="reference internal" href="#config-http-filters-lua-metadata-wrapper"><span class="std std-ref">元数据对象</span></a>。</p>
 </div>
 <div class="section" id="streaminfo">
 <h3>streamInfo()<a class="headerlink" href="#streaminfo" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">streamInfo</span> <span class="o">=</span> <span class="n">handle</span><span class="p">:</span><span class="n">streamInfo</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3edd36c4b9b31bea80d8466bdfaf4457437a6434/include/envoy/stream_info/stream_info.h">information</a> related to the current request.</p>
-<p>Returns a <a class="reference internal" href="#config-http-filters-lua-stream-info-wrapper"><span class="std std-ref">stream info object</span></a>.</p>
+<p>返回与当前请求相关的 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/8e29fc2a93a25fff72efa1ba582ec4492e215649/include/envoy/stream_info/stream_info.h">信息</a>。</p>
+<p>返回一个 <a class="reference internal" href="#config-http-filters-lua-stream-info-wrapper"><span class="std std-ref">流信息对象</span></a>。</p>
 </div>
 <div class="section" id="connection">
 <h3>connection()<a class="headerlink" href="#connection" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">connection</span> <span class="o">=</span> <span class="n">handle</span><span class="p">:</span><span class="n">connection</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns the current request’s underlying <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3edd36c4b9b31bea80d8466bdfaf4457437a6434/include/envoy/network/connection.h">connection</a>.</p>
-<p>Returns a <a class="reference internal" href="#config-http-filters-lua-connection-wrapper"><span class="std std-ref">connection object</span></a>.</p>
+<p>返回当前请求的底层 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/8e29fc2a93a25fff72efa1ba582ec4492e215649/include/envoy/network/connection.h">连接</a>。</p>
+<p>返回一个 <a class="reference internal" href="#config-http-filters-lua-connection-wrapper"><span class="std std-ref">连接对象</span></a>。</p>
 </div>
 <div class="section" id="importpublickey">
 <h3>importPublicKey()<a class="headerlink" href="#importpublickey" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">pubkey</span> <span class="o">=</span> <span class="n">handle</span><span class="p">:</span><span class="n">importPublicKey</span><span class="p">(</span><span class="n">keyder</span><span class="p">,</span> <span class="n">keyderLength</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Returns public key which is used by <a class="reference internal" href="#verify-signature"><span class="std std-ref">verifySignature</span></a> to verify digital signature.</p>
+<p>返回 <a class="reference internal" href="#verify-signature"><span class="std std-ref">verifySignature</span></a> 所使用的用于验证数字签名的公共密钥。</p>
 </div>
 <div class="section" id="verifysignature">
 <span id="verify-signature"></span><h3>verifySignature()<a class="headerlink" href="#verifysignature" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">ok</span><span class="p">,</span> <span class="nb">error</span> <span class="o">=</span> <span class="n">verifySignature</span><span class="p">(</span><span class="n">hashFunction</span><span class="p">,</span> <span class="n">pubkey</span><span class="p">,</span> <span class="n">signature</span><span class="p">,</span> <span class="n">signatureLength</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">dataLength</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Verify signature using provided parameters. <em>hashFunction</em> is the variable for the hash function which be used
-for verifying signature. <em>SHA1</em>, <em>SHA224</em>, <em>SHA256</em>, <em>SHA384</em> and <em>SHA512</em> are supported.
-<em>pubkey</em> is the public key. <em>signature</em> is the signature to be verified. <em>signatureLength</em> is
-the length of the signature. <em>data</em> is the content which will be hashed. <em>dataLength</em> is the length of data.</p>
-<p>The function returns a pair. If the first element is <em>true</em>, the second element will be empty
-which means signature is verified; otherwise, the second element will store the error message.</p>
+<p>使用提供的参数验证签名。<em>hashFunction</em> 是哈希方法变量，用于验证签名，支持 <em>SHA1</em>、<em>SHA224</em>、<em>SHA256</em>、<em>SHA384</em> 和 <em>SHA512</em>。<em>pubkey</em> 是公钥。<em>signature</em> 是要验证的签名。<em>signatureLength</em> 是签名的长度。<em>data</em> 是要执行哈希计算的内容。<em>dataLength</em> 是数据长度。</p>
+<p>该方法返回一对值。如果第一个元素值为 <em>true</em>，第二个元素值将为空，表示签名已验证；否则，第二个元素将会存储错误信息。</p>
 </div>
 <div class="section" id="base64escape">
 <span id="config-http-filters-lua-stream-handle-api-base64-escape"></span><h3>base64Escape()<a class="headerlink" href="#base64escape" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">base64_encoded</span> <span class="o">=</span> <span class="n">handle</span><span class="p">:</span><span class="n">base64Escape</span><span class="p">(</span><span class="s2">&quot;input string&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Encodes the input string as base64. This can be useful for escaping binary data.</p>
+<p>将输入字符串按 base64 编码。这在转义二进制数据时很有用。</p>
 </div>
 </div>
-<div class="section" id="header-object-api">
-<span id="config-http-filters-lua-header-wrapper"></span><h2>Header object API<a class="headerlink" href="#header-object-api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="config-http-filters-lua-header-wrapper">
+<span id="id9"></span><h2>头部对象 API<a class="headerlink" href="#config-http-filters-lua-header-wrapper" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="add">
 <h3>add()<a class="headerlink" href="#add" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">headers</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Adds a header. <em>key</em> is a string that supplies the header key. <em>value</em> is a string that supplies
-the header value.</p>
+<p>添加一个头部。<em>key</em> 是提供头部键的字符串。<em>value</em> 是提供头部值的字符串。</p>
 </div>
 <div class="section" id="get">
 <h3>get()<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">headers</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Gets a header. <em>key</em> is a string that supplies the header key. Returns a string that is the header
-value or nil if there is no such header.</p>
+<p>获取一个头部。<em>key</em> 是提供头部键的字符串。返回头部值字符串或者 nil（如果头部不存在）。</p>
 </div>
 <div class="section" id="pairs">
 <h3>__pairs()<a class="headerlink" href="#pairs" title="Permalink to this headline">¶</a></h3>
@@ -681,13 +615,10 @@ value or nil if there is no such header.</p>
 <span class="kr">end</span>
 </pre></div>
 </div>
-<p>Iterates through every header. <em>key</em> is a string that supplies the header key. <em>value</em> is a string
-that supplies the header value.</p>
+<p>迭代每个头部。<em>key</em> 是提供头部键的字符串。<em>value</em> 是提供头部值的字符串。</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>In the current implementation, headers cannot be modified during iteration. Additionally, if
-it is necessary to modify headers after an iteration, the iteration must first be completed. This means that
-<cite>break</cite> or any other way to exit the loop early must not be used. This may be more flexible in the future.</p>
+<p>在当前的实现中，头部在迭代的过程中不能被修改。此外，如果有必要在迭代后修改头部。则必须首先完成迭代。这意外着不能使用 <cite>break</cite> 或者其他方法提前退出循环。将来的实现会更加灵活。</p>
 </div>
 </div>
 <div class="section" id="remove">
@@ -695,113 +626,101 @@ it is necessary to modify headers after an iteration, the iteration must first b
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">headers</span><span class="p">:</span><span class="n">remove</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Removes a header. <em>key</em> supplies the header key to remove.</p>
+<p>移除一个头部。<em>key</em> 提供要移除的头部键。</p>
 </div>
 <div class="section" id="replace">
 <h3>replace()<a class="headerlink" href="#replace" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">headers</span><span class="p">:</span><span class="n">replace</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Replaces a header. <em>key</em> is a string that supplies the header key. <em>value</em> is a string that supplies
-the header value. If the header does not exist, it is added as per the <em>add()</em> function.</p>
+<p>替换一个头部。<em>key</em> 是提供头部键的字符串。<em>value</em> 是提供头部值的字符串。如果头部不存在则会按照 <em>add()</em> 方法添加头部。</p>
 </div>
 </div>
-<div class="section" id="buffer-api">
-<span id="config-http-filters-lua-buffer-wrapper"></span><h2>Buffer API<a class="headerlink" href="#buffer-api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="config-http-filters-lua-buffer-wrapper">
+<span id="id10"></span><h2>缓冲区 API<a class="headerlink" href="#config-http-filters-lua-buffer-wrapper" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="length">
 <h3>length()<a class="headerlink" href="#length" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">size</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">:</span><span class="n">length</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Gets the size of the buffer in bytes. Returns an integer.</p>
+<p>获取缓冲区的字节大小。返回一个整型。</p>
 </div>
 <div class="section" id="getbytes">
 <h3>getBytes()<a class="headerlink" href="#getbytes" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">buffer</span><span class="p">:</span><span class="n">getBytes</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Get bytes from the buffer. By default Envoy will not copy all buffer bytes to Lua. This will
-cause a buffer segment to be copied. <em>index</em> is an integer and supplies the buffer start index to
-copy. <em>length</em> is an integer and supplies the buffer length to copy. <em>index</em> + <em>length</em> must be
-less than the buffer length.</p>
+<p>获取缓冲区中的字节。默认情况下，Envoy 不会将所有缓冲区字节复制到 Lua，这将导致缓冲区段被复制。<em>index</em> 是提供缓冲区复制起始下标的整型。<em>length</em> 是提供缓冲区复制长度的整型。<em>index</em> 加 <em>length</em> 必须小于缓冲区长度。</p>
 </div>
 <div class="section" id="setbytes">
 <span id="config-http-filters-lua-buffer-wrapper-api-set-bytes"></span><h3>setBytes()<a class="headerlink" href="#setbytes" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">buffer</span><span class="p">:</span><span class="n">setBytes</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Set the content of wrapped buffer with the input string.</p>
+<p>使用输入字符串设置缓冲区的封装内容。</p>
 </div>
 </div>
-<div class="section" id="metadata-object-api">
-<span id="config-http-filters-lua-metadata-wrapper"></span><h2>Metadata object API<a class="headerlink" href="#metadata-object-api" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id2">
-<h3>get()<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="config-http-filters-lua-metadata-wrapper">
+<span id="id11"></span><h2>元数据对象 API<a class="headerlink" href="#config-http-filters-lua-metadata-wrapper" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id12">
+<h3>get()<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">metadata</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Gets a metadata. <em>key</em> is a string that supplies the metadata key. Returns the corresponding
-value of the given metadata key. The type of the value can be: <em>nil</em>, <em>boolean</em>, <em>number</em>,
-<em>string</em> and <em>table</em>.</p>
+<p>获取一条元数据。<em>key</em> 是提供元数据键的字符串。返回给定元数据键的相应值。值的类型可以是：<em>nil</em>、<em>boolean</em>、<em>number</em>、<em>string</em> 和 <em>table</em>。</p>
 </div>
-<div class="section" id="id3">
-<h3>__pairs()<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h3>__pairs()<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span> <span class="kr">do</span>
 <span class="kr">end</span>
 </pre></div>
 </div>
-<p>Iterates through every <em>metadata</em> entry. <em>key</em> is a string that supplies a <em>metadata</em>
-key. <em>value</em> is a <em>metadata</em> entry value.</p>
+<p>迭代每个 <em>metadata</em> 条目。<em>key</em> 是提供 <em>metadata</em> 键的字符串。<em>value</em> 是 <em>metadata</em> 条目的值。</p>
 </div>
 </div>
-<div class="section" id="stream-info-object-api">
-<span id="config-http-filters-lua-stream-info-wrapper"></span><h2>Stream info object API<a class="headerlink" href="#stream-info-object-api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="config-http-filters-lua-stream-info-wrapper">
+<span id="id14"></span><h2>流信息对象 API<a class="headerlink" href="#config-http-filters-lua-stream-info-wrapper" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="protocol">
 <h3>protocol()<a class="headerlink" href="#protocol" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">streamInfo</span><span class="p">:</span><span class="n">protocol</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns the string representation of <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3edd36c4b9b31bea80d8466bdfaf4457437a6434/include/envoy/http/protocol.h">HTTP protocol</a>
-used by the current request. The possible values are: <em>HTTP/1.0</em>, <em>HTTP/1.1</em>, and <em>HTTP/2</em>.</p>
+<p>返回当前请求所使用的表示 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/8e29fc2a93a25fff72efa1ba582ec4492e215649/include/envoy/http/protocol.h">HTTP 协议</a> 的字符串。可能的值为：<em>HTTP/1.0</em>、<em>HTTP/1.1</em> 和 <em>HTTP/2</em>。</p>
 </div>
 <div class="section" id="dynamicmetadata">
 <h3>dynamicMetadata()<a class="headerlink" href="#dynamicmetadata" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">streamInfo</span><span class="p">:</span><span class="n">dynamicMetadata</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns a <a class="reference internal" href="#config-http-filters-lua-stream-info-dynamic-metadata-wrapper"><span class="std std-ref">dynamic metadata object</span></a>.</p>
+<p>返回一个 <a class="reference internal" href="#config-http-filters-lua-stream-info-dynamic-metadata-wrapper"><span class="std std-ref">动态元数据对象</span></a>。</p>
 </div>
 <div class="section" id="downstreamsslconnection">
 <h3>downstreamSslConnection()<a class="headerlink" href="#downstreamsslconnection" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">streamInfo</span><span class="p">:</span><span class="n">downstreamSslConnection</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3edd36c4b9b31bea80d8466bdfaf4457437a6434/include/envoy/ssl/connection.h">information</a> related to the current SSL connection.</p>
-<p>Returns a downstream <a class="reference internal" href="#config-http-filters-lua-ssl-socket-info"><span class="std std-ref">SSL connection info object</span></a>.</p>
+<p>返回与当前 SSL 连接相关的 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/8e29fc2a93a25fff72efa1ba582ec4492e215649/include/envoy/ssl/connection.h">信息</a>。</p>
+<p>返回一个下游 <a class="reference internal" href="#config-http-filters-lua-ssl-socket-info"><span class="std std-ref">SSL 连接信息对象</span></a>。</p>
 </div>
 </div>
-<div class="section" id="dynamic-metadata-object-api">
-<span id="config-http-filters-lua-stream-info-dynamic-metadata-wrapper"></span><h2>Dynamic metadata object API<a class="headerlink" href="#dynamic-metadata-object-api" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id4">
-<h3>get()<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="config-http-filters-lua-stream-info-dynamic-metadata-wrapper">
+<span id="id15"></span><h2>动态元数据对象 API<a class="headerlink" href="#config-http-filters-lua-stream-info-dynamic-metadata-wrapper" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id16">
+<h3>get()<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">dynamicMetadata</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="n">filterName</span><span class="p">)</span>
 
-<span class="c1">-- to get a value from a returned table.</span>
+<span class="c1">-- 从返回的表中获取一个值。</span>
 <span class="n">dynamicMetadata</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="n">filterName</span><span class="p">)[</span><span class="n">key</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Gets an entry in dynamic metadata struct. <em>filterName</em> is a string that supplies the filter name, e.g. <em>envoy.lb</em>.
-Returns the corresponding <em>table</em> of a given <em>filterName</em>.</p>
+<p>从动态元数据结构中获取一个条目。<em>filterName</em> 是提供过滤器名称的字符串。例如 <em>envoy.lb</em>。返回与给定 <em>filterName</em> 对应的 <em>table</em>。</p>
 </div>
 <div class="section" id="set">
 <h3>set()<a class="headerlink" href="#set" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">dynamicMetadata</span><span class="p">:</span><span class="n">set</span><span class="p">(</span><span class="n">filterName</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Sets key-value pair of a <em>filterName</em>’s metadata. <em>filterName</em> is a key specifying the target filter name,
-e.g. <em>envoy.lb</em>. The type of <em>key</em> is <em>string</em>. The type of <em>value</em> is any Lua type that can be mapped
-to a metadata value: <em>table</em>, <em>numeric</em>, <em>boolean</em>, <em>string</em> or <em>nil</em>. When using a <em>table</em> as an argument,
-its keys can only be <em>string</em> or <em>numeric</em>.</p>
+<p>设置 <em>filterName</em> 的元数据键值对。<em>filterName</em> 是指定目标过滤器名称的键，例如 <em>envoy.lb</em>。<em>key</em> 的类型为 <em>string</em>。<em>value</em> 的值类型是可以映射到元数据的任何 Lua 类型：<em>table</em>、<em>numeric</em>、<em>boolean</em>、<em>string</em> 或 <em>nil</em>。当使用 <em>table</em> 作为参数时，其键只能是 <em>string</em> 或 <em>numeric</em>。</p>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">function</span> <span class="nf">envoy_on_request</span><span class="p">(</span><span class="n">request_handle</span><span class="p">)</span>
   <span class="kd">local</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">request_handle</span><span class="p">:</span><span class="n">headers</span><span class="p">()</span>
   <span class="n">request_handle</span><span class="p">:</span><span class="n">streamInfo</span><span class="p">():</span><span class="n">dynamicMetadata</span><span class="p">():</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;envoy.filters.http.lua&quot;</span><span class="p">,</span> <span class="s2">&quot;request.info&quot;</span><span class="p">,</span> <span class="p">{</span>
@@ -817,18 +736,17 @@ its keys can only be <em>string</em> or <em>numeric</em>.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id5">
-<h3>__pairs()<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h3>__pairs()<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">dynamicMetadata</span><span class="p">)</span> <span class="kr">do</span>
 <span class="kr">end</span>
 </pre></div>
 </div>
-<p>Iterates through every <em>dynamicMetadata</em> entry. <em>key</em> is a string that supplies a <em>dynamicMetadata</em>
-key. <em>value</em> is a <em>dynamicMetadata</em> entry value.</p>
+<p>迭代每个 <em>dynamicMetadata</em> 条目。 <em>key</em> 是提供 <em>dynamicMetadata</em> 键的字符串。<em>value</em> 是一个 <em>dynamicMetadata</em> 条目值。</p>
 </div>
 </div>
-<div class="section" id="connection-object-api">
-<span id="config-http-filters-lua-connection-wrapper"></span><h2>Connection object API<a class="headerlink" href="#connection-object-api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="config-http-filters-lua-connection-wrapper">
+<span id="id18"></span><h2>连接对象 API<a class="headerlink" href="#config-http-filters-lua-connection-wrapper" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="ssl">
 <h3>ssl()<a class="headerlink" href="#ssl" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">if</span> <span class="n">connection</span><span class="p">:</span><span class="n">ssl</span><span class="p">()</span> <span class="o">==</span> <span class="kc">nil</span> <span class="kr">then</span>
@@ -838,13 +756,12 @@ key. <em>value</em> is a <em>dynamicMetadata</em> entry value.</p>
 <span class="kr">end</span>
 </pre></div>
 </div>
-<p>Returns <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3edd36c4b9b31bea80d8466bdfaf4457437a6434/include/envoy/ssl/connection.h">SSL connection</a> object when the connection is
-secured and <em>nil</em> when it is not.</p>
-<p>Returns an <a class="reference internal" href="#config-http-filters-lua-ssl-socket-info"><span class="std std-ref">SSL connection info object</span></a>.</p>
+<p>当连接安全时返回 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/8e29fc2a93a25fff72efa1ba582ec4492e215649/include/envoy/ssl/connection.h">SSL 连接</a> 对象，否则返回 <em>nil</em>。</p>
+<p>返回一个 <a class="reference internal" href="#config-http-filters-lua-ssl-socket-info"><span class="std std-ref">SSL 连接信息对象</span></a>。</p>
 </div>
 </div>
-<div class="section" id="ssl-connection-object-api">
-<span id="config-http-filters-lua-ssl-socket-info"></span><h2>SSL connection object API<a class="headerlink" href="#ssl-connection-object-api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ssl-api">
+<span id="config-http-filters-lua-ssl-socket-info"></span><h2>SSL 连接对象 API<a class="headerlink" href="#ssl-api" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="peercertificatepresented">
 <h3>peerCertificatePresented()<a class="headerlink" href="#peercertificatepresented" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">if</span> <span class="n">downstreamSslConnection</span><span class="p">:</span><span class="n">peerCertificatePresented</span><span class="p">()</span> <span class="kr">then</span>
@@ -852,7 +769,7 @@ secured and <em>nil</em> when it is not.</p>
 <span class="kr">end</span>
 </pre></div>
 </div>
-<p>Returns a bool representing whether the peer certificate is presented.</p>
+<p>返回布尔值，表示是否存在对等证书。</p>
 </div>
 <div class="section" id="peercertificatevalidated">
 <h3>peerCertificateValidated()<a class="headerlink" href="#peercertificatevalidated" title="Permalink to this headline">¶</a></h3>
@@ -861,147 +778,132 @@ secured and <em>nil</em> when it is not.</p>
 <span class="kr">end</span>
 </pre></div>
 </div>
-<p>Returns bool whether the peer certificate was validated.</p>
+<p>返回布尔值，表示对等证书是否已验证。</p>
 </div>
 <div class="section" id="urisanlocalcertificate">
 <h3>uriSanLocalCertificate()<a class="headerlink" href="#urisanlocalcertificate" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- For example, uriSanLocalCertificate contains {&quot;san1&quot;, &quot;san2&quot;}</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- 例如，uriSanLocalCertificate 包含 {&quot;san1&quot;, &quot;san2&quot;}</span>
 <span class="kd">local</span> <span class="n">certs</span> <span class="o">=</span> <span class="n">downstreamSslConnection</span><span class="p">:</span><span class="n">uriSanLocalCertificate</span><span class="p">()</span>
 
-<span class="c1">-- The following prints san1,san2</span>
+<span class="c1">-- 下方打印 san1,san2</span>
 <span class="n">handle</span><span class="p">:</span><span class="n">logTrace</span><span class="p">(</span><span class="nb">table.concat</span><span class="p">(</span><span class="n">certs</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Returns the URIs (as a table) in the SAN field of the local certificate. Returns an empty table if
-there is no local certificate, or no SAN field, or no URI SAN entries.</p>
+<p>以表形式返回本地证书中 SAN 字段的 URIs。如果没有本地证书、SAN 字段或 URI SAN 条目则返回一个空表。</p>
 </div>
 <div class="section" id="sha256peercertificatedigest">
 <h3>sha256PeerCertificateDigest()<a class="headerlink" href="#sha256peercertificatedigest" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">downstreamSslConnection</span><span class="p">:</span><span class="n">sha256PeerCertificateDigest</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns the SHA256 digest of the peer certificate. Returns <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> if there is no peer certificate
-which can happen in TLS (non-mTLS) connections.</p>
+<p>返回对等证书的 SHA256 摘要。如果没有可用于 TLS（非mTLS） 连接的对等证书则返回 <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>。</p>
 </div>
 <div class="section" id="serialnumberpeercertificate">
 <h3>serialNumberPeerCertificate()<a class="headerlink" href="#serialnumberpeercertificate" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">downstreamSslConnection</span><span class="p">:</span><span class="n">serialNumberPeerCertificate</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns the serial number field of the peer certificate. Returns <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> if there is no peer
-certificate, or no serial number.</p>
+<p>返回对等证书的序列号字段。如果没有对等证书或序列号则返回 <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>。</p>
 </div>
 <div class="section" id="issuerpeercertificate">
 <h3>issuerPeerCertificate()<a class="headerlink" href="#issuerpeercertificate" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">downstreamSslConnection</span><span class="p">:</span><span class="n">issuerPeerCertificate</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns the issuer field of the peer certificate in RFC 2253 format. Returns <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> if there is no
-peer certificate, or no issuer.</p>
+<p>以 RFC 2253 格式返回对等证书的颁发者字段。如果没有对等证书或颁发者则返回 <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>。</p>
 </div>
 <div class="section" id="subjectpeercertificate">
 <h3>subjectPeerCertificate()<a class="headerlink" href="#subjectpeercertificate" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">downstreamSslConnection</span><span class="p">:</span><span class="n">subjectPeerCertificate</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Return the subject field of the peer certificate in RFC 2253 format. Returns <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> if there is no
-peer certificate, or no subject.</p>
+<p>以 RFC 2253 格式返回对等证书的主题字段。如果没有对等证书或主题则返回 <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>。</p>
 </div>
 <div class="section" id="urisanpeercertificate">
 <h3>uriSanPeerCertificate()<a class="headerlink" href="#urisanpeercertificate" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">downstreamSslConnection</span><span class="p">:</span><span class="n">uriSanPeerCertificate</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns the URIs (as a table) in the SAN field of the peer certificate. Returns an empty table if
-there is no peer certificate, or no SAN field, or no URI SAN entries.</p>
+<p>以表形式返回对等证书中 SAN 字段的 URIs。如果没有对等证书、SAN 字段或 URL SAN 条目则返回空表。</p>
 </div>
 <div class="section" id="subjectlocalcertificate">
 <h3>subjectLocalCertificate()<a class="headerlink" href="#subjectlocalcertificate" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">downstreamSslConnection</span><span class="p">:</span><span class="n">subjectLocalCertificate</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns the subject field of the local certificate in RFC 2253 format. Returns <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> if there is no
-local certificate, or no subject.</p>
+<p>以 RFC 2253 格式返回本地证书的主题字段。如果没有本地证书或主题则返回 <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>。</p>
 </div>
 <div class="section" id="urlencodedpemencodedpeercertificate">
 <h3>urlEncodedPemEncodedPeerCertificate()<a class="headerlink" href="#urlencodedpemencodedpeercertificate" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">downstreamSslConnection</span><span class="p">:</span><span class="n">urlEncodedPemEncodedPeerCertificate</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns the URL-encoded PEM-encoded representation of the peer certificate. Returns <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> if there
-is no peer certificate or encoding fails.</p>
+<p>返回完整的对等证书（包括证书叶）的 URL 编码的 PEM 编码表示。如果没有对等证书或编码失败则返回 <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>。</p>
 </div>
 <div class="section" id="urlencodedpemencodedpeercertificatechain">
 <h3>urlEncodedPemEncodedPeerCertificateChain()<a class="headerlink" href="#urlencodedpemencodedpeercertificatechain" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">downstreamSslConnection</span><span class="p">:</span><span class="n">urlEncodedPemEncodedPeerCertificateChain</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returnns the URL-encoded PEM-encoded representation of the full peer certificate chain including the
-leaf certificate. Returns <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> if there is no peer certificate or encoding fails.</p>
+<p>返回完整的对等证书链（包括证书叶）的 URL 编码的 PEM 编码表示。如果没有对等证书或编码失败则返回 <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>。</p>
 </div>
 <div class="section" id="dnssanspeercertificate">
 <h3>dnsSansPeerCertificate()<a class="headerlink" href="#dnssanspeercertificate" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">downstreamSslConnection</span><span class="p">:</span><span class="n">dnsSansPeerCertificate</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns the DNS entries (as a table) in the SAN field of the peer certificate. Returns an empty
-table if there is no peer certificate, or no SAN field, or no DNS SAN entries.</p>
+<p>以表形式返回对等证书中 SAN 字段的 DNS 条目。如果没有对等证书、SAN 字段或 DNS SAN 条目则返回空表。</p>
 </div>
 <div class="section" id="dnssanslocalcertificate">
 <h3>dnsSansLocalCertificate()<a class="headerlink" href="#dnssanslocalcertificate" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">downstreamSslConnection</span><span class="p">:</span><span class="n">dnsSansLocalCertificate</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns the DNS entries (as a table) in the SAN field of the local certificate. Returns an empty
-table if there is no local certificate, or no SAN field, or no DNS SAN entries.</p>
+<p>以表形式返回本地证书中 SAN 字段的 DNS 条目。如果没有对等证书、SAN 字段或 DNS SAN 条目则返回空表。</p>
 </div>
 <div class="section" id="validfrompeercertificate">
 <h3>validFromPeerCertificate()<a class="headerlink" href="#validfrompeercertificate" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">downstreamSslConnection</span><span class="p">:</span><span class="n">validFromPeerCertificate</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns the time (timestamp-since-epoch in seconds) that the peer certificate was issued and should
-be considered valid from. Returns <code class="docutils literal notranslate"><span class="pre">0</span></code> if there is no peer certificate.</p>
-<p>In Lua, we usually use <code class="docutils literal notranslate"><span class="pre">os.time(os.date(&quot;!*t&quot;))</span></code> to get current timestamp-since-epoch in seconds.</p>
+<p>返回对等证书签发并生效的时间（以秒为单位的时间戳）。如果没有对等证书则返回 <code class="docutils literal notranslate"><span class="pre">0</span></code>。</p>
+<p>在 Lua 中，我们通常使用 <code class="docutils literal notranslate"><span class="pre">os.time(os.date(&quot;!*t&quot;))</span></code> 获取当前的时间戳（以秒为单位）。</p>
 </div>
 <div class="section" id="expirationpeercertificate">
 <h3>expirationPeerCertificate()<a class="headerlink" href="#expirationpeercertificate" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">downstreamSslConnection</span><span class="p">:</span><span class="n">validFromPeerCertificate</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns the time (timestamp-since-epoch in seconds) that the peer certificate expires and should not
-be considered valid after. Returns <code class="docutils literal notranslate"><span class="pre">0</span></code> if there is no peer certificate.</p>
-<p>In Lua, we usually use <code class="docutils literal notranslate"><span class="pre">os.time(os.date(&quot;!*t&quot;))</span></code> to get current timestamp-since-epoch in seconds.</p>
+<p>返回对等证书过期并失效的时间（以秒为单位的时间戳）。如果没有对等证书则返回 <code class="docutils literal notranslate"><span class="pre">0</span></code>。</p>
+<p>在 Lua 中，我们通常使用 <code class="docutils literal notranslate"><span class="pre">os.time(os.date(&quot;!*t&quot;))</span></code> 获取当前的时间戳（以秒为单位）。</p>
 </div>
 <div class="section" id="sessionid">
 <h3>sessionId()<a class="headerlink" href="#sessionid" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">downstreamSslConnection</span><span class="p">:</span><span class="n">sessionId</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns the hex-encoded TLS session ID as defined in RFC 5246.</p>
+<p>返回 RFC 5246 中定义的十六进制编码的 TLS 会话 ID。</p>
 </div>
 <div class="section" id="ciphersuiteid">
 <h3>ciphersuiteId()<a class="headerlink" href="#ciphersuiteid" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">downstreamSslConnection</span><span class="p">:</span><span class="n">ciphersuiteId</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns the standard ID (hex-encoded) for the ciphers used in the established TLS connection.
-Returns <code class="docutils literal notranslate"><span class="pre">&quot;0xffff&quot;</span></code> if there is no current negotiated ciphersuite.</p>
+<p>返回已建立的 TLS 连接中所使用的密码标准 ID（十六进制编码）。如果当前没有已商定的密码套件则返回 <code class="docutils literal notranslate"><span class="pre">&quot;0xffff&quot;</span></code>。</p>
 </div>
 <div class="section" id="ciphersuitestring">
 <h3>ciphersuiteString()<a class="headerlink" href="#ciphersuitestring" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">downstreamSslConnection</span><span class="p">:</span><span class="n">ciphersuiteString</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns the OpenSSL name for the set of ciphers used in the established TLS connection. Returns
-<code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> if there is no current negotiated ciphersuite.</p>
+<p>返回已建立的 TLS 连接中所使用的密码套件的 OpenSSL 名称。如果当前没有已商定的密码套件则返回 <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>。</p>
 </div>
 <div class="section" id="tlsversion">
 <h3>tlsVersion()<a class="headerlink" href="#tlsversion" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">downstreamSslConnection</span><span class="p">:</span><span class="n">urlEncodedPemEncodedPeerCertificateChain</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Returns the TLS version (e.g., TLSv1.2, TLSv1.3) used in the established TLS connection.</p>
+<p>返回已建立的 TLS 连接中使用的 TLS 版本（例如 TLSv1.2、TLSv1.3）。</p>
 </div>
 </div>
 </div>
