@@ -9,7 +9,7 @@ Metrics
 admin.v3.SimpleMetric
 ---------------------
 
-`[admin.v3.SimpleMetric proto] <https://github.com/envoyproxy/envoy/blob/8e29fc2a93a25fff72efa1ba582ec4492e215649/api/envoy/admin/v3/metrics.proto#L15>`_
+`[admin.v3.SimpleMetric proto] <https://github.com/envoyproxy/envoy/blob/7edb7673d8a7d943e1532dcbada79a2b72170630/api/envoy/admin/v3/metrics.proto#L15>`_
 
 Proto representation of an Envoy Counter or Gauge value.
 
@@ -45,7 +45,7 @@ name
 Enum admin.v3.SimpleMetric.Type
 -------------------------------
 
-`[admin.v3.SimpleMetric.Type proto] <https://github.com/envoyproxy/envoy/blob/8e29fc2a93a25fff72efa1ba582ec4492e215649/api/envoy/admin/v3/metrics.proto#L18>`_
+`[admin.v3.SimpleMetric.Type proto] <https://github.com/envoyproxy/envoy/blob/7edb7673d8a7d943e1532dcbada79a2b72170630/api/envoy/admin/v3/metrics.proto#L18>`_
 
 
 .. _envoy_v3_api_enum_value_admin.v3.SimpleMetric.Type.COUNTER:

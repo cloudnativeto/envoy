@@ -20,7 +20,7 @@ Echo :ref:`configuration overview <config_network_filters_echo>`.
 extensions.filters.network.echo.v3.Echo
 ---------------------------------------
 
-`[extensions.filters.network.echo.v3.Echo proto] <https://github.com/envoyproxy/envoy/blob/8e29fc2a93a25fff72efa1ba582ec4492e215649/api/envoy/extensions/filters/network/echo/v3/echo.proto#L16>`_
+`[extensions.filters.network.echo.v3.Echo proto] <https://github.com/envoyproxy/envoy/blob/7edb7673d8a7d943e1532dcbada79a2b72170630/api/envoy/extensions/filters/network/echo/v3/echo.proto#L16>`_
 
 
 .. code-block:: json
