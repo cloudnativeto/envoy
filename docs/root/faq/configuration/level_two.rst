@@ -3,4 +3,4 @@
 如何将 Envoy 配置为 L2 代理？
 ==============================================
 
-请参考 :ref:`将 Envoy 配置为 L2 代理 <best_practices_level2>` 作为 L2 代理配置的示例。
+请参考 L2 代理配置的示例 :ref:`将 Envoy 配置为 L2 代理 <best_practices_level2>`。
