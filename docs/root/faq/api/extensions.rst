@@ -1,9 +1,7 @@
-How does API versioning interact with a new extension?
+API版本控制如何与新扩展交互？
 ======================================================
 
-For extension configuration API, please follow the :repo:`new extension configuration steps
-<api/STYLE.md#adding-an-extension-configuration-to-the-api>` in the style guide.
+对于扩展程序配置API， 请按照样式指南中的 :repo:`新扩展程序配置步骤
+<api/STYLE.md#adding-an-extension-configuration-to-the-api>`进行操作。
 
-Extension implementations should operate with v3 messages internally, for both their own
-configuration and other Envoy configuration messages. Unit tests should be written against v3
-configuration.
+扩展实现应在内部使用 v3 messages 进行操作，以实现其自身的配置和其他 Envoy 的配置 messages 。单元测试应针对 v3 配置进行编写。
