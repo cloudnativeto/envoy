@@ -66,7 +66,7 @@
               route: { cluster: service_foo }
 
 
-如何为群集配置SNI？
+如何为群集配置 SNI？
 ====================================
 
 对于集群而言， 可以在 :ref:`UpstreamTlsContext <envoy_v3_api_field_extensions.transport_sockets.tls.v3.UpstreamTlsContext.sni>` 中设置固定的SNI。
