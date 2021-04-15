@@ -69,7 +69,7 @@
 如何为群集配置 SNI？
 ====================================
 
-对于集群而言， 可以在 :ref:`UpstreamTlsContext <envoy_v3_api_field_extensions.transport_sockets.tls.v3.UpstreamTlsContext.sni>` 中设置固定的SNI。
+对于集群而言， 可以在 :ref:`UpstreamTlsContext <envoy_v3_api_field_extensions.transport_sockets.tls.v3.UpstreamTlsContext.sni>` 中设置固定的 SNI。
 要从 HTTP `host` 或者 `:authority` 头派生 SNI, 请开启
 :ref:`auto_sni <envoy_v3_api_field_config.core.v3.UpstreamHttpProtocolOptions.auto_sni>` 去覆盖
 `UpstreamTlsContext` 中固定的 SNI 。 如果上游需要在 SAN 中出示包含主机名的证书，请也打开
