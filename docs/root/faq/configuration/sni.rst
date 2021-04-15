@@ -10,7 +10,7 @@
 
   必须配置 :ref:`TLS 检查器 <config_listener_filters_tls_inspector>` 监听过滤器才能检测到所请求的 SNI 。
 
-以下是上述要求的YAML示例。
+以下是上述要求的 YAML 示例。
 
 .. code-block:: yaml
 
