@@ -1,6 +1,6 @@
 .. _faq_how_to_setup_sni:
 
-如何为侦听器配置SNI？
+如何为监听器配置 SNI？
 =====================================
 
 `SNI <https://en.wikipedia.org/wiki/Server_Name_Indication>`_ 只在 :ref:`v3
