@@ -3,7 +3,7 @@
 我的 HTTP 过滤器必须遵守合约吗？
 -----------------------------------
 
-* 标头 编码/解码
+* 标头编码/解码
 
   * 在标头编码/解码期间，如果过滤器返回 ``FilterHeadersStatus::StopIteration``，则如果 ``encodeData()``/``decodeData()`` 返回 ``FilterDataStatus::Continue`` 或者通过显式调用 ``continueEncoding()``/``continueDecoding()`` 可以恢复处理。
 
@@ -32,4 +32,3 @@ The first filter of the decoding filter chain will have the following headers in
 * ``Path`` （对于CONNECT请求可能会省略）。
 
 尽管可以通过解码过滤器链上的任一过滤器省略这些标头，但应在触发终端过滤器之前重新插入它们。
-
