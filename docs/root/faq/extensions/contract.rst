@@ -29,6 +29,6 @@ The first filter of the decoding filter chain will have the following headers in
 解码过滤器链的第一个过滤器在映射中将具有以下标头：
 
 * ``Host``
-* ``Path`` （对于CONNECT请求可能会省略）。
+* ``Path`` （对于 CONNECT 请求可能会省略）。
 
 尽管可以通过解码过滤器链上的任一过滤器省略这些标头，但应在触发终端过滤器之前重新插入它们。
