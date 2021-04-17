@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Why does Envoy use BoringSSL? &mdash; envoy 1.16.0-7edb76 documentation</title>
+  <title>为什么 Envoy 使用 BoringSSL？ &mdash; envoy 1.16.0-55ac5d documentation</title>
   
 
   
@@ -46,7 +46,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="How long will the v2 APIs be supported?" href="../api/envoy_v2_support.html" />
+    <link rel="next" title="v2 API 将支持多长时间？" href="../api/envoy_v2_support.html" />
     <link rel="prev" title="我在哪里获取二进制文件？" href="binaries.html" /> 
 </head>
 
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-7edb76
+                1.16.0-55ac5d
               </div>
             
           
@@ -112,7 +112,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../overview.html">FAQ</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../overview.html#id1">构建</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="binaries.html">我在哪里获取二进制文件？</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Why does Envoy use BoringSSL?</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">为什么 Envoy 使用 BoringSSL？</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#api">API</a></li>
@@ -171,7 +171,7 @@
         
           <li><a href="../overview.html">FAQ</a> &raquo;</li>
         
-      <li>Why does Envoy use BoringSSL?</li>
+      <li>为什么 Envoy 使用 BoringSSL？</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -190,13 +190,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="why-does-envoy-use-boringssl">
-<h1>Why does Envoy use BoringSSL?<a class="headerlink" href="#why-does-envoy-use-boringssl" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://boringssl.googlesource.com/boringssl/">BoringSSL</a> is a slimmed down TLS implementation
-maintained by Google. Getting TLS right is very, very hard. Envoy has chosen to align with
-BoringSSL so as to obtain access to the world class experts that Google employs to work on this
-code base. In short: if BoringSSL is good enough for Google’s production systems it is good enough
-for Envoy and the project will not offer first class support for any other TLS implementation.</p>
+  <div class="section" id="envoy-boringssl">
+<h1>为什么 Envoy 使用 BoringSSL？<a class="headerlink" href="#envoy-boringssl" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://boringssl.googlesource.com/boringssl/">BoringSSL</a> 是由 Google 维护的精简 TLS 实现。 正确设置 TLS 是非常困难的。Envoy 选择与 BoringSSL 保持一致，以便于获得 Google 聘用的世界一流专家的支持。简而言之： 如果 BoringSSL 对 Google 的生产系统足够好的话，那它对 Envoy 也足够好，那么该项目将不会为任何其他 TLS 的实现提供一级的支持。</p>
 </div>
 
 
@@ -207,7 +203,7 @@ for Envoy and the project will not offer first class support for any other TLS i
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../api/envoy_v2_support.html" class="btn btn-neutral float-right" title="How long will the v2 APIs be supported?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../api/envoy_v2_support.html" class="btn btn-neutral float-right" title="v2 API 将支持多长时间？" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="binaries.html" class="btn btn-neutral float-left" title="我在哪里获取二进制文件？" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

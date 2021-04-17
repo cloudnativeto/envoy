@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>How are configuration deprecations handled? &mdash; envoy 1.16.0-7edb76 documentation</title>
+  <title>How are configuration deprecations handled? &mdash; envoy 1.16.0-55ac5d documentation</title>
   
 
   
@@ -46,7 +46,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="How does Envoy prevent file descriptor exhaustion?" href="resource_limits.html" />
+    <link rel="next" title="Envoy 如何防止文件描述符耗尽？" href="resource_limits.html" />
     <link rel="prev" title="How do I configure timeouts?" href="timeouts.html" /> 
 </head>
 
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-7edb76
+                1.16.0-55ac5d
               </div>
             
           
@@ -115,16 +115,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#faq-overview-debug">调试</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#id3">性能</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../overview.html#id4">配置</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="edge.html">How do I configure Envoy as an edge proxy?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="level_two.html">How do I configure Envoy as a level two proxy?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sni.html">How do I configure SNI for listeners?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sni.html#how-do-i-configure-sni-for-clusters">How do I configure SNI for clusters?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edge.html">如何将 Envoy 配置为边缘代理？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="level_two.html">如何将 Envoy 配置为 L2 代理？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sni.html">如何为监听器配置 SNI？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sni.html#id2">如何为群集配置 SNI？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zone_aware_routing.html">How do I configure zone aware routing?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zipkin_tracing.html">如何配置 Zipkin 追踪？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="flow_control.html">How do I configure flow control?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="timeouts.html">How do I configure timeouts?</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">How are configuration deprecations handled?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="resource_limits.html">How does Envoy prevent file descriptor exhaustion?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="resource_limits.html">Envoy 如何防止文件描述符耗尽？</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#id5">负载均衡</a></li>
@@ -200,7 +200,7 @@
             
   <div class="section" id="how-are-configuration-deprecations-handled">
 <span id="faq-deprecation"></span><h1>How are configuration deprecations handled?<a class="headerlink" href="#how-are-configuration-deprecations-handled" title="Permalink to this headline">¶</a></h1>
-<p>As documented in the “Breaking change policy” in <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/7edb7673d8a7d943e1532dcbada79a2b72170630/CONTRIBUTING.md">CONTRIBUTING.md</a>, features can be marked
+<p>As documented in the “Breaking change policy” in <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/55ac5d29629158579abb9109b8609c11dead7a6f/CONTRIBUTING.md">CONTRIBUTING.md</a>, features can be marked
 as deprecated at any point as long as there is a replacement available. Each deprecation is
 annotated in the API proto itself and explained in detail in the
 <a class="reference internal" href="../../version_history/version_history.html#deprecated"><span class="std std-ref">Envoy documentation</span></a>.</p>
@@ -219,7 +219,7 @@ will be treated as invalid configuration unless
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="resource_limits.html" class="btn btn-neutral float-right" title="How does Envoy prevent file descriptor exhaustion?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="resource_limits.html" class="btn btn-neutral float-right" title="Envoy 如何防止文件描述符耗尽？" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="timeouts.html" class="btn btn-neutral float-left" title="How do I configure timeouts?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

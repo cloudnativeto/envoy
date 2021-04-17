@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>HTTP header sanitizing &mdash; envoy 1.16.0-7edb76 documentation</title>
+  <title>HTTP 头修正 &mdash; envoy 1.16.0-55ac5d documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-7edb76
+                1.16.0-55ac5d
               </div>
             
           
@@ -115,7 +115,7 @@
 <li class="toctree-l4"><a class="reference internal" href="traffic_splitting.html">流量转移/拆分</a></li>
 <li class="toctree-l4"><a class="reference internal" href="header_casing.html">HTTP/1.1 头部大小写转换</a></li>
 <li class="toctree-l4"><a class="reference internal" href="headers.html">HTTP 头部操作</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">HTTP header sanitizing</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">HTTP 头修正</a></li>
 <li class="toctree-l4"><a class="reference internal" href="local_reply.html">本地回复修改</a></li>
 <li class="toctree-l4"><a class="reference internal" href="response_code_details.html">响应代码详细信息</a></li>
 <li class="toctree-l4"><a class="reference internal" href="stats.html">统计</a></li>
@@ -193,7 +193,7 @@
         
           <li><a href="http_conn_man.html">HTTP 连接管理器</a> &raquo;</li>
         
-      <li>HTTP header sanitizing</li>
+      <li>HTTP 头修正</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -212,18 +212,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="http-header-sanitizing">
-<span id="config-http-conn-man-header-sanitizing"></span><h1>HTTP header sanitizing<a class="headerlink" href="#http-header-sanitizing" title="Permalink to this headline">¶</a></h1>
-<p>For security reasons, Envoy will “sanitize” various incoming HTTP headers depending on whether the
-request is an internal or external request. The sanitizing action depends on the header and may
-result in addition, removal, or modification. Ultimately, whether the request is considered internal
-or external is governed by the <a class="reference internal" href="headers.html#config-http-conn-man-headers-x-forwarded-for"><span class="std std-ref">x-forwarded-for</span></a>
-header (please read the linked section carefully as how Envoy populates the header is complex and depends on the
-<a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-use-remote-address"><span class="std std-ref">use_remote_address</span></a>
-setting). In addition, the
-<a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-internal-address-config"><span class="std std-ref">internal_address_config</span></a>
-setting can be used to configure the internal/external determination.</p>
-<p>Envoy will potentially sanitize the following headers:</p>
+  <div class="section" id="http">
+<span id="config-http-conn-man-header-sanitizing"></span><h1>HTTP 头修正<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h1>
+<p>出于安全原因，Envoy 会根据请求来自内部或外部来“修正”各种 HTTP 头。修正操作取决于请求头，并可能对其执行增加、移除或修改等操作。最终，将根据请求头 <a class="reference internal" href="headers.html#config-http-conn-man-headers-x-forwarded-for"><span class="std std-ref">x-forwarded-for</span></a> 来判断请求来自内部或外部（请仔细阅读链接的内容，因为 Envoy 填充请求头的过程比较复杂，且该过程取决于请求头 <a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-use-remote-address"><span class="std std-ref">use_remote_address</span></a> 的设置）。另外，请求头 <a class="reference internal" href="../../../api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto.html#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-internal-address-config"><span class="std std-ref">internal_address_config</span></a> 可以用来设置内部/外部请求的判断。</p>
+<p>Envoy 可能对下列请求头执行修正操作：</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../http_filters/router_filter.html#config-http-filters-router-x-envoy-decorator-operation"><span class="std std-ref">x-envoy-decorator-operation</span></a></p></li>
 <li><p><a class="reference internal" href="headers.html#config-http-conn-man-headers-downstream-service-cluster"><span class="std std-ref">x-envoy-downstream-service-cluster</span></a></p></li>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>How do I configure SNI for listeners? &mdash; envoy 1.16.0-7edb76 documentation</title>
+  <title>如何为监听器配置 SNI？ &mdash; envoy 1.16.0-55ac5d documentation</title>
   
 
   
@@ -47,7 +47,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="How do I configure zone aware routing?" href="zone_aware_routing.html" />
-    <link rel="prev" title="How do I configure Envoy as a level two proxy?" href="level_two.html" /> 
+    <link rel="prev" title="如何将 Envoy 配置为 L2 代理？" href="level_two.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-7edb76
+                1.16.0-55ac5d
               </div>
             
           
@@ -115,16 +115,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#faq-overview-debug">调试</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#id3">性能</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../overview.html#id4">配置</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="edge.html">How do I configure Envoy as an edge proxy?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="level_two.html">How do I configure Envoy as a level two proxy?</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">How do I configure SNI for listeners?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#how-do-i-configure-sni-for-clusters">How do I configure SNI for clusters?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edge.html">如何将 Envoy 配置为边缘代理？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="level_two.html">如何将 Envoy 配置为 L2 代理？</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">如何为监听器配置 SNI？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">如何为群集配置 SNI？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zone_aware_routing.html">How do I configure zone aware routing?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zipkin_tracing.html">如何配置 Zipkin 追踪？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="flow_control.html">How do I configure flow control?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="timeouts.html">How do I configure timeouts?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="deprecation.html">How are configuration deprecations handled?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="resource_limits.html">How does Envoy prevent file descriptor exhaustion?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="resource_limits.html">Envoy 如何防止文件描述符耗尽？</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#id5">负载均衡</a></li>
@@ -179,7 +179,7 @@
         
           <li><a href="../overview.html">FAQ</a> &raquo;</li>
         
-      <li>How do I configure SNI for listeners?</li>
+      <li>如何为监听器配置 SNI？</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -198,16 +198,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="how-do-i-configure-sni-for-listeners">
-<span id="faq-how-to-setup-sni"></span><h1>How do I configure SNI for listeners?<a class="headerlink" href="#how-do-i-configure-sni-for-listeners" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Server_Name_Indication">SNI</a> is only supported in the <a class="reference internal" href="../../configuration/overview/overview.html#config-overview"><span class="std std-ref">v3
-configuration/API</span></a>.</p>
+  <div class="section" id="sni">
+<span id="faq-how-to-setup-sni"></span><h1>如何为监听器配置 SNI？<a class="headerlink" href="#sni" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Server_Name_Indication">SNI</a> 只在 <a class="reference internal" href="../../configuration/overview/overview.html#config-overview"><span class="std std-ref">v3
+配置/API</span></a> 中支持</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p><a class="reference internal" href="../../configuration/listeners/listener_filters/tls_inspector.html#config-listener-filters-tls-inspector"><span class="std std-ref">TLS Inspector</span></a> listener filter must be configured
-in order to detect requested SNI.</p>
+<p>必须配置 <a class="reference internal" href="../../configuration/listeners/listener_filters/tls_inspector.html#config-listener-filters-tls-inspector"><span class="std std-ref">TLS 检查器</span></a> 监听过滤器才能检测到所请求的 SNI 。</p>
 </div>
-<p>The following is a YAML example of the above requirement.</p>
+<p>以下是上述要求的 YAML 示例。</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">address</span><span class="p">:</span>
   <span class="nt">socket_address</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt"> address</span><span class="p">:</span> <span class="nv">127.0.0.1</span><span class="p p-Indicator">,</span><span class="nt"> port_value</span><span class="p">:</span> <span class="nv">1234</span> <span class="p p-Indicator">}</span>
 <span class="nt">listener_filters</span><span class="p">:</span>
@@ -261,14 +260,14 @@ in order to detect requested SNI.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="how-do-i-configure-sni-for-clusters">
-<h1>How do I configure SNI for clusters?<a class="headerlink" href="#how-do-i-configure-sni-for-clusters" title="Permalink to this headline">¶</a></h1>
-<p>For clusters, a fixed SNI can be set in <a class="reference internal" href="../../api-v3/extensions/transport_sockets/tls/v3/tls.proto.html#envoy-v3-api-field-extensions-transport-sockets-tls-v3-upstreamtlscontext-sni"><span class="std std-ref">UpstreamTlsContext</span></a>.
-To derive SNI from HTTP <cite>host</cite> or <cite>:authority</cite> header, turn on
-<a class="reference internal" href="../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-upstreamhttpprotocoloptions-auto-sni"><span class="std std-ref">auto_sni</span></a> to override the fixed SNI in
-<cite>UpstreamTlsContext</cite>. If upstream will present certificates with the hostname in SAN, turn on
-<a class="reference internal" href="../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-upstreamhttpprotocoloptions-auto-san-validation"><span class="std std-ref">auto_san_validation</span></a> too.
-It still needs a trust CA in validation context in <cite>UpstreamTlsContext</cite> for trust anchor.</p>
+<div class="section" id="id2">
+<h1>如何为群集配置 SNI？<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
+<p>对于集群而言， 可以在 <a class="reference internal" href="../../api-v3/extensions/transport_sockets/tls/v3/tls.proto.html#envoy-v3-api-field-extensions-transport-sockets-tls-v3-upstreamtlscontext-sni"><span class="std std-ref">UpstreamTlsContext</span></a> 中设置固定的 SNI。
+要从 HTTP <cite>host</cite> 或者 <cite>:authority</cite> 头派生 SNI, 请开启
+<a class="reference internal" href="../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-upstreamhttpprotocoloptions-auto-sni"><span class="std std-ref">auto_sni</span></a> 去覆盖
+<cite>UpstreamTlsContext</cite> 中固定的 SNI。 如果上游需要在 SAN 中出示包含主机名的证书，请也打开
+<a class="reference internal" href="../../api-v3/config/core/v3/protocol.proto.html#envoy-v3-api-field-config-core-v3-upstreamhttpprotocoloptions-auto-san-validation"><span class="std std-ref">auto_san_validation</span></a> 。
+在 <cite>UpstreamTlsContext</cite> 的验证上下文中，它仍需要信任的 CA 证书以用于认证。</p>
 </div>
 
 
@@ -282,7 +281,7 @@ It still needs a trust CA in validation context in <cite>UpstreamTlsContext</cit
         <a href="zone_aware_routing.html" class="btn btn-neutral float-right" title="How do I configure zone aware routing?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="level_two.html" class="btn btn-neutral float-left" title="How do I configure Envoy as a level two proxy?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="level_two.html" class="btn btn-neutral float-left" title="如何将 Envoy 配置为 L2 代理？" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

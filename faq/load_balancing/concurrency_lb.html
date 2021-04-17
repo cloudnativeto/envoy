@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Why doesn’t RR load balancing appear to be even? &mdash; envoy 1.16.0-7edb76 documentation</title>
+  <title>为什么轮询负载均衡看起来不均衡？ &mdash; envoy 1.16.0-55ac5d documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-7edb76
+                1.16.0-55ac5d
               </div>
             
           
@@ -117,7 +117,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#id4">配置</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../overview.html#id5">负载均衡</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="lb_panic_threshold.html">我设置了健康检查。当某些主机发生故障时，Envoy 再次开始路由到所有这些主机。为什么？</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Why doesn’t RR load balancing appear to be even?</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">为什么轮询负载均衡看起来不均衡？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="disable_circuit_breaking.html">Is there a way to disable circuit breaking?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="transient_failures.html">How do I handle transient failures?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="region_failover.html">服务降级期间如何使 Envoy 故障转移到另一个区域？</a></li>
@@ -174,7 +174,7 @@
         
           <li><a href="../overview.html">FAQ</a> &raquo;</li>
         
-      <li>Why doesn’t RR load balancing appear to be even?</li>
+      <li>为什么轮询负载均衡看起来不均衡？</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -193,15 +193,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="why-doesn-t-rr-load-balancing-appear-to-be-even">
-<h1>Why doesn’t RR load balancing appear to be even?<a class="headerlink" href="#why-doesn-t-rr-load-balancing-appear-to-be-even" title="Permalink to this headline">¶</a></h1>
-<p>Envoy utilizes a siloed <a class="reference internal" href="../../intro/arch_overview/intro/threading_model.html#arch-overview-threading"><span class="std std-ref">threading model</span></a>. This means that worker
-threads and the load balancers that run on them do not coordinate with each other. When utilizing
-load balancing policies such as <a class="reference internal" href="../../intro/arch_overview/upstream/load_balancing/load_balancers.html#arch-overview-load-balancing-types-round-robin"><span class="std std-ref">round robin</span></a>,
-it may thus appear that load balancing is not working properly when using multiple workers. The
-<a class="reference internal" href="../../operations/cli.html#cmdoption-concurrency"><code class="xref std std-option docutils literal notranslate"><span class="pre">--concurrency</span></code></a> option can be used to adjust the number of workers if desired.</p>
-<p>The siloed execution model is also the reason why multiple HTTP/2 connections may be established to
-each upstream; <a class="reference internal" href="../../intro/arch_overview/upstream/connection_pooling.html#arch-overview-conn-pool"><span class="std std-ref">connection pools</span></a> are not shared between workers.</p>
+  <div class="section" id="id1">
+<h1>为什么轮询负载均衡看起来不均衡？<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Envoy 采用的是孤立的 <a class="reference internal" href="../../intro/arch_overview/intro/threading_model.html#arch-overview-threading"><span class="std std-ref">线程模型</span></a>。这意味着工作线程和在其上运行的负载平衡器不会相互协作。当使用诸如 <a class="reference internal" href="../../intro/arch_overview/upstream/load_balancing/load_balancers.html#arch-overview-load-balancing-types-round-robin"><span class="std std-ref">轮询</span></a> 的负载均衡策略，同时使用多个工作线程时，可能会出现负载均衡无法正常工作的情况。如果需要，可以通过
+<a class="reference internal" href="../../operations/cli.html#cmdoption-concurrency"><code class="xref std std-option docutils literal notranslate"><span class="pre">--concurrency</span></code></a> 选项，去调整工作线程的数量。</p>
+<p>孤立的执行模型也是每个上游都可以建立多个 HTTP/2 连接的原因；工作线程之间不共享 <a class="reference internal" href="../../intro/arch_overview/upstream/connection_pooling.html#arch-overview-conn-pool"><span class="std std-ref">连接池</span></a>。</p>
 </div>
 
 
