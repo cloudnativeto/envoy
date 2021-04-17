@@ -13,7 +13,7 @@
 
   * 过滤器的 ``encode100ContinueHeaders()`` 必须返回 ``FilterHeadersStatus::Continue`` 或者 ``FilterHeadersStatus::StopIteration``。
 
-* 数据 编码/解码
+* 数据编码/解码
 
   * 在数据编码/解码期间，如果过滤器返回 ``FilterDataStatus::StopIterationAndBuffer``、``FilterDataStatus::StopIterationAndWatermark``，或者``FilterDataStatus::StopIterationNoBuffer``，则如果 ``encodeData()``/``decodeData()`` 返回 ``FilterDataStatus::Continue`` 或者通过显式调用 ``continueEncoding()``/``continueDecoding()`` 可以恢复处理。
 
