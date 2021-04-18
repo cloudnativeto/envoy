@@ -1,16 +1,9 @@
-If I upgrade to Envoy 1.13+, do I need to use the v3 API?
+如果我升级到了 Envoy 1.13+，我需要使用 v3 API 吗？
 =========================================================
 
-The v2 API is deprecated in the 1.13.0 release (January 2020). It will be fully supported for the
-duration of 2020 and then all support for v2 will be removed from Envoy at EOY 2020.
+v2 API 在 1.13.0 release（2020年1月）中被弃用。它将在2020年期间得到完全支持，然后在2020年末时从Envoy中删除对 v2 的所有支持。
+所有现有的 v2 boostrap 和 xDS 配置应在1.13.0以及2020年期间继续无缝运行。Envoy 在 v3+ 上内部运行，但是这样做是通过在使用时从 v2 透明升级配置来实现的。
 
-All existing v2 boostrap and xDS configuration should continue to work seamlessly in 1.13.0 and for the
-duration of 2020. Envoy internally operates at v3+, but does so by transparently upgrading
-configuration from v2 at ingestion time.
+自2020年第一季度以来，我们已经冻结了 v2 API，并且不会添加任何新功能。要使用这些较新的功能，您将需要迁移到 v3 API。
 
-Since EOQ1 2020, we have frozen the v2 API and no new features will be added. To consume these
-newer features, you will need to migrate to the v3 API.
-
-It is highly recommend that operators with self-managed and/or self-developed control planes migrate
-to v3 well before Q4 2020 in order to avoid hitting the hard deadline for v3 support at EOY.
-
+为了做好年末对 v3 全面支持的准备，强烈建议在2020年第四季度之前，自我管理或者自我开发控制平面的运营商，迁移到 v3。
