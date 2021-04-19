@@ -25,7 +25,7 @@ HTTP/gRPC
 
 流超时适用于 HTTP 连接携带的单个流。请注意，流是 HTTP/2 和 HTTP/3 的概念，然而 Envoy 在内部将 HTTP/1 请求映射到流，因此在这种情况下，请求/流是可以互换的。
 
-* HTTP 连接管理器中的 :ref:`请求超时 <envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.request_timeout>` 是连接管理器允许从客户端接收 *整个请求流* 的时间。
+* HTTP 连接管理器中的 :ref:`request_timeout <envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.request_timeout>` 是连接管理器允许从客户端接收 *整个请求流* 的时间。
 
   .. attention::
 
