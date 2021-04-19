@@ -60,4 +60,4 @@ TCP
 
      对于 TLS 连接，连接超时包括 TLS 握手。
 
-* TCP 代理 :ref:`空闲超时 <envoy_v3_api_field_extensions.filters.network.tcp_proxy.v3.TcpProxy.idle_timeout>` 指的是 TCP 代理允许连接在没有下游或上游活动时，所能存在的时间。如果没有指定，默认的空闲超时时间是 1 小时。
+* TCP 代理 :ref:`idle_timeout <envoy_v3_api_field_extensions.filters.network.tcp_proxy.v3.TcpProxy.idle_timeout>` 指的是 TCP 代理允许连接在没有下游或上游活动时，所能存在的时间。如果没有指定，默认的空闲超时时间是 1 小时。
