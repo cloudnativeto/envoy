@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>How do I configure zone aware routing? &mdash; envoy 1.16.0-c66e06 documentation</title>
+  <title>如何配置区域感知路由？ &mdash; envoy 1.16.0-775248 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-c66e06
+                1.16.0-775248
               </div>
             
           
@@ -119,11 +119,11 @@
 <li class="toctree-l3"><a class="reference internal" href="level_two.html">如何将 Envoy 配置为 L2 代理？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sni.html">如何为监听器配置 SNI？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sni.html#id2">如何为群集配置 SNI？</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">How do I configure zone aware routing?</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#envoy-configuration-on-the-source-service">Envoy configuration on the source service</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#envoy-configuration-on-the-destination-service">Envoy configuration on the destination service</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#infrastructure-setup">Infrastructure setup</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#verification-steps">Verification steps</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">如何配置区域感知路由？</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#envoy">源服务端的 Envoy 配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">目的服务端的 Envoy 配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">基础设施设置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">验证步骤</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="zipkin_tracing.html">如何配置 Zipkin 追踪？</a></li>
@@ -185,7 +185,7 @@
         
           <li><a href="../overview.html">FAQ</a> &raquo;</li>
         
-      <li>How do I configure zone aware routing?</li>
+      <li>如何配置区域感知路由？</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -204,20 +204,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="how-do-i-configure-zone-aware-routing">
-<span id="common-configuration-zone-aware-routing"></span><h1>How do I configure zone aware routing?<a class="headerlink" href="#how-do-i-configure-zone-aware-routing" title="Permalink to this headline">¶</a></h1>
-<p>There are several steps required for enabling <a class="reference internal" href="../../intro/arch_overview/upstream/load_balancing/zone_aware.html#arch-overview-load-balancing-zone-aware-routing"><span class="std std-ref">zone aware routing</span></a>
-between source service (“cluster_a”) and destination service (“cluster_b”).</p>
-<div class="section" id="envoy-configuration-on-the-source-service">
-<h2>Envoy configuration on the source service<a class="headerlink" href="#envoy-configuration-on-the-source-service" title="Permalink to this headline">¶</a></h2>
-<p>This section describes the specific configuration for the Envoy running side by side with the source service.
-These are the requirements:</p>
+  <div class="section" id="common-configuration-zone-aware-routing">
+<span id="id1"></span><h1>如何配置区域感知路由？<a class="headerlink" href="#common-configuration-zone-aware-routing" title="Permalink to this headline">¶</a></h1>
+<p>在源服务（”cluster_a”）和目的服务（”cluster_b”）之间启用 <a class="reference internal" href="../../intro/arch_overview/upstream/load_balancing/zone_aware.html#arch-overview-load-balancing-zone-aware-routing"><span class="std std-ref">区域感知路由</span></a> 需要经过几个必要的步骤。</p>
+<div class="section" id="envoy">
+<h2>源服务端的 Envoy 配置<a class="headerlink" href="#envoy" title="Permalink to this headline">¶</a></h2>
+<p>这部分描述了与源服务并行运行的 Envoy 的特定配置。具有下述要求：</p>
 <ul>
-<li><p>Envoy must be launched with <a class="reference internal" href="../../operations/cli.html#cmdoption-service-zone"><code class="xref std std-option docutils literal notranslate"><span class="pre">--service-zone</span></code></a> option which defines the zone for the current host.</p></li>
-<li><p>Both definitions of the source and the destination clusters must have <a class="reference internal" href="../../api-v3/config/cluster/v3/cluster.proto.html#envoy-v3-api-field-config-cluster-v3-cluster-type"><span class="std std-ref">EDS</span></a> type.</p></li>
-<li><p><a class="reference internal" href="../../api-v3/config/bootstrap/v3/bootstrap.proto.html#envoy-v3-api-field-config-bootstrap-v3-clustermanager-local-cluster-name"><span class="std std-ref">local_cluster_name</span></a> must be set to the
-source cluster.</p>
-<p>Only essential parts are listed in the configuration below for the cluster manager.</p>
+<li><p>Envoy 必须以 <a class="reference internal" href="../../operations/cli.html#cmdoption-service-zone"><code class="xref std std-option docutils literal notranslate"><span class="pre">--service-zone</span></code></a> 选项启动，此选项定义了当前主机的区域。</p></li>
+<li><p>源集群和目的集群的定义必须有 <a class="reference internal" href="../../api-v3/config/cluster/v3/cluster.proto.html#envoy-v3-api-field-config-cluster-v3-cluster-type"><span class="std std-ref">EDS</span></a> 类型 。</p></li>
+<li><p>源集群必须设置 <a class="reference internal" href="../../api-v3/config/bootstrap/v3/bootstrap.proto.html#envoy-v3-api-field-config-bootstrap-v3-clustermanager-local-cluster-name"><span class="std std-ref">local_cluster_name</span></a> 。</p>
+<p>对于群集管理器，下面的配置中只列出了必要部分。</p>
 </li>
 </ul>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">cluster_manager</span><span class="p">:</span>
@@ -233,26 +230,23 @@ source cluster.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="envoy-configuration-on-the-destination-service">
-<h2>Envoy configuration on the destination service<a class="headerlink" href="#envoy-configuration-on-the-destination-service" title="Permalink to this headline">¶</a></h2>
-<p>It’s not necessary to run Envoy side by side with the destination service, but it’s important that each host in the
-destination cluster registers with the discovery service <a class="reference internal" href="../../configuration/overview/xds_api.html#config-overview-management-server"><span class="std std-ref">queried by the source service Envoy</span></a>. <a class="reference internal" href="../../api-v3/config/endpoint/v3/endpoint_components.proto.html#envoy-v3-api-msg-config-endpoint-v3-localitylbendpoints"><span class="std std-ref">Zone</span></a>
-information must be available as part of that response.</p>
-<p>Only zone related data is listed in the response below.</p>
+<div class="section" id="id2">
+<h2>目的服务端的 Envoy 配置<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>没有必要与目的服务并行运行 Envoy，但是目标集群中的每个主机都要向 <a class="reference internal" href="../../configuration/overview/xds_api.html#config-overview-management-server"><span class="std std-ref">源服务 Envoy 查询</span></a> 的服务发现进行注册。:ref:` 区域 &lt;envoy_v3_api_msg_config.endpoint.v3.LocalityLbEndpoints&gt;` 信息必须作为响应的一部分能够被获取到。</p>
+<p>下面的响应只列出了与区域相关的数据。</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">locality</span><span class="p">:</span>
   <span class="nt">zone</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">us-east-1d</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="infrastructure-setup">
-<h2>Infrastructure setup<a class="headerlink" href="#infrastructure-setup" title="Permalink to this headline">¶</a></h2>
-<p>The above configuration is necessary for zone aware routing, but there are certain conditions
-when zone aware routing is <a class="reference internal" href="../../intro/arch_overview/upstream/load_balancing/zone_aware.html#arch-overview-load-balancing-zone-aware-routing-preconditions"><span class="std std-ref">not performed</span></a>.</p>
+<div class="section" id="id3">
+<h2>基础设施设置<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>上述的配置对于区域感知路由是非常必要的，但是在某些特定情况下，区域感知路由是 <a class="reference internal" href="../../intro/arch_overview/upstream/load_balancing/zone_aware.html#arch-overview-load-balancing-zone-aware-routing-preconditions"><span class="std std-ref">不被执行的</span></a>。</p>
 </div>
-<div class="section" id="verification-steps">
-<h2>Verification steps<a class="headerlink" href="#verification-steps" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2>验证步骤<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Use <a class="reference internal" href="../../configuration/upstream/cluster_manager/cluster_stats.html#config-cluster-manager-cluster-per-az-stats"><span class="std std-ref">per zone</span></a> Envoy stats to monitor cross zone traffic.</p></li>
+<li><p>使用 Envoy 的 <a class="reference internal" href="../../configuration/upstream/cluster_manager/cluster_stats.html#config-cluster-manager-cluster-per-az-stats"><span class="std std-ref">每一个区域</span></a> 统计来监控跨区域流量。</p></li>
 </ul>
 </div>
 </div>

@@ -20,7 +20,7 @@ Local rate limit :ref:`configuration overview <config_network_filters_local_rate
 extensions.filters.network.local_ratelimit.v3.LocalRateLimit
 ------------------------------------------------------------
 
-`[extensions.filters.network.local_ratelimit.v3.LocalRateLimit proto] <https://github.com/envoyproxy/envoy/blob/c66e06ab50c37385499831aaa0ebefdf9368c8a7/api/envoy/extensions/filters/network/local_ratelimit/v3/local_rate_limit.proto#L20>`_
+`[extensions.filters.network.local_ratelimit.v3.LocalRateLimit proto] <https://github.com/envoyproxy/envoy/blob/77524800c8500aa8f2cb9f9530bb2322f3faac4b/api/envoy/extensions/filters/network/local_ratelimit/v3/local_rate_limit.proto#L20>`_
 
 
 .. code-block:: json
