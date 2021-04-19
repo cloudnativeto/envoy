@@ -1,15 +1,11 @@
 .. _faq_disable_circuit_breaking:
 
-Is there a way to disable circuit breaking?
+有办法禁用熔断吗？
 ===========================================
 
-Envoy comes with :ref:`certain defaults <envoy_v3_api_msg_config.cluster.v3.CircuitBreakers.Thresholds>`
-for each kind of circuit breaking. Currently, there isn't a switch to turn
-circuit breaking off completely; however, you could achieve a similar behavior
-by setting these thresholds very high, for example, to `std::numeric_limits<uint32_t>::max()`.
+对于每种类型的熔断，Envoy 都带有 :ref:`特定的默认值 <envoy_v3_api_msg_config.cluster.v3.CircuitBreakers.Thresholds>`。当前，还没有开关能完全关闭熔断机制； 然而， 你可以通过将这些阈值设置非常高来实现类似的效果，例如，将它们设为`std::numeric_limits<uint32_t>::max()`。
 
-Following is a sample configuration that tries to effectively disable all kinds
-of circuit breaking by setting the thresholds to a value of `1000000000`.
+以下是一个示例配置，该配置尝试通过将阈值设置为 1000000000 来有效地禁用所有类型的熔断。
 
 .. code-block:: yaml
 
@@ -26,4 +22,4 @@ of circuit breaking by setting the thresholds to a value of `1000000000`.
         max_requests: 1000000000
         max_retries: 1000000000
 
-Envoy supports priority routing at the route level. You may adjust the thresholds accordingly.
+Envoy 在路由级别支持优先级路由。你可以相应地调整阈值。
