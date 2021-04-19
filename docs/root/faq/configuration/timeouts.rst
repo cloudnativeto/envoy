@@ -34,7 +34,7 @@ HTTP/gRPC
 * HTTP 连接管理器中的 :ref:`stream_idle_timeout <envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.stream_idle_timeout>` 是连接管理器允许流在没有下游或上游活动时所能存在的时间。默认流空闲超时时间为 5 分钟。强烈建议对所有请求（不仅仅是流请求/响应）配置流空闲超时，因为它可以防止一旦将整个响应缓存发送给下游客户端，使用 HTTP/2 的客户端不会关闭流窗口。
 
 
-* HTTP 协议中的 :ref:`最大流持续时间 <envoy_v3_api_field_config.core.v3.HttpProtocolOptions.max_stream_duration>` 是在 HTTP 连接管理器的通用消息中定义的。最大流持续时间是一个流的生命周期的最大时间。当需要定期重置 HTTP 请求/响应流时，可以使用此功能。在这种情况下，你不能使用 :ref:`请求超时<envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.request_timeout>` ，因为如果在请求/响应流中收到响应头，定时器将会被重置。该超时在上游和下游连接上都可用。
+* HTTP 协议中的 :ref:`max_stream_duration  <envoy_v3_api_field_config.core.v3.HttpProtocolOptions.max_stream_duration>` 是在 HTTP 连接管理器的通用消息中定义的。最大流持续时间是一个流的生命周期的最大时间。当需要定期重置 HTTP 请求/响应流时，可以使用此功能。在这种情况下，你不能使用 :ref:`request_timeout <envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.request_timeout>` ，因为如果在请求/响应流中收到响应头，定时器将会被重置。该超时在上游和下游连接上都可用。
 
 路由超时
 ^^^^^^^^^^^^^^
