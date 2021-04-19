@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Is there a way to disable circuit breaking? &mdash; envoy 1.16.0-55ac5d documentation</title>
+  <title>有办法禁用熔断吗？ &mdash; envoy 1.16.0-c66e06 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-55ac5d
+                1.16.0-c66e06
               </div>
             
           
@@ -118,7 +118,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../overview.html#id5">负载均衡</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="lb_panic_threshold.html">我设置了健康检查。当某些主机发生故障时，Envoy 再次开始路由到所有这些主机。为什么？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="concurrency_lb.html">为什么轮询负载均衡看起来不均衡？</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Is there a way to disable circuit breaking?</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">有办法禁用熔断吗？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="transient_failures.html">How do I handle transient failures?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="region_failover.html">服务降级期间如何使 Envoy 故障转移到另一个区域？</a></li>
 </ul>
@@ -174,7 +174,7 @@
         
           <li><a href="../overview.html">FAQ</a> &raquo;</li>
         
-      <li>Is there a way to disable circuit breaking?</li>
+      <li>有办法禁用熔断吗？</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -193,14 +193,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="is-there-a-way-to-disable-circuit-breaking">
-<span id="faq-disable-circuit-breaking"></span><h1>Is there a way to disable circuit breaking?<a class="headerlink" href="#is-there-a-way-to-disable-circuit-breaking" title="Permalink to this headline">¶</a></h1>
-<p>Envoy comes with <a class="reference internal" href="../../api-v3/config/cluster/v3/circuit_breaker.proto.html#envoy-v3-api-msg-config-cluster-v3-circuitbreakers-thresholds"><span class="std std-ref">certain defaults</span></a>
-for each kind of circuit breaking. Currently, there isn’t a switch to turn
-circuit breaking off completely; however, you could achieve a similar behavior
-by setting these thresholds very high, for example, to <cite>std::numeric_limits&lt;uint32_t&gt;::max()</cite>.</p>
-<p>Following is a sample configuration that tries to effectively disable all kinds
-of circuit breaking by setting the thresholds to a value of <cite>1000000000</cite>.</p>
+  <div class="section" id="faq-disable-circuit-breaking">
+<span id="id1"></span><h1>有办法禁用熔断吗？<a class="headerlink" href="#faq-disable-circuit-breaking" title="Permalink to this headline">¶</a></h1>
+<p>对于每种类型的熔断，Envoy 都带有 <a class="reference internal" href="../../api-v3/config/cluster/v3/circuit_breaker.proto.html#envoy-v3-api-msg-config-cluster-v3-circuitbreakers-thresholds"><span class="std std-ref">特定的默认值</span></a>。当前，还没有开关能完全关闭熔断机制； 然而， 你可以通过将这些阈值设置非常高来实现类似的效果，例如，将它们设为`std::numeric_limits&lt;uint32_t&gt;::max()`。</p>
+<p>以下是一个示例配置，该配置尝试通过将阈值设置为 1000000000 来有效地禁用所有类型的熔断。</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">circuit_breakers</span><span class="p">:</span>
   <span class="nt">thresholds</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="nt">priority</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DEFAULT</span>
@@ -215,7 +211,7 @@ of circuit breaking by setting the thresholds to a value of <cite>1000000000</ci
       <span class="nt">max_retries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000000000</span>
 </pre></div>
 </div>
-<p>Envoy supports priority routing at the route level. You may adjust the thresholds accordingly.</p>
+<p>Envoy 在路由级别支持优先级路由。你可以相应地调整阈值。</p>
 </div>
 
 

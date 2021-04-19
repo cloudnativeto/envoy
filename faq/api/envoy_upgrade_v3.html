@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>If I upgrade to Envoy 1.13+, do I need to use the v3 API? &mdash; envoy 1.16.0-55ac5d documentation</title>
+  <title>如果我升级到了 Envoy 1.13+，我需要使用 v3 API 吗？ &mdash; envoy 1.16.0-c66e06 documentation</title>
   
 
   
@@ -46,7 +46,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="How does API versioning interact with a new extension?" href="extensions.html" />
+    <link rel="next" title="API 版本控制如何与新扩展交互？" href="extensions.html" />
     <link rel="prev" title="How do I configure Envoy to use the v3 API?" href="envoy_v3.html" /> 
 </head>
 
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-55ac5d
+                1.16.0-c66e06
               </div>
             
           
@@ -114,8 +114,8 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../overview.html#api">API</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="envoy_v2_support.html">v2 API 将支持多长时间？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="envoy_v3.html">How do I configure Envoy to use the v3 API?</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">If I upgrade to Envoy 1.13+, do I need to use the v3 API?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="extensions.html">How does API versioning interact with a new extension?</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">如果我升级到了 Envoy 1.13+，我需要使用 v3 API 吗？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extensions.html">API 版本控制如何与新扩展交互？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="control_plane_version_support.html">Which xDS transport and resource versions does my control plane need to support?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="control_plane.html">How do I support multiple xDS API major versions in my control plane?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="package_naming.html">API 包名中的 v2、v3、vN 是什么意思？</a></li>
@@ -178,7 +178,7 @@
         
           <li><a href="../overview.html">FAQ</a> &raquo;</li>
         
-      <li>If I upgrade to Envoy 1.13+, do I need to use the v3 API?</li>
+      <li>如果我升级到了 Envoy 1.13+，我需要使用 v3 API 吗？</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -197,17 +197,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="if-i-upgrade-to-envoy-1-13-do-i-need-to-use-the-v3-api">
-<h1>If I upgrade to Envoy 1.13+, do I need to use the v3 API?<a class="headerlink" href="#if-i-upgrade-to-envoy-1-13-do-i-need-to-use-the-v3-api" title="Permalink to this headline">¶</a></h1>
-<p>The v2 API is deprecated in the 1.13.0 release (January 2020). It will be fully supported for the
-duration of 2020 and then all support for v2 will be removed from Envoy at EOY 2020.</p>
-<p>All existing v2 boostrap and xDS configuration should continue to work seamlessly in 1.13.0 and for the
-duration of 2020. Envoy internally operates at v3+, but does so by transparently upgrading
-configuration from v2 at ingestion time.</p>
-<p>Since EOQ1 2020, we have frozen the v2 API and no new features will be added. To consume these
-newer features, you will need to migrate to the v3 API.</p>
-<p>It is highly recommend that operators with self-managed and/or self-developed control planes migrate
-to v3 well before Q4 2020 in order to avoid hitting the hard deadline for v3 support at EOY.</p>
+  <div class="section" id="envoy-1-13-v3-api">
+<h1>如果我升级到了 Envoy 1.13+，我需要使用 v3 API 吗？<a class="headerlink" href="#envoy-1-13-v3-api" title="Permalink to this headline">¶</a></h1>
+<p>v2 API 在 1.13.0 release（2020年1月）中被弃用。它将在2020年期间得到完全支持，然后在2020年末从 Envoy 中删除对 v2 的所有支持。
+所有现有的 v2 boostrap 和 xDS 配置应在1.13.0以及2020年期间继续无缝运行。Envoy 内部在 v3+ 上开发，这样做是想在使用时从 v2 透明升级配置。</p>
+<p>自2020年第一季度以来，我们已经冻结了 v2 API，并且不会添加任何新功能。要使用这些较新的功能，您将需要迁移到 v3 API。</p>
+<p>为了做好年末对 v3 全面支持的准备，强烈建议在2020年第四季度之前，自我管理或者自我开发控制平面的运营商，迁移到 v3。</p>
 </div>
 
 
@@ -218,7 +213,7 @@ to v3 well before Q4 2020 in order to avoid hitting the hard deadline for v3 sup
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="extensions.html" class="btn btn-neutral float-right" title="How does API versioning interact with a new extension?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="extensions.html" class="btn btn-neutral float-right" title="API 版本控制如何与新扩展交互？" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="envoy_v3.html" class="btn btn-neutral float-left" title="How do I configure Envoy to use the v3 API?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

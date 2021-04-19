@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>How does API versioning interact with a new extension? &mdash; envoy 1.16.0-55ac5d documentation</title>
+  <title>API 版本控制如何与新扩展交互？ &mdash; envoy 1.16.0-c66e06 documentation</title>
   
 
   
@@ -47,7 +47,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Which xDS transport and resource versions does my control plane need to support?" href="control_plane_version_support.html" />
-    <link rel="prev" title="If I upgrade to Envoy 1.13+, do I need to use the v3 API?" href="envoy_upgrade_v3.html" /> 
+    <link rel="prev" title="如果我升级到了 Envoy 1.13+，我需要使用 v3 API 吗？" href="envoy_upgrade_v3.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-55ac5d
+                1.16.0-c66e06
               </div>
             
           
@@ -114,8 +114,8 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../overview.html#api">API</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="envoy_v2_support.html">v2 API 将支持多长时间？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="envoy_v3.html">How do I configure Envoy to use the v3 API?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="envoy_upgrade_v3.html">If I upgrade to Envoy 1.13+, do I need to use the v3 API?</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">How does API versioning interact with a new extension?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="envoy_upgrade_v3.html">如果我升级到了 Envoy 1.13+，我需要使用 v3 API 吗？</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">API 版本控制如何与新扩展交互？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="control_plane_version_support.html">Which xDS transport and resource versions does my control plane need to support?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="control_plane.html">How do I support multiple xDS API major versions in my control plane?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="package_naming.html">API 包名中的 v2、v3、vN 是什么意思？</a></li>
@@ -178,7 +178,7 @@
         
           <li><a href="../overview.html">FAQ</a> &raquo;</li>
         
-      <li>How does API versioning interact with a new extension?</li>
+      <li>API 版本控制如何与新扩展交互？</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -197,12 +197,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="how-does-api-versioning-interact-with-a-new-extension">
-<h1>How does API versioning interact with a new extension?<a class="headerlink" href="#how-does-api-versioning-interact-with-a-new-extension" title="Permalink to this headline">¶</a></h1>
-<p>For extension configuration API, please follow the <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/55ac5d29629158579abb9109b8609c11dead7a6f/api/STYLE.md#adding-an-extension-configuration-to-the-api">new extension configuration steps</a> in the style guide.</p>
-<p>Extension implementations should operate with v3 messages internally, for both their own
-configuration and other Envoy configuration messages. Unit tests should be written against v3
-configuration.</p>
+  <div class="section" id="api">
+<h1>API 版本控制如何与新扩展交互？<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<p>对于扩展程序配置 API，请按照样式指南中的 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/c66e06ab50c37385499831aaa0ebefdf9368c8a7/api/STYLE.md#adding-an-extension-configuration-to-the-api">新扩展程序配置步骤</a> 进行操作。</p>
+<p>扩展实现应在内部使用 v3 messages 进行操作，包括它们自己的配置消息和其他配置消息。单元测试应针对 v3 配置进行编写。</p>
 </div>
 
 
@@ -216,7 +214,7 @@ configuration.</p>
         <a href="control_plane_version_support.html" class="btn btn-neutral float-right" title="Which xDS transport and resource versions does my control plane need to support?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="envoy_upgrade_v3.html" class="btn btn-neutral float-left" title="If I upgrade to Envoy 1.13+, do I need to use the v3 API?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="envoy_upgrade_v3.html" class="btn btn-neutral float-left" title="如果我升级到了 Envoy 1.13+，我需要使用 v3 API 吗？" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Is there a contract my HTTP filter must adhere to? &mdash; envoy 1.16.0-55ac5d documentation</title>
+  <title>我的 HTTP 过滤器必须遵守合约吗？ &mdash; envoy 1.16.0-c66e06 documentation</title>
   
 
   
@@ -73,7 +73,7 @@
             
             
               <div class="version">
-                1.16.0-55ac5d
+                1.16.0-c66e06
               </div>
             
           
@@ -116,8 +116,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#id4">配置</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#id5">负载均衡</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../overview.html#id6">扩展</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Is there a contract my HTTP filter must adhere to?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#are-there-well-known-headers-that-will-appear-in-the-given-headers-map-of-decodeheaders">Are there well-known headers that will appear in the given headers map of <code class="docutils literal notranslate"><span class="pre">decodeHeaders()</span></code>?</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">我的 HTTP 过滤器必须遵守合约吗？</a></li>
 </ul>
 </li>
 </ul>
@@ -170,7 +169,7 @@
         
           <li><a href="../overview.html">FAQ</a> &raquo;</li>
         
-      <li>Is there a contract my HTTP filter must adhere to?</li>
+      <li>我的 HTTP 过滤器必须遵守合约吗？</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -189,52 +188,38 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="is-there-a-contract-my-http-filter-must-adhere-to">
-<span id="faq-filter-contract"></span><h1>Is there a contract my HTTP filter must adhere to?<a class="headerlink" href="#is-there-a-contract-my-http-filter-must-adhere-to" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="http">
+<span id="faq-filter-contract"></span><h1>我的 HTTP 过滤器必须遵守合约吗？<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>Headers encoding/decoding</p>
+<li><p>标头编码/解码</p>
 <ul>
-<li><p>During encoding/decoding of headers if a filter returns <code class="docutils literal notranslate"><span class="pre">FilterHeadersStatus::StopIteration</span></code>,
-the processing can be resumed if <code class="docutils literal notranslate"><span class="pre">encodeData()</span></code>/<code class="docutils literal notranslate"><span class="pre">decodeData()</span></code> return
-<code class="docutils literal notranslate"><span class="pre">FilterDataStatus::Continue</span></code> or by explicitly calling
-<code class="docutils literal notranslate"><span class="pre">continueEncoding()</span></code>/<code class="docutils literal notranslate"><span class="pre">continueDecoding()</span></code>.</p></li>
-<li><p>During encoding/decoding of headers if a filter returns
-<code class="docutils literal notranslate"><span class="pre">FilterHeadersStatus::StopAllIterationAndBuffer</span></code> or
-<code class="docutils literal notranslate"><span class="pre">FilterHeadersStatus::StopAllIterationAndWatermark</span></code>, the processing can be resumed by calling
-<code class="docutils literal notranslate"><span class="pre">continueEncoding()</span></code>/<code class="docutils literal notranslate"><span class="pre">continueDecoding()</span></code>.</p></li>
-<li><p>A filter’s <code class="docutils literal notranslate"><span class="pre">decodeHeaders()</span></code> implementation must not return
-<code class="docutils literal notranslate"><span class="pre">FilterHeadersStatus::ContinueAndEndStream</span></code> when called with <code class="docutils literal notranslate"><span class="pre">end_stream</span></code> set to <em>true</em>. In this case
-<code class="docutils literal notranslate"><span class="pre">FilterHeadersStatus::Continue</span></code> should be returned.</p></li>
-<li><p>A filter’s <code class="docutils literal notranslate"><span class="pre">encode100ContinueHeaders()</span></code> must return <code class="docutils literal notranslate"><span class="pre">FilterHeadersStatus::Continue</span></code> or
-<code class="docutils literal notranslate"><span class="pre">FilterHeadersStatus::StopIteration</span></code>.</p></li>
+<li><p>在标头编码/解码期间，如果过滤器返回 <code class="docutils literal notranslate"><span class="pre">FilterHeadersStatus::StopIteration</span></code>，则如果 <code class="docutils literal notranslate"><span class="pre">encodeData()</span></code>/<code class="docutils literal notranslate"><span class="pre">decodeData()</span></code> 返回 <code class="docutils literal notranslate"><span class="pre">FilterDataStatus::Continue</span></code> 或者通过显式调用 <code class="docutils literal notranslate"><span class="pre">continueEncoding()</span></code>/<code class="docutils literal notranslate"><span class="pre">continueDecoding()</span></code> 可以恢复处理。</p></li>
+<li><p>在标头编码/解码期间，如果过滤器返回 <code class="docutils literal notranslate"><span class="pre">FilterHeadersStatus::StopAllIterationAndBuffer</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">FilterHeadersStatus::StopAllIterationAndWatermark</span></code>，可以通过调用 <code class="docutils literal notranslate"><span class="pre">continueEncoding()</span></code>/<code class="docutils literal notranslate"><span class="pre">continueDecoding()</span></code> 可以恢复处理。</p></li>
+<li><p>在将 <code class="docutils literal notranslate"><span class="pre">end_stream</span></code> 设置为 <em>true</em> 的调用时，过滤器的 <code class="docutils literal notranslate"><span class="pre">decodeHeaders()</span></code> 实现不得返回 <code class="docutils literal notranslate"><span class="pre">FilterHeadersStatus::ContinueAndEndStream</span></code>。在这种情况下应该返回 <code class="docutils literal notranslate"><span class="pre">FilterHeadersStatus::Continue</span></code>。</p></li>
+<li><p>过滤器的 <code class="docutils literal notranslate"><span class="pre">encode100ContinueHeaders()</span></code> 必须返回 <code class="docutils literal notranslate"><span class="pre">FilterHeadersStatus::Continue</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">FilterHeadersStatus::StopIteration</span></code>。</p></li>
 </ul>
 </li>
-<li><p>Data encoding/decoding</p>
+<li><p>数据编码/解码</p>
 <ul>
-<li><p>During encoding/decoding of data if a filter returns
-<code class="docutils literal notranslate"><span class="pre">FilterDataStatus::StopIterationAndBuffer</span></code>, <code class="docutils literal notranslate"><span class="pre">FilterDataStatus::StopIterationAndWatermark</span></code>,
-or <code class="docutils literal notranslate"><span class="pre">FilterDataStatus::StopIterationNoBuffer</span></code>, the processing can be resumed if
-<code class="docutils literal notranslate"><span class="pre">encodeData()</span></code>/<code class="docutils literal notranslate"><span class="pre">decodeData()</span></code> return <code class="docutils literal notranslate"><span class="pre">FilterDataStatus::Continue</span></code> or by explicitly
-calling <code class="docutils literal notranslate"><span class="pre">continueEncoding()</span></code>/<code class="docutils literal notranslate"><span class="pre">continueDecoding()</span></code>.</p></li>
+<li><p>在数据编码/解码期间，如果过滤器返回 <code class="docutils literal notranslate"><span class="pre">FilterDataStatus::StopIterationAndBuffer</span></code>、<code class="docutils literal notranslate"><span class="pre">FilterDataStatus::StopIterationAndWatermark</span></code>，或者``FilterDataStatus::StopIterationNoBuffer``，则如果 <code class="docutils literal notranslate"><span class="pre">encodeData()</span></code>/<code class="docutils literal notranslate"><span class="pre">decodeData()</span></code> 返回 <code class="docutils literal notranslate"><span class="pre">FilterDataStatus::Continue</span></code> 或者通过显式调用 <code class="docutils literal notranslate"><span class="pre">continueEncoding()</span></code>/<code class="docutils literal notranslate"><span class="pre">continueDecoding()</span></code> 可以恢复处理。</p></li>
 </ul>
 </li>
-<li><p>Trailers encoding/decoding</p>
+<li><p>Trailer 编码/解码</p>
 <ul>
-<li><p>During encoding/decoding of trailers if a filter returns <code class="docutils literal notranslate"><span class="pre">FilterTrailersStatus::StopIteration</span></code>,
-the processing can be resumed by explicitly calling <code class="docutils literal notranslate"><span class="pre">continueEncoding()</span></code>/<code class="docutils literal notranslate"><span class="pre">continueDecoding()</span></code>.</p></li>
+<li><p>在 Trailer 编码/解码期间，如果过滤器返回 <code class="docutils literal notranslate"><span class="pre">FilterTrailersStatus::StopIteration</span></code>，通过显式调用 <code class="docutils literal notranslate"><span class="pre">continueEncoding()</span></code>/<code class="docutils literal notranslate"><span class="pre">continueDecoding()</span></code> 可以恢复处理。</p></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="are-there-well-known-headers-that-will-appear-in-the-given-headers-map-of-decodeheaders">
-<h1>Are there well-known headers that will appear in the given headers map of <code class="docutils literal notranslate"><span class="pre">decodeHeaders()</span></code>?<a class="headerlink" href="#are-there-well-known-headers-that-will-appear-in-the-given-headers-map-of-decodeheaders" title="Permalink to this headline">¶</a></h1>
-<p>The first filter of the decoding filter chain will have the following headers in the map:</p>
+<p>Are there well-known headers that will appear in the given headers map of <code class="docutils literal notranslate"><span class="pre">decodeHeaders()</span></code>?
+是否存在将出现在 <code class="docutils literal notranslate"><span class="pre">decodeHeaders()</span></code> 给定标头映射中的知名标头？
+—————————————————————</p>
+<p>The first filter of the decoding filter chain will have the following headers in the map:
+解码过滤器链的第一个过滤器在映射中将具有以下标头：</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Host</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Path</span></code> (this might be omitted for CONNECT requests).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Path</span></code> （对于 CONNECT 请求可能会省略）。</p></li>
 </ul>
-<p>Although these headers may be omitted by one of the filters on the decoding filter chain,
-they should be reinserted before the terminal filter is triggered.</p>
+<p>尽管可以通过解码过滤器链上的任一过滤器省略这些标头，但应在触发终端过滤器之前重新插入它们。</p>
 </div>
 
 

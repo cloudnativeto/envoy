@@ -1,6 +1,8 @@
 .. _faq_why_is_envoy_404ing_connect_requests:
 
-Why is Envoy sending 404s to CONNECT requests?
+Envoy 为什么会发送 404 给连接请求？
 ==============================================
 
-Envoy's default matchers match based on host and path. Because CONNECT requests (generally) do not have a path, most matchers will fail to match CONNECT requests, and Envoy will send a 404 because the route is not found. The solution for HTTP/1.1 CONNECT requests, is to use a :ref:`connect_matcher <envoy_v3_api_msg_config.route.v3.RouteMatch.ConnectMatcher>` as described in the CONNECT section of the :ref:`upgrade documentation<arch_overview_upgrades>`.
+Envoy 的默认匹配器是基于主机和路径进行匹配。
+由于 CONNECT 请求（通常）不会携带路径，所以大多数匹配器去匹配 CONNECT 请求都会失败，而 Envoy 响应 404 是由于未找到对应的路由。
+HTTP/1.1 CONNECT 请求的解决办法是使用 :ref:`connect_matcher <envoy_v3_api_msg_config.route.v3.RouteMatch.ConnectMatcher>` ，如 :ref:`升级文档<arch_overview_upgrades>` 的 CONNECT 部分中所述。
