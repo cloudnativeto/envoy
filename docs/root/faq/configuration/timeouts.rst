@@ -54,7 +54,7 @@ Envoy 另外还支持路由级别的流超时，可以覆盖上面已经介绍�
 TCP
 ---
 
-* 集群 :ref:`连接超时 <envoy_v3_api_field_config.cluster.v3.Cluster.connect_timeout>` 指的是 Envoy 等待上游建立 TCP 连接的时间。该超时没有默认值，但是是必须配置的。
+* 集群 :ref:`connect_timeout <envoy_v3_api_field_config.cluster.v3.Cluster.connect_timeout>` 指的是 Envoy 等待上游建立 TCP 连接的时间。该超时没有默认值，但是是必须配置的。
 
   .. attention::
 
