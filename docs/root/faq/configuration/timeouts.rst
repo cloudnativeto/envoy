@@ -45,7 +45,7 @@ Envoy 另外还支持路由级别的流超时，可以覆盖上面已经介绍�
 
  .. attention::
 
-    该超时默认为 15 秒，然而它与流响应（响应永不结束）不兼容，需要禁用。流空闲超时应当在流 APIs 中使用，如本页在其他位置所描述的一样。
+    该超时默认为 15 秒，然而它与流响应（响应永不结束）不兼容，需要禁用。流空闲超时应当在流 API 中使用，如本页在其他位置所描述的一样。
 
 * 路由 :ref:`空闲超时 <envoy_v3_api_field_config.route.v3.RouteAction.idle_timeout>` 允许覆盖 HTTP 连接管理器中的 :ref:`流空闲超时 <envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.stream_idle_timeout>` ，并执行相同的动作。
 * 在使用重试时，可以配置路由 :ref:`每次超时尝试 <envoy_v3_api_field_config.route.v3.RetryPolicy.per_try_timeout>` ，使得每次请求使用的超时时间比前面描述的总体请求超时时间更短。该超时仅在响应的任何部分发送到下游之前才适用，通常发生在上游发送响应头之后。如果上游在超时时间内无法响应，则可以使用该超时来重试流端点。
