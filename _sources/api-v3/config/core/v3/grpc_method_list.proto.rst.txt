@@ -9,7 +9,7 @@ gRPC method list
 config.core.v3.GrpcMethodList
 -----------------------------
 
-`[config.core.v3.GrpcMethodList proto] <https://github.com/envoyproxy/envoy/blob/77524800c8500aa8f2cb9f9530bb2322f3faac4b/api/envoy/config/core/v3/grpc_method_list.proto#L16>`_
+`[config.core.v3.GrpcMethodList proto] <https://github.com/envoyproxy/envoy/blob/65adf3058d4a2828f5c2bd3e67a9f7ea54a7484f/api/envoy/config/core/v3/grpc_method_list.proto#L16>`_
 
 A list of gRPC methods which can be used as an allowlist, for example.
 
@@ -29,7 +29,7 @@ services
 config.core.v3.GrpcMethodList.Service
 -------------------------------------
 
-`[config.core.v3.GrpcMethodList.Service proto] <https://github.com/envoyproxy/envoy/blob/77524800c8500aa8f2cb9f9530bb2322f3faac4b/api/envoy/config/core/v3/grpc_method_list.proto#L19>`_
+`[config.core.v3.GrpcMethodList.Service proto] <https://github.com/envoyproxy/envoy/blob/65adf3058d4a2828f5c2bd3e67a9f7ea54a7484f/api/envoy/config/core/v3/grpc_method_list.proto#L19>`_
 
 
 .. code-block:: json

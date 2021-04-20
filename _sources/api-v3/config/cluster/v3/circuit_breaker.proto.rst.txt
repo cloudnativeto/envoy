@@ -9,7 +9,7 @@ Circuit breakers
 config.cluster.v3.CircuitBreakers
 ---------------------------------
 
-`[config.cluster.v3.CircuitBreakers proto] <https://github.com/envoyproxy/envoy/blob/77524800c8500aa8f2cb9f9530bb2322f3faac4b/api/envoy/config/cluster/v3/circuit_breaker.proto#L22>`_
+`[config.cluster.v3.CircuitBreakers proto] <https://github.com/envoyproxy/envoy/blob/65adf3058d4a2828f5c2bd3e67a9f7ea54a7484f/api/envoy/config/cluster/v3/circuit_breaker.proto#L22>`_
 
 :ref:`Circuit breaking<arch_overview_circuit_break>` settings can be
 specified individually for each defined priority.
@@ -35,7 +35,7 @@ thresholds
 config.cluster.v3.CircuitBreakers.Thresholds
 --------------------------------------------
 
-`[config.cluster.v3.CircuitBreakers.Thresholds proto] <https://github.com/envoyproxy/envoy/blob/77524800c8500aa8f2cb9f9530bb2322f3faac4b/api/envoy/config/cluster/v3/circuit_breaker.proto#L29>`_
+`[config.cluster.v3.CircuitBreakers.Thresholds proto] <https://github.com/envoyproxy/envoy/blob/65adf3058d4a2828f5c2bd3e67a9f7ea54a7484f/api/envoy/config/cluster/v3/circuit_breaker.proto#L29>`_
 
 A Thresholds defines CircuitBreaker settings for a
 :ref:`RoutingPriority<envoy_v3_api_enum_config.core.v3.RoutingPriority>`.
@@ -128,7 +128,7 @@ max_connection_pools
 config.cluster.v3.CircuitBreakers.Thresholds.RetryBudget
 --------------------------------------------------------
 
-`[config.cluster.v3.CircuitBreakers.Thresholds.RetryBudget proto] <https://github.com/envoyproxy/envoy/blob/77524800c8500aa8f2cb9f9530bb2322f3faac4b/api/envoy/config/cluster/v3/circuit_breaker.proto#L33>`_
+`[config.cluster.v3.CircuitBreakers.Thresholds.RetryBudget proto] <https://github.com/envoyproxy/envoy/blob/65adf3058d4a2828f5c2bd3e67a9f7ea54a7484f/api/envoy/config/cluster/v3/circuit_breaker.proto#L33>`_
 
 
 .. code-block:: json

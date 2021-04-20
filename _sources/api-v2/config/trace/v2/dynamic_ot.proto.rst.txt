@@ -9,7 +9,7 @@ Dynamically loadable OpenTracing tracer
 config.trace.v2.DynamicOtConfig
 -------------------------------
 
-`[config.trace.v2.DynamicOtConfig proto] <https://github.com/envoyproxy/envoy/blob/77524800c8500aa8f2cb9f9530bb2322f3faac4b/api/envoy/config/trace/v2/dynamic_ot.proto#L20>`_
+`[config.trace.v2.DynamicOtConfig proto] <https://github.com/envoyproxy/envoy/blob/65adf3058d4a2828f5c2bd3e67a9f7ea54a7484f/api/envoy/config/trace/v2/dynamic_ot.proto#L20>`_
 
 DynamicOtConfig is used to dynamically load a tracer from a shared library
 that implements the `OpenTracing dynamic loading API

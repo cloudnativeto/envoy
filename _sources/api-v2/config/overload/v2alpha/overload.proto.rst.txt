@@ -15,7 +15,7 @@ when triggers related to those resources fire.
 config.overload.v2alpha.ResourceMonitor
 ---------------------------------------
 
-`[config.overload.v2alpha.ResourceMonitor proto] <https://github.com/envoyproxy/envoy/blob/77524800c8500aa8f2cb9f9530bb2322f3faac4b/api/envoy/config/overload/v2alpha/overload.proto#L23>`_
+`[config.overload.v2alpha.ResourceMonitor proto] <https://github.com/envoyproxy/envoy/blob/65adf3058d4a2828f5c2bd3e67a9f7ea54a7484f/api/envoy/config/overload/v2alpha/overload.proto#L23>`_
 
 
 .. code-block:: json
@@ -63,7 +63,7 @@ typed_config
 config.overload.v2alpha.ThresholdTrigger
 ----------------------------------------
 
-`[config.overload.v2alpha.ThresholdTrigger proto] <https://github.com/envoyproxy/envoy/blob/77524800c8500aa8f2cb9f9530bb2322f3faac4b/api/envoy/config/overload/v2alpha/overload.proto#L41>`_
+`[config.overload.v2alpha.ThresholdTrigger proto] <https://github.com/envoyproxy/envoy/blob/65adf3058d4a2828f5c2bd3e67a9f7ea54a7484f/api/envoy/config/overload/v2alpha/overload.proto#L41>`_
 
 
 .. code-block:: json
@@ -86,7 +86,7 @@ value
 config.overload.v2alpha.Trigger
 -------------------------------
 
-`[config.overload.v2alpha.Trigger proto] <https://github.com/envoyproxy/envoy/blob/77524800c8500aa8f2cb9f9530bb2322f3faac4b/api/envoy/config/overload/v2alpha/overload.proto#L47>`_
+`[config.overload.v2alpha.Trigger proto] <https://github.com/envoyproxy/envoy/blob/65adf3058d4a2828f5c2bd3e67a9f7ea54a7484f/api/envoy/config/overload/v2alpha/overload.proto#L47>`_
 
 
 .. code-block:: json
@@ -115,7 +115,7 @@ threshold
 config.overload.v2alpha.OverloadAction
 --------------------------------------
 
-`[config.overload.v2alpha.OverloadAction proto] <https://github.com/envoyproxy/envoy/blob/77524800c8500aa8f2cb9f9530bb2322f3faac4b/api/envoy/config/overload/v2alpha/overload.proto#L58>`_
+`[config.overload.v2alpha.OverloadAction proto] <https://github.com/envoyproxy/envoy/blob/65adf3058d4a2828f5c2bd3e67a9f7ea54a7484f/api/envoy/config/overload/v2alpha/overload.proto#L58>`_
 
 
 .. code-block:: json
@@ -148,7 +148,7 @@ triggers
 config.overload.v2alpha.OverloadManager
 ---------------------------------------
 
-`[config.overload.v2alpha.OverloadManager proto] <https://github.com/envoyproxy/envoy/blob/77524800c8500aa8f2cb9f9530bb2322f3faac4b/api/envoy/config/overload/v2alpha/overload.proto#L70>`_
+`[config.overload.v2alpha.OverloadManager proto] <https://github.com/envoyproxy/envoy/blob/65adf3058d4a2828f5c2bd3e67a9f7ea54a7484f/api/envoy/config/overload/v2alpha/overload.proto#L70>`_
 
 
 .. code-block:: json

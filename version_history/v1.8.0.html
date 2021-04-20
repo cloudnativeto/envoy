@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1.8.0 (Oct 4, 2018) &mdash; envoy 1.16.0-775248 documentation</title>
+  <title>1.8.0 (Oct 4, 2018) &mdash; envoy 1.16.0-65adf3 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-775248
+                1.16.0-65adf3
               </div>
             
           
@@ -154,7 +154,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">配置参考</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operations/operations.html">操作和管理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../extending/extending.html">Extending Envoy for custom use cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extending/extending.html">针对特定用例对 Envoy 进行扩展</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/api.html">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/overview.html">FAQ</a></li>
 </ul>
@@ -291,7 +291,7 @@ dynamic table size of both: encoder and decoder.</p></li>
 <li><p>network: introduced <a class="reference internal" href="../configuration/listeners/network_filters/sni_cluster_filter.html#config-network-filters-sni-cluster"><span class="std std-ref">sni_cluster</span></a> network filter that forwards connections to the
 upstream cluster specified by the SNI value presented by the client during a TLS handshake.</p></li>
 <li><p>proxy_protocol: added support for HAProxy Proxy Protocol v2 (AF_INET/AF_INET6 only).</p></li>
-<li><p>ratelimit: added support for <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/77524800c8500aa8f2cb9f9530bb2322f3faac4b/api/envoy/service/ratelimit/v2/rls.proto">api/envoy/service/ratelimit/v2/rls.proto</a>.
+<li><p>ratelimit: added support for <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/65adf3058d4a2828f5c2bd3e67a9f7ea54a7484f/api/envoy/service/ratelimit/v2/rls.proto">api/envoy/service/ratelimit/v2/rls.proto</a>.
 Lyft’s reference implementation of the <a class="reference external" href="https://github.com/lyft/ratelimit">ratelimit</a> service also supports the data-plane-api proto as of v1.1.0.
 Envoy can use either proto to send client requests to a ratelimit server with the use of the
 <cite>use_data_plane_proto</cite> boolean flag in the ratelimit configuration.

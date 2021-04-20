@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>为什么要对 Envoy xDS API 进行版本控制？有什么好处？ &mdash; envoy 1.16.0-775248 documentation</title>
+  <title>为什么要对 Envoy xDS API 进行版本控制？有什么好处？ &mdash; envoy 1.16.0-65adf3 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-775248
+                1.16.0-65adf3
               </div>
             
           
@@ -107,7 +107,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../version_history/version_history.html">版本历史</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../configuration/configuration.html">配置参考</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../operations/operations.html">操作和管理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../extending/extending.html">Extending Envoy for custom use cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extending/extending.html">针对特定用例对 Envoy 进行扩展</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/api.html">API</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../overview.html">FAQ</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#id1">构建</a></li>
@@ -200,7 +200,7 @@
   <div class="section" id="envoy-xds-api">
 <h1>为什么要对 Envoy xDS API 进行版本控制？有什么好处？<a class="headerlink" href="#envoy-xds-api" title="Permalink to this headline">¶</a></h1>
 <p>Envoy 是一个平台，需要允许其 API 不断发展以包含新功能、改进人机工程学并解决新用例。同时，我们需要一种严谨的方法来拒绝过时的功能并删除不再维护的 API 及其支持代码。如果我们不这样做，从长远来看我们将失去为用户提供可靠的、可维护、可扩展的代码库和 API 集的能力。</p>
-<p>我们曾针对在各个发行版之间的 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/77524800c8500aa8f2cb9f9530bb2322f3faac4b/CONTRIBUTING.md#breaking-change-policy">重大更改</a> 制定了相关政策，而 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/77524800c8500aa8f2cb9f9530bb2322f3faac4b/api/API_VERSIONING.md">API版本控制策略</a> 则对此做了进一步提升，明确说明了 API 的有保证的多年支持窗口，当考虑支持一系列 Envoy 版本时，该窗口为控制平面作者提供了可预测的时钟。</p>
+<p>我们曾针对在各个发行版之间的 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/65adf3058d4a2828f5c2bd3e67a9f7ea54a7484f/CONTRIBUTING.md#breaking-change-policy">重大更改</a> 制定了相关政策，而 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/65adf3058d4a2828f5c2bd3e67a9f7ea54a7484f/api/API_VERSIONING.md">API版本控制策略</a> 则对此做了进一步提升，明确说明了 API 的有保证的多年支持窗口，当考虑支持一系列 Envoy 版本时，该窗口为控制平面作者提供了可预测的时钟。</p>
 <p>对于 v3 xDS API，简要列出了与 v2 相比所做的主要改进：</p>
 <ul class="simple">
 <li><p>软件包的组织得到了改进，以反映相关 API 的更合理的分组：</p>

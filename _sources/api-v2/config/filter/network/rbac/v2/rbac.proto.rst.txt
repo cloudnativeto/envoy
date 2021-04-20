@@ -20,7 +20,7 @@ Role-Based Access Control :ref:`configuration overview <config_network_filters_r
 config.filter.network.rbac.v2.RBAC
 ----------------------------------
 
-`[config.filter.network.rbac.v2.RBAC proto] <https://github.com/envoyproxy/envoy/blob/77524800c8500aa8f2cb9f9530bb2322f3faac4b/api/envoy/config/filter/network/rbac/v2/rbac.proto#L24>`_
+`[config.filter.network.rbac.v2.RBAC proto] <https://github.com/envoyproxy/envoy/blob/65adf3058d4a2828f5c2bd3e67a9f7ea54a7484f/api/envoy/config/filter/network/rbac/v2/rbac.proto#L24>`_
 
 RBAC network filter config.
 
@@ -73,7 +73,7 @@ enforcement_type
 Enum config.filter.network.rbac.v2.RBAC.EnforcementType
 -------------------------------------------------------
 
-`[config.filter.network.rbac.v2.RBAC.EnforcementType proto] <https://github.com/envoyproxy/envoy/blob/77524800c8500aa8f2cb9f9530bb2322f3faac4b/api/envoy/config/filter/network/rbac/v2/rbac.proto#L25>`_
+`[config.filter.network.rbac.v2.RBAC.EnforcementType proto] <https://github.com/envoyproxy/envoy/blob/65adf3058d4a2828f5c2bd3e67a9f7ea54a7484f/api/envoy/config/filter/network/rbac/v2/rbac.proto#L25>`_
 
 
 .. _envoy_api_enum_value_config.filter.network.rbac.v2.RBAC.EnforcementType.ONE_TIME_ON_FIRST_BYTE:

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Extending Envoy for custom use cases &mdash; envoy 1.16.0-775248 documentation</title>
+  <title>针对特定用例对 Envoy 进行扩展 &mdash; envoy 1.16.0-65adf3 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-775248
+                1.16.0-65adf3
               </div>
             
           
@@ -107,7 +107,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../version_history/version_history.html">版本历史</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">配置参考</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../operations/operations.html">操作和管理</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Extending Envoy for custom use cases</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">针对特定用例对 Envoy 进行扩展</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/api.html">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/overview.html">FAQ</a></li>
 </ul>
@@ -156,7 +156,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Extending Envoy for custom use cases</li>
+      <li>针对特定用例对 Envoy 进行扩展</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -175,34 +175,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="extending-envoy-for-custom-use-cases">
-<span id="extending"></span><h1>Extending Envoy for custom use cases<a class="headerlink" href="#extending-envoy-for-custom-use-cases" title="Permalink to this headline">¶</a></h1>
-<p>The Envoy architecture makes it fairly easily extensible via a variety of different extension
-types including:</p>
+  <div class="section" id="envoy">
+<span id="extending"></span><h1>针对特定用例对 Envoy 进行扩展<a class="headerlink" href="#envoy" title="Permalink to this headline">¶</a></h1>
+<p>Envoy 的架构使得它可以很容易地通过各种不同的扩展类型进行扩展，包括：</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../intro/arch_overview/observability/access_logging.html#arch-overview-access-logs"><span class="std std-ref">Access loggers</span></a></p></li>
-<li><p><a class="reference internal" href="../intro/arch_overview/observability/access_logging.html#arch-overview-access-log-filters"><span class="std std-ref">Access log filters</span></a></p></li>
-<li><p><a class="reference internal" href="../intro/arch_overview/upstream/service_discovery.html#arch-overview-service-discovery"><span class="std std-ref">Clusters</span></a></p></li>
-<li><p><a class="reference internal" href="../intro/arch_overview/listeners/listener_filters.html#arch-overview-listener-filters"><span class="std std-ref">Listener filters</span></a></p></li>
-<li><p><a class="reference internal" href="../intro/arch_overview/listeners/network_filters.html#arch-overview-network-filters"><span class="std std-ref">Network filters</span></a></p></li>
-<li><p><a class="reference internal" href="../intro/arch_overview/http/http_filters.html#arch-overview-http-filters"><span class="std std-ref">HTTP filters</span></a></p></li>
-<li><p><a class="reference internal" href="../intro/arch_overview/other_protocols/grpc.html#arch-overview-grpc"><span class="std std-ref">gRPC credential providers</span></a></p></li>
-<li><p><a class="reference internal" href="../intro/arch_overview/upstream/health_checking.html#arch-overview-health-checking"><span class="std std-ref">Health checkers</span></a></p></li>
-<li><p><a class="reference internal" href="../intro/arch_overview/operations/overload_manager.html#arch-overview-overload-manager"><span class="std std-ref">Resource monitors</span></a></p></li>
-<li><p><a class="reference internal" href="../intro/arch_overview/http/http_routing.html#arch-overview-http-routing-retry"><span class="std std-ref">Retry implementations</span></a></p></li>
-<li><p><a class="reference internal" href="../intro/arch_overview/observability/statistics.html#arch-overview-statistics"><span class="std std-ref">Stat sinks</span></a></p></li>
-<li><p><a class="reference internal" href="../intro/arch_overview/observability/tracing.html#arch-overview-tracing"><span class="std std-ref">Tracers</span></a></p></li>
-<li><p><a class="reference internal" href="../intro/arch_overview/observability/tracing.html#arch-overview-tracing"><span class="std std-ref">Request ID</span></a></p></li>
-<li><p><a class="reference internal" href="../api-v3/extensions/transport_sockets/tls/v3/tls.proto.html#envoy-v3-api-field-extensions-transport-sockets-tls-v3-commontlscontext-certificateprovider-typed-config"><span class="std std-ref">Transport sockets</span></a></p></li>
-<li><p>BoringSSL private key methods</p></li>
-<li><p><a class="reference internal" href="../api-v3/config/bootstrap/v3/bootstrap.proto.html#envoy-v3-api-msg-config-bootstrap-v3-watchdog-watchdogaction"><span class="std std-ref">Watchdog action</span></a></p></li>
-<li><p><a class="reference internal" href="../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-field-config-route-v3-internalredirectpolicy-predicates"><span class="std std-ref">Internal redirect policy</span></a></p></li>
-<li><p><a class="reference internal" href="../intro/arch_overview/other_features/compression/libraries.html#arch-overview-compression-libraries"><span class="std std-ref">Compression libraries</span></a></p></li>
+<li><p><a class="reference internal" href="../intro/arch_overview/observability/access_logging.html#arch-overview-access-logs"><span class="std std-ref">访问日志</span></a></p></li>
+<li><p><a class="reference internal" href="../intro/arch_overview/observability/access_logging.html#arch-overview-access-log-filters"><span class="std std-ref">访问日志过滤器</span></a></p></li>
+<li><p><a class="reference internal" href="../intro/arch_overview/upstream/service_discovery.html#arch-overview-service-discovery"><span class="std std-ref">集群</span></a></p></li>
+<li><p><a class="reference internal" href="../intro/arch_overview/listeners/listener_filters.html#arch-overview-listener-filters"><span class="std std-ref">监听器过滤器</span></a></p></li>
+<li><p><a class="reference internal" href="../intro/arch_overview/listeners/network_filters.html#arch-overview-network-filters"><span class="std std-ref">网络过滤器</span></a></p></li>
+<li><p><a class="reference internal" href="../intro/arch_overview/http/http_filters.html#arch-overview-http-filters"><span class="std std-ref">HTTP 过滤器</span></a></p></li>
+<li><p><a class="reference internal" href="../intro/arch_overview/other_protocols/grpc.html#arch-overview-grpc"><span class="std std-ref">gRPC 凭据提供者</span></a></p></li>
+<li><p><a class="reference internal" href="../intro/arch_overview/upstream/health_checking.html#arch-overview-health-checking"><span class="std std-ref">健康检查器</span></a></p></li>
+<li><p><a class="reference internal" href="../intro/arch_overview/operations/overload_manager.html#arch-overview-overload-manager"><span class="std std-ref">资源监控</span></a></p></li>
+<li><p><a class="reference internal" href="../intro/arch_overview/http/http_routing.html#arch-overview-http-routing-retry"><span class="std std-ref">重试实现</span></a></p></li>
+<li><p><a class="reference internal" href="../intro/arch_overview/observability/statistics.html#arch-overview-statistics"><span class="std std-ref">统计</span></a></p></li>
+<li><p><a class="reference internal" href="../intro/arch_overview/observability/tracing.html#arch-overview-tracing"><span class="std std-ref">追踪器</span></a></p></li>
+<li><p><a class="reference internal" href="../intro/arch_overview/observability/tracing.html#arch-overview-tracing"><span class="std std-ref">请求 ID</span></a></p></li>
+<li><p><a class="reference internal" href="../api-v3/extensions/transport_sockets/tls/v3/tls.proto.html#envoy-v3-api-field-extensions-transport-sockets-tls-v3-commontlscontext-certificateprovider-typed-config"><span class="std std-ref">传输 sockets</span></a></p></li>
+<li><p>BoringSSL 私有 key 方法</p></li>
+<li><p><a class="reference internal" href="../api-v3/config/bootstrap/v3/bootstrap.proto.html#envoy-v3-api-msg-config-bootstrap-v3-watchdog-watchdogaction"><span class="std std-ref">看门狗设置</span></a></p></li>
+<li><p><a class="reference internal" href="../api-v3/config/route/v3/route_components.proto.html#envoy-v3-api-field-config-route-v3-internalredirectpolicy-predicates"><span class="std std-ref">内部重定向策略</span></a></p></li>
+<li><p><a class="reference internal" href="../intro/arch_overview/other_features/compression/libraries.html#arch-overview-compression-libraries"><span class="std std-ref">压缩库</span></a></p></li>
 </ul>
-<p>As of this writing there is no high level extension developer documentation. The
-<a class="reference external" href="https://github.com/envoyproxy/envoy/blob/77524800c8500aa8f2cb9f9530bb2322f3faac4b/source/extensions">existing extensions</a> are a good way to learn what is possible.</p>
-<p>An example of how to add a network filter and structure the repository and build dependencies can
-be found at <a class="reference external" href="https://github.com/envoyproxy/envoy-filter-example">envoy-filter-example</a>.</p>
+<p>在撰写本文时，还没有高级扩展开发人员文档。<a class="reference external" href="https://github.com/envoyproxy/envoy/blob/65adf3058d4a2828f5c2bd3e67a9f7ea54a7484f/source/extensions">已存扩展</a> 是一个很好的方式来了解什么是可能的。</p>
+<p>有关如何添加网络筛选器、构造存储库和构建依赖项的示例，请参考 <a class="reference external" href="https://github.com/envoyproxy/envoy-filter-example">envoy-filter-example</a>。</p>
 </div>
 
 
