@@ -4,29 +4,22 @@ Tap
 ===
 
 * :ref:`v3 API reference <envoy_v3_api_msg_extensions.filters.http.tap.v3.Tap>`
-* This filter should be configured with the name *envoy.filters.http.tap*.
+* 此过滤器的名称应该配置为 *envoy.filters.http.tap*。
 
 .. attention::
+  tap 过滤器是实验性的，目前正在积极开发中。当前可用的匹配条件、输出配置、输出接收器等还很有限。其功能会逐渐扩展，且配置结构可能会发生变化。
 
-  The tap filter is experimental and is currently under active development. There is currently a
-  very limited set of match conditions, output configuration, output sinks, etc. Capabilities will
-  be expanded over time and the configuration structures are likely to change.
+tap 过滤器用于插入和记录 HTTP 流量。 从宏观看，其配置由两项组成：
 
-The HTTP tap filter is used to interpose on and record HTTP traffic. At a high level, the
-configuration is composed of two pieces:
+1. :ref:`匹配配置 <envoy_v3_api_msg_config.tap.v3.MatchPredicate>`：一个条件列表，若满足这些条件，过滤器会匹配一个 HTTP 请求并开启一个 tap 会话。
+2. :ref:`输出配置 <envoy_v3_api_msg_config.tap.v3.OutputConfig>`：一个输出接收器列表，tap 过滤器会将匹配和过滤的数据写入这些接收器。
 
-1. :ref:`Match configuration <envoy_v3_api_msg_config.tap.v3.MatchPredicate>`: a list of
-   conditions under which the filter will match an HTTP request and begin a tap session.
-2. :ref:`Output configuration <envoy_v3_api_msg_config.tap.v3.OutputConfig>`: a list of output
-   sinks that the filter will write the matched and tapped data to.
+下一节将通过几个配置示例逐步介绍上述的各个概念。
 
-Each of these concepts will be covered incrementally over the course of several example
-configurations in the following section.
-
-Example configuration
+配置示例
 ---------------------
 
-Example filter configuration:
+过滤器配置示例
 
 .. code-block:: yaml
 
@@ -37,27 +30,20 @@ Example filter configuration:
       admin_config:
         config_id: test_config_id
 
-The previous snippet configures the filter for control via the :http:post:`/tap` admin handler.
-See the following section for more details.
-
-.. _config_http_filters_tap_admin_handler:
+上面的代码段通过 :http:post:`/tap` admin handler 配置了过滤器以便管理。详情请参考下一节。
 
 Admin handler
 -------------
 
-When the HTTP filter specifies an :ref:`admin_config
-<envoy_v3_api_msg_extensions.common.tap.v3.AdminConfig>`, it is configured for admin control and
-the :http:post:`/tap` admin handler will be installed. The admin handler can be used for live
-tapping and debugging of HTTP traffic. It works as follows:
+当 HTTP 过滤器指定了一个 :ref:`admin_config
+<envoy_v3_api_msg_extensions.common.tap.v3.AdminConfig>`, 它将被配置用来管理员控制，且 :http:post:`/tap` admin handler 将被安装。 admin handler 可以用来实时过滤和调试 HTTP 流量。工作流程如下：
 
-1. A POST request is used to provide a valid tap configuration. The POST request body can be either
-   the JSON or YAML representation of the :ref:`TapConfig
-   <envoy_v3_api_msg_config.tap.v3.TapConfig>` message.
-2. If the POST request is accepted, Envoy will stream :ref:`HttpBufferedTrace
-   <envoy_v3_api_msg_data.tap.v3.HttpBufferedTrace>` messages (serialized to JSON) until the admin
-   request is terminated.
+1. POST 请求用于提供有效的 tap 配置。POST 请求体可以是 JSON 或 YAML 格式的 :ref:`TapConfig
+   <envoy_v3_api_msg_config.tap.v3.TapConfig>` 消息。 
+2. 如果该 POST 请求被接收，Envoy 会将 :ref:`HttpBufferedTrace
+   <envoy_v3_api_msg_data.tap.v3.HttpBufferedTrace>` 信息转化成流（将其序列化为 JSON）直到该请求被终止。
 
-An example POST body:
+一个 POST 请求体示例：
 
 .. code-block:: yaml
 
@@ -78,11 +64,9 @@ An example POST body:
       sinks:
         - streaming_admin: {}
 
-The preceding configuration instructs the tap filter to match any HTTP requests in which a request
-header ``foo: bar`` is present AND a response header ``bar: baz`` is present. If both of these
-conditions are met, the request will be tapped and streamed out the admin endpoint.
+上述配置指示 tap 过滤器匹配所有同时包含请求头 ``foo: bar`` 和响应头 ``bar: baz`` 的 HTTP 请求。如果这两个条件都满足，该请求将被过滤，并流式传输到管理端点。
 
-Another example POST body:
+另一个 POST 请求体示例：
 
 .. code-block:: yaml
 
@@ -103,11 +87,9 @@ Another example POST body:
       sinks:
         - streaming_admin: {}
 
-The preceding configuration instructs the tap filter to match any HTTP requests in which a request
-header ``foo: bar`` is present OR a response header ``bar: baz`` is present. If either of these
-conditions are met, the request will be tapped and streamed out the admin endpoint.
+上述配置指示 tap 过滤器匹配所有包含请求头 ``foo: bar`` 或响应头 ``bar: baz`` 的 HTTP 请求。若任一个条件满足，该请求将被过滤，并流式传输到管理端点。
 
-Another example POST body:
+另一个 POST 请求体示例：
 
 .. code-block:: yaml
 
@@ -119,10 +101,9 @@ Another example POST body:
       sinks:
         - streaming_admin: {}
 
-The preceding configuration instructs the tap filter to match any HTTP requests. All requests will
-be tapped and streamed out the admin endpoint.
+上述配置指示 tap 过滤器匹配所有 HTTP 请求，所有的请求都会被过滤并流式传输到管理端点。
 
-Another example POST body:
+另一个 POST 请求体示例：
 
 .. code-block:: yaml
 
@@ -148,31 +129,22 @@ Another example POST body:
       sinks:
         - streaming_admin: {}
 
-The preceding configuration instructs the tap filter to match any HTTP requests in which a request
-header ``foo: bar`` is present AND request body contains string ``test`` and hex bytes ``deadbeef`` (``3q2+7w==`` in base64 format)
-in the first 128 bytes AND response body contains hex bytes ``beef`` (``vu8=`` in base64 format) in the first 64 bytes. If all of these
-conditions are met, the request will be tapped and streamed out to the admin endpoint.
+上述代码指示 tap 过滤器匹配所有同时满足以下条件的 HTTP 请求：该请求包含请求头 ``foo: bar``；该请求的请求体包含字符串 ``test`` 且前 128 字节包含十六进制字节 ``deadbeef`` （base64 转换后为 ``3q2+7w==``）；响应体的前 64 字节包含十六进制字节 ``beef`` （base64 转换后为 ``vu8=``）。如果上述条件都满足，该请求将被过滤并流式传输到管理端点。
 
 .. attention::
 
-  Searching for patterns in HTTP body is potentially cpu intensive. For each specified pattern, http body is scanned byte by byte to find a match.
-  If multiple patterns are specified, the process is repeated for each pattern. If location of a pattern is known, ``bytes_limit`` should be specified
-  to scan only part of the http body.
+  在 HTTP 请求和响应体中使用正则表达式匹配可能会消耗大量 CPU 资源。因为对于每个指定的表达式，请求和响应体将被逐字节地扫描直到完成匹配。如果指定了多个表达式，对每个表达式都会执行该扫描过程。如果某表达式的位置是已知的，则应使用 ``bytes_limit`` 指定扫描位置。
 
-Output format
+输出格式
 -------------
 
-Each output sink has an associated :ref:`format
-<envoy_v3_api_enum_config.tap.v3.OutputSink.Format>`. The default format is
-:ref:`JSON_BODY_AS_BYTES
-<envoy_v3_api_enum_value_config.tap.v3.OutputSink.Format.JSON_BODY_AS_BYTES>`. This format is
-easy to read JSON, but has the downside that body data is base64 encoded. In the case that the tap
-is known to be on human readable data, the :ref:`JSON_BODY_AS_STRING
-<envoy_v3_api_enum_value_config.tap.v3.OutputSink.Format.JSON_BODY_AS_STRING>` format may be
-more user friendly. See the reference documentation for more information on other available formats.
+每个输出接收器都有其关联的 :ref:`格式
+<envoy_v3_api_enum_config.tap.v3.OutputSink.Format>`。默认的格式是 :ref:`JSON_BODY_AS_BYTES
+<envoy_v3_api_enum_value_config.tap.v3.OutputSink.Format.JSON_BODY_AS_BYTES>`。该模式易于读取 JSON，但缺点是该响应体是 base64 编码的。对于用户读取的数据，:ref:`JSON_BODY_AS_STRING
+<envoy_v3_api_enum_value_config.tap.v3.OutputSink.Format.JSON_BODY_AS_STRING>` 格式可能对用户更友好，关于其他可用的格式，请查阅参考文档获取详细信息。
 
-An example of a streaming admin tap configuration that uses the :ref:`JSON_BODY_AS_STRING
-<envoy_v3_api_enum_value_config.tap.v3.OutputSink.Format.JSON_BODY_AS_STRING>` format:
+下面是一个使用 :ref:`JSON_BODY_AS_STRING
+<envoy_v3_api_enum_value_config.tap.v3.OutputSink.Format.JSON_BODY_AS_STRING>` 格式配置 streaming admin tap 的示例：
 
 .. code-block:: yaml
 
@@ -185,42 +157,28 @@ An example of a streaming admin tap configuration that uses the :ref:`JSON_BODY_
         - format: JSON_BODY_AS_STRING
           streaming_admin: {}
 
-Buffered body limits
+缓存体限制
 --------------------
 
-For buffered taps, Envoy will limit the amount of body data that is tapped to avoid OOM situations.
-The default limit is 1KiB for both received (request) and transmitted (response) data. This is
-configurable via the :ref:`max_buffered_rx_bytes
-<envoy_v3_api_field_config.tap.v3.OutputConfig.max_buffered_rx_bytes>` and
+对于应用缓存的 tap 过滤器，Envoy会限制过滤的请求和响应体的数据量以避免内存不足的情况。接收（请求）和发送（响应）数据的默认限制为 1KiB。这可以通过 :ref:`max_buffered_rx_bytes
+<envoy_v3_api_field_config.tap.v3.OutputConfig.max_buffered_rx_bytes>` 和
 :ref:`max_buffered_tx_bytes
-<envoy_v3_api_field_config.tap.v3.OutputConfig.max_buffered_tx_bytes>` settings.
+<envoy_v3_api_field_config.tap.v3.OutputConfig.max_buffered_tx_bytes>` 设置。
 
 .. _config_http_filters_tap_streaming:
 
-Streaming matching
+流匹配
 ------------------
 
-The tap filter supports "streaming matching." This means that instead of waiting until the end of
-the request/response sequence, the filter will match incrementally as the request proceeds. I.e.,
-first the request headers will be matched, then the request body if present, then the request
-trailers if present, then the response headers if present, etc.
+tap 过滤器支持“流匹配”，意思是该过滤器不会等待请求/响应序列的结束，而会随着请求的进行逐步匹配。即，首先匹配请求头，其次若有请求体则进行匹配，然后若有请求尾则进行匹配，再然后若有响应头则进行匹配，以此类推。
 
-The filter additionally supports optional streamed output which is governed by the :ref:`streaming
-<envoy_v3_api_field_config.tap.v3.OutputConfig.streaming>` setting. If this setting is false
-(the default), Envoy will emit :ref:`fully buffered traces
-<envoy_v3_api_msg_data.tap.v3.HttpBufferedTrace>`. Users are likely to find this format easier
-to interact with for simple cases.
+该过滤器还支持可选的流输出，由 :ref:`streaming
+<envoy_v3_api_field_config.tap.v3.OutputConfig.streaming>` 设置管理。如果该项设置为 false（默认），Envoy 会发出 :ref:`fully buffered traces <envoy_v3_api_msg_data.tap.v3.HttpBufferedTrace>`。 在简单的情况下，用户可能会觉得这种格式更易于操作。
 
-In cases where fully buffered traces are not practical (e.g., very large request and responses,
-long lived streaming APIs, etc.), the streaming setting can be set to true, and Envoy will emit
-multiple :ref:`streamed trace segments <envoy_v3_api_msg_data.tap.v3.HttpStreamedTraceSegment>` for
-each tap. In this case, it is required that post-processing is performed to stitch all of the trace
-segments back together into a usable form. Also note that binary protobuf is not a self-delimiting
-format. If binary protobuf output is desired, the :ref:`PROTO_BINARY_LENGTH_DELIMITED
-<envoy_v3_api_enum_value_config.tap.v3.OutputSink.Format.PROTO_BINARY_LENGTH_DELIMITED>` output
-format should be used.
+当全缓存跟踪不适用时（如，请求和返回体非常大，长连接的流 API，等等），可以将 streaming 设置为 true，且 Envoy会为每个 tap 过滤发出多个 :ref:`streamed trace segments <envoy_v3_api_msg_data.tap.v3.HttpStreamedTraceSegment>`。在这种情况下，要求执行后续处理，从而将所有跟踪段组合成一个可用的形式。另外请注意二进制的 protobuf 不是自定界的格式，如果需要二进制 protobuf 输出，则应使用 :ref:`PROTO_BINARY_LENGTH_DELIMITED
+<envoy_v3_api_enum_value_config.tap.v3.OutputSink.Format.PROTO_BINARY_LENGTH_DELIMITED>` 格式输出。
 
-An static filter configuration to enable streaming output looks like:
+一个启动流输出的静态过滤器配置如下所示：
 
 .. code-block:: yaml
 
@@ -241,11 +199,7 @@ An static filter configuration to enable streaming output looks like:
               file_per_tap:
                 path_prefix: /tmp/
 
-The previous configuration will match response headers, and as such will buffer request headers,
-body, and trailers until a match can be determined (buffered data limits still apply as described
-in the previous section). If a match is determined, buffered data will be flushed in individual
-trace segments and then the rest of the tap will be streamed as data arrives. The messages output
-might look like this:
+上面的配置会匹配响应头，并缓存请求头、请求体和请求尾直到完成匹配（缓存数据的限制依然适用，如上节所述）。如果一个匹配完成，则缓存的数据将在单独的跟踪段中刷新，然后在数据到达时流式传输剩余的数据。输出的消息可能如下所示：
 
 .. code-block:: yaml
 
@@ -263,17 +217,16 @@ might look like this:
     request_body_chunk:
       as_bytes: aGVsbG8=
 
-Etc.
+等等。
 
-Statistics
+统计数据
 ----------
 
-The tap filter outputs statistics in the *http.<stat_prefix>.tap.* namespace. The :ref:`stat prefix
-<envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.stat_prefix>`
-comes from the owning HTTP connection manager.
+tap 过滤器将统计信息输出在命名空间 *http.<stat_prefix>.tap.* 中。 :ref:`stat prefix
+<envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.stat_prefix>` 来自其所属的 HTTP 连接管理器。
 
 .. csv-table::
-  :header: Name, Type, Description
+  :header: 名称, 类型, 描述
   :widths: 1, 1, 2
 
   rq_tapped, Counter, Total requests that matched and were tapped
