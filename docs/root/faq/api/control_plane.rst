@@ -1,30 +1,12 @@
 .. _control_plane:
 
-How do I support multiple xDS API major versions in my control plane?
-=====================================================================
+在我的控制面中如何同时支持多个 xDS API 的主版本？
+====================================================
 
-Where possible, it is highly recommended that control planes support a single major version at a
-given point in time for simplicity. This works in situations where control planes need to only
-support a window of Envoy versions which spans less than a year. Temporary support for multiple
-versions during rollout in this scenario is described :ref:`here <control_plane_version_support>`.
+如果可能的话，为了简单起见，强烈建议控制面在给定的时间点只支持单个主版本。这种情况适用于让控制面仅需支持 Envoy 的一个窗口期，而这窗口期一般小于一年。关于滚动更新期间临时支持多个版本的方案在 `这里 <control_plane_version_support>` 有所描述。
 
-For control planes that need to support a wider range of versions, there are a few approaches:
+对于需要支持更广泛版本的控制面来说，可以采用如下几种方式：
 
-1. Independent vN/v(N+1) configuration generation pipelines. This is simple to understand but
-   involves significant duplication of code and can be expensive engineering wise. This may work
-   well if the API surface in use is small.
-2. Have the control plane use vN canonically and mechanically transform vN messages to their v(N+1)
-   equivalents. This does not allow for the use of any new v(N+1) features. It is necessary to avoid
-   the use of any deprecated vN fields. With these caveats aside, a simple transformation is
-   possible where the vN proto message is serialized and then deserialized as a v(N+1) proto message
-   (this binary compatibility is guaranteed). An optimization when serving *google.protobuf.Any*
-   resources in a *DiscoveryResponse* is to simply rewrite the type URL.
-3. Have the control plane use v(N+1) canonically and mechanically transform v(N+1) messages to their
-   vN equivalents when serving vN-only Envoys. This works provided it is safe to ignore v(N+1)-only
-   fields from the perspective of the operator's intent when providing input to the config pipeline
-   (e.g. if a new regex type is requested and silently ignored in a *RouteMatch* for vN Envoys, this
-   is problematic). Similar to (2), the v(N+1) message may be transformed to a vN equivalent by a
-   serialization round-trip. If the goal is to support the widest range of vN clients, it's
-   necessary to transform, using hand-written code, fields that are present in both vN/v(N+1) to
-   their vN deprecated counterparts, since some earlier vN Envoy clients will not have the newer
-   fields common to vN and v(N+1).
+1. 独立的 vN/v(N+1)  配置生成流水线。这很容易理解但却涉及到大量的代码重复且在工程方面成本高昂。如果使用的 API 接口比较少，这种情况下效果会不错。
+2. 让控制面规范地使用 vN，然后机械地即将 vN 消息转换为与其同等的 v(N+1)。这对使用任何新 v(N+1) 特性的情况来讲是不被允许的。避免使用任何已经弃用的 vN 字段是非常有必要的。如果暂时忽略这些警告的话，一个简单的转换就是将 vN proto 消息进行序列化，然后反序列化成 v(N+1) proto 消息（这需要保证二进制的兼容性）。当在 *DiscoveryResponse* 中使用 *google.protobuf.Any* 资源时，一种优化方案就是简单的重新类型 URL。
+3. 当使用仅支持 vN 的 Envoy 时，让控制面规范地使用 v(N+1) 然后机械地将其转换为与其同等的 vN。当为配置流水线提供输入时（例如，如果请求了一个新的正则表达式类型，但在 vN 版本的 Envoy 中默默地忽略了 *RouteMatch* ，这就会有问题），从操作员的角度来讲，如果忽略那些仅存在于 v(N+1) 中字段的安全性时，这种方法是行之有效的。和上述第二种情况类似，通过序列化和反序列化，v(N+1) 消息或许被转换为与 vN 等同的消息。如果目标是支持范围最广的 vN 客户端，有必须使用手写代码来将那些同时存在于 vN/v(N+1) 中的字段转换为 vN 中弃用的同等部分，因为版本较早的 vN Envoy 客户端中并没有 vN 和 v(N+1) 所共有的一些较新字段。
