@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API 版本控制如何与新扩展交互？ &mdash; envoy 1.16.0-65adf3 documentation</title>
+  <title>API 版本控制如何与新扩展交互？ &mdash; envoy 1.16.0-55e7c7 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-65adf3
+                1.16.0-55e7c7
               </div>
             
           
@@ -117,7 +117,7 @@
 <li class="toctree-l3"><a class="reference internal" href="envoy_upgrade_v3.html">如果我升级到了 Envoy 1.13+，我需要使用 v3 API 吗？</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">API 版本控制如何与新扩展交互？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="control_plane_version_support.html">Which xDS transport and resource versions does my control plane need to support?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="control_plane.html">How do I support multiple xDS API major versions in my control plane?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="control_plane.html">在我的控制面中如何同时支持多个 xDS API 的主版本？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="package_naming.html">API 包名中的 v2、v3、vN 是什么意思？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="why_versioning.html">为什么要对 Envoy xDS API 进行版本控制？有什么好处？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="incremental.html">增量 xDS 支持的状态有哪些？</a></li>
@@ -199,7 +199,7 @@
             
   <div class="section" id="api">
 <h1>API 版本控制如何与新扩展交互？<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
-<p>对于扩展程序配置 API，请按照样式指南中的 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/65adf3058d4a2828f5c2bd3e67a9f7ea54a7484f/api/STYLE.md#adding-an-extension-configuration-to-the-api">新扩展程序配置步骤</a> 进行操作。</p>
+<p>对于扩展程序配置 API，请按照样式指南中的 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/55e7c7a9dda594cc2fc71678cbf5766081728442/api/STYLE.md#adding-an-extension-configuration-to-the-api">新扩展程序配置步骤</a> 进行操作。</p>
 <p>扩展实现应在内部使用 v3 messages 进行操作，包括它们自己的配置消息和其他配置消息。单元测试应针对 v3 配置进行编写。</p>
 </div>
 

@@ -9,7 +9,7 @@ LightStep tracer
 config.trace.v3.LightstepConfig
 -------------------------------
 
-`[config.trace.v3.LightstepConfig proto] <https://github.com/envoyproxy/envoy/blob/65adf3058d4a2828f5c2bd3e67a9f7ea54a7484f/api/envoy/config/trace/v3/lightstep.proto#L20>`_
+`[config.trace.v3.LightstepConfig proto] <https://github.com/envoyproxy/envoy/blob/55e7c7a9dda594cc2fc71678cbf5766081728442/api/envoy/config/trace/v3/lightstep.proto#L20>`_
 
 Configuration for the LightStep tracer.
 
@@ -56,7 +56,7 @@ propagation_modes
 Enum config.trace.v3.LightstepConfig.PropagationMode
 ----------------------------------------------------
 
-`[config.trace.v3.LightstepConfig.PropagationMode proto] <https://github.com/envoyproxy/envoy/blob/65adf3058d4a2828f5c2bd3e67a9f7ea54a7484f/api/envoy/config/trace/v3/lightstep.proto#L25>`_
+`[config.trace.v3.LightstepConfig.PropagationMode proto] <https://github.com/envoyproxy/envoy/blob/55e7c7a9dda594cc2fc71678cbf5766081728442/api/envoy/config/trace/v3/lightstep.proto#L25>`_
 
 Available propagation modes
 

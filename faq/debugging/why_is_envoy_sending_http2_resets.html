@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Why is Envoy sending HTTP/2 resets? &mdash; envoy 1.16.0-65adf3 documentation</title>
+  <title>为什么 Envoy 要发送 HTTP/2 重置？ &mdash; envoy 1.16.0-55e7c7 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-65adf3
+                1.16.0-55e7c7
               </div>
             
           
@@ -114,7 +114,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#api">API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../overview.html#faq-overview-debug">调试</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="why_is_envoy_sending_internal_responses.html">为什么 Envoy 要发送内部响应？</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Why is Envoy sending HTTP/2 resets?</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">为什么 Envoy 要发送 HTTP/2 重置？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="why_is_envoy_404ing_connect_requests.html">Envoy 为什么会发送 404 给连接请求？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="why_is_envoy_sending_413s.html">为什么 Envoy 会发送 413 ？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="why_is_my_route_not_found.html">为什么找不到我的路由？</a></li>
@@ -174,7 +174,7 @@
         
           <li><a href="../overview.html">FAQ</a> &raquo;</li>
         
-      <li>Why is Envoy sending HTTP/2 resets?</li>
+      <li>为什么 Envoy 要发送 HTTP/2 重置？</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -193,23 +193,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="why-is-envoy-sending-http-2-resets">
-<span id="why-is-envoy-sending-http2-resets"></span><h1>Why is Envoy sending HTTP/2 resets?<a class="headerlink" href="#why-is-envoy-sending-http-2-resets" title="Permalink to this headline">¶</a></h1>
-<p>The HTTP/2 reset path is mostly governed by the codec Envoy uses to frame HTTP/2, nghttp2. nghttp2 has
-extremely good adherence to the HTTP/2 spec, but as many clients are not exactly as compliant, this
-mismatch can cause unexpected resets. Unfortunately, unlike the debugging the
-<a class="reference internal" href="why_is_envoy_sending_internal_responses.html#why-is-envoy-sending-internal-responses"><span class="std std-ref">internal response path</span></a>, Envoy has limited visibility into
-the specific reason nghttp2 reset a given stream.</p>
-<p>If you have a reproducible failure case, you can run it against a debug Envoy with “-l trace” to get
-detailed nghttp2 error logs, which often indicate which header failed compliance checks. Alternately,
-if you can afford to run with “-l trace” on a machine encountering the errors, you can look for logs
-from the file “source/common/http/http2/codec_impl.cc” of the form
-<cite>invalid http2: [nghttp2 error detail]</cite>
-for example:
-<cite>invalid http2: Invalid HTTP header field was received: frame type: 1, stream: 1, name: [content-length], value: [3]</cite></p>
-<p>You can also check <a class="reference internal" href="../../configuration/http/http_conn_man/stats.html#config-http-conn-man-stats-per-codec"><span class="std std-ref">HTTP/2 stats`</span></a>: in many cases where
-Envoy resets streams, for example if there are more headers than allowed by configuration or flood
-detection kicks in, http2 counters will be incremented as the streams are reset.</p>
+  <div class="section" id="envoy-http-2">
+<span id="why-is-envoy-sending-http2-resets"></span><h1>为什么 Envoy 要发送 HTTP/2 重置？<a class="headerlink" href="#envoy-http-2" title="Permalink to this headline">¶</a></h1>
+<p>HTTP/2 重置路径主要是由 Envoy 封装 HTTP/2、nghttp2 的编解码器来控制。
+nghttp2 严格遵守 HTTP/2 规范，但是由于许多客户端不完全兼容，这种不完全匹配会导致意外重置。
+不幸的是，与调试 <a class="reference internal" href="why_is_envoy_sending_internal_responses.html#why-is-envoy-sending-internal-responses"><span class="std std-ref">内部响应路径</span></a> 不同，Envoy 在 nghttp2 中重置流的具体原因可见度有限。</p>
+<p>如果你有一个可再现的失败案例，你可以用 “-l trace” 参数，在 debug 版本的 Envoy 中运行它，以便将获得详细的 nghttp2 错误日志，这些日志通常会指出哪些头信息未通过合规检查。
+或者，如果你可以在一台遇到异常的机器上用 “-l trace” 参数运行，那么你可以从文件 “source/common/http/http2/codec_impl.cc” 中寻找格式为 <cite>invalid http2: [nghttp2 error detail]</cite> 的日志。
+例如：<cite>invalid http2: Invalid HTTP header field was received: frame type: 1, stream: 1, name: [content-length], value: [3]</cite></p>
+<p>另外你也可以检查 <a class="reference internal" href="../../configuration/http/http_conn_man/stats.html#config-http-conn-man-stats-per-codec"><span class="std std-ref">HTTP/2 统计数据`</span></a>: 在许多情况下，Envoy 会重置流。
+例如，如果标头超过了配置所允许的范围，或者洪泛检测启动，则在重置流时， http2 计数器将增加。</p>
 </div>
 
 
