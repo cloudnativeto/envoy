@@ -11,15 +11,15 @@
 
 
 集群管理有一个以 *cluster_manager.* 为根的统计树，且有如下统计信息。在 stats 名称中的任何 ``:`` 字符都将被替换为 ``_``。
-统计信息包含由集群管理器管理的所有集群，包括用于数据平面上游的集群和控制平面 xD 的集群。
+统计信息包含由集群管理器管理的所有集群，包括用于数据平面上游的集群和控制平面 xDs 的集群。
 
 .. csv-table::
   :header: 名称, 类型, 描述
   :widths: 1, 1, 2
 
-  cluster_added, Counter, 添加的群集总数（通过静态配置或 CD）
-  cluster_modified, Counter, 修改的群集总数（通过 CD）
-  cluster_removed, Counter, 删除的群集总数（通过 CD）
+  cluster_added, Counter, 添加的群集总数（通过静态配置或 CDS）
+  cluster_modified, Counter, 修改的群集总数（通过 CDS）
+  cluster_removed, Counter, 删除的群集总数（通过 CDS）
   cluster_updated, Counter, 群集更新总数
   cluster_updated_via_merge, Counter, 作为合并更新应用的群集更新总数
   update_merge_cancelled, Counter, 已取消并提前交付的合并更新总数
