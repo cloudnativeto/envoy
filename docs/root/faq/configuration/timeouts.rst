@@ -43,7 +43,7 @@ Envoy 另外还支持路由级别的流超时，可以覆盖上面已经介绍�
 
 * 路由 :ref:`超时 <envoy_v3_api_field_config.route.v3.RouteAction.timeout>` 是 Envoy 等待上游完成响应的时间。*此超时在接收到整个下游请求流之前不会启动*。
 
- .. attention::
+  .. attention::
 
     该超时默认为 15 秒，然而它与流响应（响应永不结束）不兼容，需要禁用。流空闲超时应当在流 API 中使用，如本页在其他位置所描述的一样。
 
