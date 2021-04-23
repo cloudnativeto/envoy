@@ -15,7 +15,7 @@ HTTP/gRPC
 连接超时
 ^^^^^^^^^^^^^^^^^^^
 
-连接超时适用于整个 HTTP 连接和连接携带的所有流。
+连接超时适用于整个 HTTP 连接和连接承载的所有流。
 
 * HTTP 协议中的 :ref:`idle timeout <envoy_v3_api_field_config.core.v3.HttpProtocolOptions.idle_timeout>` 是在 HTTP 连接管理器和上游集群 HTTP 连接使用的通用消息中定义的。空闲超时是在没有活动流的情况下，终止下游或上游连接的时间。如果没有指定，默认空闲超时时间为 1 小时。要修改下游连接的空闲超时时间，请使用 HTTP 连接管理器配置中的 :ref:`common_http_protocol_options
   <envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.common_http_protocol_options>` 字段。要修改上游连接的空闲超时时间，请使用集群配置中的 :ref:`common_http_protocol_options <envoy_v3_api_field_config.cluster.v3.Cluster.common_http_protocol_options>` 字段。
