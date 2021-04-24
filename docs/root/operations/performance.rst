@@ -50,7 +50,7 @@ Watchdog
 或者未被操作系统调用而没有响应。
 
 另外，它在 server.<thread_name>. 树下发出单独的统计信息。
-<thread_name> 树 <thread_name>等于 main_thread，worker_0，worker_1等。
+<thread_name> 等同于 main_thread，worker_0，worker_1 等。
 
 .. csv-table::
   :header: 名称, 类型, 描述
