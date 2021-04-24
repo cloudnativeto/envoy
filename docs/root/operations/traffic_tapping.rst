@@ -78,7 +78,7 @@ TLS 套接字，是这样的：
 ---------
 
 捕获传输套接字支持缓冲和流式传输，由 :ref:`streaming
-<envoy_v3_api_field_config.tap.v3.OutputConfig.streaming>` 设置控制。 缓冲时，会发出
+<envoy_v3_api_field_config.tap.v3.OutputConfig.streaming>` 设置控制。缓冲时，会发出
 :ref:`SocketBufferedTrace <envoy_v3_api_msg_data.tap.v3.SocketBufferedTrace>` 信息。当进行流式传输时，会发出一系列 :ref:`SocketStreamedTraceSegment
 <envoy_v3_api_msg_data.tap.v3.SocketStreamedTraceSegment>` 消息。
 
