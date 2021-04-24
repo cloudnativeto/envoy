@@ -70,7 +70,7 @@ TLS 套接字，是这样的：
 对于缓冲套接字的捕获，Envoy 会限制捕获的主体数据量，以避免出现 OOM 情况。收和传输数据的默认限制是1KiB，这可以通过  :ref:`max_buffered_rx_bytes
 <envoy_v3_api_field_config.tap.v3.OutputConfig.max_buffered_rx_bytes>` 和
 :ref:`max_buffered_tx_bytes
-<envoy_v3_api_field_config.tap.v3.OutputConfig.max_buffered_tx_bytes>` 设置进行配置。 当缓冲套接字被截断时，跟踪将通过 :ref:`read_truncated
+<envoy_v3_api_field_config.tap.v3.OutputConfig.max_buffered_tx_bytes>` 设置进行配置。当缓冲套接字被截断时，跟踪将通过 :ref:`read_truncated
 <envoy_v3_api_field_data.tap.v3.SocketBufferedTrace.read_truncated>` 和 :ref:`write_truncated
 <envoy_v3_api_field_data.tap.v3.SocketBufferedTrace.write_truncated>` 字段以及 :ref:`truncated <envoy_v3_api_field_data.tap.v3.Body.truncated>` 字段显示截断情况。
 
