@@ -82,7 +82,7 @@ TLS 套接字，是这样的：
 :ref:`SocketBufferedTrace <envoy_v3_api_msg_data.tap.v3.SocketBufferedTrace>` 信息。当进行流式传输时，会发出一系列 :ref:`SocketStreamedTraceSegment
 <envoy_v3_api_msg_data.tap.v3.SocketStreamedTraceSegment>` 消息。
 
-更多信息参见 :ref:`HTTP tap filter streaming <config_http_filters_tap_streaming>` 文档，HTTP 过滤器和传输 套接字的大部分概念是重复的.
+更多信息参见 :ref:`HTTP tap filter streaming <config_http_filters_tap_streaming>` 文档，HTTP 过滤器和传输套接字的大部分概念是重复的。
 
 PCAP 传播
 ---------------
