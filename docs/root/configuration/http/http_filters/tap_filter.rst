@@ -32,6 +32,8 @@ tap 过滤器用于插入和记录 HTTP 流量。 从宏观看，其配置由两
 
 上面的代码段通过 :http:post:`/tap` admin handler 配置了过滤器以便管理。详情请参考下一节。
 
+.. _config_http_filters_tap_admin_handler:
+
 Admin handler
 -------------
 
