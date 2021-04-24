@@ -25,4 +25,4 @@
 default
   Envoy 将在上述三种情况（健康检查失败、热重启和 LDS 更新/删除）发生时排空监听器。这是默认设置。
 modify_only
-  Envoy 只会在上述第二和第三种情况（热重启和 LDS 更新/删除）发生时排空监听器。如果 Envoy 同时托管了 ingress 和 egress 监听器，此设置会很有用。在 egress 监听器上设置 modify_only 是可取的，这样仅在 egress 监听器修改期间进行排空，而在尝试执行关机时，则依赖于 ingress 监听器上设置 modify_only 来执行全服务器的排空。
+  Envoy 只会在上述第二和第三种情况（热重启和 LDS 更新/删除）发生时排空监听器。如果 Envoy 同时托管了 ingress 和 egress 监听器，此设置会很有用。可能需要在 egress 监听器上设置 *modify_only*，以便它们仅在修改期间排空，而在尝试执行受控关闭时依靠 ingress 监听器排空来执行完整的服务器排空。
