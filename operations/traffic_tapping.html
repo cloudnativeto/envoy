@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Traffic tapping &mdash; envoy 1.16.0-55e7c7 documentation</title>
+  <title>流量捕获 &mdash; envoy 1.16.0-2c4f49 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-55e7c7
+                1.16.0-2c4f49
               </div>
             
           
@@ -113,15 +113,15 @@
 <li class="toctree-l2"><a class="reference internal" href="stats_overview.html">统计概览</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runtime.html">运行时</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fs_flags.html">文件系统标志</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic tapping</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#tap-transport-socket-configuration">Tap transport socket configuration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#buffered-data-limits">Buffered data limits</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#streaming">Streaming</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pcap-generation">PCAP generation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">流量捕获</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">捕获传输套接字传输配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">缓冲数据限制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">流式传输</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pcap">PCAP 传播</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="certificates.html">证书管理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="performance.html">Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">性能</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../extending/extending.html">针对特定用例对 Envoy 进行扩展</a></li>
@@ -175,7 +175,7 @@
         
           <li><a href="operations.html">操作和管理</a> &raquo;</li>
         
-      <li>Traffic tapping</li>
+      <li>流量捕获</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -194,31 +194,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="traffic-tapping">
-<span id="operations-traffic-tapping"></span><h1>Traffic tapping<a class="headerlink" href="#traffic-tapping" title="Permalink to this headline">¶</a></h1>
-<p>Envoy currently provides two experimental extensions that can tap traffic:</p>
+  <div class="section" id="operations-traffic-tapping">
+<span id="id1"></span><h1>流量捕获<a class="headerlink" href="#operations-traffic-tapping" title="Permalink to this headline">¶</a></h1>
+<p>Envoy 目前提供了两个可以捕获流量的实验性扩展：</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><a class="reference internal" href="../configuration/http/http_filters/tap_filter.html#config-http-filters-tap"><span class="std std-ref">HTTP tap filter</span></a>. See the linked filter documentation for more
-information.</p></li>
-<li><p><a class="reference internal" href="../api-v3/config/core/v3/base.proto.html#envoy-v3-api-msg-config-core-v3-transportsocket"><span class="std std-ref">Tap transport socket extension</span></a> that can intercept
-traffic and write to a <a class="reference internal" href="../api-v3/data/tap/v3/wrapper.proto.html#envoy-v3-api-msg-data-tap-v3-tracewrapper"><span class="std std-ref">protobuf trace file</span></a>. The remainder of this document describes
-the configuration of the tap transport socket.</p></li>
+<li><p><a class="reference internal" href="../configuration/http/http_filters/tap_filter.html#config-http-filters-tap"><span class="std std-ref">HTTP 捕获过滤器</span></a>。更多信息参见过滤器文档。</p></li>
+<li><p><a class="reference internal" href="../api-v3/config/core/v3/base.proto.html#envoy-v3-api-msg-config-core-v3-transportsocket"><span class="std std-ref">捕获传输套接字拓展</span></a> 可以拦截流量并写入 <a class="reference internal" href="../api-v3/data/tap/v3/wrapper.proto.html#envoy-v3-api-msg-data-tap-v3-tracewrapper"><span class="std std-ref">protobuf 跟踪文件</span></a>。本文档的其余部分将介绍捕获传输套接字的配置。</p></li>
 </ul>
 </div></blockquote>
-<div class="section" id="tap-transport-socket-configuration">
-<h2>Tap transport socket configuration<a class="headerlink" href="#tap-transport-socket-configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2>捕获传输套接字传输配置<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>The tap transport socket is experimental and is currently under active development. There is
-currently a very limited set of match conditions, output configuration, output sinks, etc.
-Capabilities will be expanded over time and the configuration structures are likely to change.</p>
+<p>捕获传输套接字是实验性的，正在积极地开发中。目前有一套非常有限的匹配条件、输出配置、输出汇等。随着时间的推移，能力将得到扩展，配置结构也可能发生变化。</p>
 </div>
-<p>Tapping can be configured on <a class="reference internal" href="../api-v3/config/listener/v3/listener_components.proto.html#envoy-v3-api-field-config-listener-v3-filterchain-transport-socket"><span class="std std-ref">Listener</span></a> and <a class="reference internal" href="../api-v3/config/cluster/v3/cluster.proto.html#envoy-v3-api-field-config-cluster-v3-cluster-transport-socket"><span class="std std-ref">Cluster</span></a> transport sockets, providing the ability to interpose on
-downstream and upstream L4 connections respectively.</p>
-<p>To configure traffic tapping, add an <cite>envoy.transport_sockets.tap</cite> transport socket
-<a class="reference internal" href="../api-v3/extensions/filters/http/tap/v3/tap.proto.html#envoy-v3-api-msg-extensions-filters-http-tap-v3-tap"><span class="std std-ref">configuration</span></a> to the listener
-or cluster. For a plain text socket this might look like:</p>
+<p>捕获器可以在 <a class="reference internal" href="../api-v3/config/listener/v3/listener_components.proto.html#envoy-v3-api-field-config-listener-v3-filterchain-transport-socket"><span class="std std-ref">监听器</span></a> 和 <a class="reference internal" href="../api-v3/config/cluster/v3/cluster.proto.html#envoy-v3-api-field-config-cluster-v3-cluster-transport-socket"><span class="std std-ref">集群</span></a> 传输套接字上配置，提供分别在下行和上行L4连接上进行插接的能力。
+要配置流量捕获，需要在监听器或集群中添加一个 <cite>envoy.transport_sockets.tap</cite>  传输套接字
+<a class="reference internal" href="../api-v3/extensions/filters/http/tap/v3/tap.proto.html#envoy-v3-api-msg-extensions-filters-http-tap-v3-tap"><span class="std std-ref">配置</span></a>。对于纯文本套接字来说，它可能是这样的：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">transport_socket</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.transport_sockets.tap</span>
   <span class="nt">typed_config</span><span class="p">:</span>
@@ -236,7 +229,7 @@ or cluster. For a plain text socket this might look like:</p>
       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.transport_sockets.raw_buffer</span>
 </pre></div>
 </div>
-<p>For a TLS socket, this will be:</p>
+<p>TLS 套接字，是这样的：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">transport_socket</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.transport_sockets.tap</span>
   <span class="nt">typed_config</span><span class="p">:</span>
@@ -255,33 +248,23 @@ or cluster. For a plain text socket this might look like:</p>
       <span class="nt">typed_config</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;TLS context&gt;</span>
 </pre></div>
 </div>
-<p>where the TLS context configuration replaces any existing <a class="reference internal" href="../api-v3/extensions/transport_sockets/tls/v3/tls.proto.html#envoy-v3-api-msg-extensions-transport-sockets-tls-v3-downstreamtlscontext"><span class="std std-ref">downstream</span></a> or <a class="reference internal" href="../api-v3/extensions/transport_sockets/tls/v3/tls.proto.html#envoy-v3-api-msg-extensions-transport-sockets-tls-v3-upstreamtlscontext"><span class="std std-ref">upstream</span></a>
-TLS configuration on the listener or cluster, respectively.</p>
-<p>Each unique socket instance will generate a trace file prefixed with <cite>path_prefix</cite>. E.g.
-<cite>/some/tap/path_0.pb</cite>.</p>
+<p>其中，TLS 上下文配置分别替换了监听器或集群上现有的 <a class="reference internal" href="../api-v3/extensions/transport_sockets/tls/v3/tls.proto.html#envoy-v3-api-msg-extensions-transport-sockets-tls-v3-downstreamtlscontext"><span class="std std-ref">下行</span></a> 或 <a class="reference internal" href="../api-v3/extensions/transport_sockets/tls/v3/tls.proto.html#envoy-v3-api-msg-extensions-transport-sockets-tls-v3-upstreamtlscontext"><span class="std std-ref">上行</span></a> TLS 配置。</p>
+<p>每个独特的套接字实例都会生成一个以 path_prefix 为前缀的跟踪文件。例如：/some/tap/path_0.pb。</p>
 </div>
-<div class="section" id="buffered-data-limits">
-<h2>Buffered data limits<a class="headerlink" href="#buffered-data-limits" title="Permalink to this headline">¶</a></h2>
-<p>For buffered socket taps, Envoy will limit the amount of body data that is tapped to avoid OOM
-situations. The default limit is 1KiB for both received and transmitted data.
-This is configurable via the <a class="reference internal" href="../api-v3/config/tap/v3/common.proto.html#envoy-v3-api-field-config-tap-v3-outputconfig-max-buffered-rx-bytes"><span class="std std-ref">max_buffered_rx_bytes</span></a> and
-<a class="reference internal" href="../api-v3/config/tap/v3/common.proto.html#envoy-v3-api-field-config-tap-v3-outputconfig-max-buffered-tx-bytes"><span class="std std-ref">max_buffered_tx_bytes</span></a> settings. When a buffered
-socket tap is truncated, the trace will indicate truncation via the <a class="reference internal" href="../api-v3/data/tap/v3/transport.proto.html#envoy-v3-api-field-data-tap-v3-socketbufferedtrace-read-truncated"><span class="std std-ref">read_truncated</span></a> and <a class="reference internal" href="../api-v3/data/tap/v3/transport.proto.html#envoy-v3-api-field-data-tap-v3-socketbufferedtrace-write-truncated"><span class="std std-ref">write_truncated</span></a> fields as well as the body
-<a class="reference internal" href="../api-v3/data/tap/v3/common.proto.html#envoy-v3-api-field-data-tap-v3-body-truncated"><span class="std std-ref">truncated</span></a> field.</p>
+<div class="section" id="id3">
+<h2>缓冲数据限制<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>对于缓冲套接字的捕获，Envoy 会限制捕获的主体数据量，以避免出现 OOM 情况。接收和传输数据的默认限制是 1KiB，这可以通过  <a class="reference internal" href="../api-v3/config/tap/v3/common.proto.html#envoy-v3-api-field-config-tap-v3-outputconfig-max-buffered-rx-bytes"><span class="std std-ref">max_buffered_rx_bytes</span></a> 和
+<a class="reference internal" href="../api-v3/config/tap/v3/common.proto.html#envoy-v3-api-field-config-tap-v3-outputconfig-max-buffered-tx-bytes"><span class="std std-ref">max_buffered_tx_bytes</span></a> 设置进行配置。当缓冲套接字被截断时，跟踪将通过 <a class="reference internal" href="../api-v3/data/tap/v3/transport.proto.html#envoy-v3-api-field-data-tap-v3-socketbufferedtrace-read-truncated"><span class="std std-ref">read_truncated</span></a> 和 <a class="reference internal" href="../api-v3/data/tap/v3/transport.proto.html#envoy-v3-api-field-data-tap-v3-socketbufferedtrace-write-truncated"><span class="std std-ref">write_truncated</span></a> 字段以及 <a class="reference internal" href="../api-v3/data/tap/v3/common.proto.html#envoy-v3-api-field-data-tap-v3-body-truncated"><span class="std std-ref">truncated</span></a> 字段显示截断情况。</p>
 </div>
-<div class="section" id="streaming">
-<h2>Streaming<a class="headerlink" href="#streaming" title="Permalink to this headline">¶</a></h2>
-<p>The tap transport socket supports both buffered and streaming, controlled by the <a class="reference internal" href="../api-v3/config/tap/v3/common.proto.html#envoy-v3-api-field-config-tap-v3-outputconfig-streaming"><span class="std std-ref">streaming</span></a> setting. When buffering,
-<a class="reference internal" href="../api-v3/data/tap/v3/transport.proto.html#envoy-v3-api-msg-data-tap-v3-socketbufferedtrace"><span class="std std-ref">SocketBufferedTrace</span></a> messages are
-emitted. When streaming, a series of <a class="reference internal" href="../api-v3/data/tap/v3/transport.proto.html#envoy-v3-api-msg-data-tap-v3-socketstreamedtracesegment"><span class="std std-ref">SocketStreamedTraceSegment</span></a> are emitted.</p>
-<p>See the <a class="reference internal" href="../configuration/http/http_filters/tap_filter.html#config-http-filters-tap-streaming"><span class="std std-ref">HTTP tap filter streaming</span></a> documentation for more
-information. Most of the concepts overlap between the HTTP filter and the transport socket.</p>
+<div class="section" id="id4">
+<h2>流式传输<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>捕获传输套接字支持缓冲和流式传输，由 <a class="reference internal" href="../api-v3/config/tap/v3/common.proto.html#envoy-v3-api-field-config-tap-v3-outputconfig-streaming"><span class="std std-ref">streaming</span></a> 设置控制。缓冲时，会发出
+<a class="reference internal" href="../api-v3/data/tap/v3/transport.proto.html#envoy-v3-api-msg-data-tap-v3-socketbufferedtrace"><span class="std std-ref">SocketBufferedTrace</span></a> 信息。当进行流式传输时，会发出一系列 <a class="reference internal" href="../api-v3/data/tap/v3/transport.proto.html#envoy-v3-api-msg-data-tap-v3-socketstreamedtracesegment"><span class="std std-ref">SocketStreamedTraceSegment</span></a> 消息。</p>
+<p>更多信息参见 <a class="reference internal" href="../configuration/http/http_filters/tap_filter.html#config-http-filters-tap-streaming"><span class="std std-ref">HTTP tap filter streaming</span></a> 文档，HTTP 过滤器和传输套接字的大部分概念是重复的。</p>
 </div>
-<div class="section" id="pcap-generation">
-<h2>PCAP generation<a class="headerlink" href="#pcap-generation" title="Permalink to this headline">¶</a></h2>
-<p>The generated trace file can be converted to <a class="reference external" href="https://wiki.wireshark.org/Development/LibpcapFileFormat">libpcap format</a>, suitable for
-analysis with tools such as <a class="reference external" href="https://www.wireshark.org/">Wireshark</a> with the
-<cite>tap2pcap</cite> utility, e.g.:</p>
+<div class="section" id="pcap">
+<h2>PCAP 传播<a class="headerlink" href="#pcap" title="Permalink to this headline">¶</a></h2>
+<p>生成的跟踪文件可以转换为 <a class="reference external" href="https://wiki.wireshark.org/Development/LibpcapFileFormat">libpcap format</a>，格式，可以使用如 <a class="reference external" href="https://www.wireshark.org/">Wireshark</a> 和 tap2pcap 这样的工具进行分析，例如:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bazel run @envoy_api_canonical//tools:tap2pcap /some/tap/path_0.pb path_0.pcap
 tshark -r path_0.pcap -d <span class="s2">&quot;tcp.port==10000,http2&quot;</span> -P
   <span class="m">1</span>   <span class="m">0</span>.000000    <span class="m">127</span>.0.0.1 → <span class="m">127</span>.0.0.1    HTTP2 <span class="m">157</span> Magic, SETTINGS, WINDOW_UPDATE, HEADERS

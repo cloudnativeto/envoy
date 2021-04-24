@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>统计 &mdash; envoy 1.16.0-55e7c7 documentation</title>
+  <title>统计 &mdash; envoy 1.16.0-2c4f49 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-55e7c7
+                1.16.0-2c4f49
               </div>
             
           
@@ -210,25 +210,25 @@
 <span id="id1"></span><h1>统计<a class="headerlink" href="#config-cluster-manager-cluster-stats" title="Permalink to this headline">¶</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#id2" id="id3">总则</a></p></li>
-<li><p><a class="reference internal" href="#health-check-statistics" id="id4">Health check statistics</a></p></li>
-<li><p><a class="reference internal" href="#outlier-detection-statistics" id="id5">Outlier detection statistics</a></p></li>
-<li><p><a class="reference internal" href="#circuit-breakers-statistics" id="id6">Circuit breakers statistics</a></p></li>
-<li><p><a class="reference internal" href="#timeout-budget-statistics" id="id7">Timeout budget statistics</a></p></li>
-<li><p><a class="reference internal" href="#dynamic-http-statistics" id="id8">Dynamic HTTP statistics</a></p></li>
-<li><p><a class="reference internal" href="#alternate-tree-dynamic-http-statistics" id="id9">Alternate tree dynamic HTTP statistics</a></p></li>
-<li><p><a class="reference internal" href="#per-service-zone-dynamic-http-statistics" id="id10">Per service zone dynamic HTTP statistics</a></p></li>
-<li><p><a class="reference internal" href="#load-balancer-statistics" id="id11">Load balancer statistics</a></p></li>
-<li><p><a class="reference internal" href="#load-balancer-subset-statistics" id="id12">Load balancer subset statistics</a></p></li>
-<li><p><a class="reference internal" href="#ring-hash-load-balancer-statistics" id="id13">Ring hash load balancer statistics</a></p></li>
-<li><p><a class="reference internal" href="#maglev-load-balancer-statistics" id="id14">Maglev load balancer statistics</a></p></li>
-<li><p><a class="reference internal" href="#request-response-size-statistics" id="id15">Request Response Size statistics</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id15">总则</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id16">健康检查统计</a></p></li>
+<li><p><a class="reference internal" href="#config-cluster-manager-cluster-stats-outlier-detection" id="id17">异常检测统计</a></p></li>
+<li><p><a class="reference internal" href="#config-cluster-manager-cluster-stats-circuit-breakers" id="id18">断路器统计</a></p></li>
+<li><p><a class="reference internal" href="#config-cluster-manager-cluster-stats-timeout-budgets" id="id19">超时预算统计</a></p></li>
+<li><p><a class="reference internal" href="#http" id="id20">动态 HTTP 统计</a></p></li>
+<li><p><a class="reference internal" href="#config-cluster-manager-cluster-stats-alt-tree" id="id21">备用树动态 HTTP 统计信息</a></p></li>
+<li><p><a class="reference internal" href="#config-cluster-manager-cluster-per-az-stats" id="id22">每个服务区域的动态 HTTP 统计信息</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id23">负载均衡统计信息</a></p></li>
+<li><p><a class="reference internal" href="#config-cluster-manager-cluster-stats-subset-lb" id="id24">负载均衡器子集统计信息</a></p></li>
+<li><p><a class="reference internal" href="#config-cluster-manager-cluster-stats-ring-hash-lb" id="id25">哈希环负载均衡器统计信息</a></p></li>
+<li><p><a class="reference internal" href="#config-cluster-manager-cluster-stats-maglev-lb" id="id26">磁浮负载均衡器统计</a></p></li>
+<li><p><a class="reference internal" href="#config-cluster-manager-cluster-stats-request-response-sizes" id="id27">请求-响应大小统计信息</a></p></li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id3">总则</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>集群管理有一个根在 <em>cluster_manager.</em> 的统计树，有如下统计信息。在 stats 名称中的任何 <code class="docutils literal notranslate"><span class="pre">:</span></code> 字符都将被替换为 <code class="docutils literal notranslate"><span class="pre">_</span></code>。
-统计信息包含由集群管理器管理的所有集群，包括用于数据平面上游的集群和控制平面 xD 的集群。</p>
+<h2><a class="toc-backref" href="#id15">总则</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>集群管理有一个以 <em>cluster_manager.</em> 为根的统计树，且有如下统计信息。在 stats 名称中的任何 <code class="docutils literal notranslate"><span class="pre">:</span></code> 字符都将被替换为 <code class="docutils literal notranslate"><span class="pre">_</span></code>。
+统计信息包含由集群管理器管理的所有集群，包括用于数据平面上游的集群和控制平面 xDs 的集群。</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -244,43 +244,43 @@
 <tbody>
 <tr class="row-even"><td><p>cluster_added</p></td>
 <td><p>Counter</p></td>
-<td><p>Total clusters added (either via static config or CDS)</p></td>
+<td><p>添加的群集总数（通过静态配置或 CDS）</p></td>
 </tr>
 <tr class="row-odd"><td><p>cluster_modified</p></td>
 <td><p>Counter</p></td>
-<td><p>Total clusters modified (via CDS)</p></td>
+<td><p>修改的群集总数（通过 CDS）</p></td>
 </tr>
 <tr class="row-even"><td><p>cluster_removed</p></td>
 <td><p>Counter</p></td>
-<td><p>Total clusters removed (via CDS)</p></td>
+<td><p>删除的群集总数（通过 CDS）</p></td>
 </tr>
 <tr class="row-odd"><td><p>cluster_updated</p></td>
 <td><p>Counter</p></td>
-<td><p>Total cluster updates</p></td>
+<td><p>群集更新总数</p></td>
 </tr>
 <tr class="row-even"><td><p>cluster_updated_via_merge</p></td>
 <td><p>Counter</p></td>
-<td><p>Total cluster updates applied as merged updates</p></td>
+<td><p>作为合并更新应用的群集更新总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>update_merge_cancelled</p></td>
 <td><p>Counter</p></td>
-<td><p>Total merged updates that got cancelled and delivered early</p></td>
+<td><p>已取消并提前交付的合并更新总数</p></td>
 </tr>
 <tr class="row-even"><td><p>update_out_of_merge_window</p></td>
 <td><p>Counter</p></td>
-<td><p>Total updates which arrived out of a merge window</p></td>
+<td><p>从合并窗口到达的总更新数</p></td>
 </tr>
 <tr class="row-odd"><td><p>active_clusters</p></td>
 <td><p>Gauge</p></td>
-<td><p>Number of currently active (warmed) clusters</p></td>
+<td><p>当前活动（warmed）群集数</p></td>
 </tr>
 <tr class="row-even"><td><p>warming_clusters</p></td>
 <td><p>Gauge</p></td>
-<td><p>Number of currently warming (not active) clusters</p></td>
+<td><p>当前处在 warming（非活动）的群集数</p></td>
 </tr>
 </tbody>
 </table>
-<p>Every cluster has a statistics tree rooted at <em>cluster.&lt;name&gt;.</em> with the following statistics:</p>
+<p>每个集群有一个根在 <em>cluster.&lt;name&gt;.</em> 的统计树，有如下统计信息：</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -288,287 +288,286 @@
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>upstream_cx_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connections</p></td>
+<td><p>连接总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_cx_active</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total active connections</p></td>
+<td><p>活动的连接总数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_cx_http1_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total HTTP/1.1 connections</p></td>
+<td><p>HTTP/1.1 连接总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_cx_http2_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total HTTP/2 connections</p></td>
+<td><p>HTTP/2 连接总数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_cx_connect_fail</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connection failures</p></td>
+<td><p>连接失败总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_cx_connect_timeout</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connection connect timeouts</p></td>
+<td><p>连接超时总数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_cx_idle_timeout</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connection idle timeouts</p></td>
+<td><p>连接 idle 超时总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_cx_connect_attempts_exceeded</p></td>
 <td><p>Counter</p></td>
-<td><p>Total consecutive connection failures exceeding configured connection attempts</p></td>
+<td><p>超过配置连接尝试次数的连续连接失败总数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_cx_overflow</p></td>
 <td><p>Counter</p></td>
-<td><p>Total times that the cluster’s connection circuit breaker overflowed</p></td>
+<td><p>群集连接断路器溢出的总次数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_cx_connect_ms</p></td>
 <td><p>Histogram</p></td>
-<td><p>Connection establishment milliseconds</p></td>
+<td><p>连接建立毫秒数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_cx_length_ms</p></td>
 <td><p>Histogram</p></td>
-<td><p>Connection length milliseconds</p></td>
+<td><p>连接长度毫秒数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_cx_destroy</p></td>
 <td><p>Counter</p></td>
-<td><p>Total destroyed connections</p></td>
+<td><p>断开的连接总数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_cx_destroy_local</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connections destroyed locally</p></td>
+<td><p>本地断开的连接总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_cx_destroy_remote</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connections destroyed remotely</p></td>
+<td><p>远程断开的连接总数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_cx_destroy_with_active_rq</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connections destroyed with 1+ active request</p></td>
+<td><p>1+ 个活动请求断开的连接总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_cx_destroy_local_with_active_rq</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connections destroyed locally with 1+ active request</p></td>
+<td><p>使用 1+ 个活动请求在本地断开的连接总数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_cx_destroy_remote_with_active_rq</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connections destroyed remotely with 1+ active request</p></td>
+<td><p>使用 1+ 个活动请求远程断开的连接总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_cx_close_notify</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connections closed via HTTP/1.1 connection close header or HTTP/2 GOAWAY</p></td>
+<td><p>通过 HTTP/1.1 连接关闭头或 HTTP/2 GOAWAY 关闭的连接总数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_cx_rx_bytes_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total received connection bytes</p></td>
+<td><p>接收的连接字节总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_cx_rx_bytes_buffered</p></td>
 <td><p>Gauge</p></td>
-<td><p>Received connection bytes currently buffered</p></td>
+<td><p>当前缓冲的接收连接字节数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_cx_tx_bytes_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total sent connection bytes</p></td>
+<td><p>发送的连接字节总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_cx_tx_bytes_buffered</p></td>
 <td><p>Gauge</p></td>
-<td><p>Send connection bytes currently buffered</p></td>
+<td><p>当前缓冲的发送连接字节数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_cx_pool_overflow</p></td>
 <td><p>Counter</p></td>
-<td><p>Total times that the cluster’s connection pool circuit breaker overflowed</p></td>
+<td><p>群集的连接池断路器溢出的总次数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_cx_protocol_error</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connection protocol errors</p></td>
+<td><p>连接协议错误总数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_cx_max_requests</p></td>
 <td><p>Counter</p></td>
-<td><p>Total connections closed due to maximum requests</p></td>
+<td><p>由于最大请求数而关闭的连接总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_cx_none_healthy</p></td>
 <td><p>Counter</p></td>
-<td><p>Total times connection not established due to no healthy hosts</p></td>
+<td><p>由于没有正常主机而未建立连接的总次数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_rq_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests</p></td>
+<td><p>请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_rq_active</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total active requests</p></td>
+<td><p>活动的请求总数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_rq_pending_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests pending a connection pool connection</p></td>
+<td><p>挂起连接池连接的请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_rq_pending_overflow</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests that overflowed connection pool or requests (mainly for HTTP/2) circuit breaking and were failed</p></td>
+<td><p>溢出连接池或请求（主要针对 HTTP/2）断路并失败的请求总数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_rq_pending_failure_eject</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests that were failed due to a connection pool connection failure or remote connection termination</p></td>
+<td><p>由于连接池连接失败或远程连接终止失败的请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_rq_pending_active</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total active requests pending a connection pool connection</p></td>
+<td><p>挂起连接池连接的活动请求总数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_rq_cancelled</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests cancelled before obtaining a connection pool connection</p></td>
+<td><p>在获取连接池连接之前取消的请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_rq_maintenance_mode</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests that resulted in an immediate 503 due to <a class="reference internal" href="../../http/http_filters/router_filter.html#config-http-filters-router-runtime-maintenance-mode"><span class="std std-ref">maintenance mode</span></a></p></td>
+<td><p>由于 <a class="reference internal" href="../../http/http_filters/router_filter.html#config-http-filters-router-runtime-maintenance-mode"><span class="std std-ref">维护模式</span></a> 导致立即 503 的请求总数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_rq_timeout</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests that timed out waiting for a response</p></td>
+<td><p>等待响应超时的请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_rq_max_duration_reached</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests closed due to max duration reached</p></td>
+<td><p>由于达到最大持续时间而关闭的请求总数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_rq_per_try_timeout</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests that hit the per try timeout (except when request hedging is enabled)</p></td>
+<td><p>达到每次尝试超时的请求总数（启用请求对冲时除外）</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_rq_rx_reset</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests that were reset remotely</p></td>
+<td><p>远程重置的请求总数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_rq_tx_reset</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests that were reset locally</p></td>
+<td><p>本地重置的请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_rq_retry</p></td>
 <td><p>Counter</p></td>
-<td><p>Total request retries</p></td>
+<td><p>请求重试总次数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_rq_retry_backoff_exponential</p></td>
 <td><p>Counter</p></td>
-<td><p>Total retries using the exponential backoff strategy</p></td>
+<td><p>使用指数退避策略的总重试次数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_rq_retry_backoff_ratelimited</p></td>
 <td><p>Counter</p></td>
-<td><p>Total retries using the ratelimited backoff strategy</p></td>
+<td><p>使用有限退避策略的总重试次数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_rq_retry_limit_exceeded</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests not retried due to exceeding <a class="reference internal" href="../../http/http_filters/router_filter.html#config-http-filters-router-x-envoy-max-retries"><span class="std std-ref">the configured number of maximum retries</span></a></p></td>
+<td><p>由于超过 <a class="reference internal" href="../../http/http_filters/router_filter.html#config-http-filters-router-x-envoy-max-retries"><span class="std std-ref">配置的最大重试次数</span></a> 而未重试的请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_rq_retry_success</p></td>
 <td><p>Counter</p></td>
-<td><p>Total request retry successes</p></td>
+<td><p>请求重试成功总数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_rq_retry_overflow</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests not retried due to circuit breaking or exceeding the <a class="reference internal" href="../../../api-v3/config/cluster/v3/circuit_breaker.proto.html#envoy-v3-api-field-config-cluster-v3-circuitbreakers-thresholds-retry-budget"><span class="std std-ref">retry budget</span></a></p></td>
+<td><p>由于线路中断或超出 <a class="reference internal" href="../../../api-v3/config/cluster/v3/circuit_breaker.proto.html#envoy-v3-api-field-config-cluster-v3-circuitbreakers-thresholds-retry-budget"><span class="std std-ref">预置的重试次数</span></a> 而未重试的请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_flow_control_paused_reading_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of times flow control paused reading from upstream</p></td>
+<td><p>流量控制从上游暂停读取的总次数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_flow_control_resumed_reading_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of times flow control resumed reading from upstream</p></td>
+<td><p>流量控制从上游恢复读取的总次数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_flow_control_backed_up_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of times the upstream connection backed up and paused reads from downstream</p></td>
+<td><p>上游连接备份并暂停从下游读取的总次数</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_flow_control_drained_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of times the upstream connection drained and resumed reads from downstream</p></td>
+<td><p>上游连接从下游排出并恢复读取的总次数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_internal_redirect_failed_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of times failed internal redirects resulted in redirects being passed downstream.</p></td>
+<td><p>失败的内部重定向导致向下游传递重定向的总次数。</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_internal_redirect_succeed_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of times internal redirects resulted in a second upstream request.</p></td>
+<td><p>内部重定向导致第二个上行请求的总次数。</p></td>
 </tr>
 <tr class="row-odd"><td><p>membership_change</p></td>
 <td><p>Counter</p></td>
-<td><p>Total cluster membership changes</p></td>
+<td><p>集群成员更改总数</p></td>
 </tr>
 <tr class="row-even"><td><p>membership_healthy</p></td>
 <td><p>Gauge</p></td>
-<td><p>Current cluster healthy total (inclusive of both health checking and outlier detection)</p></td>
+<td><p>当前群集健康总数（包括健康检查和异常值检测）</p></td>
 </tr>
 <tr class="row-odd"><td><p>membership_degraded</p></td>
 <td><p>Gauge</p></td>
-<td><p>Current cluster degraded total</p></td>
+<td><p>当前集群降级总数</p></td>
 </tr>
 <tr class="row-even"><td><p>membership_total</p></td>
 <td><p>Gauge</p></td>
-<td><p>Current cluster membership total</p></td>
+<td><p>当前集群成员总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>retry_or_shadow_abandoned</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of times shadowing or retry buffering was canceled due to buffer limits</p></td>
+<td><p>由于缓冲区限制而取消映射或重试缓冲的总次数</p></td>
 </tr>
 <tr class="row-even"><td><p>config_reload</p></td>
 <td><p>Counter</p></td>
-<td><p>Total API fetches that resulted in a config reload due to a different config</p></td>
+<td><p>由于配置不同而导致配置重新加载的API获取总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>update_attempt</p></td>
 <td><p>Counter</p></td>
-<td><p>Total attempted cluster membership updates by service discovery</p></td>
+<td><p>通过服务发现尝试的群集成员更新总数</p></td>
 </tr>
 <tr class="row-even"><td><p>update_success</p></td>
 <td><p>Counter</p></td>
-<td><p>Total successful cluster membership updates by service discovery</p></td>
+<td><p>通过服务发现列出的成功群集成员更新总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>update_failure</p></td>
 <td><p>Counter</p></td>
-<td><p>Total failed cluster membership updates by service discovery</p></td>
+<td><p>通过服务发现列出的失败群集成员更新总数</p></td>
 </tr>
 <tr class="row-even"><td><p>update_empty</p></td>
 <td><p>Counter</p></td>
-<td><p>Total cluster membership updates ending with empty cluster load assignment and continuing with previous config</p></td>
+<td><p>集群成员更新以空集群负载分配结束并继续以前的配置总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>update_no_rebuild</p></td>
 <td><p>Counter</p></td>
-<td><p>Total successful cluster membership updates that didn’t result in any cluster load balancing structure rebuilds</p></td>
+<td><p>未导致任何群集负载平衡结构重建的成功群集成员更新总数</p></td>
 </tr>
 <tr class="row-even"><td><p>version</p></td>
 <td><p>Gauge</p></td>
-<td><p>Hash of the contents from the last successful API fetch</p></td>
+<td><p>上次成功获取 API 的内容的哈希</p></td>
 </tr>
 <tr class="row-odd"><td><p>max_host_weight</p></td>
 <td><p>Gauge</p></td>
-<td><p>Maximum weight of any host in the cluster</p></td>
+<td><p>群集中任意主机的最大权重</p></td>
 </tr>
 <tr class="row-even"><td><p>bind_errors</p></td>
 <td><p>Counter</p></td>
-<td><p>Total errors binding the socket to the configured source address</p></td>
+<td><p>将套接字绑定到配置的源地址的错误总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>assignment_timeout_received</p></td>
 <td><p>Counter</p></td>
-<td><p>Total assignments received with endpoint lease information.</p></td>
+<td><p>接收到的具有终结点租用信息的总分配数</p></td>
 </tr>
 <tr class="row-even"><td><p>assignment_stale</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of times the received assignments went stale before new assignments arrived.</p></td>
+<td><p>新分配到达之前接收的分配过期的次数</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="health-check-statistics">
-<h2><a class="toc-backref" href="#id4">Health check statistics</a><a class="headerlink" href="#health-check-statistics" title="Permalink to this headline">¶</a></h2>
-<p>If health check is configured, the cluster has an additional statistics tree rooted at
-<em>cluster.&lt;name&gt;.health_check.</em> with the following statistics:</p>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id16">健康检查统计</a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>如果配置了健康检查，每个集群有一个以 <em>cluster.&lt;name&gt;.health_check.</em> 为根的统计树，且有如下统计信息：</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -576,47 +575,47 @@
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>attempt</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of health checks</p></td>
+<td><p>健康检查次数</p></td>
 </tr>
 <tr class="row-odd"><td><p>success</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of successful health checks</p></td>
+<td><p>成功的健康检查次数</p></td>
 </tr>
 <tr class="row-even"><td><p>failure</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of immediately failed health checks (e.g. HTTP 503) as well as network failures</p></td>
+<td><p>立即失败的健康检查（例如 HTTP 503）以及网络故障数</p></td>
 </tr>
 <tr class="row-odd"><td><p>passive_failure</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of health check failures due to passive events (e.g. x-envoy-immediate-health-check-fail)</p></td>
+<td><p>由被动事件导致的健康检查失败次数（比如 x-envoy-immediate-health-check-fail）</p></td>
 </tr>
 <tr class="row-even"><td><p>network_failure</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of health check failures due to network error</p></td>
+<td><p>由于网络错误导致的健康检查失败数</p></td>
 </tr>
 <tr class="row-odd"><td><p>verify_cluster</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of health checks that attempted cluster name verification</p></td>
+<td><p>尝试群集名称验证的运行状况检查数</p></td>
 </tr>
 <tr class="row-even"><td><p>healthy</p></td>
 <td><p>Gauge</p></td>
-<td><p>Number of healthy members</p></td>
+<td><p>健康成员数</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="outlier-detection-statistics">
-<span id="config-cluster-manager-cluster-stats-outlier-detection"></span><h2><a class="toc-backref" href="#id5">Outlier detection statistics</a><a class="headerlink" href="#outlier-detection-statistics" title="Permalink to this headline">¶</a></h2>
-<p>If <a class="reference internal" href="../../../intro/arch_overview/upstream/outlier.html#arch-overview-outlier-detection"><span class="std std-ref">outlier detection</span></a> is configured for a cluster,
-statistics will be rooted at <em>cluster.&lt;name&gt;.outlier_detection.</em> and contain the following:</p>
+<div class="section" id="config-cluster-manager-cluster-stats-outlier-detection">
+<span id="id4"></span><h2><a class="toc-backref" href="#id17">异常检测统计</a><a class="headerlink" href="#config-cluster-manager-cluster-stats-outlier-detection" title="Permalink to this headline">¶</a></h2>
+<p>如果在集群中配置了 <a class="reference internal" href="../../../intro/arch_overview/upstream/outlier.html#arch-overview-outlier-detection"><span class="std std-ref">异常检测</span></a>，
+集群有一个以 <em>cluster.&lt;name&gt;.outlier_detection.</em> 为根的统计树，且有如下统计信息：</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -624,94 +623,94 @@ statistics will be rooted at <em>cluster.&lt;name&gt;.outlier_detection.</em> an
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>ejections_enforced_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of enforced ejections due to any outlier type</p></td>
+<td><p>由于任何异常类型而强制弹出的次数</p></td>
 </tr>
 <tr class="row-odd"><td><p>ejections_active</p></td>
 <td><p>Gauge</p></td>
-<td><p>Number of currently ejected hosts</p></td>
+<td><p>当前弹出的主机数</p></td>
 </tr>
 <tr class="row-even"><td><p>ejections_overflow</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of ejections aborted due to the max ejection %</p></td>
+<td><p>由于最大弹出而中止的弹出数</p></td>
 </tr>
 <tr class="row-odd"><td><p>ejections_enforced_consecutive_5xx</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of enforced consecutive 5xx ejections</p></td>
+<td><p>强制连续 5xx 弹出次数</p></td>
 </tr>
 <tr class="row-even"><td><p>ejections_detected_consecutive_5xx</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of detected consecutive 5xx ejections (even if unenforced)</p></td>
+<td><p>检测到的连续的 5xx 弹出次数（即使未强制）</p></td>
 </tr>
 <tr class="row-odd"><td><p>ejections_enforced_success_rate</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of enforced success rate outlier ejections. Exact meaning of this counter depends on <a class="reference internal" href="../../../api-v3/config/cluster/v3/outlier_detection.proto.html#envoy-v3-api-field-config-cluster-v3-outlierdetection-split-external-local-origin-errors"><span class="std std-ref">outlier_detection.split_external_local_origin_errors</span></a> config item. Refer to <a class="reference internal" href="../../../intro/arch_overview/upstream/outlier.html#arch-overview-outlier-detection"><span class="std std-ref">Outlier Detection documentation</span></a> for details.</p></td>
+<td><p>强制成功率异常值弹出数。 此计数器的确切含义取决于 <a class="reference internal" href="../../../api-v3/config/cluster/v3/outlier_detection.proto.html#envoy-v3-api-field-config-cluster-v3-outlierdetection-split-external-local-origin-errors"><span class="std std-ref">outlier_detection.split_external_local_origin_errors</span></a> 配置项。 详情参考 <a class="reference internal" href="../../../intro/arch_overview/upstream/outlier.html#arch-overview-outlier-detection"><span class="std std-ref">异常检测文档</span></a>。</p></td>
 </tr>
 <tr class="row-even"><td><p>ejections_detected_success_rate</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of detected success rate outlier ejections (even if unenforced). Exact meaning of this counter depends on <a class="reference internal" href="../../../api-v3/config/cluster/v3/outlier_detection.proto.html#envoy-v3-api-field-config-cluster-v3-outlierdetection-split-external-local-origin-errors"><span class="std std-ref">outlier_detection.split_external_local_origin_errors</span></a> config item. Refer to <a class="reference internal" href="../../../intro/arch_overview/upstream/outlier.html#arch-overview-outlier-detection"><span class="std std-ref">Outlier Detection documentation</span></a> for details.</p></td>
+<td><p>检测到的成功率异常值弹出数（即使未强制）。 此计数器的确切含义取决于 <a class="reference internal" href="../../../api-v3/config/cluster/v3/outlier_detection.proto.html#envoy-v3-api-field-config-cluster-v3-outlierdetection-split-external-local-origin-errors"><span class="std std-ref">outlier_detection.split_external_local_origin_errors</span></a> 配置项。 详情参考 <a class="reference internal" href="../../../intro/arch_overview/upstream/outlier.html#arch-overview-outlier-detection"><span class="std std-ref">异常过滤文档</span></a>。</p></td>
 </tr>
 <tr class="row-odd"><td><p>ejections_enforced_consecutive_gateway_failure</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of enforced consecutive gateway failure ejections</p></td>
+<td><p>强制的连续网关故障弹出次数</p></td>
 </tr>
 <tr class="row-even"><td><p>ejections_detected_consecutive_gateway_failure</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of detected consecutive gateway failure ejections (even if unenforced)</p></td>
+<td><p>检测到的连续网关故障弹出次数（即使未强制）</p></td>
 </tr>
 <tr class="row-odd"><td><p>ejections_enforced_consecutive_local_origin_failure</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of enforced consecutive local origin failure ejections</p></td>
+<td><p>强制的连续本地源故障弹出数</p></td>
 </tr>
 <tr class="row-even"><td><p>ejections_detected_consecutive_local_origin_failure</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of detected consecutive local origin failure ejections (even if unenforced)</p></td>
+<td><p>检测到的连续本地原点故障弹出次数（即使未强制）</p></td>
 </tr>
 <tr class="row-odd"><td><p>ejections_enforced_local_origin_success_rate</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of enforced success rate outlier ejections for locally originated failures</p></td>
+<td><p>本地发生的故障的强制成功率异常值弹出数</p></td>
 </tr>
 <tr class="row-even"><td><p>ejections_detected_local_origin_success_rate</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of detected success rate outlier ejections for locally originated failures (even if unenforced)</p></td>
+<td><p>检测到的本地故障的成功率异常值弹出数（即使未强制）</p></td>
 </tr>
 <tr class="row-odd"><td><p>ejections_enforced_failure_percentage</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of enforced failure percentage outlier ejections. Exact meaning of this counter depends on <a class="reference internal" href="../../../api-v3/config/cluster/v3/outlier_detection.proto.html#envoy-v3-api-field-config-cluster-v3-outlierdetection-split-external-local-origin-errors"><span class="std std-ref">outlier_detection.split_external_local_origin_errors</span></a> config item. Refer to <a class="reference internal" href="../../../intro/arch_overview/upstream/outlier.html#arch-overview-outlier-detection"><span class="std std-ref">Outlier Detection documentation</span></a> for details.</p></td>
+<td><p>强制失败百分比异常值弹出数。 此计数器的确切含义取决于 <a class="reference internal" href="../../../api-v3/config/cluster/v3/outlier_detection.proto.html#envoy-v3-api-field-config-cluster-v3-outlierdetection-split-external-local-origin-errors"><span class="std std-ref">outlier_detection.split_external_local_origin_errors</span></a> 配置项。 详情参考 <a class="reference internal" href="../../../intro/arch_overview/upstream/outlier.html#arch-overview-outlier-detection"><span class="std std-ref">异常过滤文档</span></a>。</p></td>
 </tr>
 <tr class="row-even"><td><p>ejections_detected_failure_percentage</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of detected failure percentage outlier ejections (even if unenforced). Exact meaning of this counter depends on <a class="reference internal" href="../../../api-v3/config/cluster/v3/outlier_detection.proto.html#envoy-v3-api-field-config-cluster-v3-outlierdetection-split-external-local-origin-errors"><span class="std std-ref">outlier_detection.split_external_local_origin_errors</span></a> config item. Refer to <a class="reference internal" href="../../../intro/arch_overview/upstream/outlier.html#arch-overview-outlier-detection"><span class="std std-ref">Outlier Detection documentation</span></a> for details.</p></td>
+<td><p>检测到的故障百分比异常弹出数（即使未强制）。 此计数器的确切含义取决于 <a class="reference internal" href="../../../api-v3/config/cluster/v3/outlier_detection.proto.html#envoy-v3-api-field-config-cluster-v3-outlierdetection-split-external-local-origin-errors"><span class="std std-ref">outlier_detection.split_external_local_origin_errors</span></a> 配置项。 详情参考 <a class="reference internal" href="../../../intro/arch_overview/upstream/outlier.html#arch-overview-outlier-detection"><span class="std std-ref">异常过滤文档</span></a>。</p></td>
 </tr>
 <tr class="row-odd"><td><p>ejections_enforced_failure_percentage_local_origin</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of enforced failure percentage outlier ejections for locally originated failures</p></td>
+<td><p>本地发生的故障的强制故障百分比异常值弹出数</p></td>
 </tr>
 <tr class="row-even"><td><p>ejections_detected_failure_percentage_local_origin</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of detected failure percentage outlier ejections for locally originated failures (even if unenforced)</p></td>
+<td><p>本地故障的检测到的故障百分比异常值弹出数（即使未强制）</p></td>
 </tr>
 <tr class="row-odd"><td><p>ejections_total</p></td>
 <td><p>Counter</p></td>
-<td><p>Deprecated. Number of ejections due to any outlier type (even if unenforced)</p></td>
+<td><p>已弃用。 任何异常值类型导致的弹出次数（即使未强制）</p></td>
 </tr>
 <tr class="row-even"><td><p>ejections_consecutive_5xx</p></td>
 <td><p>Counter</p></td>
-<td><p>Deprecated. Number of consecutive 5xx ejections (even if unenforced)</p></td>
+<td><p>已弃用。 连续5xx弹出次数（即使未强制）</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="circuit-breakers-statistics">
-<span id="config-cluster-manager-cluster-stats-circuit-breakers"></span><h2><a class="toc-backref" href="#id6">Circuit breakers statistics</a><a class="headerlink" href="#circuit-breakers-statistics" title="Permalink to this headline">¶</a></h2>
-<p>Circuit breakers statistics will be rooted at <em>cluster.&lt;name&gt;.circuit_breakers.&lt;priority&gt;.</em> and contain the following:</p>
+<div class="section" id="config-cluster-manager-cluster-stats-circuit-breakers">
+<span id="id5"></span><h2><a class="toc-backref" href="#id18">断路器统计</a><a class="headerlink" href="#config-cluster-manager-cluster-stats-circuit-breakers" title="Permalink to this headline">¶</a></h2>
+<p>断路器统计以 <em>cluster.&lt;name&gt;.circuit_breakers.&lt;priority&gt;.</em> 为根，包含如下信息：</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -719,55 +718,55 @@ statistics will be rooted at <em>cluster.&lt;name&gt;.outlier_detection.</em> an
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>cx_open</p></td>
 <td><p>Gauge</p></td>
-<td><p>Whether the connection circuit breaker is closed (0) or open (1)</p></td>
+<td><p>连接断路器是关闭（0）还是打开（1）</p></td>
 </tr>
 <tr class="row-odd"><td><p>cx_pool_open</p></td>
 <td><p>Gauge</p></td>
-<td><p>Whether the connection pool circuit breaker is closed (0) or open (1)</p></td>
+<td><p>连接池断路器是关闭（0）还是打开（1）</p></td>
 </tr>
 <tr class="row-even"><td><p>rq_pending_open</p></td>
 <td><p>Gauge</p></td>
-<td><p>Whether the pending requests circuit breaker is closed (0) or open (1)</p></td>
+<td><p>挂起的请求断路器是关闭（0）还是打开（1）</p></td>
 </tr>
 <tr class="row-odd"><td><p>rq_open</p></td>
 <td><p>Gauge</p></td>
-<td><p>Whether the requests circuit breaker is closed (0) or open (1)</p></td>
+<td><p>断路器是关闭（0）还是打开（1）</p></td>
 </tr>
 <tr class="row-even"><td><p>rq_retry_open</p></td>
 <td><p>Gauge</p></td>
-<td><p>Whether the retry circuit breaker is closed (0) or open (1)</p></td>
+<td><p>重试断路器是关闭（0）还是打开（1）</p></td>
 </tr>
 <tr class="row-odd"><td><p>remaining_cx</p></td>
 <td><p>Gauge</p></td>
-<td><p>Number of remaining connections until the circuit breaker opens</p></td>
+<td><p>断路器断开前的剩余连接数</p></td>
 </tr>
 <tr class="row-even"><td><p>remaining_pending</p></td>
 <td><p>Gauge</p></td>
-<td><p>Number of remaining pending requests until the circuit breaker opens</p></td>
+<td><p>断路器断开前的剩余未决请求数</p></td>
 </tr>
 <tr class="row-odd"><td><p>remaining_rq</p></td>
 <td><p>Gauge</p></td>
-<td><p>Number of remaining requests until the circuit breaker opens</p></td>
+<td><p>断路器断开前的剩余请求数</p></td>
 </tr>
 <tr class="row-even"><td><p>remaining_retries</p></td>
 <td><p>Gauge</p></td>
-<td><p>Number of remaining retries until the circuit breaker opens</p></td>
+<td><p>断路器断开前的剩余重试次数</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="timeout-budget-statistics">
-<span id="config-cluster-manager-cluster-stats-timeout-budgets"></span><h2><a class="toc-backref" href="#id7">Timeout budget statistics</a><a class="headerlink" href="#timeout-budget-statistics" title="Permalink to this headline">¶</a></h2>
-<p>If <a class="reference internal" href="../../../api-v3/config/cluster/v3/cluster.proto.html#envoy-v3-api-field-config-cluster-v3-cluster-track-timeout-budgets"><span class="std std-ref">timeout budget statistic tracking</span></a> is
-turned on, statistics will be added to <em>cluster.&lt;name&gt;</em> and contain the following:</p>
+<div class="section" id="config-cluster-manager-cluster-stats-timeout-budgets">
+<span id="id6"></span><h2><a class="toc-backref" href="#id19">超时预算统计</a><a class="headerlink" href="#config-cluster-manager-cluster-stats-timeout-budgets" title="Permalink to this headline">¶</a></h2>
+<p>如果打开了 <a class="reference internal" href="../../../api-v3/config/cluster/v3/cluster.proto.html#envoy-v3-api-field-config-cluster-v3-cluster-track-timeout-budgets"><span class="std std-ref">超时预算统计跟踪</span></a>，
+统计信息将添加到 <em>cluster.&lt;name&gt;</em> 并包含以下内容：</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -775,28 +774,27 @@ turned on, statistics will be added to <em>cluster.&lt;name&gt;</em> and contain
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>upstream_rq_timeout_budget_percent_used</p></td>
 <td><p>Histogram</p></td>
-<td><p>What percentage of the global timeout was used waiting for a response</p></td>
+<td><p>等待响应时使用的全局超时百分比是多少</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_rq_timeout_budget_per_try_percent_used</p></td>
 <td><p>Histogram</p></td>
-<td><p>What percentage of the per try timeout was used waiting for a response</p></td>
+<td><p>每次尝试超时等待响应的百分比是多少</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="dynamic-http-statistics">
-<span id="config-cluster-manager-cluster-stats-dynamic-http"></span><h2><a class="toc-backref" href="#id8">Dynamic HTTP statistics</a><a class="headerlink" href="#dynamic-http-statistics" title="Permalink to this headline">¶</a></h2>
-<p>If HTTP is used, dynamic HTTP response code statistics are also available. These are emitted by
-various internal systems as well as some filters such as the <a class="reference internal" href="../../http/http_filters/router_filter.html#config-http-filters-router"><span class="std std-ref">router filter</span></a> and <a class="reference internal" href="../../http/http_filters/rate_limit_filter.html#config-http-filters-rate-limit"><span class="std std-ref">rate limit filter</span></a>. They
-are rooted at <em>cluster.&lt;name&gt;.</em> and contain the following statistics:</p>
+<div class="section" id="http">
+<span id="config-cluster-manager-cluster-stats-dynamic-http"></span><h2><a class="toc-backref" href="#id20">动态 HTTP 统计</a><a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h2>
+<p>如果使用 HTTP，还可以使用动态 HTTP 响应代码统计信息。
+这些信息由各种内部系统以及一些过滤器（如路由过滤器 <a class="reference internal" href="../../http/http_filters/router_filter.html#config-http-filters-router"><span class="std std-ref">路由过滤器</span></a> 和 <a class="reference internal" href="../../http/http_filters/rate_limit_filter.html#config-http-filters-rate-limit"><span class="std std-ref">速率限制过滤器</span></a>）发出。它们的根位于 <em>cluster.&lt;name&gt;</em> 并包含以下统计信息：</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -804,90 +802,89 @@ are rooted at <em>cluster.&lt;name&gt;.</em> and contain the following statistic
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>upstream_rq_completed</p></td>
 <td><p>Counter</p></td>
-<td><p>Total upstream requests completed</p></td>
+<td><p>已完成的上游请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_rq_&lt;*xx&gt;</p></td>
 <td><p>Counter</p></td>
-<td><p>Aggregate HTTP response codes (e.g., 2xx, 3xx, etc.)</p></td>
+<td><p>聚合HTTP响应代码（例如 2xx、3xx 等）</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_rq_&lt;*&gt;</p></td>
 <td><p>Counter</p></td>
-<td><p>Specific HTTP response codes (e.g., 201, 302, etc.)</p></td>
+<td><p>特定的HTTP响应代码（例如 201、302 等）</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_rq_time</p></td>
 <td><p>Histogram</p></td>
-<td><p>Request time milliseconds</p></td>
+<td><p>请求时间毫秒数</p></td>
 </tr>
 <tr class="row-even"><td><p>canary.upstream_rq_completed</p></td>
 <td><p>Counter</p></td>
-<td><p>Total upstream canary requests completed</p></td>
+<td><p>已完成的上游金丝雀请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>canary.upstream_rq_&lt;*xx&gt;</p></td>
 <td><p>Counter</p></td>
-<td><p>Upstream canary aggregate HTTP response codes</p></td>
+<td><p>上游金丝雀聚合HTTP响应代码</p></td>
 </tr>
 <tr class="row-even"><td><p>canary.upstream_rq_&lt;*&gt;</p></td>
 <td><p>Counter</p></td>
-<td><p>Upstream canary specific HTTP response codes</p></td>
+<td><p>上游特定于金丝雀的HTTP响应代码</p></td>
 </tr>
 <tr class="row-odd"><td><p>canary.upstream_rq_time</p></td>
 <td><p>Histogram</p></td>
-<td><p>Upstream canary request time milliseconds</p></td>
+<td><p>上游金丝雀请求时间毫秒</p></td>
 </tr>
 <tr class="row-even"><td><p>internal.upstream_rq_completed</p></td>
 <td><p>Counter</p></td>
-<td><p>Total internal origin requests completed</p></td>
+<td><p>已完成的内部来源请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>internal.upstream_rq_&lt;*xx&gt;</p></td>
 <td><p>Counter</p></td>
-<td><p>Internal origin aggregate HTTP response codes</p></td>
+<td><p>内部源聚合 HTTP 响应代码</p></td>
 </tr>
 <tr class="row-even"><td><p>internal.upstream_rq_&lt;*&gt;</p></td>
 <td><p>Counter</p></td>
-<td><p>Internal origin specific HTTP response codes</p></td>
+<td><p>内部源指定 HTTP 响应代码</p></td>
 </tr>
 <tr class="row-odd"><td><p>internal.upstream_rq_time</p></td>
 <td><p>Histogram</p></td>
-<td><p>Internal origin request time milliseconds</p></td>
+<td><p>内部原点请求时间（毫秒）</p></td>
 </tr>
 <tr class="row-even"><td><p>external.upstream_rq_completed</p></td>
 <td><p>Counter</p></td>
-<td><p>Total external origin requests completed</p></td>
+<td><p>已完成的外部来源请求总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>external.upstream_rq_&lt;*xx&gt;</p></td>
 <td><p>Counter</p></td>
-<td><p>External origin aggregate HTTP response codes</p></td>
+<td><p>外部源聚合 HTTP 响应代码</p></td>
 </tr>
 <tr class="row-even"><td><p>external.upstream_rq_&lt;*&gt;</p></td>
 <td><p>Counter</p></td>
-<td><p>External origin specific HTTP response codes</p></td>
+<td><p>外部源指定 HTTP 响应代码</p></td>
 </tr>
 <tr class="row-odd"><td><p>external.upstream_rq_time</p></td>
 <td><p>Histogram</p></td>
-<td><p>External origin request time milliseconds</p></td>
+<td><p>外部原点请求时间（毫秒）</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="alternate-tree-dynamic-http-statistics">
-<span id="config-cluster-manager-cluster-stats-alt-tree"></span><h2><a class="toc-backref" href="#id9">Alternate tree dynamic HTTP statistics</a><a class="headerlink" href="#alternate-tree-dynamic-http-statistics" title="Permalink to this headline">¶</a></h2>
-<p>If alternate tree statistics are configured, they will be present in the
-<em>cluster.&lt;name&gt;.&lt;alt name&gt;.</em> namespace. The statistics produced are the same as documented in
-the dynamic HTTP statistics section <a class="reference internal" href="#config-cluster-manager-cluster-stats-dynamic-http"><span class="std std-ref">above</span></a>.</p>
+<div class="section" id="config-cluster-manager-cluster-stats-alt-tree">
+<span id="id7"></span><h2><a class="toc-backref" href="#id21">备用树动态 HTTP 统计信息</a><a class="headerlink" href="#config-cluster-manager-cluster-stats-alt-tree" title="Permalink to this headline">¶</a></h2>
+<p>如果配置了备用树统计信息，它们将出现在 <em>cluster.&lt;name&gt;.&lt;alt name&gt;.</em> 命名空间中。
+生成的统计信息与 <a class="reference internal" href="#config-cluster-manager-cluster-stats-dynamic-http"><span class="std std-ref">上面</span></a> 的动态 HTTP 统计信息部分中记录的信息相同。</p>
 </div>
-<div class="section" id="per-service-zone-dynamic-http-statistics">
-<span id="config-cluster-manager-cluster-per-az-stats"></span><h2><a class="toc-backref" href="#id10">Per service zone dynamic HTTP statistics</a><a class="headerlink" href="#per-service-zone-dynamic-http-statistics" title="Permalink to this headline">¶</a></h2>
-<p>If the service zone is available for the local service (via <a class="reference internal" href="../../../operations/cli.html#cmdoption-service-zone"><code class="xref std std-option docutils literal notranslate"><span class="pre">--service-zone</span></code></a>)
-and the <a class="reference internal" href="../../../intro/arch_overview/upstream/service_discovery.html#arch-overview-service-discovery-types-eds"><span class="std std-ref">upstream cluster</span></a>,
-Envoy will track the following statistics in <em>cluster.&lt;name&gt;.zone.&lt;from_zone&gt;.&lt;to_zone&gt;.</em> namespace.</p>
+<div class="section" id="config-cluster-manager-cluster-per-az-stats">
+<span id="id8"></span><h2><a class="toc-backref" href="#id22">每个服务区域的动态 HTTP 统计信息</a><a class="headerlink" href="#config-cluster-manager-cluster-per-az-stats" title="Permalink to this headline">¶</a></h2>
+<p>对于本地服务，如果服务区是可用的（通过 <a class="reference internal" href="../../../operations/cli.html#cmdoption-service-zone"><code class="xref std std-option docutils literal notranslate"><span class="pre">--service-zone</span></code></a>）
+或者 <a class="reference internal" href="../../../intro/arch_overview/upstream/service_discovery.html#arch-overview-service-discovery-types-eds"><span class="std std-ref">上游集群</span></a>，
+Envoy 将在 <em>cluster.&lt;name&gt;.zone.&lt;from_zone&gt;.&lt;to_zone&gt;.</em> 命名空间中跟踪以下统计信息：</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -895,31 +892,30 @@ Envoy will track the following statistics in <em>cluster.&lt;name&gt;.zone.&lt;f
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>upstream_rq_&lt;*xx&gt;</p></td>
 <td><p>Counter</p></td>
-<td><p>Aggregate HTTP response codes (e.g., 2xx, 3xx, etc.)</p></td>
+<td><p>聚合 HTTP 响应代码（例如 2xx、3xx 等）</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_rq_&lt;*&gt;</p></td>
 <td><p>Counter</p></td>
-<td><p>Specific HTTP response codes (e.g., 201, 302, etc.)</p></td>
+<td><p>特定 HTTP 响应代码（例如 201、302 等）</p></td>
 </tr>
 <tr class="row-even"><td><p>upstream_rq_time</p></td>
 <td><p>Histogram</p></td>
-<td><p>Request time milliseconds</p></td>
+<td><p>请求时间（毫秒）</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="load-balancer-statistics">
-<h2><a class="toc-backref" href="#id11">Load balancer statistics</a><a class="headerlink" href="#load-balancer-statistics" title="Permalink to this headline">¶</a></h2>
-<p>Statistics for monitoring load balancer decisions. Stats are rooted at <em>cluster.&lt;name&gt;.</em> and contain
-the following statistics:</p>
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="#id23">负载均衡统计信息</a><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>用于监视负载均衡器决策的统计信息。统计数据以 <em>cluster.&lt;name&gt;</em> 为根并包含以下信息：</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -927,59 +923,59 @@ the following statistics:</p>
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>lb_recalculate_zone_structures</p></td>
 <td><p>Counter</p></td>
-<td><p>The number of times locality aware routing structures are regenerated for fast decisions on upstream locality selection</p></td>
+<td><p>用于快速决定上游位置选择，重新生成位置感知路由结构的次数</p></td>
 </tr>
 <tr class="row-odd"><td><p>lb_healthy_panic</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests load balanced with the load balancer in panic mode</p></td>
+<td><p>在紧急模式下与负载均衡器进行负载均衡的请求总数</p></td>
 </tr>
 <tr class="row-even"><td><p>lb_zone_cluster_too_small</p></td>
 <td><p>Counter</p></td>
-<td><p>No zone aware routing because of small upstream cluster size</p></td>
+<td><p>由于上游集群规模较小，因此没有区域感知路由</p></td>
 </tr>
 <tr class="row-odd"><td><p>lb_zone_routing_all_directly</p></td>
 <td><p>Counter</p></td>
-<td><p>Sending all requests directly to the same zone</p></td>
+<td><p>将所有请求直接发送到同一区域</p></td>
 </tr>
 <tr class="row-even"><td><p>lb_zone_routing_sampled</p></td>
 <td><p>Counter</p></td>
-<td><p>Sending some requests to the same zone</p></td>
+<td><p>向同一区域发送一些请求</p></td>
 </tr>
 <tr class="row-odd"><td><p>lb_zone_routing_cross_zone</p></td>
 <td><p>Counter</p></td>
-<td><p>Zone aware routing mode but have to send cross zone</p></td>
+<td><p>区域感知路由模式，但必须跨区域发送</p></td>
 </tr>
 <tr class="row-even"><td><p>lb_local_cluster_not_ok</p></td>
 <td><p>Counter</p></td>
-<td><p>Local host set is not set or it is panic mode for local cluster</p></td>
+<td><p>未设置本地主机集或本地群集处于紧急模式</p></td>
 </tr>
 <tr class="row-odd"><td><p>lb_zone_number_differs</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of zones in local and upstream cluster different</p></td>
+<td><p>本地和上游集群中的区域数不同</p></td>
 </tr>
 <tr class="row-even"><td><p>lb_zone_no_capacity_left</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of times ended with random zone selection due to rounding error</p></td>
+<td><p>由于舍入误差以随机区域选择结束的总次数</p></td>
 </tr>
 <tr class="row-odd"><td><p>original_dst_host_invalid</p></td>
 <td><p>Counter</p></td>
-<td><p>Total number of invalid hosts passed to original destination load balancer</p></td>
+<td><p>传递到原始目标负载均衡器的非法主机总数</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="load-balancer-subset-statistics">
-<span id="config-cluster-manager-cluster-stats-subset-lb"></span><h2><a class="toc-backref" href="#id12">Load balancer subset statistics</a><a class="headerlink" href="#load-balancer-subset-statistics" title="Permalink to this headline">¶</a></h2>
-<p>Statistics for monitoring <a class="reference internal" href="../../../intro/arch_overview/upstream/load_balancing/subsets.html#arch-overview-load-balancer-subsets"><span class="std std-ref">load balancer subset</span></a>
-decisions. Stats are rooted at <em>cluster.&lt;name&gt;.</em> and contain the following statistics:</p>
+<div class="section" id="config-cluster-manager-cluster-stats-subset-lb">
+<span id="id10"></span><h2><a class="toc-backref" href="#id24">负载均衡器子集统计信息</a><a class="headerlink" href="#config-cluster-manager-cluster-stats-subset-lb" title="Permalink to this headline">¶</a></h2>
+<p>用于监视 <a class="reference internal" href="../../../intro/arch_overview/upstream/load_balancing/subsets.html#arch-overview-load-balancer-subsets"><span class="std std-ref">负载均衡器子集</span></a> 决策的统计信息。
+统计信息以 <em>cluster.&lt;name&gt;</em> 为根，并包含以下信息：</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -987,48 +983,47 @@ decisions. Stats are rooted at <em>cluster.&lt;name&gt;.</em> and contain the fo
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>lb_subsets_active</p></td>
 <td><p>Gauge</p></td>
-<td><p>Number of currently available subsets</p></td>
+<td><p>当前可用子集数</p></td>
 </tr>
 <tr class="row-odd"><td><p>lb_subsets_created</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of subsets created</p></td>
+<td><p>创建的子集数</p></td>
 </tr>
 <tr class="row-even"><td><p>lb_subsets_removed</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of subsets removed due to no hosts</p></td>
+<td><p>由于没有主机而删除的子集数</p></td>
 </tr>
 <tr class="row-odd"><td><p>lb_subsets_selected</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of times any subset was selected for load balancing</p></td>
+<td><p>选择任何子集进行负载均衡的次数</p></td>
 </tr>
 <tr class="row-even"><td><p>lb_subsets_fallback</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of times the fallback policy was invoked</p></td>
+<td><p>调用回退策略的次数</p></td>
 </tr>
 <tr class="row-odd"><td><p>lb_subsets_fallback_panic</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of times the subset panic mode triggered</p></td>
+<td><p>触发子集合紧急模式的次数</p></td>
 </tr>
 <tr class="row-even"><td><p>lb_subsets_single_host_per_subset_duplicate</p></td>
 <td><p>Gauge</p></td>
-<td><p>Number of duplicate (unused) hosts when using <a class="reference internal" href="../../../api-v3/config/cluster/v3/cluster.proto.html#envoy-v3-api-field-config-cluster-v3-cluster-lbsubsetconfig-lbsubsetselector-single-host-per-subset"><span class="std std-ref">single_host_per_subset</span></a></p></td>
+<td><p>使用 <a class="reference internal" href="../../../api-v3/config/cluster/v3/cluster.proto.html#envoy-v3-api-field-config-cluster-v3-cluster-lbsubsetconfig-lbsubsetselector-single-host-per-subset"><span class="std std-ref">single_host_per_subset</span></a> 时的重复（未使用）主机数</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="ring-hash-load-balancer-statistics">
-<span id="config-cluster-manager-cluster-stats-ring-hash-lb"></span><h2><a class="toc-backref" href="#id13">Ring hash load balancer statistics</a><a class="headerlink" href="#ring-hash-load-balancer-statistics" title="Permalink to this headline">¶</a></h2>
-<p>Statistics for monitoring the size and effective distribution of hashes when using the
-<a class="reference internal" href="../../../intro/arch_overview/upstream/load_balancing/load_balancers.html#arch-overview-load-balancing-types-ring-hash"><span class="std std-ref">ring hash load balancer</span></a>. Stats are rooted at
-<em>cluster.&lt;name&gt;.ring_hash_lb.</em> and contain the following statistics:</p>
+<div class="section" id="config-cluster-manager-cluster-stats-ring-hash-lb">
+<span id="id11"></span><h2><a class="toc-backref" href="#id25">哈希环负载均衡器统计信息</a><a class="headerlink" href="#config-cluster-manager-cluster-stats-ring-hash-lb" title="Permalink to this headline">¶</a></h2>
+<p>使用 <a class="reference internal" href="../../../intro/arch_overview/upstream/load_balancing/load_balancers.html#arch-overview-load-balancing-types-ring-hash"><span class="std std-ref">哈希环负载均衡器</span></a> 时，监视哈希大小和有效分布的统计信息。
+统计信息以 <em>cluster.&lt;name&gt;.ring_hash_lb.</em> 为根，并包含以下信息：</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -1036,32 +1031,32 @@ decisions. Stats are rooted at <em>cluster.&lt;name&gt;.</em> and contain the fo
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>size</p></td>
 <td><p>Gauge</p></td>
-<td><p>Total number of host hashes on the ring</p></td>
+<td><p>环上的主机哈希总数</p></td>
 </tr>
 <tr class="row-odd"><td><p>min_hashes_per_host</p></td>
 <td><p>Gauge</p></td>
-<td><p>Minimum number of hashes for a single host</p></td>
+<td><p>单个主机的最小哈希数</p></td>
 </tr>
 <tr class="row-even"><td><p>max_hashes_per_host</p></td>
 <td><p>Gauge</p></td>
-<td><p>Maximum number of hashes for a single host</p></td>
+<td><p>单个主机的最大哈希数</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="maglev-load-balancer-statistics">
-<span id="config-cluster-manager-cluster-stats-maglev-lb"></span><h2><a class="toc-backref" href="#id14">Maglev load balancer statistics</a><a class="headerlink" href="#maglev-load-balancer-statistics" title="Permalink to this headline">¶</a></h2>
-<p>Statistics for monitoring effective host weights when using the
-<a class="reference internal" href="../../../intro/arch_overview/upstream/load_balancing/load_balancers.html#arch-overview-load-balancing-types-maglev"><span class="std std-ref">Maglev load balancer</span></a>. Stats are rooted at
-<em>cluster.&lt;name&gt;.maglev_lb.</em> and contain the following statistics:</p>
+<div class="section" id="config-cluster-manager-cluster-stats-maglev-lb">
+<span id="id12"></span><h2><a class="toc-backref" href="#id26">磁浮负载均衡器统计</a><a class="headerlink" href="#config-cluster-manager-cluster-stats-maglev-lb" title="Permalink to this headline">¶</a></h2>
+<p>使用 <a class="reference internal" href="../../../intro/arch_overview/upstream/load_balancing/load_balancers.html#arch-overview-load-balancing-types-maglev"><span class="std std-ref">Maglev load balancer</span></a> 时，监控有效主机权重的统计信息。
+Stats are rooted at <em>cluster.&lt;name&gt;.maglev_lb.</em> and contain the following statistics:
+统计数据来源于 <em>cluster.&lt;name&gt;.maglev_lb.</em> 并包含以下信息：</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -1069,55 +1064,50 @@ decisions. Stats are rooted at <em>cluster.&lt;name&gt;.</em> and contain the fo
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>min_entries_per_host</p></td>
 <td><p>Gauge</p></td>
-<td><p>Minimum number of entries for a single host</p></td>
+<td><p>单个主机的最小条目数</p></td>
 </tr>
 <tr class="row-odd"><td><p>max_entries_per_host</p></td>
 <td><p>Gauge</p></td>
-<td><p>Maximum number of entries for a single host</p></td>
+<td><p>单个主机的最大条目数</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="request-response-size-statistics">
-<span id="config-cluster-manager-cluster-stats-request-response-sizes"></span><h2><a class="toc-backref" href="#id15">Request Response Size statistics</a><a class="headerlink" href="#request-response-size-statistics" title="Permalink to this headline">¶</a></h2>
-<p>If <a class="reference internal" href="../../../api-v3/config/cluster/v3/cluster.proto.html#envoy-v3-api-field-config-cluster-v3-cluster-track-cluster-stats"><span class="std std-ref">request response size statistics</span></a> are tracked,
-statistics will be added to <em>cluster.&lt;name&gt;</em> and contain the following:</p>
-<table class="colwidths-given docutils align-default">
+<div class="section" id="config-cluster-manager-cluster-stats-request-response-sizes">
+<span id="id13"></span><h2><a class="toc-backref" href="#id27">请求-响应大小统计信息</a><a class="headerlink" href="#config-cluster-manager-cluster-stats-request-response-sizes" title="Permalink to this headline">¶</a></h2>
+<p>如果跟踪了请求-响应大小统计信息，
+统计信息将添加到 <em>cluster.&lt;name&gt;</em> 并包含以下内容：</p>
+<table class="colwidths-given docutils align-default" id="id14">
+<caption><span class="caption-text">:header:名称, 类型, 描述</span><a class="headerlink" href="#id14" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 25%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
 <tbody>
-<tr class="row-even"><td><p>upstream_rq_headers_size</p></td>
+<tr class="row-odd"><td><p>upstream_rq_headers_size</p></td>
 <td><p>Histogram</p></td>
-<td><p>Request headers size in bytes per upstream</p></td>
+<td><p>每个上游的请求头大小（字节）</p></td>
 </tr>
-<tr class="row-odd"><td><p>upstream_rq_body_size</p></td>
+<tr class="row-even"><td><p>upstream_rq_body_size</p></td>
 <td><p>Histogram</p></td>
-<td><p>Request body size in bytes per upstream</p></td>
+<td><p>每个上游的请求正文大小（字节）</p></td>
 </tr>
-<tr class="row-even"><td><p>upstream_rs_headers_size</p></td>
+<tr class="row-odd"><td><p>upstream_rs_headers_size</p></td>
 <td><p>Histogram</p></td>
-<td><p>Response headers size in bytes per upstream</p></td>
+<td><p>每个上游的响应头大小（字节）</p></td>
 </tr>
-<tr class="row-odd"><td><p>upstream_rs_body_size</p></td>
+<tr class="row-even"><td><p>upstream_rs_body_size</p></td>
 <td><p>Histogram</p></td>
-<td><p>Response body size in bytes per upstream</p></td>
+<td><p>每个上游的响应正文大小（字节）</p></td>
 </tr>
 </tbody>
 </table>

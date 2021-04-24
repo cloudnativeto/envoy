@@ -9,7 +9,7 @@ Tap
 admin.v3.TapRequest
 -------------------
 
-`[admin.v3.TapRequest proto] <https://github.com/envoyproxy/envoy/blob/55e7c7a9dda594cc2fc71678cbf5766081728442/api/envoy/admin/v3/tap.proto#L18>`_
+`[admin.v3.TapRequest proto] <https://github.com/envoyproxy/envoy/blob/2c4f497377ffdcf1069c73e0571c2aea311381aa/api/envoy/admin/v3/tap.proto#L18>`_
 
 The /tap admin request body that is used to configure an active tap session.
 

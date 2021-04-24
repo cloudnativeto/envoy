@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>如何处理配置弃用？ &mdash; envoy 1.16.0-55e7c7 documentation</title>
+  <title>如何处理配置弃用？ &mdash; envoy 1.16.0-2c4f49 documentation</title>
   
 
   
@@ -47,7 +47,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Envoy 如何防止文件描述符耗尽？" href="resource_limits.html" />
-    <link rel="prev" title="How do I configure timeouts?" href="timeouts.html" /> 
+    <link rel="prev" title="如何配置超时?" href="timeouts.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-55e7c7
+                1.16.0-2c4f49
               </div>
             
           
@@ -122,7 +122,7 @@
 <li class="toctree-l3"><a class="reference internal" href="zone_aware_routing.html">如何配置区域感知路由？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="zipkin_tracing.html">如何配置 Zipkin 追踪？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="flow_control.html">How do I configure flow control?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="timeouts.html">How do I configure timeouts?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="timeouts.html">如何配置超时?</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">如何处理配置弃用？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="resource_limits.html">Envoy 如何防止文件描述符耗尽？</a></li>
 </ul>
@@ -200,7 +200,7 @@
             
   <div class="section" id="faq-deprecation">
 <span id="id1"></span><h1>如何处理配置弃用？<a class="headerlink" href="#faq-deprecation" title="Permalink to this headline">¶</a></h1>
-<p>如 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/55e7c7a9dda594cc2fc71678cbf5766081728442/CONTRIBUTING.md">CONTRIBUTING.md</a> 的“变更策略”中所述，只要有可用的替换项，功能就可以在任何时候被标记为已弃用。每种弃用都在 API proto 文件中进行了注释，并且在 <a class="reference internal" href="../../version_history/version_history.html#deprecated"><span class="std std-ref">Envoy 文档</span></a> 进行了详细的说明。</p>
+<p>如 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/2c4f497377ffdcf1069c73e0571c2aea311381aa/CONTRIBUTING.md">CONTRIBUTING.md</a> 的“变更策略”中所述，只要有可用的替换项，功能就可以在任何时候被标记为已弃用。每种弃用都在 API proto 文件中进行了注释，并且在 <a class="reference internal" href="../../version_history/version_history.html#deprecated"><span class="std std-ref">Envoy 文档</span></a> 进行了详细的说明。</p>
 <p>在弃用后的前三个月中，使用弃用的字段将会在结果中打印出 warning 的日志，并且累加 <a class="reference internal" href="../../configuration/operations/runtime.html#runtime-stats"><span class="std std-ref">deprecated_feature_use</span></a> 的计数器。
 此后，这个字段被默认注释为 fatal ，进一步该字段会被视为无效配置，除非 <a class="reference internal" href="../../configuration/operations/runtime.html#config-runtime-deprecation"><span class="std std-ref">runtime overrides</span></a> 被用于重启使用。</p>
 </div>
@@ -216,7 +216,7 @@
         <a href="resource_limits.html" class="btn btn-neutral float-right" title="Envoy 如何防止文件描述符耗尽？" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="timeouts.html" class="btn btn-neutral float-left" title="How do I configure timeouts?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="timeouts.html" class="btn btn-neutral float-left" title="如何配置超时?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

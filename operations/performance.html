@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Performance &mdash; envoy 1.16.0-55e7c7 documentation</title>
+  <title>性能 &mdash; envoy 1.16.0-2c4f49 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-55e7c7
+                1.16.0-2c4f49
               </div>
             
           
@@ -113,10 +113,10 @@
 <li class="toctree-l2"><a class="reference internal" href="stats_overview.html">统计概览</a></li>
 <li class="toctree-l2"><a class="reference internal" href="runtime.html">运行时</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fs_flags.html">文件系统标志</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_tapping.html">Traffic tapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_tapping.html">流量捕获</a></li>
 <li class="toctree-l2"><a class="reference internal" href="certificates.html">证书管理</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Performance</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#event-loop-statistics">Event loop statistics</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">性能</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">事件循环统计</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#watchdog">Watchdog</a></li>
 </ul>
 </li>
@@ -173,7 +173,7 @@
         
           <li><a href="operations.html">操作和管理</a> &raquo;</li>
         
-      <li>Performance</li>
+      <li>性能</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -192,42 +192,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="performance">
-<span id="operations-performance"></span><h1>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h1>
-<p>Envoy is architected to optimize scalability and resource utilization by running an event loop on a
-<a class="reference internal" href="../intro/arch_overview/intro/threading_model.html#arch-overview-threading"><span class="std std-ref">small number of threads</span></a>. The “main” thread is responsible for
-control plane processing, and each “worker” thread handles a portion of the data plane processing.
-Envoy exposes two statistics to monitor performance of the event loops on all these threads.</p>
+  <div class="section" id="operations-performance">
+<span id="id1"></span><h1>性能<a class="headerlink" href="#operations-performance" title="Permalink to this headline">¶</a></h1>
+<p>Envoy旨在通过在 :ref: 少量线程 &lt;arch_overview_threading&gt; 上运行事件循环来优化可伸缩性和资源利用。
+它的主线程负责控制平面的处理，每一个 worker 线程负责负责数据平面处理的一部分。
+Envoy公开了两个统计指标，以监视所有这些线程上事件循环的性能。</p>
 <ul class="simple">
-<li><p><strong>Loop duration:</strong> Some amount of processing is done on each iteration of the event loop. This
-amount will naturally vary with changes in load. However, if one or more threads have an unusually
-long-tailed loop duration, it may indicate a performance issue. For example, work might not be
-distributed fairly across the worker threads, or there may be a long blocking operation in an
-extension that’s impeding progress.</p></li>
-<li><p><strong>Poll delay:</strong> On each iteration of the event loop, the event dispatcher polls for I/O events
-and “wakes up” either when some I/O events are ready to be processed or when a timeout fires,
-whichever occurs first. In the case of a timeout, we can measure the difference between the
-expected wakeup time and the actual wakeup time after polling; this difference is called the “poll
-delay.” It’s normal to see some small poll delay, usually equal to the kernel scheduler’s “time
-slice” or “quantum”—this depends on the specific operating system on which Envoy is
-running—but if this number elevates substantially above its normal observed baseline, it likely
-indicates kernel scheduler delays.</p></li>
+<li><p><strong>循环持续时间：</strong> 事件循环的每次迭代都会进行一定数量的处理。该数量会自然的随着负载的变化而变化。但是，如果一个或
+多个线程的循环持续时间异常长，则可能表示一个性能问题。例如，工作可能无法在工作线程之间平均分配，
+或者扩展程序中可能存在长时间的阻塞操作，从而阻碍了进度。</p></li>
+<li><p><strong>轮询延迟：</strong> 在事件循环的每次迭代中，事件分派器都会轮询 I/O 事件，并在准备好要处理某些 I/O 事件或发生超时时（以
+先到者为准）“唤醒”。如果发生超时，我们可以测量预期唤醒时间与轮询后的实际唤醒时间之间的差，这种
+差异称为“轮询延迟”。正常情况下会看到一些小的轮询延迟，通常等于内核调度程序的“时间片”或“量子”，
+这取决于 Envoy 在其上运行的特定操作系统，但是，如果该数目大大高于正常情况下观察到的基线值，则可能
+表明内核调度程序延迟。</p></li>
 </ul>
-<p>These statistics can be enabled by setting <a class="reference internal" href="../api-v3/config/bootstrap/v3/bootstrap.proto.html#envoy-v3-api-field-config-bootstrap-v3-bootstrap-enable-dispatcher-stats"><span class="std std-ref">enable_dispatcher_stats</span></a>
-to true.</p>
+<p>这些统计信息可以通过设置 :ref: enable_dispatcher_stats
+&lt;envoy_v3_api_field_config.bootstrap.v3.Bootstrap.enable_dispatcher_stats&gt; 为 true 来启用</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Note that enabling dispatcher stats records a value for each iteration of the event loop on every
-thread. This should normally be minimal overhead, but when using
-<a class="reference internal" href="../api-v3/config/metrics/v3/stats.proto.html#envoy-v3-api-msg-config-metrics-v3-statsdsink"><span class="std std-ref">statsd</span></a>, it will send each observed value over
-the wire individually because the statsd protocol doesn’t have any way to represent a histogram
-summary. Be aware that this can be a very large volume of data.</p>
+<p>请注意，启用调度程序统计信息会为每个线程上的事件循环的每次迭代记录一个值。通常这应该是最小的开销，但是当使用 :ref: statsd &lt;envoy_v3_api_msg_config.metrics.v3.StatsdSink&gt; 时，因为 statsd 协议无法表示直方图摘要，所以它将通过电线单独发送每个观测值。请注意，这可能是非常大量的数据。</p>
 </div>
-<div class="section" id="event-loop-statistics">
-<h2>Event loop statistics<a class="headerlink" href="#event-loop-statistics" title="Permalink to this headline">¶</a></h2>
-<p>The event dispatcher for the main thread has a statistics tree rooted at <em>server.dispatcher.</em>, and
-the event dispatcher for each worker thread has a statistics tree rooted at
-<em>listener_manager.worker_&lt;id&gt;.dispatcher.</em>, each with the following statistics:</p>
+<div class="section" id="id2">
+<h2>事件循环统计<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>主线程的事件分配器的统计树植根于服务器，分派器和每个工作线程的事件分派器都有一个统计树，该树根植于
+<em>listener_manager.worker_ &lt;id&gt;.dispatcher.</em> ，每个都有以下统计信息：</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -235,39 +224,34 @@ the event dispatcher for each worker thread has a statistics tree rooted at
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>loop_duration_us</p></td>
 <td><p>Histogram</p></td>
-<td><p>Event loop durations in microseconds</p></td>
+<td><p>事件循环持续时间（以微秒为单位）</p></td>
 </tr>
 <tr class="row-odd"><td><p>poll_delay_us</p></td>
 <td><p>Histogram</p></td>
-<td><p>Polling delays in microseconds</p></td>
+<td><p>轮询延迟（以微秒为单位）</p></td>
 </tr>
 </tbody>
 </table>
-<p>Note that any auxiliary threads are not included here.</p>
+<p>请注意，此处不包括任何辅助线程。</p>
 </div>
 <div class="section" id="watchdog">
 <span id="operations-performance-watchdog"></span><h2>Watchdog<a class="headerlink" href="#watchdog" title="Permalink to this headline">¶</a></h2>
-<p>In addition to event loop statistics, Envoy also include a configurable
-<a class="reference internal" href="../api-v3/config/bootstrap/v3/bootstrap.proto.html#envoy-v3-api-field-config-bootstrap-v3-bootstrap-watchdogs"><span class="std std-ref">watchdog</span></a>
-system that can increment statistics when Envoy is not responsive and
-optionally kill the server. The system has two separate watchdog configs, one
-for the main thread and one for worker threads; this is helpful as the different
-threads have different workloads. The system also has an extension point
-allowing for custom actions to be taken based on watchdog events. The
-statistics are useful for understanding at a high level whether Envoy’s event
-loop is not responsive either because it is doing too much work, blocking, or
-not being scheduled by the OS.</p>
-<p>The watchdog emits aggregated statistics in both <em>main_thread</em> and <em>workers</em>.
-In addition, it emits individual statistics under  <em>server.&lt;thread_name&gt;.</em> trees.
-<em>&lt;thread_name&gt;</em> is equal to <em>main_thread</em>, <em>worker_0</em>, <em>worker_1</em>, etc.</p>
+<p>除了事件循环统计信息外，Envoy还包括一个可配置的:ref: 看门狗
+&lt;envoy_v3_api_field_config.bootstrap.v3.Bootstrap.watchdogs&gt; 系统，该系统可以在 Envoy 不响应时增加
+统计信息并有选择地杀死服务器。此系统具有两个单独的看门狗配置，一个用于主线程，一个用于工作线程。
+这是有用的，因为不同的线程有不同的工作负载。该系统还有一个扩展点，允许根据看门狗事件采取自定义操作。
+这些统计信息有助于从更高的层次了解 Envoy 的事件循环是否是因为进行了太多的工作、阻塞
+或者未被操作系统调用而没有响应。</p>
+<p>另外，它在 server.&lt;thread_name&gt;. 树下发出单独的统计信息。
+&lt;thread_name&gt; 等同于 main_thread，worker_0，worker_1 等。</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -275,19 +259,19 @@ In addition, it emits individual statistics under  <em>server.&lt;thread_name&gt
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>watchdog_miss</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of standard misses</p></td>
+<td><p>标准未中次数</p></td>
 </tr>
 <tr class="row-odd"><td><p>watchdog_mega_miss</p></td>
 <td><p>Counter</p></td>
-<td><p>Number of mega misses</p></td>
+<td><p>大型未命中数</p></td>
 </tr>
 </tbody>
 </table>

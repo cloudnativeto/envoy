@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>HTTP 过滤器 &mdash; envoy 1.16.0-55e7c7 documentation</title>
+  <title>HTTP 过滤器 &mdash; envoy 1.16.0-2c4f49 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-55e7c7
+                1.16.0-2c4f49
               </div>
             
           
@@ -142,7 +142,7 @@
 <li class="toctree-l4"><a class="reference internal" href="original_src_filter.html">请求源</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rate_limit_filter.html">限流</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rbac_filter.html">基于角色的访问控制（RBAC）过滤器</a></li>
-<li class="toctree-l4"><a class="reference internal" href="router_filter.html">Router</a></li>
+<li class="toctree-l4"><a class="reference internal" href="router_filter.html">路由器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="squash_filter.html">Squash</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tap_filter.html">Tap</a></li>
 </ul>
@@ -413,13 +413,13 @@
 <li class="toctree-l2"><a class="reference internal" href="rbac_filter.html#config-http-filters-rbac-dynamic-metadata">动态元数据</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="router_filter.html">Router</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="router_filter.html#http-headers-consumed-from-downstreams">HTTP headers (consumed from downstreams)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="router_filter.html#http-response-headers-consumed-from-upstream">HTTP response headers consumed from upstream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="router_filter.html#http-request-headers-set-on-upstream-calls">HTTP request headers set on upstream calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="router_filter.html#http-response-headers-set-on-downstream-responses">HTTP response headers set on downstream responses</a></li>
-<li class="toctree-l2"><a class="reference internal" href="router_filter.html#statistics">Statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="router_filter.html#runtime">Runtime</a></li>
+<li class="toctree-l1"><a class="reference internal" href="router_filter.html">路由器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="router_filter.html#http">HTTP 头部 (从下游消费)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="router_filter.html#id3">从上游消费的 HTTP 响应头部</a></li>
+<li class="toctree-l2"><a class="reference internal" href="router_filter.html#config-http-filters-router-headers-set">在上游调用中设置 HTTP 的请求头部</a></li>
+<li class="toctree-l2"><a class="reference internal" href="router_filter.html#id7">在下游响应中设置 HTTP 响应头部</a></li>
+<li class="toctree-l2"><a class="reference internal" href="router_filter.html#config-http-filters-router-stats">统计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="router_filter.html#id10">运行时</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="squash_filter.html">Squash</a><ul>

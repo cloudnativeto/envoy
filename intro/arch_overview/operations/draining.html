@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Draining &mdash; envoy 1.16.0-55e7c7 documentation</title>
+  <title>排空 &mdash; envoy 1.16.0-2c4f49 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-55e7c7
+                1.16.0-2c4f49
               </div>
             
           
@@ -113,7 +113,7 @@
 <li class="toctree-l3 current"><a class="reference internal" href="operations.html">操作与配置</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="dynamic_configuration.html">xDS 配置 API 概述</a></li>
 <li class="toctree-l4"><a class="reference internal" href="init.html">初始化</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Draining</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">排空</a></li>
 <li class="toctree-l4"><a class="reference internal" href="runtime.html">运行时配置</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hot_restart.html">热重启</a></li>
 <li class="toctree-l4"><a class="reference internal" href="overload_manager.html">过载管理</a></li>
@@ -189,7 +189,7 @@
         
           <li><a href="operations.html">操作与配置</a> &raquo;</li>
         
-      <li>Draining</li>
+      <li>排空</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -208,46 +208,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="draining">
-<span id="arch-overview-draining"></span><h1>Draining<a class="headerlink" href="#draining" title="Permalink to this headline">¶</a></h1>
-<p>In a few different scenarios, Envoy will attempt to gracefully shed connections. For instance,
-during server shutdown, existing requests can be discouraged and listeners set to stop accepting,
-to reduce the number of open connections when the server shuts down. Draining behaviour is defined
-by the server options in addition to individual listener configs.</p>
-<p>Draining occurs at the following times:</p>
+  <div class="section" id="arch-overview-draining">
+<span id="id1"></span><h1>排空<a class="headerlink" href="#arch-overview-draining" title="Permalink to this headline">¶</a></h1>
+<p>排空（Draining）是 Envoy 相应各种事件试图优雅地关闭连接的过程。例如，在服务器关闭期间，可以阻止现有请求，并将监听器设置为停止接受，以减少服务器关闭时打开的连接数。除个别监听器配置外，服务器选项还定义了排空行为。</p>
+<p>排空发生在以下时机：</p>
 <ul class="simple">
-<li><p>The server is being <a class="reference internal" href="hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">hot restarted</span></a>.</p></li>
-<li><p>The server begins the graceful drain sequence via the <a class="reference internal" href="../../../operations/admin.html#operations-admin-interface-drain"><span class="std std-ref">drain_listeners?graceful</span></a> admin endpoint.</p></li>
-<li><p>The server has been manually health check failed via the <a class="reference internal" href="../../../operations/admin.html#operations-admin-interface-healthcheck-fail"><span class="std std-ref">healthcheck/fail</span></a> admin endpoint. See the <a class="reference internal" href="../upstream/health_checking.html#arch-overview-health-checking-filter"><span class="std std-ref">health check filter</span></a> architecture overview for more information.</p></li>
-<li><p>Individual listeners are being modified or removed via <a class="reference internal" href="dynamic_configuration.html#arch-overview-dynamic-config-lds"><span class="std std-ref">LDS</span></a>.</p></li>
+<li><p>服务器 <a class="reference internal" href="hot_restart.html#arch-overview-hot-restart"><span class="std std-ref">热重启</span></a> 。</p></li>
+<li><p>服务器通过 <a class="reference internal" href="../../../operations/admin.html#operations-admin-interface-drain"><span class="std std-ref">drain_listeners?graceful</span></a> 管理端点，开始优雅的排空序列。</p></li>
+<li><p>服务器通过 <a class="reference internal" href="../../../operations/admin.html#operations-admin-interface-healthcheck-fail"><span class="std std-ref">健康检查失败</span></a> 管理端点，手动设置健康检查失败。更多信息，请参阅 <a class="reference internal" href="../upstream/health_checking.html#arch-overview-health-checking-filter"><span class="std std-ref">健康检查过滤器</span></a> 架构概述。</p></li>
+<li><p>通过 <a class="reference internal" href="dynamic_configuration.html#arch-overview-dynamic-config-lds"><span class="std std-ref">LDS</span></a> 修改或者移除单个监听器。</p></li>
 </ul>
-<p>By default, the Envoy server will close listeners immediately on server shutdown. To drain listeners
-for some duration of time prior to server shutdown, use <a class="reference internal" href="../../../operations/admin.html#operations-admin-interface-drain"><span class="std std-ref">drain_listeners</span></a>
-before shutting down the server. The listeners will be directly stopped without any graceful draining behaviour,
-and cease accepting new connections immediately.</p>
-<p>To add a graceful drain period prior to listeners being closed, use the query parameter
-<a class="reference internal" href="../../../operations/admin.html#operations-admin-interface-drain"><span class="std std-ref">drain_listeners?graceful</span></a>. By default, Envoy
-will discourage requests for some period of time (as determined by <a class="reference internal" href="../../../operations/cli.html#cmdoption-drain-time-s"><code class="xref std std-option docutils literal notranslate"><span class="pre">--drain-time-s</span></code></a>).
-The behaviour of request discouraging is determined by the drain manager.</p>
-<p>Note that although draining is a per-listener concept, it must be supported at the network filter
-level. Currently the only filters that support graceful draining are
-<a class="reference internal" href="../../../configuration/listeners/network_filters/redis_proxy_filter.html#config-network-filters-redis-proxy"><span class="std std-ref">Redis</span></a>,
-<a class="reference internal" href="../../../configuration/listeners/network_filters/mongo_proxy_filter.html#config-network-filters-mongo-proxy"><span class="std std-ref">Mongo</span></a>,
-and <a class="reference internal" href="../../../configuration/http/http_conn_man/http_conn_man.html#config-http-conn-man"><span class="std std-ref">HTTP connection manager</span></a>.</p>
-<p>By default, the <a class="reference internal" href="../../../configuration/http/http_conn_man/http_conn_man.html#config-http-conn-man"><span class="std std-ref">HTTP connection manager</span></a> filter will
-add “Connection: close” to HTTP1 requests, send HTTP2 GOAWAY, and terminate connections
-on request completion (after the delayed close period).</p>
-<p>Each <a class="reference internal" href="../listeners/listeners.html#arch-overview-listeners"><span class="std std-ref">configured listener</span></a> has a <a class="reference internal" href="../../../api-v3/config/listener/v3/listener.proto.html#envoy-v3-api-enum-config-listener-v3-listener-draintype"><span class="std std-ref">drain_type</span></a> setting which controls when draining takes place. The currently
-supported values are:</p>
+<p>默认情况下，Envoy 服务器将在服务器关闭时立即关闭监听器。监听器将被直接停止，而没有任何优雅的排空行为，并立即停止接受新的连接。若要在服务器关闭之前的一段时间内排空监听器，可以在服务器关闭之前使用 <a class="reference internal" href="../../../operations/admin.html#operations-admin-interface-drain"><span class="std std-ref">drain_listeners</span></a> 。</p>
+<p>若要在关闭监听器之前添加一个优雅的排空周期，请使用查询参数 <a class="reference internal" href="../../../operations/admin.html#operations-admin-interface-drain"><span class="std std-ref">drain_listeners?graceful</span></a> 。默认情况下，Envoy 会在一段时间（由 <a class="reference internal" href="../../../operations/cli.html#cmdoption-drain-time-s"><code class="xref std std-option docutils literal notranslate"><span class="pre">--drain-time-s</span></code></a> 确定）内阻止请求。请求阻止的行为由排空管理器确定。</p>
+<p>请注意，尽管排空是监听器级别的概念，但前提是必须要在网络过滤器层面支持它。目前，支持优雅排空的过滤器只有 <a class="reference internal" href="../../../configuration/listeners/network_filters/redis_proxy_filter.html#config-network-filters-redis-proxy"><span class="std std-ref">Redis</span></a> 、<a class="reference internal" href="../../../configuration/listeners/network_filters/mongo_proxy_filter.html#config-network-filters-mongo-proxy"><span class="std std-ref">Mongo</span></a> 和 <a class="reference internal" href="../../../configuration/http/http_conn_man/http_conn_man.html#config-http-conn-man"><span class="std std-ref">HTTP 连接管理器</span></a> 。</p>
+<p>默认情况下，<a class="reference internal" href="../../../configuration/http/http_conn_man/http_conn_man.html#config-http-conn-man"><span class="std std-ref">HTTP 连接管理器</span></a> 过滤器会向 HTTP1 请求添加 “Connection: close” ，发送 HTTP2 GOAWAY，并在请求完成时（在延迟的关闭时间之后）终止连接。</p>
+<p>每个 <a class="reference internal" href="../listeners/listeners.html#arch-overview-listeners"><span class="std std-ref">已配置监听器</span></a> 都有一个 <a class="reference internal" href="../../../api-v3/config/listener/v3/listener.proto.html#envoy-v3-api-enum-config-listener-v3-listener-draintype"><span class="std std-ref">drain_type</span></a> 设置，用来控制排空何时发生。目前支持的值有：</p>
 <dl class="simple">
-<dt>default</dt><dd><p>Envoy will drain listeners in response to all three cases above (admin health fail, hot restart, and
-LDS update/remove). This is the default setting.</p>
+<dt>default</dt><dd><p>Envoy 将在上述三种情况（健康检查失败、热重启和 LDS 更新/删除）发生时排空监听器。这是默认设置。</p>
 </dd>
-<dt>modify_only</dt><dd><p>Envoy will drain listeners only in response to the 2nd and 3rd cases above (hot restart and
-LDS update/remove). This setting is useful if Envoy is hosting both ingress and egress listeners.
-It may be desirable to set <em>modify_only</em> on egress listeners so they only drain during
-modifications while relying on ingress listener draining to perform full server draining when
-attempting to do a controlled shutdown.</p>
+<dt>modify_only</dt><dd><p>Envoy 只会在上述第二和第三种情况（热重启和 LDS 更新/删除）发生时排空监听器。如果 Envoy 同时托管了 ingress 和 egress 监听器，此设置会很有用。可能需要在 egress 监听器上设置 <em>modify_only</em>，以便它们仅在修改期间排空，而在尝试执行受控关闭时依靠 ingress 监听器排空来执行完整的服务器排空。</p>
 </dd>
 </dl>
 </div>

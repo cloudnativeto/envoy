@@ -20,7 +20,7 @@ Set the upstream cluster name from the SNI field in the TLS connection.
 config.filter.network.sni_cluster.v2.SniCluster
 -----------------------------------------------
 
-`[config.filter.network.sni_cluster.v2.SniCluster proto] <https://github.com/envoyproxy/envoy/blob/55e7c7a9dda594cc2fc71678cbf5766081728442/api/envoy/config/filter/network/sni_cluster/v2/sni_cluster.proto#L18>`_
+`[config.filter.network.sni_cluster.v2.SniCluster proto] <https://github.com/envoyproxy/envoy/blob/2c4f497377ffdcf1069c73e0571c2aea311381aa/api/envoy/config/filter/network/sni_cluster/v2/sni_cluster.proto#L18>`_
 
 
 .. code-block:: json
