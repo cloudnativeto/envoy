@@ -3,7 +3,7 @@
 流量捕获
 ==========
 
-Envoy目前提供了两个可以捕获流量的实验性扩展：
+Envoy 目前提供了两个可以捕获流量的实验性扩展：
 
   * :ref:`HTTP 捕获过滤器 <config_http_filters_tap>`。更多信息参见过滤器文档。
   * :ref:`捕获传输套接字拓展 <envoy_v3_api_msg_config.core.v3.TransportSocket>` 可以拦截流量并写入 :ref:`protobuf 跟踪文件 <envoy_v3_api_msg_data.tap.v3.TraceWrapper>`。本文档的其余部分将介绍捕获传输套接字的配置。
