@@ -49,7 +49,7 @@ Watchdog
 这些统计信息有助于从更高的层次了解 Envoy 的事件循环是否是因为进行了太多的工作、阻塞
 或者未被操作系统调用而没有响应。
 
-看门狗在 main_thread 和 worker 中都发出聚合的统计信息。另外，它在服务器下发出单独的统计信息
+另外，它在 server.<thread_name>. 树下发出单独的统计信息。
 <thread_name> 树 <thread_name>等于 main_thread，worker_0，worker_1等。
 
 .. csv-table::
