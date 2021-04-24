@@ -18,7 +18,7 @@ Envoy 目前提供了两个可以捕获流量的实验性扩展：
 捕获器可以在 :ref:`监听器
 <envoy_v3_api_field_config.listener.v3.FilterChain.transport_socket>` 和 :ref:`集群
 <envoy_v3_api_field_config.cluster.v3.Cluster.transport_socket>` 传输套接字上配置，提供分别在下行和上行L4连接上进行插接的能力。
-要配置流量捕获，需要在监听器或集群中添加一个  `envoy.transport_sockets.tap`  传输套接字
+要配置流量捕获，需要在监听器或集群中添加一个 `envoy.transport_sockets.tap`  传输套接字
 :ref:`配置<envoy_v3_api_msg_extensions.filters.http.tap.v3.Tap>`。对于纯文本套接字来说，它可能是这样的：
 
 .. code-block:: yaml
