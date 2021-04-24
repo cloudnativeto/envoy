@@ -40,7 +40,7 @@ Envoy公开了两个统计指标，以监视所有这些线程上事件循环的
 
 .. _operations_performance_watchdog:
 
-看门狗
+Watchdog
 --------
 除了事件循环统计信息外，Envoy还包括一个可配置的:ref: 看门狗 
 <envoy_v3_api_field_config.bootstrap.v3.Bootstrap.watchdogs> 系统，该系统可以在 Envoy 不响应时增加
