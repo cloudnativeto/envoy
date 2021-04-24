@@ -60,7 +60,7 @@ TLS 套接字，是这样的：
         name: envoy.transport_sockets.tls
         typed_config: <TLS context>
 
-其中，TLS 上下文配置分别替换了监听器或集群上现有的 :ref:`下行<envoy_v3_api_msg_extensions.transport_sockets.tls.v3.DownstreamTlsContext>` 或 :ref:`上行 <envoy_v3_api_msg_extensions.transport_sockets.tls.v3.UpstreamTlsContext>`  TLS 配置。
+其中，TLS 上下文配置分别替换了监听器或集群上现有的 :ref:`下行<envoy_v3_api_msg_extensions.transport_sockets.tls.v3.DownstreamTlsContext>` 或 :ref:`上行 <envoy_v3_api_msg_extensions.transport_sockets.tls.v3.UpstreamTlsContext>` TLS 配置。
 
 每个独特的套接字实例都会生成一个以 path_prefix 为前缀的跟踪文件。例如：/some/tap/path_0.pb。
 
