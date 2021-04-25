@@ -4,23 +4,19 @@
 AWS Lambda
 ==========
 
-* :ref:`v3 API reference <envoy_v3_api_msg_extensions.filters.http.aws_lambda.v3.Config>`
-* This filter should be configured with the name *envoy.filters.http.aws_lambda*.
+* :ref:`v3 API 参考 <envoy_v3_api_msg_extensions.filters.http.aws_lambda.v3.Config>`
+* 过滤器的名称应该被配置为 *envoy.filters.http.aws_lambda*。
 
 .. attention::
 
-  The AWS Lambda filter is currently under active development.
+  AWS Lambda 过滤器目前正在积极开发中。
 
-The HTTP AWS Lambda filter is used to trigger an AWS Lambda function from a standard HTTP/1.x or HTTP/2 request.
-It supports a few options to control whether to pass through the HTTP request payload as is or to wrap it in a JSON
-schema.
+HTTP AWS Lambda 过滤器用于从标准 HTTP/1.x 或 HTTP/2 请求中触发 AWS Lambda 函数。
 
-If :ref:`payload_passthrough <envoy_v3_api_field_extensions.filters.http.aws_lambda.v3.Config.payload_passthrough>` is set to
-``true``, then the payload is sent to Lambda without any transformations.
-*Note*: This means you lose access to all the HTTP headers in the Lambda function.
+如果 :ref:`payload_passthrough <envoy_v3_api_field_extensions.filters.http.aws_lambda.v3.Config.payload_passthrough>` 被设置为 ``true``，然后负载将会被发送到 Lambda 函数，而不进行任何转换。
+*注意*: 这意味着你将无法访问 Lambda 函数中所有的 HTTP 头。
 
-However, if :ref:`payload_passthrough <envoy_v3_api_field_extensions.filters.http.aws_lambda.v3.Config.payload_passthrough>`
-is set to ``false``, then the HTTP request is transformed to a JSON payload with the following schema:
+但如果 :ref:`payload_passthrough <envoy_v3_api_field_extensions.filters.http.aws_lambda.v3.Config.payload_passthrough>` 被设置为 ``false``，HTTP 请求被转换为具有以下模式的 JSON 负载：
 
 .. code-block::
 
@@ -33,22 +29,20 @@ is set to ``false``, then the HTTP request is transformed to a JSON payload with
         "isBase64Encoded": true|false
     }
 
-- ``rawPath`` is the HTTP request resource path (including the query string)
-- ``method`` is the HTTP request method. For example ``GET``, ``PUT``, etc.
-- ``headers`` are the HTTP request headers. If multiple headers share the same name, their values are
-  coalesced into a single comma-separated value.
-- ``queryStringParameters`` are the HTTP request query string parameters. If multiple parameters share the same name,
-  the last one wins. That is, parameters are _not_ coalesced into a single value if they share the same key name.
-- ``body`` the body of the HTTP request is base64-encoded by the filter if the ``content-type`` header exists and is _not_ one of the following:
+- ``rawPath`` 是 HTTP 请求资源路径（包含查询字符串）
+- ``method`` 是 HTTP 请求方法。例如 ``GET``, ``PUT`` 等。
+- ``headers`` 是 HTTP 请求头。如果多个头使用相同的名称，则他们的值会合并为一个逗号分隔的值。
+- ``queryStringParameters`` 是 HTTP 请求查询字符串参数。如果多个参数使用相同的名称，最后一个会将之前的替换。也就是说，如果参数共享同一个键名称，则它们不会合并为同一个值。
+- ``body`` 如果 ``content-type`` 头存在并且不是下面之一，则 HTTP 请求的请求体由过滤器进行 base64 编码：
 
     -  text/*
     -  application/json
     -  application/xml
     -  application/javascript
 
-Otherwise, the body of HTTP request is added to the JSON payload as is.
+否则，HTTP 请求的请求体会原样添加到 JSON 负载中。
 
-On the other end, the response of the Lambda function must conform to the following schema:
+另一方面，Lambda 函数的响应必须符合以下模式：
 
 .. code-block::
 
@@ -60,30 +54,26 @@ On the other end, the response of the Lambda function must conform to the follow
         "isBase64Encoded": true|false
     }
 
-- The ``statusCode`` field is an integer used as the HTTP response code. If this key is missing, Envoy returns a ``200
-  OK``.
-- The ``headers`` are used as the HTTP response headers.
-- The ``cookies`` are used as ``Set-Cookie`` response headers. Unlike the request headers, cookies are _not_ part of the
-  response headers because the ``Set-Cookie`` header cannot contain more than one value per the `RFC`_. Therefore, Each
-  key/value pair in this JSON array will translate to a single ``Set-Cookie`` header.
-- The ``body`` is base64-decoded if it is marked as base64-encoded and sent as the body of the HTTP response.
+- ``statusCode`` 字段是用作 HTTP 响应码的整数。如果这个键消失，Envoy 会返回一个 ``200 OK``。
+- ``headers`` 用作 HTTP 响应头。
+- ``cookies`` 用作 ``Set-Cookie`` 响应头。与请求头不一样，cookies 不是响应头的一部分，因为每个 `RFC` 的 ``Set-Cookie`` 头不包含多个值。因此，每一个在 JSON 数组中的键值对会被翻译为单个 ``Set-Cookie`` 头。
+- 如果被标记为 base64 编码并且发送的是 HTTP 响应体，则对 ``body`` 进行 base64 解码。
 
 .. _RFC: https://tools.ietf.org/html/rfc6265#section-4.1
 
 .. note::
 
-    The target cluster must have its endpoint set to the `regional Lambda endpoint`_. Use the same region as the Lambda
-    function.
+    目标集群必须将其端点设置为 `区域 Lambda 端点`。使用与 Lambda 函数相同的区域。
 
-    AWS IAM credentials must be defined in either environment variables, EC2 metadata or ECS task metadata.
+    AWS IAM 凭据必须被定义在环境变量、EC2 元数据或 ECS 任务元数据中。
 
 
 .. _regional Lambda endpoint: https://docs.aws.amazon.com/general/latest/gr/lambda-service.html
 
-The filter supports :ref:`per-filter configuration
+过滤器支持 :ref:`每个过滤器配置
 <envoy_v3_api_msg_extensions.filters.http.aws_lambda.v3.PerRouteConfig>`.
 
-If you use the per-filter configuration, the target cluster _must_ have the following metadata:
+如果你使用每个过滤器配置，则目标集群必须包含以下元数据：
 
 .. code-block:: yaml
 
@@ -92,13 +82,12 @@ If you use the per-filter configuration, the target cluster _must_ have the foll
         com.amazonaws.lambda:
           egress_gateway: true
 
+下面有一些示例，展示如何在不同的部署场景中使用过滤器。
 
-Below are some examples that show how the filter can be used in different deployment scenarios.
-
-Example configuration
+配置示例
 ---------------------
 
-In this configuration, the filter applies to all routes in the filter chain of the http connection manager:
+在这个配置中，过滤器在 HTTP 连接管理器过滤器链中应用所有路由：
 
 .. code-block:: yaml
 
@@ -109,8 +98,7 @@ In this configuration, the filter applies to all routes in the filter chain of t
       arn: "arn:aws:lambda:us-west-2:987654321:function:hello_envoy"
       payload_passthrough: true
 
-The corresponding regional endpoint must be specified in the target cluster. So, for example if the Lambda function is
-in us-west-2:
+必须在目标集群中指定相应的区域终结点。例如，如果 Lambda 函数在 us-west-2 中：
 
 .. code-block:: yaml
 
@@ -135,9 +123,7 @@ in us-west-2:
         "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
         sni: "*.amazonaws.com"
 
-
-The filter can also be configured per virtual-host, route or weighted-cluster. In that case, the target cluster *must*
-have specific Lambda metadata.
+还可以为每个虚拟主机、路由和权重集群配置过滤器。在这种情况下，目标集群 *必须* 具备特定的 Lambda 元数据。
 
 .. code-block:: yaml
 
@@ -152,8 +138,7 @@ have specific Lambda metadata.
             arn: "arn:aws:lambda:us-west-2:987654321:function:hello_envoy"
             payload_passthrough: false
 
-
-An example with the Lambda metadata applied to a weighted-cluster:
+将 Lambda 元数据应用于权重集群的示例：
 
 .. code-block:: yaml
 
@@ -183,17 +168,16 @@ An example with the Lambda metadata applied to a weighted-cluster:
         sni: "*.amazonaws.com"
 
 
-Statistics
+统计信息
 ----------
 
-The AWS Lambda filter outputs statistics in the *http.<stat_prefix>.aws_lambda.* namespace. The
-:ref:`stat prefix <envoy_api_field_config.filter.network.http_connection_manager.v2.HttpConnectionManager.stat_prefix>`
-comes from the owning HTTP connection manager.
+AWS Lambda 过滤器在 *http.<stat_prefix>.aws_lambda.* 命名空间中输出统计信息。
+:ref:`stat 前置 <envoy_api_field_config.filter.network.http_connection_manager.v2.HttpConnectionManager.stat_prefix>` 来自于拥有的 HTTP 连接管理器。
 
 .. csv-table::
-  :header: Name, Type, Description
+  :header: 名称, 类型, 描述
   :widths: 1, 1, 2
 
-  server_error, Counter, Total requests that returned invalid JSON response (see :ref:`payload_passthrough <envoy_api_msg_config.filter.http.aws_lambda.v2alpha.config>`)
-  upstream_rq_payload_size, Histogram, Size in bytes of the request after JSON-tranformation (if any).
+  server_error, Counter, 返回无效 JSON 响应的请求总数（见 :ref:`payload_passthrough <envoy_api_msg_config.filter.http.aws_lambda.v2alpha.config>` ）。
+  upstream_rq_payload_size, Histogram, JSON 转换后请求的字节大小（如果有）。
 
