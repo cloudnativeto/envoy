@@ -21,7 +21,7 @@ gRPC statistics filter
 config.filter.http.grpc_stats.v2alpha.FilterConfig
 --------------------------------------------------
 
-`[config.filter.http.grpc_stats.v2alpha.FilterConfig proto] <https://github.com/envoyproxy/envoy/blob/2c4f497377ffdcf1069c73e0571c2aea311381aa/api/envoy/config/filter/http/grpc_stats/v2alpha/config.proto#L24>`_
+`[config.filter.http.grpc_stats.v2alpha.FilterConfig proto] <https://github.com/envoyproxy/envoy/blob/3e77a2b8179d0dca27d8f058c3dbe3fded28c6df/api/envoy/config/filter/http/grpc_stats/v2alpha/config.proto#L24>`_
 
 gRPC statistics filter configuration
 
@@ -84,7 +84,7 @@ stats_for_all_methods
 config.filter.http.grpc_stats.v2alpha.FilterObject
 --------------------------------------------------
 
-`[config.filter.http.grpc_stats.v2alpha.FilterObject proto] <https://github.com/envoyproxy/envoy/blob/2c4f497377ffdcf1069c73e0571c2aea311381aa/api/envoy/config/filter/http/grpc_stats/v2alpha/config.proto#L58>`_
+`[config.filter.http.grpc_stats.v2alpha.FilterObject proto] <https://github.com/envoyproxy/envoy/blob/3e77a2b8179d0dca27d8f058c3dbe3fded28c6df/api/envoy/config/filter/http/grpc_stats/v2alpha/config.proto#L58>`_
 
 gRPC statistics filter state object in protobuf form.
 

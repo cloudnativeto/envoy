@@ -20,7 +20,7 @@ Allows detecting whether the transport appears to be TLS or plaintext.
 config.filter.listener.tls_inspector.v2.TlsInspector
 ----------------------------------------------------
 
-`[config.filter.listener.tls_inspector.v2.TlsInspector proto] <https://github.com/envoyproxy/envoy/blob/2c4f497377ffdcf1069c73e0571c2aea311381aa/api/envoy/config/filter/listener/tls_inspector/v2/tls_inspector.proto#L18>`_
+`[config.filter.listener.tls_inspector.v2.TlsInspector proto] <https://github.com/envoyproxy/envoy/blob/3e77a2b8179d0dca27d8f058c3dbe3fded28c6df/api/envoy/config/filter/listener/tls_inspector/v2/tls_inspector.proto#L18>`_
 
 
 .. code-block:: json

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>AWS Lambda &mdash; envoy 1.16.0-2c4f49 documentation</title>
+  <title>AWS Lambda &mdash; envoy 1.16.0-3e77a2 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-2c4f49
+                1.16.0-3e77a2
               </div>
             
           
@@ -237,21 +237,17 @@
   <div class="section" id="aws-lambda">
 <span id="config-http-filters-aws-lambda"></span><h1>AWS Lambda<a class="headerlink" href="#aws-lambda" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../../api-v3/extensions/filters/http/aws_lambda/v3/aws_lambda.proto.html#envoy-v3-api-msg-extensions-filters-http-aws-lambda-v3-config"><span class="std std-ref">v3 API reference</span></a></p></li>
-<li><p>This filter should be configured with the name <em>envoy.filters.http.aws_lambda</em>.</p></li>
+<li><p><a class="reference internal" href="../../../api-v3/extensions/filters/http/aws_lambda/v3/aws_lambda.proto.html#envoy-v3-api-msg-extensions-filters-http-aws-lambda-v3-config"><span class="std std-ref">v3 API 参考</span></a></p></li>
+<li><p>过滤器的名称应该被配置为 <em>envoy.filters.http.aws_lambda</em>。</p></li>
 </ul>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>The AWS Lambda filter is currently under active development.</p>
+<p>AWS Lambda 过滤器目前正在积极开发中。</p>
 </div>
-<p>The HTTP AWS Lambda filter is used to trigger an AWS Lambda function from a standard HTTP/1.x or HTTP/2 request.
-It supports a few options to control whether to pass through the HTTP request payload as is or to wrap it in a JSON
-schema.</p>
-<p>If <a class="reference internal" href="../../../api-v3/extensions/filters/http/aws_lambda/v3/aws_lambda.proto.html#envoy-v3-api-field-extensions-filters-http-aws-lambda-v3-config-payload-passthrough"><span class="std std-ref">payload_passthrough</span></a> is set to
-<code class="docutils literal notranslate"><span class="pre">true</span></code>, then the payload is sent to Lambda without any transformations.
-<em>Note</em>: This means you lose access to all the HTTP headers in the Lambda function.</p>
-<p>However, if <a class="reference internal" href="../../../api-v3/extensions/filters/http/aws_lambda/v3/aws_lambda.proto.html#envoy-v3-api-field-extensions-filters-http-aws-lambda-v3-config-payload-passthrough"><span class="std std-ref">payload_passthrough</span></a>
-is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, then the HTTP request is transformed to a JSON payload with the following schema:</p>
+<p>HTTP AWS Lambda 过滤器用于从标准 HTTP/1.x 或 HTTP/2 请求中触发 AWS Lambda 函数。</p>
+<p>如果 <a class="reference internal" href="../../../api-v3/extensions/filters/http/aws_lambda/v3/aws_lambda.proto.html#envoy-v3-api-field-extensions-filters-http-aws-lambda-v3-config-payload-passthrough"><span class="std std-ref">payload_passthrough</span></a> 被设置为 <code class="docutils literal notranslate"><span class="pre">true</span></code>，然后负载将会被发送到 Lambda 函数，而不进行任何转换。
+<em>注意</em>: 这意味着你将无法访问 Lambda 函数中所有的 HTTP 头。</p>
+<p>但如果 <a class="reference internal" href="../../../api-v3/extensions/filters/http/aws_lambda/v3/aws_lambda.proto.html#envoy-v3-api-field-extensions-filters-http-aws-lambda-v3-config-payload-passthrough"><span class="std std-ref">payload_passthrough</span></a> 被设置为 <code class="docutils literal notranslate"><span class="pre">false</span></code>，HTTP 请求被转换为具有以下模式的 JSON 负载：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;rawPath&quot;</span><span class="p">:</span> <span class="s2">&quot;/path/to/resource&quot;</span><span class="p">,</span>
     <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;GET|POST|HEAD|...&quot;</span><span class="p">,</span>
@@ -263,13 +259,11 @@ is set to <code class="docutils literal notranslate"><span class="pre">false</sp
 </pre></div>
 </div>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">rawPath</span></code> is the HTTP request resource path (including the query string)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code> is the HTTP request method. For example <code class="docutils literal notranslate"><span class="pre">GET</span></code>, <code class="docutils literal notranslate"><span class="pre">PUT</span></code>, etc.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">headers</span></code> are the HTTP request headers. If multiple headers share the same name, their values are
-coalesced into a single comma-separated value.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">queryStringParameters</span></code> are the HTTP request query string parameters. If multiple parameters share the same name,
-the last one wins. That is, parameters are _not_ coalesced into a single value if they share the same key name.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">body</span></code> the body of the HTTP request is base64-encoded by the filter if the <code class="docutils literal notranslate"><span class="pre">content-type</span></code> header exists and is _not_ one of the following:</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">rawPath</span></code> 是 HTTP 请求资源路径（包含查询字符串）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code> 是 HTTP 请求方法。例如 <code class="docutils literal notranslate"><span class="pre">GET</span></code>, <code class="docutils literal notranslate"><span class="pre">PUT</span></code> 等。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">headers</span></code> 是 HTTP 请求头。如果多个头使用相同的名称，则他们的值会合并为一个逗号分隔的值。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">queryStringParameters</span></code> 是 HTTP 请求查询字符串参数。如果多个参数使用相同的名称，最后一个会将之前的替换。也就是说，如果参数共享同一个键名称，则它们不会合并为同一个值。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">body</span></code> 如果 <code class="docutils literal notranslate"><span class="pre">content-type</span></code> 头存在并且不是下面之一，则 HTTP 请求的请求体由过滤器进行 base64 编码：</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>text/*</p></li>
@@ -280,8 +274,8 @@ the last one wins. That is, parameters are _not_ coalesced into a single value i
 </div></blockquote>
 </li>
 </ul>
-<p>Otherwise, the body of HTTP request is added to the JSON payload as is.</p>
-<p>On the other end, the response of the Lambda function must conform to the following schema:</p>
+<p>否则，HTTP 请求的请求体会原样添加到 JSON 负载中。</p>
+<p>另一方面，Lambda 函数的响应必须符合以下模式：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;statusCode&quot;</span><span class="p">:</span> <span class="o">...</span>
     <span class="s2">&quot;headers&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;header-key&quot;</span><span class="p">:</span> <span class="s2">&quot;header-value&quot;</span><span class="p">,</span> <span class="o">...</span> <span class="p">},</span>
@@ -292,32 +286,28 @@ the last one wins. That is, parameters are _not_ coalesced into a single value i
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">statusCode</span></code> field is an integer used as the HTTP response code. If this key is missing, Envoy returns a <code class="docutils literal notranslate"><span class="pre">200</span>
-<span class="pre">OK</span></code>.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">headers</span></code> are used as the HTTP response headers.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">cookies</span></code> are used as <code class="docutils literal notranslate"><span class="pre">Set-Cookie</span></code> response headers. Unlike the request headers, cookies are _not_ part of the
-response headers because the <code class="docutils literal notranslate"><span class="pre">Set-Cookie</span></code> header cannot contain more than one value per the <a class="reference external" href="https://tools.ietf.org/html/rfc6265#section-4.1">RFC</a>. Therefore, Each
-key/value pair in this JSON array will translate to a single <code class="docutils literal notranslate"><span class="pre">Set-Cookie</span></code> header.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">body</span></code> is base64-decoded if it is marked as base64-encoded and sent as the body of the HTTP response.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">statusCode</span></code> 字段是用作 HTTP 响应码的整数。如果这个键消失，Envoy 会返回一个 <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code>。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">headers</span></code> 用作 HTTP 响应头。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cookies</span></code> 用作 <code class="docutils literal notranslate"><span class="pre">Set-Cookie</span></code> 响应头。与请求头不一样，cookies 不是响应头的一部分，因为每个 <cite>RFC</cite> 的 <code class="docutils literal notranslate"><span class="pre">Set-Cookie</span></code> 头不包含多个值。因此，每一个在 JSON 数组中的键值对会被翻译为单个 <code class="docutils literal notranslate"><span class="pre">Set-Cookie</span></code> 头。</p></li>
+<li><p>如果被标记为 base64 编码并且发送的是 HTTP 响应体，则对 <code class="docutils literal notranslate"><span class="pre">body</span></code> 进行 base64 解码。</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The target cluster must have its endpoint set to the <a class="reference external" href="https://docs.aws.amazon.com/general/latest/gr/lambda-service.html">regional Lambda endpoint</a>. Use the same region as the Lambda
-function.</p>
-<p>AWS IAM credentials must be defined in either environment variables, EC2 metadata or ECS task metadata.</p>
+<p>目标集群必须将其端点设置为 <cite>区域 Lambda 端点</cite>。使用与 Lambda 函数相同的区域。</p>
+<p>AWS IAM 凭据必须被定义在环境变量、EC2 元数据或 ECS 任务元数据中。</p>
 </div>
-<p>The filter supports <a class="reference internal" href="../../../api-v3/extensions/filters/http/aws_lambda/v3/aws_lambda.proto.html#envoy-v3-api-msg-extensions-filters-http-aws-lambda-v3-perrouteconfig"><span class="std std-ref">per-filter configuration</span></a>.</p>
-<p>If you use the per-filter configuration, the target cluster _must_ have the following metadata:</p>
+<p>过滤器支持 <a class="reference internal" href="../../../api-v3/extensions/filters/http/aws_lambda/v3/aws_lambda.proto.html#envoy-v3-api-msg-extensions-filters-http-aws-lambda-v3-perrouteconfig"><span class="std std-ref">每个过滤器配置</span></a>.</p>
+<p>如果你使用每个过滤器配置，则目标集群必须包含以下元数据：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">filter_metadata</span><span class="p">:</span>
     <span class="nt">com.amazonaws.lambda</span><span class="p">:</span>
       <span class="nt">egress_gateway</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
-<p>Below are some examples that show how the filter can be used in different deployment scenarios.</p>
-<div class="section" id="example-configuration">
-<h2>Example configuration<a class="headerlink" href="#example-configuration" title="Permalink to this headline">¶</a></h2>
-<p>In this configuration, the filter applies to all routes in the filter chain of the http connection manager:</p>
+<p>下面有一些示例，展示如何在不同的部署场景中使用过滤器。</p>
+<div class="section" id="id1">
+<h2>配置示例<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>在这个配置中，过滤器在 HTTP 连接管理器过滤器链中应用所有路由：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">http_filters</span><span class="p">:</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.filters.http.aws_lambda</span>
   <span class="nt">typed_config</span><span class="p">:</span>
@@ -326,8 +316,7 @@ function.</p>
     <span class="nt">payload_passthrough</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
-<p>The corresponding regional endpoint must be specified in the target cluster. So, for example if the Lambda function is
-in us-west-2:</p>
+<p>必须在目标集群中指定相应的区域终结点。例如，如果 Lambda 函数在 us-west-2 中：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">clusters</span><span class="p">:</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">lambda_egress_gateway</span>
   <span class="nt">connect_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.25s</span>
@@ -350,8 +339,7 @@ in us-west-2:</p>
       <span class="nt">sni</span><span class="p">:</span> <span class="s">&quot;*.amazonaws.com&quot;</span>
 </pre></div>
 </div>
-<p>The filter can also be configured per virtual-host, route or weighted-cluster. In that case, the target cluster <em>must</em>
-have specific Lambda metadata.</p>
+<p>还可以为每个虚拟主机、路由和权重集群配置过滤器。在这种情况下，目标集群 <em>必须</em> 具备特定的 Lambda 元数据。</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">weighted_clusters</span><span class="p">:</span>
 <span class="nt">clusters</span><span class="p">:</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">lambda_egress_gateway</span>
@@ -364,7 +352,7 @@ have specific Lambda metadata.</p>
         <span class="nt">payload_passthrough</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
 </pre></div>
 </div>
-<p>An example with the Lambda metadata applied to a weighted-cluster:</p>
+<p>将 Lambda 元数据应用于权重集群的示例：</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">clusters</span><span class="p">:</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">lambda_egress_gateway</span>
   <span class="nt">connect_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.25s</span>
@@ -392,11 +380,10 @@ have specific Lambda metadata.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="statistics">
-<h2>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h2>
-<p>The AWS Lambda filter outputs statistics in the <em>http.&lt;stat_prefix&gt;.aws_lambda.</em> namespace. The
-<a class="reference internal" href="../../../api-v2/config/filter/network/http_connection_manager/v2/http_connection_manager.proto.html#envoy-api-field-config-filter-network-http-connection-manager-v2-httpconnectionmanager-stat-prefix"><span class="std std-ref">stat prefix</span></a>
-comes from the owning HTTP connection manager.</p>
+<div class="section" id="id2">
+<h2>统计信息<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>AWS Lambda 过滤器在 <em>http.&lt;stat_prefix&gt;.aws_lambda.</em> 命名空间中输出统计信息。
+<a class="reference internal" href="../../../api-v2/config/filter/network/http_connection_manager/v2/http_connection_manager.proto.html#envoy-api-field-config-filter-network-http-connection-manager-v2-httpconnectionmanager-stat-prefix"><span class="std std-ref">stat 前置</span></a> 来自于拥有的 HTTP 连接管理器。</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -404,19 +391,19 @@ comes from the owning HTTP connection manager.</p>
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>server_error</p></td>
 <td><p>Counter</p></td>
-<td><p>Total requests that returned invalid JSON response (see <a class="reference internal" href="../../../api-v2/config/filter/http/aws_lambda/v2alpha/aws_lambda.proto.html#envoy-api-msg-config-filter-http-aws-lambda-v2alpha-config"><span class="std std-ref">payload_passthrough</span></a>)</p></td>
+<td><p>返回无效 JSON 响应的请求总数（见 <a class="reference internal" href="../../../api-v2/config/filter/http/aws_lambda/v2alpha/aws_lambda.proto.html#envoy-api-msg-config-filter-http-aws-lambda-v2alpha-config"><span class="std std-ref">payload_passthrough</span></a> ）。</p></td>
 </tr>
 <tr class="row-odd"><td><p>upstream_rq_payload_size</p></td>
 <td><p>Histogram</p></td>
-<td><p>Size in bytes of the request after JSON-tranformation (if any).</p></td>
+<td><p>JSON 转换后请求的字节大小（如果有）。</p></td>
 </tr>
 </tbody>
 </table>
