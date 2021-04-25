@@ -29,7 +29,7 @@ Envoy 公开了一个本地管理界面，该界面可用于查询和修改服�
 
 .. note::
 
-  对带有 *?format=json* 的断点，它将转储数据作为 JSON 序列化原型。具有默认值的字段不会呈现。例如 */clusters?format=json*，
+  对带有 *?format=json* 的端点，它将转储数据作为 JSON 序列化原型。具有默认值的字段不会渲染。例如 */clusters?format=json*，
   当其值为 :ref:`DEFAULT priority <envoy_v3_api_enum_value_config.core.v3.RoutingPriority.DEFAULT>` 时，将断路器阈值优先级字段，如下所示：
 
   .. code-block:: json
