@@ -54,7 +54,7 @@ Envoy 公开了一个本地管理界面，该界面可用于查询和修改服�
 
 .. http:get:: /
 
-  呈现 HTML 主页，其中包含指向所有可用选项链接的表。
+  渲染 HTML 主页，其中包含指向所有可用选项链接的表。
 
 .. http:get:: /help
 
@@ -85,7 +85,7 @@ Envoy 公开了一个本地管理界面，该界面可用于查询和修改服�
       :ref:`弹出阈值 <envoy_v3_api_field_data.cluster.v3.OutlierEjectSuccessRate.cluster_success_rate_ejection_threshold>`。
       如果最后一次 :ref/`interval<envoy_v3_api_field_config.cluster.v3.OutlierDetection.interval>` 中没有足够的数据来计算它们，那么这两个值都可能为 ``-1``。
 
-    - ``added_via_api`` 标识 -- 假如集群是通过静态配置添加的，为 ``false``。如果集群是通过 :ref:`CDS<config_cluster_manager_cds>` api 添加的，则为 ``true``。
+    - ``added_via_api`` 标识 -- 假如集群是通过静态配置添加的，则为 ``false``。如果集群是通过 :ref:`CDS<config_cluster_manager_cds>` api 添加的，则为 ``true``。
 
   各主机统计
     .. csv-table::
@@ -94,12 +94,12 @@ Envoy 公开了一个本地管理界面，该界面可用于查询和修改服�
 
       cx_total, Counter, 总连接数
       cx_active, Gauge, 活跃连接数
-      cx_connect_fail, Counter, 连接总数
+      cx_connect_fail, Counter, 失败的链接总数
       rq_total, Counter, 总请求数
       rq_timeout, Counter, 超时请求数
       rq_success, Counter, 非 5xx 响应请求数
       rq_error, Counter, 5xx 响应请求数
-      rq_active, Gauge, 活跃请求
+      rq_active, Gauge, 活跃请求总数
       healthy, String, 主机的健康状态。见下文
       weight, Integer, 负载均衡权重（1-100）
       zone, String, 服务域
@@ -108,7 +108,7 @@ Envoy 公开了一个本地管理界面，该界面可用于查询和修改服�
       没有足够的 :ref:`请求量 <envoy_v3_api_field_config.cluster.v3.OutlierDetection.success_rate_request_volume>` 用于计算，则为 -1。”
 
   主机健康状态
-    主机由于一个或多个不同的失败健康状态而处于是健康或者不健康状态。如果主机健康，则 ``healthy`` 属于将等同于 *健康*
+    主机由于一个或多个不同的失败健康状态而处于是健康或者不健康状态。如果主机健康，则 ``healthy`` 属于将等同于 *健康*。
 
     如果主机是不健康的，则 ``healthy`` 输出由一个或者多个如下字符串组成：
 
@@ -161,7 +161,7 @@ Envoy 公开了一个本地管理界面，该界面可用于查询和修改服�
   :ref:`static_listeners <envoy_v3_api_field_admin.v3.ListenersConfigDump.static_listeners>`，
   或者 :ref:`ClustersConfigDump <envoy_v3_api_msg_admin.v3.ClustersConfigDump>` 中的
   :ref:`dynamic_active_clusters <envoy_v3_api_field_admin.v3.ClustersConfigDump.dynamic_active_clusters>`。
-  如果需要非重复字段，请使用上面的掩码查询参数。如果只需要重复资源的字段的子集，请按照一下两个说明使用。
+  如果需要非重复字段，请使用上面的掩码查询参数。如果只需要重复资源的字段的子集，请按照以下两个说明使用。
 
 
 
@@ -462,7 +462,7 @@ Envoy 公开了一个本地管理界面，该界面可用于查询和修改服�
 
   .. http:post:: /stats/recentlookups/clear
 
-  清除所有未完成的查找和技术。同样会清空查找数据以及计数，但是如果启用之后会继续收集。
+  清除所有未完成的查找和计数。同样会清空查找数据以及计数，但是如果启用之后会继续收集。
 
   更多详细信息见 :repo:`source/docs/stats.md`。
 
@@ -512,7 +512,7 @@ Envoy 公开了一个本地管理界面，该界面可用于查询和修改服�
 .. attention::
 
   使用 /runtime_modify 端点时要小心。变更会立即生效。
-  **至关重要的是**，管理接口必须是 :ref:`正确保护的 <operations_admin_interface_security>`。
+  **至关重要的是**，管理接口必须是被 :ref:`正确保护的 <operations_admin_interface_security>`。
 
   .. _operations_admin_interface_hystrix_event_stream:
 
@@ -527,7 +527,7 @@ Envoy 公开了一个本地管理界面，该界面可用于查询和修改服�
 
   由于 Envoy 和 Hystrix 的弹性机制不同，因此必须调整仪表板中显示的某些统计信息：
 
-  * ** 线程池拒绝 ** - 通常类似于 Envoy 中的断路，并由 *upstream_rq_pending_overflow* 进行计数，
+  * **线程池拒绝** - 通常类似于 Envoy 中的断路，并由 *upstream_rq_pending_overflow* 进行计数，
     尽管术语线程池不适用于 Envoy。在 Hystrix 和 Envoy 中，结果都是被拒绝的请求没有传递到上游。
   * ** 断路器状态（闭合或断开）** - 由于在 Envoy 中，基于队列中当前连接/请求的数量断开了电路，因此断路器没有睡眠窗口，
     因此断开/闭合是瞬时的。因此，我们将断路器状态设置为“强制闭合”。
@@ -539,7 +539,7 @@ Envoy 公开了一个本地管理界面，该界面可用于查询和修改服�
 
 .. http:post:: /tap
 
-  该端点用于配置活动的 tap 会话。仅当配置了有效的 tag 扩展并改扩展配置为接受管理员配置时，此功能才启用。。见：
+  该端点用于配置活动的 tap 会话。仅当配置了有效的 tap 扩展并改扩展配置为接受管理员配置时，此功能才启用。。见：
 
   * :ref:`HTTP tap 过滤器配置 <config_http_filters_tap_admin_handler>`
 
