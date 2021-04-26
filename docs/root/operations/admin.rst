@@ -141,7 +141,7 @@ Envoy 公开了一个本地管理界面，该界面可用于查询和修改服�
 
 .. http:get:: /config_dump?include_eds
 
-  转储当前加载的配置（包括EDS）。有关更多信息，见 :ref:`响应定义 <envoy_v3_api_msg_admin.v3.EndpointsConfigDump>`。
+  转储当前加载的配置（包括 EDS）。有关更多信息，见 :ref:`响应定义 <envoy_v3_api_msg_admin.v3.EndpointsConfigDump>`。
 
 .. _operations_admin_interface_config_dump_by_mask:
 
@@ -190,7 +190,7 @@ Envoy 公开了一个本地管理界面，该界面可用于查询和修改服�
 
 .. http:post:: /healthcheck/fail
 
-  入站健康检查失败。这需要使用HTTP :ref:`健康检查过滤器 <config_http_filters_health_check>`。
+  入站健康检查失败。这需要使用 HTTP :ref:`健康检查过滤器 <config_http_filters_health_check>`。
   这对于在关闭服务器或完全重新启动之前排空服务器很有用。无论过滤器的配置方式如何（通过等），调用此命令通常都会使健康检查请求失败。
 
 .. _operations_admin_interface_healthcheck_ok:
@@ -539,7 +539,7 @@ Envoy 公开了一个本地管理界面，该界面可用于查询和修改服�
 
 .. http:post:: /tap
 
-  该端点用于配置活动的 tap 会话。仅当配置了有效的 tap 扩展并改扩展配置为接受管理员配置时，此功能才启用。。见：
+  该端点用于配置活动的 tap 会话。仅当配置了有效的 tap 扩展并改扩展配置为接受管理员配置时，此功能才启用。见：
 
   * :ref:`HTTP tap 过滤器配置 <config_http_filters_tap_admin_handler>`
 
