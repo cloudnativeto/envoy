@@ -1,7 +1,7 @@
 如何配置 Envoy 使用 v3 API?
 ===========================================
 
-默认情况下，Envoy 会试着将所有 YAML、JSON 或 文本格式的原型转换为 v2，如果转换失败，将考虑转换成 v3。
+默认情况下，Envoy 会试着将所有 YAML、JSON 或文本格式的原型解析为 v2，如果解析失败，将考虑解析为 v3。
 所以，如果你有一个简单的、基于文本引导程序的静态 Envoy，你只需要开始使用新的配置。二进制原型 bootstrap 配置，
 请使用原型 :ref:`v3 Bootstrap <envoy_v3_api_msg_config.bootstrap.v3.Bootstrap>`。
 
