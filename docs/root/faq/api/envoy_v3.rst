@@ -2,7 +2,7 @@
 ===========================================
 
 默认情况下，Envoy 会试着将所有 YAML、JSON 或文本格式的原型解析为 v2，如果解析失败，将考虑解析为 v3。
-所以，如果你有一个简单的、基于文本引导程序的静态 Envoy，你只需要开始使用新的配置。二进制原型 bootstrap 配置，
+所以，如果你有一个简单静态的 Envoy 使用了基于文本的引导程序，你只需要开始使用新的配置。对于二进制原型 bootstrap 配置，
 请使用原型 :ref:`v3 Bootstrap <envoy_v3_api_msg_config.bootstrap.v3.Bootstrap>`。
 
 动态配置，我们已经介绍过 :ref:`配置来源 <envoy_v3_api_msg_config.core.v3.ConfigSource>` 的两个字段，
