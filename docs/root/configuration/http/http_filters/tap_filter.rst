@@ -35,7 +35,7 @@ tap 过滤器用于插入和记录 HTTP 流量。 从宏观看，其配置由两
 .. _config_http_filters_tap_admin_handler:
 
 管理处理器（admin handler）
--------------
+---------------------------
 
 当 HTTP 过滤器指定了一个 :ref:`admin_config
 <envoy_v3_api_msg_extensions.common.tap.v3.AdminConfig>`, 它将被配置用来管理员控制，且 :http:post:`/tap` 管理处理器将被安装。管理处理器可以用来实时过滤和调试 HTTP 流量。工作流程如下：
