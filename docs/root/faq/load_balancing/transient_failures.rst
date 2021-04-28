@@ -1,77 +1,56 @@
 .. _common_configuration_transient_failures:
 
-How do I handle transient failures?
+如何处理瞬时故障？
 ===================================
 
-One of the biggest advantages of using Envoy in a service mesh is that it frees up services
-from implementing complex resiliency features like circuit breaking, outlier detection and retries
-that enable services to be resilient to realities such as rolling upgrades, dynamic infrastructure,
-and network failures. Having these features implemented at Envoy not only improves the availability
-and resiliency of services but also brings in consistency in terms of the behaviour and observability.
+在服务网格中使用 Envoy 的一个最大优势就是它让服务从实现复杂的弹性功能解脱出来，如熔断、异常检测以及重试，这些让服务应对实际情况时更具弹性，常见的诸如滚动升级、动态基础设施变更以及网络故障。Envoy 中实现的上述功能不仅仅提高了服务可用性和韧性，而且在行为和观测性方面带来了一致性。
 
-This section explains at a high level the configuration supported by Envoy and how these features can be
-used together to handle these scenarios.
+这部分将从一个较高层次来解释 Envoy 支持的配置以及如何一起使用这些功能来处理这些场景。
 
-Circuit Breaking
+熔断
 ----------------
 
-:ref:`Circuit Breaking <arch_overview_circuit_break>` is a critical component of distributed systems.
-Circuit breaking lets applications configure failure thresholds that ensure safe maximums, allowing components
-to fail quickly and apply back pressure as soon as possible. Applying correct circuit breaking thresholds helps
-to save resources which otherwise are wasted in waiting for requests (timeouts) or retrying requests unnecessarily.
-One of the main advantages of the circuit breaking implementation in Envoy is that the circuit breaking limits are applied
-at the network level.
-
+:ref:`熔断 <arch_overview_circuit_break>` 是分布式系统非常重要的一环。熔断可以让应用程序配置故障阈值，以确保最大限度的安全，允许组件快速失败然后尽可能快的恢复正常。使用正确的熔断阈值有助于节省那些浪费在请求等待（超时）或者非必要的请求重试中的资源。对于在 Envoy 中实现的熔断来讲 ，一个主要的优势是熔断限制可以被应用在网络层。
 .. _common_configuration_transient_failures_retries:
 
-Retries
+重试
 -------
+自动的 :ref:`请求重试 <config_http_filters_router>` 是另外一种保证服务弹性的方法。请求重试通常应用于防范瞬时故障。Envoy 支持非常丰富的可配置参数来指定请求重试的类型、请求重试的次数以及请求重试的超时时间等。
 
-Automatic :ref:`request retries <config_http_filters_router>` is another method of ensuring service resilience. Request retries should
-typically be used to guard against transient failures. Envoy supports very rich set of configurable parameters that dictate what type
-of requests are retried, how many times the request should be retried, timeouts for retries, etc.
-
-Retries in gRPC services
+gRPC 服务中的重试
 ------------------------
+对于 gRPC 服务，Envoy 会在响应中查看 gRPC 状态，然后基于在 :ref:`x-envoy-retry-grpc-on <config_http_filters_router_x-envoy-retry-grpc-on>` 中配置的状态来尝试重试。
 
-For gRPC services, Envoy looks at the gRPC status in the response and attempts a retry based on the statuses configured in
-:ref:`x-envoy-retry-grpc-on <config_http_filters_router_x-envoy-retry-grpc-on>`.
+对于自动重试来讲，gRPC 中的下述应用程序状态码被认为是安全的。
 
-The following application status codes in gRPC are considered safe for automatic retry.
+* *CANCELLED* - 在服务中如果有一个可重试的错误，则返回此码。
+* *RESOURCE_EXHAUSTED* - 如果服务所依赖的某些资源在该实例中耗尽，则重试至另外一个实例来获取帮助，在这种情况下返回此码。请注意对于共享资源的耗尽，返回此码将不会有任何帮助。应使用 :ref:`速率限制 <arch_overview_global_rate_limit>` 来处理这种情况。
 
-* *CANCELLED* - Return this code if there is an error that can be retried in the service.
-* *RESOURCE_EXHAUSTED* - Return this code if some of the resources that service depends on are exhausted in that instance so that retrying
-  to another instance would help. Please note that for shared resource exhaustion, returning this will not help. Instead :ref:`rate limiting <arch_overview_global_rate_limit>`
-  should be used to handle such cases.
 
-The HTTP Status codes *502 (Bad Gateway)*, *503 (Service Unavailable)* and *504 (Gateway Timeout)* are all mapped to gRPC status code *UNAVAILABLE*.
-This can also be considered safe for automatic retry.
+HTTP 状态码 *502 (Bad Gateway)* 、*503 (Service Unavailable)* 及 *504 (Gateway Timeout)* 都和 gRPC 状态码 *UNAVAILABLE* 做了映射。针对自动重试来讲，这可被视为是安全的。
 
-The idempotency of a request is an important consideration when configuring retries.
 
-Envoy also supports extensions to its retry policies. The :ref:`retry plugins <arch_overview_http_retry_plugins>`
-allow you to customize the Envoy retry implementation to your application.
+在配置重试时，请求的幂等性需要被重点考虑。
 
-Outlier Detection
+Envoy 同样支持对重启策略的扩展。:ref:`重试插件 <arch_overview_http_retry_plugins>` 允许为应用程序来定制 Envoy 重试实现。
+
+异常检测
 -----------------
 
-:ref:`Outlier detection <arch_overview_outlier_detection>` is a way of dynamically detecting misbehaving hosts
-in the upstream cluster. By detecting such hosts and ejecting them for a temporary period of time from the healthy
-load balancing set, Envoy can increase the success rate of a cluster. Envoy supports configuring outlier detection
-based on continuous *5xx*, continuous gateway failures and success rate.
+:ref:`异常检测 <arch_overview_outlier_detection>` 是一种在上游集群中动态检测行为异常的主机的一种方法。通过探测这些主机并将它们从健康的负载均衡集中临时驱逐出去，Envoy 能够提高集群的成功率。Envoy 支持基于连续的 *5xx*、连续的网关失败和成功率来配置异常检测。
 
-Envoy also allows you to configure the ejection period.
+Envoy 也允许你配置驱逐周期。
 
-**Configuration**
+**配置**
 
-The following settings help to optimize some combination of:
+下述配置有助于优化：
 
-* Maximum request success for common scenarios (i.e. rolling upgrade)
-* Speed
-* Avoid cascading failures
+* 常见场景下的最大请求成功率（比如，滚动升级）
+* 速度
+* 避免级联故障
 
 
-*Circuit Breaker*
+*熔断*
 
 .. code-block:: json
 
@@ -83,13 +62,10 @@ The following settings help to optimize some combination of:
     ]
   }
 
-For the purpose of this specific use case, the retry budget for upstream cluster should be configured to
-enable and control concurrent retries. If the value configured is too low, some requests will not be retried,
-which can be measured via :ref:`upstream_rq_retry_overflow <config_cluster_manager_cluster_stats>`.
-If the value configured is too high, the service can be overwhelmed with retry requests.
 
+在这个特定用例中，需要配置上游集群的重试预算来开启并控制并发重试次数。如果配置的值过低，部分请求将不会被重试，可以通过 :ref:`upstream_rq_retry_overflow <config_cluster_manager_cluster_stats>` 来进行一个衡量。如果值配置的过高，服务可能会被重试请求淹没。
 
-*Outlier Detection*
+*异常检测*
 
 .. code-block:: json
 
@@ -100,13 +76,10 @@ If the value configured is too high, the service can be overwhelmed with retry r
      "consecutive_gateway_failure": 5,
   }
 
-This setting enables outlier detection if there are 5 consecutive *5xx* or *gateway failures*
-and limits the number of hosts that are ejected to 50% of the upstream cluster size. This configuration
-places a safe limit on the number of hosts removed. Please note that once a host a ejected, it will be returned
-to the pool after an ejection time is elapsed (which is equal to the *base_ejection_time* multiplied by the number
-of times the host has been ejected).
 
-*Request Retry*
+如果有 5 个连续的 *5xx* 或者 *网关失败*，上述设置就会开启异常检测，而且会将驱逐的主机数量限制为上游集群大小的 50%。此配置对删除的主机数设置了安全限制。请注意，一旦一个主机被驱逐，它将会在一个驱逐周期（通常等于 *base_ejection_time* 与主机被驱逐次数的乘积）过后重新回到主机池。
+
+*请求重试*
 
 .. code-block:: json
 
@@ -121,7 +94,4 @@ of times the host has been ejected).
     "host_selection_retry_max_attempts": "5"
   }
 
-The request will be retried based on the conditions documented in *retry_on*. This setting also configures Envoy to use
-:ref:`Previous Host Retry Predicate <arch_overview_http_retry_plugins>` that allows it to choose a different
-host than the host where previous request has failed, because typically failures on that same host are likely to continue
-for some time and immediate retry would have less chance of success.
+请求将会基于在 *retry_on* 中配置的内容进行重试。此设置还将对 Envoy 进行配置，以使用 :ref:`前一个主机重试预测 <arch_overview_http_retry_plugins>` 来允许其选择与前一个失败请求不同的主机，因为同一台主机上的故障通常会持续一段时间，立即重试成功的概率较低。
