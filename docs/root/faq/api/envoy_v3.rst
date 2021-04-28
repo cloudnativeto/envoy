@@ -5,7 +5,7 @@
 所以，如果你有一个简单静态的 Envoy 使用了基于文本的引导程序，你只需要开始使用新的配置。对于二进制原型 bootstrap 配置，
 请使用原型 :ref:`v3 Bootstrap <envoy_v3_api_msg_config.bootstrap.v3.Bootstrap>`。
 
-对于动态配置，我们已经介绍过两个字段，可用于 :ref:`配置源 <envoy_v3_api_msg_config.core.v3.ConfigSource>`，
+对于动态配置，我们引入了两个字段，用于 :ref:`配置源 <envoy_v3_api_msg_config.core.v3.ConfigSource>`，
 传输 API 版本和资源 API 版本。区别如下：
 
 * :ref:`传输 API 版本
