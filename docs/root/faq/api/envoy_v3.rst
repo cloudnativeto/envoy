@@ -17,7 +17,7 @@
   例如：发送的是 v2 *RouteConfiguration* 或 v3 *RouteConfiguration*。
 
 可以混合使用传输 API 和资源 API 版本，例如：基于 v2 ADS 传输，发送一个 v2 的
-*监听器* 资源和 v3 的 *RouteConfiguration* 资源。 该特性用于 Envoy 的部署逐渐从 v2 向 v3 迁移。
+*监听器* 资源和 v3 的 *RouteConfiguration* 资源。该特性用于 Envoy 的部署逐渐从 v2 向 v3 迁移。
 
 通过vN端点交付vM资源可能会有一些运营优势，因此我们通过适当地配置
 :ref:`配置源 <envoy_v3_api_msg_config.core.v3.ConfigSource>` 提供了进行此调用的灵活性。
