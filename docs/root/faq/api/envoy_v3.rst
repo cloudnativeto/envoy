@@ -20,4 +20,4 @@
 *监听器* 资源和 v3 的 *RouteConfiguration* 资源。该特性用于 Envoy 的部署逐渐从 v2 向 v3 迁移。
 
 通过 vN 端点交付 vM 资源可能会有一些运营优势，因此我们通过适当的
-:ref:`配置源 <envoy_v3_api_msg_config.core.v3.ConfigSource>` 提供了进行此调用的灵活性。
+:ref:`配置源 <envoy_v3_api_msg_config.core.v3.ConfigSource>` 配置来提供进行此调用的灵活性。
