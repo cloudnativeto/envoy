@@ -11,8 +11,8 @@ Tap
 
 tap 过滤器用于插入和记录 HTTP 流量。 从宏观看，其配置由两项组成：
 
-1. :ref:`匹配配置 <envoy_v3_api_msg_config.tap.v3.MatchPredicate>`：一个条件列表，若满足这些条件，过滤器会匹配一个 HTTP 请求并开启一个 tap 会话。
-2. :ref:`输出配置 <envoy_v3_api_msg_config.tap.v3.OutputConfig>`：一个输出接收器列表，tap 过滤器会将匹配和过滤的数据写入这些接收器。
+1. :ref:`匹配配置 <envoy_v3_api_msg_config.tap.v3.MatchPredicate>`：过滤器将在哪些条件下匹配 HTTP 请求并开启一个 tap 会话的列表。
+2. :ref:`输出配置 <envoy_v3_api_msg_config.tap.v3.OutputConfig>`：过滤器将匹配和发掘的数据写入到输出接收器列表。
 
 下一节将通过几个配置示例逐步介绍上述的各个概念。
 
@@ -30,7 +30,7 @@ tap 过滤器用于插入和记录 HTTP 流量。 从宏观看，其配置由两
       admin_config:
         config_id: test_config_id
 
-上面的代码段通过 :http:post:`/tap` admin handler 配置了过滤器以便管理。详情请参考下一节。
+上面的代码段通过配置过滤器来对 :http:post:`/tap` 进行控制。详情请参考下一节。
 
 .. _config_http_filters_tap_admin_handler:
 
@@ -162,7 +162,7 @@ tap 过滤器用于插入和记录 HTTP 流量。 从宏观看，其配置由两
 缓存体限制
 --------------------
 
-对于应用缓存的 tap 过滤器，Envoy会限制过滤的请求和响应体的数据量以避免内存不足的情况。接收（请求）和发送（响应）数据的默认限制为 1KiB。这可以通过 :ref:`max_buffered_rx_bytes
+对于应用缓存的 tap 过滤器，Envoy会限制请求和响应体的数据量以避免内存不足的情况。接收（请求）和发送（响应）数据的默认限制为 1KiB。这可以通过 :ref:`max_buffered_rx_bytes
 <envoy_v3_api_field_config.tap.v3.OutputConfig.max_buffered_rx_bytes>` 和
 :ref:`max_buffered_tx_bytes
 <envoy_v3_api_field_config.tap.v3.OutputConfig.max_buffered_tx_bytes>` 设置。
@@ -172,12 +172,12 @@ tap 过滤器用于插入和记录 HTTP 流量。 从宏观看，其配置由两
 流匹配
 ------------------
 
-tap 过滤器支持“流匹配”，意思是该过滤器不会等待请求/响应序列的结束，而会随着请求的进行逐步匹配。即，首先匹配请求头，其次若有请求体则进行匹配，然后若有请求尾则进行匹配，再然后若有响应头则进行匹配，以此类推。
+tap 过滤器支持“流匹配”，这意味着该过滤器不会等待请求/响应序列的结束，而是会随着请求的进行逐步匹配。即，首先匹配请求头，其次若有请求体则匹配请求体，然后若有请求尾则匹配请求尾，最后若有响应头则匹配响应头，以此类推。
 
-该过滤器还支持可选的流输出，由 :ref:`streaming
-<envoy_v3_api_field_config.tap.v3.OutputConfig.streaming>` 设置管理。如果该项设置为 false（默认），Envoy 会发出 :ref:`fully buffered traces <envoy_v3_api_msg_data.tap.v3.HttpBufferedTrace>`。 在简单的情况下，用户可能会觉得这种格式更易于操作。
+该过滤器还支持可选的流输出，由 :ref:`流输出
+<envoy_v3_api_field_config.tap.v3.OutputConfig.streaming>` 设置管理。如果该项设置为 false（默认），Envoy 会发出 :ref:`全缓存跟踪 <envoy_v3_api_msg_data.tap.v3.HttpBufferedTrace>`。 对于简单的案例，用户可能会发现这种格式更易于交互。
 
-当全缓存跟踪不适用时（如，请求和返回体非常大，长连接的流 API，等等），可以将 streaming 设置为 true，且 Envoy会为每个 tap 过滤发出多个 :ref:`streamed trace segments <envoy_v3_api_msg_data.tap.v3.HttpStreamedTraceSegment>`。在这种情况下，要求执行后续处理，从而将所有跟踪段组合成一个可用的形式。另外请注意二进制的 protobuf 不是自定界的格式，如果需要二进制 protobuf 输出，则应使用 :ref:`PROTO_BINARY_LENGTH_DELIMITED
+当全缓存跟踪不适用时（如，请求和响应非常大，长连接的流式 API，等等），可以将 streaming 设置为 true，且 Envoy会为每个 tap 过滤发出多个 :ref:`流式跟踪段 <envoy_v3_api_msg_data.tap.v3.HttpStreamedTraceSegment>`。在这种情况下，要求执行后处理，从而将所有跟踪段组合成一个可用的形式。另外请注意二进制的 protobuf 不是一种自我定界的格式，如果需要二进制 protobuf 输出，则应使用 :ref:`PROTO_BINARY_LENGTH_DELIMITED
 <envoy_v3_api_enum_value_config.tap.v3.OutputSink.Format.PROTO_BINARY_LENGTH_DELIMITED>` 格式输出。
 
 一个启动流输出的静态过滤器配置如下所示：
@@ -224,11 +224,11 @@ tap 过滤器支持“流匹配”，意思是该过滤器不会等待请求/响
 统计数据
 ----------
 
-tap 过滤器将统计信息输出在命名空间 *http.<stat_prefix>.tap.* 中。 :ref:`stat prefix
+tap 过滤器将统计信息输出在命名空间 *http.<stat_prefix>.tap.* 中。 :ref:`统计前缀
 <envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.stat_prefix>` 来自其所属的 HTTP 连接管理器。
 
 .. csv-table::
   :header: 名称, 类型, 描述
   :widths: 1, 1, 2
 
-  rq_tapped, Counter, Total requests that matched and were tapped
+  rq_tapped, Counter, 所有匹配和发掘的请求
