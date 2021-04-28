@@ -32,7 +32,7 @@ HTTP 状态码 *502 (Bad Gateway)* 、*503 (Service Unavailable)* 及 *504 (Gate
 
 在配置重试时，请求的幂等性需要被重点考虑。
 
-Envoy 同样支持对重启策略的扩展。The :ref:`重试插件 <arch_overview_http_retry_plugins>` 允许为应用程序来定制 Envoy 重试实现。
+Envoy 同样支持对重启策略的扩展。:ref:`重试插件 <arch_overview_http_retry_plugins>` 允许为应用程序来定制 Envoy 重试实现。
 
 异常检测
 -----------------
