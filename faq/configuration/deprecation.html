@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>如何处理配置弃用？ &mdash; envoy 1.16.0-3e77a2 documentation</title>
+  <title>如何处理配置弃用？ &mdash; envoy 1.16.0-ab2dbf documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-3e77a2
+                1.16.0-ab2dbf
               </div>
             
           
@@ -200,7 +200,7 @@
             
   <div class="section" id="faq-deprecation">
 <span id="id1"></span><h1>如何处理配置弃用？<a class="headerlink" href="#faq-deprecation" title="Permalink to this headline">¶</a></h1>
-<p>如 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/3e77a2b8179d0dca27d8f058c3dbe3fded28c6df/CONTRIBUTING.md">CONTRIBUTING.md</a> 的“变更策略”中所述，只要有可用的替换项，功能就可以在任何时候被标记为已弃用。每种弃用都在 API proto 文件中进行了注释，并且在 <a class="reference internal" href="../../version_history/version_history.html#deprecated"><span class="std std-ref">Envoy 文档</span></a> 进行了详细的说明。</p>
+<p>如 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ab2dbfce2ad07988f64a7ecf18e820e27078c00b/CONTRIBUTING.md">CONTRIBUTING.md</a> 的“变更策略”中所述，只要有可用的替换项，功能就可以在任何时候被标记为已弃用。每种弃用都在 API proto 文件中进行了注释，并且在 <a class="reference internal" href="../../version_history/version_history.html#deprecated"><span class="std std-ref">Envoy 文档</span></a> 进行了详细的说明。</p>
 <p>在弃用后的前三个月中，使用弃用的字段将会在结果中打印出 warning 的日志，并且累加 <a class="reference internal" href="../../configuration/operations/runtime.html#runtime-stats"><span class="std std-ref">deprecated_feature_use</span></a> 的计数器。
 此后，这个字段被默认注释为 fatal ，进一步该字段会被视为无效配置，除非 <a class="reference internal" href="../../configuration/operations/runtime.html#config-runtime-deprecation"><span class="std std-ref">runtime overrides</span></a> 被用于重启使用。</p>
 </div>

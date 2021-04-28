@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>How do I handle transient failures? &mdash; envoy 1.16.0-3e77a2 documentation</title>
+  <title>如何处理瞬时故障？ &mdash; envoy 1.16.0-ab2dbf documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-3e77a2
+                1.16.0-ab2dbf
               </div>
             
           
@@ -119,11 +119,11 @@
 <li class="toctree-l3"><a class="reference internal" href="lb_panic_threshold.html">我设置了健康检查。当某些主机发生故障时，Envoy 再次开始路由到所有这些主机。为什么？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="concurrency_lb.html">为什么轮询负载均衡看起来不均衡？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="disable_circuit_breaking.html">有办法禁用熔断吗？</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">How do I handle transient failures?</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#circuit-breaking">Circuit Breaking</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#retries">Retries</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#retries-in-grpc-services">Retries in gRPC services</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#outlier-detection">Outlier Detection</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">如何处理瞬时故障？</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">熔断</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">重试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#grpc">gRPC 服务中的重试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">异常检测</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="region_failover.html">服务降级期间如何使 Envoy 故障转移到另一个区域？</a></li>
@@ -180,7 +180,7 @@
         
           <li><a href="../overview.html">FAQ</a> &raquo;</li>
         
-      <li>How do I handle transient failures?</li>
+      <li>如何处理瞬时故障？</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -199,62 +199,43 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="how-do-i-handle-transient-failures">
-<span id="common-configuration-transient-failures"></span><h1>How do I handle transient failures?<a class="headerlink" href="#how-do-i-handle-transient-failures" title="Permalink to this headline">¶</a></h1>
-<p>One of the biggest advantages of using Envoy in a service mesh is that it frees up services
-from implementing complex resiliency features like circuit breaking, outlier detection and retries
-that enable services to be resilient to realities such as rolling upgrades, dynamic infrastructure,
-and network failures. Having these features implemented at Envoy not only improves the availability
-and resiliency of services but also brings in consistency in terms of the behaviour and observability.</p>
-<p>This section explains at a high level the configuration supported by Envoy and how these features can be
-used together to handle these scenarios.</p>
-<div class="section" id="circuit-breaking">
-<h2>Circuit Breaking<a class="headerlink" href="#circuit-breaking" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference internal" href="../../intro/arch_overview/upstream/circuit_breaking.html#arch-overview-circuit-break"><span class="std std-ref">Circuit Breaking</span></a> is a critical component of distributed systems.
-Circuit breaking lets applications configure failure thresholds that ensure safe maximums, allowing components
-to fail quickly and apply back pressure as soon as possible. Applying correct circuit breaking thresholds helps
-to save resources which otherwise are wasted in waiting for requests (timeouts) or retrying requests unnecessarily.
-One of the main advantages of the circuit breaking implementation in Envoy is that the circuit breaking limits are applied
-at the network level.</p>
+  <div class="section" id="common-configuration-transient-failures">
+<span id="id1"></span><h1>如何处理瞬时故障？<a class="headerlink" href="#common-configuration-transient-failures" title="Permalink to this headline">¶</a></h1>
+<p>在服务网格中使用 Envoy 的一个最大优势就是它让服务从实现复杂的弹性功能解脱出来，如熔断、异常检测以及重试，这些让服务应对实际情况时更具弹性，常见的诸如滚动升级、动态基础设施变更以及网络故障。Envoy 中实现的上述功能不仅仅提高了服务可用性和韧性，而且在行为和观测性方面带来了一致性。</p>
+<p>这部分将从一个较高层次来解释 Envoy 支持的配置以及如何一起使用这些功能来处理这些场景。</p>
+<div class="section" id="id2">
+<h2>熔断<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="../../intro/arch_overview/upstream/circuit_breaking.html#arch-overview-circuit-break"><span class="std std-ref">熔断</span></a> 是分布式系统非常重要的一环。熔断可以让应用程序配置故障阈值，以确保最大限度的安全，允许组件快速失败然后尽可能快的恢复正常。使用正确的熔断阈值有助于节省那些浪费在请求等待（超时）或者非必要的请求重试中的资源。对于在 Envoy 中实现的熔断来讲 ，一个主要的优势是熔断限制可以被应用在网络层。
+.. _common_configuration_transient_failures_retries:</p>
 </div>
-<div class="section" id="retries">
-<span id="common-configuration-transient-failures-retries"></span><h2>Retries<a class="headerlink" href="#retries" title="Permalink to this headline">¶</a></h2>
-<p>Automatic <a class="reference internal" href="../../configuration/http/http_filters/router_filter.html#config-http-filters-router"><span class="std std-ref">request retries</span></a> is another method of ensuring service resilience. Request retries should
-typically be used to guard against transient failures. Envoy supports very rich set of configurable parameters that dictate what type
-of requests are retried, how many times the request should be retried, timeouts for retries, etc.</p>
+<div class="section" id="id3">
+<h2>重试<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>自动的 <a class="reference internal" href="../../configuration/http/http_filters/router_filter.html#config-http-filters-router"><span class="std std-ref">请求重试</span></a> 是另外一种保证服务弹性的方法。请求重试通常应用于防范瞬时故障。Envoy 支持非常丰富的可配置参数来指定请求重试的类型、请求重试的次数以及请求重试的超时时间等。</p>
 </div>
-<div class="section" id="retries-in-grpc-services">
-<h2>Retries in gRPC services<a class="headerlink" href="#retries-in-grpc-services" title="Permalink to this headline">¶</a></h2>
-<p>For gRPC services, Envoy looks at the gRPC status in the response and attempts a retry based on the statuses configured in
-<a class="reference internal" href="../../configuration/http/http_filters/router_filter.html#config-http-filters-router-x-envoy-retry-grpc-on"><span class="std std-ref">x-envoy-retry-grpc-on</span></a>.</p>
-<p>The following application status codes in gRPC are considered safe for automatic retry.</p>
+<div class="section" id="grpc">
+<h2>gRPC 服务中的重试<a class="headerlink" href="#grpc" title="Permalink to this headline">¶</a></h2>
+<p>对于 gRPC 服务，Envoy 会在响应中查看 gRPC 状态，然后基于在 <a class="reference internal" href="../../configuration/http/http_filters/router_filter.html#config-http-filters-router-x-envoy-retry-grpc-on"><span class="std std-ref">x-envoy-retry-grpc-on</span></a> 中配置的状态来尝试重试。</p>
+<p>对于自动重试来讲，gRPC 中的下述应用程序状态码被认为是安全的。</p>
 <ul class="simple">
-<li><p><em>CANCELLED</em> - Return this code if there is an error that can be retried in the service.</p></li>
-<li><p><em>RESOURCE_EXHAUSTED</em> - Return this code if some of the resources that service depends on are exhausted in that instance so that retrying
-to another instance would help. Please note that for shared resource exhaustion, returning this will not help. Instead <a class="reference internal" href="../../intro/arch_overview/other_features/global_rate_limiting.html#arch-overview-global-rate-limit"><span class="std std-ref">rate limiting</span></a>
-should be used to handle such cases.</p></li>
+<li><p><em>CANCELLED</em> - 在服务中如果有一个可重试的错误，则返回此码。</p></li>
+<li><p><em>RESOURCE_EXHAUSTED</em> - 如果服务所依赖的某些资源在该实例中耗尽，则重试至另外一个实例来获取帮助，在这种情况下返回此码。请注意对于共享资源的耗尽，返回此码将不会有任何帮助。应使用 <a class="reference internal" href="../../intro/arch_overview/other_features/global_rate_limiting.html#arch-overview-global-rate-limit"><span class="std std-ref">速率限制</span></a> 来处理这种情况。</p></li>
 </ul>
-<p>The HTTP Status codes <em>502 (Bad Gateway)</em>, <em>503 (Service Unavailable)</em> and <em>504 (Gateway Timeout)</em> are all mapped to gRPC status code <em>UNAVAILABLE</em>.
-This can also be considered safe for automatic retry.</p>
-<p>The idempotency of a request is an important consideration when configuring retries.</p>
-<p>Envoy also supports extensions to its retry policies. The <a class="reference internal" href="../../intro/arch_overview/http/http_connection_management.html#arch-overview-http-retry-plugins"><span class="std std-ref">retry plugins</span></a>
-allow you to customize the Envoy retry implementation to your application.</p>
+<p>HTTP 状态码 <em>502 (Bad Gateway)</em> 、<em>503 (Service Unavailable)</em> 及 <em>504 (Gateway Timeout)</em> 都和 gRPC 状态码 <em>UNAVAILABLE</em> 做了映射。针对自动重试来讲，这可被视为是安全的。</p>
+<p>在配置重试时，请求的幂等性需要被重点考虑。</p>
+<p>Envoy 同样支持对重启策略的扩展。<a class="reference internal" href="../../intro/arch_overview/http/http_connection_management.html#arch-overview-http-retry-plugins"><span class="std std-ref">重试插件</span></a> 允许为应用程序来定制 Envoy 重试实现。</p>
 </div>
-<div class="section" id="outlier-detection">
-<h2>Outlier Detection<a class="headerlink" href="#outlier-detection" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference internal" href="../../intro/arch_overview/upstream/outlier.html#arch-overview-outlier-detection"><span class="std std-ref">Outlier detection</span></a> is a way of dynamically detecting misbehaving hosts
-in the upstream cluster. By detecting such hosts and ejecting them for a temporary period of time from the healthy
-load balancing set, Envoy can increase the success rate of a cluster. Envoy supports configuring outlier detection
-based on continuous <em>5xx</em>, continuous gateway failures and success rate.</p>
-<p>Envoy also allows you to configure the ejection period.</p>
-<p><strong>Configuration</strong></p>
-<p>The following settings help to optimize some combination of:</p>
+<div class="section" id="id4">
+<h2>异常检测<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="../../intro/arch_overview/upstream/outlier.html#arch-overview-outlier-detection"><span class="std std-ref">异常检测</span></a> 是一种在上游集群中动态检测行为异常的主机的一种方法。通过探测这些主机并将它们从健康的负载均衡集中临时驱逐出去，Envoy 能够提高集群的成功率。Envoy 支持基于连续的 <em>5xx</em>、连续的网关失败和成功率来配置异常检测。</p>
+<p>Envoy 也允许你配置驱逐周期。</p>
+<p><strong>配置</strong></p>
+<p>下述配置有助于优化：</p>
 <ul class="simple">
-<li><p>Maximum request success for common scenarios (i.e. rolling upgrade)</p></li>
-<li><p>Speed</p></li>
-<li><p>Avoid cascading failures</p></li>
+<li><p>常见场景下的最大请求成功率（比如，滚动升级）</p></li>
+<li><p>速度</p></li>
+<li><p>避免级联故障</p></li>
 </ul>
-<p><em>Circuit Breaker</em></p>
+<p><em>熔断</em></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
    <span class="nt">&quot;thresholds&quot;</span><span class="p">:</span> <span class="p">[</span>
      <span class="p">{</span>
@@ -264,11 +245,8 @@ based on continuous <em>5xx</em>, continuous gateway failures and success rate.<
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>For the purpose of this specific use case, the retry budget for upstream cluster should be configured to
-enable and control concurrent retries. If the value configured is too low, some requests will not be retried,
-which can be measured via <a class="reference internal" href="../../configuration/upstream/cluster_manager/cluster_stats.html#config-cluster-manager-cluster-stats"><span class="std std-ref">upstream_rq_retry_overflow</span></a>.
-If the value configured is too high, the service can be overwhelmed with retry requests.</p>
-<p><em>Outlier Detection</em></p>
+<p>在这个特定用例中，需要配置上游集群的重试预算来开启并控制并发重试次数。如果配置的值过低，部分请求将不会被重试，可以通过 <a class="reference internal" href="../../configuration/upstream/cluster_manager/cluster_stats.html#config-cluster-manager-cluster-stats"><span class="std std-ref">upstream_rq_retry_overflow</span></a> 来进行一个衡量。如果值配置的过高，服务可能会被重试请求淹没。</p>
+<p><em>异常检测</em></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
    <span class="nt">&quot;consecutive_5xx&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
    <span class="nt">&quot;base_ejection_time&quot;</span><span class="p">:</span> <span class="s2">&quot;30s&quot;</span><span class="p">,</span>
@@ -277,12 +255,8 @@ If the value configured is too high, the service can be overwhelmed with retry r
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>This setting enables outlier detection if there are 5 consecutive <em>5xx</em> or <em>gateway failures</em>
-and limits the number of hosts that are ejected to 50% of the upstream cluster size. This configuration
-places a safe limit on the number of hosts removed. Please note that once a host a ejected, it will be returned
-to the pool after an ejection time is elapsed (which is equal to the <em>base_ejection_time</em> multiplied by the number
-of times the host has been ejected).</p>
-<p><em>Request Retry</em></p>
+<p>如果有 5 个连续的 <em>5xx</em> 或者 <em>网关失败</em>，上述设置就会开启异常检测，而且会将驱逐的主机数量限制为上游集群大小的 50%。此配置对删除的主机数设置了安全限制。请注意，一旦一个主机被驱逐，它将会在一个驱逐周期（通常等于 <em>base_ejection_time</em> 与主机被驱逐次数的乘积）过后重新回到主机池。</p>
+<p><em>请求重试</em></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
    <span class="nt">&quot;retry_on&quot;</span><span class="p">:</span> <span class="s2">&quot;cancelled,connect-failure,gateway-error,refused-stream,reset,resource-exhausted,unavailable&quot;</span><span class="p">,</span>
    <span class="nt">&quot;num_retries&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -295,10 +269,7 @@ of times the host has been ejected).</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The request will be retried based on the conditions documented in <em>retry_on</em>. This setting also configures Envoy to use
-<a class="reference internal" href="../../intro/arch_overview/http/http_connection_management.html#arch-overview-http-retry-plugins"><span class="std std-ref">Previous Host Retry Predicate</span></a> that allows it to choose a different
-host than the host where previous request has failed, because typically failures on that same host are likely to continue
-for some time and immediate retry would have less chance of success.</p>
+<p>请求将会基于在 <em>retry_on</em> 中配置的内容进行重试。此设置还将对 Envoy 进行配置，以使用 <a class="reference internal" href="../../intro/arch_overview/http/http_connection_management.html#arch-overview-http-retry-plugins"><span class="std std-ref">前一个主机重试预测</span></a> 来允许其选择与前一个失败请求不同的主机，因为同一台主机上的故障通常会持续一段时间，立即重试成功的概率较低。</p>
 </div>
 </div>
 
