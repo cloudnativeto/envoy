@@ -1,46 +1,20 @@
 .. _control_plane_version_support:
 
-Which xDS transport and resource versions does my control plane need to support?
+我的控制平面需要支持哪些xDS传输和资源版本？
 ================================================================================
 
-If a control plane is serving a well known set of clients at a given API major version, it only
-needs to support that version (both transport and resource version). However, even in this
-relatively basic scenario, if the set of clients straddles a major version drop or the control plane
-wishes to move from v2/v3, there are considerations around rollout of client and server binaries.
+如果控制平面以给定的API主版本服务于一组众所周知的客户端，则它仅需要支持该版本（传输版本和资源版本）。然而，即使在这种相对基本的情况下，如果这组客户端跨越了一个主版本或者控制面希望从 v2 / v3 迁移，则仍需要考虑部署客户端和服务端的二进制文件。
 
-One approach to this problem is to add temporary support to the management server for both v2 and v3
-transport versions (see https://github.com/envoyproxy/go-control-plane). For resources, messages
-are binary compatible modulo deprecated or new fields between API major versions. If the control
-plane no longer emits resources with deprecated fields, this allows for a trivial replacement of
-type URL based on the requested resource from the client to serve the same resource for v2 and v3. A
-typical rollout sequence might look like:
+解决此问题的一种方法是为 v2 和 v3 传输版本的管理服务器添加临时支持（请参阅 https://github.com/envoyproxy/go-control-plane ）。对于资源而言，消息是弃用的二进制的兼容模块或者是在主版本之间的新字段。如果控制面不在发出有弃用字段的资源时，则可以根据客户端请求的资源对URL类型进行简单替换，为 v2 和 v3 提供相同的资源。典型的推出顺序可能类似于：
 
-1. Clients with a mix of v2 and v3 support are in operation, with a v2 management server. The
-   client bootstraps will reference v2 API transport endpoints.
+1. 同时支持 v2 和 v3 的并带有带有 v2 管理服务器的客户端正在开发。客户端引导程序将引用 v2 API 传输端点。
 
-2. A management server with dual v2/v3 API support is rolled out. Both v2 and v3 transport endpoints
-   are supported, while a trivial type URL replacement in the returned resource is sufficient for
-   matching the requested v2 or v3 resource type URL with the existing v2 resource in the control
-   plane. When returning resources with embedded `ConfigSource` messages pointing at xDS resources
-   for a v3 request, it will be necessary to set the `transport_api_version` and
-   `resource_api_version` to v3. No deprecated v2 fields or new v3 fields can be used at this point.
+2. 推出了同时支持 v2 和 v3 API 的管理服务器。v2 和 v3 传输端点均受支持，而返回资源中的普通 URL 替换足以将请求的 v2 或 v3 资源类型 URL 与控制平面中的现有 v2 资源进行匹配。 当返回 v3 请求指向 xDS 资源带有 `ConfigSource` 消息的资源时，必须将 `transport_api_version` 和 `resource_api_version` 设置为 v3 。此时不能使用任何已弃用的v2字段或新的v3字段。
 
-3. Client bootstraps are upgraded to v3 API transport endpoints and v3 API resource versions.
+3. 客户端引导程序已升级到 v3 API 传输版本和 v3 API 资源版本。
 
-4. Support for v2 is removed in the management server. The management server moves to v3 exclusively
-   internally and can support newer fields.
+4. 在管理服务器中删除了对 v2 的支持。管理服务器仅在内部移动到 v3，并且可以支持较新的字段。
 
-Another approach for type url version migration will be to enable the support of mixed type url 
-protected by a runtime guard *envoy.reloadable_features.enable_type_url_downgrade_and_upgrade*.
-Client can send discovery request with v2 resource type url and process discovery response with 
-v3 resource type url. Client can also send discovery request with v3 resource type url and process 
-discovery response with v2 resource type url. The upgrade and downgrade of type url is performed automatically.
-If your management server does not support both v2/v3 at the same time, you can have clients 
-with type url upgrade and downgrade feature enabled. These clients can talk to a mix of management servers
-that support either v2 or v3 exclusively. Just like the first approach, no deprecated v2 fields or new v3 fields 
-can be used at this point.
+url 版本迁移的另一种方法是启用对混合类型 url 的支持，该混合类型 url 受运行时防护程序*envoy.reloadable_features.enable_type_url_downgrade_and_upgrade* 的保护。客户端可以使用 v2 资源类型 url 发送发现请求，并使用 v3 资源类型url处理发现响应。客户端还可以使用 v3 资源类型 url 发送发现请求，并使用 v2 资源类型 url 处理发现响应。url 类型的升级和降级是自动执行的。如果您的管理服务器不同时支持 v2 / v3 ，则可以启用具有 url 升级和降级功能的客户端。这些客户端可以与专门支持 v2 或 v3 的管理服务器混合使用。就像第一种方法一样，此时不能使用任何已弃用的 v2 字段或新的 v3 字段。
 
-If you are operating a managed control plane as-a-service, you will likely need to support a wide
-range of client versions. In this scenario, you will require long term support for multiple major
-API transport and resource versions. Strategies for managing this support are described :ref:`here
-<control_plane>`.
+如果你在开发一个管理控制面作为一个服务，你可能需要支持各种客户端版本。在这种情况下，你将需要对多个主要 API 传输版本和资源版本进行长期的支持。支持这个需求的策略描述在 :ref:`这里 <control_plane>` 。
