@@ -3,7 +3,7 @@
 Tap
 ===
 
-* :ref:`v3 API reference <envoy_v3_api_msg_extensions.filters.http.tap.v3.Tap>`
+* :ref:`v3 API 参考 <envoy_v3_api_msg_extensions.filters.http.tap.v3.Tap>`
 * 此过滤器的名称应该配置为 *envoy.filters.http.tap*。
 
 .. attention::
@@ -34,11 +34,11 @@ tap 过滤器用于插入和记录 HTTP 流量。 从宏观看，其配置由两
 
 .. _config_http_filters_tap_admin_handler:
 
-Admin handler
+管理处理器（admin handler）
 -------------
 
 当 HTTP 过滤器指定了一个 :ref:`admin_config
-<envoy_v3_api_msg_extensions.common.tap.v3.AdminConfig>`, 它将被配置用来管理员控制，且 :http:post:`/tap` admin handler 将被安装。 admin handler 可以用来实时过滤和调试 HTTP 流量。工作流程如下：
+<envoy_v3_api_msg_extensions.common.tap.v3.AdminConfig>`, 它将被配置用来管理员控制，且 :http:post:`/tap` 管理处理器将被安装。 管理处理器可以用来实时过滤和调试 HTTP 流量。工作流程如下：
 
 1. POST 请求用于提供有效的 tap 配置。POST 请求体可以是 JSON 或 YAML 格式的 :ref:`TapConfig
    <envoy_v3_api_msg_config.tap.v3.TapConfig>` 消息。 
