@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Lua &mdash; envoy 1.16.0-ab2dbf documentation</title>
+  <title>Lua &mdash; envoy 1.16.0-9ff591 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-ab2dbf
+                1.16.0-9ff591
               </div>
             
           
@@ -238,7 +238,7 @@
 <span id="config-http-filters-lua"></span><h1>Lua<a class="headerlink" href="#lua" title="Permalink to this headline">¶</a></h1>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>默认情况下构建出的 Envoy 不会提供以共享库方式安装 Lua 模块时需要的 symbols。但是 Envoy 可以按支持提供 symbols 的方式进行构建。请查看 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ab2dbfce2ad07988f64a7ecf18e820e27078c00b/bazel/README.md">Bazel 文档</a> 获取更多信息。</p>
+<p>默认情况下构建出的 Envoy 不会提供以共享库方式安装 Lua 模块时需要的 symbols。但是 Envoy 可以按支持提供 symbols 的方式进行构建。请查看 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9ff59124bd5e494acf3667c5ebe441fe5981a783/bazel/README.md">Bazel 文档</a> 获取更多信息。</p>
 </div>
 <div class="section" id="id1">
 <h2>概述<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
@@ -444,7 +444,7 @@
 </div>
 <div class="section" id="config-http-filters-lua-stream-handle-api">
 <span id="id8"></span><h2>完整示例<a class="headerlink" href="#config-http-filters-lua-stream-handle-api" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ab2dbfce2ad07988f64a7ecf18e820e27078c00b//examples/lua">/examples/lua</a> 中提供了使用 Docker 的完整示例。</p>
+<p><a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9ff59124bd5e494acf3667c5ebe441fe5981a783//examples/lua">/examples/lua</a> 中提供了使用 Docker 的完整示例。</p>
 </div>
 <div class="section" id="api">
 <h2>流处理 API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
@@ -559,7 +559,7 @@
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">streamInfo</span> <span class="o">=</span> <span class="n">handle</span><span class="p">:</span><span class="n">streamInfo</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>返回与当前请求相关的 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ab2dbfce2ad07988f64a7ecf18e820e27078c00b/include/envoy/stream_info/stream_info.h">信息</a>。</p>
+<p>返回与当前请求相关的 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9ff59124bd5e494acf3667c5ebe441fe5981a783/include/envoy/stream_info/stream_info.h">信息</a>。</p>
 <p>返回一个 <a class="reference internal" href="#config-http-filters-lua-stream-info-wrapper"><span class="std std-ref">流信息对象</span></a>。</p>
 </div>
 <div class="section" id="connection">
@@ -567,7 +567,7 @@
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">connection</span> <span class="o">=</span> <span class="n">handle</span><span class="p">:</span><span class="n">connection</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>返回当前请求的底层 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ab2dbfce2ad07988f64a7ecf18e820e27078c00b/include/envoy/network/connection.h">连接</a>。</p>
+<p>返回当前请求的底层 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9ff59124bd5e494acf3667c5ebe441fe5981a783/include/envoy/network/connection.h">连接</a>。</p>
 <p>返回一个 <a class="reference internal" href="#config-http-filters-lua-connection-wrapper"><span class="std std-ref">连接对象</span></a>。</p>
 </div>
 <div class="section" id="importpublickey">
@@ -685,7 +685,7 @@
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">streamInfo</span><span class="p">:</span><span class="n">protocol</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>返回当前请求所使用的表示 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ab2dbfce2ad07988f64a7ecf18e820e27078c00b/include/envoy/http/protocol.h">HTTP 协议</a> 的字符串。可能的值为：<em>HTTP/1.0</em>、<em>HTTP/1.1</em> 和 <em>HTTP/2</em>。</p>
+<p>返回当前请求所使用的表示 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9ff59124bd5e494acf3667c5ebe441fe5981a783/include/envoy/http/protocol.h">HTTP 协议</a> 的字符串。可能的值为：<em>HTTP/1.0</em>、<em>HTTP/1.1</em> 和 <em>HTTP/2</em>。</p>
 </div>
 <div class="section" id="dynamicmetadata">
 <h3>dynamicMetadata()<a class="headerlink" href="#dynamicmetadata" title="Permalink to this headline">¶</a></h3>
@@ -699,7 +699,7 @@
 <div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">streamInfo</span><span class="p">:</span><span class="n">downstreamSslConnection</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>返回与当前 SSL 连接相关的 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ab2dbfce2ad07988f64a7ecf18e820e27078c00b/include/envoy/ssl/connection.h">信息</a>。</p>
+<p>返回与当前 SSL 连接相关的 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9ff59124bd5e494acf3667c5ebe441fe5981a783/include/envoy/ssl/connection.h">信息</a>。</p>
 <p>返回一个下游 <a class="reference internal" href="#config-http-filters-lua-ssl-socket-info"><span class="std std-ref">SSL 连接信息对象</span></a>。</p>
 </div>
 </div>
@@ -756,7 +756,7 @@
 <span class="kr">end</span>
 </pre></div>
 </div>
-<p>当连接安全时返回 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ab2dbfce2ad07988f64a7ecf18e820e27078c00b/include/envoy/ssl/connection.h">SSL 连接</a> 对象，否则返回 <em>nil</em>。</p>
+<p>当连接安全时返回 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9ff59124bd5e494acf3667c5ebe441fe5981a783/include/envoy/ssl/connection.h">SSL 连接</a> 对象，否则返回 <em>nil</em>。</p>
 <p>返回一个 <a class="reference internal" href="#config-http-filters-lua-ssl-socket-info"><span class="std std-ref">SSL 连接信息对象</span></a>。</p>
 </div>
 </div>

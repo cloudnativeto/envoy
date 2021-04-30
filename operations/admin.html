@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>管理接口 &mdash; envoy 1.16.0-ab2dbf documentation</title>
+  <title>管理接口 &mdash; envoy 1.16.0-9ff591 documentation</title>
   
 
   
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.16.0-ab2dbf
+                1.16.0-9ff591
               </div>
             
           
@@ -702,7 +702,7 @@
 才应将字符串转换为 StatName、计数器、计量器和直方图。这是因为当将统计信息作为字符串查找时，它们必须讲全局符号表锁定。
 在启动过程中这是可以接受的，但是在高核心数计算机上响应的用户请求，由于互斥锁争用，这可能会导致性能问题。</p>
 <p>该管理端点需要 Envoy 使用 <cite>–use-fake-symbol-table 0</cite> 选项启动。</p>
-<p>更多详细信息见 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ab2dbfce2ad07988f64a7ecf18e820e27078c00b/source/docs/stats.md">source/docs/stats.md</a>。</p>
+<p>更多详细信息见 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9ff59124bd5e494acf3667c5ebe441fe5981a783/source/docs/stats.md">source/docs/stats.md</a>。</p>
 <p>同样要注意互斥征用可以通过 <a class="reference internal" href="#get--contention" title="GET /contention"><code class="xref http http-get docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/contention</span></code></a> 进行追踪。</p>
 <dl class="http post">
 <dt id="post--stats-recentlookups-enable">
@@ -710,7 +710,7 @@
 <dd></dd></dl>
 
 <p>通过开启 <cite>/stats/recentlookups</cite>，来打开对最近查找的统计名称的收集。</p>
-<p>更多详细信息见 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ab2dbfce2ad07988f64a7ecf18e820e27078c00b/source/docs/stats.md">source/docs/stats.md</a>。</p>
+<p>更多详细信息见 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9ff59124bd5e494acf3667c5ebe441fe5981a783/source/docs/stats.md">source/docs/stats.md</a>。</p>
 <dl class="http post">
 <dt id="post--stats-recentlookups-disable">
 <code class="sig-name descname">POST </code><code class="sig-name descname">/stats/recentlookups/disable</code><a class="headerlink" href="#post--stats-recentlookups-disable" title="Permalink to this definition">¶</a></dt>
@@ -718,14 +718,14 @@
 
 <p>禁用 <cite>/stats/recentlookups</cite> 可关闭对最近查找的统计名称的收集。同时清空查找列表。
 但是统计信息中 <cite>server.stats_recent_lookups</cite> 的计数仍可见，不会被清空且继续累积。</p>
-<p>更多详细信息见 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ab2dbfce2ad07988f64a7ecf18e820e27078c00b/source/docs/stats.md">source/docs/stats.md</a>。</p>
+<p>更多详细信息见 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9ff59124bd5e494acf3667c5ebe441fe5981a783/source/docs/stats.md">source/docs/stats.md</a>。</p>
 <dl class="http post">
 <dt id="post--stats-recentlookups-clear">
 <code class="sig-name descname">POST </code><code class="sig-name descname">/stats/recentlookups/clear</code><a class="headerlink" href="#post--stats-recentlookups-clear" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>清除所有未完成的查找和计数。同样会清空查找数据以及计数，但是如果启用之后会继续收集。</p>
-<p>更多详细信息见 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/ab2dbfce2ad07988f64a7ecf18e820e27078c00b/source/docs/stats.md">source/docs/stats.md</a>。</p>
+<p>更多详细信息见 <a class="reference external" href="https://github.com/envoyproxy/envoy/blob/9ff59124bd5e494acf3667c5ebe441fe5981a783/source/docs/stats.md">source/docs/stats.md</a>。</p>
 </dd></dl>
 
 <span class="target" id="operations-admin-interface-runtime"></span><dl class="http get">

@@ -9,7 +9,7 @@ Trace Service
 config.trace.v3.TraceServiceConfig
 ----------------------------------
 
-`[config.trace.v3.TraceServiceConfig proto] <https://github.com/envoyproxy/envoy/blob/ab2dbfce2ad07988f64a7ecf18e820e27078c00b/api/envoy/config/trace/v3/service.proto#L18>`_
+`[config.trace.v3.TraceServiceConfig proto] <https://github.com/envoyproxy/envoy/blob/9ff59124bd5e494acf3667c5ebe441fe5981a783/api/envoy/config/trace/v3/service.proto#L18>`_
 
 Configuration structure.
 

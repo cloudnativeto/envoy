@@ -11,7 +11,7 @@ RTDS :ref:`configuration overview <config_runtime_rtds>`
 service.runtime.v3.Runtime
 --------------------------
 
-`[service.runtime.v3.Runtime proto] <https://github.com/envoyproxy/envoy/blob/ab2dbfce2ad07988f64a7ecf18e820e27078c00b/api/envoy/service/runtime/v3/rtds.proto#L49>`_
+`[service.runtime.v3.Runtime proto] <https://github.com/envoyproxy/envoy/blob/9ff59124bd5e494acf3667c5ebe441fe5981a783/api/envoy/service/runtime/v3/rtds.proto#L49>`_
 
 RTDS resource type. This describes a layer in the runtime virtual filesystem.
 

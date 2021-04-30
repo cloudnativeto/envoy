@@ -10,7 +10,7 @@ Listener :ref:`configuration overview <config_listeners>`
 listener.UdpListenerConfig
 --------------------------
 
-`[listener.UdpListenerConfig proto] <https://github.com/envoyproxy/envoy/blob/ab2dbfce2ad07988f64a7ecf18e820e27078c00b/api/envoy/api/v2/listener/udp_listener_config.proto#L21>`_
+`[listener.UdpListenerConfig proto] <https://github.com/envoyproxy/envoy/blob/9ff59124bd5e494acf3667c5ebe441fe5981a783/api/envoy/api/v2/listener/udp_listener_config.proto#L21>`_
 
 
 .. code-block:: json
@@ -56,7 +56,7 @@ typed_config
 listener.ActiveRawUdpListenerConfig
 -----------------------------------
 
-`[listener.ActiveRawUdpListenerConfig proto] <https://github.com/envoyproxy/envoy/blob/ab2dbfce2ad07988f64a7ecf18e820e27078c00b/api/envoy/api/v2/listener/udp_listener_config.proto#L36>`_
+`[listener.ActiveRawUdpListenerConfig proto] <https://github.com/envoyproxy/envoy/blob/9ff59124bd5e494acf3667c5ebe441fe5981a783/api/envoy/api/v2/listener/udp_listener_config.proto#L36>`_
 
 
 .. code-block:: json

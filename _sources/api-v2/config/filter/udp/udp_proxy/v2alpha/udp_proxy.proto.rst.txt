@@ -20,7 +20,7 @@ UDP proxy :ref:`configuration overview <config_udp_listener_filters_udp_proxy>`.
 config.filter.udp.udp_proxy.v2alpha.UdpProxyConfig
 --------------------------------------------------
 
-`[config.filter.udp.udp_proxy.v2alpha.UdpProxyConfig proto] <https://github.com/envoyproxy/envoy/blob/ab2dbfce2ad07988f64a7ecf18e820e27078c00b/api/envoy/config/filter/udp/udp_proxy/v2alpha/udp_proxy.proto#L22>`_
+`[config.filter.udp.udp_proxy.v2alpha.UdpProxyConfig proto] <https://github.com/envoyproxy/envoy/blob/9ff59124bd5e494acf3667c5ebe441fe5981a783/api/envoy/config/filter/udp/udp_proxy/v2alpha/udp_proxy.proto#L22>`_
 
 Configuration for the UDP proxy filter.
 
