@@ -1,27 +1,23 @@
-How do I configure Envoy to use the v3 API?
+如何配置 Envoy 使用 v3 API?
 ===========================================
 
-By default, Envoy will attempt to parse any YAML, JSON or text proto as v2, and if it fails to do
-so, will consider it as v3. So, if you have a simple static Envoy consuming a text-based bootstrap,
-you just need to start using the new configuration. For binary proto bootstrap configuration, please
-use a :ref:`v3 Bootstrap <envoy_v3_api_msg_config.bootstrap.v3.Bootstrap>` proto.
+默认情况下，Envoy 会试着将所有 YAML、JSON 或文本格式的原型解析为 v2，如果解析失败，将考虑解析为 v3。
+所以，如果你有一个简单静态的 Envoy 使用了基于文本的引导程序，你只需要开始使用新的配置。对于二进制原型 bootstrap 配置，
+请使用原型 :ref:`v3 Bootstrap <envoy_v3_api_msg_config.bootstrap.v3.Bootstrap>`。
 
-For dynamic configuration, we have introduced two new fields to :ref:`config sources
-<envoy_v3_api_msg_config.core.v3.ConfigSource>`, transport API version and resource API version. The
-distinction is as follows:
+对于动态配置，我们引入了两个字段，用于 :ref:`配置源 <envoy_v3_api_msg_config.core.v3.ConfigSource>`，
+传输 API 版本和资源 API 版本。区别如下：
 
-* The :ref:`transport API version
-  <envoy_v3_api_field_config.core.v3.ApiConfigSource.transport_api_version>` indicates the API
-  endpoint and version of *DiscoveryRequest*/*DiscoveryResponse* messages used.
+* :ref:`传输 API 版本
+  <envoy_v3_api_field_config.core.v3.ApiConfigSource.transport_api_version>` 表示 API 的端点和
+  *DiscoveryRequest*/*DiscoveryResponse* 信息使用的版本。
 
-* The :ref:`resource API version
-  <envoy_v3_api_field_config.core.v3.ConfigSource.resource_api_version>` indicates whether a v2 or
-  v3 resource, e.g. v2 *RouteConfiguration* or v3 *RouteConfiguration*, is delivered.
+* :ref:`资源 API 版本
+  <envoy_v3_api_field_config.core.v3.ConfigSource.resource_api_version>` 表示 v2 还是 v3 版本的资源，
+  例如：发送的是 v2 *RouteConfiguration* 或 v3 *RouteConfiguration*。
 
-It is possible to use a mixture of transport API and resource API versions, e.g. to deliver v2
-*Listener* resources and v3 *RouteConfiguration* resources over a v2 ADS transport. This is an
-intentional feature designed to provide for gradual migration of Envoy deployments from v2 to v3.
+可以混合使用传输 API 和资源 API 版本，例如：基于 v2 ADS 传输，发送一个 v2 的
+*监听器* 资源和 v3 的 *RouteConfiguration* 资源。该特性用于 Envoy 的部署逐渐从 v2 向 v3 迁移。
 
-There may be some operational advantage in having vM resources delivered over vN endpoints, so we
-provide the flexibility to make this call by appropriate configuration of :ref:`config sources
-<envoy_v3_api_msg_config.core.v3.ConfigSource>`.
+通过 vN 端点交付 vM 资源可能会有一些运营优势，因此我们通过适当的
+:ref:`配置源 <envoy_v3_api_msg_config.core.v3.ConfigSource>` 配置来提供进行此调用的灵活性。
