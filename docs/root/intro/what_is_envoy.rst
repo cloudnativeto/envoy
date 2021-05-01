@@ -32,4 +32,4 @@ Envoy 是为面向大型现代服务架构而设计的 L7 代理和通信总线�
 
 **前端/边缘代理支持**：在边缘使用相同的软件大有好处（可观察性、管理、相同的服务发现和负载均衡算法等）。Envoy 包含足够多的功能，可作为大多数现代 Web 应用程序的边缘代理。包括 :ref:`TLS <arch_overview_ssl>` 终止、HTTP/1.1 和 HTTP/2 :ref:`支持 <arch_overview_http_protocols>`，以及 HTTP L7 :ref:`路由 <arch_overview_http_routing>`。
 
-**最佳的可观察性**：如上所述，Envoy 的主要目标是让网络透明化。然而，在网络层面和应用层面都有可能出现问题。Envoy 包含对所有子系统的强大 :ref:`统计 <arch_overview_statistics>` 支持。目前支持 `statsd <https://github.com/etsy/statsd>`_（和兼容程序）作为统计信息接收器，但是插入不同的接收器并不困难。统计信息也可以通过 :ref:`管理 <operations_admin_interface>` 端口查看。通过第三方提供商，Envoy 还支持分布式 :ref:`追踪 <arch_overview_tracing>`。
+**最佳的可观察性**：如上所述，Envoy 的主要目标是让网络透明化。然而，在网络层面和应用层面都有可能出现问题。Envoy 包含对所有子系统的强大 :ref:`统计 <arch_overview_statistics>` 支持。目前支持 `statsd <https://github.com/etsy/statsd>`（和兼容程序）作为统计信息接收器，但是插入不同的接收器并不困难。统计信息也可以通过 :ref:`管理 <operations_admin_interface>` 端口查看。通过第三方提供商，Envoy 还支持分布式 :ref:`追踪 <arch_overview_tracing>`。
